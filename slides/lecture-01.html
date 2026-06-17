@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lecture 1 — Introduction · RSC Economics Experience</title>
+
+  <!-- reveal.js core + theme (HTML5 slides, loaded from CDN) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reset.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/white.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/highlight/monokai.css">
+
+  <style>
+    :root { --r-main-color: #1a2233; --r-link-color: #1d6f6f; }
+    .reveal h1, .reveal h2, .reveal h3 { color: #1a2233; letter-spacing: -.01em; }
+    .reveal .eyebrow {
+      text-transform: uppercase; letter-spacing: .14em;
+      font-size: .5em; font-weight: 700; color: #1d6f6f;
+    }
+    .reveal section img { border: none; box-shadow: none; }
+    .reveal .home-link {
+      position: fixed; bottom: 14px; left: 18px; z-index: 30;
+      font-size: 14px; color: #8a93a6; text-decoration: none;
+    }
+    .reveal .home-link:hover { color: #1d6f6f; }
+  </style>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- Title -->
+      <section>
+        <p class="eyebrow">RSC Economics Experience · July 2026</p>
+        <h1>Lecture 1</h1>
+        <h3>Introduction: Scarcity &amp; Trade-offs</h3>
+        <p style="color:#8a93a6;">Press <kbd>→</kbd> to begin</p>
+      </section>
+
+      <!-- What is economics -->
+      <section>
+        <h2>What is economics?</h2>
+        <p>The study of how people make <strong>choices</strong> under
+           <strong>scarcity</strong> — and how those choices interact.</p>
+        <ul>
+          <li>Resources are limited; wants are not.</li>
+          <li>Every choice has a cost.</li>
+          <li>Incentives shape behavior.</li>
+        </ul>
+      </section>
+
+      <!-- Scarcity -->
+      <section>
+        <section>
+          <h2>Scarcity</h2>
+          <p>There is never enough of everything for everyone.</p>
+          <p class="fragment">So we must <strong>choose</strong> — and choosing
+             means giving something up.</p>
+        </section>
+        <section>
+          <h2>Opportunity cost</h2>
+          <blockquote style="border:none;">
+            The opportunity cost of a choice is the value of the
+            <em>next-best</em> alternative you gave up.
+          </blockquote>
+          <p class="fragment">An hour studying economics is an hour not spent
+             sleeping, working, or with friends.</p>
+        </section>
+      </section>
+
+      <!-- A simple model -->
+      <section>
+        <h2>Thinking at the margin</h2>
+        <p>Good decisions compare <strong>marginal benefit</strong> with
+           <strong>marginal cost</strong>:</p>
+        <p>\[ \text{Do it if } \quad MB > MC \]</p>
+        <p class="fragment">Not "all or nothing" — just <em>one more unit</em>.</p>
+      </section>
+
+      <!-- Production possibilities -->
+      <section>
+        <h2>Production possibilities</h2>
+        <p>A country with limited resources faces trade-offs between any two goods
+           — say, <strong>guns</strong> and <strong>butter</strong>.</p>
+        <ul>
+          <li>Points on the frontier: efficient.</li>
+          <li>Inside: wasteful (idle resources).</li>
+          <li>Outside: not (yet) attainable.</li>
+        </ul>
+      </section>
+
+      <!-- Course roadmap -->
+      <section>
+        <h2>Where we're headed</h2>
+        <ol>
+          <li><strong>Micro</strong> — choice, markets, firms, failure</li>
+          <li><strong>Macro</strong> — growth, money, employment</li>
+          <li><strong>Policy</strong> — putting the tools to work</li>
+        </ol>
+      </section>
+
+      <!-- Closing -->
+      <section>
+        <h2>For next time</h2>
+        <ul>
+          <li>Read Chapter 1.</li>
+          <li>Write down one decision you made today — what did it cost?</li>
+        </ul>
+        <p style="margin-top:1em;color:#8a93a6;">Questions? Stay after class or
+           email the instructor.</p>
+      </section>
+
+    </div>
+  </div>
+
+  <a class="home-link" href="../">&larr; Back to course site</a>
+
+  <!-- reveal.js core + plugins -->
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/notes/notes.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/highlight/highlight.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/math/math.js"></script>
+  <script>
+    Reveal.initialize({
+      hash: true,
+      slideNumber: 'c/t',
+      transition: 'slide',
+      plugins: [ RevealHighlight, RevealNotes, RevealMath.KaTeX ]
+    });
+  </script>
+</body>
+</html>

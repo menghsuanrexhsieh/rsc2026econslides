@@ -1,0 +1,21 @@
+# --- Site settings ---
+title: "RSC Economics Experience"
+description: "A summer economics course — July 2026"
+author: "RSC"
+
+# Used to build absolute URLs. For a GitHub Pages project site served at
+# https://menghsuanrexhsieh.github.io/rsc2026econ/ the baseurl is the repo name.
+url: "https://menghsuanrexhsieh.github.io"
+baseurl: "/rsc2026econ"
+
+# --- Build settings ---
+markdown: kramdown
+permalink: pretty
+
+# Files that should never be copied into the built site.
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  - README.md
+  - .gitignore
