@@ -1,0 +1,26 @@
+# Sidebar navigation. Edit here to add pages/decks — the sidebar and layout
+# pick this up automatically. `url` values are root-relative (no baseurl);
+# the layout adds the baseurl for you.
+
+- title: Course
+  links:
+    - label: Home
+      url: /
+
+- title: Syllabus
+  links:
+    - label: Overview
+      url: /syllabus/
+    - label: Schedule
+      url: /syllabus/#schedule
+    - label: Grading
+      url: /syllabus/#grading
+    - label: Policies
+      url: /syllabus/#policies
+
+- title: Slides
+  links:
+    - label: All decks
+      url: /slides/
+    - label: "Lecture 1 · Introduction"
+      url: /slides/lecture-01.html
