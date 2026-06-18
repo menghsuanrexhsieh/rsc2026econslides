@@ -1,0 +1,1016 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Monopoly and Perfect Competition</title>
+
+  <!-- reveal.js core + theme (HTML5 slides, loaded from CDN) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reset.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/white.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/highlight/monokai.css">
+
+  <!-- Google Fonts for premium typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --r-main-font: 'Plus Jakarta Sans', sans-serif;
+      --r-heading-font: 'Outfit', sans-serif;
+      --r-main-color: #1e293b;
+      --r-heading-color: #0f172a;
+      --r-link-color: #0f766e;
+      --r-selection-background-color: #ccfbf1;
+    }
+    
+    .reveal {
+      font-family: var(--r-main-font);
+      color: var(--r-main-color);
+      font-size: 24px;
+    }
+    
+    .reveal h1, .reveal h2, .reveal h3, .reveal h4 {
+      font-family: var(--r-heading-font);
+      color: var(--r-heading-color);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .reveal h1 { font-size: 2.2em; line-height: 1.1; }
+    .reveal h2 { font-size: 1.6em; line-height: 1.2; margin-bottom: 15px; }
+    .reveal h3 { font-size: 1.2em; line-height: 1.3; }
+    
+    .reveal .eyebrow {
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      font-size: 0.45em;
+      font-weight: 700;
+      color: #0f766e;
+      margin-bottom: 10px;
+      display: inline-block;
+    }
+    
+    /* Elegant card container */
+    .reveal .content-card {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      border-radius: 12px;
+      padding: 18px 24px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.02);
+      margin: 12px auto;
+      text-align: left;
+      max-width: 800px;
+    }
+    
+    .reveal .def-card {
+      border-left: 4px solid #0f766e;
+      background: rgba(15, 118, 110, 0.04);
+      border-radius: 4px 10px 10px 4px;
+      padding: 12px 18px;
+      margin: 12px 0;
+      text-align: left;
+    }
+    .reveal .def-card .def-title {
+      font-family: var(--r-heading-font);
+      font-weight: 700;
+      color: #0f766e;
+      font-size: 0.8em;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 4px;
+    }
+    
+    .reveal .example-card {
+      border-left: 4px solid #3b82f6;
+      background: rgba(59, 130, 246, 0.04);
+      border-radius: 4px 10px 10px 4px;
+      padding: 12px 18px;
+      margin: 12px 0;
+      text-align: left;
+    }
+    .reveal .example-card .ex-title {
+      font-family: var(--r-heading-font);
+      font-weight: 700;
+      color: #3b82f6;
+      font-size: 0.8em;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 4px;
+    }
+    
+    /* Slide image styling */
+    .reveal .slide-img-container {
+      background: white;
+      padding: 8px;
+      border-radius: 10px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.02);
+      border: 1px solid #e2e8f0;
+      display: inline-block;
+      margin-top: 8px;
+    }
+    .reveal .slide-img-container img {
+      max-height: 280px;
+      width: auto;
+      margin: 0;
+      display: block;
+      border-radius: 4px;
+    }
+    
+    /* Standard list styling (for inside cards, columns, etc.) */
+    .reveal ul, .reveal ol {
+      display: block;
+      text-align: left;
+      margin: 10px 0 !important;
+      padding-left: 20px;
+    }
+    
+    .reveal ul {
+      list-style-type: disc;
+    }
+    
+    .reveal ol {
+      list-style-type: decimal;
+    }
+    
+    .reveal li {
+      text-align: left;
+      margin-bottom: 8px;
+      line-height: 1.35;
+    }
+    
+    /* Indentation and bullets for nested lists */
+    .reveal li ul, .reveal li ol {
+      margin: 4px 0 4px 20px !important;
+      display: block;
+      min-width: unset;
+    }
+    
+    .reveal li ul {
+      list-style-type: circle;
+    }
+    
+    /* Home link and footer elements */
+    .reveal .home-link {
+      position: fixed;
+      bottom: 16px;
+      left: 20px;
+      z-index: 30;
+      font-size: 13px;
+      color: #94a3b8;
+      text-decoration: none;
+      font-family: var(--r-main-font);
+      font-weight: 500;
+      transition: color 0.2s ease;
+    }
+    .reveal .home-link:hover {
+      color: #0f766e;
+    }
+    
+    .reveal .slide-footer {
+      position: fixed;
+      bottom: 16px;
+      right: 20px;
+      z-index: 30;
+      font-size: 11px;
+      color: #94a3b8;
+      font-family: var(--r-main-font);
+    }
+    
+    /* Interactive blank */
+    .reveal .fill-blank {
+      display: inline-block;
+      border-bottom: 2px dashed #94a3b8;
+      min-width: 140px;
+      height: 1.1em;
+      vertical-align: bottom;
+    }
+
+    .reveal .katex-display {
+      margin: 8px 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- SECTION 1: Welcome & Overview (Horizontal) -->
+      
+      <!-- Slide 1: Title -->
+      <section data-background-gradient="linear-gradient(135deg, #0f172a 0%, #1e293b 100%)">
+        <p class="eyebrow" style="color: #2dd4bf;">RSC Economics Experience · July 2026</p>
+        <h1 style="color: white; font-size: 2.5em; margin-bottom: 15px;">Class 4</h1>
+        <h3 style="color: #94a3b8; font-weight: 400; margin-bottom: 45px;">Market Competition: Monopoly and Perfect Competition</h3>
+        <p style="color: #2dd4bf; font-weight: 600; font-size: 0.9em; margin-bottom: 5px;">Meng Hsuan &ldquo;Rex&rdquo; Hsieh</p>
+        <p style="color: #64748b; font-size: 0.75em; margin-top: 30px;">Press <kbd style="background: #334155; color: #cbd5e1; border: 1px solid #475569; padding: 2px 6px; border-radius: 4px;">→</kbd> to begin</p>
+      </section>
+
+      <!-- Slide 2: Agenda -->
+      <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+        <p class="eyebrow">Agenda for Today</p>
+        <h2>Market Competition &amp; Equilibria</h2>
+        <div class="content-card">
+          <ul>
+            <li class="fragment"><strong>Costs</strong>: Sunk costs and decision-making on the margin.</li>
+            <li class="fragment"><strong>Monopoly</strong>: Profit-maximizing behavior, pricing, and output choices.</li>
+            <li class="fragment"><strong>Perfect Competition</strong>: Characteristics, price-taking behavior, and supply.</li>
+            <li class="fragment"><strong>Supply Curve</strong>: Short-run individual firm supply in perfectly competitive markets.</li>
+            <li class="fragment"><strong>Equilibria</strong>: Short-run versus long-run market equilibria.</li>
+            <li class="fragment"><strong>Next Steps</strong>: Wrap-up &amp; Quiz Questions for next class.</li>
+          </ul>
+        </div>
+      </section>
+
+
+      <!-- SECTION 2: Costs and Decision-Making (Vertical Stack) -->
+      <section>
+
+        <!-- Slide 3.1: Divider -->
+        <section data-background-gradient="linear-gradient(135deg, #0f766e 0%, #115e59 100%)">
+          <p class="eyebrow" style="color: #ccfbf1;">Part 1</p>
+          <h1 style="color: white; font-size: 2.8em;">Firms and Cost Structures</h1>
+          <p style="color: #ccfbf1; margin-top: 20px;">Press <kbd style="background: #115e59; color: white; border: 1px solid #134e4a; padding: 2px 6px; border-radius: 4px;">↓</kbd> to continue</p>
+        </section>
+
+        <!-- Slide 3.2: Recap Cost curves -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Costs · Recap</p>
+          <h2>Average &amp; Marginal Cost Curves</h2>
+          <div style="display: flex; align-items: center; justify-content: center; gap: 20px; max-width: 950px; margin: 0 auto;">
+            <div style="flex: 1; text-align: left;">
+              <div class="content-card" style="margin: 0; padding: 15px 20px;">
+                <p style="font-weight: 600; color: #0f766e; margin-bottom: 10px;">Where we left off last time:</p>
+                <ul>
+                  <li>We defined average total cost (ATC), average variable cost (AVC), and average fixed cost (AFC).</li>
+                  <li class="fragment">We derived the marginal cost (MC) curve.</li>
+                  <li class="fragment">MC intersects ATC and AVC at their minimum points.</li>
+                </ul>
+              </div>
+            </div>
+            <div style="flex: 1.2;">
+              <div class="slide-img-container" style="margin: 0; padding: 6px;">
+                <img src="images/c4_page_3_graph.png" alt="Average and Marginal Cost Curves" style="max-height: 320px;">
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Slide 3.3: Thinking on the margin -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Costs · Decision-Making</p>
+          <h2>Thinking on the Margin</h2>
+          <div class="content-card" style="font-size: 0.95em;">
+            <p>What costs matter for firms' decision-making process?</p>
+            <div class="def-card">
+              <div class="def-title">Fundamental Decision Rule</div>
+              Firms maximize profits by setting the quantity according to the fundamental decision rule, which is:
+              <div style="text-align: center; font-size: 1.25em; font-weight: 700; margin: 15px 0; color: #0f766e;">
+                <span class="fill-blank" style="min-width: 200px;"></span> equal <span class="fill-blank" style="min-width: 200px;"></span>
+              </div>
+              <p style="font-size: 0.85em; font-style: italic; color: #64748b; margin-top: 5px; text-align: center;">
+                (Hint: Marginal Benefit equals Marginal Cost!)
+              </p>
+            </div>
+            <div class="def-card fragment" style="border-left-color: #3b82f6; background: rgba(59, 130, 246, 0.04);">
+              <div class="def-title" style="color: #3b82f6;">Marginal Rule Implication</div>
+              Any cost incurred in the past does not matter:
+              <div style="text-align: center; font-size: 1.1em; font-weight: 600; margin-top: 10px; color: #1e293b;">
+                Past costs are completely ignored in marginal decisions.
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Slide 3.4: Sunk Costs Definition -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Costs · Sunk Costs</p>
+          <h2>Definition of Sunk Costs</h2>
+          <div class="content-card">
+            <div class="def-card">
+              <div class="def-title">Definition: Sunk Costs</div>
+              Costs that occurred in the past, and are irrecoverable, are <strong>sunk costs</strong>.
+            </div>
+            <ul>
+              <li class="fragment">Sunk costs do not matter from the point of view of decision-making.</li>
+              <li class="fragment">Thinking that they do is called the <strong>sunk cost fallacy</strong>.</li>
+            </ul>
+            <div class="example-card fragment" style="margin-top: 15px;">
+              <div class="ex-title">Why ignore sunk costs?</div>
+              Because they cannot be recovered regardless of what future action you take, they are identical across all choices and do not affect the marginal trade-offs of your decision.
+            </div>
+          </div>
+        </section>
+
+        <!-- Slide 3.5: Headphone Reseller Example 1 -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Costs · Example 1</p>
+          <h2>Headphone Reseller: Sunk Costs</h2>
+          <div class="content-card">
+            <div class="example-card">
+              <div class="ex-title">Scenario</div>
+              Rex is a licensed headphone reseller and owns a shop.
+              <ul>
+                <li>He bought 1,000 units of the latest Sony wireless headphones for <strong>$500/unit</strong>.</li>
+                <li>Every pair of headphones purchased requires an initial maintenance, costing <strong>$160/unit per year</strong>. This is an unavoidable cost.</li>
+                <li>Right now, he received an offer from another reseller, who offers to buy all 1,000 units from him for <strong>$450/unit</strong>.</li>
+              </ul>
+            </div>
+            <p class="fragment" style="font-weight: 600; text-align: center; color: #b91c1c; margin-top: 20px;">
+              Should he sell all of his stock or not? Explain why.
+            </p>
+          </div>
+        </section>
+
+        <!-- Slide 3.6: Headphone Reseller Example 2 -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Costs · Example 2</p>
+          <h2>Headphone Reseller: Marginal Cost</h2>
+          <div class="content-card">
+            <div class="example-card">
+              <div class="ex-title">Scenario (continued)</div>
+              Rex bought 1,000 units of wireless headphones for <strong>$500/unit</strong>.
+              <ul>
+                <li>To run the shop, he hires 18 clerks at <strong>$55,000/year</strong>; pays <strong>$30,000</strong> in utilities per year; pays himself <strong>$270,000/year</strong>.</li>
+                <li>Every pair of headphones purchased requires an initial maintenance, costing <strong>$160/unit per year</strong> (unavoidable).</li>
+                <li>He sold all 1,000 headphones. He has got a buyer for another headphone (of the same model).</li>
+              </ul>
+            </div>
+            <p class="fragment" style="font-weight: 600; text-align: center; color: #0f766e; margin-top: 20px;">
+              What is his marginal cost of selling 1 additional unit of the same headphone model?
+            </p>
+          </div>
+        </section>
+
+        <!-- Slide 3.7: Link to Markets -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Firms &amp; Markets</p>
+          <h2>Putting it All Together</h2>
+          <div class="content-card" style="text-align: center; padding: 40px;">
+            <p style="font-size: 1.1em; line-height: 1.5;">We have now modeled individual behaviors separately:</p>
+            <div style="display: flex; justify-content: space-around; margin: 20px 0;">
+              <div class="def-card" style="flex: 1; margin: 10px; text-align: center;">
+                <div class="def-title">Consumers</div>
+                Demand &amp; Elasticity
+              </div>
+              <div class="def-card" style="flex: 1; margin: 10px; text-align: center;">
+                <div class="def-title">Firms' Revenue</div>
+                Marginal Revenue
+              </div>
+              <div class="def-card" style="flex: 1; margin: 10px; text-align: center;">
+                <div class="def-title">Firms' Costs</div>
+                Cost Structures
+              </div>
+            </div>
+            <p class="fragment" style="font-weight: 600; color: #0f766e; font-size: 1.1em; margin-top: 20px;">
+              We are now ready to put all of these together and look at a market, with supply and demand, together. The simplest form of competition: there is none! <strong>Monopoly</strong>.
+            </p>
+          </div>
+        </section>
+
+      </section>
+
+
+      <!-- SECTION 3: Monopoly and Profit Maximization (Vertical Stack) -->
+      <section>
+
+        <!-- Slide 4.1: Divider -->
+        <section data-background-gradient="linear-gradient(135deg, #0f172a 0%, #1e293b 100%)">
+          <p class="eyebrow" style="color: #2dd4bf;">Part 2</p>
+          <h1 style="color: white; font-size: 2.8em;">Pricing and Behavior<br>under Monopoly</h1>
+          <p style="color: #94a3b8; margin-top: 20px;">Press <kbd style="background: #334155; color: #cbd5e1; border: 1px solid #475569; padding: 2px 6px; border-radius: 4px;">↓</kbd> to view monopoly behavior</p>
+        </section>
+
+        <!-- Slide 4.2: Recap of Class 3 -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Monopoly · Recap</p>
+          <h2>Where We Left Off...</h2>
+          <div class="content-card" style="text-align: center;">
+            <p style="margin-bottom: 10px;">A quick review of marginal revenue and demand structures from Class 3:</p>
+            <div class="slide-img-container">
+              <img src="images/c4_page_10_img.png" alt="Recap of Class 3 Monopoly concepts" style="max-height: 330px;">
+            </div>
+          </div>
+        </section>
+
+        <!-- Slide 4.3: Monopoly Intro -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Monopoly · Introduction</p>
+          <h2>The Monopolist's Environment</h2>
+          <div class="content-card">
+            <p style="font-size: 1.15em; line-height: 1.45; margin-bottom: 15px;">When there is <strong>no competition</strong> in a market, the market structure is a monopoly:</p>
+            <div class="def-card">
+              <div class="def-title">Market Demand = Firm Demand</div>
+              The monopolist captures <strong>all of market demand</strong>. The firm does not share the market with other competitors.
+            </div>
+            <p class="fragment" style="margin-top: 15px; font-weight: 500; color: #0f766e;">
+              Consequently, we can use the tools of consumer demand and price elasticity to understand how the monopolist thinks about consumers!
+            </p>
+          </div>
+        </section>
+
+        <!-- Slide 4.4: Monopoly Decision Rule -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Monopoly · Decision-Making</p>
+          <h2>The Decision Rule for Monopolists</h2>
+          <div class="content-card">
+            <p>There is now only one firm capturing the entire market demand for a product.</p>
+            <ul>
+              <li>Market demand = demand that the monopolist faces.</li>
+            </ul>
+            <div class="def-card fragment">
+              <div class="def-title">Fundamental Decision Rule</div>
+              What is the fundamental decision rule for profit-maximizing firms? And what does this rule decide — quantity, or price?
+              <div style="text-align: center; font-size: 1.3em; font-weight: 700; margin-top: 10px; color: #0f766e;">
+                MR = MC
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Slide 4.5: Quantity vs Price -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Monopoly · Decision-Making</p>
+          <h2>Quantity first, then Price</h2>
+          <div class="content-card">
+            <p style="font-weight: 600; color: #0f766e;">How the Monopolist Operates:</p>
+            <ol>
+              <li class="fragment">
+                <strong>Find the Quantity (\( Q^* \))</strong>: The firm uses the marginal condition \( MR = MC \) to determine the optimal quantity to produce.
+              </li>
+              <li class="fragment">
+                <strong>Determine the Price (\( P^* \))</strong>: Once \( Q^* \) is chosen, the monopolist finds the <em>highest price</em> consumers are willing to pay for that quantity.
+                <br>
+                <span style="font-style: italic; color: #64748b;">This price is read from the demand curve: \( P^* = P(Q^*) \).</span>
+              </li>
+            </ol>
+            <div class="def-card fragment" style="margin-top: 15px; border-left-color: #3b82f6; background: rgba(59, 130, 246, 0.04);">
+              <div class="def-title" style="color: #3b82f6;">Crucial Intuition</div>
+              The monopolist does <strong>not</strong> set an arbitrary price. They are constrained by consumer demand! They can set quantity or price, but the demand curve dictates the other.
+            </div>
+          </div>
+        </section>
+
+        <!-- Slide 4.6: Calculation Example 1 -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Monopoly · Example 1</p>
+          <h2>Monopoly Calculation</h2>
+          <div class="content-card">
+            <div class="example-card">
+              <div class="ex-title">Problem Statement</div>
+              A monopolist faces demand for their product:
+              \[ Q_D = 14 - 3P_D \]
+              They have a constant marginal cost function:
+              \[ MC(Q) = 2 \]
+              <strong>Determine their profit-maximizing quantity (to produce), price, and their profits at these choices.</strong>
+            </div>
+            <p class="fragment" style="font-weight: 600; color: #0f766e; text-align: center; margin-top: 20px;">
+              What is the inverse demand function? What is the MR function?
+            </p>
+          </div>
+        </section>
+
+        <!-- Slide 4.7: Calculation Example 2 -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Monopoly · Example 2</p>
+          <h2>Monopoly Redux</h2>
+          <div class="content-card">
+            <div class="example-card">
+              <div class="ex-title">Problem Statement</div>
+              A monopolist faces demand for their product:
+              \[ P_D = 10 - 2Q_D \]
+              They have a variable marginal cost function:
+              \[ MC(Q) = 2Q \]
+              <strong>Determine their profit-maximizing quantity (to produce), price, and their profits at these choices.</strong>
+            </div>
+            <p class="fragment" style="font-weight: 600; color: #0f766e; text-align: center; margin-top: 20px;">
+              Solve for the quantity where \( MR = MC \), and find the corresponding price on the demand curve.
+            </p>
+          </div>
+        </section>
+
+      </section>
+
+
+      <!-- SECTION 4: Perfect Competition (Vertical Stack) -->
+      <section>
+
+        <!-- Slide 5.1: Divider -->
+        <section data-background-gradient="linear-gradient(135deg, #0f766e 0%, #115e59 100%)">
+          <p class="eyebrow" style="color: #ccfbf1;">Part 3</p>
+          <h1 style="color: white; font-size: 2.8em;">Perfect Competition &amp;<br>Market Equilibria</h1>
+          <p style="color: #ccfbf1; margin-top: 20px;">Press <kbd style="background: #115e59; color: white; border: 1px solid #134e4a; padding: 2px 6px; border-radius: 4px;">↓</kbd> to study competitive markets</p>
+        </section>
+
+        <!-- Slide 5.2: Introduction to Competitors -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Perfect Competition · Intro</p>
+          <h2>Introducing Competitors</h2>
+          <div class="content-card">
+            <p style="font-size: 1.1em; line-height: 1.5; margin-bottom: 15px;">How do a firm's decisions change when other firms enter the market?</p>
+            <p>To analyze the impact of competition, we must consider two dimensions:</p>
+            <ol>
+              <li class="fragment" style="margin-bottom: 10px;">
+                <strong>Market Structure</strong>: How many competitors are there? Do they sell identical or differentiated products?
+              </li>
+              <li class="fragment">
+                <strong>Market Equilibrium Implications</strong>: How does the number of competitors affect prices, quantity, and long-term economic profits?
+              </li>
+            </ol>
+            <p class="fragment" style="color: #0f766e; font-weight: 600; text-align: center; margin-top: 20px;">
+              Let's start by looking at the competitive extreme: <strong>Perfect Competition</strong>.
+            </p>
+          </div>
+        </section>
+
+        <!-- Slide 5.3: Characteristics of PC -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Perfect Competition · Structure</p>
+          <h2>Market Characteristics</h2>
+          <div class="content-card">
+            <p style="font-weight: 600; color: #0f766e;">Key features of a perfectly competitive environment:</p>
+            <ul>
+              <li class="fragment"><strong>Large number of sellers and buyers</strong>; no individual has market power.</li>
+              <li class="fragment"><strong>Homogeneous products</strong>: Only identical products are sold in the market, with no product differentiation.</li>
+              <li class="fragment"><strong>Perfect information</strong>: Buyers and sellers have complete knowledge of prices and technology.</li>
+            </ul>
+            <div class="def-card fragment" style="margin-top: 15px;">
+              <div class="def-title">Price Takers</div>
+              These imply sellers and buyers have no influence over the market price — the (aggregate) market demand and supply decides prices!
+            </div>
+          </div>
+        </section>
+
+        <!-- Slide 5.4: Definition of PC -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Perfect Competition · Definition</p>
+          <h2>Defining Perfect Competition</h2>
+          <div class="content-card">
+            <div class="def-card">
+              <div class="def-title">Definition: Perfect Competition</div>
+              A form of competitive environment characterized by a large number of sellers and buyers, with a homogeneous, undifferentiated product, where every firm and every individual takes market prices as a given.
+            </div>
+            <p style="font-weight: 600; margin-top: 15px;">Real-world examples:</p>
+            <ul>
+              <li>Markets of produce (corn, rice, grains, wheat).</li>
+              <li>Markets of standardized knockoffs/commodities.</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- Slide 5.5: Approximating PC -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Perfect Competition · Real World</p>
+          <h2>Approximating Perfect Competition</h2>
+          <div class="content-card" style="text-align: center;">
+            <p style="margin-bottom: 12px;">Few real-life examples come close to perfectly competitive markets, but some are somewhat close:</p>
+            <div class="slide-img-container">
+              <img src="images/c4_page_20_img.png" alt="Examples of competitive markets (agricultural produce, commodities)" style="max-height: 280px;">
+            </div>
+          </div>
+        </section>
+
+        <!-- Slide 5.6: Implications of PC -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Perfect Competition · Implications</p>
+          <h2>Core Implications for Firms</h2>
+          <div class="content-card" style="font-size: 0.95em;">
+            <p style="font-weight: 600; color: #0f766e;">Three direct consequences of perfect competition:</p>
+            <div class="def-card">
+              <strong>A. Price Determination</strong>: Market prices are determined by market supply and market demand.
+            </div>
+            <div class="def-card fragment">
+              <strong>B. Price Taker</strong>: Firms cannot set their own price; they take the market price as given, implying the demand they face is <span class="fill-blank" style="min-width: 180px;"></span>.
+            </div>
+            <div class="def-card fragment">
+              <strong>C. Profit Maximization</strong>: Firms maximize profits by setting the quantity according to the fundamental decision rule, which is:
+              <div style="font-weight: 700; text-align: center; margin-top: 8px; color: #0f766e;">
+                <span class="fill-blank" style="min-width: 140px;"></span> equal <span class="fill-blank" style="min-width: 140px;"></span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Slide 5.7: Marginal Revenue in PC -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Perfect Competition · Implications</p>
+          <h2>Marginal Revenue in PC Markets</h2>
+          <div class="content-card">
+            <p style="font-weight: 600; color: #0f766e;">Question to consider:</p>
+            <p style="font-size: 1.05em; line-height: 1.45; margin-bottom: 20px;">
+              What do A. and B. imply about the <strong>marginal revenue (MR)</strong> of a firm in a perfectly competitive market?
+            </p>
+            <div class="def-card fragment" style="border-left-color: #3b82f6; background: rgba(59, 130, 246, 0.04);">
+              <div class="def-title" style="color: #3b82f6;">Key Relationship</div>
+              Since every unit is sold at the exact same market price \( P \), the incremental revenue from selling one more unit is simply the price:
+              <div style="text-align: center; font-size: 1.3em; font-weight: 700; margin-top: 10px; color: #1e293b;">
+                MR = P
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Slide 5.8: Market Demand vs Firm Demand -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Perfect Competition · Implications</p>
+          <h2>Market Demand vs. Firm Demand</h2>
+          <div class="content-card">
+            <p style="font-weight: 600; color: #0f766e;">Question to consider:</p>
+            <p style="font-size: 1.05em; line-height: 1.4; margin-bottom: 15px;">
+              What does A., B., and C. imply about the **market demand** versus the **demand the individual firm faces**?
+            </p>
+            <div class="def-card fragment">
+              <div class="def-title">Individual Demand is Perfectly Elastic</div>
+              A single firm is too small to affect the market. It can sell any quantity it wants at the market price \( P \), but nothing at a higher price.
+              <div style="font-weight: 700; text-align: center; margin-top: 10px; font-size: 1.1em; color: #0f766e;">
+                Firm Demand is flat (horizontal) at \( P \implies |\varepsilon| = \infty \)
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Slide 5.9: PC Graph -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Perfect Competition · Graph</p>
+          <h2>Visualizing Price-Taking Behavior</h2>
+          <div class="content-card" style="text-align: center;">
+            <p style="margin-bottom: 12px;">Putting everything together: Market equilibrium determines price, which the firm takes as given:</p>
+            <div class="slide-img-container">
+              <img src="images/c4_page_24_graph.png" alt="Market Demand and Supply vs. Firm Demand Curve" style="max-height: 280px;">
+            </div>
+          </div>
+        </section>
+
+        <!-- Slide 5.10: Summary of PC -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Perfect Competition · Summary</p>
+          <h2>Characteristics Recap</h2>
+          <div class="content-card">
+            <p style="font-weight: 600; color: #0f766e; margin-bottom: 10px;">Therefore, perfectly competitive markets are characterized by:</p>
+            <ul>
+              <li>Large numbers of sellers and buyers + only identical products sold in the market, with no product differentiation.</li>
+              <li>Market prices are taken as given by everyone.</li>
+              <li>Demand each firm faces is perfectly elastic.</li>
+              <li class="fragment" style="color: #b91c1c;">Each firm’s supply is determined by its marginal costs (with some additional twists!).</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- Slide 5.11: Equilibrium Introduction -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Market Equilibrium · Introduction</p>
+          <h2>Implications for Equilibrium</h2>
+          <div class="content-card">
+            <p style="font-size: 1.1em; line-height: 1.5; margin-bottom: 15px;">How do price-taking firms behave in equilibrium in a perfectly competitive market?</p>
+            <ul>
+              <li class="fragment">So far, we have only described the environment, not the equilibrium.</li>
+              <li class="fragment">The fact that every firm takes prices as given — rather than setting prices themselves — must have consequences for the market equilibrium!</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- Slide 5.12: Supply Curve Nuance -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Market Equilibrium · Supply</p>
+          <h2>Is Marginal Cost the Supply Curve?</h2>
+          <div class="content-card">
+            <p style="font-size: 1.05em; line-height: 1.4; margin-bottom: 15px;">Firms choose quantity where \( MR = MC \). Since \( MR = P \), this means competitive firms choose quantity where:</p>
+            <div style="text-align: center; font-size: 1.25em; font-weight: 700; margin: 15px 0; color: #0f766e;">
+              P = MC(Q)
+            </div>
+            <p>Does the MC curve fully represent the firm's supply decision?</p>
+            <ul>
+              <li class="fragment"><strong>Yes, but with nuances</strong>: The firm may choose to produce zero (shut down) if the price is too low to cover certain costs.</li>
+              <li class="fragment">The distinction depends on whether we look at the <strong>short run</strong> or the <strong>long run</strong>.</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- Slide 5.13: Equilibrium and Profits -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Market Equilibrium · Profits</p>
+          <h2>Market Equilibrium and Profits</h2>
+          <div class="content-card">
+            <p>Market equilibrium is a statement about at what price and quantity the market demand &ldquo;equals&rdquo; market supply.</p>
+            <ul>
+              <li class="fragment">Every firm takes the market price as given, so this definition has no &ldquo;bite&rdquo; for whether a firm would make positive economic profits.</li>
+              <li class="fragment">To determine profits, we need to look at the firm’s cost functions:</li>
+            </ul>
+            <div class="def-card fragment" style="margin-top: 15px;">
+              \[ \text{Profit} = (P^* - ATC(Q^*)) \times Q^* \]
+            </div>
+          </div>
+        </section>
+
+        <!-- Slide 5.14: Profit Graph -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Market Equilibrium · Profits</p>
+          <h2>Profit Calculations on the Graph</h2>
+          <div style="display: flex; align-items: center; justify-content: center; gap: 20px; max-width: 950px; margin: 0 auto;">
+            <div style="flex: 1; text-align: left;">
+              <div class="content-card" style="margin: 0; padding: 20px 25px; font-size: 0.95em;">
+                <ul>
+                  <li>Firms produce where \( MC = MR = P \).</li>
+                  <li>Economic profits at \( q_{e1} \) is <strong>\( \$ \)<span class="fill-blank" style="min-width: 100px;"></span></strong>.</li>
+                  <li>For market price below \( AVC \) (i.e. below point \( e_2 \)), economic profits is <strong>\( \$ \)<span class="fill-blank" style="min-width: 100px;"></span></strong>, and the firm <strong>shuts down</strong>!</li>
+                </ul>
+              </div>
+            </div>
+            <div style="flex: 1.1;">
+              <div class="slide-img-container" style="margin: 0; padding: 6px;">
+                <img src="images/c4_page_29_graph.png" alt="Economic Profits Graph and Shutdown Point" style="max-height: 320px;">
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Slide 5.15: Short-Run Equilibrium Definition -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Short-Run Equilibrium · Definition</p>
+          <h2>Defining Short-Run Equilibrium</h2>
+          <div style="display: flex; align-items: center; justify-content: center; gap: 20px; max-width: 950px; margin: 0 auto;">
+            <div style="flex: 1; text-align: left;">
+              <div class="content-card" style="margin: 0; padding: 20px 25px;">
+                <div class="def-card" style="margin: 0 0 15px;">
+                  <div class="def-title">Definition: Short-Run Equilibrium</div>
+                  The state where firms choose production levels considering both fixed and variable costs, with the number of firms in the industry fixed (no entry/exit).
+                </div>
+                <p style="font-size: 0.88em; color: #515763;">
+                  In the short run, capital is fixed, meaning firms face fixed costs and cannot immediately exit the industry or enter it.
+                </p>
+              </div>
+            </div>
+            <div style="flex: 1.1;">
+              <div class="slide-img-container" style="margin: 0; padding: 6px;">
+                <img src="images/c4_page_30_graph.png" alt="Short-Run Cost Curves" style="max-height: 320px;">
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Slide 5.16: Short-Run Supply Curve -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Short-Run Equilibrium · Supply</p>
+          <h2>The Short-Run Supply Curve</h2>
+          <div style="display: flex; align-items: center; justify-content: center; gap: 20px; max-width: 950px; margin: 0 auto;">
+            <div style="flex: 1; text-align: left;">
+              <div class="content-card" style="margin: 0; padding: 20px 25px; font-size: 0.92em;">
+                <p style="font-weight: 600; color: #0f766e; margin-bottom: 10px;">The Shutdown Rule:</p>
+                <ul>
+                  <li>The short-run supply curve is the section of the \( MC \) curve <strong>above the \( AVC \) minimum</strong>.</li>
+                  <li>If \( P &lt; AVC \), the firm produces zero (\( Q = 0 \)) and shuts down.</li>
+                </ul>
+                <div class="def-card" style="margin-top: 15px; font-size: 0.95em;">
+                  <strong>Takeaway</strong>: In short-run market equilibrium, firms will still operate even if they make operating loss, provided they cover variable costs. If they cannot cover variable costs, they shut down.
+                </div>
+              </div>
+            </div>
+            <div style="flex: 1.1;">
+              <div class="slide-img-container" style="margin: 0; padding: 6px;">
+                <img src="images/c4_page_31_graph.png" alt="Individual Firm Short-Run Supply Curve" style="max-height: 320px;">
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Slide 5.17: Entry & Exit Dynamics -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Short-Run Equilibrium · Dynamics</p>
+          <h2>Free Entry and Exit</h2>
+          <div style="display: flex; align-items: center; justify-content: center; gap: 20px; max-width: 950px; margin: 0 auto;">
+            <div style="flex: 1; text-align: left;">
+              <div class="content-card" style="margin: 0; padding: 20px 25px;">
+                <p style="font-weight: 600; color: #0f766e; margin-bottom: 10px;">Market Adjustments:</p>
+                <ul>
+                  <li>Short run is also characterized by free entry and exit due to no barriers to entry.</li>
+                  <li>Every firm is selling identical, undifferentiated products, so barriers to entry are low.</li>
+                </ul>
+                <p style="font-weight: 600; margin-top: 15px; color: #1e293b;">
+                  Why might new firms enter, and existing firms exit, if everyone takes the market price as given?
+                </p>
+              </div>
+            </div>
+            <div style="flex: 1.1;">
+              <div class="slide-img-container" style="margin: 0; padding: 6px;">
+                <img src="images/c4_page_32_graph.png" alt="Firm supply curve highlighting MC above AVC" style="max-height: 320px;">
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Slide 5.18: Short-Run Profit and Entry -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Short-Run Equilibrium · Entry/Exit</p>
+          <h2>Illustrating Entry Dynamics</h2>
+          <div style="display: flex; align-items: center; justify-content: center; gap: 20px; max-width: 950px; margin: 0 auto;">
+            <div style="flex: 1; text-align: left;">
+              <div class="content-card" style="margin: 0; padding: 20px 25px; font-size: 0.95em;">
+                <p style="font-weight: 600; color: #0f766e; margin-bottom: 12px;">In the short run:</p>
+                <ul>
+                  <li>Possible for firms in competitive markets to earn economic profit.</li>
+                  <li>Profit encourages new firms to enter the market.</li>
+                  <li>Market supply shifts to the **right**.</li>
+                  <li>If profits are negative, the same story applies, but in reverse.</li>
+                </ul>
+              </div>
+            </div>
+            <div style="flex: 1.1;">
+              <div class="slide-img-container" style="margin: 0; padding: 6px;">
+                <img src="images/c4_page_33_graph.png" alt="Entry and Supply Shift Graph" style="max-height: 320px;">
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Slide 5.19: Profit Graph in PC -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Short-Run Equilibrium · Profits Graph</p>
+          <h2>Positive Economic Profit Graph</h2>
+          <div class="content-card" style="text-align: center;">
+            <p style="margin-bottom: 12px;">A representation of short-run economic profits and the resulting market supply shift:</p>
+            <div class="slide-img-container">
+              <img src="images/c4_page_34_graph.png" alt="Short-Run Market Profit and Individual Firm Profit Curves" style="max-height: 300px;">
+            </div>
+          </div>
+        </section>
+
+        <!-- Slide 5.20: Loss and Exit Graph -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Short-Run Equilibrium · Loss Graph</p>
+          <h2>Adjustment Under Economic Losses</h2>
+          <div class="content-card" style="text-align: center;">
+            <p style="margin-bottom: 12px;">Visualizing what happens when short-run profits are negative, leading to exit:</p>
+            <div class="slide-img-container">
+              <img src="images/c4_page_35_graph.png" alt="Market adjustment under negative profits (firm exit)" style="max-height: 310px;">
+            </div>
+          </div>
+        </section>
+
+        <!-- Slide 5.21: Long-Run Equilibrium Definition -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Long-Run Equilibrium · Definition</p>
+          <h2>Defining Long-Run Equilibrium</h2>
+          <div class="content-card" style="font-size: 0.95em;">
+            <div class="def-card" style="margin: 0 0 15px;">
+              <div class="def-title">Definition: Long-Run Equilibrium</div>
+              Long-run equilibrium is where firms consider only variable costs in making their production decisions.
+            </div>
+            <p style="font-weight: 600; color: #0f766e; margin-bottom: 8px;">Practical consequences:</p>
+            <ul>
+              <li>Firms view fixed costs as sunk, hence the only thing that characterizes any long-run equilibrium is **zero profits**.</li>
+              <li class="fragment">Why? Because if profits are not zero, there will continue to be free entry and exit, and that is a function of fixed costs, too.</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- Slide 5.22: Long-Run Equilibrium Price -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Long-Run Equilibrium · Price</p>
+          <h2>The Long-Run Equilibrium Price</h2>
+          <div style="display: flex; align-items: center; justify-content: center; gap: 20px; max-width: 950px; margin: 0 auto;">
+            <div style="flex: 1; text-align: left;">
+              <div class="content-card" style="margin: 0; padding: 20px 25px; font-size: 0.95em;">
+                <p style="font-weight: 600; color: #0f766e; margin-bottom: 12px;">In long-run equilibrium:</p>
+                <ul>
+                  <li>What must the market price be?</li>
+                  <li>It must settle at the minimum of ATC:
+                    \[ P^* = \min(ATC) \]
+                  </li>
+                  <li>At this point, economic profit is exactly zero.</li>
+                </ul>
+              </div>
+            </div>
+            <div style="flex: 1.2;">
+              <div class="slide-img-container" style="margin: 0; padding: 6px;">
+                <img src="images/c4_page_37_graph.png" alt="Long-Run Market and Firm Equilibrium Graph" style="max-height: 310px;">
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Slide 5.23: Perfect Competition Recap -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Perfect Competition · Recap</p>
+          <h2>Recap of Core Concepts</h2>
+          <div class="content-card">
+            <div class="def-card">
+              <div class="def-title">Perfect Competition Recap</div>
+              Perfect competition describes a market characterized by large numbers of sellers and buyers, each taking the market price as given in making their decisions.
+            </div>
+            <p style="font-weight: 600; margin-top: 15px; color: #0f766e;">The Firm's Profit-Maximizing Quantity:</p>
+            <div style="text-align: center; font-size: 1.25em; font-weight: 700; margin: 15px 0;">
+              P = MR = MC
+            </div>
+          </div>
+        </section>
+
+        <!-- Slide 5.24: Short-Run vs Long-Run Recap -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Perfect Competition · Recap</p>
+          <h2>Short-Run vs. Long-Run Equilibria</h2>
+          <div class="content-card" style="font-size: 0.95em;">
+            <div class="def-card" style="margin: 8px 0;">
+              <div class="def-title">Short-Run Equilibrium</div>
+              Economic profits can be positive or negative or zero, there is free entry and exit, and shutdown occurs when the market price cannot cover variable costs.
+            </div>
+            <div class="def-card fragment" style="margin: 8px 0; border-left-color: #3b82f6; background: rgba(59, 130, 246, 0.04);">
+              <div class="def-title" style="color: #3b82f6;">Long-Run Equilibrium</div>
+              All firms earn zero economic profits, due to free exit and entry going from short-run to long-run.
+            </div>
+          </div>
+        </section>
+
+        <!-- Slide 5.25: Fred's Hats Example 1 -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Perfect Competition · Example 1</p>
+          <h2>Fred's Hats Calculation</h2>
+          <div class="content-card">
+            <div class="example-card">
+              <div class="ex-title">Problem Statement</div>
+              Fred’s Hats, a company involved in the production of University of Michigan Rose Bowl hats, has total cost and marginal cost functions as follows:
+              \[ TC(q) = q^2 + 2q + 49 \]
+              \[ MC(q) = 2q + 2 \]
+              where \( q \) is the quantity of hats produced by Fred’s Hats and marginal cost is measured in dollars per unit. Fred’s Hats operates in a perfectly competitive market, where the market price for these hats is currently $20 each.
+              <br><br>
+              <strong>Calculate the short-run profit maximizing quantity of hats that Fred’s Hats should produce, and the profit that they make. Then, state whether the market is in a long-run equilibrium.</strong>
+            </div>
+          </div>
+        </section>
+
+        <!-- Slide 5.26: Fred's Hats Example 2 -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Perfect Competition · Example 2</p>
+          <h2>Fred's Hats: Long-Run Equilibrium</h2>
+          <div class="content-card">
+            <div class="example-card">
+              <div class="ex-title">Problem Statement (continued)</div>
+              Suppose market demand for these hats is given by:
+              \[ Q_D = 220 - 5P_D \quad \text{or} \quad P_D = 44 - 0.2Q_D \]
+              and the cost structure for Fred’s Hats remains the same as those on the previous slide.
+              <br><br>
+              <strong>Calculate the long-run equilibrium market price.</strong>
+            </div>
+            <p class="fragment" style="font-weight: 600; color: #0f766e; text-align: center; margin-top: 20px;">
+              Hint: In the long run, profits are zero, which means price must equal the minimum of ATC.
+            </p>
+          </div>
+        </section>
+
+        <!-- Slide 5.27: Why Market Structure Matters -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Perfect Competition · Conclusion</p>
+          <h2>Why Market Structure Matters</h2>
+          <div class="content-card" style="text-align: center; padding: 35px;">
+            <p style="font-size: 1.15em; line-height: 1.5; font-weight: 600; color: #0f766e;">Why do I care about knowing the market structure, i.e. how many competitors there are?</p>
+            <p style="font-size: 1.05em; margin-top: 15px;">Economists’ answer: market structure has direct implications for how well-off people and firms are.</p>
+            <div class="def-card fragment" style="display: inline-block; text-align: left; margin-top: 15px;">
+              Nomenclature: market structure has <strong>welfare implications</strong> for the society.
+            </div>
+            <p class="fragment" style="color: #64748b; font-size: 0.9em; margin-top: 25px;">
+              <strong>More on Welfare Analysis next time, and that concludes Part 1 of this class!</strong>
+            </p>
+          </div>
+        </section>
+
+      </section>
+
+
+      <!-- SECTION 5: Closing Slide (Horizontal) -->
+      
+      <!-- Slide 6: Closing -->
+      <section data-background-gradient="linear-gradient(135deg, #0f172a 0%, #1e293b 100%)">
+        <p class="eyebrow" style="color: #2dd4bf;">Schedule</p>
+        <h2 style="color: white;">Preparation for Next Class</h2>
+        <div class="content-card" style="background: rgba(30, 41, 59, 0.7); border-color: rgba(255, 255, 255, 0.1); text-align: center;">
+          <p style="color: #cbd5e1; font-weight: 600; margin-bottom: 10px;">Next Session Schedule</p>
+          <p style="color: #94a3b8; font-size: 1.15em;"><strong>See you next Monday (9am sharp)!</strong></p>
+          <p style="color: #64748b; font-size: 0.85em; margin-top: 10px;">Come to office hours w/ any questions/concerns.</p>
+        </div>
+        <p style="margin-top: 40px; color: #64748b; font-size: 0.75em;">Thank you!</p>
+      </section>
+
+    </div>
+  </div>
+
+  <a class="home-link" href="../">&larr; Back to course site</a>
+  <div class="slide-footer">RSC Economics Experience · Lecture 4</div>
+
+  <!-- reveal.js core + plugins -->
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/notes/notes.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/highlight/highlight.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/math/math.js"></script>
+  <script>
+    Reveal.initialize({
+      hash: true,
+      slideNumber: 'c/t',
+      transition: 'slide',
+      plugins: [ RevealHighlight, RevealNotes, RevealMath.KaTeX ]
+    });
+  </script>
+</body>
+</html>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lecture 1 — Introduction · RSC Economics Experience</title>
+  <title>Lecture 1 — Introduction &amp; Market Equilibrium · RSC Economics Experience</title>
 
   <!-- reveal.js core + theme (HTML5 slides, loaded from CDN) -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reset.css">
@@ -11,110 +11,1024 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/white.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/highlight/monokai.css">
 
+  <!-- Google Fonts for premium typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+
   <style>
-    :root { --r-main-color: #1a2233; --r-link-color: #1d6f6f; }
-    .reveal h1, .reveal h2, .reveal h3 { color: #1a2233; letter-spacing: -.01em; }
+    :root {
+      --r-main-font: 'Plus Jakarta Sans', sans-serif;
+      --r-heading-font: 'Outfit', sans-serif;
+      --r-main-color: #1e293b;
+      --r-heading-color: #0f172a;
+      --r-link-color: #0f766e;
+      --r-selection-background-color: #ccfbf1;
+    }
+    
+    .reveal {
+      font-family: var(--r-main-font);
+      color: var(--r-main-color);
+      font-size: 24px; /* Default is 40px, reduced by 40% to 24px */
+    }
+    
+    .reveal h1, .reveal h2, .reveal h3, .reveal h4 {
+      font-family: var(--r-heading-font);
+      color: var(--r-heading-color);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .reveal h1 { font-size: 2.2em; line-height: 1.1; }
+    .reveal h2 { font-size: 1.6em; line-height: 1.2; margin-bottom: 15px; }
+    .reveal h3 { font-size: 1.2em; line-height: 1.3; }
+    
     .reveal .eyebrow {
-      text-transform: uppercase; letter-spacing: .14em;
-      font-size: .5em; font-weight: 700; color: #1d6f6f;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      font-size: 0.45em;
+      font-weight: 700;
+      color: #0f766e;
+      margin-bottom: 10px;
+      display: inline-block;
     }
-    .reveal section img { border: none; box-shadow: none; }
+    
+    /* Elegant card container */
+    .reveal .content-card {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      border-radius: 12px;
+      padding: 18px 24px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.02);
+      margin: 12px auto;
+      text-align: left;
+      max-width: 800px;
+    }
+    
+    .reveal .def-card {
+      border-left: 4px solid #0f766e;
+      background: rgba(15, 118, 110, 0.04);
+      border-radius: 4px 10px 10px 4px;
+      padding: 12px 18px;
+      margin: 12px 0;
+      text-align: left;
+    }
+    .reveal .def-card .def-title {
+      font-family: var(--r-heading-font);
+      font-weight: 700;
+      color: #0f766e;
+      font-size: 0.8em;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 4px;
+    }
+    
+    .reveal .example-card {
+      border-left: 4px solid #3b82f6;
+      background: rgba(59, 130, 246, 0.04);
+      border-radius: 4px 10px 10px 4px;
+      padding: 12px 18px;
+      margin: 12px 0;
+      text-align: left;
+    }
+    .reveal .example-card .ex-title {
+      font-family: var(--r-heading-font);
+      font-weight: 700;
+      color: #3b82f6;
+      font-size: 0.8em;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 4px;
+    }
+    
+    /* Grading Grid */
+    .reveal .grading-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin-top: 15px;
+    }
+    .reveal .grading-card {
+      background: white;
+      border-radius: 10px;
+      padding: 12px 16px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.02);
+      border: 1px solid #e2e8f0;
+      text-align: left;
+      transition: all 0.3s ease;
+    }
+    .reveal .grading-card:hover {
+      transform: translateY(-2px);
+      border-color: #0f766e;
+      box-shadow: 0 10px 30px rgba(15, 118, 110, 0.06);
+    }
+    .reveal .grade-pct {
+      font-size: 1.5em;
+      font-weight: 800;
+      color: #0f766e;
+      line-height: 1;
+      margin-bottom: 3px;
+      font-family: var(--r-heading-font);
+    }
+    .reveal .grade-label {
+      font-weight: 700;
+      color: #0f172a;
+      font-size: 0.8em;
+    }
+    .reveal .grade-detail {
+      font-size: 0.6em;
+      color: #64748b;
+      margin-top: 4px;
+      line-height: 1.3;
+    }
+    
+    /* Photo grid for About Me */
+    .reveal .photo-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      max-width: 850px;
+      margin: 12px auto;
+    }
+    .reveal .photo-grid .photo-wrapper {
+      position: relative;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.06);
+      aspect-ratio: 1.1 / 1;
+    }
+    .reveal .photo-grid .photo-wrapper.wide {
+      grid-column: span 2;
+      aspect-ratio: 2.2 / 1;
+    }
+    .reveal .photo-grid img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border: none;
+      margin: 0;
+      display: block;
+    }
+    
+    /* Slide image styling */
+    .reveal .slide-img-container {
+      background: white;
+      padding: 8px;
+      border-radius: 10px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.02);
+      border: 1px solid #e2e8f0;
+      display: inline-block;
+      margin-top: 8px;
+    }
+    .reveal .slide-img-container img {
+      max-height: 260px;
+      width: auto;
+      margin: 0;
+      display: block;
+      border-radius: 4px;
+    }
+    
+    /* Clean, centered list layout with left alignment */
+    .reveal ul, .reveal ol {
+      display: inline-block;
+      text-align: left;
+      margin: 10px auto !important;
+      padding-left: 0;
+      min-width: 65%;
+      max-width: 95%;
+    }
+    
+    .reveal ul {
+      list-style-type: disc;
+    }
+    
+    .reveal ol {
+      list-style-type: decimal;
+    }
+    
+    .reveal li {
+      text-align: left;
+      margin-bottom: 8px;
+      line-height: 1.35;
+    }
+    
+    /* Indentation and bullets for nested lists */
+    .reveal li ul, .reveal li ol {
+      margin: 4px 0 4px 20px !important;
+      display: block;
+      min-width: unset;
+    }
+    
+    .reveal li ul {
+      list-style-type: circle;
+    }
+    
+    /* Home link and footer elements */
     .reveal .home-link {
-      position: fixed; bottom: 14px; left: 18px; z-index: 30;
-      font-size: 14px; color: #8a93a6; text-decoration: none;
+      position: fixed;
+      bottom: 16px;
+      left: 20px;
+      z-index: 30;
+      font-size: 13px;
+      color: #94a3b8;
+      text-decoration: none;
+      font-family: var(--r-main-font);
+      font-weight: 500;
+      transition: color 0.2s ease;
     }
-    .reveal .home-link:hover { color: #1d6f6f; }
+    .reveal .home-link:hover {
+      color: #0f766e;
+    }
+    
+    .reveal .slide-footer {
+      position: fixed;
+      bottom: 16px;
+      right: 20px;
+      z-index: 30;
+      font-size: 11px;
+      color: #94a3b8;
+      font-family: var(--r-main-font);
+    }
+    
+    /* Interactive blank */
+    .reveal .fill-blank {
+      display: inline-block;
+      border-bottom: 2px dashed #94a3b8;
+      min-width: 140px;
+      height: 1.1em;
+      vertical-align: bottom;
+    }
+
+    .reveal .katex-display {
+      margin: 8px 0;
+    }
   </style>
 </head>
 <body>
   <div class="reveal">
     <div class="slides">
 
-      <!-- Title -->
-      <section>
-        <p class="eyebrow">RSC Economics Experience · July 2026</p>
-        <h1>Lecture 1</h1>
-        <h3>Introduction: Scarcity &amp; Trade-offs</h3>
-        <p style="color:#8a93a6;">Press <kbd>→</kbd> to begin</p>
+      <!-- SECTION 1: Welcome & Overview (Horizontal) -->
+      
+      <!-- Slide 1: Title -->
+      <section data-background-gradient="linear-gradient(135deg, #0f172a 0%, #1e293b 100%)">
+        <p class="eyebrow" style="color: #2dd4bf;">RSC Economics Experience · July 2026</p>
+        <h1 style="color: white; font-size: 2.5em; margin-bottom: 15px;">Class 1</h1>
+        <h3 style="color: #94a3b8; font-weight: 400; margin-bottom: 40px;">Welcome, Introduction to Microeconomics, Supply and Demand</h3>
+        <p style="color: #2dd4bf; font-weight: 600; font-size: 0.9em; margin-bottom: 5px;">Meng Hsuan &ldquo;Rex&rdquo; Hsieh</p>
+        <p style="color: #64748b; font-size: 0.75em; margin-top: 30px;">Press <kbd style="background: #334155; color: #cbd5e1; border: 1px solid #475569; padding: 2px 6px; border-radius: 4px;">→</kbd> to begin</p>
       </section>
 
-      <!-- What is economics -->
-      <section>
-        <h2>What is economics?</h2>
-        <p>The study of how people make <strong>choices</strong> under
-           <strong>scarcity</strong> — and how those choices interact.</p>
-        <ul>
-          <li>Resources are limited; wants are not.</li>
-          <li>Every choice has a cost.</li>
-          <li>Incentives shape behavior.</li>
-        </ul>
+      <!-- Slide 2: Agenda -->
+      <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+        <p class="eyebrow">Agenda for Today</p>
+        <h2>Welcome to Your (First) Economics Class!</h2>
+        <div class="content-card" style="text-align: center;">
+          <ul>
+            <li class="fragment">Getting to Know You!</li>
+            <li class="fragment">Course Expectations</li>
+            <li class="fragment">What is Economics, and What Are Economic Costs</li>
+            <li class="fragment">Supply and Demand, Equilibrium</li>
+          </ul>
+        </div>
       </section>
 
-      <!-- Scarcity -->
+      <!-- Slide 3: About Me -->
+      <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+        <p class="eyebrow">About Me</p>
+        <h2 style="margin-bottom: 10px;">Meng Hsuan &ldquo;Rex&rdquo; Hsieh</h2>
+        <div class="photo-grid">
+          <div class="photo-wrapper wide">
+            <img src="images/page_3_img_3.jpeg" alt="Rex Hsieh Wide Photo">
+          </div>
+          <div class="photo-wrapper">
+            <img src="images/page_3_img_4.jpeg" alt="Rex Hsieh Portrait 1">
+          </div>
+          <div class="photo-wrapper">
+            <img src="images/page_3_img_5.jpeg" alt="Rex Hsieh Portrait 2">
+          </div>
+          <div class="photo-wrapper">
+            <img src="images/page_3_img_6.png" alt="Rex Hsieh Graphic Logo">
+          </div>
+          <div class="photo-wrapper">
+            <img src="images/page_3_img_7.jpeg" alt="Rex Hsieh Photo Collage">
+          </div>
+        </div>
+      </section>
+
+
+      <!-- SECTION 2: Course Expectations (Vertical Stack) -->
       <section>
-        <section>
+        
+        <!-- Slide 4.1: Section Title -->
+        <section data-background-gradient="linear-gradient(135deg, #0f766e 0%, #115e59 100%)">
+          <p class="eyebrow" style="color: #ccfbf1;">Course expectations</p>
+          <h1 style="color: white; font-size: 2.8em;">An Executive Summary</h1>
+          <p style="color: #ccfbf1; margin-top: 20px;">Press <kbd style="background: #115e59; color: white; border: 1px solid #134e4a; padding: 2px 6px; border-radius: 4px;">↓</kbd> to view policies</p>
+        </section>
+
+        <!-- Slide 4.2: Summary 1/6 -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Course expectations · 1/6</p>
+          <h2>Required Commitments</h2>
+          <div class="content-card" style="text-align: center;">
+            <ul>
+              <li class="fragment"><strong>Come to class!</strong> There are only 8 classes (class 9 is exam + wrapping up).</li>
+              <li class="fragment">Do all <strong>pre-class work</strong> as listed in the Syllabus and Canvas.</li>
+              <li class="fragment"><strong>Attempt all questions</strong> you see; these will appear on the exam either verbatim or with very similar wording.</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- Slide 4.3: Summary 2/6 -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Course expectations · 2/6</p>
+          <h2>Learning Resources</h2>
+          <div class="content-card" style="text-align: center;">
+            <ul>
+              <li class="fragment">All <strong>slide decks</strong> I write.</li>
+              <li class="fragment"><strong>Post-class slides</strong> with my annotations and in-class notes.</li>
+              <li class="fragment">Me, and our fabulous <strong>teaching assistants</strong> (Jasmine &amp; Aubrey)!</li>
+              <li class="fragment"><strong>Each other!</strong> Pair up and discuss.</li>
+              <li class="fragment">An <strong>accompanying text</strong> with worked examples (available on Canvas).</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- Slide 4.4: Summary 3/6 -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Course expectations · 3/6</p>
+          <h2>Course Evaluation</h2>
+          <div class="grading-grid">
+            <div class="grading-card fragment">
+              <div class="grade-pct">30%</div>
+              <div class="grade-label">Quizzes (x3)</div>
+              <div class="grade-detail">2 on Canvas; 1 in-class</div>
+            </div>
+            <div class="grading-card fragment">
+              <div class="grade-pct">20%</div>
+              <div class="grade-label">Attendance &amp; Participation</div>
+              <div class="grade-detail">Come to every class! Essential for a short course.</div>
+            </div>
+            <div class="grading-card fragment">
+              <div class="grade-pct">30%</div>
+              <div class="grade-label">Final Exam</div>
+              <div class="grade-detail">Class #8, 45~60 minutes. Format TBA. No makeup exam.</div>
+            </div>
+            <div class="grading-card fragment">
+              <div class="grade-pct">20%</div>
+              <div class="grade-label">SHARE</div>
+              <div class="grade-detail">Summarizing Highlights and Reviewing Essentials (in-class group presentations).</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Slide 4.5: Summary 4/6 -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Course expectations · 4/6</p>
+          <h2>Course Workload</h2>
+          <div class="content-card" style="text-align: center;">
+            <ul>
+              <li class="fragment"><strong>No homework!</strong> No formal assignments to submit.</li>
+              <li class="fragment">Preparing for the <strong>3 quizzes</strong> is the main preparation you are responsible for.</li>
+              <li class="fragment">I will provide <strong>practice questions</strong> to prep for the quizzes and the final exam.</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- Slide 4.6: Summary 5/6 -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Course expectations · 5/6</p>
+          <h2>SHARE Presentations</h2>
+          <div class="content-card" style="text-align: center;">
+            <ul>
+              <li class="fragment"><strong>SHARE:</strong> group &ldquo;presentations&rdquo; held in-class.</li>
+              <li class="fragment">Groups will be <strong>selected at random</strong> every class (except classes with an in-class quiz).</li>
+              <li class="fragment">Every group will present <strong>at least once</strong> over the course.</li>
+              <li class="fragment">I will announce the SHARE group presentations ahead of time.</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- Slide 4.7: Summary 6/6 -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Course expectations · 6/6</p>
+          <h2>My Expectations of Everyone</h2>
+          <div class="content-card" style="text-align: center;">
+            <ol>
+              <li class="fragment"><strong>Attend each class.</strong></li>
+              <li class="fragment"><strong>Be prepared:</strong> complete assigned readings before class; ask clarifying questions via email or in person.</li>
+              <li class="fragment"><strong>Participate</strong> in class discussions.</li>
+              <li class="fragment"><strong>Communicate</strong> any concerns or issues in real-time. Don't wait.</li>
+              <li class="fragment"><strong>Always try your best.</strong> This will go a long way!</li>
+            </ol>
+          </div>
+        </section>
+
+      </section>
+
+
+      <!-- SECTION 3: What is Economics? (Vertical Stack) -->
+      <section>
+        
+        <!-- Slide 5.1: Divider -->
+        <section data-background-gradient="linear-gradient(135deg, #0f172a 0%, #1e293b 100%)">
+          <p class="eyebrow" style="color: #2dd4bf;">What is economics?</p>
+          <h1 style="color: white; font-size: 2.8em;">What is (Micro)economics?<br>&amp; Decision-making</h1>
+          <p style="color: #94a3b8; margin-top: 20px;">Press <kbd style="background: #334155; color: #cbd5e1; border: 1px solid #475569; padding: 2px 6px; border-radius: 4px;">↓</kbd> to view topic</p>
+        </section>
+
+        <!-- Slide 5.2: Definition of Economics -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">What is economics?</p>
+          <h2>The Study of Choices</h2>
+          <div class="content-card">
+            <p style="font-size: 1.15em; margin-bottom: 15px; font-weight: 600; text-align: center;">
+              Microeconomics is, very broadly, the study of decision-making.
+            </p>
+            <div style="text-align: center;">
+              <ul>
+                <li class="fragment">Making a decision means one alternative is selected over another <span style="color: #0f766e; font-weight: bold; margin: 0 4px;">&rArr;</span> <strong>trade-offs are incurred</strong>.</li>
+                <li class="fragment">To understand how decisions are made, we need to analyze:
+                  <ul>
+                    <li><strong>Scarcity + Choice</strong></li>
+                    <li><strong>Opportunity Cost</strong></li>
+                  </ul>
+                </li>
+                <li class="fragment">By understanding these three ingredients <span style="color: #0f766e; font-weight: bold; margin: 0 4px;">&rArr;</span> we can start analyzing intriguing phenomena that we observe in the real world.</li>
+              </ul>
+            </div>
+            <p class="fragment" style="margin-top: 15px; font-style: italic; color: #0f766e; text-align: center; font-weight: 500;">
+              This class is about learning the fundamental tools that go into economic analyses.
+            </p>
+          </div>
+        </section>
+
+        <!-- Slide 5.3: Scarcity -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">What is economics?</p>
           <h2>Scarcity</h2>
-          <p>There is never enough of everything for everyone.</p>
-          <p class="fragment">So we must <strong>choose</strong> — and choosing
-             means giving something up.</p>
+          <div class="content-card">
+            <div class="def-card">
+              <div class="def-title">Definition</div>
+              A <strong>scarce good</strong> is one for which the choice of one alternative requires that another be given up.
+            </div>
+            
+            <p style="margin-top: 15px; font-weight: 600; text-align: center;">Scarcity is associated with three fundamental questions:</p>
+            <div style="text-align: center;">
+              <ol>
+                <li class="fragment"><strong>What</strong> should be produced?</li>
+                <li class="fragment"><strong>How</strong> should goods and services be produced?</li>
+                <li class="fragment"><strong>For whom</strong> should goods and services be produced?</li>
+              </ol>
+            </div>
+          </div>
         </section>
-        <section>
-          <h2>Opportunity cost</h2>
-          <blockquote style="border:none;">
-            The opportunity cost of a choice is the value of the
-            <em>next-best</em> alternative you gave up.
-          </blockquote>
-          <p class="fragment">An hour studying economics is an hour not spent
-             sleeping, working, or with friends.</p>
+
+        <!-- Slide 5.4: Opportunity Cost -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">What is economics?</p>
+          <h2>Opportunity Cost</h2>
+          <div class="content-card">
+            <div class="def-card">
+              <div class="def-title">Definition</div>
+              <strong>Opportunity cost</strong> is the value of the best alternative forgone in making any choice.
+            </div>
+            
+            <div class="example-card fragment">
+              <div class="ex-title">Example</div>
+              Think about coming to class right now. What are the opportunity costs?
+            </div>
+            
+            <p class="fragment" style="font-weight: 600; text-align: center; color: #0f766e; margin-top: 20px;">
+              What does having a nonzero opportunity cost imply?
+            </p>
+          </div>
         </section>
+
+        <!-- Slide 5.5: Ford Plant Example -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">What is economics?</p>
+          <h2>Scarcity &amp; Opportunity Cost</h2>
+          <div class="content-card">
+            <div class="example-card">
+              <div class="ex-title">Application: Ford Assembly Plant</div>
+              The manager of a Ford assembly plant is considering whether to produce <strong>cars</strong> or <strong>sport utility vehicles (SUVs)</strong> next month.<br><br>
+              Assume:<br>
+              (a) they can only produce one kind of vehicle at a time,<br>
+              (b) quantities of labor and other materials required would be the same for either type of production.
+            </div>
+            
+            <p style="font-weight: 600; margin-top: 15px; color: #0f766e; text-align: center;">
+              What are the scarcity problem and opportunity costs faced by this assembly plant?
+            </p>
+          </div>
+        </section>
+
       </section>
 
-      <!-- A simple model -->
+
+      <!-- SECTION 4: How to Make Economic Decisions? (Vertical Stack) -->
       <section>
-        <h2>Thinking at the margin</h2>
-        <p>Good decisions compare <strong>marginal benefit</strong> with
-           <strong>marginal cost</strong>:</p>
-        <p>\[ \text{Do it if } \quad MB > MC \]</p>
-        <p class="fragment">Not "all or nothing" — just <em>one more unit</em>.</p>
+
+        <!-- Slide 6.1: Divider -->
+        <section data-background-gradient="linear-gradient(135deg, #0f766e 0%, #115e59 100%)">
+          <p class="eyebrow" style="color: #ccfbf1;">Economic decisions</p>
+          <h1 style="color: white; font-size: 2.8em;">How to Make<br>Economic Decisions?</h1>
+          <p style="color: #ccfbf1; margin-top: 20px;">Press <kbd style="background: #115e59; color: white; border: 1px solid #134e4a; padding: 2px 6px; border-radius: 4px;">↓</kbd> to view rules</p>
+        </section>
+
+        <!-- Slide 6.2: Maximizing Net Benefit -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">How to make economic decisions?</p>
+          <h2>Maximizing Net Benefit</h2>
+          <div class="content-card">
+            <p>Scarcity implies trade-offs exist: opportunity costs are (generally) nonzero.</p>
+            
+            <div class="def-card fragment" style="margin-top: 15px;">
+              <div class="def-title">Rational Choice Assumption</div>
+              Economists assume individuals maximize the <strong>net benefit</strong> of each potential decision:
+              \[ \text{Net Benefit} = \text{Total Benefit} - \text{Opportunity Costs} \]
+            </div>
+            
+            <p class="fragment" style="font-weight: 600; text-align: center; color: #0f766e; margin-top: 20px;">
+              What do we use to characterize how these decisions are made?
+            </p>
+          </div>
+        </section>
+
+        <!-- Slide 6.3: Thinking on the Margin -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">How to make economic decisions?</p>
+          <h2>Thinking on the Margin</h2>
+          <div class="content-card">
+            <p>Answer: <strong>thinking on the margin</strong>.</p>
+            <p>We need to look at the additional benefit and the additional cost of another unit of the activity.</p>
+            
+            <div class="def-card fragment">
+              <div class="def-title">Definition: Marginal Benefit</div>
+              The <strong>marginal benefit (MB)</strong> is the amount by which an additional unit of an activity increases an individual&rsquo;s total benefit.
+            </div>
+            
+            <div class="def-card fragment">
+              <div class="def-title">Definition: Marginal Cost</div>
+              The <strong>marginal cost (MC)</strong> is the amount by which an additional unit of an activity increases an individual&rsquo;s total cost.
+            </div>
+          </div>
+        </section>
+
+        <!-- Slide 6.4: Decision Rule -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">How to make economic decisions?</p>
+          <h2>The Decision Rule</h2>
+          <div class="content-card">
+            <p style="font-weight: 600; margin-bottom: 15px; text-align: center;">
+              Decision rule: we want to make a decision where the marginal benefit equals marginal cost.
+            </p>
+            <p style="text-align: center;">Specifically, think about the marginal decision of doing an activity:</p>
+            <div style="text-align: center;">
+              <ul>
+                <li class="fragment">If <strong>MB &gt; MC</strong>, then do more: <span style="color: #0f766e; font-weight: bold; margin: 0 4px;">&rarr;</span> <strong>&uarr; Q</strong></li>
+                <li class="fragment">If <strong>MB &lt; MC</strong>, then do less: <span style="color: #0f766e; font-weight: bold; margin: 0 4px;">&rarr;</span> <strong>&darr; Q</strong></li>
+              </ul>
+            </div>
+            
+            <div class="example-card fragment" style="margin-top: 20px;">
+              <div class="ex-title">Why? Spotify Example</div>
+              Imagine buying a subscription to Spotify, which is an all-or-nothing decision. 
+              Another reason why we think this way: <strong>Calculus</strong> (which we will see later!).
+            </div>
+          </div>
+        </section>
+
+        <!-- Slide 6.5: Key Takeaway -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">How to make economic decisions?</p>
+          <h2>The Core Principle</h2>
+          <div class="content-card" style="text-align: center; padding: 25px;">
+            <p style="font-size: 1.1em; color: #64748b; margin-bottom: 15px;">We will spend a lot of time with the following decision rule:</p>
+            
+            <div style="background: rgba(15, 118, 110, 0.04); border: 2px solid #0f766e; border-radius: 12px; padding: 20px; margin: 15px 0;">
+              <h2 style="color: #0f766e; margin-bottom: 5px; font-size: 2.2em;">MB = MC</h2>
+              <p style="font-size: 1.1em; font-weight: 700; color: #0f172a; margin: 0;">
+                Individuals and firms make decisions at which marginal benefit equals marginal cost.
+              </p>
+            </div>
+            
+            <p style="color: #0f766e; font-weight: 700; margin-top: 15px;">Please remember this decision rule!</p>
+            <p style="font-size: 0.9em; color: #64748b; margin-top: 5px;">We now begin translating this fundamental decision into objects that are important in economics.</p>
+          </div>
+        </section>
+
+        <!-- Slide 6.6: Course Roadmap -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">How to make economic decisions?</p>
+          <h2>Roadmap of the Course</h2>
+          <div class="content-card">
+            <p style="font-weight: 600; margin-bottom: 10px; color: #0f766e; text-align: center;">There are two distinct parts to the course:</p>
+            
+            <div class="def-card fragment" style="margin: 8px 0;">
+              <div class="def-title">Part 1: Market Analysis</div>
+              <ul style="margin: 5px 0 5px 20px !important;">
+                <li>Supply and demand, making decisions on the margin, equilibrium...</li>
+                <li>Market structure: market power, competition, implications for firms' decision-making and profits.</li>
+                <li>Welfare analyses.</li>
+              </ul>
+            </div>
+            
+            <div class="example-card fragment" style="margin: 8px 0;">
+              <div class="ex-title">Part 2: Strategies &amp; Decision-Making with Market Power</div>
+              <ul style="margin: 5px 0 5px 20px !important;">
+                <li>Game theory: strategies, equilibrium, first-mover advantages...</li>
+                <li>Apply to thinking about decision-making with uncertainty in payoffs.</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
       </section>
 
-      <!-- Production possibilities -->
+
+      <!-- SECTION 5: Supply & Demand - Demand (Vertical Stack) -->
       <section>
-        <h2>Production possibilities</h2>
-        <p>A country with limited resources faces trade-offs between any two goods
-           — say, <strong>guns</strong> and <strong>butter</strong>.</p>
-        <ul>
-          <li>Points on the frontier: efficient.</li>
-          <li>Inside: wasteful (idle resources).</li>
-          <li>Outside: not (yet) attainable.</li>
-        </ul>
+
+        <!-- Slide 7.1: Divider -->
+        <section data-background-gradient="linear-gradient(135deg, #0f172a 0%, #1e293b 100%)">
+          <p class="eyebrow" style="color: #2dd4bf;">Supply and Demand</p>
+          <h1 style="color: white; font-size: 2.8em;">Supply, Demand,<br>&amp; Equilibrium</h1>
+          <p style="color: #94a3b8; margin-top: 20px;">Press <kbd style="background: #334155; color: #cbd5e1; border: 1px solid #475569; padding: 2px 6px; border-radius: 4px;">↓</kbd> to study Demand</p>
+        </section>
+
+        <!-- Slide 7.2: Demand Def -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Supply and Demand · Demand</p>
+          <h2>Demand</h2>
+          <div class="content-card">
+            <p>We begin with demand.</p>
+            <div class="def-card fragment" style="margin-top: 15px;">
+              <div class="def-title">Definition</div>
+              <strong>Demand</strong> for a good or service is the amount of a good that a consumer is <strong>willing to buy</strong> at a given price.
+            </div>
+          </div>
+        </section>
+
+        <!-- Slide 7.3: The Market -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Supply and Demand · Demand</p>
+          <h2>Markets &amp; Demand</h2>
+          <div class="content-card">
+            <p>When we talk about demand, there is always a market.</p>
+            <div class="def-card fragment">
+              <div class="def-title">Definition</div>
+              A <strong>market</strong> refers to a specific product being bought and sold at a given quantity, at a specific location, and at a given point in time.
+            </div>
+            
+            <p class="fragment" style="margin-top: 15px;">
+              Therefore, &ldquo;my demand&rdquo; always refers to a specific product or other commodities and services. My demand for a product is equivalent to saying what quantity of a product I want.
+            </p>
+            
+            <p class="fragment" style="font-weight: 600; text-align: center; color: #0f766e; margin-top: 20px;">
+              What affects my demand for a product?
+            </p>
+          </div>
+        </section>
+
+        <!-- Slide 7.4: Factors Affecting Demand -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Supply and Demand · Demand</p>
+          <h2>What Affects Demand?</h2>
+          <div class="content-card" style="text-align: center;">
+            <p style="font-weight: 600; margin-bottom: 15px; text-align: center;">What affects my demand for a product?</p>
+            <ol>
+              <li class="fragment"><strong>Price</strong></li>
+              <li class="fragment">My <strong>income</strong></li>
+              <li class="fragment">My <strong>desires and tastes</strong></li>
+              <li class="fragment">
+                <span class="fill-blank"></span>
+                <span style="color: #64748b; font-size: 0.85em; margin-left: 10px;">(e.g., Prices of related goods, expectations)</span>
+              </li>
+            </ol>
+          </div>
+        </section>
+
+        <!-- Slide 7.5: Law of Demand -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Supply and Demand · Demand</p>
+          <h2>The Law of Demand</h2>
+          <div class="content-card">
+            <p style="color: #0f766e; font-weight: 600; text-align: center; margin-bottom: 10px;">Focus: 1. Price</p>
+            <p style="text-align: center;">What is the relationship between the price of a product and its quantity demanded?</p>
+            
+            <div class="def-card fragment" style="margin-top: 15px;">
+              <div class="def-title">Answer</div>
+              <strong>Law of Demand</strong>
+            </div>
+            
+            <div class="def-card fragment">
+              <div class="def-title">Definition</div>
+              <span class="fill-blank" style="min-width: 350px;"></span>
+              <p style="color: #64748b; font-size: 0.75em; margin-top: 8px; line-height: 1.3;">
+                (ceteris paribus, as the price of a good increases, the quantity demanded decreases, and vice versa.)
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Slide 7.6: Representing Demand -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Supply and Demand · Demand</p>
+          <h2>Representing Demand</h2>
+          <div class="content-card" style="text-align: center;">
+            <p style="color: #0f766e; font-weight: 600; margin-bottom: 10px;">Focus: 1. Price</p>
+            <p>What is the relationship between the price of a product and its quantity demanded?</p>
+            <p style="margin-top: 10px;">Answer: <strong>Law of Demand</strong></p>
+            
+            <p style="font-weight: 600; text-align: center; color: #0f766e; margin-top: 30px;">
+              How to graphically represent demand for a product?
+            </p>
+          </div>
+        </section>
+
+        <!-- Slide 7.7: Demand Curve Graph -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Supply and Demand · Demand</p>
+          <h2>The Demand Curve</h2>
+          <div class="slide-img-container">
+            <img src="images/page_26_img_3.png" alt="Demand Curve Graph">
+          </div>
+          <p style="font-size: 0.7em; color: #64748b; max-width: 650px; margin: 10px auto; line-height: 1.35;">
+            Quantity demanded at each possible price, holding constant other factors that influence purchases.
+          </p>
+        </section>
+
       </section>
 
-      <!-- Course roadmap -->
+
+      <!-- SECTION 6: Supply & Demand - Supply (Vertical Stack) -->
       <section>
-        <h2>Where we're headed</h2>
-        <ol>
-          <li><strong>Micro</strong> — choice, markets, firms, failure</li>
-          <li><strong>Macro</strong> — growth, money, employment</li>
-          <li><strong>Policy</strong> — putting the tools to work</li>
-        </ol>
+
+        <!-- Slide 8.1: Divider -->
+        <section data-background-gradient="linear-gradient(135deg, #0f766e 0%, #115e59 100%)">
+          <p class="eyebrow" style="color: #ccfbf1;">Supply and Demand</p>
+          <h1 style="color: white; font-size: 2.8em;">Supply</h1>
+          <p style="color: #ccfbf1; margin-top: 20px;">Press <kbd style="background: #115e59; color: white; border: 1px solid #134e4a; padding: 2px 6px; border-radius: 4px;">↓</kbd> to study Supply</p>
+        </section>
+
+        <!-- Slide 8.2: Supply Def -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Supply and Demand · Supply</p>
+          <h2>Supply</h2>
+          <div class="content-card">
+            <p>We now define supply.</p>
+            
+            <div class="def-card fragment" style="margin-top: 15px;">
+              <div class="def-title">Definition</div>
+              <strong>Supply</strong> of a product is the quantity of the good that a producer is <strong>willing to (produce and) sell</strong>.
+            </div>
+            
+            <p class="fragment" style="margin-top: 15px;">
+              It is important to emphasize &ldquo;willing to sell&rdquo; in the definition, and we will see this is a function of costs.
+            </p>
+            
+            <p class="fragment" style="font-weight: 600; text-align: center; color: #0f766e; margin-top: 20px;">
+              What affects a producer&rsquo;s supply of a product?
+            </p>
+          </div>
+        </section>
+
+        <!-- Slide 8.3: Factors Affecting Supply -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Supply and Demand · Supply</p>
+          <h2>What Affects Supply?</h2>
+          <div class="content-card" style="text-align: center;">
+            <p style="font-weight: 600; margin-bottom: 15px; text-align: center;">What affects a producer's supply of a product?</p>
+            <ol>
+              <li class="fragment"><strong>Price</strong></li>
+              <li class="fragment"><strong>Cost of production</strong> (e.g., labor, raw materials)</li>
+              <li class="fragment">Seller's <strong>outside options</strong></li>
+              <li class="fragment">
+                <span class="fill-blank"></span>
+                <span style="color: #64748b; font-size: 0.85em; margin-left: 10px;">(e.g., Technology, government regulations)</span>
+              </li>
+            </ol>
+          </div>
+        </section>
+
+        <!-- Slide 8.4: Law of Supply -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Supply and Demand · Supply</p>
+          <h2>The Law of Supply</h2>
+          <div class="content-card">
+            <p style="color: #0f766e; font-weight: 600; text-align: center; margin-bottom: 10px;">Focus: 1. Price</p>
+            <p style="text-align: center;">What is the relationship between the price of a product and its quantity supplied?</p>
+            
+            <div class="def-card fragment" style="margin-top: 15px;">
+              <div class="def-title">Answer</div>
+              <strong>Law of Supply</strong>
+            </div>
+            
+            <div class="def-card fragment">
+              <div class="def-title">Definition</div>
+              <span class="fill-blank" style="min-width: 350px;"></span>
+              <p style="color: #64748b; font-size: 0.75em; margin-top: 8px; line-height: 1.3;">
+                (ceteris paribus, as the price of a good increases, the quantity supplied increases, and vice versa.)
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Slide 8.5: Representing Supply -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Supply and Demand · Supply</p>
+          <h2>Representing Supply</h2>
+          <div class="content-card" style="text-align: center;">
+            <p style="color: #0f766e; font-weight: 600; margin-bottom: 10px;">Focus: 1. Price</p>
+            <p>What is the relationship between the price of a product and its quantity supplied?</p>
+            <p style="margin-top: 10px;">Answer: <strong>Law of Supply</strong></p>
+            
+            <p style="font-weight: 600; text-align: center; color: #0f766e; margin-top: 30px;">
+              How to graphically represent supply of a product?
+            </p>
+          </div>
+        </section>
+
+        <!-- Slide 8.6: Supply Curve Graph -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Supply and Demand · Supply</p>
+          <h2>The Supply Curve</h2>
+          <div class="slide-img-container">
+            <img src="images/page_31_img_3.png" alt="Supply Curve Graph">
+          </div>
+          <p style="font-size: 0.7em; color: #64748b; max-width: 650px; margin: 10px auto; line-height: 1.35;">
+            Firms determine supply on the basis of the price of that good and on other factors, including costs of production, technological change, and government regulations.
+          </p>
+        </section>
+
       </section>
 
-      <!-- Closing -->
+
+      <!-- SECTION 7: Supply & Demand together (Vertical Stack) -->
       <section>
-        <h2>For next time</h2>
-        <ul>
-          <li>Read Chapter 1.</li>
-          <li>Write down one decision you made today — what did it cost?</li>
-        </ul>
-        <p style="margin-top:1em;color:#8a93a6;">Questions? Stay after class or
-           email the instructor.</p>
+
+        <!-- Slide 9.1: Divider -->
+        <section data-background-gradient="linear-gradient(135deg, #0f172a 0%, #1e293b 100%)">
+          <p class="eyebrow" style="color: #2dd4bf;">Supply and Demand Together</p>
+          <h1 style="color: white; font-size: 2.8em;">Putting Supply &amp;<br>Demand Together</h1>
+          <p style="color: #94a3b8; margin-top: 20px;">Press <kbd style="background: #334155; color: #cbd5e1; border: 1px solid #475569; padding: 2px 6px; border-radius: 4px;">↓</kbd> to view Equilibrium</p>
+        </section>
+
+        <!-- Slide 9.2: Model Assumptions -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Supply and Demand Together</p>
+          <h2>Model Assumptions</h2>
+          <div class="content-card">
+            <p>Together, supply and demand form the basic working model of modern economics.</p>
+            <p style="font-weight: 600; margin-top: 10px; text-align: center;">Assumptions for this model to be meaningful for analyses:</p>
+            <div style="text-align: center;">
+              <ol>
+                <li class="fragment">Focuses on a <strong>single market</strong> with many buyers and sellers.</li>
+                <li class="fragment">All goods/services sold in the market are <strong>identical</strong>.</li>
+                <li class="fragment">All goods/services sold in the market are transacted at the <strong>same price</strong>.</li>
+                <li class="fragment">Everyone has the <strong>same information</strong> about prices, quality of goods/services, etc.</li>
+              </ol>
+            </div>
+            <p class="fragment" style="font-weight: 700; text-align: center; color: #0f766e; margin-top: 20px;">
+              WE CAN NOW PUT DEMAND AND SUPPLY TOGETHER!
+            </p>
+          </div>
+        </section>
+
+        <!-- Slide 9.3: Market Equilibrium -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Supply and Demand Together</p>
+          <h2>Market Equilibrium</h2>
+          <div style="display: flex; align-items: center; justify-content: center; gap: 20px; max-width: 950px; margin: 0 auto;">
+            <div style="flex: 1; text-align: left;">
+              <div class="def-card" style="margin: 0;">
+                <div class="def-title">Definition</div>
+                The <strong>market equilibrium</strong> is where supply meets demand. Any equilibrium consists of an <strong>equilibrium price</strong> and <strong>equilibrium quantity</strong>.
+              </div>
+            </div>
+            <div style="flex: 1;">
+              <div class="slide-img-container" style="margin: 0; padding: 6px;">
+                <img src="images/page_33_img_3.png" alt="Market Equilibrium Graph" style="max-height: 220px;">
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Slide 9.4: Understanding Equilibrium -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Supply and Demand Together</p>
+          <h2>Equilibrium as a Snapshot</h2>
+          <div style="display: flex; align-items: center; justify-content: center; gap: 20px; max-width: 950px; margin: 0 auto;">
+            <div style="flex: 1; text-align: left;">
+              <div class="content-card" style="margin: 0; padding: 15px 20px;">
+                <p style="font-size: 0.9em; margin-bottom: 10px;">Remember markets are defined for a product, at a particular place, at a point in time.</p>
+                <p style="font-size: 0.9em; font-weight: 600; margin-bottom: 10px; color: #0f766e;">Therefore, any equilibrium describes a snapshot of individual consumers&rsquo; and firms&rsquo; behavior at a given time.</p>
+                <p style="font-size: 0.85em; font-weight: 600; margin-bottom: 5px;">What if:</p>
+                <ul style="margin: 5px 0 5px 20px !important;">
+                  <li class="fragment" style="margin-bottom: 5px;">There are fewer consumers?</li>
+                  <li class="fragment">Firms get less raw materials for production because of extreme weather events?</li>
+                </ul>
+              </div>
+            </div>
+            <div style="flex: 1;">
+              <div class="slide-img-container" style="margin: 0; padding: 6px;">
+                <img src="images/page_34_img_3.png" alt="Market Equilibrium Graph Snapshot" style="max-height: 220px;">
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Slide 9.5: Movements along curves -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Supply and Demand Together</p>
+          <h2>Movements Along Curves</h2>
+          <div class="content-card" style="text-align: center;">
+            <ul>
+              <li class="fragment">
+                If only the price of a product goes up (everything else held constant), then a consumer would want to consume 
+                <strong style="color: #b91c1c;">less</strong>.
+              </li>
+              <li class="fragment">
+                Likewise, if only the price of a product a firm can sell at goes up (everything else held constant), then a producer is willing to produce 
+                <strong style="color: #047857;">more</strong>.
+              </li>
+              <li class="fragment">
+                These statements are equivalent to <strong>movement along the supply/demand curves</strong>.
+              </li>
+              <li class="fragment">
+                These statements are also equivalent to saying <em>ceteris paribus</em> (all else held constant, a price change...).
+              </li>
+            </ul>
+            <p class="fragment" style="font-weight: 600; text-align: center; color: #0f766e; margin-top: 20px;">
+              What if there are more than price changes?
+            </p>
+          </div>
+        </section>
+
+        <!-- Slide 9.6: Shifts of Curves -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Supply and Demand Together</p>
+          <h2>Shifts of the Curves</h2>
+          <div class="content-card">
+            <p>In life, there are many changes that are not related to the price of the product changing.</p>
+            <div class="example-card fragment" style="margin: 10px 0;">
+              <div class="ex-title">Examples of External Changes</div>
+              Extreme climate events, limited supply of raw materials, shipping delays, shrinking customer base, etc.
+            </div>
+            
+            <div class="def-card fragment" style="margin-top: 15px;">
+              <div class="def-title">Core Rule: Shifts</div>
+              If there are changes to any factors <strong>other than price</strong> that affect demand/supply, then the <strong>entire demand/supply curve shifts</strong>.
+            </div>
+          </div>
+        </section>
+
+      </section>
+
+
+      <!-- SECTION 8: Recap & Wrap-up (Horizontal) -->
+      
+      <!-- Slide 10: Where to go from here? -->
+      <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+        <p class="eyebrow">A brief recap...</p>
+        <h2>Where to Go from Here?</h2>
+        <div class="content-card" style="text-align: center;">
+          <p style="font-size: 0.9em; margin-bottom: 15px; line-height: 1.4; text-align: left;">
+            So far, we have only defined the fundamental objects of modern economic analyses. We have not said anything about how to use these fundamental objects to analyze why certain market phenomena occur.
+          </p>
+          <p style="font-weight: 600; color: #0f766e; margin-bottom: 5px; text-align: center;">Next time, we will:</p>
+          <ol>
+            <li class="fragment">Explain how economists use the supply and demand model to analyze changes in markets.</li>
+            <li class="fragment">Work with some numerical examples.</li>
+            <li class="fragment">And then define more objects of interest within the supply and demand model, starting with <strong>elasticity</strong>.</li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- Slide 11: Closing -->
+      <section data-background-gradient="linear-gradient(135deg, #0f172a 0%, #1e293b 100%)">
+        <p class="eyebrow" style="color: #2dd4bf;">For next time</p>
+        <h2 style="color: white;">Preparation for Next Class</h2>
+        <div class="content-card" style="background: rgba(30, 41, 59, 0.7); border-color: rgba(255, 255, 255, 0.1); text-align: center;">
+          <p style="color: #cbd5e1; font-weight: 600; margin-bottom: 10px;">Focus: Supply and demand, demand elasticity, pricing</p>
+          <ul style="color: #94a3b8;">
+            <li style="margin-bottom: 8px;">Come to office hours with any questions or concerns — or email me!</li>
+            <li>See you next Monday @ 9am sharp!</li>
+          </ul>
+        </div>
+        <p style="margin-top: 30px; color: #64748b; font-size: 0.75em;">Thank you!</p>
       </section>
 
     </div>
   </div>
 
   <a class="home-link" href="../">&larr; Back to course site</a>
+  <div class="slide-footer">RSC Economics Experience · Lecture 1</div>
 
   <!-- reveal.js core + plugins -->
   <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>

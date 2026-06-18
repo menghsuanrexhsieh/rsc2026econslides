@@ -14,7 +14,19 @@ and <code>Esc</code> for a slide overview.
 <div class="cards">
   <a class="card" href="{{ '/slides/lecture-01.html' | relative_url }}">
     <h3>Lecture 1</h3>
-    <p>Introduction · scarcity &amp; trade-offs</p>
+    <p>Intro, Scarcity, Supply &amp; Demand, Equilibrium</p>
+  </a>
+  <a class="card" href="{{ '/slides/lecture-02.html' | relative_url }}">
+    <h3>Lecture 2</h3>
+    <p>Algebra, Shifts, Elasticity &amp; Marginal Revenue</p>
+  </a>
+  <a class="card" href="{{ '/slides/lecture-03.html' | relative_url }}">
+    <h3>Lecture 3</h3>
+    <p>Elasticities, Marginal Revenue, &amp; Cost Functions</p>
+  </a>
+  <a class="card" href="{{ '/slides/lecture-04.html' | relative_url }}">
+    <h3>Lecture 4</h3>
+    <p>Monopoly, Perfect Competition, &amp; Equilibria</p>
   </a>
 </div>
 

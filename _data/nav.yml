@@ -22,5 +22,12 @@
   links:
     - label: All decks
       url: /slides/
-    - label: "Lecture 1 · Introduction"
+    - label: "Lecture 1 · Intro, Supply & Demand"
       url: /slides/lecture-01.html
+    - label: "Lecture 2 · More on Supply and Demand, and Elasticity"
+      url: /slides/lecture-02.html
+    - label: "Lecture 3 · Elasticities, Marginal Revenue, and Costs"
+      url: /slides/lecture-03.html
+    - label: "Lecture 4 · Monopoly and Perfect Competition"
+      url: /slides/lecture-04.html
+

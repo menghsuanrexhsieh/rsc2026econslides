@@ -1,0 +1,982 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Elasticities, Marginal Revenue, and Costs</title>
+
+  <!-- reveal.js core + theme (HTML5 slides, loaded from CDN) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reset.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/white.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/highlight/monokai.css">
+
+  <!-- Google Fonts for premium typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --r-main-font: 'Plus Jakarta Sans', sans-serif;
+      --r-heading-font: 'Outfit', sans-serif;
+      --r-main-color: #1e293b;
+      --r-heading-color: #0f172a;
+      --r-link-color: #0f766e;
+      --r-selection-background-color: #ccfbf1;
+    }
+    
+    .reveal {
+      font-family: var(--r-main-font);
+      color: var(--r-main-color);
+      font-size: 24px; /* Reduced by 40% from default 40px */
+    }
+    
+    .reveal h1, .reveal h2, .reveal h3, .reveal h4 {
+      font-family: var(--r-heading-font);
+      color: var(--r-heading-color);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .reveal h1 { font-size: 2.2em; line-height: 1.1; }
+    .reveal h2 { font-size: 1.6em; line-height: 1.2; margin-bottom: 15px; }
+    .reveal h3 { font-size: 1.2em; line-height: 1.3; }
+    
+    .reveal .eyebrow {
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      font-size: 0.45em;
+      font-weight: 700;
+      color: #0f766e;
+      margin-bottom: 10px;
+      display: inline-block;
+    }
+    
+    /* Elegant card container */
+    .reveal .content-card {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      border-radius: 12px;
+      padding: 18px 24px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.02);
+      margin: 12px auto;
+      text-align: left;
+      max-width: 800px;
+    }
+    
+    .reveal .def-card {
+      border-left: 4px solid #0f766e;
+      background: rgba(15, 118, 110, 0.04);
+      border-radius: 4px 10px 10px 4px;
+      padding: 12px 18px;
+      margin: 12px 0;
+      text-align: left;
+    }
+    .reveal .def-card .def-title {
+      font-family: var(--r-heading-font);
+      font-weight: 700;
+      color: #0f766e;
+      font-size: 0.8em;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 4px;
+    }
+    
+    .reveal .example-card {
+      border-left: 4px solid #3b82f6;
+      background: rgba(59, 130, 246, 0.04);
+      border-radius: 4px 10px 10px 4px;
+      padding: 12px 18px;
+      margin: 12px 0;
+      text-align: left;
+    }
+    .reveal .example-card .ex-title {
+      font-family: var(--r-heading-font);
+      font-weight: 700;
+      color: #3b82f6;
+      font-size: 0.8em;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 4px;
+    }
+    
+    /* Slide image styling */
+    .reveal .slide-img-container {
+      background: white;
+      padding: 8px;
+      border-radius: 10px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.02);
+      border: 1px solid #e2e8f0;
+      display: inline-block;
+      margin-top: 8px;
+    }
+    .reveal .slide-img-container img {
+      max-height: 260px;
+      width: auto;
+      margin: 0;
+      display: block;
+      border-radius: 4px;
+    }
+    
+    /* Grid for side-by-side clips */
+    .reveal .img-gallery {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 15px;
+      flex-wrap: wrap;
+      margin-top: 15px;
+    }
+    .reveal .img-gallery .gallery-item {
+      background: white;
+      padding: 6px;
+      border-radius: 10px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.02);
+      border: 1px solid #e2e8f0;
+    }
+    .reveal .img-gallery img {
+      max-height: 220px;
+      width: auto;
+      display: block;
+      border-radius: 4px;
+      margin: 0;
+    }
+
+    /* Standard list styling (for inside cards, columns, etc.) */
+    .reveal ul, .reveal ol {
+      display: block;
+      text-align: left;
+      margin: 10px 0 !important;
+      padding-left: 20px;
+    }
+    
+    .reveal ul {
+      list-style-type: disc;
+    }
+    
+    .reveal ol {
+      list-style-type: decimal;
+    }
+    
+    .reveal li {
+      text-align: left;
+      margin-bottom: 8px;
+      line-height: 1.35;
+    }
+    
+    /* Indentation and bullets for nested lists */
+    .reveal li ul, .reveal li ol {
+      margin: 4px 0 4px 20px !important;
+      display: block;
+      min-width: unset;
+    }
+    
+    .reveal li ul {
+      list-style-type: circle;
+    }
+    
+    /* Centered list layout (only when list is the main slide element or explicitly centered) */
+    .reveal section > ul, .reveal section > ol, .reveal .center-list {
+      display: inline-block;
+      text-align: left;
+      margin: 15px auto !important;
+      padding-left: 20px;
+      min-width: 65%;
+      max-width: 95%;
+    }
+    
+    /* Home link and footer elements */
+    .reveal .home-link {
+      position: fixed;
+      bottom: 16px;
+      left: 20px;
+      z-index: 30;
+      font-size: 13px;
+      color: #94a3b8;
+      text-decoration: none;
+      font-family: var(--r-main-font);
+      font-weight: 500;
+      transition: color 0.2s ease;
+    }
+    .reveal .home-link:hover {
+      color: #0f766e;
+    }
+    
+    .reveal .slide-footer {
+      position: fixed;
+      bottom: 16px;
+      right: 20px;
+      z-index: 30;
+      font-size: 11px;
+      color: #94a3b8;
+      font-family: var(--r-main-font);
+    }
+    
+    /* Interactive blank */
+    .reveal .fill-blank {
+      display: inline-block;
+      border-bottom: 2px dashed #94a3b8;
+      min-width: 140px;
+      height: 1.1em;
+      vertical-align: bottom;
+    }
+
+    .reveal .katex-display {
+      margin: 8px 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- SECTION 1: Welcome & Overview (Horizontal) -->
+      
+      <!-- Slide 1: Title -->
+      <section data-background-gradient="linear-gradient(135deg, #0f172a 0%, #1e293b 100%)">
+        <p class="eyebrow" style="color: #2dd4bf;">RSC Economics Experience · July 2026</p>
+        <h1 style="color: white; font-size: 2.5em; margin-bottom: 15px;">Class 3</h1>
+        <h3 style="color: #94a3b8; font-weight: 400; margin-bottom: 45px;">Elasticities, Marginal Revenue, and Costs</h3>
+        <p style="color: #2dd4bf; font-weight: 600; font-size: 0.9em; margin-bottom: 5px;">Meng Hsuan &ldquo;Rex&rdquo; Hsieh</p>
+        <p style="color: #64748b; font-size: 0.75em; margin-top: 30px;">Press <kbd style="background: #334155; color: #cbd5e1; border: 1px solid #475569; padding: 2px 6px; border-radius: 4px;">→</kbd> to begin</p>
+      </section>
+
+      <!-- Slide 2: Agenda -->
+      <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+        <p class="eyebrow">Agenda for Today</p>
+        <h2>Competition and Market Analysis</h2>
+        <div class="content-card">
+          <p style="font-weight: 600; color: #0f766e; margin-bottom: 12px;">Where we left off last time:</p>
+          <ul>
+            <li class="fragment">Analyzed markets using some algebra.</li>
+            <li class="fragment">Defined elasticities as a concept to quantify economic behavior.</li>
+          </ul>
+          <div class="def-card fragment" style="margin-top: 15px;">
+            <div class="def-title">Today's Goal</div>
+            Further operationalize the supply and demand model to analyze firm behaviors, costs, and competition in markets (focusing on <strong>Monopoly</strong>).
+          </div>
+        </div>
+      </section>
+
+
+      <!-- SECTION 2: Wrapping up Elasticities (Vertical Stack) -->
+      <section>
+
+        <!-- Slide 3.1: Divider -->
+        <section data-background-gradient="linear-gradient(135deg, #0f766e 0%, #115e59 100%)">
+          <p class="eyebrow" style="color: #ccfbf1;">Part 1</p>
+          <h1 style="color: white; font-size: 2.8em;">Wrapping up Elasticities<br>&amp; Marginal Revenue</h1>
+          <p style="color: #ccfbf1; margin-top: 20px;">Press <kbd style="background: #115e59; color: white; border: 1px solid #134e4a; padding: 2px 6px; border-radius: 4px;">↓</kbd> to continue</p>
+        </section>
+
+        <!-- Slide 3.2: Recap Elasticity -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Elasticity · Recap</p>
+          <h2>(Own-Price) Elasticity of Demand</h2>
+          <div class="content-card" style="font-size: 0.92em;">
+            <div class="def-card" style="margin: 0 0 12px;">
+              <div class="def-title">Definition</div>
+              The <strong>elasticity of demand</strong> is the ratio of percentage change in quantity to the percentage change in price (also called <strong>point elasticity of demand</strong>).
+            </div>
+            <p>We define the own-price elasticity of demand \( \varepsilon \) as:</p>
+            <div style="display: flex; justify-content: space-around; align-items: center; margin: 10px 0;">
+              <div>
+                \[ \varepsilon = \frac{\% \Delta Q}{\% \Delta P} \]
+              </div>
+              <div>
+                \[ \varepsilon = \frac{\Delta Q / Q}{\Delta P / P} = \frac{\Delta Q}{\Delta P} \times \frac{P}{Q} \]
+              </div>
+            </div>
+            <p style="font-size: 0.85em; color: #515763; margin-top: 8px;">
+              Where \( \frac{\Delta Q}{\Delta P} \) is the slope of the demand function.<br>
+              By definition, \( \varepsilon \) is negative, but we follow tradition and work with the absolute value <strong>\( |\varepsilon| \)</strong>.
+            </p>
+          </div>
+        </section>
+
+        <!-- Slide 3.3: Classification -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Elasticity · Recap</p>
+          <h2>Relatively Elastic vs. Inelastic</h2>
+          <div class="content-card">
+            <p style="margin-bottom: 15px;">In addition to point elasticities, we say demand is relatively elastic or inelastic to describe general responsiveness:</p>
+            <div class="def-card">
+              <div class="def-title">Relatively Elastic</div>
+              Demand is <strong>relatively elastic</strong> if, for a given percentage change in price, the resulting percentage change in quantity demanded is <strong>large</strong> (highly responsive).
+            </div>
+            <div class="def-card fragment">
+              <div class="def-title">Relatively Inelastic</div>
+              Demand is <strong>relatively inelastic</strong> if, for a given percentage change in price, the resulting percentage change in quantity demanded is <strong>small</strong> (low responsiveness).
+            </div>
+          </div>
+        </section>
+
+        <!-- Slide 3.4: Linear Demand regions -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Elasticity · Recap</p>
+          <h2>Elasticity regions with linear demand</h2>
+          <div style="display: flex; align-items: center; justify-content: center; gap: 20px; max-width: 950px; margin: 0 auto;">
+            <div style="flex: 1; text-align: left;">
+              <div class="content-card" style="margin: 0; padding: 20px 25px;">
+                <p style="font-weight: 600; color: #0f766e; margin-bottom: 12px;">Elasticity regions on a linear curve:</p>
+                <ul>
+                  <li class="fragment"><strong>Elastic</strong> above the midpoint: \( |\varepsilon| &gt; 1 \)</li>
+                  <li class="fragment"><strong>Unit-elastic</strong> at the midpoint: \( |\varepsilon| = 1 \)</li>
+                  <li class="fragment"><strong>Inelastic</strong> below the midpoint: \( |\varepsilon| &lt; 1 \)</li>
+                </ul>
+              </div>
+            </div>
+            <div style="flex: 1.2;">
+              <div class="slide-img-container" style="margin: 0; padding: 6px;">
+                <img src="images/c3_page_6_graph.png" alt="Linear Demand Elasticity Regions" style="max-height: 320px;">
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Slide 3.5: Other Measures -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Elasticity · Other Measures</p>
+          <h2>Income &amp; Cross-Price Elasticities</h2>
+          <div class="content-card" style="font-size: 0.9em;">
+            <div class="def-card" style="margin: 5px 0 10px;">
+              <div class="def-title">Definition: Cross-Price Elasticity</div>
+              For any two goods \( X \) and \( Y \), if the cross-price elasticity of demand for \( X \) with respect to the price of \( Y \) is:
+              <ul>
+                <li><strong>Negative</strong>: then \( X \) and \( Y \) are <strong>complements</strong>.</li>
+                <li><strong>Positive</strong>: then \( X \) and \( Y \) are <strong>substitutes</strong>.</li>
+              </ul>
+            </div>
+            <div class="def-card fragment" style="margin: 10px 0 5px;">
+              <div class="def-title">Definition: Income Elasticity</div>
+              For any good \( X \), if the income elasticity of demand for \( X \) is:
+              <ul>
+                <li><strong>Negative</strong>: then \( X \) is an <strong>inferior good</strong>.</li>
+                <li><strong>Positive</strong>: then \( X \) is a <strong>normal good</strong>.</li>
+              </ul>
+            </div>
+            <p style="font-size: 0.85em; font-style: italic; color: #64748b; margin-top: 10px; text-align: center;">
+              Note: We must infer elasticities from contextual behaviors in the real world!
+            </p>
+          </div>
+        </section>
+
+        <!-- Slide 3.6: Income Example -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Elasticity · Example 1</p>
+          <h2>Applying Income Elasticity</h2>
+          <div class="content-card">
+            <div class="example-card">
+              <div class="ex-title">Example scenario</div>
+              Rex&rsquo;s net income increased by <strong>21%</strong> this year compared to last; his purchases of sparkling water rose by <strong>17%</strong>. <br><br>
+              <strong>What is his income elasticity of demand for sparkling water?</strong>
+            </div>
+            
+            <p class="fragment" style="font-weight: 600; text-align: center; color: #0f766e; margin-top: 25px;">
+              Is sparkling water a normal or inferior good for Rex?
+            </p>
+          </div>
+        </section>
+
+        <!-- Slide 3.7: Cross-Price Example -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Elasticity · Example 2</p>
+          <h2>Applying Cross-Price Elasticity</h2>
+          <div class="content-card">
+            <div class="example-card">
+              <div class="ex-title">Example scenario</div>
+              Wicked Art Fair (WAF) and Artistic Odyssey (AO) hold fairs at the same time every year. This year, WAF raised their ticket price by <strong>20%</strong>, and AO sees their traffic increase by <strong>11%</strong>. <br><br>
+              <strong>What is the cross-price elasticity of demand of (tickets for) AO?</strong>
+            </div>
+            
+            <p class="fragment" style="font-weight: 600; text-align: center; color: #0f766e; margin-top: 25px;">
+              Are WAF and AO tickets complements or substitutes?
+            </p>
+          </div>
+        </section>
+
+        <!-- Slide 3.8: Link to MR -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Elasticity &amp; Marginal Revenue</p>
+          <h2>Firms and Customer Sensitivity</h2>
+          <div class="content-card">
+            <p style="font-weight: 600; color: #0f766e;">The intellectual exercise is:</p>
+            <p style="font-size: 1.1em; line-height: 1.45; margin-bottom: 20px;">
+              Imagine we own a firm, and we face a group of potential customers &mdash; each with the same demand for our product. <br>
+              <strong>How can I relate their behavior (elasticity) to the incremental revenue we will earn as a firm?</strong>
+            </p>
+            <ul style="font-size: 0.85em; color: #515763;">
+              <li class="fragment">Why should we, as a firm, care about this?</li>
+              <li class="fragment">How would we even know the answer to this question?</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- Slide 3.9: Pricing visual -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Elasticity &amp; Marginal Revenue</p>
+          <h2>Visualizing Pricing and Revenue</h2>
+          <div class="slide-img-container">
+            <img src="images/c3_page_11_img.jpeg" alt="Pricing and Revenue Illustration" style="max-height: 280px;">
+          </div>
+        </section>
+
+        <!-- Slide 3.10: MR Midpoint Fact -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Elasticity &amp; Marginal Revenue</p>
+          <h2>The Unit-Elastic Midpoint Rule</h2>
+          <div style="display: flex; align-items: center; justify-content: center; gap: 20px; max-width: 950px; margin: 0 auto;">
+            <div style="flex: 1; text-align: left;">
+              <div class="content-card" style="margin: 0; padding: 20px 25px;">
+                <div class="def-card" style="margin: 0 0 15px;">
+                  <div class="def-title">Key Fact</div>
+                  For a firm facing a given demand function, the firm&rsquo;s <strong>marginal revenue is zero</strong> when they set a price where the customer&rsquo;s demand is <strong>unit-elastic</strong> (\( |\varepsilon| = 1 \)).
+                </div>
+                <p style="font-size: 0.85em; font-style: italic; color: #64748b;">
+                  This represents the peak of total revenue (midpoint for linear demand). This explains why firms care about knowing elasticity!
+                </p>
+              </div>
+            </div>
+            <div style="flex: 1.2;">
+              <div class="slide-img-container" style="margin: 0; padding: 6px;">
+                <img src="images/c3_page_12_graph.png" alt="Marginal Revenue Zero Graph" style="max-height: 320px;">
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Slide 3.11: Unpacking MR -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Elasticity &amp; Marginal Revenue</p>
+          <h2>What is Marginal Revenue?</h2>
+          <div class="content-card">
+            <div class="def-card">
+              <div class="def-title">Definition</div>
+              <strong>Marginal revenue (MR)</strong> is the incremental revenue made by firms when they produce one additional unit of product.
+            </div>
+            <p style="margin-top: 15px;">This is the concept of marginal benefits for firms! Mathematically, we derive it from the total revenue function:</p>
+            <div style="text-align: center; margin: 15px 0;">
+              \[ MR = \frac{d(TR)}{dQ} \]
+            </div>
+            <p class="fragment" style="color: #0f766e; font-weight: 600; text-align: center;">
+              Now we discuss firms and introduce formal connections to elasticity!
+            </p>
+          </div>
+        </section>
+
+      </section>
+
+
+      <!-- SECTION 3: With Marginal Revenue (Vertical Stack) -->
+      <section>
+
+        <!-- Slide 4.1: Divider -->
+        <section data-background-gradient="linear-gradient(135deg, #0f172a 0%, #1e293b 100%)">
+          <p class="eyebrow" style="color: #2dd4bf;">Part 2</p>
+          <h1 style="color: white; font-size: 2.8em;">Profit Maximization &amp;<br>Marginal Revenue</h1>
+          <p style="color: #94a3b8; margin-top: 20px;">Press <kbd style="background: #334155; color: #cbd5e1; border: 1px solid #475569; padding: 2px 6px; border-radius: 4px;">↓</kbd> to view derivations</p>
+        </section>
+
+        <!-- Slide 4.2: Model Assumptions -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Profit Maximization · Setup</p>
+          <h2>Firms in the Supply/Demand Model</h2>
+          <div class="content-card">
+            <p style="margin-bottom: 15px; font-weight: 600; color: #0f766e;">Three basic facts (assumptions) in our model:</p>
+            <div class="def-card" style="margin: 8px 0;">
+              <strong>Fact #1.</strong> Firms&rsquo; objective is to maximize profits = total revenue minus total costs.
+            </div>
+            <div class="def-card fragment" style="margin: 8px 0;">
+              <strong>Fact #2.</strong> Firms choose quantity to maximize profits.
+            </div>
+            <div class="def-card fragment" style="margin: 8px 0;">
+              <strong>Fact #3 (!).</strong> Firms&rsquo; demand (they face) may differ from the market demand for a product they sell.
+            </div>
+          </div>
+        </section>
+
+        <!-- Slide 4.3: Profit Function -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Profit Maximization · Setup</p>
+          <h2>The Profit Function</h2>
+          <div class="content-card" style="text-align: center; padding: 35px;">
+            <p style="margin-bottom: 20px; font-size: 1.1em;">Combining Fact #1 &amp; #2, we define the profit function where the firm chooses quantity:</p>
+            <div style="margin: 25px 0;">
+              \[ \Pi(Q) = R(Q) - C(Q) \]
+            </div>
+            <p style="font-size: 0.95em; color: #64748b; margin-top: 25px;">
+              Where \( R(Q) \) is the revenue function and \( C(Q) \) is the cost function.
+            </p>
+          </div>
+        </section>
+
+        <!-- Slide 4.4: Inverse Demand -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Profit Maximization · Formulation</p>
+          <h2>Inverse Demand Function</h2>
+          <div class="content-card">
+            <p style="margin-bottom: 12px;">Since we are analyzing firms choosing quantity, we cannot work directly with standard demand functions anymore (which express quantity in terms of price).</p>
+            <div class="def-card fragment" style="margin-top: 15px;">
+              <div class="def-title">Definition</div>
+              An <strong>inverse demand function</strong> expresses price as a function of quantity. A linear inverse demand takes the form:
+              \[ P = a - bQ \]
+            </div>
+            <p class="fragment" style="margin-top: 15px; font-weight: 500; color: #0f766e; text-align: center;">
+              This allows us to write the price at which a given quantity can be sold.
+            </p>
+          </div>
+        </section>
+
+        <!-- Slide 4.5: Revenue Function -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Profit Maximization · Formulation</p>
+          <h2>The Revenue Function</h2>
+          <div class="content-card">
+            <p>The revenue function, expressed in terms of firms choosing quantity to produce, is defined as:</p>
+            <div style="margin: 20px 0; text-align: center;">
+              \[ R(Q) = P(Q) \times Q \]
+            </div>
+            <p style="margin-top: 15px;">For a linear inverse demand curve \( P = a - bQ \), the revenue function is:</p>
+            <div style="margin: 20px 0; text-align: center;">
+              \[ R(Q) = (a - bQ)Q = aQ - bQ^2 \]
+            </div>
+            <p class="fragment" style="font-style: italic; color: #64748b; margin-top: 15px; text-align: center;">
+              We will come back to costs, written as \( C(Q) \), later today.
+            </p>
+          </div>
+        </section>
+
+        <!-- Slide 4.6: Deriving MR -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Profit Maximization · Formulation</p>
+          <h2>Deriving Marginal Revenue</h2>
+          <div class="content-card">
+            <p>Marginal revenue is the derivative of the revenue function with respect to quantity. For a linear inverse demand:</p>
+            <div class="def-card" style="margin: 15px 0;">
+              \[ R(Q) = aQ - bQ^2 \]
+              Applying the power rule, we get the marginal revenue function:
+              \[ MR(Q) = a - 2bQ \]
+            </div>
+            <div class="fragment def-card" style="border-left-color: #3b82f6; background: rgba(59, 130, 246, 0.04);">
+              <div class="def-title" style="color: #3b82f6;">Key Relationship</div>
+              The marginal revenue function shares the <strong>same intercept (\( a \))</strong> as the linear inverse demand function, but has <strong>twice the slope (\( -2b \))</strong>!
+            </div>
+          </div>
+        </section>
+
+        <!-- Slide 4.7: Math Derivation with Elasticity -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Profit Maximization · Derivation</p>
+          <h2>Relating MR to Elasticity of Demand</h2>
+          <div class="content-card" style="font-size: 0.88em; max-width: 850px;">
+            <p>Using the definition of demand elasticity \( \varepsilon \) and inverse demand slope:</p>
+            <div style="margin: 10px 0;">
+              \[ \varepsilon = \frac{\Delta Q}{\Delta P} \times \frac{P}{Q} \implies \frac{\Delta P}{\Delta Q} = \frac{P}{Q} \frac{1}{\varepsilon} \]
+            </div>
+            <p>Deriving Marginal Revenue using the product rule:</p>
+            <div style="margin: 10px 0;">
+              \[ MR(Q) = \frac{d(P(Q) \times Q)}{dQ} = P'(Q) \times Q + P(Q) \]
+              \[ MR(Q) = \left( \frac{P(Q)}{Q} \frac{1}{\varepsilon} \right) Q + P(Q) = P(Q)\left(1 + \frac{1}{\varepsilon}\right) \]
+            </div>
+            <p style="font-size: 0.8em; color: #515763; margin-top: 8px; text-align: center;">
+              This is the general relation linking price, marginal revenue, and elasticity!
+            </p>
+          </div>
+        </section>
+
+        <!-- Slide 4.8: Intuition of MR & Elasticity -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Profit Maximization · Intuition</p>
+          <h2>Intuition behind the MR Equation</h2>
+          <div class="content-card">
+            <div style="text-align: center; margin: 15px 0;">
+              \[ MR(Q) = P(Q)\left(1 + \frac{1}{\varepsilon}\right) \]
+            </div>
+            <ul>
+              <li class="fragment">Notice that \( P(Q) \) is the price at quantity \( Q \).</li>
+              <li class="fragment">Because elasticity \( \varepsilon \) is negative, the term \( \left(1 + \frac{1}{\varepsilon}\right) \) is less than 1.</li>
+              <li class="fragment"><strong>The Takeaway</strong>: When consumers are sensitive to price changes (elastic demand), firms have the incentive to lower prices to earn positive marginal revenue!</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- Slide 4.9: Graphing MR -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Profit Maximization · Graphing</p>
+          <h2>Plotting MR alongside Demand</h2>
+          <div class="content-card">
+            <p>For any linear inverse demand curve \( P = a - bQ \), we plot the corresponding marginal revenue curve \( MR(Q) = a - 2bQ \) directly below it:</p>
+            <div class="example-card fragment" style="margin-top: 15px;">
+              <div class="ex-title">Visualizing the curves</div>
+              Both start at the same vertical intercept (\( a \)), but the MR curve intercepts the horizontal (quantity) axis at exactly half the distance of the demand curve.
+            </div>
+          </div>
+        </section>
+
+        <!-- Slide 4.10: Example Exercise -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Profit Maximization · Example</p>
+          <h2>Calculation Exercise</h2>
+          <div style="display: flex; align-items: center; justify-content: center; gap: 20px; max-width: 950px; margin: 0 auto;">
+            <div style="flex: 1; text-align: left;">
+              <div class="example-card" style="margin: 0; font-size: 0.9em;">
+                <div class="ex-title">Problem Statement</div>
+                Given the demand function:
+                \[ Q = 10 - 0.5P \]
+                <ol>
+                  <li>Calculate the inverse demand function and marginal revenue function.</li>
+                  <li>Plot the marginal revenue function alongside the inverse demand function.</li>
+                  <li>Calculate the marginal revenue and elasticity of demand when \( P = 10 \).</li>
+                </ol>
+              </div>
+            </div>
+            <div style="flex: 1.2;">
+              <div class="slide-img-container" style="margin: 0; padding: 6px;">
+                <img src="images/c3_page_24_graph.png" alt="Marginal Revenue Calculation Graph" style="max-height: 320px;">
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Slide 4.11: Connect Dots -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Profit Maximization · Summary</p>
+          <h2>Revenue Maximization</h2>
+          <div class="content-card" style="text-align: center; padding: 35px;">
+            <p style="font-size: 1.1em; line-height: 1.5;">Calculus tells us that revenue is maximized when <strong>marginal revenue is zero</strong> (\( MR = 0 \)).</p>
+            <div class="def-card fragment" style="margin-top: 20px; display: inline-block;">
+              In the case of linear demand, this occurs exactly at the <strong>midpoint</strong> of the demand curve, where \( |\varepsilon| = 1 \) (unit-elastic).
+            </div>
+          </div>
+        </section>
+
+        <!-- Slide 4.12: Big Summary Graph -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Profit Maximization · Summary</p>
+          <h2>Summary: Elasticity, MR, and TR</h2>
+          <div style="display: flex; align-items: center; justify-content: center; gap: 20px; max-width: 950px; margin: 0 auto;">
+            <div style="flex: 1; text-align: left;">
+              <div class="content-card" style="margin: 0; padding: 15px 20px; font-size: 0.95em;">
+                <p style="font-weight: 600; color: #0f766e; margin-bottom: 10px;">To summarize:</p>
+                <ul>
+                  <li><strong>Elastic Region (\( |\varepsilon| &gt; 1 \))</strong>: MR is positive; lowering price increases total revenue (TR).</li>
+                  <li><strong>Unit-Elastic Point (\( |\varepsilon| = 1 \))</strong>: MR is zero; TR is maximized.</li>
+                  <li><strong>Inelastic Region (\( |\varepsilon| &lt; 1 \))</strong>: MR is negative; lowering price decreases TR.</li>
+                </ul>
+              </div>
+            </div>
+            <div style="flex: 1.3;">
+              <div class="slide-img-container" style="margin: 0; padding: 6px;">
+                <img src="images/c3_page_26_graph.png" alt="Summary MR, Elasticity and TR curves" style="max-height: 330px;">
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Slide 4.13: Transition to Costs -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Firms &amp; Costs · Introduction</p>
+          <h2>Firms Maximize Profits, Not Revenues</h2>
+          <div class="content-card" style="text-align: center; padding: 40px;">
+            <div style="margin-bottom: 25px;">
+              \[ \Pi = \text{Total Revenue} - \text{Total Costs} \]
+            </div>
+            <p style="font-size: 1.15em; font-weight: 600; color: #0f766e; margin-top: 15px;">
+              Because firms choose quantity to maximize profit &mdash; not just revenue &mdash; we must now study the firm&rsquo;s cost structure!
+            </p>
+          </div>
+        </section>
+
+      </section>
+
+
+      <!-- SECTION 4: Costs (Vertical Stack) -->
+      <section>
+
+        <!-- Slide 5.1: Divider -->
+        <section data-background-gradient="linear-gradient(135deg, #0f766e 0%, #115e59 100%)">
+          <p class="eyebrow" style="color: #ccfbf1;">Part 3</p>
+          <h1 style="color: white; font-size: 2.8em;">Firms and Cost Functions</h1>
+          <p style="color: #ccfbf1; margin-top: 20px;">Press <kbd style="background: #115e59; color: white; border: 1px solid #134e4a; padding: 2px 6px; border-radius: 4px;">↓</kbd> to study cost structures</p>
+        </section>
+
+        <!-- Slide 5.2: What are Cost Functions -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Firms and Costs</p>
+          <h2>Understanding Cost Functions</h2>
+          <div class="content-card">
+            <p style="font-size: 1.05em; line-height: 1.5;">In economics, firms are treated as a &ldquo;black box&rdquo; producing goods. Because producing anything requires resources, it involves trade-offs. We capture these trade-offs in terms of cost functions.</p>
+            <div class="def-card fragment" style="margin-top: 15px;">
+              <div class="def-title">Definition</div>
+              The <strong>total cost function</strong> \( C(Q) \) (or \( TC(Q) \)) captures the sum of all economic costs for a firm producing at quantity \( Q \).
+            </div>
+          </div>
+        </section>
+
+        <!-- Slide 5.3: Types of Costs -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Firms and Costs</p>
+          <h2>Fixed vs. Variable Costs</h2>
+          <div class="content-card">
+            <p style="margin-bottom: 15px; font-weight: 600;">There are two types of production costs that we care about:</p>
+            <div class="def-card">
+              <div class="def-title">Definition: Fixed Costs (FC)</div>
+              Costs that <strong>do not change</strong> with the level of quantity produced (e.g., rent, basic administration).
+            </div>
+            <div class="def-card fragment">
+              <div class="def-title">Definition: Variable Costs (VC)</div>
+              Costs that <strong>vary</strong> directly with the level of quantity produced (e.g., raw materials, hourly labor).
+            </div>
+          </div>
+        </section>
+
+        <!-- Slide 5.4: Marginal Cost -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Firms and Costs</p>
+          <h2>Total &amp; Marginal Cost</h2>
+          <div class="content-card">
+            <p>We write the total cost as the sum of fixed and variable costs:</p>
+            <div style="margin: 15px 0; text-align: center;">
+              \[ C(Q) = FC + VC(Q) \]
+            </div>
+            <p>Where \( FC \) is a constant number, and \( VC(Q) \) is a function of quantity.</p>
+            <div class="def-card fragment" style="margin-top: 15px;">
+              <div class="def-title">Definition: Marginal Cost (MC)</div>
+              The incremental cost made by firms when they produce one additional unit of product. It is the derivative of total cost:
+              \[ MC(Q) = C'(Q) = VC'(Q) \]
+            </div>
+          </div>
+        </section>
+
+        <!-- Slide 5.5: Combined Profit Function -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Firms and Costs</p>
+          <h2>Profit Function with Costs</h2>
+          <div class="content-card" style="text-align: center; padding: 40px;">
+            <p style="font-size: 1.1em; margin-bottom: 20px;">Combining revenue and cost functions, we get the complete profit function:</p>
+            <div style="margin: 25px 0;">
+              \[ \Pi(Q) = R(Q) - C(Q) = P(Q)Q - C(Q) \]
+            </div>
+            <p style="font-size: 0.9em; color: #64748b; margin-top: 25px;">
+              Profit maximization involves choosing \( Q \) to maximize this expression.
+            </p>
+          </div>
+        </section>
+
+        <!-- Slide 5.6: Average Costs -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Firms and Costs</p>
+          <h2>Average Cost Functions</h2>
+          <div class="content-card" style="font-size: 0.92em;">
+            <p style="margin-bottom: 12px;">We also look at cost averages taken over quantities to understand unit profitability:</p>
+            <div class="def-card" style="margin: 8px 0;">
+              <div class="def-title">Average Total Cost (ATC)</div>
+              Total cost divided by quantity: \[ ATC(Q) = \frac{C(Q)}{Q} \]
+            </div>
+            <div class="def-card fragment" style="margin: 8px 0;">
+              <div class="def-title">Average Fixed Cost (AFC)</div>
+              Fixed cost divided by quantity: \[ AFC(Q) = \frac{FC}{Q} \]
+            </div>
+            <div class="def-card fragment" style="margin: 8px 0;">
+              <div class="def-title">Average Variable Cost (AVC)</div>
+              Variable cost divided by quantity: \[ AVC(Q) = \frac{VC(Q)}{Q} \]
+            </div>
+          </div>
+        </section>
+
+        <!-- Slide 5.7: Cost Example -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Firms and Costs · Example</p>
+          <h2>Calculation Exercise</h2>
+          <div class="content-card">
+            <div class="example-card">
+              <div class="ex-title">Cost Function scenario</div>
+              Given the total cost function:
+              \[ C(Q) = 100 + 24Q - 8Q^2 + Q^3 \]
+              Find the following expressions:
+              <ul>
+                <li>Total Fixed Cost (TFC) &amp; Total Variable Cost (TVC)</li>
+                <li>Average Total Cost (ATC), Average Fixed Cost (AFC), &amp; Average Variable Cost (AVC)</li>
+                <li>Marginal Cost function (MC)</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- Slide 5.8: Cost Curves Visual -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Firms and Costs · Curves</p>
+          <h2>Visualizing Cost Curves</h2>
+          <div style="display: flex; align-items: center; justify-content: center; gap: 20px; max-width: 950px; margin: 0 auto;">
+            <div style="flex: 1; text-align: left;">
+              <div class="content-card" style="margin: 0; padding: 15px 20px; font-size: 0.95em;">
+                <p style="font-weight: 600; color: #0f766e; margin-bottom: 10px;">Properties of cost curves:</p>
+                <ul>
+                  <li class="fragment">\( MC \) passes through the minimum points of both \( ATC \) and \( AVC \).</li>
+                  <li class="fragment">\( AFC \) drops continuously as quantity increases.</li>
+                  <li class="fragment">The gap between \( ATC \) and \( AVC \) shrinks as \( AFC \) decreases.</li>
+                </ul>
+              </div>
+            </div>
+            <div style="flex: 1.3;">
+              <div class="slide-img-container" style="margin: 0; padding: 6px;">
+                <img src="images/c3_page_35_graph.png" alt="Average and Marginal Cost Curves" style="max-height: 330px;">
+              </div>
+            </div>
+          </div>
+        </section>
+
+      </section>
+
+
+      <!-- SECTION 5: Decision-Making & Sunk Costs (Vertical Stack) -->
+      <section>
+
+        <!-- Slide 6.1: Divider -->
+        <section data-background-gradient="linear-gradient(135deg, #0f172a 0%, #1e293b 100%)">
+          <p class="eyebrow" style="color: #2dd4bf;">Part 4</p>
+          <h1 style="color: white; font-size: 2.8em;">Sunk Costs &amp; Decision-Making</h1>
+          <p style="color: #94a3b8; margin-top: 20px;">Press <kbd style="background: #334155; color: #cbd5e1; border: 1px solid #475569; padding: 2px 6px; border-radius: 4px;">↓</kbd> to view case studies</p>
+        </section>
+
+        <!-- Slide 6.2: Marginal Thinking -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Decision-Making</p>
+          <h2>Thinking on the Margin</h2>
+          <div class="content-card" style="text-align: center; padding: 40px;">
+            <p style="font-size: 1.1em; line-height: 1.5; margin-bottom: 25px;">What costs matter for a firm&rsquo;s decision-making process?</p>
+            <div class="def-card" style="display: inline-block; text-align: left; border-left-color: #3b82f6; background: rgba(59, 130, 246, 0.04);">
+              <div class="def-title" style="color: #3b82f6;">The Marginal Rule</div>
+              Firms maximize profits by setting quantity according to the rule:
+              <p style="font-weight: 700; color: #1e293b; text-align: center; font-size: 1.15em; margin-top: 8px;">
+                Marginal Benefit equals Marginal Cost
+              </p>
+            </div>
+            <p style="font-size: 0.95em; color: #0f766e; font-weight: 600; margin-top: 25px;">
+              Consequently, any cost incurred in the past does not matter!
+            </p>
+          </div>
+        </section>
+
+        <!-- Slide 6.3: Sunk Costs Definition -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Decision-Making</p>
+          <h2>Sunk Costs</h2>
+          <div class="content-card">
+            <div class="def-card">
+              <div class="def-title">Definition</div>
+              <strong>Sunk costs</strong> are costs that occurred in the past and are completely irrecoverable.
+            </div>
+            <p style="margin-top: 15px;">Sunk costs must be ignored from the point of view of forward-looking decision-making.</p>
+            <div class="example-card fragment" style="margin-top: 15px;">
+              <div class="ex-title">Sunk Cost Fallacy</div>
+              The cognitive bias where individuals/firms justify making choices based on past resource investments rather than marginal benefits/costs.
+            </div>
+          </div>
+        </section>
+
+        <!-- Slide 6.4: Sunk Cost Example -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Decision-Making · Case Study 1</p>
+          <h2>Headphone Reseller: Sunk Costs</h2>
+          <div class="content-card">
+            <div class="example-card">
+              <div class="ex-title">Case Study 1</div>
+              Rex is a licensed headphone reseller and owns a shop. He bought 1,000 units of wireless headphones for <strong>$500/unit</strong>. <br><br>
+              Every pair of headphones purchased requires initial maintenance costing <strong>$160/unit per year</strong>. This is an unavoidable cost. <br><br>
+              Right now, he receives an offer from another reseller, who offers to buy all 1,000 units for <strong>$450/unit</strong>.
+            </div>
+            <p class="fragment" style="font-weight: 600; text-align: center; color: #b91c1c; margin-top: 20px;">
+              Should he sell all of his stock or not? Explain why.
+            </p>
+          </div>
+        </section>
+
+        <!-- Slide 6.5: Marginal Cost Example -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Decision-Making · Case Study 2</p>
+          <h2>Headphone Reseller: Marginal Cost</h2>
+          <div class="content-card">
+            <div class="example-card">
+              <div class="ex-title">Case Study 2</div>
+              Rex bought 1,000 units of wireless headphones for <strong>$500/unit</strong>. To run the shop, he hires 18 clerks at <strong>$55,000/year</strong>; pays <strong>$30,000</strong> in utilities per year; pays himself <strong>$270,000/year</strong>. <br><br>
+              Every pair of headphones purchased requires initial maintenance costing <strong>$160/unit per year</strong> (unavoidable). <br><br>
+              He sold all 1,000 headphones. He has got a buyer for another headphone (of the same model).
+            </div>
+            <p class="fragment" style="font-weight: 600; text-align: center; color: #0f766e; margin-top: 20px;">
+              What is his marginal cost of selling 1 additional unit?
+            </p>
+          </div>
+        </section>
+
+        <!-- Slide 6.6: Transition to Market Analysis -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Market Structure · Introduction</p>
+          <h2>Putting It All Together</h2>
+          <div class="content-card">
+            <p>We have now separate models for:</p>
+            <ul>
+              <li class="fragment">Consumer Behavior (Demand, Elasticity)</li>
+              <li class="fragment">Firm's Marginal Revenue</li>
+              <li class="fragment">Firm's Cost Structure</li>
+            </ul>
+            <p class="fragment" style="margin-top: 15px; font-weight: 600; color: #0f766e;">We are ready to combine these to examine supply and demand in a market context.</p>
+            <div class="def-card fragment" style="margin-top: 15px; text-align: center;">
+              The simplest market structure to analyze is where there is no competition: <strong>Monopoly</strong>.
+            </div>
+          </div>
+        </section>
+
+      </section>
+
+
+      <!-- SECTION 6: Wrap-up (Horizontal) -->
+      
+      <!-- Slide 10: Where to go from here? -->
+      <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+        <p class="eyebrow">For next time</p>
+        <h2>Class 3 Summary &amp; Preview</h2>
+        <div class="content-card" style="text-align: center; padding: 35px;">
+          <p style="font-size: 1.1em; color: #0f766e; font-weight: 600; margin-bottom: 20px;">We have set the stage for Market Analysis!</p>
+          <p>Please review inverse demand derivations, elasticity relations, and average/marginal cost functions.</p>
+          <p class="fragment" style="margin-top: 20px; color: #64748b; font-size: 0.9em;">
+            Next time: we analyze the Monopoly market structure graphically and algebraically!
+          </p>
+        </div>
+      </section>
+
+      <!-- Slide 11: Closing -->
+      <section data-background-gradient="linear-gradient(135deg, #0f172a 0%, #1e293b 100%)">
+        <p class="eyebrow" style="color: #2dd4bf;">Schedule</p>
+        <h2 style="color: white;">Preparation for Next Class</h2>
+        <div class="content-card" style="background: rgba(30, 41, 59, 0.7); border-color: rgba(255, 255, 255, 0.1); text-align: center;">
+          <p style="color: #cbd5e1; font-weight: 600; margin-bottom: 10px;">Next Session Schedule</p>
+          <p style="color: #94a3b8; font-size: 1.15em;"><strong>See you tomorrow (Wednesday @ 9am sharp)!</strong></p>
+        </div>
+        <p style="margin-top: 40px; color: #64748b; font-size: 0.75em;">Thank you!</p>
+      </section>
+
+    </div>
+  </div>
+
+  <a class="home-link" href="../">&larr; Back to course site</a>
+  <div class="slide-footer">RSC Economics Experience · Lecture 3</div>
+
+  <!-- reveal.js core + plugins -->
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/notes/notes.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/highlight/highlight.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/math/math.js"></script>
+  <script>
+    Reveal.initialize({
+      hash: true,
+      slideNumber: 'c/t',
+      transition: 'slide',
+      plugins: [ RevealHighlight, RevealNotes, RevealMath.KaTeX ]
+    });
+  </script>
+</body>
+</html>

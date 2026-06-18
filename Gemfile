@@ -7,3 +7,7 @@ gem "github-pages", group: :jekyll_plugins
 
 # Needed to run `jekyll serve` locally on Ruby 3.x (webrick left the stdlib).
 gem "webrick", "~> 1.8"
+
+# Fix Faraday v2.0+ retry middleware warning/error
+gem "faraday-retry"
+

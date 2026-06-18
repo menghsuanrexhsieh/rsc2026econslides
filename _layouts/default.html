@@ -30,6 +30,16 @@
   </header>
 
   <div class="shell">
+    <main class="main">
+      <div class="paper">
+        {{ content }}
+      </div>
+      <footer class="site-footer">
+        <p>{{ site.title }} &middot; {{ site.description }}</p>
+        <p class="muted">&copy; {{ 'now' | date: "%Y" }} {{ site.author }}. Built with Jekyll.</p>
+      </footer>
+    </main>
+
     <aside class="sidebar">
       <nav class="sidenav">
         {% for group in site.data.nav %}
@@ -46,16 +56,6 @@
         {% endfor %}
       </nav>
     </aside>
-
-    <main class="main">
-      <div class="paper">
-        {{ content }}
-      </div>
-      <footer class="site-footer">
-        <p>{{ site.title }} &middot; {{ site.description }}</p>
-        <p class="muted">&copy; {{ 'now' | date: "%Y" }} {{ site.author }}. Built with Jekyll.</p>
-      </footer>
-    </main>
   </div>
 
   <!-- tap-outside scrim to close the mobile drawer -->

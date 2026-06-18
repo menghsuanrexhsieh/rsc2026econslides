@@ -1,0 +1,986 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>More on Supply and Demand, and Elasticity</title>
+
+  <!-- reveal.js core + theme (HTML5 slides, loaded from CDN) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reset.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/white.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/highlight/monokai.css">
+
+  <!-- Google Fonts for premium typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --r-main-font: 'Plus Jakarta Sans', sans-serif;
+      --r-heading-font: 'Outfit', sans-serif;
+      --r-main-color: #1e293b;
+      --r-heading-color: #0f172a;
+      --r-link-color: #0f766e;
+      --r-selection-background-color: #ccfbf1;
+    }
+    
+    .reveal {
+      font-family: var(--r-main-font);
+      color: var(--r-main-color);
+      font-size: 24px; /* Reduced by 40% from default 40px */
+    }
+    
+    .reveal h1, .reveal h2, .reveal h3, .reveal h4 {
+      font-family: var(--r-heading-font);
+      color: var(--r-heading-color);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .reveal h1 { font-size: 2.2em; line-height: 1.1; }
+    .reveal h2 { font-size: 1.6em; line-height: 1.2; margin-bottom: 15px; }
+    .reveal h3 { font-size: 1.2em; line-height: 1.3; }
+    
+    .reveal .eyebrow {
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      font-size: 0.45em;
+      font-weight: 700;
+      color: #0f766e;
+      margin-bottom: 10px;
+      display: inline-block;
+    }
+    
+    /* Elegant card container */
+    .reveal .content-card {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      border-radius: 12px;
+      padding: 18px 24px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.02);
+      margin: 12px auto;
+      text-align: left;
+      max-width: 800px;
+    }
+    
+    .reveal .def-card {
+      border-left: 4px solid #0f766e;
+      background: rgba(15, 118, 110, 0.04);
+      border-radius: 4px 10px 10px 4px;
+      padding: 12px 18px;
+      margin: 12px 0;
+      text-align: left;
+    }
+    .reveal .def-card .def-title {
+      font-family: var(--r-heading-font);
+      font-weight: 700;
+      color: #0f766e;
+      font-size: 0.8em;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 4px;
+    }
+    
+    .reveal .example-card {
+      border-left: 4px solid #3b82f6;
+      background: rgba(59, 130, 246, 0.04);
+      border-radius: 4px 10px 10px 4px;
+      padding: 12px 18px;
+      margin: 12px 0;
+      text-align: left;
+    }
+    .reveal .example-card .ex-title {
+      font-family: var(--r-heading-font);
+      font-weight: 700;
+      color: #3b82f6;
+      font-size: 0.8em;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 4px;
+    }
+    
+    /* Slide image styling */
+    .reveal .slide-img-container {
+      background: white;
+      padding: 8px;
+      border-radius: 10px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.02);
+      border: 1px solid #e2e8f0;
+      display: inline-block;
+      margin-top: 8px;
+    }
+    .reveal .slide-img-container img {
+      max-height: 260px;
+      width: auto;
+      margin: 0;
+      display: block;
+      border-radius: 4px;
+    }
+    
+    /* Grid for side-by-side clips */
+    .reveal .img-gallery {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 15px;
+      flex-wrap: wrap;
+      margin-top: 15px;
+    }
+    .reveal .img-gallery .gallery-item {
+      background: white;
+      padding: 6px;
+      border-radius: 10px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.02);
+      border: 1px solid #e2e8f0;
+    }
+    .reveal .img-gallery img {
+      max-height: 220px;
+      width: auto;
+      display: block;
+      border-radius: 4px;
+      margin: 0;
+    }
+
+    /* Standard list styling (for inside cards, columns, etc.) */
+    .reveal ul, .reveal ol {
+      display: block;
+      text-align: left;
+      margin: 10px 0 !important;
+      padding-left: 20px;
+    }
+    
+    .reveal ul {
+      list-style-type: disc;
+    }
+    
+    .reveal ol {
+      list-style-type: decimal;
+    }
+    
+    .reveal li {
+      text-align: left;
+      margin-bottom: 8px;
+      line-height: 1.35;
+    }
+    
+    /* Indentation and bullets for nested lists */
+    .reveal li ul, .reveal li ol {
+      margin: 4px 0 4px 20px !important;
+      display: block;
+      min-width: unset;
+    }
+    
+    .reveal li ul {
+      list-style-type: circle;
+    }
+    
+    /* Centered list layout (only when list is the main slide element or explicitly centered) */
+    .reveal section > ul, .reveal section > ol, .reveal .center-list {
+      display: inline-block;
+      text-align: left;
+      margin: 15px auto !important;
+      padding-left: 20px;
+      min-width: 65%;
+      max-width: 95%;
+    }
+    
+    /* Home link and footer elements */
+    .reveal .home-link {
+      position: fixed;
+      bottom: 16px;
+      left: 20px;
+      z-index: 30;
+      font-size: 13px;
+      color: #94a3b8;
+      text-decoration: none;
+      font-family: var(--r-main-font);
+      font-weight: 500;
+      transition: color 0.2s ease;
+    }
+    .reveal .home-link:hover {
+      color: #0f766e;
+    }
+    
+    .reveal .slide-footer {
+      position: fixed;
+      bottom: 16px;
+      right: 20px;
+      z-index: 30;
+      font-size: 11px;
+      color: #94a3b8;
+      font-family: var(--r-main-font);
+    }
+    
+    /* Interactive blank */
+    .reveal .fill-blank {
+      display: inline-block;
+      border-bottom: 2px dashed #94a3b8;
+      min-width: 140px;
+      height: 1.1em;
+      vertical-align: bottom;
+    }
+
+    .reveal .katex-display {
+      margin: 8px 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- SECTION 1: Welcome & Overview (Horizontal) -->
+      
+      <!-- Slide 1: Title -->
+      <section data-background-gradient="linear-gradient(135deg, #0f172a 0%, #1e293b 100%)">
+        <p class="eyebrow" style="color: #2dd4bf;">RSC Economics Experience · July 2026</p>
+        <h1 style="color: white; font-size: 2.5em; margin-bottom: 15px;">Class 2</h1>
+        <h3 style="color: #94a3b8; font-weight: 400; margin-bottom: 40px;">More on Supply and Demand, and Elasticity</h3>
+        <p style="color: #2dd4bf; font-weight: 600; font-size: 0.9em; margin-bottom: 5px;">Meng Hsuan &ldquo;Rex&rdquo; Hsieh</p>
+        <p style="color: #64748b; font-size: 0.75em; margin-top: 30px;">Press <kbd style="background: #334155; color: #cbd5e1; border: 1px solid #475569; padding: 2px 6px; border-radius: 4px;">→</kbd> to begin</p>
+      </section>
+
+      <!-- Slide 2: Agenda -->
+      <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+        <p class="eyebrow">Agenda for Today</p>
+        <h2>More on Supply &amp; Demand, and Elasticity</h2>
+        <div class="content-card" style="text-align: center;">
+          <ul>
+            <li class="fragment">More on the supply/demand model</li>
+            <li class="fragment">Learning to do some calculations</li>
+            <li class="fragment">Elasticities and economic behavior</li>
+          </ul>
+        </div>
+      </section>
+
+
+      <!-- SECTION 2: More on Supply and Demand (Vertical Stack) -->
+      <section>
+
+        <!-- Slide 3.1: Divider -->
+        <section data-background-gradient="linear-gradient(135deg, #0f766e 0%, #115e59 100%)">
+          <p class="eyebrow" style="color: #ccfbf1;">Supply and Demand</p>
+          <h1 style="color: white; font-size: 2.8em;">More on Supply &amp; Demand</h1>
+          <p style="color: #ccfbf1; margin-top: 20px;">Press <kbd style="background: #115e59; color: white; border: 1px solid #134e4a; padding: 2px 6px; border-radius: 4px;">↓</kbd> to continue</p>
+        </section>
+
+        <!-- Slide 3.2: Recap Equilibrium -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Supply and Demand · Recap</p>
+          <h2>We Left Off Here: Market Equilibrium</h2>
+          <div style="display: flex; align-items: center; justify-content: center; gap: 20px; max-width: 950px; margin: 0 auto;">
+            <div style="flex: 1; text-align: left;">
+              <div class="def-card" style="margin: 0;">
+                <div class="def-title">Definition</div>
+                The <strong>market equilibrium</strong> is where supply meets demand. Any equilibrium consists of an <strong>equilibrium price</strong> and <strong>equilibrium quantity</strong>.
+              </div>
+            </div>
+            <div style="flex: 1.2;">
+              <div class="slide-img-container" style="margin: 0; padding: 6px;">
+                <img src="images/c2_page_4_img_3.png" alt="Market Equilibrium Graph" style="max-height: 320px;">
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Slide 3.3: Equilibrium as a Snapshot -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Supply and Demand · Recap</p>
+          <h2>Equilibrium as a Snapshot</h2>
+          <div style="display: flex; align-items: center; justify-content: center; gap: 20px; max-width: 950px; margin: 0 auto;">
+            <div style="flex: 1; text-align: left;">
+              <div class="content-card" style="margin: 0; padding: 15px 20px;">
+                <p style="font-size: 0.9em; margin-bottom: 10px;">Remember markets are defined for a product, at a particular place, at a point in time.</p>
+                <p style="font-size: 0.9em; font-weight: 600; margin-bottom: 15px; color: #0f766e;">Therefore, any equilibrium describes a snapshot of individual consumers&rsquo; and firms&rsquo; behavior at a given time.</p>
+                <p style="font-size: 0.85em; font-weight: 600; margin-bottom: 5px;">What if:</p>
+                <ul style="margin: 5px 0 5px 20px !important;">
+                  <li class="fragment" style="margin-bottom: 5px;">There are fewer consumers?</li>
+                  <li class="fragment">All firms experience a cost increase due to tariffs?</li>
+                </ul>
+              </div>
+            </div>
+            <div style="flex: 1.2;">
+              <div class="slide-img-container" style="margin: 0; padding: 6px;">
+                <img src="images/c2_page_5_img_3.png" alt="Market Equilibrium Snapshot" style="max-height: 320px;">
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Slide 3.4: Movements along curves -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Supply and Demand · Recap</p>
+          <h2>Movements Along Curves</h2>
+          <div class="content-card" style="text-align: center;">
+            <ul>
+              <li class="fragment">
+                If only the price of a product goes up (everything else held constant), then a consumer would want to consume 
+                <strong style="color: #b91c1c;">less</strong>.
+              </li>
+              <li class="fragment">
+                Likewise, if only the price of a product a firm can sell at goes up (everything else held constant), then a producer is willing to produce 
+                <strong style="color: #047857;">more</strong>.
+              </li>
+              <li class="fragment">
+                These statements are equivalent to <strong>movement along the supply/demand curves</strong>.
+              </li>
+            </ul>
+            <p class="fragment" style="font-weight: 600; text-align: center; color: #0f766e; margin-top: 20px;">
+              What if there are more than price changes?
+            </p>
+          </div>
+        </section>
+
+        <!-- Slide 3.5: Shifts of Curves -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Supply and Demand · Recap</p>
+          <h2>Shifts of the Curves</h2>
+          <div class="content-card">
+            <p>In life, there are many changes that are not related to the price of the product changing.</p>
+            <div class="example-card fragment" style="margin: 10px 0;">
+              <div class="ex-title">Examples of External Changes</div>
+              Extreme climate events, limited supply of raw materials, shipping delays, shrinking customer base, etc.
+            </div>
+            
+            <div style="margin-top: 15px;">
+              <ul>
+                <li class="fragment">If there are changes to any factors <strong>other than price</strong> that affect demand, then the <strong>entire demand curve shifts</strong>.</li>
+                <li class="fragment">If there are changes to any factors <strong>other than price</strong> that affect supply, then the <strong>entire supply curve shifts</strong>.</li>
+              </ul>
+            </div>
+            
+            <p class="fragment" style="font-weight: 600; text-align: center; color: #b91c1c; margin-top: 15px; font-size: 0.9em;">
+              But be cautious about the market that we are analyzing!
+            </p>
+          </div>
+        </section>
+
+      </section>
+
+
+      <!-- SECTION 3: With Algebra Now (Vertical Stack) -->
+      <section>
+
+        <!-- Slide 4.1: Divider -->
+        <section data-background-gradient="linear-gradient(135deg, #0f172a 0%, #1e293b 100%)">
+          <p class="eyebrow" style="color: #2dd4bf;">Mathematical Formulation</p>
+          <h1 style="color: white; font-size: 2.8em;">With Algebra Now</h1>
+          <p style="color: #94a3b8; margin-top: 20px;">Press <kbd style="background: #334155; color: #cbd5e1; border: 1px solid #475569; padding: 2px 6px; border-radius: 4px;">↓</kbd> to view algebra examples</p>
+        </section>
+
+        <!-- Slide 4.2: Algebra example 1 -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Algebra in supply &amp; demand · 1</p>
+          <h2>Market Demand and Supply Functions</h2>
+          <div class="content-card">
+            <p>We can represent demand and supply using demand functions and supply functions, respectively.</p>
+            
+            <div class="def-card" style="margin-top: 15px;">
+              <div class="def-title">Example Scenario</div>
+              Let the market demand and supply functions be:
+              \[ Q_D = 12 - P_D \]
+              \[ Q_S = 9 + 0.5P_S \]
+            </div>
+            
+            <div class="example-card fragment" style="margin-top: 15px;">
+              <div class="ex-title">Question 1</div>
+              <strong>Find the market equilibrium quantity and price.</strong>
+            </div>
+          </div>
+        </section>
+
+        <!-- Slide 4.3: Algebra example 2 -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Algebra in supply &amp; demand · 2</p>
+          <h2>Predicting Shifts in Equilibrium</h2>
+          <div class="content-card">
+            <div class="def-card">
+              <div class="def-title">Recall Setup</div>
+              Initial system:
+              \[ Q_D = 12 - P_D \quad \text{and} \quad Q_S = 9 + 0.5P_S \]
+            </div>
+            
+            <div class="example-card fragment" style="margin-top: 15px;">
+              <div class="ex-title">Question 2</div>
+              Suppose demand increased to:
+              \[ Q_D = 16 - P_D \]
+              but supply remained the same. <br><br>
+              Without doing any calculations, the new market equilibrium quantity <strong>[increased / decreased]</strong> and the new market equilibrium price <strong>[increased / decreased]</strong> compared to those in question 1.
+            </div>
+          </div>
+        </section>
+
+        <!-- Slide 4.4: Shocks vs Movements -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Algebra in supply &amp; demand</p>
+          <h2>Shocks vs. Movements</h2>
+          <div class="content-card">
+            <p>In economic analysis, it is critical to distinguish between these effects:</p>
+            
+            <div class="def-card fragment">
+              <div class="def-title">Definition: Shock</div>
+              Any change to market conditions is called a <strong>shock</strong>.
+            </div>
+            
+            <ul style="margin-top: 15px;">
+              <li class="fragment">Market equilibrium changes <strong>only if</strong> a shock occurs that shifts the demand or supply curve.</li>
+              <li class="fragment">Demand or supply curve shifts occur if variables we were holding constant (tastes, income, government policies, costs of production) change.</li>
+              <li class="fragment"><strong>Movement along</strong> the demand or supply curve is a result of <strong>only price changes</strong>.</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- Slide 4.5: Algebra example 3 & 4 & 5 -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Algebra in supply &amp; demand · 3</p>
+          <h2>Excess Supply and Excess Demand</h2>
+          <div class="content-card" style="font-size: 0.9em; max-width: 850px;">
+            <div class="def-card" style="padding: 10px 15px; margin: 5px 0;">
+              <div class="def-title">Functions</div>
+              \( Q_D = 12 - P_D \quad \text{and} \quad Q_S = 9 + 0.5P_S \)
+            </div>
+            
+            <div class="example-card fragment" style="padding: 10px 15px; margin: 10px 0;">
+              <div class="ex-title">Question 3</div>
+              Suppose the current market price is at <strong>\( P = 0.79 \)</strong> ($/pound). Is the market in equilibrium? If not, is there excess supply or demand?
+            </div>
+            
+            <div class="example-card fragment" style="padding: 10px 15px; margin: 10px 0;">
+              <div class="ex-title">Question 4</div>
+              What if the current market price is at <strong>\( P = 2.19 \)</strong> ($/pound) instead?
+            </div>
+            
+            <div class="example-card fragment" style="padding: 10px 15px; margin: 10px 0;">
+              <div class="ex-title">Question 5</div>
+              Explain why markets move toward equilibrium.
+            </div>
+          </div>
+        </section>
+
+        <!-- Slide 4.6: Equilibrium as Revision Process -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Algebra in supply &amp; demand</p>
+          <h2>The Market Revision Process</h2>
+          <div class="content-card" style="text-align: center; padding: 40px;">
+            <div class="def-card" style="display: inline-block; margin-bottom: 25px;">
+              <div class="def-title" style="text-align: center;">Core Principle</div>
+              Equilibrium captures a <strong>revision process</strong> in markets.
+            </div>
+            
+            <p style="font-size: 1.15em; font-weight: 600; color: #0f766e; margin-top: 15px;">
+              We will assume markets are in equilibria unless otherwise specified.
+            </p>
+          </div>
+        </section>
+
+      </section>
+
+
+      <!-- SECTION 4: Simultaneous Shifts (Vertical Stack) -->
+      <section>
+
+        <!-- Slide 5.1: Divider -->
+        <section data-background-gradient="linear-gradient(135deg, #0f766e 0%, #115e59 100%)">
+          <p class="eyebrow" style="color: #ccfbf1;">Supply and Demand Together</p>
+          <h1 style="color: white; font-size: 2.8em;">Simultaneous Shifts</h1>
+          <p style="color: #ccfbf1; margin-top: 20px;">Press <kbd style="background: #115e59; color: white; border: 1px solid #134e4a; padding: 2px 6px; border-radius: 4px;">↓</kbd> to view simultaneous shifts</p>
+        </section>
+
+        <!-- Slide 5.2: Complex Shifts -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Simultaneous Shifts</p>
+          <h2>Multiple Market Shocks</h2>
+          <div class="content-card">
+            <p style="font-size: 1.1em; line-height: 1.5;">
+              It is also completely reasonable to be in situations where <strong>both supply and demand shift</strong>, potentially in different directions.
+            </p>
+            <p class="fragment" style="margin-top: 15px; font-weight: 600; color: #0f766e;">
+              These simultaneous changes have distinct implications for the market equilibrium quantity and price.
+            </p>
+          </div>
+        </section>
+
+        <!-- Slide 5.3: Shifts Summary -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Simultaneous Shifts</p>
+          <h2>Shifts Summary Table</h2>
+          <div class="content-card">
+            <p style="font-weight: 600; margin-bottom: 10px; color: #0f766e; text-align: center;">Qualitative predictions of market shocks:</p>
+            <table style="width: 100%; border-collapse: collapse; margin-top: 15px; font-size: 0.85em; font-family: var(--r-main-font);">
+              <thead>
+                <tr style="border-bottom: 2px solid #0f766e;">
+                  <th style="padding: 8px 12px; text-align: left; font-weight: 700; color: #0f766e; text-transform: none; font-size: 0.9em; border-bottom: 2px solid #0f766e;">Demand Shock</th>
+                  <th style="padding: 8px 12px; text-align: left; font-weight: 700; color: #0f766e; text-transform: none; font-size: 0.9em; border-bottom: 2px solid #0f766e;">Supply Shock</th>
+                  <th style="padding: 8px 12px; text-align: center; font-weight: 700; color: #0f766e; text-transform: none; font-size: 0.9em; border-bottom: 2px solid #0f766e;">Equilibrium Price (P)</th>
+                  <th style="padding: 8px 12px; text-align: center; font-weight: 700; color: #0f766e; text-transform: none; font-size: 0.9em; border-bottom: 2px solid #0f766e;">Equilibrium Quantity (Q)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="fragment" style="border-bottom: 1px solid #e2e8f0;">
+                  <td style="padding: 10px 12px; text-align: left; font-weight: 500;">Shifts Out (&uarr;)</td>
+                  <td style="padding: 10px 12px; text-align: left; font-weight: 500;">Shifts Out (&uarr;)</td>
+                  <td style="padding: 10px 12px; text-align: center; font-weight: 600; color: #64748b;">Ambiguous (&uarr;&darr;=)</td>
+                  <td style="padding: 10px 12px; text-align: center; font-weight: 600; color: #0f766e;">Increases (&uarr;)</td>
+                </tr>
+                <tr class="fragment" style="border-bottom: 1px solid #e2e8f0;">
+                  <td style="padding: 10px 12px; text-align: left; font-weight: 500;">Shifts In (&darr;)</td>
+                  <td style="padding: 10px 12px; text-align: left; font-weight: 500;">Shifts Out (&uarr;)</td>
+                  <td style="padding: 10px 12px; text-align: center; font-weight: 600; color: #b91c1c;">Decreases (&darr;)</td>
+                  <td style="padding: 10px 12px; text-align: center; font-weight: 600; color: #64748b;">Ambiguous (&uarr;&darr;=)</td>
+                </tr>
+                <tr class="fragment" style="border-bottom: 1px solid #e2e8f0;">
+                  <td style="padding: 10px 12px; text-align: left; font-weight: 500;">Shifts Out (&uarr;)</td>
+                  <td style="padding: 10px 12px; text-align: left; font-weight: 500;">Shifts In (&darr;)</td>
+                  <td style="padding: 10px 12px; text-align: center; font-weight: 600; color: #0f766e;">Increases (&uarr;)</td>
+                  <td style="padding: 10px 12px; text-align: center; font-weight: 600; color: #64748b;">Ambiguous (&uarr;&darr;=)</td>
+                </tr>
+                <tr class="fragment" style="border-bottom: 1px solid #e2e8f0;">
+                  <td style="padding: 10px 12px; text-align: left; font-weight: 500;">Shifts In (&darr;)</td>
+                  <td style="padding: 10px 12px; text-align: left; font-weight: 500;">Shifts In (&darr;)</td>
+                  <td style="padding: 10px 12px; text-align: center; font-weight: 600; color: #64748b;">Ambiguous (&uarr;&darr;=)</td>
+                  <td style="padding: 10px 12px; text-align: center; font-weight: 600; color: #b91c1c;">Decreases (&darr;)</td>
+                </tr>
+              </tbody>
+            </table>
+            <p class="fragment" style="font-style: italic; color: #64748b; text-align: center; margin-top: 15px; font-size: 0.9em;">
+              Exercise: Draw each of these cases out graphically to verify!
+            </p>
+          </div>
+        </section>
+
+        <!-- Slide 5.4: Transition to Elasticity -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Quantifying Market Behavior</p>
+          <h2>Beyond Directions</h2>
+          <div class="content-card">
+            <p>With our understanding of supply and demand: we now know that each point on the supply and demand curves describes a particular willingness-to-produce and willingness-to-pay.</p>
+            <p class="fragment" style="margin-top: 15px;">We can ask: <strong>How can we quantify behavior at various points along the supply and demand curves?</strong></p>
+            
+            <div class="def-card fragment" style="margin-top: 20px; text-align: center;">
+              <div class="def-title">The Solution</div>
+              The correct concept to use is called <strong>Elasticity</strong>.
+            </div>
+          </div>
+        </section>
+
+      </section>
+
+
+      <!-- SECTION 5: Elasticity (Vertical Stack) -->
+      <section>
+
+        <!-- Slide 6.1: Divider -->
+        <section data-background-gradient="linear-gradient(135deg, #0f172a 0%, #1e293b 100%)">
+          <p class="eyebrow" style="color: #2dd4bf;">Measuring Sensitivity</p>
+          <h1 style="color: white; font-size: 2.8em;">Elasticity</h1>
+          <p style="color: #94a3b8; margin-top: 20px;">Press <kbd style="background: #334155; color: #cbd5e1; border: 1px solid #475569; padding: 2px 6px; border-radius: 4px;">↓</kbd> to study elasticity definition</p>
+        </section>
+
+        <!-- Slide 6.2: What is Elasticity -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Elasticity</p>
+          <h2>What is Elasticity?</h2>
+          <div style="display: flex; align-items: center; justify-content: center; gap: 30px; max-width: 1000px; margin: 0 auto;">
+            <div style="flex: 1.2; text-align: left; display: flex; flex-direction: column; gap: 15px;">
+              <div class="content-card" style="margin: 0; padding: 20px;">
+                <p style="font-size: 1.15em; font-weight: 600; color: #0f766e; margin-bottom: 15px;">
+                  Elasticity is a statement about changes to behavior when price changes.
+                </p>
+                <p style="font-size: 0.9em; margin-bottom: 0;">
+                  It measures how responsive consumers or producers are to changes in market conditions.
+                </p>
+              </div>
+              <div class="slide-img-container" style="margin: 0; padding: 6px; align-self: flex-start;">
+                <img src="images/cropped_c2_page_17_img_4.png" alt="Elasticity Graphic Left" style="max-height: 140px; width: auto;">
+              </div>
+            </div>
+            <div style="flex: 1; display: flex; justify-content: center;">
+              <div class="slide-img-container" style="margin: 0; padding: 6px;">
+                <img src="images/cropped_c2_page_17_img_3.png" alt="Elasticity Graphic Right" style="max-height: 320px; width: auto;">
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Slide 6.3: Point Elasticity -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Elasticity · Definition</p>
+          <h2>(Own-Price) Elasticity of Demand</h2>
+          <div class="content-card" style="font-size: 0.92em;">
+            <div class="def-card" style="margin: 5px 0 15px;">
+              <div class="def-title">Definition</div>
+              The <strong>elasticity of demand</strong> is the ratio of the percentage change in quantity to the percentage change in price. (Also called <strong>point elasticity of demand</strong>).
+            </div>
+            
+            <p>We define the own-price elasticity of demand \( \varepsilon \) as:</p>
+            <div style="display: flex; justify-content: space-around; align-items: center; margin: 15px 0;">
+              <div>
+                \[ (1) \quad \varepsilon = \frac{\% \Delta Q}{\% \Delta P} \]
+              </div>
+              <div>
+                \[ (2) \quad \varepsilon = \frac{\Delta Q / Q}{\Delta P / P} = \frac{\Delta Q}{\Delta P} \times \frac{P}{Q} \]
+              </div>
+            </div>
+            
+            <p style="font-size: 0.85em; color: #515763; margin-top: 10px;">
+              Where \( \frac{\Delta Q}{\Delta P} \) is the derivative (slope) of the demand function.<br>
+              By definition, \( \varepsilon \) is negative, but we follow tradition and work with the absolute value <strong>\( |\varepsilon| \)</strong>.
+            </p>
+          </div>
+        </section>
+
+        <!-- Slide 6.4: Calculation example -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Elasticity · Example</p>
+          <h2>Point Elasticity Varies Along the Curve</h2>
+          <div style="display: flex; align-items: center; justify-content: center; gap: 20px; max-width: 950px; margin: 0 auto;">
+            <div style="flex: 1; text-align: left;">
+              <div class="example-card" style="margin: 0;">
+                <div class="ex-title">Calculation Exercise</div>
+                Given the demand function:
+                \[ Q = 10 - 0.5P \]
+                Calculate the own-price elasticity of demand \( |\varepsilon| \) at:
+                <ul>
+                  <li>Midpoint: \( (Q=5, P=10) \)</li>
+                  <li>Horizontal intercept: \( (Q=10, P=0) \)</li>
+                  <li>Vertical intercept: \( (Q=0, P=20) \)</li>
+                </ul>
+              </div>
+            </div>
+            <div style="flex: 1.2;">
+              <div class="slide-img-container" style="margin: 0; padding: 6px;">
+                <img src="images/c2_page_19_img_5.png" alt="Point Elasticity Example Graph" style="max-height: 320px;">
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Slide 6.5: Midpoint Elasticity -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Elasticity · Midpoint Rule</p>
+          <h2>Elasticity Along a Linear Demand Curve</h2>
+          <div style="display: flex; align-items: center; justify-content: center; gap: 20px; max-width: 950px; margin: 0 auto;">
+            <div style="flex: 1; text-align: left;">
+              <div class="content-card" style="margin: 0; padding: 20px 25px;">
+                <p style="font-weight: 600; color: #0f766e; margin-bottom: 12px;">Elasticity regions on a linear curve:</p>
+                <ul>
+                  <li class="fragment"><strong>Elastic</strong> above the midpoint: \( |\varepsilon| &gt; 1 \)</li>
+                  <li class="fragment"><strong>Unit-elastic</strong> at the midpoint: \( |\varepsilon| = 1 \)</li>
+                  <li class="fragment"><strong>Inelastic</strong> below the midpoint: \( |\varepsilon| &lt; 1 \)</li>
+                </ul>
+              </div>
+            </div>
+            <div style="flex: 1.2;">
+              <div class="slide-img-container" style="margin: 0; padding: 6px;">
+                <img src="images/c2_page_20_img_3.png" alt="Midpoint Elasticity Diagram" style="max-height: 320px;">
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Slide 6.6: Relative elasticity definition -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Elasticity · Classification</p>
+          <h2>Relatively Elastic vs. Inelastic</h2>
+          <div class="content-card">
+            <div class="def-card">
+              <div class="def-title">Definition: Relatively Elastic</div>
+              Demand is <strong>relatively elastic</strong> if, for a given percentage change in price, the resulting percentage change in quantity demanded is <strong>large</strong>.
+            </div>
+            
+            <div class="def-card fragment">
+              <div class="def-title">Definition: Relatively Inelastic</div>
+              Demand is <strong>relatively inelastic</strong> if, for a given percentage change in price, the resulting percentage change in quantity demanded is <strong>small</strong>.
+            </div>
+            
+            <p class="fragment" style="text-align: center; font-weight: 600; color: #0f766e; margin-top: 15px;">
+              Let&rsquo;s illustrate relatively elastic and inelastic demand on a graph.
+            </p>
+          </div>
+        </section>
+
+        <!-- Slide 6.7: Visualizing slopes -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Elasticity · Slopes</p>
+          <h2>Elastic Demand vs. Inelastic Demand</h2>
+          <div class="content-card" style="text-align: center;">
+            <p style="margin-bottom: 20px; font-weight: 600;">How curve slopes represent sensitivity:</p>
+            <div style="display: flex; gap: 20px;">
+              <div class="def-card" style="flex: 1; margin: 0; border-left-color: #3b82f6; background: rgba(59, 130, 246, 0.03);">
+                <div class="def-title" style="color: #3b82f6;">Relatively Elastic</div>
+                <strong style="font-size: 1.1em; color: #1e293b;">Flatter Slope</strong>
+                <p style="font-size: 0.8em; margin-top: 8px; color: #515763;">Small price changes lead to large shifts in consumption. (High responsiveness)</p>
+              </div>
+              <div class="def-card" style="flex: 1; margin: 0; border-left-color: #ef4444; background: rgba(239, 68, 68, 0.03);">
+                <div class="def-title" style="color: #ef4444;">Relatively Inelastic</div>
+                <strong style="font-size: 1.1em; color: #1e293b;">Steeper Slope</strong>
+                <p style="font-size: 0.8em; margin-top: 8px; color: #515763;">Large price changes cause only tiny adjustments in consumption. (Low responsiveness)</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+      </section>
+
+
+      <!-- SECTION 6: WSJ Case Study (Vertical Stack) -->
+      <section>
+
+        <!-- Slide 7.1: Divider -->
+        <section data-background-gradient="linear-gradient(135deg, #0f766e 0%, #115e59 100%)">
+          <p class="eyebrow" style="color: #ccfbf1;">Real World Application</p>
+          <h1 style="color: white; font-size: 2.8em;">Applying our Understanding</h1>
+          <p style="color: #ccfbf1; margin-top: 20px;">Press <kbd style="background: #115e59; color: white; border: 1px solid #134e4a; padding: 2px 6px; border-radius: 4px;">↓</kbd> to view WSJ Case Study</p>
+        </section>
+
+        <!-- Slide 7.2: WSJ Part 1 -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">WSJ Case Study · Part 1</p>
+          <h2>Cocoa Price Shocks &amp; Chocolate Market</h2>
+          <div class="content-card" style="text-align: center;">
+            <p style="margin-bottom: 10px;">The Wall Street Journal recently ran an article covering cocoa supply shocks:</p>
+            <div class="img-gallery">
+              <div class="gallery-item"><img src="images/c2_page_23_img_3.png" alt="WSJ Cocoa Clip 1"></div>
+              <div class="gallery-item"><img src="images/c2_page_23_img_4.png" alt="WSJ Cocoa Clip 2"></div>
+              <div class="gallery-item"><img src="images/c2_page_23_img_5.png" alt="WSJ Cocoa Clip 3"></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Slide 7.3: WSJ Part 2 -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">WSJ Case Study · Part 2</p>
+          <h2>Comparing Geographic Responses</h2>
+          <div style="display: flex; align-items: center; justify-content: center; gap: 20px; max-width: 950px; margin: 0 auto;">
+            <div style="flex: 1; text-align: left;">
+              <div class="example-card" style="margin: 0;">
+                <div class="ex-title">Case Study Question</div>
+                Comparing consumer reactions to price increases:
+                <p style="font-weight: 600; color: #0f766e; margin-top: 15px; font-size: 1.05em;">
+                  What does this imply about the (relative) own-price elasticities of demand for chocolate between Americans and Europeans?
+                </p>
+              </div>
+            </div>
+            <div style="flex: 1.1; display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px;">
+              <div class="slide-img-container" style="margin: 0; padding: 4px;"><img src="images/c2_page_24_img_3.png" alt="WSJ Chocolate Graph 1" style="max-height: 100px;"></div>
+              <div class="slide-img-container" style="margin: 0; padding: 4px;"><img src="images/c2_page_24_img_4.png" alt="WSJ Chocolate Graph 2" style="max-height: 100px;"></div>
+              <div class="slide-img-container" style="margin: 0; padding: 4px;"><img src="images/c2_page_24_img_5.png" alt="WSJ Chocolate Graph 3" style="max-height: 100px;"></div>
+              <div class="slide-img-container" style="margin: 0; padding: 4px;"><img src="images/c2_page_24_img_6.png" alt="WSJ Chocolate Graph 4" style="max-height: 100px;"></div>
+            </div>
+          </div>
+        </section>
+
+      </section>
+
+
+      <!-- SECTION 7: Other Elasticities (Vertical Stack) -->
+      <section>
+
+        <!-- Slide 8.1: Divider -->
+        <section data-background-gradient="linear-gradient(135deg, #0f172a 0%, #1e293b 100%)">
+          <p class="eyebrow" style="color: #2dd4bf;">Alternative Dimensions</p>
+          <h1 style="color: white; font-size: 2.8em;">Other Elasticity Measures</h1>
+          <p style="color: #94a3b8; margin-top: 20px;">Press <kbd style="background: #334155; color: #cbd5e1; border: 1px solid #475569; padding: 2px 6px; border-radius: 4px;">↓</kbd> to study income &amp; cross-price elasticity</p>
+        </section>
+
+        <!-- Slide 8.2: Definitions of other measures -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Other elasticity measures</p>
+          <h2>Income &amp; Cross-Price Elasticities</h2>
+          <div class="content-card">
+            <div class="def-card">
+              <div class="def-title">Definition: Income Elasticity</div>
+              For any good \( X \), if the <strong>income elasticity of demand</strong> for \( X \) is:
+              <ul>
+                <li><strong>Negative</strong>: then \( X \) is an <strong>inferior good</strong>.</li>
+                <li><strong>Positive</strong>: then \( X \) is a <strong>normal good</strong>.</li>
+              </ul>
+            </div>
+            
+            <div class="def-card fragment">
+              <div class="def-title">Definition: Cross-Price Elasticity</div>
+              For any two goods \( X \) and \( Y \), if the <strong>cross-price elasticity of demand</strong> for \( X \) with respect to the price of \( Y \) is:
+              <ul>
+                <li><strong>Negative</strong>: then \( X \) and \( Y \) are <strong>complements</strong>.</li>
+                <li><strong>Positive</strong>: then \( X \) and \( Y \) are <strong>substitutes</strong>.</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- Slide 8.3: Income elasticity calculation -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Other elasticity measures · Examples</p>
+          <h2>Applying Income Elasticity</h2>
+          <div class="content-card">
+            <div class="example-card">
+              <div class="ex-title">Example 1</div>
+              Rex&rsquo;s net income increased by <strong>21%</strong> this year compared to last; his purchases of sparkling water rose by <strong>17%</strong>. <br><br>
+              <strong>What is his income elasticity of demand for sparkling water?</strong>
+            </div>
+            
+            <p class="fragment" style="font-weight: 600; text-align: center; color: #0f766e; margin-top: 25px;">
+              Is sparkling water a normal or inferior good for Rex?
+            </p>
+          </div>
+        </section>
+
+        <!-- Slide 8.4: Cross-price elasticity calculation -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Other elasticity measures · Examples</p>
+          <h2>Applying Cross-Price Elasticity</h2>
+          <div class="content-card">
+            <div class="example-card">
+              <div class="ex-title">Example 2</div>
+              Wicked Art Fair (WAF) and Artistic Odyssey (AO) hold fairs at the same time every year. This year, WAF raised their ticket price by <strong>20%</strong>, and AO sees their traffic increase by <strong>11%</strong>. <br><br>
+              <strong>What is the cross-price elasticity of demand of (tickets for) AO?</strong>
+            </div>
+            
+            <p class="fragment" style="font-weight: 600; text-align: center; color: #0f766e; margin-top: 25px;">
+              Are WAF and AO tickets complements or substitutes?
+            </p>
+          </div>
+        </section>
+
+      </section>
+
+
+      <!-- SECTION 8: Elasticity & Marginal Revenue (Vertical Stack) -->
+      <section>
+
+        <!-- Slide 9.1: Divider -->
+        <section data-background-gradient="linear-gradient(135deg, #0f766e 0%, #115e59 100%)">
+          <p class="eyebrow" style="color: #ccfbf1;">Firms and Revenues</p>
+          <h1 style="color: white; font-size: 2.8em;">Elasticity &amp;<br>Marginal Revenue</h1>
+          <p style="color: #ccfbf1; margin-top: 20px;">Press <kbd style="background: #115e59; color: white; border: 1px solid #134e4a; padding: 2px 6px; border-radius: 4px;">↓</kbd> to link elasticity to revenue</p>
+        </section>
+
+        <!-- Slide 9.2: Linking to MR -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Elasticity &amp; Marginal Revenue</p>
+          <h2>Firms and Customer Sensitivity</h2>
+          <div class="content-card">
+            <p style="font-weight: 600; color: #0f766e;">The intellectual exercise is:</p>
+            <p style="font-size: 1.1em; line-height: 1.45; margin-bottom: 20px;">
+              Imagine we own a firm, and we face a group of potential customers &mdash; each with the same demand for our product. <br>
+              <strong>How can I relate their behavior (elasticity) to the incremental revenue we will earn as a firm?</strong>
+            </p>
+            
+            <ul style="font-size: 0.85em; color: #515763;">
+              <li class="fragment">Why should we, as a firm, care about this?</li>
+              <li class="fragment">How would we even know the answer to this question?</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- Slide 9.3: Illustration -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Elasticity &amp; Marginal Revenue</p>
+          <h2>Visualizing Pricing and Revenue</h2>
+          <div class="slide-img-container">
+            <img src="images/c2_page_29_img_3.jpeg" alt="Pricing and Revenue Illustration" style="max-height: 280px;">
+          </div>
+        </section>
+
+        <!-- Slide 9.4: Midpoint Rule and MR -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Elasticity &amp; Marginal Revenue</p>
+          <h2>The Unit-Elastic Midpoint Rule</h2>
+          <div style="display: flex; align-items: center; justify-content: center; gap: 20px; max-width: 950px; margin: 0 auto;">
+            <div style="flex: 1; text-align: left;">
+              <div class="content-card" style="margin: 0; padding: 20px 25px;">
+                <div class="def-card" style="margin: 0 0 15px;">
+                  <div class="def-title">Key Fact</div>
+                  For a firm facing a given demand function, the firm&rsquo;s <strong>marginal revenue is zero</strong> when they set a price where the customer&rsquo;s demand is <strong>unit-elastic</strong> (\( |\varepsilon| = 1 \)).
+                </div>
+                <p style="font-size: 0.85em; font-style: italic; color: #64748b;">
+                  This represents the peak of total revenue (midpoint for linear demand). This is our first foray into analyzing market behavior!
+                </p>
+              </div>
+            </div>
+            <div style="flex: 1.2;">
+              <div class="slide-img-container" style="margin: 0; padding: 6px;">
+                <img src="images/c2_page_30_img_3.png" alt="Marginal Revenue Zero Graph" style="max-height: 320px;">
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Slide 9.5: What is MR -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Elasticity &amp; Marginal Revenue</p>
+          <h2>What is Marginal Revenue?</h2>
+          <div class="content-card">
+            <div class="def-card">
+              <div class="def-title">Definition</div>
+              <strong>Marginal revenue (MR)</strong> is the incremental revenue made by firms when they produce one additional unit of product.
+            </div>
+            
+            <p style="margin-top: 15px;">Mathematically, <strong>marginal revenue is the derivative of the total revenue (TR) function</strong> with respect to quantity:</p>
+            <div style="text-align: center;">
+              \[ MR = \frac{d(TR)}{dQ} \]
+            </div>
+            
+            <p class="fragment" style="color: #0f766e; font-weight: 600; text-align: center; margin-top: 20px;">
+              This is the concept of marginal benefits for firms!
+            </p>
+            <p class="fragment" style="color: #64748b; font-style: italic; text-align: center; font-size: 0.85em; margin-top: 5px;">
+              (A preview of next class...)
+            </p>
+          </div>
+        </section>
+
+      </section>
+
+
+      <!-- SECTION 9: Wrap-up (Horizontal) -->
+      
+      <!-- Slide 10: Where to go from here? -->
+      <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+        <p class="eyebrow">Recap</p>
+        <h2>Class 2 Summary</h2>
+        <div class="content-card" style="text-align: center; padding: 35px;">
+          <p style="font-size: 1.1em; color: #0f766e; font-weight: 600; margin-bottom: 20px;">We are going to start moving quickly!</p>
+          <p>Please review coordinates and calculations for equilibrium and elasticities.</p>
+          <p class="fragment" style="margin-top: 20px; color: #64748b; font-size: 0.9em;">
+            Come to office hours later this week w/ any questions or concerns!
+          </p>
+        </div>
+      </section>
+
+      <!-- Slide 11: Closing -->
+      <section data-background-gradient="linear-gradient(135deg, #0f172a 0%, #1e293b 100%)">
+        <p class="eyebrow" style="color: #2dd4bf;">For next time</p>
+        <h2 style="color: white;">Preparation for Next Class</h2>
+        <div class="content-card" style="background: rgba(30, 41, 59, 0.7); border-color: rgba(255, 255, 255, 0.1); text-align: center;">
+          <p style="color: #cbd5e1; font-weight: 600; margin-bottom: 10px;">Next Session Schedule</p>
+          <p style="color: #94a3b8; font-size: 1.15em;"><strong>See you tomorrow (@ 2:45pm sharp)!</strong></p>
+        </div>
+        <p style="margin-top: 40px; color: #64748b; font-size: 0.75em;">Thank you!</p>
+      </section>
+
+    </div>
+  </div>
+
+  <a class="home-link" href="../">&larr; Back to course site</a>
+  <div class="slide-footer">RSC Economics Experience · Lecture 2</div>
+
+  <!-- reveal.js core + plugins -->
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/notes/notes.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/highlight/highlight.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/math/math.js"></script>
+  <script>
+    Reveal.initialize({
+      hash: true,
+      slideNumber: 'c/t',
+      transition: 'slide',
+      plugins: [ RevealHighlight, RevealNotes, RevealMath.KaTeX ]
+    });
+  </script>
+</body>
+</html>
