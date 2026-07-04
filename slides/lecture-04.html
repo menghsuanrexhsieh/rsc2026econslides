@@ -254,6 +254,20 @@
       font-size: 1.2em;
       vertical-align: middle;
     }
+
+    /* Step-by-step animated graph: lines draw themselves in as fragments appear */
+    .reveal svg.anim-graph { font-family: var(--r-main-font); }
+    .reveal svg.anim-graph text { font-family: var(--r-main-font); }
+    .reveal .anim-graph .build-line {
+      stroke-dasharray: 950;
+      stroke-dashoffset: 950;
+    }
+    .reveal .fragment.visible .build-line {
+      animation: c4draw 0.9s ease-out forwards;
+    }
+    @keyframes c4draw {
+      to { stroke-dashoffset: 0; }
+    }
   </style>
 </head>
 <body>
@@ -739,6 +753,71 @@
               \[ \Pi = 96 - 52 = \$44 \]
             </div>
           </div>
+        </section>
+
+        <!-- GROUP WORK Answers: step-by-step animated graph -->
+        <section data-background-gradient="linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)">
+          <p class="eyebrow" style="color: #059669;">Group Work &middot; Answers</p>
+          <h2>Monopoly Pricing, Step by Step</h2>
+          <p style="font-size: 0.55em; color: #64748b; margin: 0 0 4px;">Press <kbd style="background: #e2e8f0; border: 1px solid #cbd5e1; padding: 1px 6px; border-radius: 4px;">→</kbd> to add each element of the graph</p>
+          <svg class="anim-graph" viewBox="0 0 760 520" style="width: 92%; max-height: 480px; margin: 0 auto; display: block; background: white; border: 1px solid #e2e8f0; border-radius: 10px;" role="img" aria-label="Animated build-up of the monopoly pricing diagram: demand, then MR, MC, Q*=8, P*=$12, ATC, and the $44 profit rectangle">
+            <!-- profit rectangle (fragment 6, drawn first so it sits under the lines) -->
+            <g class="fragment" data-fragment-index="6">
+              <rect x="70" y="220" width="224" height="110" fill="#7c3aed" fill-opacity="0.18" stroke="#7c3aed" stroke-opacity="0.35" stroke-dasharray="5 4"/>
+              <text x="150" y="272" font-size="17" font-weight="700" fill="#5b21b6">Profit &#928;</text>
+              <text x="320" y="178" font-size="18" font-weight="700" fill="#5b21b6">&#928; = (12 &#8722; 6.50) &#215; 8 = $44</text>
+              <path d="M 355 188 Q 330 215 300 238" fill="none" stroke="#64748b" stroke-width="1.5" marker-end="url(#c4arrow)"/>
+            </g>
+            <!-- axes + demand (always visible) -->
+            <g>
+              <line x1="70" y1="460" x2="705" y2="460" stroke="#475569" stroke-width="2.5"/>
+              <polygon points="705,455 705,465 716,460" fill="#475569"/>
+              <line x1="70" y1="460" x2="70" y2="52" stroke="#475569" stroke-width="2.5"/>
+              <polygon points="65,52 75,52 70,41" fill="#475569"/>
+              <text x="723" y="466" font-size="17" fill="#1e293b" font-style="italic">Q</text>
+              <text x="44" y="34" font-size="17" fill="#1e293b" font-style="italic">P ($)</text>
+              <line x1="70" y1="60" x2="630" y2="460" stroke="#1e293b" stroke-width="3.5"/>
+              <text x="638" y="452" font-size="17" fill="#1e293b" font-style="italic">D</text>
+            </g>
+            <!-- fragment 1: MR -->
+            <g class="fragment" data-fragment-index="1">
+              <line class="build-line" x1="70" y1="60" x2="350" y2="460" stroke="#7c3aed" stroke-width="3.5"/>
+              <text x="342" y="436" font-size="17" fill="#7c3aed" font-style="italic">MR</text>
+            </g>
+            <!-- fragment 2: MC -->
+            <g class="fragment" data-fragment-index="2">
+              <line class="build-line" x1="70" y1="380" x2="700" y2="380" stroke="#dc2626" stroke-width="3.5"/>
+              <text x="640" y="372" font-size="17" fill="#dc2626" font-style="italic">MC = 4</text>
+            </g>
+            <!-- fragment 3: MR = MC, Q* -->
+            <g class="fragment" data-fragment-index="3">
+              <line x1="294" y1="380" x2="294" y2="460" stroke="#64748b" stroke-width="1.5" stroke-dasharray="5 4"/>
+              <circle cx="294" cy="380" r="6" fill="#7c3aed"/>
+              <text x="310" y="404" font-size="15" fill="#64748b">MR = MC</text>
+              <text x="294" y="484" font-size="17" font-weight="700" fill="#1e293b" text-anchor="middle">Q* = 8</text>
+            </g>
+            <!-- fragment 4: P* read off demand -->
+            <g class="fragment" data-fragment-index="4">
+              <line x1="294" y1="380" x2="294" y2="220" stroke="#64748b" stroke-width="1.5" stroke-dasharray="5 4"/>
+              <line x1="70" y1="220" x2="294" y2="220" stroke="#64748b" stroke-width="1.5" stroke-dasharray="5 4"/>
+              <circle cx="294" cy="220" r="6" fill="#1e293b"/>
+              <text x="62" y="226" font-size="17" font-weight="700" fill="#1e293b" text-anchor="end">P* = $12</text>
+              <text x="306" y="212" font-size="15" fill="#64748b">price comes from demand!</text>
+            </g>
+            <!-- fragment 5: ATC -->
+            <g class="fragment" data-fragment-index="5">
+              <polyline class="build-line" points="110.6,104 117.6,144.9 126,180 131.6,198.3 140,220 147,234.6 154,246.7 168,265.7 182,280 210,300 238,313.3 266,322.9 294,330 322,335.6 350,340 406,346.7 462,351.4 518,355 574,357.8 630,360" fill="none" stroke="#d97706" stroke-width="3.5"/>
+              <text x="636" y="352" font-size="17" fill="#d97706" font-style="italic">ATC</text>
+              <line x1="70" y1="330" x2="294" y2="330" stroke="#64748b" stroke-width="1.5" stroke-dasharray="5 4"/>
+              <circle cx="294" cy="330" r="5" fill="#d97706"/>
+              <text x="62" y="336" font-size="16" fill="#1e293b" text-anchor="end">ATC(8) = $6.50</text>
+            </g>
+            <defs>
+              <marker id="c4arrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+                <path d="M 0 0 L 8 4 L 0 8 z" fill="#64748b"/>
+              </marker>
+            </defs>
+          </svg>
         </section>
 
         <!-- GROUP WORK Answers: graph -->
