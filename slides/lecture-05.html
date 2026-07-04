@@ -1,0 +1,1247 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Social Welfare, Efficiency, and Deadweight Loss</title>
+
+  <!-- reveal.js core + theme (HTML5 slides, loaded from CDN) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reset.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/white.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/highlight/monokai.css">
+
+  <!-- Google Fonts for premium typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --r-main-font: 'Plus Jakarta Sans', sans-serif;
+      --r-heading-font: 'Outfit', sans-serif;
+      --r-main-color: #1e293b;
+      --r-heading-color: #0f172a;
+      --r-link-color: #0f766e;
+      --r-selection-background-color: #ccfbf1;
+    }
+    
+    .reveal {
+      font-family: var(--r-main-font);
+      color: var(--r-main-color);
+      font-size: 24px;
+    }
+    
+    .reveal h1, .reveal h2, .reveal h3, .reveal h4 {
+      font-family: var(--r-heading-font);
+      color: var(--r-heading-color);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .reveal h1 { font-size: 2.2em; line-height: 1.1; }
+    .reveal h2 { font-size: 1.6em; line-height: 1.2; margin-bottom: 15px; }
+    .reveal h3 { font-size: 1.2em; line-height: 1.3; }
+    
+    .reveal .eyebrow {
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      font-size: 0.45em;
+      font-weight: 700;
+      color: #0f766e;
+      margin-bottom: 10px;
+      display: inline-block;
+    }
+    
+    /* Elegant card container */
+    .reveal .content-card {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      border-radius: 12px;
+      padding: 18px 24px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.02);
+      margin: 12px auto;
+      text-align: left;
+      max-width: 920px;
+    }
+    
+    .reveal .def-card {
+      border-left: 4px solid #0f766e;
+      background: rgba(15, 118, 110, 0.04);
+      border-radius: 4px 10px 10px 4px;
+      padding: 12px 18px;
+      margin: 12px 0;
+      text-align: left;
+    }
+    .reveal .def-card .def-title {
+      font-family: var(--r-heading-font);
+      font-weight: 700;
+      color: #0f766e;
+      font-size: 0.8em;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 4px;
+    }
+    
+    .reveal .example-card {
+      border-left: 4px solid #3b82f6;
+      background: rgba(59, 130, 246, 0.04);
+      border-radius: 4px 10px 10px 4px;
+      padding: 12px 18px;
+      margin: 12px 0;
+      text-align: left;
+    }
+    .reveal .example-card .ex-title {
+      font-family: var(--r-heading-font);
+      font-weight: 700;
+      color: #3b82f6;
+      font-size: 0.8em;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 4px;
+    }
+    
+    /* Slide image styling */
+    .reveal .slide-img-container {
+      background: white;
+      padding: 8px;
+      border-radius: 10px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.02);
+      border: 1px solid #e2e8f0;
+      display: inline-block;
+      margin-top: 8px;
+    }
+    .reveal .slide-img-container img {
+      max-height: 280px;
+      width: auto;
+      margin: 0;
+      display: block;
+      border-radius: 4px;
+    }
+    
+    /* Standard list styling (for inside cards, columns, etc.) */
+    .reveal ul, .reveal ol {
+      display: block;
+      text-align: left;
+      margin: 10px 0 !important;
+      padding-left: 20px;
+    }
+    
+    .reveal ul {
+      list-style-type: disc;
+    }
+    
+    .reveal ol {
+      list-style-type: decimal;
+    }
+    
+    .reveal li {
+      text-align: left;
+      margin-bottom: 8px;
+      line-height: 1.35;
+    }
+    
+    /* Indentation and bullets for nested lists */
+    .reveal li ul, .reveal li ol {
+      margin: 4px 0 4px 20px !important;
+      display: block;
+      min-width: unset;
+    }
+    
+    .reveal li ul {
+      list-style-type: circle;
+    }
+    
+    /* Centered list layout (only when list is the main slide element or explicitly centered) */
+    .reveal section > ul, .reveal section > ol, .reveal .center-list {
+      display: inline-block;
+      text-align: left;
+      margin: 15px auto !important;
+      padding-left: 20px;
+      min-width: 65%;
+      max-width: 95%;
+    }
+    
+    /* Grid for side-by-side clips */
+    .reveal .img-gallery {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 15px;
+      flex-wrap: wrap;
+      margin-top: 15px;
+    }
+    .reveal .img-gallery .gallery-item {
+      background: white;
+      padding: 6px;
+      border-radius: 10px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.02);
+      border: 1px solid #e2e8f0;
+    }
+    .reveal .img-gallery img {
+      max-height: 220px;
+      width: auto;
+      display: block;
+      border-radius: 4px;
+      margin: 0;
+    }
+    
+    /* Home link and footer elements */
+    .reveal .home-link {
+      position: fixed;
+      bottom: 16px;
+      left: 20px;
+      z-index: 30;
+      font-size: 13px;
+      color: #94a3b8;
+      text-decoration: none;
+      font-family: var(--r-main-font);
+      font-weight: 500;
+      transition: color 0.2s ease;
+    }
+    .reveal .home-link:hover {
+      color: #0f766e;
+    }
+    
+    .reveal .slide-footer {
+      position: fixed;
+      bottom: 16px;
+      right: 20px;
+      z-index: 30;
+      font-size: 11px;
+      color: #94a3b8;
+      font-family: var(--r-main-font);
+    }
+    
+    /* Interactive blank */
+    .reveal .fill-blank {
+      display: inline-block;
+      border-bottom: 2px dashed #94a3b8;
+      min-width: 140px;
+      height: 1.1em;
+      vertical-align: bottom;
+    }
+
+    .reveal .katex-display {
+      margin: 8px 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- SECTION 1: Welcome & Overview (Horizontal) -->
+      
+      <!-- Slide 1: Title -->
+      <section data-background-gradient="linear-gradient(135deg, #0f172a 0%, #1e293b 100%)">
+        <p class="eyebrow" style="color: #2dd4bf;">RSC Economics Experience · July 2026</p>
+        <h1 style="color: white; font-size: 2.5em; margin-bottom: 15px;">Class 5</h1>
+        <h3 style="color: #94a3b8; font-weight: 400; margin-bottom: 45px;">Social Welfare, Efficiency, and Deadweight Loss</h3>
+        <p style="color: #2dd4bf; font-weight: 600; font-size: 0.9em; margin-bottom: 5px;">Meng Hsuan &ldquo;Rex&rdquo; Hsieh</p>
+        <p style="color: #64748b; font-size: 0.75em; margin-top: 30px;">Press <kbd style="background: #334155; color: #cbd5e1; border: 1px solid #475569; padding: 2px 6px; border-radius: 4px;">→</kbd> to begin</p>
+      </section>
+
+      <!-- Slide 2: Agenda -->
+      <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+        <p class="eyebrow">Agenda for Today</p>
+        <h2>Social Welfare, Efficiency, &amp; Deadweight Loss</h2>
+        <div class="content-card">
+          <ul>
+            <li class="fragment"><strong>Surplus</strong>: Define and calculate consumer surplus and producer surplus.</li>
+            <li class="fragment"><strong>Welfare</strong>: Define social surplus/welfare, efficiency, and deadweight loss.</li>
+            <li class="fragment"><strong>Public Policy</strong>: Analyze deadweight loss from market power, shocks, price controls, and taxes.</li>
+            <li class="fragment"><strong>Conclusion</strong>: Wrap up Part 1 of the RSC Economics Experience.</li>
+          </ul>
+        </div>
+      </section>
+
+
+      <!-- SECTION 2: Consumer and Producer Surplus (Vertical Stack) -->
+      <section>
+
+        <!-- Slide 3.1: Divider -->
+        <section data-background-gradient="linear-gradient(135deg, #0f766e 0%, #115e59 100%)">
+          <p class="eyebrow" style="color: #ccfbf1;">Part 1</p>
+          <h1 style="color: white; font-size: 2.8em;">Consumer &amp; Producer Surplus</h1>
+          <p style="color: #ccfbf1; margin-top: 20px;">Press <kbd style="background: #115e59; color: white; border: 1px solid #134e4a; padding: 2px 6px; border-radius: 4px;">↓</kbd> to continue</p>
+        </section>
+
+        <!-- Slide 3.2: Why Care About Market Structure? -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Markets &amp; Competition</p>
+          <h2>Why Care About Market Structure?</h2>
+          <div class="content-card" style="text-align: center; padding: 30px;">
+            <p style="font-size: 1.15em; line-height: 1.5; font-weight: 600; color: #0f766e;">Why do we care about the number of competitors in a market?</p>
+            <div class="def-card" style="margin-top: 20px;">
+              <div class="def-title">The Economist's Answer</div>
+              Market structure has direct implications for how well-off consumers and firms are.
+            </div>
+            <p class="fragment" style="font-weight: 600; margin-top: 25px; color: #0f172a;">
+              Nomenclature: Market structure has <strong>welfare implications</strong> for society.
+            </p>
+          </div>
+        </section>
+
+        <!-- Slide 3.3: Recap of Market Structures Table -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Market Structure · Recap</p>
+          <h2>Recap of Market Structures</h2>
+          <div class="content-card" style="max-width: 1000px; padding: 15px;">
+            <table style="width: 100%; border-collapse: collapse; font-size: 0.65em; font-family: var(--r-main-font); line-height: 1.25;">
+              <thead>
+                <tr style="border-bottom: 2px solid #0f766e; background: rgba(15, 118, 110, 0.05);">
+                  <th style="padding: 6px 12px; text-align: left; font-weight: 700; color: #0f766e;">Characteristic</th>
+                  <th style="padding: 6px 12px; text-align: left; font-weight: 700; color: #0f766e;">Perfect Competition</th>
+                  <th style="padding: 6px 12px; text-align: left; font-weight: 700; color: #0f766e;">Monopoly</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="border-bottom: 1px solid #e2e8f0;">
+                  <td style="padding: 6px 12px; font-weight: 700; color: #334155;">Number of Sellers</td>
+                  <td style="padding: 6px 12px;">Very large number</td>
+                  <td style="padding: 6px 12px;">One firm</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #e2e8f0;">
+                  <td style="padding: 6px 12px; font-weight: 700; color: #334155;">Entry Conditions</td>
+                  <td style="padding: 6px 12px;">Easy entry</td>
+                  <td style="padding: 6px 12px;">Barriers to entry</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #e2e8f0;">
+                  <td style="padding: 6px 12px; font-weight: 700; color: #334155;">Price Setting Ability</td>
+                  <td style="padding: 6px 12px;">None (&ldquo;price taker&rdquo;)</td>
+                  <td style="padding: 6px 12px;">Some (&ldquo;price maker&rdquo;)</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #e2e8f0;">
+                  <td style="padding: 6px 12px; font-weight: 700; color: #334155;">Price Elasticity of Demand &mdash; Firm Level</td>
+                  <td style="padding: 6px 12px; font-weight: 600; color: #0f766e;">Perfectly elastic</td>
+                  <td style="padding: 6px 12px;">Same as market elasticity of demand</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #e2e8f0;">
+                  <td style="padding: 6px 12px; font-weight: 700; color: #334155;">Long-Run Profit</td>
+                  <td style="padding: 6px 12px;">Zero economic profit</td>
+                  <td style="padding: 6px 12px;">Potentially positive</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #e2e8f0;">
+                  <td style="padding: 6px 12px; font-weight: 700; color: #334155;">Product Differentiation</td>
+                  <td style="padding: 6px 12px;">Standardized product</td>
+                  <td style="padding: 6px 12px;">Unique product with no close substitutes</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #e2e8f0;">
+                  <td style="padding: 6px 12px; font-weight: 700; color: #334155;">Key Characteristic</td>
+                  <td style="padding: 6px 12px;">Firms are price takers</td>
+                  <td style="padding: 6px 12px;">One firm</td>
+                </tr>
+                <tr style="background: rgba(248, 250, 252, 0.5);">
+                  <td style="padding: 6px 12px; font-weight: 700; color: #334155;">Examples</td>
+                  <td style="padding: 6px 12px; font-style: italic;">Tomatoes, copper, lumber</td>
+                  <td style="padding: 6px 12px; font-style: italic;">Patented medicine, first-class mail, electricity delivery</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- Slide 3.4: Defining Consumer Surplus -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Surplus · Consumer</p>
+          <h2>Defining Consumer Surplus</h2>
+          <div class="content-card">
+            <p style="font-weight: 600; color: #0f766e; margin-bottom: 15px;">How do we measure consumer well-being?</p>
+            <ul>
+              <li>Competitive structure directly determines the market price.</li>
+              <li>Each consumer has their own willingness-to-pay (valuation) for a product.</li>
+              <li>Market price determines the welfare they receive from transacting.</li>
+            </ul>
+            <div class="def-card fragment" style="margin-top: 15px;">
+              <div class="def-title">Definition</div>
+              <strong>Consumer surplus (CS)</strong> is the difference between total willingness to pay and total expenditure (for a given level of consumption).
+            </div>
+          </div>
+        </section>
+
+        <!-- Slide 3.5: Willingness to Pay & Expenditure -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Surplus · Consumer</p>
+          <h2>Willingness to Pay vs. Expenditure</h2>
+          <div class="content-card">
+            <div class="def-card" style="margin: 5px 0 15px;">
+              <div class="def-title">Willingness to Pay (WTP)</div>
+              Willingness to pay is represented by the <strong>demand curve</strong> because the curve shows the maximum price a consumer is willing to pay for each incremental unit.
+            </div>
+            <div class="def-card fragment" style="margin: 15px 0;">
+              <div class="def-title">Total Expenditure</div>
+              Total expenditure is how much it actually costs to purchase those units:
+              \[ \text{Total Expenditure} = P^* \times Q^* \]
+            </div>
+            <p class="fragment" style="font-weight: 600; color: #3b82f6; text-align: center; margin-top: 15px;">
+              Let's look at this concept graphically on the next slide!
+            </p>
+          </div>
+        </section>
+
+        <!-- Slide 3.5b: Warm-Up Nintendo CS -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Surplus · Warm-Up</p>
+          <h2>Warm-Up: Surplus from One Purchase</h2>
+          <div class="content-card">
+            <div class="example-card" style="margin: 0;">
+              <div class="ex-title">Example</div>
+              Rex wants to buy a Nintendo Switch 2. He is willing to pay <strong>$600</strong> for a unit. The MSRP is <strong>$500</strong>.
+              <br><br>
+              <strong>What is his surplus if he buys one unit of Nintendo Switch 2?</strong>
+            </div>
+            <div class="def-card fragment" style="margin-top: 15px;">
+              <div class="def-title">Answer</div>
+              \[ CS = \text{WTP} - \text{Expenditure} = 600 - 500 = \$100 \]
+            </div>
+          </div>
+        </section>
+
+        <!-- Slide 3.6: CS Graph -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Surplus · Consumer</p>
+          <h2>Visualizing Consumer Surplus</h2>
+          <div style="display: flex; align-items: center; justify-content: center; gap: 20px; max-width: 1090px; margin: 0 auto;">
+            <div style="flex: 1; text-align: left;">
+              <div class="content-card" style="margin: 0; padding: 20px;">
+                <p style="font-weight: 600; color: #0f766e; margin-bottom: 12px;">Graphical Representation:</p>
+                <ul>
+                  <li><strong>Willingness to Pay</strong>: Area under the demand curve up to quantity consumed.</li>
+                  <li><strong>Expenditure</strong>: Rectangular area \( P^* \times Q^* \).</li>
+                  <li><strong>Consumer Surplus</strong>: Area below the demand curve and above the market price line.</li>
+                </ul>
+              </div>
+            </div>
+            <div style="flex: 1.1;">
+              <div class="slide-img-container" style="margin: 0; padding: 6px;">
+                <img src="images/c5_page_7_graph.png" alt="Consumer Surplus Graph" style="max-height: 310px;">
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Slide 3.6b: Elasticity and CS -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Surplus · Consumer</p>
+          <h2>Elasticity Matters for Consumer Surplus</h2>
+          <div class="content-card">
+            <p style="font-weight: 600; color: #0f766e; margin-bottom: 15px;">
+              For a fixed market price, how elastic demand is has direct implications for the size of consumer surplus!
+            </p>
+            <ul>
+              <li class="fragment"><strong>Relatively inelastic (steeper) demand</strong>: consumers value inframarginal units far above the price &rArr; a <strong>larger</strong> CS area.</li>
+              <li class="fragment"><strong>Relatively elastic (flatter) demand</strong>: valuations sit close to the price &rArr; a <strong>smaller</strong> CS area.</li>
+            </ul>
+            <p class="fragment" style="font-style: italic; color: #64748b; text-align: center; margin-top: 15px;">
+              Let&rsquo;s draw the two cases on the board to see this!
+            </p>
+          </div>
+        </section>
+
+        <!-- Slide 3.7: CS Example -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Surplus · Practice</p>
+          <h2>Practice: Consumer Surplus</h2>
+          <div class="content-card">
+            <div class="example-card" style="margin: 0;">
+              <div class="ex-title">Problem Statement</div>
+              A consumer has demand function for packs of gum given by:
+              \[ Q_D = 30 - 5P \]
+              The market price for gum is currently $5 per pack.
+              <br><br>
+              <strong>Determine how many packs of gum this consumer would consume, and calculate their consumer surplus.</strong>
+            </div>
+          </div>
+        </section>
+
+        <!-- Slide 3.7b: CS Solution -->
+        <section data-background-gradient="linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)">
+          <p class="eyebrow" style="color: #059669;">Surplus · Solution</p>
+          <h2>Solution: Consumer Surplus</h2>
+          <div class="content-card" style="font-size: 0.95em;">
+            <div class="def-card" style="margin: 8px 0;">
+              <div class="def-title">Step 1: Find Quantity Demanded</div>
+              Plugging \( P = 5 \) into the demand function:
+              \[ Q_D = 30 - 5(5) = 5 \text{ packs} \]
+            </div>
+            <div class="def-card fragment" style="margin: 8px 0;">
+              <div class="def-title">Step 2: Find the Demand Choke Price</div>
+              Find the price where demand is exactly zero:
+              \[ 30 - 5P = 0 \implies P_{\text{choke}} = \$6 \]
+            </div>
+            <div class="def-card fragment" style="margin: 8px 0;">
+              <div class="def-title">Step 3: Calculate the Triangle Area</div>
+              CS is the area of the triangle below demand and above price (\( P = 5 \Delta P \)):
+              \[ CS = \frac{1}{2} \times \text{base} \times \text{height} = \frac{1}{2} \times Q_D \times (P_{\text{choke}} - P) \]
+              \[ CS = \frac{1}{2} \times 5 \times (6 - 5) = \$2.50 \]
+            </div>
+          </div>
+        </section>
+
+        <!-- Slide 3.8: Defining Producer Surplus -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Surplus · Producer</p>
+          <h2>Defining Producer Surplus</h2>
+          <div class="content-card">
+            <p style="font-weight: 600; color: #0f766e; margin-bottom: 15px;">How do we measure producer well-being?</p>
+            <ul>
+              <li>Each producer has their own supply curve, representing their willingness to produce/sell at different prices.</li>
+              <li>The market price determines the revenue they earn from selling.</li>
+            </ul>
+            <div class="def-card fragment" style="margin-top: 15px;">
+              <div class="def-title">Definition</div>
+              <strong>Producer surplus (PS)</strong> is the difference between total revenue and total cost/expenditure (for a given level of production).
+              <br><br>
+              Graphically, it is the area <strong>above the supply curve</strong> and <strong>below the price line</strong>.
+            </div>
+          </div>
+        </section>
+
+        <!-- Slide 3.8b: Warm-Up Nintendo PS -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Surplus · Warm-Up</p>
+          <h2>Warm-Up: Surplus from One Sale</h2>
+          <div class="content-card">
+            <div class="example-card" style="margin: 0;">
+              <div class="ex-title">Example</div>
+              Nintendo is selling one unit of Nintendo Switch 2 to Rex at <strong>$500</strong>. Nintendo&rsquo;s manufacturing cost for one unit of Switch 2 is <strong>$338</strong>.
+              <br><br>
+              <strong>What is Nintendo&rsquo;s surplus if they sell him one unit of Nintendo Switch 2?</strong>
+            </div>
+            <div class="def-card fragment" style="margin-top: 15px;">
+              <div class="def-title">Answer</div>
+              \[ PS = \text{Revenue} - \text{Cost} = 500 - 338 = \$162 \]
+            </div>
+          </div>
+        </section>
+
+        <!-- Slide 3.9: PS Example -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Surplus · Practice</p>
+          <h2>Practice: Producer Surplus</h2>
+          <div class="content-card">
+            <div class="example-card" style="margin: 0;">
+              <div class="ex-title">Problem Statement</div>
+              A firm has supply function for packs of gum given by:
+              \[ Q_S = 10 + 5P_S \]
+              Suppose the firm sells each pack of gum at the market price of $5.
+              <br><br>
+              <strong>Determine the producer surplus for this firm.</strong>
+            </div>
+          </div>
+        </section>
+
+        <!-- Slide 3.9b: PS Solution -->
+        <section data-background-gradient="linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)">
+          <p class="eyebrow" style="color: #059669;">Surplus · Solution</p>
+          <h2>Solution: Producer Surplus</h2>
+          <div class="content-card" style="font-size: 0.95em;">
+            <div class="def-card" style="margin: 8px 0;">
+              <div class="def-title">Step 1: Find Quantity Supplied</div>
+              Plugging \( P = 5 \) into the supply function:
+              \[ Q_S = 10 + 5(5) = 35 \text{ packs} \]
+            </div>
+            <div class="def-card fragment" style="margin: 8px 0;">
+              <div class="def-title">Step 2: Understand the Area</div>
+              Supply starts at \( Q = 10 \) when \( P = 0 \). The area above the supply curve and below \( P = 5 \) is a trapezoid with height \( 5 \) (from \( P = 0 \) to \( P = 5 \)) and parallel bases of length \( 10 \) and \( 35 \).
+            </div>
+            <div class="def-card fragment" style="margin: 8px 0;">
+              <div class="def-title">Step 3: Calculate the Trapezoid Area</div>
+              \[ PS = \frac{\text{base}_1 + \text{base}_2}{2} \times \text{height} = \frac{10 + 35}{2} \times 5 = 22.5 \times 5 = \$112.50 \]
+              <p style="font-size: 0.85em; color: #64748b; margin-top: 5px;">
+                Alternatively, integrate \( Q_S(P) \): \( \int_0^5 (10 + 5P) dP = [10P + 2.5P^2]_0^5 = 50 + 62.5 = \$112.50 \).
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Slide 3.10: Market-Level Example -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Surplus · Market Level</p>
+          <h2>Practice: Market Surplus</h2>
+          <div class="content-card">
+            <div class="example-card" style="margin: 0;">
+              <div class="ex-title">Problem Statement</div>
+              In the market for gum, market demand is given by:
+              \[ Q_D = 30 - 5P_D \]
+              and market supply is given by:
+              \[ Q_S = 10 + 5P_S \]
+              <br>
+              <strong>Calculate the market equilibrium price and quantity, and then determine both the consumer surplus and producer surplus in equilibrium.</strong>
+            </div>
+          </div>
+        </section>
+
+        <!-- Slide 3.10b: Market-Level Solution -->
+        <section data-background-gradient="linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)">
+          <p class="eyebrow" style="color: #059669;">Surplus · Solution</p>
+          <h2>Solution: Market Surplus</h2>
+          <div class="content-card" style="font-size: 0.86em;">
+            <div class="def-card" style="margin: 6px 0;">
+              <div class="def-title">Step 1: Equilibrium \( P^* \) and \( Q^* \)</div>
+              Set \( Q_D = Q_S \implies 30 - 5P = 10 + 5P \implies 20 = 10P \implies P^* = \$2 \).
+              <br>
+              Plugging back in: \( Q^* = 30 - 5(2) = 20 \) units.
+            </div>
+            <div class="def-card fragment" style="margin: 6px 0;">
+              <div class="def-title">Step 2: Consumer Surplus</div>
+              Choke price is \( P_{\text{choke}} = \$6 \).
+              \[ CS = \frac{1}{2} \times Q^* \times (P_{\text{choke}} - P^*) = \frac{1}{2} \times 20 \times (6 - 2) = \$40 \]
+            </div>
+            <div class="def-card fragment" style="margin: 6px 0;">
+              <div class="def-title">Step 3: Producer Surplus</div>
+              Supply curve starts at \( Q = 10 \) at \( P = 0 \). The area below \( P^* = 2 \) is a trapezoid:
+              \[ PS = \frac{10 + 20}{2} \times 2 = 15 \times 2 = \$30 \]
+            </div>
+            <div class="def-card fragment" style="margin: 6px 0; border-left-color: #3b82f6; background: rgba(59, 130, 246, 0.04);">
+              <div class="def-title" style="color: #3b82f6;">Step 4: Total Social Welfare</div>
+              \[ W = CS + PS = 40 + 30 = \$70 \]
+            </div>
+          </div>
+        </section>
+
+      </section>
+
+
+      <!-- SECTION 3: Social Welfare and Deadweight Loss (Vertical Stack) -->
+      <section>
+
+        <!-- Slide 4.1: Divider -->
+        <section data-background-gradient="linear-gradient(135deg, #0f766e 0%, #115e59 100%)">
+          <p class="eyebrow" style="color: #ccfbf1;">Part 2</p>
+          <h1 style="color: white; font-size: 2.8em;">Social Welfare &amp; Deadweight Loss</h1>
+          <p style="color: #ccfbf1; margin-top: 20px;">Press <kbd style="background: #115e59; color: white; border: 1px solid #134e4a; padding: 2px 6px; border-radius: 4px;">↓</kbd> to continue</p>
+        </section>
+
+        <!-- Slide 4.2: Defining Social Welfare -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Welfare · Definition</p>
+          <h2>Defining Social Welfare</h2>
+          <div style="display: flex; align-items: center; justify-content: center; gap: 20px; max-width: 1090px; margin: 0 auto;">
+            <div style="flex: 1; text-align: left;">
+              <div class="content-card" style="margin: 0; padding: 14px 18px; font-size: 0.88em;">
+                <div class="def-card" style="margin: 0 0 12px;">
+                  <div class="def-title">Definition</div>
+                  <strong>Social welfare</strong> (or social surplus) is the sum of consumer surplus and producer surplus in the market:
+                  \[ W = CS + PS \]
+                </div>
+                <ul>
+                  <li>Social welfare/surplus is <strong>maximized under perfect competition</strong>.</li>
+                  <li>Monopolist pricing <strong>reduces</strong> social surplus.</li>
+                </ul>
+                <div class="def-card fragment" style="margin: 12px 0 0;">
+                  <div class="def-title">Definition: Efficiency</div>
+                  A market is said to be <strong>efficient</strong> if there is no deadweight loss (or, when social surplus is maximized).
+                </div>
+              </div>
+            </div>
+            <div style="flex: 1.1;">
+              <div class="slide-img-container" style="margin: 0; padding: 6px;">
+                <img src="images/c5_page_12_graph.png" alt="Social Welfare Graph" style="max-height: 280px;">
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Slide 4.3: Introducing Deadweight Loss -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Welfare · Deadweight Loss</p>
+          <h2>Welfare Loss from Market Shocks</h2>
+          <div style="display: flex; align-items: center; justify-content: center; gap: 20px; max-width: 1090px; margin: 0 auto;">
+            <div style="flex: 1; text-align: left;">
+              <div class="content-card" style="margin: 0; padding: 20px;">
+                <p style="font-weight: 600; color: #0f766e; margin-bottom: 12px;">What happens when markets deviate from equilibrium?</p>
+                <ul>
+                  <li>Quantities transacted decrease.</li>
+                  <li>Some consumer and producer surplus is lost.</li>
+                  <li>The area <strong>C</strong> represents lost surplus that is not transferred to anyone.</li>
+                </ul>
+              </div>
+            </div>
+            <div style="flex: 1.1;">
+              <div class="slide-img-container" style="margin: 0; padding: 6px;">
+                <img src="images/c5_ipad_dwl_full.png" alt="Welfare Loss Graph" style="max-height: 310px;">
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Slide 4.4: Defining Deadweight Loss -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Welfare · Deadweight Loss</p>
+          <h2>Defining Deadweight Loss</h2>
+          <div class="content-card">
+            <div class="def-card">
+              <div class="def-title">Definition</div>
+              <strong>Deadweight loss (DWL)</strong> is the net reduction in total surplus from an event, action, or policy that <em>alters the market equilibrium</em>, resulting in a loss of social surplus that is <strong>not offset</strong> by a gain to another group.
+            </div>
+            <p style="font-weight: 600; color: #0f766e; margin-top: 15px;">Why does it occur?</p>
+            <ul>
+              <li>Consumers value extra output by more than the marginal cost of producing it.</li>
+              <li>By restricting trade, society misses out on mutually beneficial transactions.</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- Slide 4.5: Social Welfare Under Market Power -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Welfare · Market Power</p>
+          <h2>Welfare Under Market Power</h2>
+          <div style="display: flex; align-items: center; justify-content: center; gap: 20px; max-width: 1090px; margin: 0 auto;">
+            <div style="flex: 1; text-align: left;">
+              <div class="content-card" style="margin: 0; padding: 18px;">
+                <p style="font-weight: 600; color: #0f766e; margin-bottom: 10px;">Recall Monopoly Pricing:</p>
+                <ul>
+                  <li>Monopolists set price above MC, restricting output to maximize profits.</li>
+                  <li>This pricing behavior causes a transfer of surplus from consumers to the firm.</li>
+                  <li>It also creates a deadweight loss (Area <strong>C</strong>), reducing total social welfare.</li>
+                </ul>
+              </div>
+            </div>
+            <div style="flex: 1.1;">
+              <div class="slide-img-container" style="margin: 0; padding: 6px;">
+                <img src="images/c5_ipad_dwl_full.png" alt="Monopoly Deadweight Loss" style="max-height: 310px;">
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Slide 4.5b: Practice Monopoly DWL -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Welfare · Practice</p>
+          <h2>Practice: DWL from Market Power</h2>
+          <div style="display: flex; align-items: center; justify-content: center; gap: 20px; max-width: 1090px; margin: 0 auto;">
+            <div style="flex: 1; text-align: left;">
+              <div class="example-card" style="margin: 0; font-size: 0.9em;">
+                <div class="ex-title">Problem Statement</div>
+                Consider the iPad market in the figure. Under competition, \( P_c = \$200 \) (equal to MC) and \( Q_c = 160 \)M. With full market power, the monopolist sets \( P_m = \$600 \) and \( Q_m = 80 \)M.
+                <br><br>
+                <strong>What is the deadweight loss that results from full market power (i.e., monopolist pricing)?</strong>
+              </div>
+            </div>
+            <div style="flex: 1.1;">
+              <div class="slide-img-container" style="margin: 0; padding: 6px;">
+                <img src="images/c5_ipad_dwl_full.png" alt="Monopoly DWL iPad Graph" style="max-height: 300px;">
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Slide 4.5c: Solution Monopoly DWL -->
+        <section data-background-gradient="linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)">
+          <p class="eyebrow" style="color: #059669;">Welfare · Solution</p>
+          <h2>Solution: DWL from Market Power</h2>
+          <div class="content-card" style="font-size: 0.95em;">
+            <div class="def-card" style="margin: 8px 0;">
+              <div class="def-title">Step 1: Identify the DWL Triangle (Area C)</div>
+              The lost transactions run from \( Q_m = 80 \)M to \( Q_c = 160 \)M; the wedge at \( Q_m \) is the gap between the monopoly price and marginal cost: \( P_m - P_c = 600 - 200 = \$400 \).
+            </div>
+            <div class="def-card fragment" style="margin: 8px 0;">
+              <div class="def-title">Step 2: Calculate the Triangle</div>
+              \[ DWL = \frac{1}{2} \times (Q_c - Q_m) \times (P_m - P_c) = \frac{1}{2} \times 80\text{M} \times 400 = \$16{,}000\text{M} \]
+              <p style="font-weight: 700; color: #059669; text-align: center; margin-top: 8px;">DWL = $16 billion &mdash; surplus lost to society, transferred to no one.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Slide 4.5d: How Else Might DWL Arise? -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Welfare · Deadweight Loss</p>
+          <h2>How Else Might Deadweight Loss Arise?</h2>
+          <div class="content-card" style="text-align: center; padding: 30px;">
+            <p style="font-size: 1.1em; line-height: 1.5;">A natural follow-up question is: <strong style="color: #0f766e;">how else might deadweight loss arise?</strong></p>
+            <div class="def-card" style="margin-top: 20px; text-align: left;">
+              <div class="def-title">The Common Theme</div>
+              There are many possibilities, but all of them share the same theme: some party (or parties) is <strong>&ldquo;hurt&rdquo;</strong> as a result of the event, action, or policy change.
+            </div>
+          </div>
+        </section>
+
+        <!-- Slide 4.5e: Christmas DWL Example -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Welfare · Deadweight Loss</p>
+          <h2>The Inefficiencies of Christmas</h2>
+          <div class="content-card" style="font-size: 0.92em;">
+            <div class="example-card" style="margin: 0 0 12px;">
+              <div class="ex-title">Case Study: Gift-Giving Economics (The Economist)</div>
+              Joel Waldfogel (1993) identified a <strong>&ldquo;deadweight loss&rdquo; of Christmas</strong>: the gap between what seasonal gifts cost and how much recipients actually value them.
+            </div>
+            <ul>
+              <li class="fragment">Cash spent on another person yields only about <strong>85%</strong> of the benefit of cash people spend on themselves.</li>
+              <li class="fragment">One estimate: unwanted gifts destroyed around <strong>&pound;3bn of the &pound;25bn</strong> spent on gifts by British adults in 2021.</li>
+              <li class="fragment">Gift-giving may make people happy &mdash; but as an allocation mechanism, it is <em>&ldquo;a lousy way to allocate resources.&rdquo;</em></li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- Slide 4.5f: DWL from Shocks -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Welfare · Shocks</p>
+          <h2>Practice: Welfare Effects of a Shock</h2>
+          <div class="content-card">
+            <div class="example-card" style="margin: 0;">
+              <div class="ex-title">Problem Statement</div>
+              The market for Nintendo Switch 2 is in equilibrium. However, supply chain issues <strong>doubled the costs of production</strong>.
+              <br><br>
+              <strong>Perform a welfare analysis, graphically, that shows the impact of this shock. Assume market demand remains unchanged.</strong>
+            </div>
+          </div>
+        </section>
+
+        <!-- Slide 4.5g: Solution DWL from Shocks -->
+        <section data-background-gradient="linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)">
+          <p class="eyebrow" style="color: #059669;">Welfare · Solution</p>
+          <h2>Solution: Welfare Effects of a Shock</h2>
+          <div class="content-card" style="font-size: 0.95em;">
+            <div class="def-card" style="margin: 8px 0;">
+              <div class="def-title">Step 1: Shift the Supply Curve</div>
+              Doubled production costs shift the supply curve <strong>up/left</strong> (each quantity now requires a higher price to be supplied). Demand stays put.
+            </div>
+            <div class="def-card fragment" style="margin: 8px 0;">
+              <div class="def-title">Step 2: New Equilibrium</div>
+              The equilibrium price <strong>rises</strong> and the equilibrium quantity <strong>falls</strong>.
+            </div>
+            <div class="def-card fragment" style="margin: 8px 0;">
+              <div class="def-title">Step 3: Welfare Comparison</div>
+              Consumer surplus shrinks (higher price, fewer units), and total surplus falls relative to the pre-shock market. Some previously beneficial transactions no longer happen &mdash; consumers and producers are both hurt by the shock.
+            </div>
+          </div>
+        </section>
+
+        <!-- Slide 4.6: Taxes and Price Controls Intro -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Welfare · Interventions</p>
+          <h2>Policy Interventions &amp; Welfare</h2>
+          <div class="content-card" style="text-align: center; padding: 30px;">
+            <p style="font-size: 1.1em; line-height: 1.4; color: #1e293b;">
+              Aside from market power (monopolies), what else alters the competitive equilibrium?
+            </p>
+            <div class="def-card" style="margin-top: 20px; text-align: left;">
+              <div class="def-title">Government Interventions</div>
+              Taxes and price controls artificially alter market prices, restricting transactions and inducing deadweight loss.
+            </div>
+            <p class="fragment" style="color: #64748b; font-size: 0.9em; margin-top: 25px; font-weight: 600;">
+              Let's analyze these interventions in detail!
+            </p>
+          </div>
+        </section>
+
+      </section>
+
+
+      <!-- SECTION 4: Market Interventions (Vertical Stack) -->
+      <section>
+
+        <!-- Slide 5.1: Divider -->
+        <section data-background-gradient="linear-gradient(135deg, #0f766e 0%, #115e59 100%)">
+          <p class="eyebrow" style="color: #ccfbf1;">Part 3</p>
+          <h1 style="color: white; font-size: 2.8em;">Market Interventions</h1>
+          <p style="color: #ccfbf1; margin-top: 20px;">Press <kbd style="background: #115e59; color: white; border: 1px solid #134e4a; padding: 2px 6px; border-radius: 4px;">↓</kbd> to continue</p>
+        </section>
+
+        <!-- Slide 5.2: Why Intervene? -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Interventions · Rationale</p>
+          <h2>Why Intervene in Markets?</h2>
+          <div class="content-card" style="font-size: 0.9em;">
+            <p style="font-weight: 600; color: #0f766e;">Market efficiency relies on several critical assumptions:</p>
+            <ol>
+              <li class="fragment"><strong>Income Distribution</strong>: Competitive markets maximize total surplus given the <em>initial</em> distribution of income, which might be unequal or undesirable.</li>
+              <li class="fragment"><strong>Consumer Sovereignty</strong>: Consumers are assumed to be the best judges of their own utility.</li>
+              <li class="fragment"><strong>No Externalities</strong>: Producers must bear all production costs, and purchasers must receive all benefits.</li>
+            </ol>
+            <p class="fragment" style="margin-top: 15px;">
+              If any of these assumptions fail, government intervention may be economically justified to "generate desirable market outcomes."
+            </p>
+          </div>
+        </section>
+
+        <!-- Slide 5.3: Price Controls Ceilings Floors -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Interventions · Price Controls</p>
+          <h2>Price Ceilings &amp; Price Floors</h2>
+          <div style="display: flex; align-items: center; justify-content: center; gap: 20px; max-width: 1090px; margin: 0 auto;">
+            <div style="flex: 1; text-align: left;">
+              <div class="content-card" style="margin: 0; padding: 20px;">
+                <div class="def-card" style="margin: 0 0 15px;">
+                  <div class="def-title">Definition</div>
+                  <strong>Price controls</strong> are legislation that guarantees market prices &mdash; preventing prices from moving to equilibrium.
+                </div>
+                <ul>
+                  <li><strong>Price Ceiling</strong> (\( p^1 \)): A legal maximum price (e.g. rent control).</li>
+                  <li><strong>Price Floor</strong> (\( p^0 \)): A legal minimum price (e.g. minimum wage).</li>
+                </ul>
+                <p class="fragment" style="font-weight: 600; color: #3b82f6; font-size: 0.9em; margin-top: 12px;">
+                  Questions: What is the effect of a price ceiling? Of a price floor? How much is actually traded at these prices?
+                </p>
+              </div>
+            </div>
+            <div style="flex: 1.1;">
+              <div class="slide-img-container" style="margin: 0; padding: 6px;">
+                <img src="images/c5_page_20_graph.png" alt="Price Controls Graph" style="max-height: 310px;">
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Slide 5.3b: Real-World Price Controls -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Interventions · In the Real World</p>
+          <h2>Price Controls in the Real World</h2>
+          <div class="content-card">
+            <div class="example-card" style="margin: 0 0 15px;">
+              <div class="ex-title">Example: Price Ceiling</div>
+              The CFPB issued a rule that <strong>caps credit card late fees</strong> (<a href="https://tinyurl.com/22w3k875" target="_blank" rel="noopener">tinyurl.com/22w3k875</a>).
+              <br>
+              Let&rsquo;s look at the &ldquo;market&rdquo; for credit card (fees)!
+            </div>
+            <div class="example-card fragment" style="margin: 0;">
+              <div class="ex-title">Example: Price Floor</div>
+              The USDA&rsquo;s <strong>loan rate / Crop Commodity Programs</strong> guarantee minimum prices for agricultural products (<a href="https://tinyurl.com/yw437vvn" target="_blank" rel="noopener">tinyurl.com/yw437vvn</a>).
+              <br>
+              Let&rsquo;s look at the market for agricultural products (e.g. grain sorghum)!
+            </div>
+          </div>
+        </section>
+
+        <!-- Slide 5.4: Minimum Wage Floor -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Interventions · Price Floor</p>
+          <h2>Policy Example: Minimum Wage</h2>
+          <div class="content-card">
+            <p style="font-weight: 600; color: #0f766e; margin-bottom: 15px;">Welfare Effects of a Price Floor:</p>
+            <ul>
+              <li>A minimum wage sets a legal minimum price in the labor market.</li>
+              <li class="fragment">If set above the market equilibrium wage, it increases the quantity of labor supplied (more people want to work) but reduces the quantity of labor demanded (firms hire fewer workers).</li>
+              <li class="fragment">This discrepancy creates a surplus of labor (unemployment) and generates a deadweight loss for society.</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- Slide 5.5: Rent Control Ceiling Example -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Interventions · Price Ceiling</p>
+          <h2>Practice: Rent Control</h2>
+          <div style="display: flex; align-items: center; justify-content: center; gap: 20px; max-width: 1090px; margin: 0 auto;">
+            <div style="flex: 1.1; text-align: left;">
+              <div class="example-card" style="margin: 0; font-size: 0.8em; padding: 15px;">
+                <div class="ex-title">Problem Statement</div>
+                A rent control policy setting \( \$1500 \) per month rent on apartments in San Francisco is being considered. Assume apartments are identical, with demand given by:
+                \[ P = 3600 - Q \]
+                and supply given by:
+                \[ P = 400 + Q \]
+                <br>
+                <strong>1. Calculate the deadweight loss due to this price ceiling.</strong>
+                <br>
+                <strong>2. If supply were perfectly inelastic at the equilibrium point, would the deadweight loss be smaller or larger?</strong>
+              </div>
+            </div>
+            <div style="flex: 0.9;">
+              <div class="slide-img-container" style="margin: 0; padding: 6px;">
+                <img src="images/c5_page_22_graph.png" alt="Rent Control Graph" style="max-height: 290px;">
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Slide 5.5b: Solution Rent Control -->
+        <section data-background-gradient="linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)">
+          <p class="eyebrow" style="color: #059669;">Interventions · Solution</p>
+          <h2>Solution: Rent Control</h2>
+          <div class="content-card" style="font-size: 0.84em; max-width: 1020px;">
+            <div class="def-card" style="margin: 5px 0;">
+              <div class="def-title">Step 1: Find Market Equilibrium (No Intervention)</div>
+              \[ 3600 - Q = 400 + Q \implies 3200 = 2Q \implies Q^* = 1600, P^* = \$2000 \]
+            </div>
+            <div class="def-card fragment" style="margin: 5px 0;">
+              <div class="def-title">Step 2: Apply Price Ceiling (\( P_c = 1500 \))</div>
+              At \( P = 1500 \), supply is binding: \( Q_S = 1500 - 400 = 1100 \) units (Shortage: \( Q_D - Q_S = 2100 - 1100 = 1000 \)).
+            </div>
+            <div class="def-card fragment" style="margin: 5px 0;">
+              <div class="def-title">Step 3: Calculate Deadweight Loss (DWL)</div>
+              At \( Q = 1100 \), demand valuation is \( P_D = 3600 - 1100 = 2500 \); MC is \( P_S = 1500 \).
+              \[ DWL = \frac{1}{2} \times (Q^* - Q_S) \times (P_D - P_S) = \frac{1}{2} \times (1600 - 1100) \times (2500 - 1500) \]
+              \[ DWL = \frac{1}{2} \times 500 \times 1000 = \$250,000 \]
+            </div>
+            <div class="def-card fragment" style="margin: 5px 0; border-left-color: #3b82f6; background: rgba(59, 130, 246, 0.04);">
+              <div class="def-title" style="color: #3b82f6;">Part 2: Inelastic Supply</div>
+              If supply is perfectly inelastic at \( Q = 1600 \), quantity remains unchanged at 1600.
+              No output is lost, so <strong>DWL is zero</strong> (which is <strong>smaller</strong>).
+            </div>
+          </div>
+        </section>
+
+        <!-- Slide 5.6: Taxes Intro -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Interventions · Taxes</p>
+          <h2>Prices Controlled by Taxes</h2>
+          <div class="content-card">
+            <p style="font-weight: 600; color: #0f766e; margin-bottom: 15px;">How do taxes affect market outcomes?</p>
+            <ul>
+              <li>Governments artificially change transaction prices by introducing per-unit or percentage taxes.</li>
+              <li>A tax creates a wedge between what consumers pay (\( P_b \)) and what sellers receive (\( P_s \)).</li>
+              <li>This tax wedge restricts the quantity traded and creates deadweight loss.</li>
+            </ul>
+            <div class="def-card fragment" style="margin-top: 15px; border-left-color: #3b82f6; background: rgba(59, 130, 246, 0.04);">
+              <div class="def-title" style="color: #3b82f6;">Tax Identity</div>
+              \[ P_b = P_s + t \]
+              where \( t \) is the per-unit tax rate.
+            </div>
+          </div>
+        </section>
+
+        <!-- Slide 5.7: Taxes on Producers Example -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Interventions · Tax Example</p>
+          <h2>Practice: Producer Tax</h2>
+          <div style="display: flex; align-items: center; justify-content: center; gap: 20px; max-width: 1090px; margin: 0 auto;">
+            <div style="flex: 1.1; text-align: left;">
+              <div class="example-card" style="margin: 0; font-size: 0.8em; padding: 15px;">
+                <div class="ex-title">Problem Statement</div>
+                Suppose supply and demand for a competitively supplied product are given as:
+                \[ Q_D = 150 - 25P \quad\text{or}\quad P = 6 - 0.04Q_D \]
+                \[ Q_S = 50P \quad\text{or}\quad P = 0.02Q_S \]
+                <br>
+                <strong>1. Find the equilibrium market price and quantity.</strong>
+                <br>
+                <strong>2. The government imposes a per-unit tax of $0.30 on suppliers. Calculate:</strong>
+                <ul>
+                  <li>New equilibrium price paid by consumers (\( P_b \)).</li>
+                  <li>Price received by sellers (\( P_s \)).</li>
+                  <li>Quantity transacted (\( Q_{\text{tax}} \)).</li>
+                  <li>The tax incidence (portion paid by consumers).</li>
+                </ul>
+              </div>
+            </div>
+            <div style="flex: 0.9;">
+              <div class="slide-img-container" style="margin: 0; padding: 6px;">
+                <img src="images/c5_page_24_graph.png" alt="Producer Tax Graph" style="max-height: 290px;">
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Slide 5.7b: Solution Producer Tax -->
+        <section data-background-gradient="linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)">
+          <p class="eyebrow" style="color: #059669;">Interventions · Solution</p>
+          <h2>Solution: Producer Tax</h2>
+          <div class="content-card" style="font-size: 0.9em; max-width: 1020px;">
+            <div class="def-card" style="margin: 5px 0;">
+              <div class="def-title">Step 1: Equilibrium without Tax</div>
+              \[ 150 - 25P = 50P \implies 75P = 150 \implies P^* = \$2.00, Q^* = 100 \text{ units} \]
+            </div>
+            <div class="def-card fragment" style="margin: 5px 0;">
+              <div class="def-title">Step 2: Solve with Tax wedge (\( P_b = P_s + 0.30 \))</div>
+              Substitute buyers' price into demand:
+              \[ 150 - 25(P_s + 0.30) = 50P_s \implies 150 - 25P_s - 7.5 = 50P_s \]
+              \[ 142.5 = 75P_s \implies P_s = \$1.90 \implies P_b = 1.90 + 0.30 = \$2.20 \]
+            </div>
+            <div class="def-card fragment" style="margin: 5px 0;">
+              <div class="def-title">Step 3: Quantity &amp; Tax Incidence</div>
+              Quantity transacted: \( Q_{\text{tax}} = 50(1.90) = 95 \) units.
+              <br>
+              Price rise for consumers: \( \Delta P_b = 2.20 - 2.00 = \$0.20 \).
+              <br>
+              Consumers' portion: \( \frac{\Delta P_b}{t} = \frac{0.20}{0.30} = \frac{2}{3} \approx 66.7\% \).
+            </div>
+          </div>
+        </section>
+
+        <!-- Slide 5.8: Tax Burden and Elasticities -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Interventions · Tax Burden</p>
+          <h2>Tax Incidence &amp; Elasticities</h2>
+          <div class="content-card" style="font-size: 0.95em;">
+            <div class="def-card" style="margin-top: 5px;">
+              <div class="def-title">Key Principle</div>
+              It does <strong>not</strong> matter on whom the tax is legally imposed; the economic burden (incidence) depends entirely on the relative elasticities of supply and demand.
+            </div>
+            <p style="font-weight: 600; color: #0f766e; margin-top: 15px;">Economic Incidence Formulas:</p>
+            <ul>
+              <li>Incidence on Buyers: \( \text{Burden}_C = \frac{\varepsilon_S}{\varepsilon_S + |\varepsilon_D|} \)</li>
+              <li>Incidence on Sellers: \( \text{Burden}_P = \frac{|\varepsilon_D|}{\varepsilon_S + |\varepsilon_D|} \)</li>
+            </ul>
+            <p class="fragment" style="font-size: 0.85em; color: #64748b; margin-top: 15px;">
+              The side of the market that is <strong>more inelastic</strong> (less responsive to price changes) bears the larger share of the tax burden.
+            </p>
+          </div>
+        </section>
+
+        <!-- Slide 5.9: Welfare Effects of Tax Example -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Interventions · Tax Welfare</p>
+          <h2>Practice: Tax Welfare Effects</h2>
+          <div class="content-card">
+            <div class="example-card" style="margin: 0;">
+              <div class="ex-title">Problem Statement</div>
+              Using the same supply and demand model:
+              \[ Q_D = 150 - 25P \]
+              \[ Q_S = 50P \]
+              where a per-unit tax of $0.30 is imposed.
+              <br><br>
+              <strong>Calculate the deadweight loss (DWL) resulting from this tax.</strong>
+            </div>
+          </div>
+        </section>
+
+        <!-- Slide 5.9b: Solution Tax DWL -->
+        <section data-background-gradient="linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)">
+          <p class="eyebrow" style="color: #059669;">Interventions · Solution</p>
+          <h2>Solution: Tax Deadweight Loss</h2>
+          <div class="content-card" style="font-size: 0.95em;">
+            <div class="def-card" style="margin: 8px 0;">
+              <div class="def-title">Step 1: Identify the Quantity reduction</div>
+              Equilibrium quantity fell from \( Q^* = 100 \) to \( Q_{\text{tax}} = 95 \) units.
+              \[ \Delta Q = 100 - 95 = 5 \text{ units} \]
+            </div>
+            <div class="def-card fragment" style="margin: 8px 0;">
+              <div class="def-title">Step 2: Identify the height (tax wedge)</div>
+              The vertical wedge between the demand price and supply price is the tax:
+              \[ t = \$0.30 \]
+            </div>
+            <div class="def-card fragment" style="margin: 8px 0;">
+              <div class="def-title">Step 3: Calculate the DWL Triangle</div>
+              \[ DWL = \frac{1}{2} \times \text{base} \times \text{height} = \frac{1}{2} \times \Delta Q \times t \]
+              \[ DWL = \frac{1}{2} \times 5 \times 0.30 = \$0.75 \]
+            </div>
+          </div>
+        </section>
+
+        <!-- Slide 5.10: Why Do Taxes Generate DWL? -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Interventions · Taxes</p>
+          <h2>Why Do Taxes Generate DWL?</h2>
+          <div class="content-card" style="font-size: 0.92em;">
+            <div class="def-card" style="margin: 5px 0 12px;">
+              <div class="def-title">The Key Insight</div>
+              Taxes generate deadweight loss because <strong>taxes affect relative prices</strong> &mdash; and therefore change behavior!
+            </div>
+            <ul>
+              <li class="fragment">The only tax that does not change prices is a <strong>lump-sum tax</strong> (a fixed amount, independent of any choice you make).</li>
+              <li class="fragment">Side note: taxes affect our decisions! E.g. marriage, migration, location of investment, residential choices, having children&hellip;</li>
+              <li class="fragment">This is covered in depth in your ECON 101 class &mdash; and a decent proportion of Rex&rsquo;s own research measures behavioral responses to tax policy changes (the <em>elasticity of taxable income</em>).</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- Slide 5.11: Dying to Save Taxes -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Interventions · Taxes</p>
+          <h2>Taxes Even Affect the Timing of Death!</h2>
+          <div class="content-card" style="font-size: 0.92em;">
+            <div class="example-card" style="margin: 0 0 12px;">
+              <div class="ex-title">Research Highlight</div>
+              <strong>&ldquo;Dying to Save Taxes: Evidence from Estate-Tax Returns on the Death Elasticity&rdquo;</strong> &mdash; Kopczuk &amp; Slemrod
+            </div>
+            <ul>
+              <li class="fragment">Using U.S. federal estate-tax returns, the authors ask whether the <strong>timing of death</strong> responds to its tax consequences.</li>
+              <li class="fragment">Central estimate: for individuals dying within two weeks of a tax reform, a <strong>$10,000</strong> potential tax saving increases the probability of dying in the <strong>lower-tax regime by 1.6%</strong>.</li>
+              <li class="fragment">Taxes affect behavior &mdash; even the timing of behaviors we don&rsquo;t usually think respond to financial incentives!</li>
+            </ul>
+          </div>
+        </section>
+
+      </section>
+
+
+      <!-- SECTION 5: Summary & Wrap-Up (Vertical Stack) -->
+      <section>
+
+        <!-- Slide 7.1: Divider -->
+        <section data-background-gradient="linear-gradient(135deg, #0f766e 0%, #115e59 100%)">
+          <p class="eyebrow" style="color: #ccfbf1;">Summary</p>
+          <h1 style="color: white; font-size: 2.8em;">Summary &amp; Wrap-Up</h1>
+          <p style="color: #ccfbf1; margin-top: 20px;">Press <kbd style="background: #115e59; color: white; border: 1px solid #134e4a; padding: 2px 6px; border-radius: 4px;">↓</kbd> to continue</p>
+        </section>
+
+        <!-- Slide 7.2: Summary 1/2 -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Summary</p>
+          <h2>Welfare and Efficiency</h2>
+          <div class="content-card" style="font-size: 0.95em;">
+            <p style="font-weight: 600; color: #0f766e;">If competitive assumptions are met, market equilibrium is efficient:</p>
+            <ul>
+              <li>Production costs are minimized.</li>
+              <li>The sum of consumer and producer surplus is maximized.</li>
+            </ul>
+            <div class="def-card fragment" style="margin-top: 15px;">
+              <div class="def-title">Policy Takeaway</div>
+              In the absence of market failures, government interference with the competitive equilibrium via price controls or taxes leads to <strong>deadweight loss</strong>.
+            </div>
+          </div>
+        </section>
+
+        <!-- Slide 7.4: Done with Part 1! -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Wrap-Up</p>
+          <h2>We're Done with Part 1!</h2>
+          <div class="content-card" style="text-align: center; padding: 40px;">
+            <p style="font-size: 1.25em; font-weight: 700; color: #0f766e; margin-bottom: 20px;">
+              This wraps up the first part of the course!
+            </p>
+            <p style="font-size: 1.05em; line-height: 1.5;">
+              We have covered decision-making on the margin, supply and demand dynamics, elasticities, firm cost structures, monopoly, perfect competition, and welfare economics.
+            </p>
+            <p class="fragment" style="color: #3b82f6; font-weight: 600; font-size: 1.1em; margin-top: 25px;">
+              This means&hellip; something fun next Monday, and the Final Exam next Wednesday!
+            </p>
+          </div>
+        </section>
+
+        <!-- Slide 7.5: Final Exam Rules -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Wrap-Up · Final Exam</p>
+          <h2>Rules for the Final Exam</h2>
+          <div class="content-card" style="font-size: 0.92em;">
+            <ol>
+              <li class="fragment"><strong>6 double-sided cheat sheets</strong> allowed (max. <strong>12 sides</strong>), handwritten or typed. If your cheat sheet is on an iPad, <strong>email it to me and Jasmine before the Final Exam</strong> so you&rsquo;re cleared to use it.</li>
+              <li class="fragment"><strong>Final Exam is 45&ndash;60 mins (TBD)</strong>: 40% multiple-choice, 20% True/False, 40% written responses.</li>
+              <li class="fragment"><strong>Try your best</strong> for the Final Exam!</li>
+            </ol>
+            <p class="fragment" style="font-weight: 600; color: #0f766e; margin-top: 15px; text-align: center;">
+              Be prepared for a fun discussion session after the Final Exam! Over the next week, reflect on your time here at RSC.
+            </p>
+          </div>
+        </section>
+
+      </section>
+
+
+      <!-- SECTION 7: Closing Slide (Horizontal) -->
+      
+      <!-- Slide 8: Closing -->
+      <section data-background-gradient="linear-gradient(135deg, #0f172a 0%, #1e293b 100%)">
+        <p class="eyebrow" style="color: #2dd4bf;">Schedule</p>
+        <h2 style="color: white;">Preparation for Next Class</h2>
+        <div class="content-card" style="background: rgba(30, 41, 59, 0.7); border-color: rgba(255, 255, 255, 0.1); text-align: center;">
+          <p style="color: #cbd5e1; font-weight: 600; margin-bottom: 10px;">Next Session Schedule</p>
+          <p style="color: #94a3b8; font-size: 1.15em;"><strong>See you on Wednesday (9am sharp)!</strong></p>
+          <p style="color: #64748b; font-size: 0.85em; margin-top: 10px;">Come to office hours w/ any questions or concerns.</p>
+        </div>
+        <p style="margin-top: 40px; color: #64748b; font-size: 0.75em;">Thank you!</p>
+      </section>
+
+    </div>
+  </div>
+
+  <a class="home-link" href="../">&larr; Back to course site</a>
+  <div class="slide-footer">RSC Economics Experience · Lecture 5</div>
+
+  <!-- reveal.js core + plugins -->
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/notes/notes.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/highlight/highlight.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/math/math.js"></script>
+  <script>
+    Reveal.initialize({
+      hash: true,
+      slideNumber: 'c/t',
+      transition: 'slide',
+      plugins: [ RevealHighlight, RevealNotes, RevealMath.KaTeX ]
+    });
+  </script>
+</body>
+</html>
