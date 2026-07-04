@@ -13,12 +13,15 @@
   // ---------- state ----------
   var PEN_COLORS = ['#dc2626', '#2563eb', '#0f172a'];
   var HIGHLIGHT_COLOR = '#facc15';
-  var PEN_WIDTH = 0.0035;        // stroke width as a fraction of window width
-  var HIGHLIGHT_WIDTH = 0.022;
+  // base stroke widths as a fraction of window width, scaled by the
+  // selected thickness multiplier
+  var BASE_WIDTH = { pen: 0.0035, pencil: 0.0032, highlight: 0.022 };
+  var THICKNESS = [0.6, 1, 1.8];
   var ERASE_RADIUS = 0.025;
 
-  var tool = null;               // null | 'pen' | 'highlight' | 'erase'
+  var tool = null;               // null | 'pen' | 'pencil' | 'highlight' | 'erase'
   var penColor = PEN_COLORS[0];
+  var thickness = 1;             // index into THICKNESS
   var strokesBySlide = {};       // 'h-v' -> [ {tool,color,width,points:[[nx,ny],...]} ]
   var currentStroke = null;
   var activePointerId = null;
@@ -56,25 +59,49 @@
     redraw();
   }
 
+  // deterministic pseudo-random in [-1, 1] so pencil grain is stable
+  // across redraws (no shimmering while a stroke is being drawn)
+  function jitter(i, pass) {
+    var x = Math.sin(i * 127.1 + pass * 311.7) * 43758.5453;
+    return (x - Math.floor(x)) * 2 - 1;
+  }
+
+  function tracePath(pts, w, h, amp, pass) {
+    ctx.beginPath();
+    var x0 = pts[0][0] * w + (amp ? jitter(0, pass) * amp : 0);
+    var y0 = pts[0][1] * h + (amp ? jitter(0, pass + 5) * amp : 0);
+    ctx.moveTo(x0, y0);
+    if (pts.length === 1) {
+      ctx.lineTo(x0 + 0.1, y0 + 0.1);
+    } else {
+      for (var i = 1; i < pts.length; i++) {
+        var x = pts[i][0] * w + (amp ? jitter(i, pass) * amp : 0);
+        var y = pts[i][1] * h + (amp ? jitter(i, pass + 5) * amp : 0);
+        ctx.lineTo(x, y);
+      }
+    }
+    ctx.stroke();
+  }
+
   function drawStroke(s) {
     var pts = s.points;
     if (pts.length === 0) return;
     var w = window.innerWidth, h = window.innerHeight;
-    ctx.beginPath();
     ctx.lineCap = 'round';
     ctx.lineJoin = 'round';
     ctx.strokeStyle = s.color;
-    ctx.globalAlpha = s.tool === 'highlight' ? 0.4 : 1;
-    ctx.lineWidth = Math.max(1, s.width * w);
-    ctx.moveTo(pts[0][0] * w, pts[0][1] * h);
-    if (pts.length === 1) {
-      ctx.lineTo(pts[0][0] * w + 0.1, pts[0][1] * h + 0.1);
+    var px = Math.max(1, s.width * w);
+    if (s.tool === 'pencil') {
+      // sketchy graphite: three faint jittered passes
+      ctx.lineWidth = Math.max(1, px * 0.75);
+      ctx.globalAlpha = 0.3;
+      var amp = Math.max(0.6, px * 0.35);
+      for (var pass = 0; pass < 3; pass++) tracePath(pts, w, h, amp, pass);
     } else {
-      for (var i = 1; i < pts.length; i++) {
-        ctx.lineTo(pts[i][0] * w, pts[i][1] * h);
-      }
+      ctx.lineWidth = px;
+      ctx.globalAlpha = s.tool === 'highlight' ? 0.4 : 1;
+      tracePath(pts, w, h, 0, 0);
     }
-    ctx.stroke();
     ctx.globalAlpha = 1;
   }
 
@@ -135,7 +162,7 @@
       currentStroke = {
         tool: tool,
         color: tool === 'highlight' ? HIGHLIGHT_COLOR : penColor,
-        width: tool === 'highlight' ? HIGHLIGHT_WIDTH : PEN_WIDTH,
+        width: BASE_WIDTH[tool] * THICKNESS[thickness],
         points: [p]
       };
       scheduleRedraw();
@@ -173,6 +200,7 @@
   // ---------- toolbar ----------
   var ICONS = {
     pen: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg>',
+    pencil: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>',
     highlight: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l-6 6v3h9l3-3"/><path d="M22 12l-4.6 4.6a2 2 0 0 1-2.8 0l-5.2-5.2a2 2 0 0 1 0-2.8L14 4"/></svg>',
     erase: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 20H7L3 16a1.4 1.4 0 0 1 0-2l10-10a1.4 1.4 0 0 1 2 0l6 6a1.4 1.4 0 0 1 0 2l-8 8"/><path d="M6 11l7 7"/></svg>',
     undo: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7v6h6"/><path d="M21 17a9 9 0 0 0-15-6.7L3 13"/></svg>',
@@ -206,8 +234,11 @@
   toolButtons.pen = makeButton('pen', 'Pen (draw)', function () {
     setTool(tool === 'pen' ? null : 'pen');
   });
+  toolButtons.pencil = makeButton('pencil', 'Pencil (sketchy)', function () {
+    setTool(tool === 'pencil' ? null : 'pencil');
+  });
 
-  // color dots for the pen
+  // color dots, shared by pen and pencil
   var colorRow = document.createElement('div');
   colorRow.className = 'annotate-colors';
   bar.appendChild(colorRow);
@@ -216,13 +247,35 @@
     d.type = 'button';
     d.className = 'annotate-dot';
     d.style.background = c;
-    d.title = 'Pen color';
+    d.title = 'Ink color';
     d.addEventListener('click', function () {
       penColor = c;
-      setTool('pen');
+      if (tool !== 'pen' && tool !== 'pencil') setTool('pen');
       updateUI();
     });
     colorRow.appendChild(d);
+    return d;
+  });
+
+  // thickness selector: three dots of increasing size
+  var sizeRow = document.createElement('div');
+  sizeRow.className = 'annotate-sizes';
+  bar.appendChild(sizeRow);
+  var sizeDots = THICKNESS.map(function (m, i) {
+    var d = document.createElement('button');
+    d.type = 'button';
+    d.className = 'annotate-size';
+    d.title = ['Thin', 'Medium', 'Thick'][i];
+    d.setAttribute('aria-label', d.title + ' stroke');
+    var inner = document.createElement('span');
+    inner.style.width = inner.style.height = (6 + i * 4) + 'px';
+    d.appendChild(inner);
+    d.addEventListener('click', function () {
+      thickness = i;
+      if (!tool || tool === 'erase') setTool('pen');
+      updateUI();
+    });
+    sizeRow.appendChild(d);
     return d;
   });
 
@@ -256,6 +309,9 @@
     toggleBtn.classList.toggle('annotate-selected', !!tool);
     colorDots.forEach(function (d, i) {
       d.classList.toggle('annotate-dot-selected', PEN_COLORS[i] === penColor);
+    });
+    sizeDots.forEach(function (d, i) {
+      d.classList.toggle('annotate-size-selected', i === thickness);
     });
   }
 
@@ -292,6 +348,15 @@
     '.annotate-dot { width: 18px; height: 18px; border-radius: 50%; border: 2px solid transparent;',
     '  cursor: pointer; padding: 0; }',
     '.annotate-dot-selected { border-color: #fff; box-shadow: 0 0 0 2px #0f766e; }',
+    '.annotate-sizes { display: none; flex-direction: column; align-items: center; gap: 4px;',
+    '  padding: 4px 0; border-top: 1px solid rgba(15,23,42,0.1); }',
+    '.annotate-toolbar.annotate-open .annotate-sizes { display: flex; }',
+    '.annotate-size { width: 26px; height: 26px; border-radius: 50%; border: none; cursor: pointer;',
+    '  background: transparent; padding: 0; display: flex; align-items: center; justify-content: center; }',
+    '.annotate-size span { display: block; border-radius: 50%; background: #334155; }',
+    '.annotate-size:hover { background: rgba(15,118,110,0.1); }',
+    '.annotate-size-selected { background: rgba(15,118,110,0.18); }',
+    '.annotate-size-selected span { background: #0f766e; }',
     '@media print { .annotate-toolbar { display: none; } }'
   ].join('\n');
   document.head.appendChild(style);
