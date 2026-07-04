@@ -64,7 +64,7 @@
       box-shadow: 0 8px 30px rgba(0, 0, 0, 0.02);
       margin: 12px auto;
       text-align: left;
-      max-width: 800px;
+      max-width: 920px;
     }
     
     .reveal .def-card {
@@ -114,7 +114,7 @@
       margin-top: 8px;
     }
     .reveal .slide-img-container img {
-      max-height: 260px;
+      max-height: 280px;
       width: auto;
       margin: 0;
       display: block;
@@ -227,6 +227,33 @@
     .reveal .katex-display {
       margin: 8px 0;
     }
+
+    /* Group work slides: random group picker */
+    .reveal .group-roll-btn {
+      font-family: var(--r-heading-font);
+      font-weight: 700;
+      font-size: 0.75em;
+      color: white;
+      background: #b45309;
+      border: none;
+      border-radius: 999px;
+      padding: 8px 18px;
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+    .reveal .group-roll-btn:hover {
+      background: #92400e;
+    }
+    .reveal .group-roll-result {
+      display: inline-block;
+      min-width: 2em;
+      margin-left: 10px;
+      font-family: var(--r-heading-font);
+      font-weight: 800;
+      color: #b45309;
+      font-size: 1.2em;
+      vertical-align: middle;
+    }
   </style>
 </head>
 <body>
@@ -272,7 +299,7 @@
         <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
           <p class="eyebrow">Supply and Demand · Recap</p>
           <h2>We Left Off Here: Market Equilibrium</h2>
-          <div style="display: flex; align-items: center; justify-content: center; gap: 20px; max-width: 950px; margin: 0 auto;">
+          <div style="display: flex; align-items: center; justify-content: center; gap: 20px; max-width: 1090px; margin: 0 auto;">
             <div style="flex: 1; text-align: left;">
               <div class="def-card" style="margin: 0;">
                 <div class="def-title">Definition</div>
@@ -291,7 +318,7 @@
         <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
           <p class="eyebrow">Supply and Demand · Recap</p>
           <h2>Equilibrium as a Snapshot</h2>
-          <div style="display: flex; align-items: center; justify-content: center; gap: 20px; max-width: 950px; margin: 0 auto;">
+          <div style="display: flex; align-items: center; justify-content: center; gap: 20px; max-width: 1090px; margin: 0 auto;">
             <div style="flex: 1; text-align: left;">
               <div class="content-card" style="margin: 0; padding: 15px 20px;">
                 <p style="font-size: 0.9em; margin-bottom: 10px;">Remember markets are defined for a product, at a particular place, at a point in time.</p>
@@ -393,6 +420,29 @@
           </div>
         </section>
 
+<!-- Slide 4.2b: Solution - Question 1 -->
+        <section data-background-gradient="linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)">
+          <p class="eyebrow" style="color: #059669;">Algebra · Solution 1</p>
+          <h2>Solution: Market Equilibrium</h2>
+          <div class="content-card" style="font-size: 0.92em;">
+            <div class="def-card">
+              <div class="def-title">Step 1: Set Q<sub>D</sub> = Q<sub>S</sub></div>
+              \[ 12 - P = 9 + 0.5P \]
+            </div>
+            <div class="def-card fragment">
+              <div class="def-title">Step 2: Solve for P*</div>
+              \[ 12 - 9 = 0.5P + P \implies 3 = 1.5P \]
+              \[ P^* = 2 \]
+            </div>
+            <div class="def-card fragment">
+              <div class="def-title">Step 3: Find Q*</div>
+              \[ Q^* = 12 - 2 = 10 \quad\text{or}\quad Q^* = 9 + 0.5(2) = 10 \]
+              <p style="font-weight: 700; color: #059669; text-align: center; margin-top: 10px;">
+                Equilibrium: <strong>P* = $2, Q* = 10</strong>
+              </p>
+            </div>
+          </div>
+        </section>
         <!-- Slide 4.3: Algebra example 2 -->
         <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
           <p class="eyebrow">Algebra in supply &amp; demand · 2</p>
@@ -414,6 +464,30 @@
           </div>
         </section>
 
+<!-- Slide 4.3b: Solution - Question 2 -->
+        <section data-background-gradient="linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)">
+          <p class="eyebrow" style="color: #059669;">Algebra · Solution 2</p>
+          <h2>Solution: Predicting the Shift</h2>
+          <div class="content-card" style="font-size: 0.92em;">
+            <div class="def-card">
+              <div class="def-title">Without Calculating</div>
+              <ul>
+                <li>Demand <strong>increased</strong> (curve shifts right/out)</li>
+                <li>Supply stays the same</li>
+              </ul>
+            </div>
+            <div class="def-card fragment">
+              <div class="def-title">Prediction</div>
+              <ul>
+                <li>Equilibrium <strong>quantity increased</strong> (&uarr;)</li>
+                <li>Equilibrium <strong>price increased</strong> (&uarr;)</li>
+              </ul>
+              <p style="font-size: 0.85em; color: #64748b; margin-top: 8px;">
+                Both rise because the demand curve shifts right along a fixed supply curve.
+              </p>
+            </div>
+          </div>
+        </section>
         <!-- Slide 4.4: Shocks vs Movements -->
         <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
           <p class="eyebrow">Algebra in supply &amp; demand</p>
@@ -438,7 +512,7 @@
         <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
           <p class="eyebrow">Algebra in supply &amp; demand · 3</p>
           <h2>Excess Supply and Excess Demand</h2>
-          <div class="content-card" style="font-size: 0.9em; max-width: 850px;">
+          <div class="content-card" style="font-size: 0.9em; max-width: 980px;">
             <div class="def-card" style="padding: 10px 15px; margin: 5px 0;">
               <div class="def-title">Functions</div>
               \( Q_D = 12 - P_D \quad \text{and} \quad Q_S = 9 + 0.5P_S \)
@@ -461,6 +535,32 @@
           </div>
         </section>
 
+<!-- Slide 4.5b: Solution - Questions 3, 4, 5 -->
+        <section data-background-gradient="linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)">
+          <p class="eyebrow" style="color: #059669;">Algebra · Solution 3-5</p>
+          <h2>Solution: Excess Supply &amp; Demand</h2>
+          <div class="content-card" style="font-size: 0.88em;">
+            <div class="def-card">
+              <div class="def-title">Question 3: P = $0.79</div>
+              \[ Q_D = 12 - 0.79 = 11.21 \]
+              \[ Q_S = 9 + 0.5(0.79) = 9.395 \]
+              \[ Q_D > Q_S \implies \text{Excess Demand of } 1.815 \]
+            </div>
+            <div class="def-card fragment">
+              <div class="def-title">Question 4: P = $2.19</div>
+              \[ Q_D = 12 - 2.19 = 9.81 \]
+              \[ Q_S = 9 + 0.5(2.19) = 10.095 \]
+              \[ Q_S > Q_D \implies \text{Excess Supply of } 0.285 \]
+            </div>
+            <div class="def-card fragment">
+              <div class="def-title">Question 5: Why move to equilibrium?</div>
+              <ul style="font-size: 0.92em;">
+                <li><strong>Excess demand</strong> &rarr; buyers bid price <em>up</em> &rarr; Q<sub>D</sub> falls, Q<sub>S</sub> rises until P*</li>
+                <li><strong>Excess supply</strong> &rarr; sellers lower price &rarr; Q<sub>D</sub> rises, Q<sub>S</sub> falls until P*</li>
+              </ul>
+            </div>
+          </div>
+        </section>
         <!-- Slide 4.6: Equilibrium as Revision Process -->
         <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
           <p class="eyebrow">Algebra in supply &amp; demand</p>
@@ -474,6 +574,52 @@
             <p style="font-size: 1.15em; font-weight: 600; color: #0f766e; margin-top: 15px;">
               We will assume markets are in equilibria unless otherwise specified.
             </p>
+          </div>
+        </section>
+
+        <!-- Slide 4.7: GROUP WORK - Algebra -->
+        <section data-background-gradient="linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%)">
+          <p class="eyebrow" style="color: #b45309;">Group Work · Supply &amp; Demand Algebra</p>
+          <h2>&#127922; Group Work: Finding Equilibrium</h2>
+          <div class="content-card" style="font-size: 0.9em; background: rgba(255, 255, 255, 0.7);">
+            <div class="example-card" style="border-left-color: #b45309; background: rgba(180, 83, 9, 0.05); margin: 8px 0;">
+              <div class="ex-title" style="color: #b45309;">Question 1</div>
+              Let the market demand and supply functions be:
+              \[ Q_D = 20 - 2P \quad \text{and} \quad Q_S = 4 + 2P \]
+              <strong>Find the market equilibrium price and quantity.</strong>
+            </div>
+            <div style="margin: 4px 0 12px;">
+              <button class="group-roll-btn" onclick="rollGroup('l2gw1q1')">&#127922; Pick a group for Q1</button>
+              <span class="group-roll-result" id="l2gw1q1">&mdash;</span>
+            </div>
+            <div class="example-card" style="border-left-color: #b45309; background: rgba(180, 83, 9, 0.05); margin: 8px 0;">
+              <div class="ex-title" style="color: #b45309;">Question 2</div>
+              In the same market, suppose the current price is <strong>\( P = 6 \)</strong>. Is the market in equilibrium? If not, compute the excess supply or excess demand, and describe what happens to the price.
+            </div>
+            <div style="margin: 4px 0 0;">
+              <button class="group-roll-btn" onclick="rollGroup('l2gw1q2')">&#127922; Pick a group for Q2</button>
+              <span class="group-roll-result" id="l2gw1q2">&mdash;</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- Slide 4.7b: GROUP WORK Answers - Algebra -->
+        <section data-background-gradient="linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)">
+          <p class="eyebrow" style="color: #059669;">Group Work · Answers</p>
+          <h2>Answers: Finding Equilibrium</h2>
+          <div class="content-card" style="font-size: 0.9em;">
+            <div class="def-card">
+              <div class="def-title">Question 1: Set Q<sub>D</sub> = Q<sub>S</sub></div>
+              \[ 20 - 2P = 4 + 2P \implies 16 = 4P \implies P^* = 4 \]
+              \[ Q^* = 20 - 2(4) = 12 \quad\text{or}\quad Q^* = 4 + 2(4) = 12 \]
+              <p style="font-weight: 700; color: #059669; text-align: center; margin-top: 8px;">Equilibrium: <strong>P* = $4, Q* = 12</strong></p>
+            </div>
+            <div class="def-card fragment">
+              <div class="def-title">Question 2: P = $6</div>
+              \[ Q_D = 20 - 2(6) = 8 \qquad Q_S = 4 + 2(6) = 16 \]
+              \[ Q_S > Q_D \implies \text{Excess Supply of } 8 \]
+              <p style="font-size: 0.9em; margin-top: 8px;">Not in equilibrium: sellers cannot sell all they want, so they lower prices &mdash; the price falls toward \( P^* = 4 \).</p>
+            </div>
           </div>
         </section>
 
@@ -567,6 +713,53 @@
           </div>
         </section>
 
+        <!-- Slide 5.5: GROUP WORK - Simultaneous Shifts -->
+        <section data-background-gradient="linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%)">
+          <p class="eyebrow" style="color: #b45309;">Group Work · Simultaneous Shifts</p>
+          <h2>&#127922; Group Work: Shifting Both Curves</h2>
+          <div class="content-card" style="font-size: 0.9em; background: rgba(255, 255, 255, 0.7);">
+            <div class="example-card" style="border-left-color: #b45309; background: rgba(180, 83, 9, 0.05); margin: 8px 0;">
+              <div class="ex-title" style="color: #b45309;">Question 1</div>
+              Start from the previous group work market: \( Q_D = 20 - 2P \), \( Q_S = 4 + 2P \) (equilibrium \( P^* = 4, Q^* = 12 \)). Now <strong>both curves shift out</strong>:
+              \[ Q_D = 26 - 2P \quad \text{and} \quad Q_S = 10 + 2P \]
+              <strong>Find the new equilibrium and compare it to the old one.</strong>
+            </div>
+            <div style="margin: 4px 0 12px;">
+              <button class="group-roll-btn" onclick="rollGroup('l2gw2q1')">&#127922; Pick a group for Q1</button>
+              <span class="group-roll-result" id="l2gw2q1">&mdash;</span>
+            </div>
+            <div class="example-card" style="border-left-color: #b45309; background: rgba(180, 83, 9, 0.05); margin: 8px 0;">
+              <div class="ex-title" style="color: #b45309;">Question 2</div>
+              <strong>Without calculating</strong>: when demand and supply both increase, which of \( P^* \) and \( Q^* \) can we predict with certainty, and which is ambiguous? Does your answer to Question 1 agree?
+            </div>
+            <div style="margin: 4px 0 0;">
+              <button class="group-roll-btn" onclick="rollGroup('l2gw2q2')">&#127922; Pick a group for Q2</button>
+              <span class="group-roll-result" id="l2gw2q2">&mdash;</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- Slide 5.5b: GROUP WORK Answers - Simultaneous Shifts -->
+        <section data-background-gradient="linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)">
+          <p class="eyebrow" style="color: #059669;">Group Work · Answers</p>
+          <h2>Answers: Shifting Both Curves</h2>
+          <div class="content-card" style="font-size: 0.9em;">
+            <div class="def-card">
+              <div class="def-title">Question 1: New Equilibrium</div>
+              \[ 26 - 2P = 10 + 2P \implies 16 = 4P \implies P^* = 4 \]
+              \[ Q^* = 26 - 2(4) = 18 \]
+              <p style="font-size: 0.9em; margin-top: 8px;">Compared to the old equilibrium \( (P^* = 4, Q^* = 12) \): quantity <strong>rose</strong> to 18, while the price <strong>happened to stay the same</strong>.</p>
+            </div>
+            <div class="def-card fragment">
+              <div class="def-title">Question 2: Prediction</div>
+              <ul>
+                <li>When both curves shift out: \( Q^* \) <strong>increases</strong> for sure; \( P^* \) is <strong>ambiguous</strong> (&uarr;&darr;=).</li>
+                <li>Question 1 is exactly the knife-edge case: the shifts offset, so \( P^* \) did not change &mdash; consistent with the summary table!</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
       </section>
 
 
@@ -584,7 +777,7 @@
         <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
           <p class="eyebrow">Elasticity</p>
           <h2>What is Elasticity?</h2>
-          <div style="display: flex; align-items: center; justify-content: center; gap: 30px; max-width: 1000px; margin: 0 auto;">
+          <div style="display: flex; align-items: center; justify-content: center; gap: 30px; max-width: 1150px; margin: 0 auto;">
             <div style="flex: 1.2; text-align: left; display: flex; flex-direction: column; gap: 15px;">
               <div class="content-card" style="margin: 0; padding: 20px;">
                 <p style="font-size: 1.15em; font-weight: 600; color: #0f766e; margin-bottom: 15px;">
@@ -637,7 +830,7 @@
         <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
           <p class="eyebrow">Elasticity · Example</p>
           <h2>Point Elasticity Varies Along the Curve</h2>
-          <div style="display: flex; align-items: center; justify-content: center; gap: 20px; max-width: 950px; margin: 0 auto;">
+          <div style="display: flex; align-items: center; justify-content: center; gap: 20px; max-width: 1090px; margin: 0 auto;">
             <div style="flex: 1; text-align: left;">
               <div class="example-card" style="margin: 0;">
                 <div class="ex-title">Calculation Exercise</div>
@@ -659,11 +852,34 @@
           </div>
         </section>
 
+<!-- Slide 6.4b: Solution - Point Elasticity -->
+        <section data-background-gradient="linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)">
+          <p class="eyebrow" style="color: #059669;">Elasticity · Solution</p>
+          <h2>Solution: Point Elasticity</h2>
+          <div class="content-card" style="font-size: 0.9em;">
+            <div class="def-card">
+              <div class="def-title">Formula</div>
+              \[ \varepsilon = \frac{dQ}{dP} \times \frac{P}{Q} = -0.5 \times \frac{P}{Q} \]
+            </div>
+            <div class="def-card fragment">
+              <div class="def-title">Midpoint (Q=5, P=10)</div>
+              \[ |\varepsilon| = 0.5 \times \frac{10}{5} = 1 \quad\text{(unit elastic)} \]
+            </div>
+            <div class="def-card fragment">
+              <div class="def-title">Horizontal intercept (Q=10, P=0)</div>
+              \[ |\varepsilon| = 0.5 \times \frac{0}{10} = 0 \quad\text{(perfectly inelastic)} \]
+            </div>
+            <div class="def-card fragment">
+              <div class="def-title">Vertical intercept (Q=0, P=20)</div>
+              \[ |\varepsilon| = 0.5 \times \frac{20}{0} \to \infty \quad\text{(perfectly elastic)} \]
+            </div>
+          </div>
+        </section>
         <!-- Slide 6.5: Midpoint Elasticity -->
         <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
           <p class="eyebrow">Elasticity · Midpoint Rule</p>
           <h2>Elasticity Along a Linear Demand Curve</h2>
-          <div style="display: flex; align-items: center; justify-content: center; gap: 20px; max-width: 950px; margin: 0 auto;">
+          <div style="display: flex; align-items: center; justify-content: center; gap: 20px; max-width: 1090px; margin: 0 auto;">
             <div style="flex: 1; text-align: left;">
               <div class="content-card" style="margin: 0; padding: 20px 25px;">
                 <p style="font-weight: 600; color: #0f766e; margin-bottom: 12px;">Elasticity regions on a linear curve:</p>
@@ -724,6 +940,50 @@
           </div>
         </section>
 
+        <!-- Slide 6.8: GROUP WORK - Elasticity -->
+        <section data-background-gradient="linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%)">
+          <p class="eyebrow" style="color: #b45309;">Group Work · Elasticity</p>
+          <h2>&#127922; Group Work: Point Elasticity</h2>
+          <div class="content-card" style="font-size: 0.9em; background: rgba(255, 255, 255, 0.7);">
+            <div class="example-card" style="border-left-color: #b45309; background: rgba(180, 83, 9, 0.05); margin: 8px 0;">
+              <div class="ex-title" style="color: #b45309;">Question 1</div>
+              Given the demand function:
+              \[ Q = 24 - 4P \]
+              <strong>Calculate the own-price elasticity of demand \( |\varepsilon| \) at \( P = 3 \).</strong> How would you classify demand at this point?
+            </div>
+            <div style="margin: 4px 0 12px;">
+              <button class="group-roll-btn" onclick="rollGroup('l2gw3q1')">&#127922; Pick a group for Q1</button>
+              <span class="group-roll-result" id="l2gw3q1">&mdash;</span>
+            </div>
+            <div class="example-card" style="border-left-color: #b45309; background: rgba(180, 83, 9, 0.05); margin: 8px 0;">
+              <div class="ex-title" style="color: #b45309;">Question 2</div>
+              For the same demand curve, calculate \( |\varepsilon| \) at <strong>\( P = 5 \)</strong> and at <strong>\( P = 1 \)</strong>. Classify each point as elastic, unit-elastic, or inelastic.
+            </div>
+            <div style="margin: 4px 0 0;">
+              <button class="group-roll-btn" onclick="rollGroup('l2gw3q2')">&#127922; Pick a group for Q2</button>
+              <span class="group-roll-result" id="l2gw3q2">&mdash;</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- Slide 6.8b: GROUP WORK Answers - Elasticity -->
+        <section data-background-gradient="linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)">
+          <p class="eyebrow" style="color: #059669;">Group Work · Answers</p>
+          <h2>Answers: Point Elasticity</h2>
+          <div class="content-card" style="font-size: 0.88em;">
+            <div class="def-card">
+              <div class="def-title">Question 1: P = 3</div>
+              \[ Q = 24 - 4(3) = 12 \qquad |\varepsilon| = \left| \frac{\Delta Q}{\Delta P} \right| \times \frac{P}{Q} = 4 \times \frac{3}{12} = 1 \]
+              <p style="font-size: 0.9em; margin-top: 8px;"><strong>Unit-elastic</strong> &mdash; this is exactly the midpoint of the linear demand curve.</p>
+            </div>
+            <div class="def-card fragment">
+              <div class="def-title">Question 2: P = 5 and P = 1</div>
+              \[ P = 5: \; Q = 4, \quad |\varepsilon| = 4 \times \frac{5}{4} = 5 \quad \text{(elastic, above midpoint)} \]
+              \[ P = 1: \; Q = 20, \quad |\varepsilon| = 4 \times \frac{1}{20} = 0.2 \quad \text{(inelastic, below midpoint)} \]
+            </div>
+          </div>
+        </section>
+
       </section>
 
 
@@ -755,7 +1015,7 @@
         <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
           <p class="eyebrow">WSJ Case Study · Part 2</p>
           <h2>Comparing Geographic Responses</h2>
-          <div style="display: flex; align-items: center; justify-content: center; gap: 20px; max-width: 950px; margin: 0 auto;">
+          <div style="display: flex; align-items: center; justify-content: center; gap: 20px; max-width: 1090px; margin: 0 auto;">
             <div style="flex: 1; text-align: left;">
               <div class="example-card" style="margin: 0;">
                 <div class="ex-title">Case Study Question</div>
@@ -829,6 +1089,25 @@
           </div>
         </section>
 
+<!-- Slide 8.3b: Solution - Income Elasticity -->
+        <section data-background-gradient="linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)">
+          <p class="eyebrow" style="color: #059669;">Elasticity · Solution</p>
+          <h2>Solution: Income Elasticity</h2>
+          <div class="content-card">
+            <div class="def-card">
+              <div class="def-title">Calculation</div>
+              \[ \varepsilon_I = \frac{\%\Delta Q}{\%\Delta I} = \frac{17\%}{21\%} \approx 0.81 \]
+            </div>
+            <div class="def-card fragment">
+              <div class="def-title">Interpretation</div>
+              <ul>
+                <li>Income elasticity is <strong>positive</strong> (0.81 &gt; 0)</li>
+                <li>&rArr; Sparkling water is a <strong>normal good</strong> for Rex</li>
+                <li>A 1% increase in income leads to a ~0.81% increase in purchases</li>
+              </ul>
+            </div>
+          </div>
+        </section>
         <!-- Slide 8.4: Cross-price elasticity calculation -->
         <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
           <p class="eyebrow">Other elasticity measures · Examples</p>
@@ -846,6 +1125,70 @@
           </div>
         </section>
 
+
+        <!-- Slide 8.4b: Solution - Cross-Price Elasticity -->
+        <section data-background-gradient="linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)">
+          <p class="eyebrow" style="color: #059669;">Elasticity · Solution</p>
+          <h2>Solution: Cross-Price Elasticity</h2>
+          <div class="content-card">
+            <div class="def-card">
+              <div class="def-title">Calculation</div>
+              \[ \varepsilon_{AO,WAF} = \frac{\%\Delta Q_{AO}}{\%\Delta P_{WAF}} = \frac{11\%}{20\%} = 0.55 \]
+            </div>
+            <div class="def-card fragment">
+              <div class="def-title">Interpretation</div>
+              <ul>
+                <li>Cross-price elasticity is <strong>positive</strong> (0.55 &gt; 0)</li>
+                <li>&rArr; WAF and AO tickets are <strong>substitutes</strong></li>
+                <li>When WAF raises prices, consumers switch to AO</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- Slide 8.5: GROUP WORK - Other Elasticities -->
+        <section data-background-gradient="linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%)">
+          <p class="eyebrow" style="color: #b45309;">Group Work · Other Elasticities</p>
+          <h2>&#127922; Group Work: Income &amp; Cross-Price</h2>
+          <div class="content-card" style="font-size: 0.9em; background: rgba(255, 255, 255, 0.7);">
+            <div class="example-card" style="border-left-color: #b45309; background: rgba(180, 83, 9, 0.05); margin: 8px 0;">
+              <div class="ex-title" style="color: #b45309;">Question 1</div>
+              A student&rsquo;s income rises by <strong>8%</strong>, and her spending on streaming subscriptions rises by <strong>12%</strong>. <br>
+              <strong>Compute the income elasticity of demand.</strong> Are streaming subscriptions a normal or inferior good for her?
+            </div>
+            <div style="margin: 4px 0 12px;">
+              <button class="group-roll-btn" onclick="rollGroup('l2gw4q1')">&#127922; Pick a group for Q1</button>
+              <span class="group-roll-result" id="l2gw4q1">&mdash;</span>
+            </div>
+            <div class="example-card" style="border-left-color: #b45309; background: rgba(180, 83, 9, 0.05); margin: 8px 0;">
+              <div class="ex-title" style="color: #b45309;">Question 2</div>
+              The price of coffee rises by <strong>15%</strong>, and sales of coffee creamer fall by <strong>6%</strong>. <br>
+              <strong>Compute the cross-price elasticity of demand for creamer.</strong> Are coffee and creamer complements or substitutes?
+            </div>
+            <div style="margin: 4px 0 0;">
+              <button class="group-roll-btn" onclick="rollGroup('l2gw4q2')">&#127922; Pick a group for Q2</button>
+              <span class="group-roll-result" id="l2gw4q2">&mdash;</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- Slide 8.5b: GROUP WORK Answers - Other Elasticities -->
+        <section data-background-gradient="linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)">
+          <p class="eyebrow" style="color: #059669;">Group Work · Answers</p>
+          <h2>Answers: Income &amp; Cross-Price</h2>
+          <div class="content-card" style="font-size: 0.9em;">
+            <div class="def-card">
+              <div class="def-title">Question 1: Income Elasticity</div>
+              \[ \varepsilon_I = \frac{\%\Delta Q}{\%\Delta I} = \frac{12\%}{8\%} = 1.5 \]
+              <p style="font-size: 0.9em; margin-top: 8px;">Positive &rArr; streaming subscriptions are a <strong>normal good</strong> for her.</p>
+            </div>
+            <div class="def-card fragment">
+              <div class="def-title">Question 2: Cross-Price Elasticity</div>
+              \[ \varepsilon_{\text{creamer, coffee}} = \frac{\%\Delta Q_{\text{creamer}}}{\%\Delta P_{\text{coffee}}} = \frac{-6\%}{15\%} = -0.4 \]
+              <p style="font-size: 0.9em; margin-top: 8px;">Negative &rArr; coffee and creamer are <strong>complements</strong>.</p>
+            </div>
+          </div>
+        </section>
       </section>
 
 
@@ -890,7 +1233,7 @@
         <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
           <p class="eyebrow">Elasticity &amp; Marginal Revenue</p>
           <h2>The Unit-Elastic Midpoint Rule</h2>
-          <div style="display: flex; align-items: center; justify-content: center; gap: 20px; max-width: 950px; margin: 0 auto;">
+          <div style="display: flex; align-items: center; justify-content: center; gap: 20px; max-width: 1090px; margin: 0 auto;">
             <div style="flex: 1; text-align: left;">
               <div class="content-card" style="margin: 0; padding: 20px 25px;">
                 <div class="def-card" style="margin: 0 0 15px;">
@@ -931,6 +1274,52 @@
             <p class="fragment" style="color: #64748b; font-style: italic; text-align: center; font-size: 0.85em; margin-top: 5px;">
               (A preview of next class...)
             </p>
+          </div>
+        </section>
+
+        <!-- Slide 9.6: GROUP WORK - Elasticity & Revenue -->
+        <section data-background-gradient="linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%)">
+          <p class="eyebrow" style="color: #b45309;">Group Work · Elasticity &amp; Marginal Revenue</p>
+          <h2>&#127922; Group Work: Maximizing Revenue</h2>
+          <div class="content-card" style="font-size: 0.9em; background: rgba(255, 255, 255, 0.7);">
+            <div class="example-card" style="border-left-color: #b45309; background: rgba(180, 83, 9, 0.05); margin: 8px 0;">
+              <div class="ex-title" style="color: #b45309;">Question 1</div>
+              A firm faces the demand function:
+              \[ Q = 12 - 2P \]
+              Using the <strong>unit-elastic midpoint rule</strong>, at what price is the firm&rsquo;s total revenue maximized? What is total revenue at that price?
+            </div>
+            <div style="margin: 4px 0 12px;">
+              <button class="group-roll-btn" onclick="rollGroup('l2gw5q1')">&#127922; Pick a group for Q1</button>
+              <span class="group-roll-result" id="l2gw5q1">&mdash;</span>
+            </div>
+            <div class="example-card" style="border-left-color: #b45309; background: rgba(180, 83, 9, 0.05); margin: 8px 0;">
+              <div class="ex-title" style="color: #b45309;">Question 2</div>
+              Verify your answer: <strong>compute \( |\varepsilon| \) at that price</strong> and confirm demand is unit-elastic there.
+            </div>
+            <div style="margin: 4px 0 0;">
+              <button class="group-roll-btn" onclick="rollGroup('l2gw5q2')">&#127922; Pick a group for Q2</button>
+              <span class="group-roll-result" id="l2gw5q2">&mdash;</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- Slide 9.6b: GROUP WORK Answers - Elasticity & Revenue -->
+        <section data-background-gradient="linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)">
+          <p class="eyebrow" style="color: #059669;">Group Work · Answers</p>
+          <h2>Answers: Maximizing Revenue</h2>
+          <div class="content-card" style="font-size: 0.9em;">
+            <div class="def-card">
+              <div class="def-title">Question 1: Midpoint Rule</div>
+              <p style="font-size: 0.92em;">Intercepts: \( P = 6 \) (vertical) and \( Q = 12 \) (horizontal). The midpoint is halfway along the curve:</p>
+              \[ P = 3, \quad Q = 12 - 2(3) = 6 \]
+              \[ TR = P \times Q = 3 \times 6 = 18 \]
+              <p style="font-weight: 700; color: #059669; text-align: center; margin-top: 8px;">Revenue is maximized at <strong>P = $3</strong>, with <strong>TR = $18</strong>.</p>
+            </div>
+            <div class="def-card fragment">
+              <div class="def-title">Question 2: Verify Unit Elasticity</div>
+              \[ |\varepsilon| = \left| \frac{\Delta Q}{\Delta P} \right| \times \frac{P}{Q} = 2 \times \frac{3}{6} = 1 \; \checkmark \]
+              <p style="font-size: 0.9em; margin-top: 8px;">Unit-elastic at the midpoint &mdash; exactly where marginal revenue equals zero.</p>
+            </div>
           </div>
         </section>
 
@@ -975,6 +1364,11 @@
   <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/highlight/highlight.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/math/math.js"></script>
   <script>
+    // Group work: randomly pick a group number between 1 and 7 (inclusive)
+    function rollGroup(id) {
+      document.getElementById(id).textContent = Math.floor(Math.random() * 7) + 1;
+    }
+
     Reveal.initialize({
       hash: true,
       slideNumber: 'c/t',

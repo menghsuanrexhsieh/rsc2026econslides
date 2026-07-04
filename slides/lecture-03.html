@@ -64,7 +64,7 @@
       box-shadow: 0 8px 30px rgba(0, 0, 0, 0.02);
       margin: 12px auto;
       text-align: left;
-      max-width: 800px;
+      max-width: 920px;
     }
     
     .reveal .def-card {
@@ -114,7 +114,7 @@
       margin-top: 8px;
     }
     .reveal .slide-img-container img {
-      max-height: 260px;
+      max-height: 280px;
       width: auto;
       margin: 0;
       display: block;
@@ -227,6 +227,33 @@
     .reveal .katex-display {
       margin: 8px 0;
     }
+
+    /* Group work slides: random group picker */
+    .reveal .group-roll-btn {
+      font-family: var(--r-heading-font);
+      font-weight: 700;
+      font-size: 0.75em;
+      color: white;
+      background: #b45309;
+      border: none;
+      border-radius: 999px;
+      padding: 8px 18px;
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+    .reveal .group-roll-btn:hover {
+      background: #92400e;
+    }
+    .reveal .group-roll-result {
+      display: inline-block;
+      min-width: 2em;
+      margin-left: 10px;
+      font-family: var(--r-heading-font);
+      font-weight: 800;
+      color: #b45309;
+      font-size: 1.2em;
+      vertical-align: middle;
+    }
   </style>
 </head>
 <body>
@@ -318,7 +345,7 @@
         <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
           <p class="eyebrow">Elasticity · Recap</p>
           <h2>Elasticity regions with linear demand</h2>
-          <div style="display: flex; align-items: center; justify-content: center; gap: 20px; max-width: 950px; margin: 0 auto;">
+          <div style="display: flex; align-items: center; justify-content: center; gap: 20px; max-width: 1090px; margin: 0 auto;">
             <div style="flex: 1; text-align: left;">
               <div class="content-card" style="margin: 0; padding: 20px 25px;">
                 <p style="font-weight: 600; color: #0f766e; margin-bottom: 12px;">Elasticity regions on a linear curve:</p>
@@ -381,6 +408,23 @@
           </div>
         </section>
 
+<!-- Slide 3.6b: Solution - Income Elasticity -->
+        <section data-background-gradient="linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)">
+          <p class="eyebrow" style="color: #059669;">Elasticity · Solution 1</p>
+          <h2>Solution: Income Elasticity</h2>
+          <div class="content-card">
+            <div class="def-card">
+              <div class="def-title">Calculation</div>
+              \[ \varepsilon_I = \frac{\%\Delta Q}{\%\Delta I} = \frac{17\%}{21\%} \approx 0.81 \]
+            </div>
+            <div class="def-card fragment">
+              <div class="def-title">Interpretation</div>
+              <ul>
+                <li>Income elasticity is <strong>positive</strong> &rArr; sparkling water is a <strong>normal good</strong></li>
+              </ul>
+            </div>
+          </div>
+        </section>
         <!-- Slide 3.7: Cross-Price Example -->
         <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
           <p class="eyebrow">Elasticity · Example 2</p>
@@ -398,6 +442,23 @@
           </div>
         </section>
 
+<!-- Slide 3.7b: Solution - Cross-Price Elasticity -->
+        <section data-background-gradient="linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)">
+          <p class="eyebrow" style="color: #059669;">Elasticity · Solution 2</p>
+          <h2>Solution: Cross-Price Elasticity</h2>
+          <div class="content-card">
+            <div class="def-card">
+              <div class="def-title">Calculation</div>
+              \[ \varepsilon_{AO,WAF} = \frac{11\%}{20\%} = 0.55 \]
+            </div>
+            <div class="def-card fragment">
+              <div class="def-title">Interpretation</div>
+              <ul>
+                <li>Cross-price elasticity is <strong>positive</strong> &rArr; WAF and AO are <strong>substitutes</strong></li>
+              </ul>
+            </div>
+          </div>
+        </section>
         <!-- Slide 3.8: Link to MR -->
         <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
           <p class="eyebrow">Elasticity &amp; Marginal Revenue</p>
@@ -428,7 +489,7 @@
         <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
           <p class="eyebrow">Elasticity &amp; Marginal Revenue</p>
           <h2>The Unit-Elastic Midpoint Rule</h2>
-          <div style="display: flex; align-items: center; justify-content: center; gap: 20px; max-width: 950px; margin: 0 auto;">
+          <div style="display: flex; align-items: center; justify-content: center; gap: 20px; max-width: 1090px; margin: 0 auto;">
             <div style="flex: 1; text-align: left;">
               <div class="content-card" style="margin: 0; padding: 20px 25px;">
                 <div class="def-card" style="margin: 0 0 15px;">
@@ -464,6 +525,51 @@
             <p class="fragment" style="color: #0f766e; font-weight: 600; text-align: center;">
               Now we discuss firms and introduce formal connections to elasticity!
             </p>
+          </div>
+        </section>
+
+        <!-- Slide 3.12: GROUP WORK - Elasticities -->
+        <section data-background-gradient="linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%)">
+          <p class="eyebrow" style="color: #b45309;">Group Work · Elasticities</p>
+          <h2>&#127922; Group Work: Elasticity Practice</h2>
+          <div class="content-card" style="font-size: 0.9em; background: rgba(255, 255, 255, 0.7);">
+            <div class="example-card" style="border-left-color: #b45309; background: rgba(180, 83, 9, 0.05); margin: 8px 0;">
+              <div class="ex-title" style="color: #b45309;">Question 1</div>
+              Given the demand function:
+              \[ Q = 30 - 5P \]
+              <strong>Compute the own-price elasticity of demand \( |\varepsilon| \) at \( P = 4 \).</strong> Is demand elastic, unit-elastic, or inelastic there?
+            </div>
+            <div style="margin: 4px 0 12px;">
+              <button class="group-roll-btn" onclick="rollGroup('l3gw1q1')">&#127922; Pick a group for Q1</button>
+              <span class="group-roll-result" id="l3gw1q1">&mdash;</span>
+            </div>
+            <div class="example-card" style="border-left-color: #b45309; background: rgba(180, 83, 9, 0.05); margin: 8px 0;">
+              <div class="ex-title" style="color: #b45309;">Question 2</div>
+              During a recession, a student&rsquo;s income falls by <strong>6%</strong>, and his purchases of instant ramen rise by <strong>3%</strong>. <br>
+              <strong>Compute the income elasticity of demand.</strong> Is instant ramen a normal or inferior good for him?
+            </div>
+            <div style="margin: 4px 0 0;">
+              <button class="group-roll-btn" onclick="rollGroup('l3gw1q2')">&#127922; Pick a group for Q2</button>
+              <span class="group-roll-result" id="l3gw1q2">&mdash;</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- Slide 3.12b: GROUP WORK Answers - Elasticities -->
+        <section data-background-gradient="linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)">
+          <p class="eyebrow" style="color: #059669;">Group Work · Answers</p>
+          <h2>Answers: Elasticity Practice</h2>
+          <div class="content-card" style="font-size: 0.9em;">
+            <div class="def-card">
+              <div class="def-title">Question 1: Point Elasticity at P = 4</div>
+              \[ Q = 30 - 5(4) = 10 \qquad |\varepsilon| = \left| \frac{\Delta Q}{\Delta P} \right| \times \frac{P}{Q} = 5 \times \frac{4}{10} = 2 \]
+              <p style="font-size: 0.9em; margin-top: 8px;">\( |\varepsilon| = 2 > 1 \) &rArr; demand is <strong>elastic</strong> at this point.</p>
+            </div>
+            <div class="def-card fragment">
+              <div class="def-title">Question 2: Income Elasticity</div>
+              \[ \varepsilon_I = \frac{\%\Delta Q}{\%\Delta I} = \frac{+3\%}{-6\%} = -0.5 \]
+              <p style="font-size: 0.9em; margin-top: 8px;">Negative &rArr; instant ramen is an <strong>inferior good</strong> for him (income falls, consumption rises).</p>
+            </div>
           </div>
         </section>
 
@@ -571,7 +677,7 @@
         <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
           <p class="eyebrow">Profit Maximization · Derivation</p>
           <h2>Relating MR to Elasticity of Demand</h2>
-          <div class="content-card" style="font-size: 0.88em; max-width: 850px;">
+          <div class="content-card" style="font-size: 0.88em; max-width: 980px;">
             <p>Using the definition of demand elasticity \( \varepsilon \) and inverse demand slope:</p>
             <div style="margin: 10px 0;">
               \[ \varepsilon = \frac{\Delta Q}{\Delta P} \times \frac{P}{Q} \implies \frac{\Delta P}{\Delta Q} = \frac{P}{Q} \frac{1}{\varepsilon} \]
@@ -620,7 +726,7 @@
         <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
           <p class="eyebrow">Profit Maximization · Example</p>
           <h2>Calculation Exercise</h2>
-          <div style="display: flex; align-items: center; justify-content: center; gap: 20px; max-width: 950px; margin: 0 auto;">
+          <div style="display: flex; align-items: center; justify-content: center; gap: 20px; max-width: 1090px; margin: 0 auto;">
             <div style="flex: 1; text-align: left;">
               <div class="example-card" style="margin: 0; font-size: 0.9em;">
                 <div class="ex-title">Problem Statement</div>
@@ -641,6 +747,29 @@
           </div>
         </section>
 
+<!-- Slide 4.10b: Solution - Calculation Exercise -->
+        <section data-background-gradient="linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)">
+          <p class="eyebrow" style="color: #059669;">Profit Max · Solution</p>
+          <h2>Solution: Calculation Exercise</h2>
+          <div class="content-card" style="font-size: 0.9em;">
+            <div class="def-card">
+              <div class="def-title">1. Inverse Demand &amp; MR</div>
+              \[ Q = 10 - 0.5P \implies P = 20 - 2Q \]
+              \[ R(Q) = (20 - 2Q)Q = 20Q - 2Q^2 \]
+              \[ MR(Q) = 20 - 4Q \]
+            </div>
+            <div class="def-card fragment">
+              <div class="def-title">2. Plot MR alongside Demand</div>
+              <p style="font-size: 0.9em;">Same vertical intercept (20), but MR has <strong>twice the slope</strong> (&minus;4 vs. &minus;2). MR hits the Q-axis at Q = 5 (half of demand's Q = 10).</p>
+            </div>
+            <div class="def-card fragment">
+              <div class="def-title">3. MR &amp; Elasticity at P = 10</div>
+              \[ Q = 10 - 0.5(10) = 5 \]
+              \[ MR = 20 - 4(5) = 0 \]
+              \[ |\varepsilon| = 0.5 \times \frac{10}{5} = 1 \quad\text{(unit elastic at the midpoint)} \]
+            </div>
+          </div>
+        </section>
         <!-- Slide 4.11: Connect Dots -->
         <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
           <p class="eyebrow">Profit Maximization · Summary</p>
@@ -657,7 +786,7 @@
         <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
           <p class="eyebrow">Profit Maximization · Summary</p>
           <h2>Summary: Elasticity, MR, and TR</h2>
-          <div style="display: flex; align-items: center; justify-content: center; gap: 20px; max-width: 950px; margin: 0 auto;">
+          <div style="display: flex; align-items: center; justify-content: center; gap: 20px; max-width: 1090px; margin: 0 auto;">
             <div style="flex: 1; text-align: left;">
               <div class="content-card" style="margin: 0; padding: 15px 20px; font-size: 0.95em;">
                 <p style="font-weight: 600; color: #0f766e; margin-bottom: 10px;">To summarize:</p>
@@ -687,6 +816,53 @@
             <p style="font-size: 1.15em; font-weight: 600; color: #0f766e; margin-top: 15px;">
               Because firms choose quantity to maximize profit &mdash; not just revenue &mdash; we must now study the firm&rsquo;s cost structure!
             </p>
+          </div>
+        </section>
+
+        <!-- Slide 4.14: GROUP WORK - Marginal Revenue -->
+        <section data-background-gradient="linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%)">
+          <p class="eyebrow" style="color: #b45309;">Group Work · Marginal Revenue</p>
+          <h2>&#127922; Group Work: MR &amp; Elasticity</h2>
+          <div class="content-card" style="font-size: 0.9em; background: rgba(255, 255, 255, 0.7);">
+            <div class="example-card" style="border-left-color: #b45309; background: rgba(180, 83, 9, 0.05); margin: 8px 0;">
+              <div class="ex-title" style="color: #b45309;">Question 1</div>
+              A firm faces the demand function:
+              \[ Q = 24 - 2P \]
+              <strong>Find the inverse demand function and the marginal revenue function.</strong>
+            </div>
+            <div style="margin: 4px 0 12px;">
+              <button class="group-roll-btn" onclick="rollGroup('l3gw2q1')">&#127922; Pick a group for Q1</button>
+              <span class="group-roll-result" id="l3gw2q1">&mdash;</span>
+            </div>
+            <div class="example-card" style="border-left-color: #b45309; background: rgba(180, 83, 9, 0.05); margin: 8px 0;">
+              <div class="ex-title" style="color: #b45309;">Question 2</div>
+              At <strong>\( P = 9 \)</strong>: compute \( Q \), \( MR \), and the elasticity \( \varepsilon \). Then verify that your numbers satisfy
+              \[ MR = P\left(1 + \frac{1}{\varepsilon}\right) \]
+            </div>
+            <div style="margin: 4px 0 0;">
+              <button class="group-roll-btn" onclick="rollGroup('l3gw2q2')">&#127922; Pick a group for Q2</button>
+              <span class="group-roll-result" id="l3gw2q2">&mdash;</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- Slide 4.14b: GROUP WORK Answers - Marginal Revenue -->
+        <section data-background-gradient="linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)">
+          <p class="eyebrow" style="color: #059669;">Group Work · Answers</p>
+          <h2>Answers: MR &amp; Elasticity</h2>
+          <div class="content-card" style="font-size: 0.88em;">
+            <div class="def-card">
+              <div class="def-title">Question 1: Inverse Demand &amp; MR</div>
+              \[ Q = 24 - 2P \implies P = 12 - 0.5Q \]
+              \[ R(Q) = (12 - 0.5Q)Q = 12Q - 0.5Q^2 \implies MR(Q) = 12 - Q \]
+              <p style="font-size: 0.9em; margin-top: 8px;">Same intercept (12) as inverse demand, twice the slope (&minus;1 vs. &minus;0.5).</p>
+            </div>
+            <div class="def-card fragment">
+              <div class="def-title">Question 2: At P = 9</div>
+              \[ Q = 24 - 2(9) = 6 \qquad MR = 12 - 6 = 6 \]
+              \[ \varepsilon = \frac{\Delta Q}{\Delta P} \times \frac{P}{Q} = -2 \times \frac{9}{6} = -3 \]
+              \[ P\left(1 + \frac{1}{\varepsilon}\right) = 9\left(1 - \frac{1}{3}\right) = 9 \times \frac{2}{3} = 6 = MR \; \checkmark \]
+            </div>
           </div>
         </section>
 
@@ -806,11 +982,33 @@
           </div>
         </section>
 
+<!-- Slide 5.7b: Solution - Cost Functions -->
+        <section data-background-gradient="linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)">
+          <p class="eyebrow" style="color: #059669;">Costs · Solution</p>
+          <h2>Solution: Cost Functions</h2>
+          <div class="content-card" style="font-size: 0.88em;">
+            <div class="def-card">
+              <div class="def-title">Total Fixed Cost &amp; Total Variable Cost</div>
+              \[ TFC = 100 \]
+              \[ TVC = 24Q - 8Q^2 + Q^3 \]
+            </div>
+            <div class="def-card fragment">
+              <div class="def-title">Average Cost Functions</div>
+              \[ ATC = \frac{100}{Q} + 24 - 8Q + Q^2 \]
+              \[ AFC = \frac{100}{Q} \]
+              \[ AVC = 24 - 8Q + Q^2 \]
+            </div>
+            <div class="def-card fragment">
+              <div class="def-title">Marginal Cost</div>
+              \[ MC = \frac{dC}{dQ} = 24 - 16Q + 3Q^2 \]
+            </div>
+          </div>
+        </section>
         <!-- Slide 5.8: Cost Curves Visual -->
         <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
           <p class="eyebrow">Firms and Costs · Curves</p>
           <h2>Visualizing Cost Curves</h2>
-          <div style="display: flex; align-items: center; justify-content: center; gap: 20px; max-width: 950px; margin: 0 auto;">
+          <div style="display: flex; align-items: center; justify-content: center; gap: 20px; max-width: 1090px; margin: 0 auto;">
             <div style="flex: 1; text-align: left;">
               <div class="content-card" style="margin: 0; padding: 15px 20px; font-size: 0.95em;">
                 <p style="font-weight: 600; color: #0f766e; margin-bottom: 10px;">Properties of cost curves:</p>
@@ -825,6 +1023,50 @@
               <div class="slide-img-container" style="margin: 0; padding: 6px;">
                 <img src="images/c3_page_35_graph.png" alt="Average and Marginal Cost Curves" style="max-height: 330px;">
               </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Slide 5.9: GROUP WORK - Cost Functions -->
+        <section data-background-gradient="linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%)">
+          <p class="eyebrow" style="color: #b45309;">Group Work · Cost Functions</p>
+          <h2>&#127922; Group Work: Cost Functions</h2>
+          <div class="content-card" style="font-size: 0.9em; background: rgba(255, 255, 255, 0.7);">
+            <div class="example-card" style="border-left-color: #b45309; background: rgba(180, 83, 9, 0.05); margin: 8px 0;">
+              <div class="ex-title" style="color: #b45309;">Question 1</div>
+              Given the total cost function:
+              \[ C(Q) = 50 + 10Q + 2Q^2 \]
+              <strong>Find FC, VC, ATC, AFC, AVC, and MC.</strong>
+            </div>
+            <div style="margin: 4px 0 12px;">
+              <button class="group-roll-btn" onclick="rollGroup('l3gw3q1')">&#127922; Pick a group for Q1</button>
+              <span class="group-roll-result" id="l3gw3q1">&mdash;</span>
+            </div>
+            <div class="example-card" style="border-left-color: #b45309; background: rgba(180, 83, 9, 0.05); margin: 8px 0;">
+              <div class="ex-title" style="color: #b45309;">Question 2</div>
+              Evaluate <strong>MC and ATC at \( Q = 5 \)</strong>. What do you notice, and what does it tell you about this quantity?
+            </div>
+            <div style="margin: 4px 0 0;">
+              <button class="group-roll-btn" onclick="rollGroup('l3gw3q2')">&#127922; Pick a group for Q2</button>
+              <span class="group-roll-result" id="l3gw3q2">&mdash;</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- Slide 5.9b: GROUP WORK Answers - Cost Functions -->
+        <section data-background-gradient="linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)">
+          <p class="eyebrow" style="color: #059669;">Group Work · Answers</p>
+          <h2>Answers: Cost Functions</h2>
+          <div class="content-card" style="font-size: 0.85em;">
+            <div class="def-card">
+              <div class="def-title">Question 1: Decomposing Costs</div>
+              \[ FC = 50 \qquad VC(Q) = 10Q + 2Q^2 \qquad MC(Q) = 10 + 4Q \]
+              \[ ATC = \frac{50}{Q} + 10 + 2Q \qquad AFC = \frac{50}{Q} \qquad AVC = 10 + 2Q \]
+            </div>
+            <div class="def-card fragment">
+              <div class="def-title">Question 2: At Q = 5</div>
+              \[ MC = 10 + 4(5) = 30 \qquad ATC = \frac{50}{5} + 10 + 2(5) = 30 \]
+              <p style="font-size: 0.92em; margin-top: 8px;"><strong>MC = ATC = 30!</strong> \( Q = 5 \) is exactly the minimum of ATC &mdash; the MC curve crosses ATC at its lowest point, just as the cost-curve graph showed.</p>
             </div>
           </div>
         </section>
@@ -930,6 +1172,53 @@
           </div>
         </section>
 
+        <!-- Slide 6.7: GROUP WORK - Sunk Costs & Marginal Thinking -->
+        <section data-background-gradient="linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%)">
+          <p class="eyebrow" style="color: #b45309;">Group Work · Decision-Making</p>
+          <h2>&#127922; Group Work: Thinking on the Margin</h2>
+          <div class="content-card" style="font-size: 0.88em; background: rgba(255, 255, 255, 0.7);">
+            <div class="example-card" style="border-left-color: #b45309; background: rgba(180, 83, 9, 0.05); margin: 8px 0;">
+              <div class="ex-title" style="color: #b45309;">Question 1</div>
+              Rex&rsquo;s shop paid a <strong>non-refundable $2,000</strong> booth fee for a weekend trade fair. Attending would cost an <strong>additional $600</strong> in staff and transport, and he expects <strong>$500</strong> of extra revenue from attending. <br>
+              <strong>Should he attend the fair? Justify using marginal reasoning.</strong>
+            </div>
+            <div style="margin: 4px 0 12px;">
+              <button class="group-roll-btn" onclick="rollGroup('l3gw4q1')">&#127922; Pick a group for Q1</button>
+              <span class="group-roll-result" id="l3gw4q1">&mdash;</span>
+            </div>
+            <div class="example-card" style="border-left-color: #b45309; background: rgba(180, 83, 9, 0.05); margin: 8px 0;">
+              <div class="ex-title" style="color: #b45309;">Question 2</div>
+              Rex buys headsets at <strong>$120/unit</strong> wholesale plus <strong>$15/unit</strong> shipping, and pays <strong>$3,000/month</strong> rent for the shop. <br>
+              <strong>What is his marginal cost of selling one additional headset?</strong>
+            </div>
+            <div style="margin: 4px 0 0;">
+              <button class="group-roll-btn" onclick="rollGroup('l3gw4q2')">&#127922; Pick a group for Q2</button>
+              <span class="group-roll-result" id="l3gw4q2">&mdash;</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- Slide 6.7b: GROUP WORK Answers - Sunk Costs & Marginal Thinking -->
+        <section data-background-gradient="linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)">
+          <p class="eyebrow" style="color: #059669;">Group Work · Answers</p>
+          <h2>Answers: Thinking on the Margin</h2>
+          <div class="content-card" style="font-size: 0.9em;">
+            <div class="def-card">
+              <div class="def-title">Question 1: Sunk Cost Decision</div>
+              <ul>
+                <li>The $2,000 booth fee is <strong>sunk</strong> &mdash; it is gone whether or not he attends, so it must be ignored.</li>
+                <li>Marginal benefit ($500) &lt; Marginal cost ($600) &rArr; <strong>do not attend</strong>.</li>
+                <li>Attending &ldquo;to get his money&rsquo;s worth&rdquo; would be the <strong>sunk cost fallacy</strong>.</li>
+              </ul>
+            </div>
+            <div class="def-card fragment">
+              <div class="def-title">Question 2: Marginal Cost</div>
+              \[ MC = \$120 + \$15 = \$135 \]
+              <p style="font-size: 0.9em; margin-top: 8px;">Rent is a <strong>fixed cost</strong> &mdash; it does not change with one more unit sold, so it is excluded from marginal cost.</p>
+            </div>
+          </div>
+        </section>
+
       </section>
 
 
@@ -971,6 +1260,11 @@
   <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/highlight/highlight.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/math/math.js"></script>
   <script>
+    // Group work: randomly pick a group number between 1 and 7 (inclusive)
+    function rollGroup(id) {
+      document.getElementById(id).textContent = Math.floor(Math.random() * 7) + 1;
+    }
+
     Reveal.initialize({
       hash: true,
       slideNumber: 'c/t',
