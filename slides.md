@@ -28,6 +28,14 @@ and <code>Esc</code> for a slide overview.
     <h3>Lecture 4</h3>
     <p>Monopoly, Perfect Competition, &amp; Equilibria</p>
   </a>
+  <a class="card" href="{{ '/slides/lecture-05.html' | relative_url }}">
+    <h3>Lecture 5</h3>
+    <p>Social Welfare, Efficiency, &amp; Deadweight Loss</p>
+  </a>
+  <a class="card" href="{{ '/slides/lecture-06.html' | relative_url }}">
+    <h3>Lecture 6</h3>
+    <p>Game Theory: Nash Equilibrium &amp; Coordination</p>
+  </a>
 </div>
 
 More decks will appear here as the course progresses — see the
