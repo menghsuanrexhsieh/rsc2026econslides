@@ -227,6 +227,33 @@
     .reveal .katex-display {
       margin: 8px 0;
     }
+
+    /* Group work slides: random group picker */
+    .reveal .group-roll-btn {
+      font-family: var(--r-heading-font);
+      font-weight: 700;
+      font-size: 0.75em;
+      color: white;
+      background: #b45309;
+      border: none;
+      border-radius: 999px;
+      padding: 8px 18px;
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+    .reveal .group-roll-btn:hover {
+      background: #92400e;
+    }
+    .reveal .group-roll-result {
+      display: inline-block;
+      min-width: 2em;
+      margin-left: 10px;
+      font-family: var(--r-heading-font);
+      font-weight: 800;
+      color: #b45309;
+      font-size: 1.2em;
+      vertical-align: middle;
+    }
   </style>
 </head>
 <body>
@@ -603,6 +630,49 @@
           </div>
         </section>
 
+        <!-- GROUP WORK: Calculating Surplus -->
+        <section data-background-gradient="linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%)">
+          <p class="eyebrow" style="color: #b45309;">Group Work &middot; Surplus</p>
+          <h2>&#127922; Group Work: Calculating Surplus</h2>
+          <div class="content-card" style="font-size: 0.88em; background: rgba(255, 255, 255, 0.7);">
+            <div class="example-card" style="border-left-color: #b45309; background: rgba(180, 83, 9, 0.05); margin: 8px 0;">
+              <div class="ex-title" style="color: #b45309;">Question 1</div>
+              A consumer&rsquo;s demand for smoothies is \( Q = 20 - 2P \), and the market price is \( P = 4 \). <br><br><strong>How many smoothies do they buy, and what is their consumer surplus?</strong>
+            </div>
+            <div style="margin: 4px 0 12px;">
+              <button class="group-roll-btn" onclick="rollGroup('l5gw1q1')">&#127922; Pick a group for Q1</button>
+              <span class="group-roll-result" id="l5gw1q1">&mdash;</span>
+            </div>
+            <div class="example-card" style="border-left-color: #b45309; background: rgba(180, 83, 9, 0.05); margin: 8px 0;">
+              <div class="ex-title" style="color: #b45309;">Question 2</div>
+              A producer&rsquo;s supply of smoothies is \( Q = 4P \), and they sell at the market price \( P = 4 \). <br><br><strong>How many smoothies do they sell, and what is their producer surplus?</strong>
+            </div>
+            <div style="margin: 4px 0 0;">
+              <button class="group-roll-btn" onclick="rollGroup('l5gw1q2')">&#127922; Pick a group for Q2</button>
+              <span class="group-roll-result" id="l5gw1q2">&mdash;</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- GROUP WORK Answers: Calculating Surplus -->
+        <section data-background-gradient="linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)">
+          <p class="eyebrow" style="color: #059669;">Group Work &middot; Answers</p>
+          <h2>Answers: Calculating Surplus</h2>
+          <div class="content-card" style="font-size: 0.88em;">
+            <div class="def-card">
+              <div class="def-title">Question 1: Consumer Surplus</div>
+              \[ Q = 20 - 2(4) = 12 \qquad P_{\text{choke}}: 20 - 2P = 0 \implies \$10 \]
+              \[ CS = \frac{1}{2} \times 12 \times (10 - 4) = \$36 \]
+            </div>
+            <div class="def-card fragment">
+              <div class="def-title">Question 2: Producer Surplus</div>
+              \[ Q = 4(4) = 16 \]
+              <p style="font-size: 0.92em;">Supply starts at the origin (\( Q = 0 \) at \( P = 0 \)), so PS is the triangle above supply and below \( P = 4 \):</p>
+              \[ PS = \frac{1}{2} \times 16 \times 4 = \$32 \]
+            </div>
+          </div>
+        </section>
+
       </section>
 
 
@@ -826,6 +896,49 @@
             <p class="fragment" style="color: #64748b; font-size: 0.9em; margin-top: 25px; font-weight: 600;">
               Let's analyze these interventions in detail!
             </p>
+          </div>
+        </section>
+
+        <!-- GROUP WORK: Welfare &amp; Deadweight Loss -->
+        <section data-background-gradient="linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%)">
+          <p class="eyebrow" style="color: #b45309;">Group Work &middot; Welfare</p>
+          <h2>&#127922; Group Work: Welfare &amp; Deadweight Loss</h2>
+          <div class="content-card" style="font-size: 0.88em; background: rgba(255, 255, 255, 0.7);">
+            <div class="example-card" style="border-left-color: #b45309; background: rgba(180, 83, 9, 0.05); margin: 8px 0;">
+              <div class="ex-title" style="color: #b45309;">Question 1</div>
+              In the market for smoothies, demand is \( Q_D = 24 - 2P \) and supply is \( Q_S = 4P \). <br><br><strong>Find the equilibrium price and quantity, then compute CS, PS, and total social welfare \( W \).</strong>
+            </div>
+            <div style="margin: 4px 0 12px;">
+              <button class="group-roll-btn" onclick="rollGroup('l5gw2q1')">&#127922; Pick a group for Q1</button>
+              <span class="group-roll-result" id="l5gw2q1">&mdash;</span>
+            </div>
+            <div class="example-card" style="border-left-color: #b45309; background: rgba(180, 83, 9, 0.05); margin: 8px 0;">
+              <div class="ex-title" style="color: #b45309;">Question 2</div>
+              In the tablet market, marginal cost is constant at \( \$3 \); under competition \( Q_c = 12 \)M units sell at \( P_c = \$3 \). A monopolist would instead set \( P_m = \$9 \) and sell \( Q_m = 6 \)M. <br><br><strong>Calculate the deadweight loss from market power.</strong>
+            </div>
+            <div style="margin: 4px 0 0;">
+              <button class="group-roll-btn" onclick="rollGroup('l5gw2q2')">&#127922; Pick a group for Q2</button>
+              <span class="group-roll-result" id="l5gw2q2">&mdash;</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- GROUP WORK Answers: Welfare &amp; Deadweight Loss -->
+        <section data-background-gradient="linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)">
+          <p class="eyebrow" style="color: #059669;">Group Work &middot; Answers</p>
+          <h2>Answers: Welfare &amp; Deadweight Loss</h2>
+          <div class="content-card" style="font-size: 0.88em;">
+            <div class="def-card">
+              <div class="def-title">Question 1: Equilibrium Welfare</div>
+              \[ 24 - 2P = 4P \implies P^* = 4, \quad Q^* = 16 \]
+              \[ CS = \frac{1}{2} \times 16 \times (12 - 4) = 64 \qquad PS = \frac{1}{2} \times 16 \times 4 = 32 \]
+              \[ W = CS + PS = \$96 \]
+            </div>
+            <div class="def-card fragment">
+              <div class="def-title">Question 2: DWL from Market Power</div>
+              \[ DWL = \frac{1}{2} \times (Q_c - Q_m) \times (P_m - MC) = \frac{1}{2} \times 6\text{M} \times (9 - 3) = \$18\text{M} \]
+              <p style="font-size: 0.92em; margin-top: 8px;">Surplus lost to society &mdash; transferred to no one.</p>
+            </div>
           </div>
         </section>
 
@@ -1144,6 +1257,49 @@
           </div>
         </section>
 
+        <!-- GROUP WORK: A Tax in Action -->
+        <section data-background-gradient="linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%)">
+          <p class="eyebrow" style="color: #b45309;">Group Work &middot; Interventions</p>
+          <h2>&#127922; Group Work: A Tax in Action</h2>
+          <div class="content-card" style="font-size: 0.88em; background: rgba(255, 255, 255, 0.7);">
+            <div class="example-card" style="border-left-color: #b45309; background: rgba(180, 83, 9, 0.05); margin: 8px 0;">
+              <div class="ex-title" style="color: #b45309;">Question 1</div>
+              Demand is \( Q_D = 60 - 10P \) and supply is \( Q_S = 20P \). The government imposes a per-unit tax of <strong>$0.60 on suppliers</strong>. <br><br><strong>Find the price sellers receive \( P_s \), the price buyers pay \( P_b \), and the quantity transacted.</strong>
+            </div>
+            <div style="margin: 4px 0 12px;">
+              <button class="group-roll-btn" onclick="rollGroup('l5gw3q1')">&#127922; Pick a group for Q1</button>
+              <span class="group-roll-result" id="l5gw3q1">&mdash;</span>
+            </div>
+            <div class="example-card" style="border-left-color: #b45309; background: rgba(180, 83, 9, 0.05); margin: 8px 0;">
+              <div class="ex-title" style="color: #b45309;">Question 2</div>
+              <strong>Calculate the deadweight loss from this tax, and the share of the tax burden borne by buyers.</strong>
+            </div>
+            <div style="margin: 4px 0 0;">
+              <button class="group-roll-btn" onclick="rollGroup('l5gw3q2')">&#127922; Pick a group for Q2</button>
+              <span class="group-roll-result" id="l5gw3q2">&mdash;</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- GROUP WORK Answers: A Tax in Action -->
+        <section data-background-gradient="linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)">
+          <p class="eyebrow" style="color: #059669;">Group Work &middot; Answers</p>
+          <h2>Answers: A Tax in Action</h2>
+          <div class="content-card" style="font-size: 0.88em;">
+            <div class="def-card">
+              <div class="def-title">Question 1: The Tax Wedge</div>
+              No tax: \( 60 - 10P = 20P \implies P^* = 2, Q^* = 40 \). With \( P_b = P_s + 0.60 \):
+              \[ 60 - 10(P_s + 0.6) = 20P_s \implies 54 = 30P_s \implies P_s = \$1.80 \]
+              \[ P_b = 1.80 + 0.60 = \$2.40 \qquad Q_{\text{tax}} = 20(1.8) = 36 \]
+            </div>
+            <div class="def-card fragment">
+              <div class="def-title">Question 2: DWL &amp; Incidence</div>
+              \[ DWL = \frac{1}{2} \times (40 - 36) \times 0.60 = \$1.20 \]
+              <p style="font-size: 0.92em; margin-top: 8px;">Buyers&rsquo; price rose \( 2.40 - 2.00 = \$0.40 \) of the \( \$0.60 \) tax &rArr; buyers bear \( \frac{0.40}{0.60} = \frac{2}{3} \) of the burden (demand is relatively more inelastic here).</p>
+            </div>
+          </div>
+        </section>
+
       </section>
 
 
@@ -1236,6 +1392,11 @@
   <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/highlight/highlight.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/math/math.js"></script>
   <script>
+    // Group work: randomly pick a group number between 1 and 7 (inclusive)
+    function rollGroup(id) {
+      document.getElementById(id).textContent = Math.floor(Math.random() * 7) + 1;
+    }
+
     Reveal.initialize({
       hash: true,
       slideNumber: 'c/t',

@@ -64,7 +64,7 @@
       box-shadow: 0 8px 30px rgba(0, 0, 0, 0.02);
       margin: 12px auto;
       text-align: left;
-      max-width: 800px;
+      max-width: 920px;
     }
     
     .reveal .def-card {
@@ -154,6 +154,40 @@
       list-style-type: circle;
     }
     
+    /* Centered list layout (only when list is the main slide element or explicitly centered) */
+    .reveal section > ul, .reveal section > ol, .reveal .center-list {
+      display: inline-block;
+      text-align: left;
+      margin: 15px auto !important;
+      padding-left: 20px;
+      min-width: 65%;
+      max-width: 95%;
+    }
+    
+    /* Grid for side-by-side clips */
+    .reveal .img-gallery {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 15px;
+      flex-wrap: wrap;
+      margin-top: 15px;
+    }
+    .reveal .img-gallery .gallery-item {
+      background: white;
+      padding: 6px;
+      border-radius: 10px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.02);
+      border: 1px solid #e2e8f0;
+    }
+    .reveal .img-gallery img {
+      max-height: 220px;
+      width: auto;
+      display: block;
+      border-radius: 4px;
+      margin: 0;
+    }
+    
     /* Home link and footer elements */
     .reveal .home-link {
       position: fixed;
@@ -192,6 +226,33 @@
 
     .reveal .katex-display {
       margin: 8px 0;
+    }
+
+    /* Group work slides: random group picker */
+    .reveal .group-roll-btn {
+      font-family: var(--r-heading-font);
+      font-weight: 700;
+      font-size: 0.75em;
+      color: white;
+      background: #b45309;
+      border: none;
+      border-radius: 999px;
+      padding: 8px 18px;
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+    .reveal .group-roll-btn:hover {
+      background: #92400e;
+    }
+    .reveal .group-roll-result {
+      display: inline-block;
+      min-width: 2em;
+      margin-left: 10px;
+      font-family: var(--r-heading-font);
+      font-weight: 800;
+      color: #b45309;
+      font-size: 1.2em;
+      vertical-align: middle;
     }
   </style>
 </head>
@@ -241,7 +302,7 @@
         <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
           <p class="eyebrow">Costs · Recap</p>
           <h2>Average &amp; Marginal Cost Curves</h2>
-          <div style="display: flex; align-items: center; justify-content: center; gap: 20px; max-width: 950px; margin: 0 auto;">
+          <div style="display: flex; align-items: center; justify-content: center; gap: 20px; max-width: 1090px; margin: 0 auto;">
             <div style="flex: 1; text-align: left;">
               <div class="content-card" style="margin: 0; padding: 15px 20px;">
                 <p style="font-weight: 600; color: #0f766e; margin-bottom: 10px;">Where we left off last time:</p>
@@ -326,6 +387,34 @@
           </div>
         </section>
 
+        <!-- Slide 3.5b: Solution - Sunk Costs -->
+        <section data-background-gradient="linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)">
+          <p class="eyebrow" style="color: #059669;">Costs · Solution 1</p>
+          <h2>Solution: Sunk Costs</h2>
+          <div class="content-card">
+            <div class="def-card">
+              <div class="def-title">Key Insight</div>
+              The <strong>$500/unit</strong> purchase price is a <strong>sunk cost</strong> &mdash; it is already paid and irrecoverable. It should not affect the decision.
+            </div>
+            
+            <div class="def-card fragment">
+              <div class="def-title">The Marginal Decision</div>
+              The only relevant comparison is:
+              <ul>
+                <li><strong>Sell now</strong>: receive $450/unit</li>
+                <li><strong>Don't sell</strong>: receive $0/unit</li>
+              </ul>
+            </div>
+            
+            <p class="fragment" style="font-weight: 700; text-align: center; color: #059669; margin-top: 20px; font-size: 1.1em;">
+              $450 &gt; $0 &rArr; Rex should sell all 1,000 units!
+            </p>
+            <p class="fragment" style="font-size: 0.85em; color: #64748b; text-align: center; margin-top: 10px;">
+              The $500 purchase price and $160 maintenance are sunk/identical regardless of the decision. Thinking otherwise is the <strong>sunk cost fallacy</strong>.
+            </p>
+          </div>
+        </section>
+
         <!-- Slide 3.6: Headphone Reseller Example 2 -->
         <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
           <p class="eyebrow">Costs · Example 2</p>
@@ -342,6 +431,29 @@
             </div>
             <p class="fragment" style="font-weight: 600; text-align: center; color: #0f766e; margin-top: 20px;">
               What is his marginal cost of selling 1 additional unit of the same headphone model?
+            </p>
+          </div>
+        </section>
+
+        <!-- Slide 3.6b: Solution - Marginal Cost -->
+        <section data-background-gradient="linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)">
+          <p class="eyebrow" style="color: #059669;">Costs · Solution 2</p>
+          <h2>Solution: Marginal Cost</h2>
+          <div class="content-card">
+            <div class="def-card">
+              <div class="def-title">Step 1: Classify the costs</div>
+              <ul>
+                <li><strong>Sunk (ignore)</strong>: $500/unit already paid for the first 1,000 units.</li>
+                <li><strong>Fixed (don't change with 1 more unit)</strong>: 18 clerks ($990K/yr), utilities ($30K/yr), own salary ($270K/yr).</li>
+                <li><strong>Marginal (changes with 1 more unit)</strong>: Need to buy 1 more headphone &rarr; <strong>$500</strong>, plus maintenance &rarr; <strong>$160</strong>.</li>
+              </ul>
+            </div>
+            
+            <p class="fragment" style="font-weight: 700; text-align: center; color: #059669; margin-top: 20px; font-size: 1.15em;">
+              Marginal Cost = $500 + $160 = <strong>$660</strong> per additional unit
+            </p>
+            <p class="fragment" style="font-size: 0.85em; color: #64748b; text-align: center; margin-top: 10px;">
+              The sunk cost of the first 1,000 units and all fixed operating costs do not change when selling one more unit &mdash; they are irrelevant to the marginal calculation.
             </p>
           </div>
         </section>
@@ -369,6 +481,51 @@
             <p class="fragment" style="font-weight: 600; color: #0f766e; font-size: 1.1em; margin-top: 20px;">
               We are now ready to put all of these together and look at a market, with supply and demand, together. The simplest form of competition: there is none! <strong>Monopoly</strong>.
             </p>
+          </div>
+        </section>
+
+        <!-- GROUP WORK: Thinking on the Margin -->
+        <section data-background-gradient="linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%)">
+          <p class="eyebrow" style="color: #b45309;">Group Work &middot; Costs &amp; Decision-Making</p>
+          <h2>&#127922; Group Work: Thinking on the Margin</h2>
+          <div class="content-card" style="font-size: 0.88em; background: rgba(255, 255, 255, 0.7);">
+            <div class="example-card" style="border-left-color: #b45309; background: rgba(180, 83, 9, 0.05); margin: 8px 0;">
+              <div class="ex-title" style="color: #b45309;">Question 1</div>
+              Rex&rsquo;s caf&eacute; paid a <strong>non-refundable $1,200</strong> operating license for this year. Staying open next month costs an <strong>additional $2,000</strong> (staff, ingredients, utilities), and the caf&eacute; expects <strong>$1,700</strong> in revenue. <br><br><strong>Should the caf&eacute; stay open next month? Justify using marginal reasoning.</strong>
+            </div>
+            <div style="margin: 4px 0 12px;">
+              <button class="group-roll-btn" onclick="rollGroup('l4gw1q1')">&#127922; Pick a group for Q1</button>
+              <span class="group-roll-result" id="l4gw1q1">&mdash;</span>
+            </div>
+            <div class="example-card" style="border-left-color: #b45309; background: rgba(180, 83, 9, 0.05); margin: 8px 0;">
+              <div class="ex-title" style="color: #b45309;">Question 2</div>
+              A bakery pays <strong>$500/month</strong> rent, <strong>$3 per loaf</strong> in ingredients, and <strong>$2 per loaf</strong> in labor. <br><br><strong>What is the marginal cost of baking one additional loaf?</strong>
+            </div>
+            <div style="margin: 4px 0 0;">
+              <button class="group-roll-btn" onclick="rollGroup('l4gw1q2')">&#127922; Pick a group for Q2</button>
+              <span class="group-roll-result" id="l4gw1q2">&mdash;</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- GROUP WORK Answers: Thinking on the Margin -->
+        <section data-background-gradient="linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)">
+          <p class="eyebrow" style="color: #059669;">Group Work &middot; Answers</p>
+          <h2>Answers: Thinking on the Margin</h2>
+          <div class="content-card" style="font-size: 0.9em;">
+            <div class="def-card">
+              <div class="def-title">Question 1: Sunk Cost Decision</div>
+              <ul>
+                <li>The $1,200 license is <strong>sunk</strong> &mdash; it is gone whether or not the caf&eacute; opens next month, so ignore it.</li>
+                <li>Marginal benefit ($1,700) &lt; Marginal cost ($2,000) &rArr; <strong>do not stay open</strong> next month.</li>
+                <li>Staying open &ldquo;to make the license worth it&rdquo; would be the <strong>sunk cost fallacy</strong>.</li>
+              </ul>
+            </div>
+            <div class="def-card fragment">
+              <div class="def-title">Question 2: Marginal Cost</div>
+              \[ MC = \$3 + \$2 = \$5 \]
+              <p style="font-size: 0.9em; margin-top: 8px;">Rent is a <strong>fixed cost</strong> &mdash; it does not change with one more loaf, so it is excluded from marginal cost.</p>
+            </div>
           </div>
         </section>
 
@@ -474,6 +631,30 @@
           </div>
         </section>
 
+        <!-- Slide 4.6b: Solution - Monopoly Calculation -->
+        <section data-background-gradient="linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)">
+          <p class="eyebrow" style="color: #059669;">Monopoly · Solution 1</p>
+          <h2>Solution: Monopoly Calculation</h2>
+          <div class="content-card" style="font-size: 0.92em;">
+            <div class="def-card">
+              <div class="def-title">Step 1: Inverse Demand &amp; MR</div>
+              \[ Q_D = 14 - 3P_D \implies P = \frac{14}{3} - \frac{Q}{3} \]
+              \[ R(Q) = \frac{14}{3}Q - \frac{Q^2}{3} \implies MR(Q) = \frac{14}{3} - \frac{2Q}{3} \]
+            </div>
+            
+            <div class="def-card fragment">
+              <div class="def-title">Step 2: Set MR = MC</div>
+              \[ \frac{14}{3} - \frac{2Q}{3} = 2 \implies \frac{8}{3} = \frac{2Q}{3} \implies Q^* = 4 \]
+            </div>
+            
+            <div class="def-card fragment">
+              <div class="def-title">Step 3: Price &amp; Profit</div>
+              \[ P^* = \frac{14}{3} - \frac{4}{3} = \frac{10}{3} \approx 3.33 \]
+              \[ \Pi = P^*Q^* - TC = \tfrac{10}{3}(4) - 2(4) = \tfrac{40}{3} - 8 = \tfrac{16}{3} \approx 5.33 \]
+            </div>
+          </div>
+        </section>
+
         <!-- Slide 4.7: Calculation Example 2 -->
         <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
           <p class="eyebrow">Monopoly · Example 2</p>
@@ -490,6 +671,73 @@
             <p class="fragment" style="font-weight: 600; color: #0f766e; text-align: center; margin-top: 20px;">
               Solve for the quantity where \( MR = MC \), and find the corresponding price on the demand curve.
             </p>
+          </div>
+        </section>
+
+        <!-- Slide 4.7b: Solution - Monopoly Redux -->
+        <section data-background-gradient="linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)">
+          <p class="eyebrow" style="color: #059669;">Monopoly · Solution 2</p>
+          <h2>Solution: Monopoly Redux</h2>
+          <div class="content-card" style="font-size: 0.92em;">
+            <div class="def-card">
+              <div class="def-title">Step 1: Inverse Demand &amp; MR</div>
+              \[ P = 10 - 2Q \]
+              \[ R(Q) = P \cdot Q = 10Q - 2Q^2 \]
+              \[ MR(Q) = 10 - 4Q \]
+            </div>
+            
+            <div class="def-card fragment">
+              <div class="def-title">Step 2: Set MR = MC</div>
+              \[ 10 - 4Q = 2Q \implies 10 = 6Q \]
+              \[ Q^* = \frac{5}{3} \approx 1.67 \]
+            </div>
+            
+            <div class="def-card fragment">
+              <div class="def-title">Step 3: Price</div>
+              \[ P^* = 10 - 2\left(\frac{5}{3}\right) = \frac{20}{3} \approx 6.67 \]
+            </div>
+          </div>
+        </section>
+
+        <!-- GROUP WORK: Monopoly Pricing -->
+        <section data-background-gradient="linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%)">
+          <p class="eyebrow" style="color: #b45309;">Group Work &middot; Monopoly</p>
+          <h2>&#127922; Group Work: Monopoly Pricing</h2>
+          <div class="content-card" style="font-size: 0.88em; background: rgba(255, 255, 255, 0.7);">
+            <div class="example-card" style="border-left-color: #b45309; background: rgba(180, 83, 9, 0.05); margin: 8px 0;">
+              <div class="ex-title" style="color: #b45309;">Question 1</div>
+              A monopolist faces market demand \( Q = 20 - P \) and has constant marginal cost \( MC = 4 \). <br><br><strong>Find the profit-maximizing quantity \( Q^* \) and price \( P^* \).</strong>
+            </div>
+            <div style="margin: 4px 0 12px;">
+              <button class="group-roll-btn" onclick="rollGroup('l4gw2q1')">&#127922; Pick a group for Q1</button>
+              <span class="group-roll-result" id="l4gw2q1">&mdash;</span>
+            </div>
+            <div class="example-card" style="border-left-color: #b45309; background: rgba(180, 83, 9, 0.05); margin: 8px 0;">
+              <div class="ex-title" style="color: #b45309;">Question 2</div>
+              The monopolist&rsquo;s total cost function is \( C(Q) = 20 + 4Q \). <br><br><strong>Calculate the monopolist&rsquo;s profit at \( Q^* \).</strong>
+            </div>
+            <div style="margin: 4px 0 0;">
+              <button class="group-roll-btn" onclick="rollGroup('l4gw2q2')">&#127922; Pick a group for Q2</button>
+              <span class="group-roll-result" id="l4gw2q2">&mdash;</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- GROUP WORK Answers: Monopoly Pricing -->
+        <section data-background-gradient="linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)">
+          <p class="eyebrow" style="color: #059669;">Group Work &middot; Answers</p>
+          <h2>Answers: Monopoly Pricing</h2>
+          <div class="content-card" style="font-size: 0.9em;">
+            <div class="def-card">
+              <div class="def-title">Question 1: MR = MC</div>
+              \[ Q = 20 - P \implies P = 20 - Q \implies MR = 20 - 2Q \]
+              \[ MR = MC: \; 20 - 2Q = 4 \implies Q^* = 8, \quad P^* = 20 - 8 = \$12 \]
+            </div>
+            <div class="def-card fragment">
+              <div class="def-title">Question 2: Profit</div>
+              \[ \Pi = TR - TC = P^* Q^* - C(Q^*) = 12 \times 8 - (20 + 4 \times 8) \]
+              \[ \Pi = 96 - 52 = \$44 \]
+            </div>
           </div>
         </section>
 
@@ -621,7 +869,7 @@
           <div class="content-card">
             <p style="font-weight: 600; color: #0f766e;">Question to consider:</p>
             <p style="font-size: 1.05em; line-height: 1.4; margin-bottom: 15px;">
-              What does A., B., and C. imply about the **market demand** versus the **demand the individual firm faces**?
+              What does A., B., and C. imply about the <strong>market demand</strong> versus the <strong>demand the individual firm faces</strong>?
             </p>
             <div class="def-card fragment">
               <div class="def-title">Individual Demand is Perfectly Elastic</div>
@@ -640,7 +888,7 @@
           <div class="content-card" style="text-align: center;">
             <p style="margin-bottom: 12px;">Putting everything together: Market equilibrium determines price, which the firm takes as given:</p>
             <div class="slide-img-container">
-              <img src="images/c4_page_24_graph.png" alt="Market Demand and Supply vs. Firm Demand Curve" style="max-height: 280px;">
+              <img src="images/c4_page_24_graph.png" alt="Market Demand and Supply vs. Firm Demand Curve" style="max-height: 380px;">
             </div>
           </div>
         </section>
@@ -710,7 +958,7 @@
         <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
           <p class="eyebrow">Market Equilibrium · Profits</p>
           <h2>Profit Calculations on the Graph</h2>
-          <div style="display: flex; align-items: center; justify-content: center; gap: 20px; max-width: 950px; margin: 0 auto;">
+          <div style="display: flex; align-items: center; justify-content: center; gap: 20px; max-width: 1090px; margin: 0 auto;">
             <div style="flex: 1; text-align: left;">
               <div class="content-card" style="margin: 0; padding: 20px 25px; font-size: 0.95em;">
                 <ul>
@@ -732,7 +980,7 @@
         <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
           <p class="eyebrow">Short-Run Equilibrium · Definition</p>
           <h2>Defining Short-Run Equilibrium</h2>
-          <div style="display: flex; align-items: center; justify-content: center; gap: 20px; max-width: 950px; margin: 0 auto;">
+          <div style="display: flex; align-items: center; justify-content: center; gap: 20px; max-width: 1090px; margin: 0 auto;">
             <div style="flex: 1; text-align: left;">
               <div class="content-card" style="margin: 0; padding: 20px 25px;">
                 <div class="def-card" style="margin: 0 0 15px;">
@@ -756,7 +1004,7 @@
         <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
           <p class="eyebrow">Short-Run Equilibrium · Supply</p>
           <h2>The Short-Run Supply Curve</h2>
-          <div style="display: flex; align-items: center; justify-content: center; gap: 20px; max-width: 950px; margin: 0 auto;">
+          <div style="display: flex; align-items: center; justify-content: center; gap: 20px; max-width: 1090px; margin: 0 auto;">
             <div style="flex: 1; text-align: left;">
               <div class="content-card" style="margin: 0; padding: 20px 25px; font-size: 0.92em;">
                 <p style="font-weight: 600; color: #0f766e; margin-bottom: 10px;">The Shutdown Rule:</p>
@@ -781,7 +1029,7 @@
         <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
           <p class="eyebrow">Short-Run Equilibrium · Dynamics</p>
           <h2>Free Entry and Exit</h2>
-          <div style="display: flex; align-items: center; justify-content: center; gap: 20px; max-width: 950px; margin: 0 auto;">
+          <div style="display: flex; align-items: center; justify-content: center; gap: 20px; max-width: 1090px; margin: 0 auto;">
             <div style="flex: 1; text-align: left;">
               <div class="content-card" style="margin: 0; padding: 20px 25px;">
                 <p style="font-weight: 600; color: #0f766e; margin-bottom: 10px;">Market Adjustments:</p>
@@ -806,14 +1054,14 @@
         <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
           <p class="eyebrow">Short-Run Equilibrium · Entry/Exit</p>
           <h2>Illustrating Entry Dynamics</h2>
-          <div style="display: flex; align-items: center; justify-content: center; gap: 20px; max-width: 950px; margin: 0 auto;">
+          <div style="display: flex; align-items: center; justify-content: center; gap: 20px; max-width: 1090px; margin: 0 auto;">
             <div style="flex: 1; text-align: left;">
               <div class="content-card" style="margin: 0; padding: 20px 25px; font-size: 0.95em;">
                 <p style="font-weight: 600; color: #0f766e; margin-bottom: 12px;">In the short run:</p>
                 <ul>
                   <li>Possible for firms in competitive markets to earn economic profit.</li>
                   <li>Profit encourages new firms to enter the market.</li>
-                  <li>Market supply shifts to the **right**.</li>
+                  <li>Market supply shifts to the <strong>right</strong>.</li>
                   <li>If profits are negative, the same story applies, but in reverse.</li>
                 </ul>
               </div>
@@ -861,7 +1109,7 @@
             </div>
             <p style="font-weight: 600; color: #0f766e; margin-bottom: 8px;">Practical consequences:</p>
             <ul>
-              <li>Firms view fixed costs as sunk, hence the only thing that characterizes any long-run equilibrium is **zero profits**.</li>
+              <li>Firms view fixed costs as sunk, hence the only thing that characterizes any long-run equilibrium is <strong>zero profits</strong>.</li>
               <li class="fragment">Why? Because if profits are not zero, there will continue to be free entry and exit, and that is a function of fixed costs, too.</li>
             </ul>
           </div>
@@ -871,7 +1119,7 @@
         <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
           <p class="eyebrow">Long-Run Equilibrium · Price</p>
           <h2>The Long-Run Equilibrium Price</h2>
-          <div style="display: flex; align-items: center; justify-content: center; gap: 20px; max-width: 950px; margin: 0 auto;">
+          <div style="display: flex; align-items: center; justify-content: center; gap: 20px; max-width: 1090px; margin: 0 auto;">
             <div style="flex: 1; text-align: left;">
               <div class="content-card" style="margin: 0; padding: 20px 25px; font-size: 0.95em;">
                 <p style="font-weight: 600; color: #0f766e; margin-bottom: 12px;">In long-run equilibrium:</p>
@@ -941,6 +1189,32 @@
           </div>
         </section>
 
+        <!-- Slide 5.25b: Solution - Fred's Hats -->
+        <section data-background-gradient="linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)">
+          <p class="eyebrow" style="color: #059669;">Perfect Competition · Solution 1</p>
+          <h2>Solution: Fred's Hats</h2>
+          <div class="content-card" style="font-size: 0.92em;">
+            <div class="def-card">
+              <div class="def-title">Step 1: Profit-Maximizing Quantity</div>
+              In perfect competition, \( P = MR = MC \):
+              \[ 20 = 2q + 2 \implies 18 = 2q \implies q^* = 9 \]
+            </div>
+            
+            <div class="def-card fragment">
+              <div class="def-title">Step 2: Profit at \( q^* = 9 \)</div>
+              \[ TR = 20 \cdot 9 = 180 \qquad TC = 81 + 18 + 49 = 148 \]
+              \[ \Pi = TR - TC = 180 - 148 = 32 \]
+            </div>
+            
+            <div class="def-card fragment">
+              <div class="def-title">Step 3: Long-Run Equilibrium?</div>
+              \[ ATC(q^*) = \frac{148}{9} \approx 16.44 \]
+              Since \( P = 20 &gt; ATC = 16.44 \), profit is positive.
+              <p style="font-weight: 700; color: #b91c1c; margin-top: 8px;">Not in long-run equilibrium &rarr; entry will drive price down.</p>
+            </div>
+          </div>
+        </section>
+
         <!-- Slide 5.26: Fred's Hats Example 2 -->
         <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
           <p class="eyebrow">Perfect Competition · Example 2</p>
@@ -960,6 +1234,33 @@
           </div>
         </section>
 
+        <!-- Slide 5.26b: Solution - Fred's Hats LR -->
+        <section data-background-gradient="linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)">
+          <p class="eyebrow" style="color: #059669;">Perfect Competition · Solution 2</p>
+          <h2>Solution: Long-Run Equilibrium</h2>
+          <div class="content-card" style="font-size: 0.92em;">
+            <div class="def-card">
+              <div class="def-title">Key Principle</div>
+              In long-run equilibrium, free entry drives profits to zero:
+              \[ P^* = \min(ATC) \]
+            </div>
+            
+            <div class="def-card fragment">
+              <div class="def-title">Step 1: Find min(ATC) via ATC = MC</div>
+              \[ ATC = q + 2 + \frac{49}{q} \qquad MC = 2q + 2 \]
+              \[ ATC = MC \implies \frac{49}{q} = q \implies q^2 = 49 \implies q = 7 \]
+            </div>
+            
+            <div class="def-card fragment">
+              <div class="def-title">Step 2: Long-Run Equilibrium Price</div>
+              \[ P^* = \min(ATC) = 7 + 2 + \frac{49}{7} = 7 + 2 + 7 = 16 \]
+              <p style="font-weight: 700; color: #059669; text-align: center; margin-top: 10px; font-size: 1.05em;">
+                Long-run equilibrium price = <strong>$16</strong>
+              </p>
+            </div>
+          </div>
+        </section>
+
         <!-- Slide 5.27: Why Market Structure Matters -->
         <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
           <p class="eyebrow">Perfect Competition · Conclusion</p>
@@ -973,6 +1274,48 @@
             <p class="fragment" style="color: #64748b; font-size: 0.9em; margin-top: 25px;">
               <strong>More on Welfare Analysis next time, and that concludes Part 1 of this class!</strong>
             </p>
+          </div>
+        </section>
+
+        <!-- GROUP WORK: Price Takers -->
+        <section data-background-gradient="linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%)">
+          <p class="eyebrow" style="color: #b45309;">Group Work &middot; Perfect Competition</p>
+          <h2>&#127922; Group Work: Price Takers</h2>
+          <div class="content-card" style="font-size: 0.88em; background: rgba(255, 255, 255, 0.7);">
+            <div class="example-card" style="border-left-color: #b45309; background: rgba(180, 83, 9, 0.05); margin: 8px 0;">
+              <div class="ex-title" style="color: #b45309;">Question 1</div>
+              A perfectly competitive firm has marginal cost \( MC = 2Q + 2 \) and the market price is \( P = 10 \). <br><br><strong>How much should the firm produce?</strong>
+            </div>
+            <div style="margin: 4px 0 12px;">
+              <button class="group-roll-btn" onclick="rollGroup('l4gw3q1')">&#127922; Pick a group for Q1</button>
+              <span class="group-roll-result" id="l4gw3q1">&mdash;</span>
+            </div>
+            <div class="example-card" style="border-left-color: #b45309; background: rgba(180, 83, 9, 0.05); margin: 8px 0;">
+              <div class="ex-title" style="color: #b45309;">Question 2</div>
+              The firm&rsquo;s total cost function is \( C(Q) = 8 + 2Q + Q^2 \). <br><br><strong>Compute ATC and profit at your answer from Question 1. What happens in this market in the long run?</strong>
+            </div>
+            <div style="margin: 4px 0 0;">
+              <button class="group-roll-btn" onclick="rollGroup('l4gw3q2')">&#127922; Pick a group for Q2</button>
+              <span class="group-roll-result" id="l4gw3q2">&mdash;</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- GROUP WORK Answers: Price Takers -->
+        <section data-background-gradient="linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)">
+          <p class="eyebrow" style="color: #059669;">Group Work &middot; Answers</p>
+          <h2>Answers: Price Takers</h2>
+          <div class="content-card" style="font-size: 0.9em;">
+            <div class="def-card">
+              <div class="def-title">Question 1: P = MC</div>
+              Price takers produce where price equals marginal cost:
+              \[ 10 = 2Q + 2 \implies Q^* = 4 \]
+            </div>
+            <div class="def-card fragment">
+              <div class="def-title">Question 2: Profit &amp; the Long Run</div>
+              \[ ATC(4) = \frac{8}{4} + 2 + 4 = 8 \qquad \Pi = (P - ATC) \times Q = (10 - 8) \times 4 = \$8 > 0 \]
+              <p style="font-size: 0.9em; margin-top: 8px;">Positive economic profit attracts <strong>entry</strong>: market supply shifts out and the price falls toward minimum ATC, until long-run profits are zero.</p>
+            </div>
           </div>
         </section>
 
@@ -1005,6 +1348,11 @@
   <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/highlight/highlight.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/math/math.js"></script>
   <script>
+    // Group work: randomly pick a group number between 1 and 7 (inclusive)
+    function rollGroup(id) {
+      document.getElementById(id).textContent = Math.floor(Math.random() * 7) + 1;
+    }
+
     Reveal.initialize({
       hash: true,
       slideNumber: 'c/t',
