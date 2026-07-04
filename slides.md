@@ -36,6 +36,10 @@ and <code>Esc</code> for a slide overview.
     <h3>Lecture 6</h3>
     <p>Game Theory: Nash Equilibrium &amp; Coordination</p>
   </a>
+  <a class="card" href="{{ '/slides/lecture-07.html' | relative_url }}">
+    <h3>Lecture 7</h3>
+    <p>Game Theory: Sequential Moves &amp; Credible Threats</p>
+  </a>
 </div>
 
 More decks will appear here as the course progresses — see the
