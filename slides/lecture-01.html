@@ -64,7 +64,7 @@
       box-shadow: 0 8px 30px rgba(0, 0, 0, 0.02);
       margin: 12px auto;
       text-align: left;
-      max-width: 800px;
+      max-width: 920px;
     }
     
     .reveal .def-card {
@@ -149,7 +149,7 @@
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 10px;
-      max-width: 850px;
+      max-width: 980px;
       margin: 12px auto;
     }
     .reveal .photo-grid .photo-wrapper {
@@ -183,21 +183,19 @@
       margin-top: 8px;
     }
     .reveal .slide-img-container img {
-      max-height: 260px;
+      max-height: 280px;
       width: auto;
       margin: 0;
       display: block;
       border-radius: 4px;
     }
     
-    /* Clean, centered list layout with left alignment */
+    /* Standard list styling (for inside cards, columns, etc.) */
     .reveal ul, .reveal ol {
-      display: inline-block;
+      display: block;
       text-align: left;
-      margin: 10px auto !important;
-      padding-left: 0;
-      min-width: 65%;
-      max-width: 95%;
+      margin: 10px 0 !important;
+      padding-left: 20px;
     }
     
     .reveal ul {
@@ -223,6 +221,40 @@
     
     .reveal li ul {
       list-style-type: circle;
+    }
+    
+    /* Centered list layout (only when list is the main slide element or explicitly centered) */
+    .reveal section > ul, .reveal section > ol, .reveal .center-list {
+      display: inline-block;
+      text-align: left;
+      margin: 15px auto !important;
+      padding-left: 20px;
+      min-width: 65%;
+      max-width: 95%;
+    }
+    
+    /* Grid for side-by-side clips */
+    .reveal .img-gallery {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 15px;
+      flex-wrap: wrap;
+      margin-top: 15px;
+    }
+    .reveal .img-gallery .gallery-item {
+      background: white;
+      padding: 6px;
+      border-radius: 10px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.02);
+      border: 1px solid #e2e8f0;
+    }
+    .reveal .img-gallery img {
+      max-height: 220px;
+      width: auto;
+      display: block;
+      border-radius: 4px;
+      margin: 0;
     }
     
     /* Home link and footer elements */
@@ -263,6 +295,33 @@
 
     .reveal .katex-display {
       margin: 8px 0;
+    }
+
+    /* Group work slides: random group picker */
+    .reveal .group-roll-btn {
+      font-family: var(--r-heading-font);
+      font-weight: 700;
+      font-size: 0.75em;
+      color: white;
+      background: #b45309;
+      border: none;
+      border-radius: 999px;
+      padding: 8px 18px;
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+    .reveal .group-roll-btn:hover {
+      background: #92400e;
+    }
+    .reveal .group-roll-result {
+      display: inline-block;
+      min-width: 2em;
+      margin-left: 10px;
+      font-family: var(--r-heading-font);
+      font-weight: 800;
+      color: #b45309;
+      font-size: 1.2em;
+      vertical-align: middle;
     }
   </style>
 </head>
@@ -364,8 +423,8 @@
           <div class="grading-grid">
             <div class="grading-card fragment">
               <div class="grade-pct">30%</div>
-              <div class="grade-label">Quizzes (x3)</div>
-              <div class="grade-detail">2 on Canvas; 1 in-class</div>
+              <div class="grade-label">Quizzes (x4)</div>
+              <div class="grade-detail">2 online; 2 in-class</div>
             </div>
             <div class="grading-card fragment">
               <div class="grade-pct">20%</div>
@@ -375,7 +434,7 @@
             <div class="grading-card fragment">
               <div class="grade-pct">30%</div>
               <div class="grade-label">Final Exam</div>
-              <div class="grade-detail">Class #8, 45~60 minutes. Format TBA. No makeup exam.</div>
+              <div class="grade-detail">Class #9, 60 minutes. Format: written in-class. No makeup exam.</div>
             </div>
             <div class="grading-card fragment">
               <div class="grade-pct">20%</div>
@@ -392,7 +451,7 @@
           <div class="content-card" style="text-align: center;">
             <ul>
               <li class="fragment"><strong>No homework!</strong> No formal assignments to submit.</li>
-              <li class="fragment">Preparing for the <strong>3 quizzes</strong> is the main preparation you are responsible for.</li>
+              <li class="fragment">Preparing for the <strong>4 quizzes</strong> is the main preparation you are responsible for.</li>
               <li class="fragment">I will provide <strong>practice questions</strong> to prep for the quizzes and the final exam.</li>
             </ul>
           </div>
@@ -713,6 +772,23 @@
           </div>
         </section>
 
+<!-- Slide 7.4b: Solution - Demand Factors -->
+        <section data-background-gradient="linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)">
+          <p class="eyebrow" style="color: #059669;">Supply and Demand · Solution</p>
+          <h2>What Affects Demand?</h2>
+          <div class="content-card" style="text-align: center;">
+            <div class="def-card">
+              <div class="def-title">Answer</div>
+              <p>The four factors that affect demand:</p>
+              <ol>
+                <li><strong>Price</strong></li>
+                <li><strong>Income</strong></li>
+                <li><strong>Desires and tastes</strong></li>
+                <li><strong>Prices of related goods &amp; expectations</strong></li>
+              </ol>
+            </div>
+          </div>
+        </section>
         <!-- Slide 7.5: Law of Demand -->
         <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
           <p class="eyebrow">Supply and Demand · Demand</p>
@@ -736,6 +812,22 @@
           </div>
         </section>
 
+<!-- Slide 7.5b: Solution - Law of Demand -->
+        <section data-background-gradient="linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)">
+          <p class="eyebrow" style="color: #059669;">Supply and Demand · Solution</p>
+          <h2>The Law of Demand</h2>
+          <div class="content-card" style="text-align: center;">
+            <div class="def-card">
+              <div class="def-title">Definition</div>
+              <p style="font-weight: 700; font-size: 1.05em; color: #1e293b;">
+                Ceteris paribus, as the price of a good increases, the quantity demanded decreases, and vice versa.
+              </p>
+              <p style="font-size: 0.85em; color: #64748b; margin-top: 8px;">
+                This is the <strong>Law of Demand</strong> &mdash; an inverse relationship between price and quantity demanded.
+              </p>
+            </div>
+          </div>
+        </section>
         <!-- Slide 7.6: Representing Demand -->
         <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
           <p class="eyebrow">Supply and Demand · Demand</p>
@@ -758,7 +850,7 @@
           <div class="slide-img-container">
             <img src="images/page_26_img_3.png" alt="Demand Curve Graph">
           </div>
-          <p style="font-size: 0.7em; color: #64748b; max-width: 650px; margin: 10px auto; line-height: 1.35;">
+          <p style="font-size: 0.7em; color: #64748b; max-width: 750px; margin: 10px auto; line-height: 1.35;">
             Quantity demanded at each possible price, holding constant other factors that influence purchases.
           </p>
         </section>
@@ -839,6 +931,22 @@
           </div>
         </section>
 
+<!-- Slide 8.4b: Solution - Law of Supply -->
+        <section data-background-gradient="linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)">
+          <p class="eyebrow" style="color: #059669;">Supply and Demand · Solution</p>
+          <h2>The Law of Supply</h2>
+          <div class="content-card" style="text-align: center;">
+            <div class="def-card">
+              <div class="def-title">Definition</div>
+              <p style="font-weight: 700; font-size: 1.05em; color: #1e293b;">
+                Ceteris paribus, as the price of a good increases, the quantity supplied increases, and vice versa.
+              </p>
+              <p style="font-size: 0.85em; color: #64748b; margin-top: 8px;">
+                This is the <strong>Law of Supply</strong> &mdash; a positive relationship between price and quantity supplied.
+              </p>
+            </div>
+          </div>
+        </section>
         <!-- Slide 8.5: Representing Supply -->
         <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
           <p class="eyebrow">Supply and Demand · Supply</p>
@@ -861,7 +969,7 @@
           <div class="slide-img-container">
             <img src="images/page_31_img_3.png" alt="Supply Curve Graph">
           </div>
-          <p style="font-size: 0.7em; color: #64748b; max-width: 650px; margin: 10px auto; line-height: 1.35;">
+          <p style="font-size: 0.7em; color: #64748b; max-width: 750px; margin: 10px auto; line-height: 1.35;">
             Firms determine supply on the basis of the price of that good and on other factors, including costs of production, technological change, and government regulations.
           </p>
         </section>
@@ -904,7 +1012,7 @@
         <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
           <p class="eyebrow">Supply and Demand Together</p>
           <h2>Market Equilibrium</h2>
-          <div style="display: flex; align-items: center; justify-content: center; gap: 20px; max-width: 950px; margin: 0 auto;">
+          <div style="display: flex; align-items: center; justify-content: center; gap: 20px; max-width: 1090px; margin: 0 auto;">
             <div style="flex: 1; text-align: left;">
               <div class="def-card" style="margin: 0;">
                 <div class="def-title">Definition</div>
@@ -923,7 +1031,7 @@
         <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
           <p class="eyebrow">Supply and Demand Together</p>
           <h2>Equilibrium as a Snapshot</h2>
-          <div style="display: flex; align-items: center; justify-content: center; gap: 20px; max-width: 950px; margin: 0 auto;">
+          <div style="display: flex; align-items: center; justify-content: center; gap: 20px; max-width: 1090px; margin: 0 auto;">
             <div style="flex: 1; text-align: left;">
               <div class="content-card" style="margin: 0; padding: 15px 20px;">
                 <p style="font-size: 0.9em; margin-bottom: 10px;">Remember markets are defined for a product, at a particular place, at a point in time.</p>
@@ -991,6 +1099,243 @@
       </section>
 
 
+      <!-- SECTION 3: With Algebra Now (Vertical Stack) -->
+      <section>
+
+        <!-- Slide 4.1: Divider -->
+        <section data-background-gradient="linear-gradient(135deg, #0f172a 0%, #1e293b 100%)">
+          <p class="eyebrow" style="color: #2dd4bf;">Mathematical Formulation</p>
+          <h1 style="color: white; font-size: 2.8em;">With Algebra Now</h1>
+          <p style="color: #94a3b8; margin-top: 20px;">Press <kbd style="background: #334155; color: #cbd5e1; border: 1px solid #475569; padding: 2px 6px; border-radius: 4px;">↓</kbd> to view algebra examples</p>
+        </section>
+
+        <!-- Slide 4.2: Algebra example 1 -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Algebra in supply &amp; demand · 1</p>
+          <h2>Market Demand and Supply Functions</h2>
+          <div class="content-card">
+            <p>We can represent demand and supply using demand functions and supply functions, respectively.</p>
+            
+            <div class="def-card" style="margin-top: 15px;">
+              <div class="def-title">Example Scenario</div>
+              Let the market demand and supply functions be:
+              \[ Q_D = 12 - P_D \]
+              \[ Q_S = 9 + 0.5P_S \]
+            </div>
+            
+            <div class="example-card fragment" style="margin-top: 15px;">
+              <div class="ex-title">Question 1</div>
+              <strong>Find the market equilibrium quantity and price.</strong>
+            </div>
+          </div>
+        </section>
+
+<!-- Slide 4.2b: Solution - Question 1 -->
+        <section data-background-gradient="linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)">
+          <p class="eyebrow" style="color: #059669;">Algebra · Solution 1</p>
+          <h2>Solution: Market Equilibrium</h2>
+          <div class="content-card" style="font-size: 0.92em;">
+            <div class="def-card">
+              <div class="def-title">Step 1: Set Q<sub>D</sub> = Q<sub>S</sub></div>
+              \[ 12 - P = 9 + 0.5P \]
+            </div>
+            <div class="def-card fragment">
+              <div class="def-title">Step 2: Solve for P*</div>
+              \[ 12 - 9 = 0.5P + P \implies 3 = 1.5P \]
+              \[ P^* = 2 \]
+            </div>
+            <div class="def-card fragment">
+              <div class="def-title">Step 3: Find Q*</div>
+              \[ Q^* = 12 - 2 = 10 \quad\text{or}\quad Q^* = 9 + 0.5(2) = 10 \]
+              <p style="font-weight: 700; color: #059669; text-align: center; margin-top: 10px;">
+                Equilibrium: <strong>P* = $2, Q* = 10</strong>
+              </p>
+            </div>
+          </div>
+        </section>
+        <!-- Slide 4.3: Algebra example 2 -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Algebra in supply &amp; demand · 2</p>
+          <h2>Predicting Shifts in Equilibrium</h2>
+          <div class="content-card">
+            <div class="def-card">
+              <div class="def-title">Recall Setup</div>
+              Initial system:
+              \[ Q_D = 12 - P_D \quad \text{and} \quad Q_S = 9 + 0.5P_S \]
+            </div>
+            
+            <div class="example-card fragment" style="margin-top: 15px;">
+              <div class="ex-title">Question 2</div>
+              Suppose demand increased to:
+              \[ Q_D = 16 - P_D \]
+              but supply remained the same. <br><br>
+              Without doing any calculations, the new market equilibrium quantity <strong>[increased / decreased]</strong> and the new market equilibrium price <strong>[increased / decreased]</strong> compared to those in question 1.
+            </div>
+          </div>
+        </section>
+
+<!-- Slide 4.3b: Solution - Question 2 -->
+        <section data-background-gradient="linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)">
+          <p class="eyebrow" style="color: #059669;">Algebra · Solution 2</p>
+          <h2>Solution: Predicting the Shift</h2>
+          <div class="content-card" style="font-size: 0.92em;">
+            <div class="def-card">
+              <div class="def-title">Without Calculating</div>
+              <ul>
+                <li>Demand <strong>increased</strong> (curve shifts right/out)</li>
+                <li>Supply stays the same</li>
+              </ul>
+            </div>
+            <div class="def-card fragment">
+              <div class="def-title">Prediction</div>
+              <ul>
+                <li>Equilibrium <strong>quantity increased</strong> (&uarr;)</li>
+                <li>Equilibrium <strong>price increased</strong> (&uarr;)</li>
+              </ul>
+              <p style="font-size: 0.85em; color: #64748b; margin-top: 8px;">
+                Both rise because the demand curve shifts right along a fixed supply curve.
+              </p>
+            </div>
+          </div>
+        </section>
+        <!-- Slide 4.4: Shocks vs Movements -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Algebra in supply &amp; demand</p>
+          <h2>Shocks vs. Movements</h2>
+          <div class="content-card">
+            <p>In economic analysis, it is critical to distinguish between these effects:</p>
+            
+            <div class="def-card fragment">
+              <div class="def-title">Definition: Shock</div>
+              Any change to market conditions is called a <strong>shock</strong>.
+            </div>
+            
+            <ul style="margin-top: 15px;">
+              <li class="fragment">Market equilibrium changes <strong>only if</strong> a shock occurs that shifts the demand or supply curve.</li>
+              <li class="fragment">Demand or supply curve shifts occur if variables we were holding constant (tastes, income, government policies, costs of production) change.</li>
+              <li class="fragment"><strong>Movement along</strong> the demand or supply curve is a result of <strong>only price changes</strong>.</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- Slide 4.5: Algebra example 3 & 4 & 5 -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Algebra in supply &amp; demand · 3</p>
+          <h2>Excess Supply and Excess Demand</h2>
+          <div class="content-card" style="font-size: 0.9em; max-width: 980px;">
+            <div class="def-card" style="padding: 10px 15px; margin: 5px 0;">
+              <div class="def-title">Functions</div>
+              \( Q_D = 12 - P_D \quad \text{and} \quad Q_S = 9 + 0.5P_S \)
+            </div>
+            
+            <div class="example-card fragment" style="padding: 10px 15px; margin: 10px 0;">
+              <div class="ex-title">Question 3</div>
+              Suppose the current market price is at <strong>\( P = 0.79 \)</strong> ($/pound). Is the market in equilibrium? If not, is there excess supply or demand?
+            </div>
+            
+            <div class="example-card fragment" style="padding: 10px 15px; margin: 10px 0;">
+              <div class="ex-title">Question 4</div>
+              What if the current market price is at <strong>\( P = 2.19 \)</strong> ($/pound) instead?
+            </div>
+            
+            <div class="example-card fragment" style="padding: 10px 15px; margin: 10px 0;">
+              <div class="ex-title">Question 5</div>
+              Explain why markets move toward equilibrium.
+            </div>
+          </div>
+        </section>
+
+<!-- Slide 4.5b: Solution - Questions 3, 4, 5 -->
+        <section data-background-gradient="linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)">
+          <p class="eyebrow" style="color: #059669;">Algebra · Solution 3-5</p>
+          <h2>Solution: Excess Supply &amp; Demand</h2>
+          <div class="content-card" style="font-size: 0.88em;">
+            <div class="def-card">
+              <div class="def-title">Question 3: P = $0.79</div>
+              \[ Q_D = 12 - 0.79 = 11.21 \]
+              \[ Q_S = 9 + 0.5(0.79) = 9.395 \]
+              \[ Q_D > Q_S \implies \text{Excess Demand of } 1.815 \]
+            </div>
+            <div class="def-card fragment">
+              <div class="def-title">Question 4: P = $2.19</div>
+              \[ Q_D = 12 - 2.19 = 9.81 \]
+              \[ Q_S = 9 + 0.5(2.19) = 10.095 \]
+              \[ Q_S > Q_D \implies \text{Excess Supply of } 0.285 \]
+            </div>
+            <div class="def-card fragment">
+              <div class="def-title">Question 5: Why move to equilibrium?</div>
+              <ul style="font-size: 0.92em;">
+                <li><strong>Excess demand</strong> &rarr; buyers bid price <em>up</em> &rarr; Q<sub>D</sub> falls, Q<sub>S</sub> rises until P*</li>
+                <li><strong>Excess supply</strong> &rarr; sellers lower price &rarr; Q<sub>D</sub> rises, Q<sub>S</sub> falls until P*</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+        <!-- Slide 4.6: Equilibrium as Revision Process -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Algebra in supply &amp; demand</p>
+          <h2>The Market Revision Process</h2>
+          <div class="content-card" style="text-align: center; padding: 40px;">
+            <div class="def-card" style="display: inline-block; margin-bottom: 25px;">
+              <div class="def-title" style="text-align: center;">Core Principle</div>
+              Equilibrium captures a <strong>revision process</strong> in markets.
+            </div>
+            
+            <p style="font-size: 1.15em; font-weight: 600; color: #0f766e; margin-top: 15px;">
+              We will assume markets are in equilibria unless otherwise specified.
+            </p>
+          </div>
+        </section>
+
+        <!-- Slide 4.7: GROUP WORK - Algebra -->
+        <section data-background-gradient="linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%)">
+          <p class="eyebrow" style="color: #b45309;">Group Work · Supply &amp; Demand Algebra</p>
+          <h2>&#127922; Group Work: Finding Equilibrium</h2>
+          <div class="content-card" style="font-size: 0.9em; background: rgba(255, 255, 255, 0.7);">
+            <div class="example-card" style="border-left-color: #b45309; background: rgba(180, 83, 9, 0.05); margin: 8px 0;">
+              <div class="ex-title" style="color: #b45309;">Question 1</div>
+              Let the market demand and supply functions be:
+              \[ Q_D = 20 - 2P \quad \text{and} \quad Q_S = 4 + 2P \]
+              <strong>Find the market equilibrium price and quantity.</strong>
+            </div>
+            <div style="margin: 4px 0 12px;">
+              <button class="group-roll-btn" onclick="rollGroup('l2gw1q1')">&#127922; Pick a group for Q1</button>
+              <span class="group-roll-result" id="l2gw1q1">&mdash;</span>
+            </div>
+            <div class="example-card" style="border-left-color: #b45309; background: rgba(180, 83, 9, 0.05); margin: 8px 0;">
+              <div class="ex-title" style="color: #b45309;">Question 2</div>
+              In the same market, suppose the current price is <strong>\( P = 6 \)</strong>. Is the market in equilibrium? If not, compute the excess supply or excess demand, and describe what happens to the price.
+            </div>
+            <div style="margin: 4px 0 0;">
+              <button class="group-roll-btn" onclick="rollGroup('l2gw1q2')">&#127922; Pick a group for Q2</button>
+              <span class="group-roll-result" id="l2gw1q2">&mdash;</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- Slide 4.7b: GROUP WORK Answers - Algebra -->
+        <section data-background-gradient="linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)">
+          <p class="eyebrow" style="color: #059669;">Group Work · Answers</p>
+          <h2>Answers: Finding Equilibrium</h2>
+          <div class="content-card" style="font-size: 0.9em;">
+            <div class="def-card">
+              <div class="def-title">Question 1: Set Q<sub>D</sub> = Q<sub>S</sub></div>
+              \[ 20 - 2P = 4 + 2P \implies 16 = 4P \implies P^* = 4 \]
+              \[ Q^* = 20 - 2(4) = 12 \quad\text{or}\quad Q^* = 4 + 2(4) = 12 \]
+              <p style="font-weight: 700; color: #059669; text-align: center; margin-top: 8px;">Equilibrium: <strong>P* = $4, Q* = 12</strong></p>
+            </div>
+            <div class="def-card fragment">
+              <div class="def-title">Question 2: P = $6</div>
+              \[ Q_D = 20 - 2(6) = 8 \qquad Q_S = 4 + 2(6) = 16 \]
+              \[ Q_S > Q_D \implies \text{Excess Supply of } 8 \]
+              <p style="font-size: 0.9em; margin-top: 8px;">Not in equilibrium: sellers cannot sell all they want, so they lower prices &mdash; the price falls toward \( P^* = 4 \).</p>
+            </div>
+          </div>
+        </section>
+
+      </section>
+
+
       <!-- SECTION 8: Recap & Wrap-up (Horizontal) -->
       
       <!-- Slide 10: Where to go from here? -->
@@ -1036,6 +1381,11 @@
   <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/highlight/highlight.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/math/math.js"></script>
   <script>
+    // Group work: randomly pick a group number between 1 and 7 (inclusive)
+    function rollGroup(id) {
+      document.getElementById(id).textContent = Math.floor(Math.random() * 7) + 1;
+    }
+
     Reveal.initialize({
       hash: true,
       slideNumber: 'c/t',
