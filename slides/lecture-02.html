@@ -254,6 +254,19 @@
       font-size: 1.2em;
       vertical-align: middle;
     }
+  /* Step-by-step animated graph: lines draw themselves in as fragments appear */
+    .reveal svg.anim-graph { font-family: var(--r-main-font); }
+    .reveal svg.anim-graph text { font-family: var(--r-main-font); }
+    .reveal .anim-graph .build-line {
+      stroke-dasharray: 950;
+      stroke-dashoffset: 950;
+    }
+    .reveal .fragment.visible .build-line {
+      animation: drawline 0.9s ease-out forwards;
+    }
+    @keyframes drawline {
+      to { stroke-dashoffset: 0; }
+    }
   </style>
 </head>
 <body>
@@ -623,6 +636,71 @@
           </div>
         </section>
 
+        <!-- GROUP WORK Answers: step-by-step animated graph -->
+        <section data-background-gradient="linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)">
+          <p class="eyebrow" style="color: #059669;">Group Work &middot; Answers</p>
+          <h2>Finding Equilibrium, Step by Step</h2>
+          <p style="font-size: 0.55em; color: #64748b; margin: 0 0 4px;">Press <kbd style="background: #e2e8f0; border: 1px solid #cbd5e1; padding: 1px 6px; border-radius: 4px;">&rarr;</kbd> to add each element of the graph</p>
+          <svg class="anim-graph" viewBox="0 0 760 520" style="width: 92%; max-height: 480px; margin: 0 auto; display: block; background: white; border: 1px solid #e2e8f0; border-radius: 10px;" role="img" aria-label="Animated build-up of the equilibrium diagram: demand, then supply, the equilibrium at (12, $4), the P=$6 line with Qd=8 and Qs=16, the excess supply of 8, and the price falling back toward $4">
+            <!-- axes + demand (always visible) -->
+            <g>
+              <line x1="70" y1="460" x2="705" y2="460" stroke="#475569" stroke-width="2.5"/>
+              <polygon points="705,455 705,465 716,460" fill="#475569"/>
+              <line x1="70" y1="460" x2="70" y2="52" stroke="#475569" stroke-width="2.5"/>
+              <polygon points="65,52 75,52 70,41" fill="#475569"/>
+              <text x="723" y="466" font-size="17" fill="#1e293b" font-style="italic">Q</text>
+              <text x="44" y="34" font-size="17" fill="#1e293b" font-style="italic">P ($)</text>
+              <line x1="70" y1="100" x2="630" y2="460" stroke="#1e293b" stroke-width="3.5"/>
+              <text x="636" y="452" font-size="17" fill="#1e293b" font-style="italic">D</text>
+            </g>
+            <!-- fragment 1: supply -->
+            <g class="fragment" data-fragment-index="1">
+              <line class="build-line" x1="182" y1="460" x2="690" y2="133" stroke="#0f766e" stroke-width="3.5"/>
+              <text x="666" y="118" font-size="17" fill="#0f766e" font-style="italic">S</text>
+            </g>
+            <!-- fragment 2: equilibrium -->
+            <g class="fragment" data-fragment-index="2">
+              <line x1="70" y1="316" x2="406" y2="316" stroke="#64748b" stroke-width="1.5" stroke-dasharray="5 4"/>
+              <line x1="406" y1="316" x2="406" y2="460" stroke="#64748b" stroke-width="1.5" stroke-dasharray="5 4"/>
+              <circle cx="406" cy="316" r="6" fill="#1e293b"/>
+              <text x="62" y="322" font-size="17" font-weight="700" fill="#1e293b" text-anchor="end">P* = $4</text>
+              <text x="406" y="484" font-size="17" font-weight="700" fill="#1e293b" text-anchor="middle">Q* = 12</text>
+            </g>
+            <!-- fragment 3: price at $6 -->
+            <g class="fragment" data-fragment-index="3">
+              <line class="build-line" x1="70" y1="244" x2="560" y2="244" stroke="#dc2626" stroke-width="2" stroke-dasharray="6 4"/>
+              <text x="62" y="250" font-size="17" font-weight="700" fill="#dc2626" text-anchor="end">P = $6</text>
+            </g>
+            <!-- fragment 4: Qd and Qs at $6 -->
+            <g class="fragment" data-fragment-index="4">
+              <circle cx="294" cy="244" r="6" fill="#dc2626"/>
+              <circle cx="518" cy="244" r="6" fill="#dc2626"/>
+              <line x1="294" y1="244" x2="294" y2="460" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="5 4"/>
+              <line x1="518" y1="244" x2="518" y2="460" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="5 4"/>
+              <text x="294" y="484" font-size="16" fill="#475569" text-anchor="middle">Q<tspan dy="4" font-size="12">D</tspan><tspan dy="-4"> = 8</tspan></text>
+              <text x="518" y="484" font-size="16" fill="#475569" text-anchor="middle">Q<tspan dy="4" font-size="12">S</tspan><tspan dy="-4"> = 16</tspan></text>
+            </g>
+            <!-- fragment 5: excess supply -->
+            <g class="fragment" data-fragment-index="5">
+              <line x1="302" y1="212" x2="510" y2="212" stroke="#dc2626" stroke-width="2.5"/>
+              <polygon points="302,207 302,217 291,212" fill="#dc2626"/>
+              <polygon points="510,207 510,217 521,212" fill="#dc2626"/>
+              <text x="406" y="196" font-size="17" font-weight="700" fill="#dc2626" text-anchor="middle">excess supply = 8</text>
+            </g>
+            <!-- fragment 6: price falls -->
+            <g class="fragment" data-fragment-index="6">
+              <path d="M 596 240 Q 610 275 600 310" fill="none" stroke="#dc2626" stroke-width="2.5" marker-end="url(#a2eq)"/>
+              <text x="612" y="270" font-size="16" fill="#dc2626">sellers cut prices:</text>
+              <text x="612" y="292" font-size="16" fill="#dc2626">P falls toward $4</text>
+            </g>
+            <defs>
+              <marker id="a2eq" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+                <path d="M 0 0 L 8 4 L 0 8 z" fill="#dc2626"/>
+              </marker>
+            </defs>
+          </svg>
+        </section>
+
         <!-- GROUP WORK Answers: graph -->
         <section data-background-gradient="linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)">
           <p class="eyebrow" style="color: #059669;">Group Work · Answers</p>
@@ -767,6 +845,65 @@
               </ul>
             </div>
           </div>
+        </section>
+
+        <!-- GROUP WORK Answers: step-by-step animated graph -->
+        <section data-background-gradient="linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)">
+          <p class="eyebrow" style="color: #059669;">Group Work &middot; Answers</p>
+          <h2>Shifting Both Curves, Step by Step</h2>
+          <p style="font-size: 0.55em; color: #64748b; margin: 0 0 4px;">Press <kbd style="background: #e2e8f0; border: 1px solid #cbd5e1; padding: 1px 6px; border-radius: 4px;">&rarr;</kbd> to add each element of the graph</p>
+          <svg class="anim-graph" viewBox="0 0 760 520" style="width: 92%; max-height: 480px; margin: 0 auto; display: block; background: white; border: 1px solid #e2e8f0; border-radius: 10px;" role="img" aria-label="Animated build-up: old curves D0 and S0 with equilibrium (12, $4); demand shifts out to D1, supply shifts out to S1, and the new equilibrium is (18, $4) - quantity rises while the offsetting shifts leave the price unchanged">
+            <!-- axes + old curves (always visible) -->
+            <g>
+              <line x1="70" y1="460" x2="705" y2="460" stroke="#475569" stroke-width="2.5"/>
+              <polygon points="705,455 705,465 716,460" fill="#475569"/>
+              <line x1="70" y1="460" x2="70" y2="52" stroke="#475569" stroke-width="2.5"/>
+              <polygon points="65,52 75,52 70,41" fill="#475569"/>
+              <text x="723" y="466" font-size="17" fill="#1e293b" font-style="italic">Q</text>
+              <text x="44" y="34" font-size="17" fill="#1e293b" font-style="italic">P ($)</text>
+              <line x1="70" y1="100" x2="510" y2="460" stroke="#94a3b8" stroke-width="3"/>
+              <text x="500" y="482" font-size="16" fill="#94a3b8" font-style="italic">D<tspan dy="4" font-size="12">0</tspan></text>
+              <line x1="158" y1="460" x2="554" y2="136" stroke="#94a3b8" stroke-width="3"/>
+              <text x="548" y="122" font-size="16" fill="#94a3b8" font-style="italic">S<tspan dy="4" font-size="12">0</tspan></text>
+              <circle cx="334" cy="316" r="6" fill="#64748b"/>
+              <line x1="70" y1="316" x2="334" y2="316" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="5 4"/>
+              <line x1="334" y1="316" x2="334" y2="460" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="5 4"/>
+              <text x="62" y="322" font-size="16" font-weight="700" fill="#475569" text-anchor="end">P* = $4</text>
+              <text x="334" y="484" font-size="16" fill="#64748b" text-anchor="middle">12</text>
+              <text x="352" y="300" font-size="15" fill="#64748b">old</text>
+            </g>
+            <!-- fragment 1: demand shifts out -->
+            <g class="fragment" data-fragment-index="1">
+              <line class="build-line" x1="202" y1="100" x2="642" y2="460" stroke="#1e293b" stroke-width="3.5"/>
+              <text x="630" y="482" font-size="16" fill="#1e293b" font-style="italic">D<tspan dy="4" font-size="12">1</tspan></text>
+              <line x1="300" y1="230" x2="360" y2="230" stroke="#d97706" stroke-width="3" marker-end="url(#a2sh)"/>
+              <text x="292" y="214" font-size="15" fill="#d97706" font-weight="700" text-anchor="end">buyers: demand &uarr;</text>
+            </g>
+            <!-- fragment 2: supply shifts out -->
+            <g class="fragment" data-fragment-index="2">
+              <line class="build-line" x1="290" y1="460" x2="642" y2="172" stroke="#0f766e" stroke-width="3.5"/>
+              <text x="648" y="160" font-size="16" fill="#0f766e" font-style="italic">S<tspan dy="4" font-size="12">1</tspan></text>
+              <line x1="470" y1="222" x2="530" y2="222" stroke="#d97706" stroke-width="3" marker-end="url(#a2sh)"/>
+              <text x="500" y="204" font-size="15" fill="#d97706" font-weight="700" text-anchor="middle">sellers: supply &uarr;</text>
+            </g>
+            <!-- fragment 3: new equilibrium -->
+            <g class="fragment" data-fragment-index="3">
+              <circle cx="466" cy="316" r="7" fill="#1e293b"/>
+              <line x1="466" y1="316" x2="466" y2="460" stroke="#64748b" stroke-width="1.5" stroke-dasharray="5 4"/>
+              <text x="466" y="484" font-size="16" font-weight="700" fill="#1e293b" text-anchor="middle">Q* = 18</text>
+              <text x="466" y="290" font-size="15" font-weight="700" fill="#1e293b" text-anchor="middle">new</text>
+            </g>
+            <!-- fragment 4: takeaway -->
+            <g class="fragment" data-fragment-index="4">
+              <text x="388" y="80" font-size="17" font-weight="700" fill="#0f766e" text-anchor="middle">Both curves shift out: Q* &uarr; for sure;</text>
+              <text x="388" y="104" font-size="17" font-weight="700" fill="#0f766e" text-anchor="middle">here the shifts offset, so P* stays at $4.</text>
+            </g>
+            <defs>
+              <marker id="a2sh" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+                <path d="M 0 0 L 8 4 L 0 8 z" fill="#d97706"/>
+              </marker>
+            </defs>
+          </svg>
         </section>
 
         <!-- GROUP WORK Answers: graph -->
@@ -1000,6 +1137,58 @@
               \[ P = 1: \; Q = 20, \quad |\varepsilon| = 4 \times \frac{1}{20} = 0.2 \quad \text{(inelastic, below midpoint)} \]
             </div>
           </div>
+        </section>
+
+        <!-- GROUP WORK Answers: step-by-step animated graph -->
+        <section data-background-gradient="linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)">
+          <p class="eyebrow" style="color: #059669;">Group Work &middot; Answers</p>
+          <h2>Point Elasticity, Step by Step</h2>
+          <p style="font-size: 0.55em; color: #64748b; margin: 0 0 4px;">Press <kbd style="background: #e2e8f0; border: 1px solid #cbd5e1; padding: 1px 6px; border-radius: 4px;">&rarr;</kbd> to add each element of the graph</p>
+          <svg class="anim-graph" viewBox="0 0 760 520" style="width: 92%; max-height: 480px; margin: 0 auto; display: block; background: white; border: 1px solid #e2e8f0; border-radius: 10px;" role="img" aria-label="Animated build-up: linear demand Q=24-4P, then the elastic point (4, $5) with elasticity 5, the unit-elastic midpoint (12, $3), and the inelastic point (20, $1) with elasticity 0.2">
+            <!-- axes + demand (always visible) -->
+            <g>
+              <line x1="70" y1="460" x2="705" y2="460" stroke="#475569" stroke-width="2.5"/>
+              <polygon points="705,455 705,465 716,460" fill="#475569"/>
+              <line x1="70" y1="460" x2="70" y2="52" stroke="#475569" stroke-width="2.5"/>
+              <polygon points="65,52 75,52 70,41" fill="#475569"/>
+              <text x="723" y="466" font-size="17" fill="#1e293b" font-style="italic">Q</text>
+              <text x="44" y="34" font-size="17" fill="#1e293b" font-style="italic">P ($)</text>
+              <line x1="70" y1="112" x2="646" y2="460" stroke="#1e293b" stroke-width="3.5"/>
+              <text x="652" y="452" font-size="17" fill="#1e293b" font-style="italic">D</text>
+              <text x="62" y="118" font-size="15" fill="#64748b" text-anchor="end">6</text>
+            </g>
+            <!-- fragment 1: elastic point -->
+            <g class="fragment" data-fragment-index="1">
+              <line x1="70" y1="170" x2="166" y2="170" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="5 4"/>
+              <line x1="166" y1="170" x2="166" y2="460" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="5 4"/>
+              <circle cx="166" cy="170" r="7" fill="#d97706"/>
+              <text x="62" y="176" font-size="16" font-weight="700" fill="#d97706" text-anchor="end">5</text>
+              <text x="166" y="484" font-size="16" fill="#475569" text-anchor="middle">4</text>
+              <text x="188" y="162" font-size="17" fill="#d97706">|&epsilon;| = 4 &times; 5&frasl;4 = 5 &mdash; <tspan font-weight="700">elastic</tspan></text>
+            </g>
+            <!-- fragment 2: unit-elastic midpoint -->
+            <g class="fragment" data-fragment-index="2">
+              <line x1="70" y1="286" x2="358" y2="286" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="5 4"/>
+              <line x1="358" y1="286" x2="358" y2="460" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="5 4"/>
+              <circle cx="358" cy="286" r="7" fill="#7c3aed"/>
+              <text x="62" y="292" font-size="16" font-weight="700" fill="#7c3aed" text-anchor="end">3</text>
+              <text x="358" y="484" font-size="16" fill="#475569" text-anchor="middle">12</text>
+              <text x="380" y="278" font-size="17" fill="#7c3aed">|&epsilon;| = 4 &times; 3&frasl;12 = 1 &mdash; <tspan font-weight="700">unit-elastic (midpoint)</tspan></text>
+            </g>
+            <!-- fragment 3: inelastic point -->
+            <g class="fragment" data-fragment-index="3">
+              <line x1="70" y1="402" x2="550" y2="402" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="5 4"/>
+              <line x1="550" y1="402" x2="550" y2="460" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="5 4"/>
+              <circle cx="550" cy="402" r="7" fill="#0f766e"/>
+              <text x="62" y="408" font-size="16" font-weight="700" fill="#0f766e" text-anchor="end">1</text>
+              <text x="550" y="484" font-size="16" fill="#475569" text-anchor="middle">20</text>
+              <text x="560" y="382" font-size="17" fill="#0f766e">|&epsilon;| = 4 &times; 1&frasl;20 = 0.2 &mdash; <tspan font-weight="700">inelastic</tspan></text>
+            </g>
+            <!-- fragment 4: takeaway -->
+            <g class="fragment" data-fragment-index="4">
+              <text x="410" y="84" font-size="17" font-weight="700" fill="#0f766e" text-anchor="middle">Same slope everywhere &mdash; but elasticity still changes along a linear demand curve!</text>
+            </g>
+          </svg>
         </section>
 
         <!-- GROUP WORK Answers: graph -->
@@ -1348,6 +1537,57 @@
               <p style="font-size: 0.9em; margin-top: 8px;">Unit-elastic at the midpoint &mdash; exactly where marginal revenue equals zero. Let&rsquo;s see it graphically &darr;</p>
             </div>
           </div>
+        </section>
+
+        <!-- GROUP WORK Answers: step-by-step animated graph -->
+        <section data-background-gradient="linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)">
+          <p class="eyebrow" style="color: #059669;">Group Work &middot; Answers</p>
+          <h2>Maximizing Revenue, Step by Step</h2>
+          <p style="font-size: 0.55em; color: #64748b; margin: 0 0 4px;">Press <kbd style="background: #e2e8f0; border: 1px solid #cbd5e1; padding: 1px 6px; border-radius: 4px;">&rarr;</kbd> to add each element of the graph</p>
+          <svg class="anim-graph" viewBox="0 0 760 520" style="width: 92%; max-height: 480px; margin: 0 auto; display: block; background: white; border: 1px solid #e2e8f0; border-radius: 10px;" role="img" aria-label="Animated two-panel build-up: demand Q=12-2P with the unit-elastic midpoint at (6, $3) on top, and below it the total revenue parabola peaking at TR=$18 exactly at Q=6">
+            <!-- top panel: axes + demand (always visible) -->
+            <g>
+              <line x1="70" y1="240" x2="680" y2="240" stroke="#475569" stroke-width="2.5"/>
+              <polygon points="680,235 680,245 691,240" fill="#475569"/>
+              <line x1="70" y1="240" x2="70" y2="50" stroke="#475569" stroke-width="2.5"/>
+              <polygon points="65,50 75,50 70,39" fill="#475569"/>
+              <text x="698" y="246" font-size="16" fill="#1e293b" font-style="italic">Q</text>
+              <text x="44" y="34" font-size="16" fill="#1e293b" font-style="italic">P ($)</text>
+              <line x1="70" y1="69" x2="622" y2="240" stroke="#1e293b" stroke-width="3.5"/>
+              <text x="630" y="234" font-size="16" fill="#1e293b" font-style="italic">D</text>
+            </g>
+            <!-- fragment 1: unit-elastic midpoint -->
+            <g class="fragment" data-fragment-index="1">
+              <line x1="70" y1="155" x2="346" y2="155" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="5 4"/>
+              <circle cx="346" cy="155" r="7" fill="#7c3aed"/>
+              <text x="62" y="161" font-size="15" font-weight="700" fill="#7c3aed" text-anchor="end">P = $3</text>
+              <text x="366" y="146" font-size="16" fill="#7c3aed" font-weight="700">midpoint: |&epsilon;| = 2 &times; 3&frasl;6 = 1</text>
+            </g>
+            <!-- fragment 2: TR panel with curve -->
+            <g class="fragment" data-fragment-index="2">
+              <line x1="70" y1="490" x2="680" y2="490" stroke="#475569" stroke-width="2.5"/>
+              <polygon points="680,485 680,495 691,490" fill="#475569"/>
+              <line x1="70" y1="490" x2="70" y2="280" stroke="#475569" stroke-width="2.5"/>
+              <polygon points="65,280 75,280 70,269" fill="#475569"/>
+              <text x="698" y="496" font-size="16" fill="#1e293b" font-style="italic">Q</text>
+              <text x="36" y="264" font-size="16" fill="#7c3aed" font-style="italic">TR ($)</text>
+              <path class="build-line" d="M 70.0,490.0 L 81.5,473.8 L 93.0,458.4 L 104.5,443.6 L 116.0,429.5 L 127.5,416.1 L 139.0,403.4 L 150.5,391.3 L 162.0,380.0 L 173.5,369.3 L 185.0,359.4 L 196.5,350.1 L 208.0,341.5 L 219.5,333.6 L 231.0,326.4 L 242.5,319.8 L 254.0,314.0 L 265.5,308.8 L 277.0,304.4 L 288.5,300.6 L 300.0,297.5 L 311.5,295.1 L 323.0,293.4 L 334.5,292.3 L 346.0,292.0 L 357.5,292.3 L 369.0,293.4 L 380.5,295.1 L 392.0,297.5 L 403.5,300.6 L 415.0,304.4 L 426.5,308.8 L 438.0,314.0 L 449.5,319.8 L 461.0,326.4 L 472.5,333.6 L 484.0,341.5 L 495.5,350.1 L 507.0,359.4 L 518.5,369.3 L 530.0,380.0 L 541.5,391.3 L 553.0,403.4 L 564.5,416.1 L 576.0,429.5 L 587.5,443.6 L 599.0,458.4 L 610.5,473.8 L 622.0,490.0" fill="none" stroke="#7c3aed" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round"/>
+              <text x="576" y="380" font-size="16" fill="#7c3aed" font-style="italic">TR(Q)</text>
+            </g>
+            <!-- fragment 3: revenue peak -->
+            <g class="fragment" data-fragment-index="3">
+              <line x1="70" y1="292" x2="346" y2="292" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="5 4"/>
+              <circle cx="346" cy="292" r="7" fill="#7c3aed"/>
+              <text x="62" y="298" font-size="15" font-weight="700" fill="#7c3aed" text-anchor="end">$18</text>
+              <text x="346" y="512" font-size="15" font-weight="700" fill="#1e293b" text-anchor="middle">Q = 6</text>
+              <text x="366" y="286" font-size="16" fill="#7c3aed" font-weight="700">TR<tspan dy="4" font-size="12">max</tspan><tspan dy="-4"> = 3 &times; 6 = $18</tspan></text>
+            </g>
+            <!-- fragment 4: the link -->
+            <g class="fragment" data-fragment-index="4">
+              <line x1="346" y1="155" x2="346" y2="292" stroke="#d97706" stroke-width="2" stroke-dasharray="6 4"/>
+              <text x="346" y="450" font-size="16" font-weight="700" fill="#0f766e" text-anchor="middle">revenue peaks exactly at the unit-elastic midpoint</text>
+            </g>
+          </svg>
         </section>
 
         <!-- GROUP WORK Answers: graph -->
