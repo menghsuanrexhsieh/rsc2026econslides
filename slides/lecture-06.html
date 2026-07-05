@@ -303,6 +303,19 @@
       font-size: 1.2em;
       vertical-align: middle;
     }
+  /* Step-by-step animated graph: lines draw themselves in as fragments appear */
+    .reveal svg.anim-graph { font-family: var(--r-main-font); }
+    .reveal svg.anim-graph text { font-family: var(--r-main-font); }
+    .reveal .anim-graph .build-line {
+      stroke-dasharray: 950;
+      stroke-dashoffset: 950;
+    }
+    .reveal .fragment.visible .build-line {
+      animation: drawline 0.9s ease-out forwards;
+    }
+    @keyframes drawline {
+      to { stroke-dashoffset: 0; }
+    }
   </style>
 </head>
 <body>
@@ -951,6 +964,123 @@
           </div>
         </section>
 
+        <!-- GROUP WORK Q1: step-by-step best-response walkthrough -->
+        <section data-background-gradient="linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)">
+          <p class="eyebrow" style="color: #059669;">Group Work &middot; Step by Step</p>
+          <h2>Question 1, Step by Step</h2>
+          <p style="font-size: 0.55em; color: #64748b; margin: 0 0 4px;">Press <kbd style="background: #e2e8f0; border: 1px solid #cbd5e1; padding: 1px 6px; border-radius: 4px;">&rarr;</kbd> to build the answer &mdash; <span style="color: #0f766e; font-weight: 700;">underline</span> = best response</p>
+          <svg class="anim-graph" viewBox="0 0 760 520" style="width: 92%; max-height: 480px; margin: 0 auto; display: block; background: white; border: 1px solid #e2e8f0; border-radius: 10px;" role="img" aria-label="Animated best-response analysis of the advertising game: the normal form fills in, Store A's best responses are underlined (Advertise is dominant), then Store B's (symmetric), the dominant-strategy equilibrium (Advertise, Advertise) with (25, 25) is boxed, and (Don't, Don't) with (40, 40) is shown to be better for both - a prisoner's dilemma">
+            <!-- grid + labels (always visible) -->
+            <g>
+              <text x="470" y="96" font-size="20" font-weight="800" fill="#d97706" text-anchor="middle">Store B</text>
+              <text x="375" y="136" font-size="17" font-weight="700" fill="#1e293b" text-anchor="middle">Advertise</text>
+              <text x="565" y="136" font-size="17" font-weight="700" fill="#1e293b" text-anchor="middle">Don&rsquo;t</text>
+              <text x="120" y="256" font-size="20" font-weight="800" fill="#0f766e" text-anchor="middle">Store A</text>
+              <text x="266" y="206" font-size="17" font-weight="700" fill="#1e293b" text-anchor="end">Advertise</text>
+              <text x="266" y="306" font-size="17" font-weight="700" fill="#1e293b" text-anchor="end">Don&rsquo;t</text>
+              <line x1="280" y1="150" x2="660" y2="150" stroke="#475569" stroke-width="2"/>
+              <line x1="280" y1="250" x2="660" y2="250" stroke="#475569" stroke-width="2"/>
+              <line x1="280" y1="350" x2="660" y2="350" stroke="#475569" stroke-width="2"/>
+              <line x1="280" y1="150" x2="280" y2="350" stroke="#475569" stroke-width="2"/>
+              <line x1="470" y1="150" x2="470" y2="350" stroke="#475569" stroke-width="2"/>
+              <line x1="660" y1="150" x2="660" y2="350" stroke="#475569" stroke-width="2"/>
+            </g>
+            <!-- fragment 1: payoffs (the normal form) -->
+            <g class="fragment" data-fragment-index="1">
+              <text x="345" y="207" font-size="22" font-weight="700" fill="#0f766e" text-anchor="middle">25</text>
+              <text x="375" y="207" font-size="22" fill="#475569" text-anchor="middle">,</text>
+              <text x="405" y="207" font-size="22" font-weight="700" fill="#d97706" text-anchor="middle">25</text>
+              <text x="535" y="207" font-size="22" font-weight="700" fill="#0f766e" text-anchor="middle">60</text>
+              <text x="565" y="207" font-size="22" fill="#475569" text-anchor="middle">,</text>
+              <text x="595" y="207" font-size="22" font-weight="700" fill="#d97706" text-anchor="middle">15</text>
+              <text x="345" y="307" font-size="22" font-weight="700" fill="#0f766e" text-anchor="middle">15</text>
+              <text x="375" y="307" font-size="22" fill="#475569" text-anchor="middle">,</text>
+              <text x="405" y="307" font-size="22" font-weight="700" fill="#d97706" text-anchor="middle">60</text>
+              <text x="535" y="307" font-size="22" font-weight="700" fill="#0f766e" text-anchor="middle">40</text>
+              <text x="565" y="307" font-size="22" fill="#475569" text-anchor="middle">,</text>
+              <text x="595" y="307" font-size="22" font-weight="700" fill="#d97706" text-anchor="middle">40</text>
+              <text x="380" y="420" font-size="16" fill="#475569" text-anchor="middle">Payoffs: (both advertise) = (25, 25); one advertiser earns 60, the other 15; (neither) = (40, 40).</text>
+            </g>
+            <!-- fragment 2: Store A's best responses -->
+            <g class="fragment" data-fragment-index="2">
+              <line class="build-line" x1="329" y1="214" x2="361" y2="214" stroke="#0f766e" stroke-width="3.5"/>
+              <line class="build-line" x1="519" y1="214" x2="551" y2="214" stroke="#0f766e" stroke-width="3.5"/>
+              <text x="380" y="450" font-size="16" font-weight="700" fill="#0f766e" text-anchor="middle">Store A: vs. Advertise 25 &gt; 15; vs. Don&rsquo;t 60 &gt; 40 &nbsp;&rArr;&nbsp; Advertise is dominant.</text>
+            </g>
+            <!-- fragment 3: Store B's best responses -->
+            <g class="fragment" data-fragment-index="3">
+              <line class="build-line" x1="389" y1="214" x2="421" y2="214" stroke="#d97706" stroke-width="3.5"/>
+              <line class="build-line" x1="389" y1="314" x2="421" y2="314" stroke="#d97706" stroke-width="3.5"/>
+              <text x="380" y="478" font-size="16" font-weight="700" fill="#d97706" text-anchor="middle">Store B: same comparisons (the game is symmetric) &nbsp;&rArr;&nbsp; Advertise is dominant too.</text>
+            </g>
+            <!-- fragment 4: DSE -->
+            <g class="fragment" data-fragment-index="4">
+              <rect x="285" y="155" width="180" height="90" rx="8" fill="none" stroke="#0f172a" stroke-width="3.5"/>
+              <text x="375" y="180" font-size="14" font-weight="800" fill="#0f172a" text-anchor="middle">DSE</text>
+            </g>
+            <!-- fragment 5: prisoner's dilemma -->
+            <g class="fragment" data-fragment-index="5">
+              <rect x="475" y="255" width="180" height="90" rx="8" fill="none" stroke="#dc2626" stroke-width="3" stroke-dasharray="8 6"/>
+              <text x="380" y="506" font-size="16" font-weight="700" fill="#dc2626" text-anchor="middle">But (Don&rsquo;t, Don&rsquo;t) = (40, 40) is better for BOTH than (25, 25) &nbsp;&rArr;&nbsp; a prisoner&rsquo;s dilemma!</text>
+            </g>
+          </svg>
+        </section>
+
+        <!-- GROUP WORK Q2: step-by-step best-response walkthrough -->
+        <section data-background-gradient="linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)">
+          <p class="eyebrow" style="color: #059669;">Group Work &middot; Step by Step</p>
+          <h2>Question 2, Step by Step</h2>
+          <p style="font-size: 0.55em; color: #64748b; margin: 0 0 4px;">Press <kbd style="background: #e2e8f0; border: 1px solid #cbd5e1; padding: 1px 6px; border-radius: 4px;">&rarr;</kbd> to build the answer &mdash; <span style="color: #0f766e; font-weight: 700;">underline</span> = best response</p>
+          <svg class="anim-graph" viewBox="0 0 760 520" style="width: 92%; max-height: 480px; margin: 0 auto; display: block; background: white; border: 1px solid #e2e8f0; border-radius: 10px;" role="img" aria-label="Animated best-response analysis of the Ava-Ben coordination game: Ava's best responses are underlined, then Ben's, and the two cells where both payoffs are underlined - (Party, Party) and (Movie, Movie) - are circled as the two pure-strategy Nash equilibria">
+            <!-- grid + labels + payoffs (always visible) -->
+            <g>
+              <text x="470" y="96" font-size="20" font-weight="800" fill="#d97706" text-anchor="middle">Ben</text>
+              <text x="375" y="136" font-size="17" font-weight="700" fill="#1e293b" text-anchor="middle">Party</text>
+              <text x="565" y="136" font-size="17" font-weight="700" fill="#1e293b" text-anchor="middle">Movie</text>
+              <text x="120" y="256" font-size="20" font-weight="800" fill="#0f766e" text-anchor="middle">Ava</text>
+              <text x="266" y="206" font-size="17" font-weight="700" fill="#1e293b" text-anchor="end">Party</text>
+              <text x="266" y="306" font-size="17" font-weight="700" fill="#1e293b" text-anchor="end">Movie</text>
+              <line x1="280" y1="150" x2="660" y2="150" stroke="#475569" stroke-width="2"/>
+              <line x1="280" y1="250" x2="660" y2="250" stroke="#475569" stroke-width="2"/>
+              <line x1="280" y1="350" x2="660" y2="350" stroke="#475569" stroke-width="2"/>
+              <line x1="280" y1="150" x2="280" y2="350" stroke="#475569" stroke-width="2"/>
+              <line x1="470" y1="150" x2="470" y2="350" stroke="#475569" stroke-width="2"/>
+              <line x1="660" y1="150" x2="660" y2="350" stroke="#475569" stroke-width="2"/>
+              <text x="345" y="207" font-size="22" font-weight="700" fill="#0f766e" text-anchor="middle">5</text>
+              <text x="375" y="207" font-size="22" fill="#475569" text-anchor="middle">,</text>
+              <text x="405" y="207" font-size="22" font-weight="700" fill="#d97706" text-anchor="middle">4</text>
+              <text x="535" y="207" font-size="22" font-weight="700" fill="#0f766e" text-anchor="middle">1</text>
+              <text x="565" y="207" font-size="22" fill="#475569" text-anchor="middle">,</text>
+              <text x="595" y="207" font-size="22" font-weight="700" fill="#d97706" text-anchor="middle">1</text>
+              <text x="345" y="307" font-size="22" font-weight="700" fill="#0f766e" text-anchor="middle">1</text>
+              <text x="375" y="307" font-size="22" fill="#475569" text-anchor="middle">,</text>
+              <text x="405" y="307" font-size="22" font-weight="700" fill="#d97706" text-anchor="middle">1</text>
+              <text x="535" y="307" font-size="22" font-weight="700" fill="#0f766e" text-anchor="middle">4</text>
+              <text x="565" y="307" font-size="22" fill="#475569" text-anchor="middle">,</text>
+              <text x="595" y="307" font-size="22" font-weight="700" fill="#d97706" text-anchor="middle">5</text>
+            </g>
+            <!-- fragment 1: Ava's best responses -->
+            <g class="fragment" data-fragment-index="1">
+              <line class="build-line" x1="331" y1="214" x2="359" y2="214" stroke="#0f766e" stroke-width="3.5"/>
+              <line class="build-line" x1="521" y1="314" x2="549" y2="314" stroke="#0f766e" stroke-width="3.5"/>
+              <text x="380" y="420" font-size="16" font-weight="700" fill="#0f766e" text-anchor="middle">Ava: vs. Party 5 &gt; 1 &rarr; Party; vs. Movie 4 &gt; 1 &rarr; Movie. She wants to match &mdash; no dominant strategy!</text>
+            </g>
+            <!-- fragment 2: Ben's best responses -->
+            <g class="fragment" data-fragment-index="2">
+              <line class="build-line" x1="391" y1="214" x2="419" y2="214" stroke="#d97706" stroke-width="3.5"/>
+              <line class="build-line" x1="581" y1="314" x2="609" y2="314" stroke="#d97706" stroke-width="3.5"/>
+              <text x="380" y="450" font-size="16" font-weight="700" fill="#d97706" text-anchor="middle">Ben: vs. Party 4 &gt; 1 &rarr; Party; vs. Movie 5 &gt; 1 &rarr; Movie. He wants to match too &mdash; no dominant strategy.</text>
+            </g>
+            <!-- fragment 3: the two NE -->
+            <g class="fragment" data-fragment-index="3">
+              <rect x="285" y="155" width="180" height="90" rx="8" fill="none" stroke="#0f172a" stroke-width="3.5"/>
+              <rect x="475" y="255" width="180" height="90" rx="8" fill="none" stroke="#0f172a" stroke-width="3.5"/>
+              <text x="380" y="483" font-size="16" font-weight="700" fill="#059669" text-anchor="middle">Both payoffs underlined &rArr; Nash equilibrium: (Party, Party) = (5, 4) and (Movie, Movie) = (4, 5).</text>
+              <text x="380" y="507" font-size="16" fill="#475569" text-anchor="middle">Two pure-strategy NE &mdash; NE need not be unique, and the players disagree about which is better!</text>
+            </g>
+          </svg>
+        </section>
+
         <!-- Slide 5.19b: GROUP WORK Answers -->
         <section data-background-gradient="linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)">
           <p class="eyebrow" style="color: #059669;">Group Work · Answers</p>
@@ -1117,6 +1247,65 @@
               <span class="group-roll-result" id="l6gw2q2">&mdash;</span>
             </div>
           </div>
+        </section>
+
+        <!-- GROUP WORK: Entry Timing step-by-step best-response walkthrough -->
+        <section data-background-gradient="linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)">
+          <p class="eyebrow" style="color: #059669;">Group Work &middot; Step by Step</p>
+          <h2>Entry Timing, Step by Step</h2>
+          <p style="font-size: 0.55em; color: #64748b; margin: 0 0 4px;">Press <kbd style="background: #e2e8f0; border: 1px solid #cbd5e1; padding: 1px 6px; border-radius: 4px;">&rarr;</kbd> to build the answer &mdash; <span style="color: #0f766e; font-weight: 700;">underline</span> = best response</p>
+          <svg class="anim-graph" viewBox="0 0 760 520" style="width: 92%; max-height: 480px; margin: 0 auto; display: block; background: white; border: 1px solid #e2e8f0; border-radius: 10px;" role="img" aria-label="Animated best-response analysis of the Airo-Beem entry game: each firm's best responses are underlined showing neither has a dominant strategy, the two Nash equilibria (9, 4) and (6, 5) are boxed, and Airo's strategic commitment selects its preferred equilibrium">
+            <!-- grid + labels + payoffs (always visible) -->
+            <g>
+              <text x="470" y="96" font-size="20" font-weight="800" fill="#d97706" text-anchor="middle">Beem</text>
+              <text x="375" y="136" font-size="17" font-weight="700" fill="#1e293b" text-anchor="middle">Enter Now</text>
+              <text x="565" y="136" font-size="17" font-weight="700" fill="#1e293b" text-anchor="middle">Stay Out</text>
+              <text x="120" y="256" font-size="20" font-weight="800" fill="#0f766e" text-anchor="middle">Airo</text>
+              <text x="266" y="206" font-size="17" font-weight="700" fill="#1e293b" text-anchor="end">Enter Now</text>
+              <text x="266" y="306" font-size="17" font-weight="700" fill="#1e293b" text-anchor="end">Stay Out</text>
+              <line x1="280" y1="150" x2="660" y2="150" stroke="#475569" stroke-width="2"/>
+              <line x1="280" y1="250" x2="660" y2="250" stroke="#475569" stroke-width="2"/>
+              <line x1="280" y1="350" x2="660" y2="350" stroke="#475569" stroke-width="2"/>
+              <line x1="280" y1="150" x2="280" y2="350" stroke="#475569" stroke-width="2"/>
+              <line x1="470" y1="150" x2="470" y2="350" stroke="#475569" stroke-width="2"/>
+              <line x1="660" y1="150" x2="660" y2="350" stroke="#475569" stroke-width="2"/>
+              <text x="345" y="207" font-size="22" font-weight="700" fill="#0f766e" text-anchor="middle">3</text>
+              <text x="375" y="207" font-size="22" fill="#475569" text-anchor="middle">,</text>
+              <text x="405" y="207" font-size="22" font-weight="700" fill="#d97706" text-anchor="middle">2</text>
+              <text x="535" y="207" font-size="22" font-weight="700" fill="#0f766e" text-anchor="middle">9</text>
+              <text x="565" y="207" font-size="22" fill="#475569" text-anchor="middle">,</text>
+              <text x="595" y="207" font-size="22" font-weight="700" fill="#d97706" text-anchor="middle">4</text>
+              <text x="345" y="307" font-size="22" font-weight="700" fill="#0f766e" text-anchor="middle">6</text>
+              <text x="375" y="307" font-size="22" fill="#475569" text-anchor="middle">,</text>
+              <text x="405" y="307" font-size="22" font-weight="700" fill="#d97706" text-anchor="middle">5</text>
+              <text x="535" y="307" font-size="22" font-weight="700" fill="#0f766e" text-anchor="middle">5</text>
+              <text x="565" y="307" font-size="22" fill="#475569" text-anchor="middle">,</text>
+              <text x="595" y="307" font-size="22" font-weight="700" fill="#d97706" text-anchor="middle">3</text>
+            </g>
+            <!-- fragment 1: Airo's best responses -->
+            <g class="fragment" data-fragment-index="1">
+              <line class="build-line" x1="331" y1="314" x2="359" y2="314" stroke="#0f766e" stroke-width="3.5"/>
+              <line class="build-line" x1="521" y1="214" x2="549" y2="214" stroke="#0f766e" stroke-width="3.5"/>
+              <text x="380" y="420" font-size="16" font-weight="700" fill="#0f766e" text-anchor="middle">Airo: vs. Enter 6 &gt; 3 &rarr; Stay Out; vs. Stay Out 9 &gt; 5 &rarr; Enter. Does the opposite &mdash; no dominant strategy.</text>
+            </g>
+            <!-- fragment 2: Beem's best responses -->
+            <g class="fragment" data-fragment-index="2">
+              <line class="build-line" x1="581" y1="214" x2="609" y2="214" stroke="#d97706" stroke-width="3.5"/>
+              <line class="build-line" x1="391" y1="314" x2="419" y2="314" stroke="#d97706" stroke-width="3.5"/>
+              <text x="380" y="450" font-size="16" font-weight="700" fill="#d97706" text-anchor="middle">Beem: vs. Enter 4 &gt; 2 &rarr; Stay Out; vs. Stay Out 5 &gt; 3 &rarr; Enter. Also no dominant strategy.</text>
+            </g>
+            <!-- fragment 3: the two NE -->
+            <g class="fragment" data-fragment-index="3">
+              <rect x="475" y="155" width="180" height="90" rx="8" fill="none" stroke="#0f172a" stroke-width="3.5"/>
+              <rect x="285" y="255" width="180" height="90" rx="8" fill="none" stroke="#0f172a" stroke-width="3.5"/>
+              <text x="380" y="480" font-size="16" font-weight="700" fill="#059669" text-anchor="middle">Two NE: (Enter Now, Stay Out) = (9, 4) and (Stay Out, Enter Now) = (6, 5).</text>
+            </g>
+            <!-- fragment 4: Airo's commitment -->
+            <g class="fragment" data-fragment-index="4">
+              <rect x="480" y="160" width="170" height="80" rx="6" fill="rgba(15, 118, 110, 0.10)" stroke="none"/>
+              <text x="380" y="507" font-size="15.5" font-weight="700" fill="#0f766e" text-anchor="middle">Airo prefers (9, 4) &rarr; commit visibly to entering (capacity, contracts, sunk marketing) so Beem stays out.</text>
+            </g>
+          </svg>
         </section>
 
         <!-- Slide 6.8b: GROUP WORK Answers -->
@@ -1345,6 +1534,71 @@
               <span class="group-roll-result" id="l6gw3q2">&mdash;</span>
             </div>
           </div>
+        </section>
+
+        <!-- GROUP WORK: Grim Trigger step-by-step payoff-stream comparison -->
+        <section data-background-gradient="linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)">
+          <p class="eyebrow" style="color: #059669;">Group Work &middot; Step by Step</p>
+          <h2>Grim Trigger, Step by Step</h2>
+          <p style="font-size: 0.55em; color: #64748b; margin: 0 0 4px;">Press <kbd style="background: #e2e8f0; border: 1px solid #cbd5e1; padding: 1px 6px; border-radius: 4px;">&rarr;</kbd> to compare the two payoff streams</p>
+          <svg class="anim-graph" viewBox="0 0 760 520" style="width: 92%; max-height: 480px; margin: 0 auto; display: block; background: white; border: 1px solid #e2e8f0; border-radius: 10px;" role="img" aria-label="Animated comparison of the two payoff streams in the repeated pricing game: cooperating pays 50 every period forever, defecting pays 90 once and then 30 forever; the present values 50 + 50/r and 90 + 30/r imply cooperation survives when r is at most 0.5">
+            <!-- time axis (always visible) -->
+            <g>
+              <line x1="70" y1="370" x2="700" y2="370" stroke="#475569" stroke-width="2.5"/>
+              <polygon points="700,365 700,375 711,370" fill="#475569"/>
+              <text x="130" y="394" font-size="15" fill="#475569" text-anchor="middle">t = 0</text>
+              <text x="225" y="394" font-size="15" fill="#475569" text-anchor="middle">1</text>
+              <text x="320" y="394" font-size="15" fill="#475569" text-anchor="middle">2</text>
+              <text x="415" y="394" font-size="15" fill="#475569" text-anchor="middle">3</text>
+              <text x="510" y="394" font-size="15" fill="#475569" text-anchor="middle">4</text>
+              <text x="605" y="394" font-size="15" fill="#475569" text-anchor="middle">5</text>
+              <text x="662" y="394" font-size="15" fill="#94a3b8">&#8230; forever</text>
+              <text x="52" y="120" font-size="14" fill="#64748b" transform="rotate(-90 52 120)" text-anchor="end">payoff per period</text>
+            </g>
+            <!-- fragment 1: cooperate stream -->
+            <g class="fragment" data-fragment-index="1">
+              <rect x="96" y="225" width="30" height="145" fill="#0f766e" rx="3"/>
+              <rect x="191" y="225" width="30" height="145" fill="#0f766e" rx="3"/>
+              <rect x="286" y="225" width="30" height="145" fill="#0f766e" rx="3"/>
+              <rect x="381" y="225" width="30" height="145" fill="#0f766e" rx="3"/>
+              <rect x="476" y="225" width="30" height="145" fill="#0f766e" rx="3"/>
+              <rect x="571" y="225" width="30" height="145" fill="#0f766e" rx="3"/>
+              <text x="111" y="217" font-size="14" font-weight="700" fill="#0f766e" text-anchor="middle">50</text>
+              <text x="206" y="217" font-size="14" font-weight="700" fill="#0f766e" text-anchor="middle">50</text>
+              <text x="301" y="217" font-size="14" font-weight="700" fill="#0f766e" text-anchor="middle">50</text>
+              <text x="396" y="217" font-size="14" font-weight="700" fill="#0f766e" text-anchor="middle">50</text>
+              <text x="491" y="217" font-size="14" font-weight="700" fill="#0f766e" text-anchor="middle">50</text>
+              <text x="586" y="217" font-size="14" font-weight="700" fill="#0f766e" text-anchor="middle">50</text>
+              <rect x="70" y="44" width="16" height="16" fill="#0f766e" rx="3"/>
+              <text x="95" y="58" font-size="16" font-weight="700" fill="#0f766e">Cooperate: 50 every period, forever</text>
+            </g>
+            <!-- fragment 2: defect stream -->
+            <g class="fragment" data-fragment-index="2">
+              <rect x="134" y="109" width="30" height="261" fill="#d97706" rx="3"/>
+              <rect x="229" y="283" width="30" height="87" fill="#d97706" rx="3"/>
+              <rect x="324" y="283" width="30" height="87" fill="#d97706" rx="3"/>
+              <rect x="419" y="283" width="30" height="87" fill="#d97706" rx="3"/>
+              <rect x="514" y="283" width="30" height="87" fill="#d97706" rx="3"/>
+              <rect x="609" y="283" width="30" height="87" fill="#d97706" rx="3"/>
+              <text x="149" y="101" font-size="14" font-weight="700" fill="#b45309" text-anchor="middle">90</text>
+              <text x="244" y="275" font-size="14" font-weight="700" fill="#b45309" text-anchor="middle">30</text>
+              <text x="339" y="275" font-size="14" font-weight="700" fill="#b45309" text-anchor="middle">30</text>
+              <text x="434" y="275" font-size="14" font-weight="700" fill="#b45309" text-anchor="middle">30</text>
+              <text x="529" y="275" font-size="14" font-weight="700" fill="#b45309" text-anchor="middle">30</text>
+              <text x="624" y="275" font-size="14" font-weight="700" fill="#b45309" text-anchor="middle">30</text>
+              <rect x="70" y="74" width="16" height="16" fill="#d97706" rx="3"/>
+              <text x="95" y="88" font-size="16" font-weight="700" fill="#b45309">Defect: 90 once, then the punishment payoff of 30 forever</text>
+            </g>
+            <!-- fragment 3: present values -->
+            <g class="fragment" data-fragment-index="3">
+              <text x="380" y="442" font-size="19" font-weight="700" fill="#1e293b" text-anchor="middle">PV(cooperate) = 50 + 50/r &nbsp;&nbsp;&nbsp;&nbsp; PV(defect) = 90 + 30/r</text>
+            </g>
+            <!-- fragment 4: the threshold -->
+            <g class="fragment" data-fragment-index="4">
+              <text x="380" y="474" font-size="17" font-weight="700" fill="#dc2626" text-anchor="middle">Defect pays only if 90 + 30/r &gt; 50 + 50/r &nbsp;&hArr;&nbsp; r &gt; 0.5</text>
+              <text x="380" y="502" font-size="17" font-weight="700" fill="#059669" text-anchor="middle">So the grim trigger sustains cooperation when r &le; 0.5 &mdash; patient firms collude tacitly.</text>
+            </g>
+          </svg>
         </section>
 
         <!-- Slide 7.12b: GROUP WORK Answers -->

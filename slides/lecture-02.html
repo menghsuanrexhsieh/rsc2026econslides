@@ -456,6 +456,48 @@
             </div>
           </div>
         </section>
+        <!-- Slide 4.2c: Solution 1 - step-by-step animated graph -->
+        <section data-background-gradient="linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)">
+          <p class="eyebrow" style="color: #059669;">Algebra &middot; Solution 1</p>
+          <h2>Market Equilibrium, Step by Step</h2>
+          <p style="font-size: 0.55em; color: #64748b; margin: 0 0 4px;">Press <kbd style="background: #e2e8f0; border: 1px solid #cbd5e1; padding: 1px 6px; border-radius: 4px;">&rarr;</kbd> to add each element of the graph</p>
+          <svg class="anim-graph" viewBox="0 0 760 520" style="width: 92%; max-height: 480px; margin: 0 auto; display: block; background: white; border: 1px solid #e2e8f0; border-radius: 10px;" role="img" aria-label="Animated build-up of the first worked equilibrium: demand Q=12-P, then supply Q=9+0.5P rising from Q=9, and their crossing at Q*=10 and P*=$2 - the same answer the algebra gave">
+            <!-- axes + demand (always visible) -->
+            <g>
+              <line x1="70" y1="460" x2="705" y2="460" stroke="#475569" stroke-width="2.5"/>
+              <polygon points="705,455 705,465 716,460" fill="#475569"/>
+              <line x1="70" y1="460" x2="70" y2="52" stroke="#475569" stroke-width="2.5"/>
+              <polygon points="65,52 75,52 70,41" fill="#475569"/>
+              <text x="723" y="466" font-size="17" fill="#1e293b" font-style="italic">Q</text>
+              <text x="44" y="34" font-size="17" fill="#1e293b" font-style="italic">P ($)</text>
+              <line x1="70" y1="60" x2="642" y2="460" stroke="#1e293b" stroke-width="3.5"/>
+              <text x="62" y="66" font-size="15" fill="#64748b" text-anchor="end">$12</text>
+              <text x="642" y="484" font-size="15" fill="#64748b" text-anchor="middle">12</text>
+              <text x="650" y="452" font-size="17" fill="#1e293b" font-style="italic">D</text>
+              <text x="300" y="150" font-size="16" fill="#475569">Q<tspan dy="4" font-size="12">D</tspan><tspan dy="-4"> = 12 &minus; P</tspan></text>
+            </g>
+            <!-- fragment 1: supply -->
+            <g class="fragment" data-fragment-index="1">
+              <line class="build-line" x1="499" y1="460" x2="690" y2="193" stroke="#0f766e" stroke-width="3.5"/>
+              <text x="698" y="190" font-size="17" fill="#0f766e" font-style="italic">S</text>
+              <text x="499" y="484" font-size="15" fill="#64748b" text-anchor="middle">9</text>
+              <text x="632" y="262" font-size="16" fill="#0f766e" text-anchor="end">Q<tspan dy="4" font-size="12">S</tspan><tspan dy="-4"> = 9 + 0.5P</tspan></text>
+            </g>
+            <!-- fragment 2: equilibrium -->
+            <g class="fragment" data-fragment-index="2">
+              <line x1="70" y1="393" x2="547" y2="393" stroke="#64748b" stroke-width="1.5" stroke-dasharray="5 4"/>
+              <line x1="547" y1="393" x2="547" y2="460" stroke="#64748b" stroke-width="1.5" stroke-dasharray="5 4"/>
+              <circle cx="547" cy="393" r="7" fill="#1e293b"/>
+              <text x="62" y="399" font-size="17" font-weight="700" fill="#1e293b" text-anchor="end">P* = $2</text>
+              <text x="547" y="484" font-size="17" font-weight="700" fill="#1e293b" text-anchor="middle">Q* = 10</text>
+            </g>
+            <!-- fragment 3: tie back to the algebra -->
+            <g class="fragment" data-fragment-index="3">
+              <text x="380" y="90" font-size="17" font-weight="700" fill="#059669" text-anchor="middle">The crossing point IS the algebra:</text>
+              <text x="380" y="114" font-size="16" fill="#059669" text-anchor="middle">12 &minus; P = 9 + 0.5P &nbsp;&rArr;&nbsp; P* = $2, Q* = 10</text>
+            </g>
+          </svg>
+        </section>
         <!-- Slide 4.3: Algebra example 2 -->
         <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
           <p class="eyebrow">Algebra in supply &amp; demand · 2</p>
@@ -574,17 +616,104 @@
             </div>
           </div>
         </section>
+        <!-- Slide 4.5c: Solution 3-5 - step-by-step animated graph -->
+        <section data-background-gradient="linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)">
+          <p class="eyebrow" style="color: #059669;">Algebra &middot; Solution 3-5</p>
+          <h2>Excess Demand &amp; Supply, Step by Step</h2>
+          <p style="font-size: 0.55em; color: #64748b; margin: 0 0 4px;">Press <kbd style="background: #e2e8f0; border: 1px solid #cbd5e1; padding: 1px 6px; border-radius: 4px;">&rarr;</kbd> to add each element &mdash; axes are zoomed in (Q starts at 8) so the three prices are visible</p>
+          <svg class="anim-graph" viewBox="0 0 760 520" style="width: 92%; max-height: 480px; margin: 0 auto; display: block; background: white; border: 1px solid #e2e8f0; border-radius: 10px;" role="img" aria-label="Animated zoomed-in graph of Qd=12-P and Qs=9+0.5P around the equilibrium (10, $2): at P=$0.79 there is excess demand of 1.815 and buyers bid the price up; at P=$2.19 there is excess supply of 0.285 and sellers cut the price - both forces push the price back to $2">
+            <!-- axes, D, S, equilibrium (always visible) -->
+            <g>
+              <line x1="70" y1="460" x2="705" y2="460" stroke="#475569" stroke-width="2.5"/>
+              <polygon points="705,455 705,465 716,460" fill="#475569"/>
+              <line x1="70" y1="460" x2="70" y2="52" stroke="#475569" stroke-width="2.5"/>
+              <polygon points="65,52 75,52 70,41" fill="#475569"/>
+              <text x="723" y="466" font-size="17" fill="#1e293b" font-style="italic">Q</text>
+              <text x="44" y="34" font-size="17" fill="#1e293b" font-style="italic">P ($)</text>
+              <line x1="88" y1="468" x2="98" y2="452" stroke="#475569" stroke-width="2"/>
+              <line x1="96" y1="468" x2="106" y2="452" stroke="#475569" stroke-width="2"/>
+              <text x="70" y="484" font-size="14" fill="#94a3b8" text-anchor="middle">8</text>
+              <text x="194" y="484" font-size="14" fill="#94a3b8" text-anchor="middle">9</text>
+              <text x="442" y="484" font-size="14" fill="#94a3b8" text-anchor="middle">11</text>
+              <text x="566" y="484" font-size="14" fill="#94a3b8" text-anchor="middle">12</text>
+              <line x1="194" y1="60" x2="566" y2="460" stroke="#1e293b" stroke-width="3.5"/>
+              <text x="576" y="452" font-size="17" fill="#1e293b" font-style="italic">D</text>
+              <line x1="194" y1="460" x2="380" y2="60" stroke="#0f766e" stroke-width="3.5"/>
+              <text x="388" y="66" font-size="17" fill="#0f766e" font-style="italic">S</text>
+              <line x1="70" y1="193" x2="318" y2="193" stroke="#64748b" stroke-width="1.5" stroke-dasharray="5 4"/>
+              <line x1="318" y1="193" x2="318" y2="460" stroke="#64748b" stroke-width="1.5" stroke-dasharray="5 4"/>
+              <circle cx="318" cy="193" r="7" fill="#1e293b"/>
+              <text x="62" y="199" font-size="16" font-weight="700" fill="#1e293b" text-anchor="end">P* = $2</text>
+              <text x="318" y="484" font-size="16" font-weight="700" fill="#1e293b" text-anchor="middle">Q* = 10</text>
+            </g>
+            <!-- fragment 1: P = $0.79, excess demand -->
+            <g class="fragment" data-fragment-index="1">
+              <line class="build-line" x1="70" y1="355" x2="620" y2="355" stroke="#d97706" stroke-width="2" stroke-dasharray="6 4"/>
+              <text x="62" y="361" font-size="16" font-weight="700" fill="#d97706" text-anchor="end">P = $0.79</text>
+              <circle cx="243" cy="355" r="6" fill="#d97706"/>
+              <circle cx="468" cy="355" r="6" fill="#d97706"/>
+              <text x="232" y="338" font-size="15" fill="#b45309" text-anchor="end">Q<tspan dy="4" font-size="11">S</tspan><tspan dy="-4"> = 9.395</tspan></text>
+              <text x="480" y="338" font-size="15" fill="#b45309">Q<tspan dy="4" font-size="11">D</tspan><tspan dy="-4"> = 11.21</tspan></text>
+              <line x1="253" y1="378" x2="458" y2="378" stroke="#d97706" stroke-width="2.5"/>
+              <polygon points="253,373 253,383 242,378" fill="#d97706"/>
+              <polygon points="458,373 458,383 469,378" fill="#d97706"/>
+              <text x="355" y="400" font-size="16" font-weight="700" fill="#d97706" text-anchor="middle">excess demand = 1.815</text>
+            </g>
+            <!-- fragment 2: buyers bid the price up -->
+            <g class="fragment" data-fragment-index="2">
+              <path d="M 600 348 Q 616 280 602 212" fill="none" stroke="#d97706" stroke-width="2.5" marker-end="url(#exsdup)"/>
+              <text x="622" y="268" font-size="15" fill="#b45309">buyers bid the</text>
+              <text x="622" y="288" font-size="15" fill="#b45309">price up toward $2</text>
+            </g>
+            <!-- fragment 3: P = $2.19, excess supply -->
+            <g class="fragment" data-fragment-index="3">
+              <line class="build-line" x1="70" y1="168" x2="620" y2="168" stroke="#dc2626" stroke-width="2" stroke-dasharray="6 4"/>
+              <text x="62" y="174" font-size="16" font-weight="700" fill="#dc2626" text-anchor="end">P = $2.19</text>
+              <circle cx="294" cy="168" r="6" fill="#dc2626"/>
+              <circle cx="330" cy="168" r="6" fill="#dc2626"/>
+              <line x1="294" y1="158" x2="294" y2="150" stroke="#dc2626" stroke-width="2"/>
+              <line x1="330" y1="158" x2="330" y2="150" stroke="#dc2626" stroke-width="2"/>
+              <line x1="294" y1="150" x2="330" y2="150" stroke="#dc2626" stroke-width="2"/>
+              <text x="350" y="148" font-size="15" fill="#dc2626">Q<tspan dy="4" font-size="11">D</tspan><tspan dy="-4"> = 9.81 &nbsp;vs&nbsp; Q</tspan><tspan dy="4" font-size="11">S</tspan><tspan dy="-4"> = 10.095 &nbsp;&rarr;&nbsp; excess supply = 0.285</tspan></text>
+            </g>
+            <!-- fragment 4: sellers cut the price + convergence -->
+            <g class="fragment" data-fragment-index="4">
+              <line x1="604" y1="172" x2="604" y2="186" stroke="#dc2626" stroke-width="2.5" marker-end="url(#exsddn)"/>
+              <text x="616" y="184" font-size="15" fill="#dc2626">sellers cut the price toward $2</text>
+              <text x="380" y="507" font-size="17" font-weight="700" fill="#059669" text-anchor="middle">From both sides, the price is pushed back to P* = $2 &mdash; that is why markets move toward equilibrium.</text>
+            </g>
+            <defs>
+              <marker id="exsdup" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M 0 0 L 8 4 L 0 8 z" fill="#d97706"/></marker>
+              <marker id="exsddn" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M 0 0 L 8 4 L 0 8 z" fill="#dc2626"/></marker>
+            </defs>
+          </svg>
+        </section>
         <!-- Slide 4.6: Equilibrium as Revision Process -->
         <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
           <p class="eyebrow">Algebra in supply &amp; demand</p>
           <h2>The Market Revision Process</h2>
-          <div class="content-card" style="text-align: center; padding: 40px;">
-            <div class="def-card" style="display: inline-block; margin-bottom: 25px;">
+          <div class="content-card" style="text-align: center; padding: 25px 40px;">
+            <div class="def-card" style="display: inline-block; margin-bottom: 10px;">
               <div class="def-title" style="text-align: center;">Core Principle</div>
               Equilibrium captures a <strong>revision process</strong> in markets.
             </div>
-            
-            <p style="font-size: 1.15em; font-weight: 600; color: #0f766e; margin-top: 15px;">
+
+            <svg class="anim-graph" viewBox="0 0 720 260" style="width: 78%; max-height: 220px; margin: 4px auto; display: block;" role="img" aria-label="Prices above the equilibrium create excess supply and get cut by sellers; prices below it create excess demand and get bid up by buyers - both revisions converge to the equilibrium price P*">
+              <text x="350" y="48" font-size="17" font-weight="700" fill="#dc2626" text-anchor="middle">P above P*: excess supply &rarr; sellers cut prices</text>
+              <line x1="350" y1="64" x2="350" y2="114" stroke="#dc2626" stroke-width="3" marker-end="url(#mrpdn)"/>
+              <line x1="100" y1="130" x2="600" y2="130" stroke="#0f766e" stroke-width="3.5" stroke-dasharray="10 6"/>
+              <circle cx="350" cy="130" r="7" fill="#0f766e"/>
+              <text x="612" y="126" font-size="17" font-weight="800" fill="#0f766e">P*</text>
+              <text x="612" y="146" font-size="13" fill="#0f766e">equilibrium</text>
+              <line x1="350" y1="216" x2="350" y2="148" stroke="#d97706" stroke-width="3" marker-end="url(#mrpup)"/>
+              <text x="350" y="242" font-size="17" font-weight="700" fill="#d97706" text-anchor="middle">P below P*: excess demand &rarr; buyers bid prices up</text>
+              <defs>
+                <marker id="mrpdn" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M 0 0 L 8 4 L 0 8 z" fill="#dc2626"/></marker>
+                <marker id="mrpup" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M 0 0 L 8 4 L 0 8 z" fill="#d97706"/></marker>
+              </defs>
+            </svg>
+
+            <p style="font-size: 1.1em; font-weight: 600; color: #0f766e; margin-top: 10px;">
               We will assume markets are in equilibria unless otherwise specified.
             </p>
           </div>
