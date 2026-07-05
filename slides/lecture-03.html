@@ -377,6 +377,14 @@
           </div>
         </section>
 
+        <!-- Slide 3.4b: Interactive elasticity explorer -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Elasticity · Interactive</p>
+          <h2>Try It: Point Elasticity on a Linear Curve</h2>
+          <p style="font-size: 0.55em; color: #64748b; margin: 0 0 4px;">Drag the point along the demand curve \( Q = 20 - 2P \) and watch the point elasticity \( |\varepsilon| \) update live</p>
+          <svg class="elasticity-explorer" data-a="20" data-b="2" viewBox="0 0 760 520" style="width: 92%; max-height: 480px; margin: 0 auto; display: block; background: white; border: 1px solid #e2e8f0; border-radius: 10px; touch-action: none;" role="img" aria-label="Interactive chart: drag a point along the linear demand curve Q = 20 minus 2 P. The chart reports price, quantity, and the point elasticity of demand, classified as elastic above the midpoint, unit-elastic at the midpoint, and inelastic below it."></svg>
+        </section>
+
         <!-- Slide 3.5: Other Measures -->
         <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
           <p class="eyebrow">Elasticity · Other Measures</p>
@@ -1407,6 +1415,7 @@
       plugins: [ RevealHighlight, RevealNotes, RevealMath.KaTeX ]
     });
   </script>
+  <script src="elasticity-explorer.js"></script>
   <script src="annotate.js"></script>
 </body>
 </html>
