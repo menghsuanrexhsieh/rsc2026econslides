@@ -1480,51 +1480,61 @@
               <text x="377" y="430" font-size="16" font-weight="700" fill="#1e293b" text-anchor="middle">Q*</text>
             </g>
 
-            <!-- fragment 1: price too high -> excess supply (surplus) -->
+            <!-- fragment 1: the "too high" price line arrives (with Qd, Qs) -->
             <g class="fragment" data-fragment-index="1">
-              <line class="build-line" x1="80" y1="150" x2="655" y2="150" stroke="#dc2626" stroke-width="2" stroke-dasharray="6 4"/>
-              <text x="651" y="142" font-size="14" font-weight="700" fill="#dc2626" text-anchor="end">price set too HIGH</text>
-              <circle cx="258" cy="150" r="6" fill="#dc2626"/>
-              <circle cx="495" cy="150" r="6" fill="#dc2626"/>
-              <text x="250" y="143" font-size="13" fill="#b91c1c" text-anchor="end">Q<tspan dy="3" font-size="10">D</tspan></text>
-              <text x="503" y="143" font-size="13" fill="#b91c1c">Q<tspan dy="3" font-size="10">S</tspan></text>
-              <!-- surplus bracket (Qs - Qd) -->
-              <line x1="268" y1="173" x2="485" y2="173" stroke="#dc2626" stroke-width="2.5"/>
-              <polygon points="268,168 268,178 257,173" fill="#dc2626"/>
-              <polygon points="485,168 485,178 496,173" fill="#dc2626"/>
-              <text x="377" y="193" font-size="16" font-weight="700" fill="#dc2626" text-anchor="middle">EXCESS SUPPLY (surplus)</text>
-              <text x="377" y="211" font-size="13" fill="#b91c1c" text-anchor="middle">the caf&eacute; brews plenty, but few buy &rarr; unsold cups pile up</text>
+              <line class="build-line" x1="80" y1="140" x2="700" y2="140" stroke="#dc2626" stroke-width="2" stroke-dasharray="6 4"/>
+              <text x="694" y="133" font-size="14" font-weight="700" fill="#dc2626" text-anchor="end">price set too HIGH</text>
+              <circle cx="243" cy="140" r="6" fill="#dc2626"/>
+              <circle cx="509" cy="140" r="6" fill="#dc2626"/>
+              <text x="236" y="161" font-size="13" fill="#b91c1c" text-anchor="end">Q<tspan dy="3" font-size="10">D</tspan></text>
+              <text x="516" y="161" font-size="13" fill="#b91c1c">Q<tspan dy="3" font-size="10">S</tspan></text>
             </g>
 
-            <!-- fragment 2: correction - price falls -->
+            <!-- fragment 2: name the gap -> excess supply (surplus) -->
             <g class="fragment" data-fragment-index="2">
-              <line x1="100" y1="158" x2="100" y2="220" stroke="#dc2626" stroke-width="2.5"/>
-              <polygon points="95,220 105,220 100,231" fill="#dc2626"/>
-              <text x="109" y="196" font-size="13" font-weight="700" fill="#dc2626">caf&eacute; cuts price</text>
+              <line x1="253" y1="128" x2="499" y2="128" stroke="#dc2626" stroke-width="2.5"/>
+              <polygon points="253,123 253,133 242,128" fill="#dc2626"/>
+              <polygon points="499,123 499,133 510,128" fill="#dc2626"/>
+              <text x="377" y="92" font-size="16" font-weight="700" fill="#dc2626" text-anchor="middle">EXCESS SUPPLY (surplus)</text>
+              <text x="377" y="110" font-size="13" fill="#b91c1c" text-anchor="middle">the caf&eacute; brews plenty, but few buy &rarr; unsold cups pile up</text>
             </g>
 
-            <!-- fragment 3: price too low -> excess demand (shortage) -->
+            <!-- fragment 3: correction - café cuts the price -->
             <g class="fragment" data-fragment-index="3">
-              <line class="build-line" x1="80" y1="320" x2="655" y2="320" stroke="#d97706" stroke-width="2" stroke-dasharray="6 4"/>
-              <text x="651" y="340" font-size="14" font-weight="700" fill="#d97706" text-anchor="end">price set too LOW</text>
-              <circle cx="256" cy="320" r="6" fill="#d97706"/>
-              <circle cx="502" cy="320" r="6" fill="#d97706"/>
-              <text x="248" y="340" font-size="13" fill="#b45309" text-anchor="end">Q<tspan dy="3" font-size="10">S</tspan></text>
-              <text x="510" y="340" font-size="13" fill="#b45309">Q<tspan dy="3" font-size="10">D</tspan></text>
-              <text x="377" y="262" font-size="16" font-weight="700" fill="#d97706" text-anchor="middle">EXCESS DEMAND (shortage)</text>
-              <text x="377" y="281" font-size="13" fill="#b45309" text-anchor="middle">everyone lines up, but the caf&eacute; can&rsquo;t brew enough &rarr; sold out</text>
-              <!-- shortage bracket (Qd - Qs) -->
-              <line x1="266" y1="300" x2="492" y2="300" stroke="#d97706" stroke-width="2.5"/>
-              <polygon points="266,295 266,305 255,300" fill="#d97706"/>
-              <polygon points="492,295 492,305 503,300" fill="#d97706"/>
+              <line x1="100" y1="150" x2="100" y2="216" stroke="#dc2626" stroke-width="2.5"/>
+              <polygon points="95,216 105,216 100,227" fill="#dc2626"/>
+              <text x="110" y="192" font-size="13" font-weight="700" fill="#dc2626">caf&eacute; cuts price &darr;</text>
             </g>
 
-            <!-- fragment 4: correction - price rises + payoff -->
+            <!-- fragment 4: the "too low" price line arrives (with Qs, Qd) -->
             <g class="fragment" data-fragment-index="4">
-              <line x1="100" y1="312" x2="100" y2="250" stroke="#d97706" stroke-width="2.5"/>
-              <polygon points="95,250 105,250 100,239" fill="#d97706"/>
-              <text x="109" y="288" font-size="13" font-weight="700" fill="#d97706">buyers bid price up</text>
-              <text x="377" y="453" font-size="15" font-weight="700" fill="#059669" text-anchor="middle">Either way, the price is pushed back to P* &mdash; the market fixes itself.</text>
+              <line class="build-line" x1="80" y1="330" x2="700" y2="330" stroke="#d97706" stroke-width="2" stroke-dasharray="6 4"/>
+              <text x="694" y="347" font-size="14" font-weight="700" fill="#d97706" text-anchor="end">price set too LOW</text>
+              <circle cx="241" cy="330" r="6" fill="#d97706"/>
+              <circle cx="517" cy="330" r="6" fill="#d97706"/>
+              <text x="234" y="313" font-size="13" fill="#b45309" text-anchor="end">Q<tspan dy="3" font-size="10">S</tspan></text>
+              <text x="525" y="313" font-size="13" fill="#b45309">Q<tspan dy="3" font-size="10">D</tspan></text>
+            </g>
+
+            <!-- fragment 5: name the gap -> excess demand (shortage) -->
+            <g class="fragment" data-fragment-index="5">
+              <line x1="251" y1="342" x2="507" y2="342" stroke="#d97706" stroke-width="2.5"/>
+              <polygon points="251,337 251,347 240,342" fill="#d97706"/>
+              <polygon points="507,337 507,347 518,342" fill="#d97706"/>
+              <text x="377" y="366" font-size="16" font-weight="700" fill="#d97706" text-anchor="middle">EXCESS DEMAND (shortage)</text>
+              <text x="377" y="384" font-size="13" fill="#b45309" text-anchor="middle">everyone lines up, but the caf&eacute; can&rsquo;t brew enough &rarr; sold out</text>
+            </g>
+
+            <!-- fragment 6: correction - buyers bid the price up -->
+            <g class="fragment" data-fragment-index="6">
+              <line x1="100" y1="320" x2="100" y2="254" stroke="#d97706" stroke-width="2.5"/>
+              <polygon points="95,254 105,254 100,243" fill="#d97706"/>
+              <text x="110" y="278" font-size="13" font-weight="700" fill="#d97706">buyers bid price up &uarr;</text>
+            </g>
+
+            <!-- fragment 7: payoff -->
+            <g class="fragment" data-fragment-index="7">
+              <text x="377" y="452" font-size="15" font-weight="700" fill="#059669" text-anchor="middle">Either way, the price is pushed back to P* &mdash; the market fixes itself.</text>
             </g>
           </svg>
         </section>
