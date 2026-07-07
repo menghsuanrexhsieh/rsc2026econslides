@@ -20,10 +20,10 @@ description: "Syllabus for the Ross Summer Connection: Economics 101 Experience 
 | **Course** | Ross Summer Connection: Economics 101 Experience |
 | **Program** | Ross School of Business · University of Michigan |
 | **Term** | July 2026 (four weeks) |
-| **Meetings** | Monday / Wednesday · 9:00–10:30am · (Blau) **B1570** |
+| **Meetings** | Monday / Wednesday · 9:00–10:30am · (Ross) **R2220** |
 | **Instructor** | Meng-Hsuan "Rex" Hsieh · [rexhsieh@umich.edu](mailto:rexhsieh@umich.edu) |
 | **Teaching assistants** | Jasmine Mucha-Nonalaya · [jpmn@umich.edu](mailto:jpmn@umich.edu) <br> Aubrey Heaton · [aubreymh@umich.edu](mailto:aubreymh@umich.edu) |
-| **Office hours** | Wednesdays & Thursdays, 7–9pm |
+| **Office hours** | Thursdays, 7–9pm |
 
 <p class="muted" style="margin-top:-.4em;">
 Two sessions meet at special times (see the <a href="#schedule">schedule</a>):
@@ -93,18 +93,15 @@ To guarantee your success, do everything you can to:
 
 | Component | Weight |
 |---|---:|
-| Quizzes — 2 online (#1, #3) + 1 in-class (#2) | 30% |
+| Quizzes — 2 online (#1, #2) + 2 in-class (#1, #2) | 30% |
 | Attendance, participation & pre-class work | 20% |
 | Comprehensive written exam (in-class, 7/29) | 30% |
 | SHARE presentations | 20% |
 
 **1 · Quizzes — 30%**
 
-- Two **online** quizzes: **Quiz #1** due before Class 5 (7/20/26) and **Quiz #3** due
-  before Class 8 (7/27/26).
-- One **in-class**, 20-minute quiz: **Quiz #2** in Class 6 (7/22/26). This is
-  *closed-book* — no notes or other resources allowed. **Please arrive on time at 9:00am
-  sharp.**
+- Two **online** quizzes: **Online Quiz #1** due before Class 5 (7/20/26) and **Online Quiz #2** due before Class 8 (7/27/26).
+- Two **in-class**, 20-minute quizzes: **Quiz #1** in Class 4 (7/15/26) and **Quiz #2** in Class 6 (7/22/26). These are *closed-book* — no notes or other resources allowed. **Please arrive on time at 9:00am sharp.**
 
 **2 · Attendance, participation & pre-class work — 20%**
 
@@ -123,7 +120,7 @@ To guarantee your success, do everything you can to:
 
 **4 · SHARE — *Summarizing Highlights and Reviewing Essentials* — 20%**
 
-- In every class except Class 1, 6, 7, and 9, a group is assigned to present either
+- In every class except Class 1, 4, 6, 7, and 9, a group is assigned to present either
   (i) a **recap** of concepts from the previous class, or (ii) a **news article** that is
   interesting and contains some principles of economics (no topic restrictions — the goal
   is to build the habit of reading the news).
@@ -152,11 +149,11 @@ To guarantee your success, do everything you can to:
 | **Class 1** | Wed, 7/8/26 · 9:00–10:30am | **Economic Decision-Making; Supply & Demand** — Course overview; marginal decisions (marginal benefit & marginal cost); introduction to supply and demand. | — |
 | **Class 2** | Mon, 7/13/26 · 9:00–10:30am | **More on Supply & Demand; Elasticity** — Continuing supply and demand; elasticity of demand and its applications; the firm's objective function and marginal revenue. | — |
 | **Class 3** | Tue, 7/14/26 · 2:45–3:45pm | **Marginal Revenue; Costs; Monopoly** — Marginal revenue and elasticity; cost types; profit-maximizing behavior and pricing under monopoly. | *Special time* |
-| **Class 4** | Wed, 7/15/26 · 9:00–10:30am | **Monopoly & Perfect Competition; Social Welfare** — Monopoly vs. perfectly competitive markets; short- and long-run equilibria; consequences of market power for efficiency. | — |
-| **Class 5** | Mon, 7/20/26 · 9:00–10:30am | **Social Welfare, Competitive Analysis, Market Failure** — Externalities and efficiency loss; market interventions: taxes (incidence), price ceilings/floors, trade policy (quotas, tariffs). | **Online Quiz #1** *(due before class)* |
-| **Class 6** | Wed, 7/22/26 · 9:00–10:30am | **Games & Strategy, Part 1** — Strategic interaction under imperfect information; games, strategies, best responses, Nash equilibrium; simultaneous vs. sequential decisions. | **Quiz #2** *(in class)* |
+| **Class 4** | Wed, 7/15/26 · 9:00–10:30am | **Monopoly & Perfect Competition; Social Welfare** — Monopoly vs. perfectly competitive markets; short- and long-run equilibria; consequences of market power for efficiency. | **Quiz #1** *(in class; covers Class 1–2)* |
+| **Class 5** | Mon, 7/20/26 · 9:00–10:30am | **Social Welfare, Competitive Analysis, Market Failure** — Externalities and efficiency loss; market interventions: taxes (incidence), price ceilings/floors, trade policy (quotas, tariffs). | **Online Quiz #1** *(due before Class 5 starts)* |
+| **Class 6** | Wed, 7/22/26 · 9:00–10:30am | **Games & Strategy, Part 1** — Strategic interaction under imperfect information; games, strategies, best responses, Nash equilibrium; simultaneous vs. sequential decisions. | **Quiz #2** *(in class; covers Class 1–5)* |
 | **Class 7** | Thu, 7/23/26 · 2:45–3:45pm | **(Optional) Problem-Solving Session** — Practice problems covering course concepts. | *Optional · special time* |
-| **Class 8** | Mon, 7/27/26 · 9:00–10:30am | **Games & Strategy, Part 2** — Sequential-move games, backward induction, and credible threats. | **Online Quiz #3** *(due before class)* |
+| **Class 8** | Mon, 7/27/26 · 9:00–10:30am | **Games & Strategy, Part 2** — Sequential-move games, backward induction, and credible threats. | **Online Quiz #2** *(due before Class 8 starts)* |
 | **Class 9** | Wed, 7/29/26 · 9:00–10:30am | **Exam, and On Thinking Like an Economist** — Final written exam + wrap-up. | **In-class exam** *(first 60 min)* |
 
 </div>
@@ -177,6 +174,6 @@ the costs of multitasking, see Bellur et al. (2015), who find that in-class mult
 leads to significantly lower learning performance
 ([link](https://www.sciencedirect.com/science/article/pii/S0747563215004677)).
 
-**Office hours & contact.** Office hours are Wednesdays & Thursdays, 7–9pm. If those
+**Office hours & contact.** Office hours are Thursdays, 7–9pm. If those
 times don't work, email me with **"RSC" in the subject line** and include (a) when you'd
 like to meet and (b) the specific questions or challenges you're facing.
