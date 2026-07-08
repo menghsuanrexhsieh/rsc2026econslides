@@ -831,19 +831,28 @@
               \[ \text{Net Benefit} = \text{Total Benefit} - \text{Opportunity Costs} \]
             </div>
 
-            <svg class="anim-graph fragment" viewBox="0 0 660 160" style="width: 70%; max-height: 150px; margin: 10px auto 0; display: block;" role="img" aria-label="A bar representing total benefit, with the opportunity-cost portion carved out on the right; the remainder on the left is the net benefit that decision-makers maximize">
-              <line x1="70" y1="30" x2="590" y2="30" stroke="#475569" stroke-width="2"/>
-              <line x1="70" y1="30" x2="70" y2="38" stroke="#475569" stroke-width="2"/>
-              <line x1="590" y1="30" x2="590" y2="38" stroke="#475569" stroke-width="2"/>
-              <text x="330" y="20" font-size="15" font-weight="700" fill="#475569" text-anchor="middle">Total Benefit</text>
-              <rect x="70" y="44" width="320" height="48" rx="4" fill="#0f766e"/>
-              <text x="230" y="74" font-size="17" font-weight="800" fill="white" text-anchor="middle">Net Benefit</text>
-              <rect x="390" y="44" width="200" height="48" rx="4" fill="#fef2f2" stroke="#dc2626" stroke-width="2" stroke-dasharray="6 4"/>
-              <text x="490" y="74" font-size="15" font-weight="700" fill="#dc2626" text-anchor="middle">&minus; Opportunity Costs</text>
-              <line x1="70" y1="106" x2="390" y2="106" stroke="#0f766e" stroke-width="2"/>
-              <line x1="70" y1="106" x2="70" y2="98" stroke="#0f766e" stroke-width="2"/>
-              <line x1="390" y1="106" x2="390" y2="98" stroke="#0f766e" stroke-width="2"/>
-              <text x="230" y="128" font-size="15" font-weight="700" fill="#0f766e" text-anchor="middle">maximize what is left over!</text>
+            <svg class="anim-graph" viewBox="0 0 660 160" style="width: 70%; max-height: 150px; margin: 10px auto 0; display: block;" role="img" aria-label="A bar representing total benefit, with the opportunity-cost portion carved out on the right; the remainder on the left is the net benefit that decision-makers maximize">
+              <!-- step 1: the whole Total Benefit -->
+              <g class="fragment">
+                <line class="build-line" x1="70" y1="30" x2="590" y2="30" stroke="#475569" stroke-width="2"/>
+                <line x1="70" y1="30" x2="70" y2="38" stroke="#475569" stroke-width="2"/>
+                <line x1="590" y1="30" x2="590" y2="38" stroke="#475569" stroke-width="2"/>
+                <text x="330" y="20" font-size="15" font-weight="700" fill="#475569" text-anchor="middle">Total Benefit</text>
+                <rect x="70" y="44" width="520" height="48" rx="4" fill="#0f766e"/>
+              </g>
+              <!-- step 2: carve out Opportunity Costs from the right -->
+              <g class="fragment">
+                <rect x="390" y="44" width="200" height="48" rx="4" fill="#fef2f2" stroke="#dc2626" stroke-width="2" stroke-dasharray="6 4"/>
+                <text x="490" y="74" font-size="15" font-weight="700" fill="#dc2626" text-anchor="middle">&minus; Opportunity Costs</text>
+              </g>
+              <!-- step 3: what remains is Net Benefit -->
+              <g class="fragment">
+                <text x="230" y="74" font-size="17" font-weight="800" fill="white" text-anchor="middle">Net Benefit</text>
+                <line class="build-line" x1="70" y1="106" x2="390" y2="106" stroke="#0f766e" stroke-width="2"/>
+                <line x1="70" y1="106" x2="70" y2="98" stroke="#0f766e" stroke-width="2"/>
+                <line x1="390" y1="106" x2="390" y2="98" stroke="#0f766e" stroke-width="2"/>
+                <text x="230" y="128" font-size="15" font-weight="700" fill="#0f766e" text-anchor="middle">maximize what is left over!</text>
+              </g>
             </svg>
 
             <p class="fragment" style="font-weight: 600; text-align: center; color: #0f766e; margin-top: 14px;">
@@ -889,24 +898,37 @@
                 </ul>
               </div>
               <div style="flex: 1;">
-                <svg class="anim-graph fragment" viewBox="0 0 420 250" style="width: 100%; max-height: 230px; display: block;" role="img" aria-label="Downward-sloping marginal benefit and upward-sloping marginal cost cross at the optimal quantity: to the left MB exceeds MC so do more; to the right MC exceeds MB so do less">
+                <svg class="anim-graph" viewBox="0 0 420 250" style="width: 100%; max-height: 230px; display: block;" role="img" aria-label="Downward-sloping marginal benefit and upward-sloping marginal cost cross at the optimal quantity: to the left MB exceeds MC so do more; to the right MC exceeds MB so do less">
+                  <!-- base: axes (always visible) -->
                   <line x1="46" y1="210" x2="400" y2="210" stroke="#475569" stroke-width="2"/>
                   <polygon points="400,206 400,214 409,210" fill="#475569"/>
                   <line x1="46" y1="210" x2="46" y2="26" stroke="#475569" stroke-width="2"/>
                   <polygon points="42,26 50,26 46,17" fill="#475569"/>
                   <text x="404" y="228" font-size="13" fill="#1e293b" font-style="italic">Q</text>
                   <text x="20" y="18" font-size="13" fill="#1e293b" font-style="italic">$</text>
-                  <line x1="46" y1="50" x2="380" y2="196" stroke="#0f766e" stroke-width="3"/>
-                  <text x="384" y="196" font-size="14" fill="#0f766e" font-style="italic" font-weight="700">MB</text>
-                  <line x1="46" y1="196" x2="380" y2="50" stroke="#dc2626" stroke-width="3"/>
-                  <text x="384" y="54" font-size="14" fill="#dc2626" font-style="italic" font-weight="700">MC</text>
-                  <circle cx="213" cy="123" r="6" fill="#0f172a"/>
-                  <line x1="213" y1="123" x2="213" y2="210" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="4 4"/>
-                  <text x="213" y="230" font-size="14" font-weight="700" fill="#0f172a" text-anchor="middle">MB = MC</text>
-                  <line x1="96" y1="238" x2="146" y2="238" stroke="#0f766e" stroke-width="2.5" marker-end="url(#mbmcr)"/>
-                  <text x="121" y="226" font-size="12" fill="#0f766e" font-weight="700" text-anchor="middle">do more</text>
-                  <line x1="330" y1="238" x2="280" y2="238" stroke="#dc2626" stroke-width="2.5" marker-end="url(#mbmcl)"/>
-                  <text x="305" y="226" font-size="12" fill="#dc2626" font-weight="700" text-anchor="middle">do less</text>
+                  <!-- step 1: marginal benefit -->
+                  <g class="fragment">
+                    <line class="build-line" x1="46" y1="50" x2="380" y2="196" stroke="#0f766e" stroke-width="3"/>
+                    <text x="384" y="196" font-size="14" fill="#0f766e" font-style="italic" font-weight="700">MB</text>
+                  </g>
+                  <!-- step 2: marginal cost -->
+                  <g class="fragment">
+                    <line class="build-line" x1="46" y1="196" x2="380" y2="50" stroke="#dc2626" stroke-width="3"/>
+                    <text x="384" y="54" font-size="14" fill="#dc2626" font-style="italic" font-weight="700">MC</text>
+                  </g>
+                  <!-- step 3: where they cross -> MB = MC -->
+                  <g class="fragment">
+                    <line x1="213" y1="123" x2="213" y2="210" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="4 4"/>
+                    <circle cx="213" cy="123" r="6" fill="#0f172a"/>
+                    <text x="213" y="230" font-size="14" font-weight="700" fill="#0f172a" text-anchor="middle">MB = MC</text>
+                  </g>
+                  <!-- step 4: which way to adjust -->
+                  <g class="fragment">
+                    <line x1="96" y1="238" x2="146" y2="238" stroke="#0f766e" stroke-width="2.5" marker-end="url(#mbmcr)"/>
+                    <text x="121" y="226" font-size="12" fill="#0f766e" font-weight="700" text-anchor="middle">do more</text>
+                    <line x1="330" y1="238" x2="280" y2="238" stroke="#dc2626" stroke-width="2.5" marker-end="url(#mbmcl)"/>
+                    <text x="305" y="226" font-size="12" fill="#dc2626" font-weight="700" text-anchor="middle">do less</text>
+                  </g>
                   <defs>
                     <marker id="mbmcr" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M 0 0 L 8 4 L 0 8 z" fill="#0f766e"/></marker>
                     <marker id="mbmcl" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M 0 0 L 8 4 L 0 8 z" fill="#dc2626"/></marker>
