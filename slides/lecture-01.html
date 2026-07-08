@@ -1118,28 +1118,41 @@
               </p>
             </div>
             <svg class="anim-graph" viewBox="0 0 460 250" style="width: 56%; max-height: 240px; margin: 8px auto 0; display: block;" role="img" aria-label="A downward-sloping demand curve: when the price rises from P0 to P1, the consumer moves up along the curve and quantity demanded falls from Q0 to Q1">
-              <text x="400" y="44" font-size="15" font-weight="700" fill="#0f766e" text-anchor="end">P &uarr; &nbsp;&rArr;&nbsp; move up along D &nbsp;&rArr;&nbsp; Q&#8202;<tspan dy="3" font-size="11">D</tspan><tspan dy="-3"> &darr;</tspan></text>
+              <!-- base: axes (always visible) -->
               <line x1="54" y1="208" x2="400" y2="208" stroke="#475569" stroke-width="2"/>
               <polygon points="400,204 400,212 409,208" fill="#475569"/>
               <line x1="54" y1="208" x2="54" y2="34" stroke="#475569" stroke-width="2"/>
               <polygon points="50,34 58,34 54,25" fill="#475569"/>
               <text x="408" y="222" font-size="13" fill="#1e293b" font-style="italic">Q</text>
               <text x="32" y="28" font-size="13" fill="#1e293b" font-style="italic">P</text>
-              <line x1="54" y1="58" x2="350" y2="200" stroke="#1e293b" stroke-width="3"/>
-              <text x="358" y="202" font-size="14" fill="#1e293b" font-style="italic" font-weight="700">D</text>
-              <line x1="54" y1="166" x2="280" y2="166" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="4 4"/>
-              <line x1="280" y1="166" x2="280" y2="208" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="4 4"/>
-              <line x1="54" y1="94" x2="130" y2="94" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="4 4"/>
-              <line x1="130" y1="94" x2="130" y2="208" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="4 4"/>
-              <circle cx="280" cy="166" r="6" fill="#64748b"/>
-              <circle cx="130" cy="94" r="6" fill="#0f766e"/>
-              <path d="M 256 144 Q 200 119 146 96" fill="none" stroke="#0f766e" stroke-width="2.5" marker-end="url(#lodmv)"/>
-              <text x="48" y="172" font-size="13" fill="#64748b" text-anchor="end">P<tspan dy="3" font-size="10">0</tspan></text>
-              <text x="48" y="100" font-size="13" font-weight="700" fill="#0f766e" text-anchor="end">P<tspan dy="3" font-size="10">1</tspan></text>
-              <text x="280" y="226" font-size="13" fill="#64748b" text-anchor="middle">Q<tspan dy="3" font-size="10">0</tspan></text>
-              <text x="130" y="226" font-size="13" font-weight="700" fill="#0f766e" text-anchor="middle">Q<tspan dy="3" font-size="10">1</tspan></text>
-              <line x1="30" y1="160" x2="30" y2="104" stroke="#dc2626" stroke-width="2" marker-end="url(#lodup)"/>
-              <line x1="266" y1="238" x2="146" y2="238" stroke="#0f766e" stroke-width="2" marker-end="url(#lodlf)"/>
+              <!-- step 1: the demand curve -->
+              <g class="fragment">
+                <line class="build-line" x1="54" y1="58" x2="350" y2="200" stroke="#1e293b" stroke-width="3"/>
+                <text x="358" y="202" font-size="14" fill="#1e293b" font-style="italic" font-weight="700">D</text>
+              </g>
+              <!-- step 2: start at price P0, quantity Q0 -->
+              <g class="fragment">
+                <line x1="54" y1="166" x2="280" y2="166" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="4 4"/>
+                <line x1="280" y1="166" x2="280" y2="208" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="4 4"/>
+                <circle cx="280" cy="166" r="6" fill="#64748b"/>
+                <text x="48" y="172" font-size="13" fill="#64748b" text-anchor="end">P<tspan dy="3" font-size="10">0</tspan></text>
+                <text x="280" y="226" font-size="13" fill="#64748b" text-anchor="middle">Q<tspan dy="3" font-size="10">0</tspan></text>
+              </g>
+              <!-- step 3: the price rises to P1 -->
+              <g class="fragment">
+                <line x1="30" y1="160" x2="30" y2="104" stroke="#dc2626" stroke-width="2" marker-end="url(#lodup)"/>
+                <text x="48" y="100" font-size="13" font-weight="700" fill="#0f766e" text-anchor="end">P<tspan dy="3" font-size="10">1</tspan></text>
+              </g>
+              <!-- step 4: move up along D -> quantity demanded falls to Q1 -->
+              <g class="fragment">
+                <path class="build-line" d="M 256 144 Q 200 119 146 96" fill="none" stroke="#0f766e" stroke-width="2.5" marker-end="url(#lodmv)"/>
+                <line x1="54" y1="94" x2="130" y2="94" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="4 4"/>
+                <line x1="130" y1="94" x2="130" y2="208" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="4 4"/>
+                <circle cx="130" cy="94" r="6" fill="#0f766e"/>
+                <text x="130" y="226" font-size="13" font-weight="700" fill="#0f766e" text-anchor="middle">Q<tspan dy="3" font-size="10">1</tspan></text>
+                <line x1="266" y1="238" x2="146" y2="238" stroke="#0f766e" stroke-width="2" marker-end="url(#lodlf)"/>
+                <text x="400" y="44" font-size="15" font-weight="700" fill="#0f766e" text-anchor="end">P &uarr; &nbsp;&rArr;&nbsp; move up along D &nbsp;&rArr;&nbsp; Q&#8202;<tspan dy="3" font-size="11">D</tspan><tspan dy="-3"> &darr;</tspan></text>
+              </g>
               <defs>
                 <marker id="lodmv" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M 0 0 L 8 4 L 0 8 z" fill="#0f766e"/></marker>
                 <marker id="lodup" markerWidth="7" markerHeight="7" refX="5" refY="3.5" orient="auto"><path d="M 0 0 L 7 3.5 L 0 7 z" fill="#dc2626"/></marker>
@@ -1266,28 +1279,41 @@
               </p>
             </div>
             <svg class="anim-graph" viewBox="0 0 460 250" style="width: 56%; max-height: 240px; margin: 8px auto 0; display: block;" role="img" aria-label="An upward-sloping supply curve: when the price rises from P0 to P1, the producer moves up along the curve and quantity supplied rises from Q0 to Q1">
-              <text x="400" y="44" font-size="15" font-weight="700" fill="#0f766e" text-anchor="end">P &uarr; &nbsp;&rArr;&nbsp; move up along S &nbsp;&rArr;&nbsp; Q&#8202;<tspan dy="3" font-size="11">S</tspan><tspan dy="-3"> &uarr;</tspan></text>
+              <!-- base: axes (always visible) -->
               <line x1="54" y1="208" x2="400" y2="208" stroke="#475569" stroke-width="2"/>
               <polygon points="400,204 400,212 409,208" fill="#475569"/>
               <line x1="54" y1="208" x2="54" y2="34" stroke="#475569" stroke-width="2"/>
               <polygon points="50,34 58,34 54,25" fill="#475569"/>
               <text x="408" y="222" font-size="13" fill="#1e293b" font-style="italic">Q</text>
               <text x="32" y="28" font-size="13" fill="#1e293b" font-style="italic">P</text>
-              <line x1="54" y1="196" x2="350" y2="60" stroke="#0f766e" stroke-width="3"/>
-              <text x="358" y="62" font-size="14" fill="#0f766e" font-style="italic" font-weight="700">S</text>
-              <line x1="54" y1="161" x2="130" y2="161" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="4 4"/>
-              <line x1="130" y1="161" x2="130" y2="208" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="4 4"/>
-              <line x1="54" y1="92" x2="280" y2="92" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="4 4"/>
-              <line x1="280" y1="92" x2="280" y2="208" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="4 4"/>
-              <circle cx="130" cy="161" r="6" fill="#64748b"/>
-              <circle cx="280" cy="92" r="6" fill="#0f766e"/>
-              <path d="M 144 138 Q 200 114 256 91" fill="none" stroke="#0f766e" stroke-width="2.5" marker-end="url(#losmv)"/>
-              <text x="48" y="167" font-size="13" fill="#64748b" text-anchor="end">P<tspan dy="3" font-size="10">0</tspan></text>
-              <text x="48" y="98" font-size="13" font-weight="700" fill="#0f766e" text-anchor="end">P<tspan dy="3" font-size="10">1</tspan></text>
-              <text x="130" y="226" font-size="13" fill="#64748b" text-anchor="middle">Q<tspan dy="3" font-size="10">0</tspan></text>
-              <text x="280" y="226" font-size="13" font-weight="700" fill="#0f766e" text-anchor="middle">Q<tspan dy="3" font-size="10">1</tspan></text>
-              <line x1="30" y1="155" x2="30" y2="98" stroke="#dc2626" stroke-width="2" marker-end="url(#losup)"/>
-              <line x1="144" y1="238" x2="264" y2="238" stroke="#0f766e" stroke-width="2" marker-end="url(#losrt)"/>
+              <!-- step 1: the supply curve -->
+              <g class="fragment">
+                <line class="build-line" x1="54" y1="196" x2="350" y2="60" stroke="#0f766e" stroke-width="3"/>
+                <text x="358" y="62" font-size="14" fill="#0f766e" font-style="italic" font-weight="700">S</text>
+              </g>
+              <!-- step 2: start at price P0, quantity Q0 -->
+              <g class="fragment">
+                <line x1="54" y1="161" x2="130" y2="161" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="4 4"/>
+                <line x1="130" y1="161" x2="130" y2="208" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="4 4"/>
+                <circle cx="130" cy="161" r="6" fill="#64748b"/>
+                <text x="48" y="167" font-size="13" fill="#64748b" text-anchor="end">P<tspan dy="3" font-size="10">0</tspan></text>
+                <text x="130" y="226" font-size="13" fill="#64748b" text-anchor="middle">Q<tspan dy="3" font-size="10">0</tspan></text>
+              </g>
+              <!-- step 3: the price rises to P1 -->
+              <g class="fragment">
+                <line x1="30" y1="155" x2="30" y2="98" stroke="#dc2626" stroke-width="2" marker-end="url(#losup)"/>
+                <text x="48" y="98" font-size="13" font-weight="700" fill="#0f766e" text-anchor="end">P<tspan dy="3" font-size="10">1</tspan></text>
+              </g>
+              <!-- step 4: move up along S -> quantity supplied rises to Q1 -->
+              <g class="fragment">
+                <path class="build-line" d="M 144 138 Q 200 114 256 91" fill="none" stroke="#0f766e" stroke-width="2.5" marker-end="url(#losmv)"/>
+                <line x1="54" y1="92" x2="280" y2="92" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="4 4"/>
+                <line x1="280" y1="92" x2="280" y2="208" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="4 4"/>
+                <circle cx="280" cy="92" r="6" fill="#0f766e"/>
+                <text x="280" y="226" font-size="13" font-weight="700" fill="#0f766e" text-anchor="middle">Q<tspan dy="3" font-size="10">1</tspan></text>
+                <line x1="144" y1="238" x2="264" y2="238" stroke="#0f766e" stroke-width="2" marker-end="url(#losrt)"/>
+                <text x="400" y="44" font-size="15" font-weight="700" fill="#0f766e" text-anchor="end">P &uarr; &nbsp;&rArr;&nbsp; move up along S &nbsp;&rArr;&nbsp; Q&#8202;<tspan dy="3" font-size="11">S</tspan><tspan dy="-3"> &uarr;</tspan></text>
+              </g>
               <defs>
                 <marker id="losmv" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M 0 0 L 8 4 L 0 8 z" fill="#0f766e"/></marker>
                 <marker id="losup" markerWidth="7" markerHeight="7" refX="5" refY="3.5" orient="auto"><path d="M 0 0 L 7 3.5 L 0 7 z" fill="#dc2626"/></marker>
