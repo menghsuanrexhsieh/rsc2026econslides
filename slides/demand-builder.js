@@ -85,8 +85,8 @@
       make(svg, 'line', { x1: mx, y1: my, x2: mx, y2: Y0, stroke: MID, 'stroke-width': 1.5, 'stroke-dasharray': '3 4' });
       make(svg, 'circle', { cx: mx, cy: my, r: 5, fill: '#ffffff', stroke: MID, 'stroke-width': 2.5 });
       make(svg, 'text', { x: mx + 10, y: my - 8, 'font-size': 13, 'font-weight': 700, fill: MID }, 'midpoint · |ε| = 1');
-      make(svg, 'text', { x: 62, y: my + 5, 'font-size': 13, fill: MID, 'text-anchor': 'end' }, fmt(Pmax / 2));
-      make(svg, 'text', { x: mx, y: Y0 + 42, 'font-size': 13, fill: MID, 'text-anchor': 'middle' }, fmt(A / 2));
+      make(svg, 'text', { x: 62, y: my + 5, 'font-size': 15, 'font-weight': 700, fill: MID, 'text-anchor': 'end' }, fmt(Pmax / 2));
+      make(svg, 'text', { x: mx, y: Y0 + 21, 'font-size': 16, 'font-weight': 700, fill: MID, 'text-anchor': 'middle' }, fmt(A / 2));
 
       // ---- readout panel ----
       make(svg, 'rect', { x: 425, y: 58, width: 310, height: 132, rx: 10, fill: '#f8fafc', stroke: '#e2e8f0' });
