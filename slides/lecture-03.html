@@ -341,17 +341,23 @@
         <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
           <p class="eyebrow">Recap · 2 of 4</p>
           <h2>Relatively Elastic vs. Inelastic</h2>
-          <div class="content-card">
-            <p style="margin-bottom: 15px;">In addition to point elasticities, we say demand is relatively elastic or inelastic to describe general responsiveness:</p>
-            <div class="def-card">
-              <div class="def-title">Relatively Elastic</div>
-              Demand is <strong>relatively elastic</strong> if, for a given percentage change in price, the resulting percentage change in quantity demanded is <strong>large</strong> (highly responsive).
-            </div>
-            <div class="def-card fragment">
-              <div class="def-title">Relatively Inelastic</div>
-              Demand is <strong>relatively inelastic</strong> if, for a given percentage change in price, the resulting percentage change in quantity demanded is <strong>small</strong> (low responsiveness).
-            </div>
-          </div>
+          <svg viewBox="0 0 760 440" style="width: 80%; max-height: 400px; margin: 10px auto 0; display: block; background: white; border: 1px solid #e2e8f0; border-radius: 10px;" role="img" aria-label="Two downward-sloping demand curves crossing at a common point. The steep curve is labeled relatively inelastic: a large price change produces only a small change in quantity. The flat curve is labeled relatively elastic: a small price change produces a large change in quantity.">
+            <!-- axes -->
+            <line x1="90" y1="400" x2="700" y2="400" stroke="#475569" stroke-width="2.5"/>
+            <polygon points="700,395 700,405 711,400" fill="#475569"/>
+            <line x1="90" y1="400" x2="90" y2="50" stroke="#475569" stroke-width="2.5"/>
+            <polygon points="85,50 95,50 90,39" fill="#475569"/>
+            <text x="66" y="44" font-size="16" font-weight="700" fill="#1e293b">Price</text>
+            <text x="700" y="424" font-size="16" font-weight="700" fill="#1e293b" text-anchor="end">Quantity</text>
+            <!-- flat line = relatively elastic -->
+            <line x1="150" y1="185" x2="660" y2="300" stroke="#2563eb" stroke-width="4"/>
+            <text x="660" y="250" font-size="17" font-weight="700" font-style="italic" fill="#2563eb" text-anchor="end">Relatively elastic</text>
+            <!-- steep line = relatively inelastic -->
+            <line x1="360" y1="80" x2="455" y2="385" stroke="#b91c1c" stroke-width="4"/>
+            <text x="372" y="74" font-size="17" font-weight="700" font-style="italic" fill="#b91c1c">Relatively inelastic</text>
+            <!-- common point -->
+            <circle cx="411" cy="244" r="6" fill="#1e293b"/>
+          </svg>
         </section>
 
         <!-- Slide 3.4: Linear Demand regions -->
@@ -399,10 +405,16 @@
               </ul>
             </div>
             <p style="font-size: 0.85em; font-style: italic; color: #64748b; margin-top: 10px; text-align: center;">
-              Note: We must infer elasticities from contextual behaviors in the real world!
+              Note: We must infer elasticities from context in the real world!
             </p>
           </div>
         </section>
+
+      </section>
+
+
+      <!-- Elasticity & Marginal Revenue (Vertical Stack) -->
+      <section>
 
         <!-- Slide 3.8: Link to MR -->
         <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
