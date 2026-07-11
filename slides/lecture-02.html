@@ -316,6 +316,20 @@
 
     /* Table row highlight, triggered by a fragment (see Reveal.on below) */
     .reveal tr.row-highlight td { background: rgba(22, 163, 74, 0.18); transition: background 0.4s ease; }
+
+    /* WSJ article: highlighter overlays + callout bubbles */
+    .reveal .wsj-wrap { position: relative; display: inline-block; line-height: 0; }
+    .reveal .wsj-wrap img { border-radius: 8px; border: 1px solid #e2e8f0; display: block; }
+    .reveal .hl-band { position: absolute; mix-blend-mode: multiply; border-radius: 3px; pointer-events: none; }
+    .reveal .hl-yellow { background: #fde047; }
+    .reveal .hl-teal { background: #5eead4; }
+    .reveal .hl-amber { background: #fdba74; }
+    .reveal .wsj-callout { border-radius: 12px; padding: 9px 13px; font-size: 0.6em; font-weight: 500; line-height: 1.32; text-align: left; }
+    .reveal .wsj-callout.teal { background: #ccfbf1; border-left: 4px solid #0f766e; color: #134e4a; }
+    .reveal .wsj-callout.amber { background: #ffedd5; border-left: 4px solid #d97706; color: #7c2d12; }
+    .reveal .wsj-callout .tag { font-family: var(--r-heading-font); font-weight: 800; display: block; margin-bottom: 3px; }
+    .reveal .wsj-q { background: #0f172a; color: #e2e8f0; border-radius: 12px; padding: 12px 15px; font-weight: 600; font-size: 0.62em; line-height: 1.35; text-align: left; }
+    .reveal .wsj-q strong { color: #2dd4bf; }
   </style>
 </head>
 <body>
@@ -1425,26 +1439,37 @@
           </div>
         </section>
 
-        <!-- Slide 7.3: WSJ Part 2 -->
+        <!-- Slide 7.3: WSJ Part 2 - highlighted article + callouts -->
         <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
           <p class="eyebrow">WSJ Case Study · Part 2</p>
           <h2>Comparing Geographic Responses</h2>
-          <div style="display: flex; align-items: center; justify-content: center; gap: 20px; max-width: 1090px; margin: 0 auto;">
-            <div style="flex: 1; text-align: left;">
-              <div class="example-card" style="margin: 0;">
-                <div class="ex-title">Case Study Question</div>
-                Comparing consumer reactions to price increases:
-                <p style="font-weight: 600; color: #0f766e; margin-top: 15px; font-size: 1.05em;">
-                  What does this imply about the (relative) own-price elasticities of demand for chocolate between Americans and Europeans?
-                </p>
-              </div>
+          <div style="display: flex; align-items: flex-start; justify-content: center; gap: 22px; max-width: 1220px; margin: 0 auto;">
+            <div class="wsj-wrap">
+              <img src="images/c2_page_24_img_4.png" alt="WSJ article: since 2021 chocolate prices rose over 30% in both markets, but demand fell more in the U.S. due to differences in price elasticity; Mondelez passed on prices in Europe without sacrificing volume while U.S. consumers proved more fickle" style="height: 432px; width: auto;">
+              <div class="hl-band hl-yellow" style="left: 1%; top: 18.8%; width: 82%; height: 5.7%;"></div>
+              <div class="hl-band hl-teal"   style="left: 1%; top: 30.0%; width: 97%; height: 5.7%;"></div>
+              <div class="hl-band hl-amber"  style="left: 1%; top: 35.7%; width: 97%; height: 5.7%;"></div>
+              <div class="hl-band hl-amber"  style="left: 1%; top: 41.4%; width: 33%; height: 5.7%;"></div>
             </div>
-            <div style="flex: 1.1; display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px;">
-              <div class="slide-img-container" style="margin: 0; padding: 4px;"><img src="images/c2_page_24_img_3.png" alt="WSJ Chocolate Graph 1" style="max-height: 100px;"></div>
-              <div class="slide-img-container" style="margin: 0; padding: 4px;"><img src="images/c2_page_24_img_4.png" alt="WSJ Chocolate Graph 2" style="max-height: 100px;"></div>
-              <div class="slide-img-container" style="margin: 0; padding: 4px;"><img src="images/c2_page_24_img_5.png" alt="WSJ Chocolate Graph 3" style="max-height: 100px;"></div>
-              <div class="slide-img-container" style="margin: 0; padding: 4px;"><img src="images/c2_page_24_img_6.png" alt="WSJ Chocolate Graph 4" style="max-height: 100px;"></div>
+            <div style="flex: 0 0 322px; display: flex; flex-direction: column; gap: 11px;">
+              <div class="slide-img-container" style="margin: 0; padding: 5px;"><img src="images/c2_page_24_img_3.png" alt="WSJ headline: Soaring Costs Expose a Trans-Atlantic Chocolate Divide" style="max-height: 92px; width: 100%;"></div>
+              <div class="wsj-callout teal fragment"><span class="tag">&#127466;&#127482; Europe &middot; Mondelez</span>Prices passed on <strong>&ldquo;without sacrificing volume&rdquo;</strong> &mdash; quantity barely responds &rarr; relatively <strong>inelastic</strong>.</div>
+              <div class="wsj-callout amber fragment"><span class="tag">&#127482;&#127480; U.S. &middot; Hershey</span>Consumers proved <strong>&ldquo;more fickle&rdquo;</strong> &mdash; quantity drops sharply when prices rise &rarr; relatively <strong>elastic</strong>.</div>
+              <div class="wsj-q fragment"><strong>Q:</strong> Which region&rsquo;s demand for chocolate is more <strong>elastic</strong> &mdash; and how can you tell from the article?</div>
             </div>
+          </div>
+        </section>
+
+        <!-- Slide 7.3b: WSJ Part 2 - discussion -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">WSJ Case Study · Discussion</p>
+          <h2>What the Article Tells Us</h2>
+          <div class="content-card" style="font-size: 0.95em;">
+            <ul>
+              <li class="fragment" style="margin-bottom: 12px;"><strong style="color: #b45309;">U.S. demand is more elastic.</strong> Chocolate is an impulse buy, so a price surge makes Americans cut back a lot &mdash; U.S.-heavy Hershey (&asymp;87% of sales) faced a <strong>mid-30% profit decline</strong> and its stock fell <strong>~35%</strong>.</li>
+              <li class="fragment" style="margin-bottom: 12px;"><strong style="color: #0f766e;">European demand is more inelastic.</strong> Chocolate is a daily staple, so Europeans keep buying as prices climb &mdash; Mondelez (60% Europe) passed prices on &ldquo;without sacrificing volume,&rdquo; with only a <strong>~10% earnings dip</strong> (stock down <strong>~5%</strong>).</li>
+              <li class="fragment"><strong style="color: #0f172a;">Why it matters for firms:</strong> facing <em>inelastic</em> demand, a firm can raise price and lose little quantity, so revenue holds up; facing <em>elastic</em> demand, the same price hike can backfire. One cocoa shock, two very different outcomes.</li>
+            </ul>
           </div>
         </section>
 
