@@ -664,7 +664,7 @@
         </section>
 
         <!-- Slide 4.7b: GROUP WORK Answers - Algebra -->
-        <section data-visibility="hidden" data-background-gradient="linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)">
+        <section data-visibility="uncounted" data-background-gradient="linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)">
           <p class="eyebrow" style="color: #059669;">Group Work · Answers</p>
           <h2>Answers: Finding Equilibrium</h2>
           <div class="content-card" style="font-size: 0.9em;">
@@ -684,7 +684,7 @@
         </section>
 
         <!-- GROUP WORK Answers: step-by-step animated graph -->
-        <section data-visibility="hidden" data-background-gradient="linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)">
+        <section data-visibility="uncounted" data-background-gradient="linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)">
           <p class="eyebrow" style="color: #059669;">Group Work &middot; Answers</p>
           <h2>Finding Equilibrium, Step by Step</h2>
           <p style="font-size: 0.55em; color: #64748b; margin: 0 0 4px;">Press <kbd style="background: #e2e8f0; border: 1px solid #cbd5e1; padding: 1px 6px; border-radius: 4px;">&rarr;</kbd> to add each element of the graph</p>
@@ -1308,7 +1308,7 @@
               <div class="ex-title" style="color: #b45309;">Question 1</div>
               Given the demand function:
               \[ Q = 24 - 4P \]
-              <strong>Calculate the own-price elasticity of demand \( |\varepsilon| \) at \( P = 3 \).</strong> How would you classify demand at this point?
+              <strong>Calculate the own-price elasticity of demand \( |\varepsilon| \) at \( P = 3 \).</strong> Is demand elastic, unit-elastic, or inelastic at this point?
             </div>
             <div class="example-card" style="border-left-color: #b45309; background: rgba(180, 83, 9, 0.05); margin: 8px 0;">
               <div class="ex-title" style="color: #b45309;">Question 2</div>
@@ -1318,7 +1318,7 @@
         </section>
 
         <!-- Slide 6.8b: GROUP WORK Answers - Elasticity -->
-        <section data-visibility="hidden" data-background-gradient="linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)">
+        <section data-visibility="uncounted" data-background-gradient="linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)">
           <p class="eyebrow" style="color: #059669;">Group Work · Answers</p>
           <h2>Answers: Point Elasticity</h2>
           <div class="content-card" style="font-size: 0.88em;">
@@ -1336,7 +1336,7 @@
         </section>
 
         <!-- GROUP WORK Answers: step-by-step animated graph -->
-        <section data-visibility="hidden" data-background-gradient="linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)">
+        <section data-visibility="uncounted" data-background-gradient="linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)">
           <p class="eyebrow" style="color: #059669;">Group Work &middot; Answers</p>
           <h2>Point Elasticity, Step by Step</h2>
           <p style="font-size: 0.55em; color: #64748b; margin: 0 0 4px;">Press <kbd style="background: #e2e8f0; border: 1px solid #cbd5e1; padding: 1px 6px; border-radius: 4px;">&rarr;</kbd> to add each element of the graph</p>
@@ -1454,6 +1454,73 @@
               <li class="fragment"><strong style="color: #0f172a;">Why it matters for firms:</strong> facing <em>inelastic</em> demand, a firm can raise price and lose little quantity, so revenue holds up; facing <em>elastic</em> demand, the same price hike can backfire. One cocoa shock, two very different outcomes.</li>
             </ul>
           </div>
+        </section>
+
+        <!-- Slide 7.3c: WSJ - two demand curves, one price rise -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">WSJ Case Study · Elasticity in one picture</p>
+          <h2>One Price Rise, Two Responses</h2>
+          <p style="font-size: 0.55em; color: #64748b; margin: 0 0 2px;">Both regions start with the <strong>same</strong> demand at price P<sub>0</sub> (common point). A single, common price increase makes quantity fall &mdash; by very different amounts. Press <kbd style="background: #e2e8f0; border: 1px solid #cbd5e1; padding: 1px 6px; border-radius: 4px;">&rarr;</kbd>.</p>
+          <svg class="anim-graph" viewBox="0 0 720 470" style="width: 74%; max-height: 420px; margin: 0 auto; display: block; background: white; border: 1px solid #e2e8f0; border-radius: 10px;" role="img" aria-label="Two demand curves through a common point at price P0: a steep teal curve for Europe (inelastic) and a flat amber curve for the U.S. (elastic). When the common price rises to P1, Europe's quantity falls only a little while the U.S. quantity falls a lot.">
+            <!-- base: axes -->
+            <line x1="80" y1="390" x2="660" y2="390" stroke="#475569" stroke-width="2.5"/>
+            <polygon points="660,385 660,395 671,390" fill="#475569"/>
+            <line x1="80" y1="390" x2="80" y2="55" stroke="#475569" stroke-width="2.5"/>
+            <polygon points="75,55 85,55 80,44" fill="#475569"/>
+            <text x="56" y="50" font-size="16" fill="#1e293b" font-style="italic">P</text>
+            <text x="672" y="396" font-size="16" fill="#1e293b" font-style="italic">Q</text>
+
+            <!-- step 1: both demand curves + common start -->
+            <g class="fragment">
+              <line class="build-line" x1="317" y1="60" x2="411" y2="390" stroke="#0f766e" stroke-width="3.5"/>
+              <text x="300" y="66" font-size="14" font-weight="700" fill="#0f766e" text-anchor="end" font-style="italic">D<tspan dy="3" font-size="10">Europe</tspan></text>
+              <line class="build-line" x1="129" y1="60" x2="506" y2="390" stroke="#d97706" stroke-width="3.5"/>
+              <text x="514" y="384" font-size="14" font-weight="700" fill="#d97706" font-style="italic">D<tspan dy="3" font-size="10">U.S.</tspan></text>
+              <line x1="80" y1="280" x2="380" y2="280" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="5 4"/>
+              <line x1="380" y1="280" x2="380" y2="390" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="5 4"/>
+              <circle cx="380" cy="280" r="6" fill="#1e293b"/>
+              <text x="72" y="285" font-size="14" font-weight="700" fill="#475569" text-anchor="end">P<tspan dy="3" font-size="10">0</tspan></text>
+              <text x="388" y="408" font-size="14" font-weight="700" fill="#475569">Q<tspan dy="3" font-size="10">0</tspan></text>
+            </g>
+
+            <!-- step 2: a common price rise -->
+            <g class="fragment">
+              <line x1="380" y1="280" x2="380" y2="140" stroke="#cbd5e1" stroke-width="1.2" stroke-dasharray="4 4"/>
+              <line x1="80" y1="140" x2="520" y2="140" stroke="#dc2626" stroke-width="1.6" stroke-dasharray="5 4"/>
+              <text x="72" y="145" font-size="14" font-weight="700" fill="#dc2626" text-anchor="end">P<tspan dy="3" font-size="10">1</tspan></text>
+              <line x1="108" y1="272" x2="108" y2="150" stroke="#dc2626" stroke-width="2.5" marker-end="url(#cmpup)"/>
+              <text x="115" y="212" font-size="12" font-weight="700" fill="#dc2626">price rises</text>
+            </g>
+
+            <!-- step 3: Europe (inelastic) - small drop -->
+            <g class="fragment">
+              <line x1="340" y1="140" x2="340" y2="390" stroke="#0f766e" stroke-width="1.3" stroke-dasharray="4 4"/>
+              <circle cx="340" cy="140" r="6" fill="#0f766e"/>
+              <line x1="378" y1="126" x2="345" y2="126" stroke="#0f766e" stroke-width="2.5" marker-end="url(#cmplt)"/>
+              <text x="362" y="117" font-size="12.5" font-weight="700" fill="#0f766e" text-anchor="middle">Europe: small &darr;Q</text>
+              <text x="335" y="408" font-size="13" font-weight="700" fill="#0f766e" text-anchor="end">Q<tspan dy="3" font-size="9">EU</tspan></text>
+            </g>
+
+            <!-- step 4: U.S. (elastic) - big drop -->
+            <g class="fragment">
+              <line x1="220" y1="140" x2="220" y2="390" stroke="#d97706" stroke-width="1.3" stroke-dasharray="4 4"/>
+              <circle cx="220" cy="140" r="6" fill="#d97706"/>
+              <line x1="378" y1="156" x2="225" y2="156" stroke="#d97706" stroke-width="2.5" marker-end="url(#cmpla)"/>
+              <text x="300" y="173" font-size="12.5" font-weight="700" fill="#d97706" text-anchor="middle">U.S.: big &darr;Q</text>
+              <text x="220" y="408" font-size="13" font-weight="700" fill="#d97706" text-anchor="middle">Q<tspan dy="3" font-size="9">US</tspan></text>
+            </g>
+
+            <!-- step 5: takeaway -->
+            <g class="fragment">
+              <text x="370" y="452" font-size="14" font-weight="700" fill="#0f766e" text-anchor="middle">Same price rise &rarr; the U.S. (elastic) loses far more quantity than Europe (inelastic).</text>
+            </g>
+
+            <defs>
+              <marker id="cmpup" markerWidth="9" markerHeight="9" refX="4.5" refY="7" orient="auto"><path d="M 0 9 L 4.5 0 L 9 9 z" fill="#dc2626"/></marker>
+              <marker id="cmplt" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M 0 0 L 9 4.5 L 0 9 z" fill="#0f766e"/></marker>
+              <marker id="cmpla" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M 0 0 L 9 4.5 L 0 9 z" fill="#d97706"/></marker>
+            </defs>
+          </svg>
         </section>
 
         <!-- Slide 7.4: Interactive - build your own demand curve -->
