@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Elasticities, Marginal Revenue, and Costs</title>
+  <title>Marginal Revenue, Elasticities, and Costs</title>
 
   <!-- reveal.js core + theme (HTML5 slides, loaded from CDN) -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reset.css">
@@ -279,7 +279,7 @@
       <section data-background-gradient="linear-gradient(135deg, #0f172a 0%, #1e293b 100%)">
         <p class="eyebrow" style="color: #2dd4bf;">RSC Economics Experience · July 2026</p>
         <h1 style="color: white; font-size: 2.5em; margin-bottom: 15px;">Class 3</h1>
-        <h3 style="color: #94a3b8; font-weight: 400; margin-bottom: 45px;">Elasticities, Marginal Revenue, and Costs</h3>
+        <h3 style="color: #94a3b8; font-weight: 400; margin-bottom: 45px;">Marginal Revenue, Elasticities, and Costs</h3>
         <p style="color: #2dd4bf; font-weight: 600; font-size: 0.9em; margin-bottom: 5px;">Meng Hsuan &ldquo;Rex&rdquo; Hsieh</p>
         <p style="color: #64748b; font-size: 0.75em; margin-top: 30px;">Press <kbd style="background: #334155; color: #cbd5e1; border: 1px solid #475569; padding: 2px 6px; border-radius: 4px;">→</kbd> to begin</p>
       </section>
@@ -497,13 +497,73 @@
           </div>
         </section>
 
-        <!-- Slide 3.9: Pricing visual -->
+        <!-- Slide 3.9: Pricing visual (animated) -->
         <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
           <p class="eyebrow">Elasticity &amp; Marginal Revenue</p>
           <h2>Visualizing Pricing and Revenue</h2>
-          <div class="slide-img-container">
-            <img src="images/c3_page_11_img.jpeg" alt="Pricing and Revenue Illustration" style="max-height: 280px;">
-          </div>
+          <p style="font-size: 0.55em; color: #64748b; margin: 0 0 4px;">Raising output means lowering the price. Press <kbd style="background: #e2e8f0; border: 1px solid #cbd5e1; padding: 1px 6px; border-radius: 4px;">&rarr;</kbd> to weigh the revenue <span style="color:#b91c1c; font-weight:700;">lost</span> against the revenue <span style="color:#166534; font-weight:700;">gained</span>.</p>
+          <svg class="anim-graph" viewBox="0 0 760 460" style="width: 82%; max-height: 400px; margin: 0 auto; display: block; background: white; border: 1px solid #e2e8f0; border-radius: 10px;" role="img" aria-label="A downward-sloping demand curve. Raising output from Q1 to Q2 lowers the price from P1 to P2. Area A (above P2, left of Q1) is the revenue lost on the original units; area C (below P2, between Q1 and Q2) is the revenue gained from the new units; area B is the unchanged base. The net change in revenue is C minus A.">
+            <!-- base: axes -->
+            <line x1="90" y1="400" x2="700" y2="400" stroke="#475569" stroke-width="2.5"/>
+            <polygon points="700,395 700,405 711,400" fill="#475569"/>
+            <line x1="90" y1="400" x2="90" y2="50" stroke="#475569" stroke-width="2.5"/>
+            <polygon points="85,50 95,50 90,39" fill="#475569"/>
+            <text x="66" y="44" font-size="16" font-weight="700" fill="#1e293b">Price</text>
+            <text x="700" y="422" font-size="16" font-weight="700" fill="#1e293b" text-anchor="end">Quantity</text>
+
+            <!-- step 1: start at point x (Q1, P1) -->
+            <g class="fragment">
+              <line class="build-line" x1="170" y1="19" x2="655" y2="392" stroke="#2563eb" stroke-width="4"/>
+              <text x="662" y="388" font-size="16" font-weight="700" fill="#2563eb" font-style="italic">Demand</text>
+              <line x1="90" y1="150" x2="340" y2="150" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="5 4"/>
+              <line x1="340" y1="400" x2="340" y2="150" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="5 4"/>
+              <circle cx="340" cy="150" r="6" fill="#1e293b"/>
+              <text x="327" y="140" font-size="17" font-style="italic" font-weight="700" fill="#1e293b">x</text>
+              <text x="80" y="155" font-size="15" font-weight="700" fill="#1e293b" text-anchor="end">P<tspan dy="3" font-size="11">1</tspan></text>
+              <text x="340" y="420" font-size="15" font-weight="700" fill="#1e293b" text-anchor="middle">Q<tspan dy="3" font-size="11">1</tspan></text>
+            </g>
+
+            <!-- step 2: raise output -> point y (Q2, P2) -->
+            <g class="fragment">
+              <path d="M 360 172 Q 415 214 452 238" fill="none" stroke="#7c3aed" stroke-width="2.5" marker-end="url(#mr3arrow)"/>
+              <line x1="90" y1="250" x2="470" y2="250" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="5 4"/>
+              <line x1="470" y1="400" x2="470" y2="250" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="5 4"/>
+              <circle cx="470" cy="250" r="6" fill="#1e293b"/>
+              <text x="479" y="244" font-size="17" font-style="italic" font-weight="700" fill="#1e293b">y</text>
+              <text x="80" y="255" font-size="15" font-weight="700" fill="#1e293b" text-anchor="end">P<tspan dy="3" font-size="11">2</tspan></text>
+              <text x="470" y="420" font-size="15" font-weight="700" fill="#1e293b" text-anchor="middle">Q<tspan dy="3" font-size="11">2</tspan></text>
+            </g>
+
+            <!-- step 3: revenue lost = area A (+ legend opens) -->
+            <g class="fragment">
+              <rect x="90" y="150" width="250" height="100" fill="#dc2626" fill-opacity="0.20" stroke="#dc2626" stroke-width="1.2"/>
+              <text x="212" y="207" font-size="20" font-style="italic" font-weight="800" fill="#b91c1c" text-anchor="middle">A</text>
+              <rect x="492" y="66" width="258" height="126" rx="10" fill="#f8fafc" stroke="#e2e8f0"/>
+              <text x="506" y="90" font-size="14" font-weight="700" fill="#1e293b">Raise output &rarr; price falls P<tspan dy="3" font-size="10">1</tspan><tspan dy="-3">&rarr;P</tspan><tspan dy="3" font-size="10">2</tspan></text>
+              <rect x="506" y="104" width="14" height="14" fill="#dc2626" fill-opacity="0.20" stroke="#dc2626"/>
+              <text x="528" y="116" font-size="13.5" fill="#b91c1c"><tspan font-weight="700">A</tspan> = revenue lost (old units)</text>
+            </g>
+
+            <!-- step 4: revenue gained = area C -->
+            <g class="fragment">
+              <rect x="340" y="250" width="130" height="150" fill="#16a34a" fill-opacity="0.20" stroke="#16a34a" stroke-width="1.2"/>
+              <text x="405" y="332" font-size="20" font-style="italic" font-weight="800" fill="#166534" text-anchor="middle">C</text>
+              <rect x="506" y="130" width="14" height="14" fill="#16a34a" fill-opacity="0.20" stroke="#16a34a"/>
+              <text x="528" y="142" font-size="13.5" fill="#166534"><tspan font-weight="700">C</tspan> = revenue gained (new units)</text>
+            </g>
+
+            <!-- step 5: unchanged base + net takeaway -->
+            <g class="fragment">
+              <rect x="90" y="250" width="250" height="150" fill="#f1f5f9" fill-opacity="0.7" stroke="#cbd5e1" stroke-width="1.2"/>
+              <text x="212" y="332" font-size="20" font-style="italic" font-weight="800" fill="#475569" text-anchor="middle">B</text>
+              <line x1="506" y1="160" x2="736" y2="160" stroke="#e2e8f0" stroke-width="1"/>
+              <text x="506" y="180" font-size="15" font-weight="700" fill="#0f766e">Net change in revenue = C &minus; A</text>
+            </g>
+
+            <defs>
+              <marker id="mr3arrow" markerWidth="9" markerHeight="9" refX="6.5" refY="4.5" orient="auto"><path d="M 0 0 L 9 4.5 L 0 9 z" fill="#7c3aed"/></marker>
+            </defs>
+          </svg>
         </section>
 
         <!-- Slide 3.10: MR Midpoint Fact -->

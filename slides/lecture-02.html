@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>More on Supply and Demand, and Elasticity</title>
+  <title>Elasticity of Demand and Costs</title>
 
   <!-- reveal.js core + theme (HTML5 slides, loaded from CDN) -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reset.css">
@@ -313,6 +313,9 @@
     .reveal .choice-btn.wrong { background: #ffedd5; border-color: #ea580c; color: #9a3412; }
     .reveal .choice-btn:disabled { cursor: default; }
     .reveal .choice-feedback { margin-top: 12px; font-weight: 700; min-height: 1.4em; }
+
+    /* Table row highlight, triggered by a fragment (see Reveal.on below) */
+    .reveal tr.row-highlight td { background: rgba(22, 163, 74, 0.18); transition: background 0.4s ease; }
   </style>
 </head>
 <body>
@@ -325,7 +328,7 @@
       <section data-background-gradient="linear-gradient(135deg, #0f172a 0%, #1e293b 100%)">
         <p class="eyebrow" style="color: #2dd4bf;">RSC Economics Experience · July 2026</p>
         <h1 style="color: white; font-size: 2.5em; margin-bottom: 15px;">Class 2</h1>
-        <h3 style="color: #94a3b8; font-weight: 400; margin-bottom: 40px;">More on Supply and Demand, and Elasticity</h3>
+        <h3 style="color: #94a3b8; font-weight: 400; margin-bottom: 40px;">Elasticity of Demand and Costs</h3>
         <p style="color: #2dd4bf; font-weight: 600; font-size: 0.9em; margin-bottom: 5px;">Meng Hsuan &ldquo;Rex&rdquo; Hsieh</p>
         <p style="color: #64748b; font-size: 0.75em; margin-top: 30px;">Press <kbd style="background: #334155; color: #cbd5e1; border: 1px solid #475569; padding: 2px 6px; border-radius: 4px;">→</kbd> to begin</p>
       </section>
@@ -333,12 +336,12 @@
       <!-- Slide 2: Agenda -->
       <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
         <p class="eyebrow">Agenda for Today</p>
-        <h2>More on Supply &amp; Demand, and Elasticity</h2>
+        <h2>Elasticity of Demand and Costs</h2>
         <div class="content-card" style="text-align: center;">
           <ul>
-            <li class="fragment">More on the supply/demand model</li>
-            <li class="fragment">Learning to do some calculations</li>
-            <li class="fragment">Elasticities and economic behavior</li>
+            <li class="fragment">Finishing the supply/demand model (simultaneous shifts)</li>
+            <li class="fragment">Elasticity of demand and economic behavior</li>
+            <li class="fragment">Firms&rsquo; costs and the sunk-cost fallacy</li>
           </ul>
         </div>
       </section>
@@ -452,137 +455,6 @@
           <p style="color: #94a3b8; margin-top: 20px;">Press <kbd style="background: #334155; color: #cbd5e1; border: 1px solid #475569; padding: 2px 6px; border-radius: 4px;">↓</kbd> to view algebra examples</p>
         </section>
 
-        <!-- Slide 4.2: Algebra example 1 -->
-        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
-          <p class="eyebrow">Algebra in supply &amp; demand · 1</p>
-          <h2>Market Demand and Supply Functions</h2>
-          <div class="content-card">
-            <p>We can represent demand and supply using demand functions and supply functions, respectively.</p>
-            
-            <div class="def-card" style="margin-top: 15px;">
-              <div class="def-title">Example Scenario</div>
-              Let the market demand and supply functions be:
-              \[ Q_D = 12 - P_D \]
-              \[ Q_S = 9 + 0.5P_S \]
-            </div>
-            
-            <div class="example-card fragment" style="margin-top: 15px;">
-              <div class="ex-title">Question 1</div>
-              <strong>Find the market equilibrium quantity and price.</strong>
-            </div>
-          </div>
-        </section>
-
-<!-- Slide 4.2b: Solution - Question 1 -->
-        <section data-background-gradient="linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)">
-          <p class="eyebrow" style="color: #059669;">Algebra · Solution 1</p>
-          <h2>Solution: Market Equilibrium</h2>
-          <div class="content-card" style="font-size: 0.92em;">
-            <div class="def-card">
-              <div class="def-title">Step 1: Set Q<sub>D</sub> = Q<sub>S</sub></div>
-              \[ 12 - P = 9 + 0.5P \]
-            </div>
-            <div class="def-card fragment">
-              <div class="def-title">Step 2: Solve for P*</div>
-              \[ 12 - 9 = 0.5P + P \implies 3 = 1.5P \]
-              \[ P^* = 2 \]
-            </div>
-            <div class="def-card fragment">
-              <div class="def-title">Step 3: Find Q*</div>
-              \[ Q^* = 12 - 2 = 10 \quad\text{or}\quad Q^* = 9 + 0.5(2) = 10 \]
-              <p style="font-weight: 700; color: #059669; text-align: center; margin-top: 10px;">
-                Equilibrium: <strong>P* = $2, Q* = 10</strong>
-              </p>
-            </div>
-          </div>
-        </section>
-        <!-- Slide 4.2c: Solution 1 - step-by-step animated graph -->
-        <section data-background-gradient="linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)">
-          <p class="eyebrow" style="color: #059669;">Algebra &middot; Solution 1</p>
-          <h2>Market Equilibrium, Step by Step</h2>
-          <p style="font-size: 0.55em; color: #64748b; margin: 0 0 4px;">Press <kbd style="background: #e2e8f0; border: 1px solid #cbd5e1; padding: 1px 6px; border-radius: 4px;">&rarr;</kbd> to add each element of the graph</p>
-          <svg class="anim-graph" viewBox="0 0 760 520" style="width: 92%; max-height: 480px; margin: 0 auto; display: block; background: white; border: 1px solid #e2e8f0; border-radius: 10px;" role="img" aria-label="Animated build-up of the first worked equilibrium: demand Q=12-P, then supply Q=9+0.5P rising from Q=9, and their crossing at Q*=10 and P*=$2 - the same answer the algebra gave">
-            <!-- axes + demand (always visible) -->
-            <g>
-              <line x1="70" y1="460" x2="705" y2="460" stroke="#475569" stroke-width="2.5"/>
-              <polygon points="705,455 705,465 716,460" fill="#475569"/>
-              <line x1="70" y1="460" x2="70" y2="52" stroke="#475569" stroke-width="2.5"/>
-              <polygon points="65,52 75,52 70,41" fill="#475569"/>
-              <text x="723" y="466" font-size="17" fill="#1e293b" font-style="italic">Q</text>
-              <text x="44" y="34" font-size="17" fill="#1e293b" font-style="italic">P ($)</text>
-              <line x1="70" y1="60" x2="642" y2="460" stroke="#1e293b" stroke-width="3.5"/>
-              <text x="62" y="66" font-size="15" fill="#64748b" text-anchor="end">$12</text>
-              <text x="642" y="484" font-size="15" fill="#64748b" text-anchor="middle">12</text>
-              <text x="650" y="452" font-size="17" fill="#1e293b" font-style="italic">D</text>
-              <text x="300" y="150" font-size="16" fill="#475569">Q<tspan dy="4" font-size="12">D</tspan><tspan dy="-4"> = 12 &minus; P</tspan></text>
-            </g>
-            <!-- fragment 1: supply -->
-            <g class="fragment" data-fragment-index="1">
-              <line class="build-line" x1="499" y1="460" x2="690" y2="193" stroke="#0f766e" stroke-width="3.5"/>
-              <text x="698" y="190" font-size="17" fill="#0f766e" font-style="italic">S</text>
-              <text x="499" y="484" font-size="15" fill="#64748b" text-anchor="middle">9</text>
-              <text x="632" y="262" font-size="16" fill="#0f766e" text-anchor="end">Q<tspan dy="4" font-size="12">S</tspan><tspan dy="-4"> = 9 + 0.5P</tspan></text>
-            </g>
-            <!-- fragment 2: equilibrium -->
-            <g class="fragment" data-fragment-index="2">
-              <line x1="70" y1="393" x2="547" y2="393" stroke="#64748b" stroke-width="1.5" stroke-dasharray="5 4"/>
-              <line x1="547" y1="393" x2="547" y2="460" stroke="#64748b" stroke-width="1.5" stroke-dasharray="5 4"/>
-              <circle cx="547" cy="393" r="7" fill="#1e293b"/>
-              <text x="62" y="399" font-size="17" font-weight="700" fill="#1e293b" text-anchor="end">P* = $2</text>
-              <text x="547" y="484" font-size="17" font-weight="700" fill="#1e293b" text-anchor="middle">Q* = 10</text>
-            </g>
-            <!-- fragment 3: tie back to the algebra -->
-            <g class="fragment" data-fragment-index="3">
-              <text x="380" y="90" font-size="17" font-weight="700" fill="#059669" text-anchor="middle">The crossing point IS the algebra:</text>
-              <text x="380" y="114" font-size="16" fill="#059669" text-anchor="middle">12 &minus; P = 9 + 0.5P &nbsp;&rArr;&nbsp; P* = $2, Q* = 10</text>
-            </g>
-          </svg>
-        </section>
-        <!-- Slide 4.3: Algebra example 2 -->
-        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
-          <p class="eyebrow">Algebra in supply &amp; demand · 2</p>
-          <h2>Predicting Shifts in Equilibrium</h2>
-          <div class="content-card">
-            <div class="def-card">
-              <div class="def-title">Recall Setup</div>
-              Initial system:
-              \[ Q_D = 12 - P_D \quad \text{and} \quad Q_S = 9 + 0.5P_S \]
-            </div>
-            
-            <div class="example-card fragment" style="margin-top: 15px;">
-              <div class="ex-title">Question 2</div>
-              Suppose demand increased to:
-              \[ Q_D = 16 - P_D \]
-              but supply remained the same. <br><br>
-              Without doing any calculations, the new market equilibrium quantity <strong>[increased / decreased]</strong> and the new market equilibrium price <strong>[increased / decreased]</strong> compared to those in question 1.
-            </div>
-          </div>
-        </section>
-
-<!-- Slide 4.3b: Solution - Question 2 -->
-        <section data-background-gradient="linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)">
-          <p class="eyebrow" style="color: #059669;">Algebra · Solution 2</p>
-          <h2>Solution: Predicting the Shift</h2>
-          <div class="content-card" style="font-size: 0.92em;">
-            <div class="def-card">
-              <div class="def-title">Without Calculating</div>
-              <ul>
-                <li>Demand <strong>increased</strong> (curve shifts right/out)</li>
-                <li>Supply stays the same</li>
-              </ul>
-            </div>
-            <div class="def-card fragment">
-              <div class="def-title">Prediction</div>
-              <ul>
-                <li>Equilibrium <strong>quantity increased</strong> (&uarr;)</li>
-                <li>Equilibrium <strong>price increased</strong> (&uarr;)</li>
-              </ul>
-              <p style="font-size: 0.85em; color: #64748b; margin-top: 8px;">
-                Both rise because the demand curve shifts right along a fixed supply curve.
-              </p>
-            </div>
-          </div>
-        </section>
         <!-- Slide 4.4: Shocks vs Movements -->
         <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
           <p class="eyebrow">Algebra in supply &amp; demand</p>
@@ -934,7 +806,7 @@
                   <td style="padding: 10px 12px; text-align: center; font-weight: 600; color: #b91c1c;">Decreases (&darr;)</td>
                   <td style="padding: 10px 12px; text-align: center; font-weight: 600; color: #64748b;">Ambiguous (&uarr;&darr;=)</td>
                 </tr>
-                <tr class="fragment" style="border-bottom: 1px solid #e2e8f0;">
+                <tr id="ambig-row" class="fragment" style="border-bottom: 1px solid #e2e8f0;">
                   <td style="padding: 10px 12px; text-align: left; font-weight: 500;">Shifts Out (&uarr;)</td>
                   <td style="padding: 10px 12px; text-align: left; font-weight: 500;">Shifts In (&darr;)</td>
                   <td style="padding: 10px 12px; text-align: center; font-weight: 600; color: #0f766e;">Increases (&uarr;)</td>
@@ -948,10 +820,116 @@
                 </tr>
               </tbody>
             </table>
-            <p class="fragment" style="font-style: italic; color: #64748b; text-align: center; margin-top: 15px; font-size: 0.9em;">
-              Exercise: Draw each of these cases out graphically to verify!
+            <p class="fragment" data-highlight-row="ambig-row" style="text-align: center; margin-top: 15px; font-size: 0.95em; font-weight: 700; color: #16a34a;">
+              When demand shifts out but supply shifts in, price clearly rises &mdash; but the change in quantity is <strong>ambiguous</strong>. Let&rsquo;s visualize this &rarr;
             </p>
           </div>
+        </section>
+
+        <!-- Slide 5.3b: Ambiguous Q - demand shift dominates -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Simultaneous Shifts · Ambiguous Quantity (1 of 2)</p>
+          <h2>Demand Out + Supply In: When Demand Dominates</h2>
+          <p style="font-size: 0.55em; color: #64748b; margin: 0 0 2px;">Demand shifts out and supply shifts in. Press <kbd style="background: #e2e8f0; border: 1px solid #cbd5e1; padding: 1px 6px; border-radius: 4px;">&rarr;</kbd> &mdash; here the demand shift is the larger one.</p>
+          <svg class="anim-graph" viewBox="0 0 620 410" style="width: 62%; max-height: 400px; margin: 0 auto; display: block; background: white; border: 1px solid #e2e8f0; border-radius: 10px;" role="img" aria-label="Supply and demand diagram. Demand shifts right from D0 to D1 (a large shift) while supply shifts left from S0 to S1 (a small shift). The equilibrium moves from E0 up and to the right to E1: the price rises and the quantity also rises because the demand shift dominates.">
+            <line x1="70" y1="360" x2="585" y2="360" stroke="#475569" stroke-width="2.5"/>
+            <polygon points="585,355 585,365 596,360" fill="#475569"/>
+            <line x1="70" y1="360" x2="70" y2="45" stroke="#475569" stroke-width="2.5"/>
+            <polygon points="65,45 75,45 70,34" fill="#475569"/>
+            <text x="600" y="366" font-size="15" fill="#1e293b" font-style="italic">Q</text>
+            <text x="52" y="42" font-size="15" fill="#1e293b" font-style="italic">P</text>
+            <!-- step 1: initial equilibrium -->
+            <g class="fragment">
+              <line x1="110" y1="70" x2="430" y2="340" stroke="#cbd5e1" stroke-width="3"/>
+              <line x1="110" y1="340" x2="430" y2="70" stroke="#cbd5e1" stroke-width="3"/>
+              <text x="436" y="342" font-size="14" fill="#94a3b8" font-style="italic" font-weight="700">D<tspan dy="3" font-size="10">0</tspan></text>
+              <text x="436" y="74" font-size="14" fill="#94a3b8" font-style="italic" font-weight="700">S<tspan dy="3" font-size="10">0</tspan></text>
+              <line x1="70" y1="205" x2="270" y2="205" stroke="#94a3b8" stroke-width="1.3" stroke-dasharray="5 4"/>
+              <line x1="270" y1="360" x2="270" y2="205" stroke="#94a3b8" stroke-width="1.3" stroke-dasharray="5 4"/>
+              <circle cx="270" cy="205" r="6" fill="#64748b"/>
+              <text x="284" y="200" font-size="13" font-weight="700" fill="#64748b">E<tspan dy="3" font-size="10">0</tspan></text>
+              <text x="60" y="210" font-size="13" font-weight="700" fill="#64748b" text-anchor="end">P<tspan dy="3" font-size="10">0</tspan></text>
+              <text x="270" y="379" font-size="13" font-weight="700" fill="#64748b" text-anchor="middle">Q<tspan dy="3" font-size="10">0</tspan></text>
+            </g>
+            <!-- step 2: the shifts -->
+            <g class="fragment">
+              <line class="build-line" x1="250" y1="70" x2="570" y2="340" stroke="#1e293b" stroke-width="3.5"/>
+              <line class="build-line" x1="70" y1="340" x2="390" y2="70" stroke="#0f766e" stroke-width="3.5"/>
+              <text x="574" y="342" font-size="14" fill="#1e293b" font-style="italic" font-weight="700">D<tspan dy="3" font-size="10">1</tspan></text>
+              <text x="352" y="60" font-size="14" fill="#0f766e" font-style="italic" font-weight="700">S<tspan dy="3" font-size="10">1</tspan></text>
+              <line x1="360" y1="300" x2="420" y2="300" stroke="#1e293b" stroke-width="2.5" marker-end="url(#amb1r)"/>
+              <text x="390" y="292" font-size="12.5" font-weight="700" fill="#1e293b" text-anchor="middle">demand out (big)</text>
+              <line x1="175" y1="120" x2="120" y2="120" stroke="#0f766e" stroke-width="2.5" marker-end="url(#amb1l)"/>
+              <text x="150" y="112" font-size="12.5" font-weight="700" fill="#0f766e" text-anchor="middle">supply in (small)</text>
+            </g>
+            <!-- step 3: new equilibrium -->
+            <g class="fragment">
+              <line x1="70" y1="129" x2="320" y2="129" stroke="#7c3aed" stroke-width="1.3" stroke-dasharray="5 4"/>
+              <line x1="320" y1="360" x2="320" y2="129" stroke="#7c3aed" stroke-width="1.3" stroke-dasharray="5 4"/>
+              <circle cx="320" cy="129" r="6.5" fill="#7c3aed"/>
+              <text x="332" y="124" font-size="13" font-weight="700" fill="#7c3aed">E<tspan dy="3" font-size="10">1</tspan></text>
+              <text x="60" y="134" font-size="13" font-weight="700" fill="#7c3aed" text-anchor="end">P<tspan dy="3" font-size="10">1</tspan></text>
+              <text x="320" y="379" font-size="13" font-weight="700" fill="#7c3aed" text-anchor="middle">Q<tspan dy="3" font-size="10">1</tspan></text>
+              <text x="330" y="402" font-size="15" font-weight="700" fill="#0f766e" text-anchor="middle">Price &uarr; and Quantity &uarr; &mdash; the demand shift dominates.</text>
+            </g>
+            <defs>
+              <marker id="amb1r" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M 0 0 L 8 4 L 0 8 z" fill="#1e293b"/></marker>
+              <marker id="amb1l" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M 0 0 L 8 4 L 0 8 z" fill="#0f766e"/></marker>
+            </defs>
+          </svg>
+        </section>
+
+        <!-- Slide 5.3c: Ambiguous Q - supply shift dominates -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Simultaneous Shifts · Ambiguous Quantity (2 of 2)</p>
+          <h2>Demand Out + Supply In: When Supply Dominates</h2>
+          <p style="font-size: 0.55em; color: #64748b; margin: 0 0 2px;">Same shocks as before &mdash; but now the <strong>supply</strong> shift is the larger one, and the quantity flips.</p>
+          <svg class="anim-graph" viewBox="0 0 620 410" style="width: 62%; max-height: 400px; margin: 0 auto; display: block; background: white; border: 1px solid #e2e8f0; border-radius: 10px;" role="img" aria-label="Supply and demand diagram. Demand shifts right from D0 to D1 (a small shift) while supply shifts left from S0 to S1 (a large shift). The equilibrium moves from E0 up and to the left to E1: the price rises but the quantity falls because the supply shift dominates.">
+            <line x1="70" y1="360" x2="585" y2="360" stroke="#475569" stroke-width="2.5"/>
+            <polygon points="585,355 585,365 596,360" fill="#475569"/>
+            <line x1="70" y1="360" x2="70" y2="45" stroke="#475569" stroke-width="2.5"/>
+            <polygon points="65,45 75,45 70,34" fill="#475569"/>
+            <text x="600" y="366" font-size="15" fill="#1e293b" font-style="italic">Q</text>
+            <text x="52" y="42" font-size="15" fill="#1e293b" font-style="italic">P</text>
+            <!-- step 1: initial equilibrium -->
+            <g class="fragment">
+              <line x1="110" y1="70" x2="430" y2="340" stroke="#cbd5e1" stroke-width="3"/>
+              <line x1="150" y1="340" x2="470" y2="70" stroke="#cbd5e1" stroke-width="3"/>
+              <text x="436" y="342" font-size="14" fill="#94a3b8" font-style="italic" font-weight="700">D<tspan dy="3" font-size="10">0</tspan></text>
+              <text x="476" y="74" font-size="14" fill="#94a3b8" font-style="italic" font-weight="700">S<tspan dy="3" font-size="10">0</tspan></text>
+              <line x1="70" y1="222" x2="290" y2="222" stroke="#94a3b8" stroke-width="1.3" stroke-dasharray="5 4"/>
+              <line x1="290" y1="360" x2="290" y2="222" stroke="#94a3b8" stroke-width="1.3" stroke-dasharray="5 4"/>
+              <circle cx="290" cy="222" r="6" fill="#64748b"/>
+              <text x="304" y="217" font-size="13" font-weight="700" fill="#64748b">E<tspan dy="3" font-size="10">0</tspan></text>
+              <text x="60" y="227" font-size="13" font-weight="700" fill="#64748b" text-anchor="end">P<tspan dy="3" font-size="10">0</tspan></text>
+              <text x="290" y="379" font-size="13" font-weight="700" fill="#64748b" text-anchor="middle">Q<tspan dy="3" font-size="10">0</tspan></text>
+            </g>
+            <!-- step 2: the shifts -->
+            <g class="fragment">
+              <line class="build-line" x1="150" y1="70" x2="470" y2="340" stroke="#1e293b" stroke-width="3.5"/>
+              <line class="build-line" x1="30" y1="340" x2="350" y2="70" stroke="#0f766e" stroke-width="3.5"/>
+              <text x="474" y="342" font-size="14" fill="#1e293b" font-style="italic" font-weight="700">D<tspan dy="3" font-size="10">1</tspan></text>
+              <text x="312" y="60" font-size="14" fill="#0f766e" font-style="italic" font-weight="700">S<tspan dy="3" font-size="10">1</tspan></text>
+              <line x1="400" y1="300" x2="440" y2="300" stroke="#1e293b" stroke-width="2.5" marker-end="url(#amb2r)"/>
+              <text x="418" y="292" font-size="12.5" font-weight="700" fill="#1e293b" text-anchor="middle">demand out (small)</text>
+              <line x1="230" y1="110" x2="150" y2="110" stroke="#0f766e" stroke-width="2.5" marker-end="url(#amb2l)"/>
+              <text x="192" y="102" font-size="12.5" font-weight="700" fill="#0f766e" text-anchor="middle">supply in (big)</text>
+            </g>
+            <!-- step 3: new equilibrium -->
+            <g class="fragment">
+              <line x1="70" y1="154" x2="250" y2="154" stroke="#7c3aed" stroke-width="1.3" stroke-dasharray="5 4"/>
+              <line x1="250" y1="360" x2="250" y2="154" stroke="#7c3aed" stroke-width="1.3" stroke-dasharray="5 4"/>
+              <circle cx="250" cy="154" r="6.5" fill="#7c3aed"/>
+              <text x="228" y="149" font-size="13" font-weight="700" fill="#7c3aed" text-anchor="end">E<tspan dy="3" font-size="10">1</tspan></text>
+              <text x="60" y="159" font-size="13" font-weight="700" fill="#7c3aed" text-anchor="end">P<tspan dy="3" font-size="10">1</tspan></text>
+              <text x="250" y="379" font-size="13" font-weight="700" fill="#7c3aed" text-anchor="middle">Q<tspan dy="3" font-size="10">1</tspan></text>
+              <text x="330" y="402" font-size="15" font-weight="700" fill="#b45309" text-anchor="middle">Price &uarr; but Quantity &darr; &mdash; the supply shift dominates.</text>
+            </g>
+            <defs>
+              <marker id="amb2r" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M 0 0 L 8 4 L 0 8 z" fill="#1e293b"/></marker>
+              <marker id="amb2l" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M 0 0 L 8 4 L 0 8 z" fill="#0f766e"/></marker>
+            </defs>
+          </svg>
         </section>
 
         <!-- Slide 5.4: Transition to Elasticity -->
@@ -1635,276 +1613,153 @@
       </section>
 
 
-      <!-- SECTION 8: Elasticity & Marginal Revenue (Vertical Stack) -->
+      <!-- SECTION 5: Decision-Making & Sunk Costs (Vertical Stack) -->
       <section>
 
-        <!-- Slide 9.1: Divider -->
-        <section data-background-gradient="linear-gradient(135deg, #0f766e 0%, #115e59 100%)">
-          <p class="eyebrow" style="color: #ccfbf1;">Firms and Revenues</p>
-          <h1 style="color: white; font-size: 2.8em;">Elasticity &amp;<br>Marginal Revenue</h1>
-          <p style="color: #ccfbf1; margin-top: 20px;">Press <kbd style="background: #115e59; color: white; border: 1px solid #134e4a; padding: 2px 6px; border-radius: 4px;">↓</kbd> to link elasticity to revenue</p>
+        <!-- Slide 6.1: Divider -->
+        <section data-background-gradient="linear-gradient(135deg, #0f172a 0%, #1e293b 100%)">
+          <p class="eyebrow" style="color: #2dd4bf;">Part 4</p>
+          <h1 style="color: white; font-size: 2.8em;">Sunk Costs &amp; Decision-Making</h1>
+          <p style="color: #94a3b8; margin-top: 20px;">Press <kbd style="background: #334155; color: #cbd5e1; border: 1px solid #475569; padding: 2px 6px; border-radius: 4px;">↓</kbd> to view case studies</p>
         </section>
 
-        <!-- Slide 9.2: Linking to MR -->
+        <!-- Slide 6.2: Marginal Thinking -->
         <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
-          <p class="eyebrow">Elasticity &amp; Marginal Revenue</p>
-          <h2>Firms and Customer Sensitivity</h2>
-          <div class="content-card">
-            <p style="font-weight: 600; color: #0f766e;">The intellectual exercise is:</p>
-            <p style="font-size: 1.1em; line-height: 1.45; margin-bottom: 20px;">
-              Imagine we own a firm, and we face a group of potential customers &mdash; each with the same demand for our product. <br>
-              <strong>How can I relate their behavior (elasticity) to the incremental revenue we will earn as a firm?</strong>
+          <p class="eyebrow">Decision-Making</p>
+          <h2>Thinking on the Margin</h2>
+          <div class="content-card" style="text-align: center; padding: 40px;">
+            <p style="font-size: 1.1em; line-height: 1.5; margin-bottom: 25px;">What costs matter for a firm&rsquo;s decision-making process?</p>
+            <div class="def-card" style="display: inline-block; text-align: left; border-left-color: #3b82f6; background: rgba(59, 130, 246, 0.04);">
+              <div class="def-title" style="color: #3b82f6;">The Marginal Rule</div>
+              Firms maximize profits by setting quantity according to the rule:
+              <p style="font-weight: 700; color: #1e293b; text-align: center; font-size: 1.15em; margin-top: 8px;">
+                Marginal Benefit equals Marginal Cost
+              </p>
+            </div>
+            <p style="font-size: 0.95em; color: #0f766e; font-weight: 600; margin-top: 25px;">
+              Consequently, any cost incurred in the past does not matter!
             </p>
-            
-            <ul style="font-size: 0.85em; color: #515763;">
-              <li class="fragment">Why should we, as a firm, care about this?</li>
-              <li class="fragment">How would we even know the answer to this question?</li>
-            </ul>
           </div>
         </section>
 
-        <!-- Slide 9.3: Illustration (animated) -->
+        <!-- Slide 6.3: Sunk Costs Definition -->
         <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
-          <p class="eyebrow">Elasticity &amp; Marginal Revenue</p>
-          <h2>Visualizing Pricing and Revenue</h2>
-          <p style="font-size: 0.55em; color: #64748b; margin: 0 0 4px;">Increasing output means lowering the price. Press <kbd style="background: #e2e8f0; border: 1px solid #cbd5e1; padding: 1px 6px; border-radius: 4px;">&rarr;</kbd> to weigh the revenue <span style="color:#b91c1c; font-weight:700;">lost</span> against the revenue <span style="color:#166534; font-weight:700;">gained</span>.</p>
-          <svg class="anim-graph" viewBox="0 0 760 460" style="width: 82%; max-height: 400px; margin: 0 auto; display: block; background: white; border: 1px solid #e2e8f0; border-radius: 10px;" role="img" aria-label="A downward-sloping demand curve. Raising output from Q1 to Q2 lowers the price from P1 to P2. The revenue lost on the original units (area A, above P2 and left of Q1) is weighed against the revenue gained from the new units (area C, below P2 between Q1 and Q2); area B below P2 and left of Q1 is the unchanged base.">
-            <!-- base: axes -->
-            <line x1="90" y1="400" x2="700" y2="400" stroke="#475569" stroke-width="2.5"/>
-            <polygon points="700,395 700,405 711,400" fill="#475569"/>
-            <line x1="90" y1="400" x2="90" y2="50" stroke="#475569" stroke-width="2.5"/>
-            <polygon points="85,50 95,50 90,39" fill="#475569"/>
-            <text x="66" y="44" font-size="16" font-weight="700" fill="#1e293b">Price</text>
-            <text x="700" y="422" font-size="16" font-weight="700" fill="#1e293b" text-anchor="end">Quantity</text>
-
-            <!-- step 1: demand -->
-            <g class="fragment">
-              <line class="build-line" x1="170" y1="19" x2="655" y2="392" stroke="#2563eb" stroke-width="4"/>
-              <text x="662" y="388" font-size="16" font-weight="700" fill="#2563eb" font-style="italic">Demand</text>
-            </g>
-
-            <!-- step 2: start at point x (Q1, P1) -->
-            <g class="fragment">
-              <line x1="90" y1="150" x2="340" y2="150" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="5 4"/>
-              <line x1="340" y1="400" x2="340" y2="150" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="5 4"/>
-              <circle cx="340" cy="150" r="6" fill="#1e293b"/>
-              <text x="328" y="140" font-size="17" font-style="italic" font-weight="700" fill="#1e293b">x</text>
-              <text x="80" y="155" font-size="15" font-weight="700" fill="#1e293b" text-anchor="end">P<tspan dy="3" font-size="11">1</tspan></text>
-              <text x="340" y="420" font-size="15" font-weight="700" fill="#1e293b" text-anchor="middle">Q<tspan dy="3" font-size="11">1</tspan></text>
-            </g>
-
-            <!-- step 3: increase output -> point y (Q2, P2) -->
-            <g class="fragment">
-              <path d="M 360 172 Q 415 214 452 238" fill="none" stroke="#7c3aed" stroke-width="2.5" marker-end="url(#mrarrow)"/>
-              <text x="360" y="205" font-size="13" font-weight="700" fill="#7c3aed">increase output</text>
-              <line x1="90" y1="250" x2="470" y2="250" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="5 4"/>
-              <line x1="470" y1="400" x2="470" y2="250" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="5 4"/>
-              <circle cx="470" cy="250" r="6" fill="#1e293b"/>
-              <text x="478" y="244" font-size="17" font-style="italic" font-weight="700" fill="#1e293b">y</text>
-              <text x="80" y="255" font-size="15" font-weight="700" fill="#1e293b" text-anchor="end">P<tspan dy="3" font-size="11">2</tspan></text>
-              <text x="470" y="420" font-size="15" font-weight="700" fill="#1e293b" text-anchor="middle">Q<tspan dy="3" font-size="11">2</tspan></text>
-            </g>
-
-            <!-- step 4: revenue lost = area A -->
-            <g class="fragment">
-              <rect x="90" y="150" width="250" height="100" fill="#dc2626" fill-opacity="0.20" stroke="#dc2626" stroke-width="1.2"/>
-              <text x="212" y="207" font-size="20" font-style="italic" font-weight="800" fill="#b91c1c" text-anchor="middle">A</text>
-              <text x="215" y="74" font-size="14" font-weight="700" fill="#b91c1c" text-anchor="middle">Revenue lost from</text>
-              <text x="215" y="92" font-size="14" font-weight="700" fill="#b91c1c" text-anchor="middle">increasing output</text>
-              <line x1="240" y1="100" x2="300" y2="150" stroke="#b91c1c" stroke-width="1.2"/>
-            </g>
-
-            <!-- step 5: revenue gained = area C -->
-            <g class="fragment">
-              <rect x="340" y="250" width="130" height="150" fill="#16a34a" fill-opacity="0.20" stroke="#16a34a" stroke-width="1.2"/>
-              <text x="405" y="332" font-size="20" font-style="italic" font-weight="800" fill="#166534" text-anchor="middle">C</text>
-              <text x="590" y="150" font-size="14" font-weight="700" fill="#166534" text-anchor="middle">Revenue gained from</text>
-              <text x="590" y="168" font-size="14" font-weight="700" fill="#166534" text-anchor="middle">increasing output</text>
-              <line x1="548" y1="176" x2="452" y2="300" stroke="#166534" stroke-width="1.2"/>
-            </g>
-
-            <!-- step 6: unchanged base + net takeaway -->
-            <g class="fragment">
-              <rect x="90" y="250" width="250" height="150" fill="#f1f5f9" fill-opacity="0.7" stroke="#cbd5e1" stroke-width="1.2"/>
-              <text x="212" y="332" font-size="20" font-style="italic" font-weight="800" fill="#475569" text-anchor="middle">B</text>
-              <text x="385" y="450" font-size="16" font-weight="700" fill="#0f766e" text-anchor="middle">Net change in revenue = C &minus; A &nbsp;(the base B is unchanged)</text>
-            </g>
-
-            <defs>
-              <marker id="mrarrow" markerWidth="9" markerHeight="9" refX="6.5" refY="4.5" orient="auto"><path d="M 0 0 L 9 4.5 L 0 9 z" fill="#7c3aed"/></marker>
-            </defs>
-          </svg>
-        </section>
-
-        <!-- Slide 9.4: Midpoint Rule and MR -->
-        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
-          <p class="eyebrow">Elasticity &amp; Marginal Revenue</p>
-          <h2>The Unit-Elastic Midpoint Rule</h2>
-          <div style="display: flex; align-items: center; justify-content: center; gap: 20px; max-width: 1090px; margin: 0 auto;">
-            <div style="flex: 1; text-align: left;">
-              <div class="content-card" style="margin: 0; padding: 20px 25px;">
-                <div class="def-card" style="margin: 0 0 15px;">
-                  <div class="def-title">Key Fact</div>
-                  For a firm facing a given demand function, the firm&rsquo;s <strong>marginal revenue is zero</strong> when they set a price where the customer&rsquo;s demand is <strong>unit-elastic</strong> (\( |\varepsilon| = 1 \)).
-                </div>
-                <p style="font-size: 0.85em; font-style: italic; color: #64748b;">
-                  This represents the peak of total revenue (midpoint for linear demand). This is our first foray into analyzing market behavior!
-                </p>
-              </div>
-            </div>
-            <div style="flex: 1.2;">
-              <div class="slide-img-container" style="margin: 0; padding: 6px;">
-                <img src="images/c2_page_30_img_3.png" alt="Marginal Revenue Zero Graph" style="max-height: 320px;">
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- Slide 9.5: What is MR -->
-        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
-          <p class="eyebrow">Elasticity &amp; Marginal Revenue</p>
-          <h2>What is Marginal Revenue?</h2>
+          <p class="eyebrow">Decision-Making</p>
+          <h2>Sunk Costs</h2>
           <div class="content-card">
             <div class="def-card">
               <div class="def-title">Definition</div>
-              <strong>Marginal revenue (MR)</strong> is the incremental revenue made by firms when they produce one additional unit of product.
+              <strong>Sunk costs</strong> are costs that occurred in the past and are completely irrecoverable.
             </div>
-            
-            <p style="margin-top: 15px;">Mathematically, <strong>marginal revenue is the derivative of the total revenue (TR) function</strong> with respect to quantity:</p>
-            <div style="text-align: center;">
-              \[ MR = \frac{d(TR)}{dQ} \]
+            <p style="margin-top: 15px;">Sunk costs must be ignored from the point of view of forward-looking decision-making.</p>
+            <div class="example-card fragment" style="margin-top: 15px;">
+              <div class="ex-title">Sunk Cost Fallacy</div>
+              The cognitive bias where individuals/firms justify making choices based on past resource investments rather than marginal benefits/costs.
             </div>
-            
-            <p class="fragment" style="color: #0f766e; font-weight: 600; text-align: center; margin-top: 20px;">
-              This is the concept of marginal benefits for firms!
-            </p>
-            <p class="fragment" style="color: #64748b; font-style: italic; text-align: center; font-size: 0.85em; margin-top: 5px;">
-              (A preview of next class...)
+          </div>
+        </section>
+
+        <!-- Slide 6.4: Sunk Cost Example -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Decision-Making · Case Study 1</p>
+          <h2>Headphone Reseller: Sunk Costs</h2>
+          <div class="content-card">
+            <div class="example-card">
+              <div class="ex-title">Case Study 1</div>
+              Rex is a licensed headphone reseller and owns a shop. He bought 1,000 units of wireless headphones for <strong>$500/unit</strong>. <br><br>
+              Every pair of headphones purchased requires initial maintenance costing <strong>$160/unit per year</strong>. This is an unavoidable cost. <br><br>
+              Right now, he receives an offer from another reseller, who offers to buy all 1,000 units for <strong>$450/unit</strong>.
+            </div>
+            <p class="fragment" style="font-weight: 600; text-align: center; color: #b91c1c; margin-top: 20px;">
+              Should he sell all of his stock or not? Explain why.
             </p>
           </div>
         </section>
 
-        <!-- Slide 9.6: GROUP WORK - Elasticity & Revenue -->
+        <!-- Slide 6.5: Marginal Cost Example -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Decision-Making · Case Study 2</p>
+          <h2>Headphone Reseller: Marginal Cost</h2>
+          <div class="content-card">
+            <div class="example-card">
+              <div class="ex-title">Case Study 2</div>
+              Rex bought 1,000 units of wireless headphones for <strong>$500/unit</strong>. To run the shop, he hires 18 clerks at <strong>$55,000/year</strong>; pays <strong>$30,000</strong> in utilities per year; pays himself <strong>$270,000/year</strong>. <br><br>
+              Every pair of headphones purchased requires initial maintenance costing <strong>$160/unit per year</strong> (unavoidable). <br><br>
+              He sold all 1,000 headphones. He has got a buyer for another headphone (of the same model).
+            </div>
+            <p class="fragment" style="font-weight: 600; text-align: center; color: #0f766e; margin-top: 20px;">
+              What is his marginal cost of selling 1 additional unit?
+            </p>
+          </div>
+        </section>
+
+        <!-- Slide 6.6: Transition to Market Analysis -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Market Structure · Introduction</p>
+          <h2>Putting It All Together</h2>
+          <div class="content-card">
+            <p>We have now separate models for:</p>
+            <ul>
+              <li class="fragment">Consumer Behavior (Demand, Elasticity)</li>
+              <li class="fragment">Firm's Marginal Revenue</li>
+              <li class="fragment">Firm's Cost Structure</li>
+            </ul>
+            <p class="fragment" style="margin-top: 15px; font-weight: 600; color: #0f766e;">We are ready to combine these to examine supply and demand in a market context.</p>
+            <div class="def-card fragment" style="margin-top: 15px; text-align: center;">
+              The simplest market structure to analyze is where there is no competition: <strong>Monopoly</strong>.
+            </div>
+          </div>
+        </section>
+
+        <!-- Slide 6.7: GROUP WORK - Sunk Costs & Marginal Thinking -->
         <section data-background-gradient="linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%)">
-          <p class="eyebrow" style="color: #b45309;">Group Work · Elasticity &amp; Marginal Revenue</p>
-          <h2>&#127922; Group Work: Maximizing Revenue</h2>
-          <div class="content-card" style="font-size: 0.9em; background: rgba(255, 255, 255, 0.7);">
+          <p class="eyebrow" style="color: #b45309;">Group Work · Decision-Making</p>
+          <h2>&#127922; Group Work: Thinking on the Margin</h2>
+          <div class="content-card" style="font-size: 0.88em; background: rgba(255, 255, 255, 0.7);">
             <div class="example-card" style="border-left-color: #b45309; background: rgba(180, 83, 9, 0.05); margin: 8px 0;">
               <div class="ex-title" style="color: #b45309;">Question 1</div>
-              A firm faces the demand function:
-              \[ Q = 12 - 2P \]
-              Using the <strong>unit-elastic midpoint rule</strong>, at what price is the firm&rsquo;s total revenue maximized? What is total revenue at that price?
+              Rex&rsquo;s shop paid a <strong>non-refundable $2,000</strong> booth fee for a weekend trade fair. Attending would cost an <strong>additional $600</strong> in staff and transport, and he expects <strong>$500</strong> of extra revenue from attending. <br>
+              <strong>Should he attend the fair? Justify using marginal reasoning.</strong>
             </div>
             <div style="margin: 4px 0 12px;">
-              <button class="group-roll-btn" onclick="rollGroup('l2gw5q1')">&#127922; Pick a group for Q1</button>
-              <span class="group-roll-result" id="l2gw5q1">&mdash;</span>
+              <button class="group-roll-btn" onclick="rollGroup('l3gw4q1')">&#127922; Pick a group for Q1</button>
+              <span class="group-roll-result" id="l3gw4q1">&mdash;</span>
             </div>
             <div class="example-card" style="border-left-color: #b45309; background: rgba(180, 83, 9, 0.05); margin: 8px 0;">
               <div class="ex-title" style="color: #b45309;">Question 2</div>
-              Verify your answer: <strong>compute \( |\varepsilon| \) at that price</strong> and confirm demand is unit-elastic there.
+              Rex buys headsets at <strong>$120/unit</strong> wholesale plus <strong>$15/unit</strong> shipping, and pays <strong>$3,000/month</strong> rent for the shop. <br>
+              <strong>What is his marginal cost of selling one additional headset?</strong>
             </div>
             <div style="margin: 4px 0 0;">
-              <button class="group-roll-btn" onclick="rollGroup('l2gw5q2')">&#127922; Pick a group for Q2</button>
-              <span class="group-roll-result" id="l2gw5q2">&mdash;</span>
+              <button class="group-roll-btn" onclick="rollGroup('l3gw4q2')">&#127922; Pick a group for Q2</button>
+              <span class="group-roll-result" id="l3gw4q2">&mdash;</span>
             </div>
           </div>
         </section>
 
-        <!-- Slide 9.6b: GROUP WORK Answers - Elasticity & Revenue -->
+        <!-- Slide 6.7b: GROUP WORK Answers - Sunk Costs & Marginal Thinking -->
         <section data-background-gradient="linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)">
           <p class="eyebrow" style="color: #059669;">Group Work · Answers</p>
-          <h2>Answers: Maximizing Revenue</h2>
+          <h2>Answers: Thinking on the Margin</h2>
           <div class="content-card" style="font-size: 0.9em;">
             <div class="def-card">
-              <div class="def-title">Question 1: Midpoint Rule</div>
-              <p style="font-size: 0.92em;">Intercepts: \( P = 6 \) (vertical) and \( Q = 12 \) (horizontal). The midpoint is halfway along the curve:</p>
-              \[ P = 3, \quad Q = 12 - 2(3) = 6 \]
-              \[ TR = P \times Q = 3 \times 6 = 18 \]
-              <p style="font-weight: 700; color: #059669; text-align: center; margin-top: 8px;">Revenue is maximized at <strong>P = $3</strong>, with <strong>TR = $18</strong>.</p>
+              <div class="def-title">Question 1: Sunk Cost Decision</div>
+              <ul>
+                <li>The $2,000 booth fee is <strong>sunk</strong> &mdash; it is gone whether or not he attends, so it must be ignored.</li>
+                <li>Marginal benefit ($500) &lt; Marginal cost ($600) &rArr; <strong>do not attend</strong>.</li>
+                <li>Attending &ldquo;to get his money&rsquo;s worth&rdquo; would be the <strong>sunk cost fallacy</strong>.</li>
+              </ul>
             </div>
             <div class="def-card fragment">
-              <div class="def-title">Question 2: Verify Unit Elasticity</div>
-              \[ |\varepsilon| = \left| \frac{\Delta Q}{\Delta P} \right| \times \frac{P}{Q} = 2 \times \frac{3}{6} = 1 \; \checkmark \]
-              <p style="font-size: 0.9em; margin-top: 8px;">Unit-elastic at the midpoint &mdash; exactly where marginal revenue equals zero. Let&rsquo;s see it graphically &darr;</p>
+              <div class="def-title">Question 2: Marginal Cost</div>
+              \[ MC = \$120 + \$15 = \$135 \]
+              <p style="font-size: 0.9em; margin-top: 8px;">Rent is a <strong>fixed cost</strong> &mdash; it does not change with one more unit sold, so it is excluded from marginal cost.</p>
             </div>
           </div>
         </section>
 
-        <!-- GROUP WORK Answers: step-by-step animated graph -->
-        <section data-background-gradient="linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)">
-          <p class="eyebrow" style="color: #059669;">Group Work &middot; Answers</p>
-          <h2>Maximizing Revenue, Step by Step</h2>
-          <p style="font-size: 0.55em; color: #64748b; margin: 0 0 4px;">Press <kbd style="background: #e2e8f0; border: 1px solid #cbd5e1; padding: 1px 6px; border-radius: 4px;">&rarr;</kbd> to add each element of the graph</p>
-          <svg class="anim-graph" viewBox="0 0 760 520" style="width: 92%; max-height: 480px; margin: 0 auto; display: block; background: white; border: 1px solid #e2e8f0; border-radius: 10px;" role="img" aria-label="Animated two-panel build-up: demand Q=12-2P with the unit-elastic midpoint at (6, $3) on top, and below it the total revenue parabola peaking at TR=$18 exactly at Q=6">
-            <!-- top panel: axes + demand (always visible) -->
-            <g>
-              <line x1="70" y1="240" x2="680" y2="240" stroke="#475569" stroke-width="2.5"/>
-              <polygon points="680,235 680,245 691,240" fill="#475569"/>
-              <line x1="70" y1="240" x2="70" y2="50" stroke="#475569" stroke-width="2.5"/>
-              <polygon points="65,50 75,50 70,39" fill="#475569"/>
-              <text x="698" y="246" font-size="16" fill="#1e293b" font-style="italic">Q</text>
-              <text x="44" y="34" font-size="16" fill="#1e293b" font-style="italic">P ($)</text>
-              <line x1="70" y1="69" x2="622" y2="240" stroke="#1e293b" stroke-width="3.5"/>
-              <text x="630" y="234" font-size="16" fill="#1e293b" font-style="italic">D</text>
-            </g>
-            <!-- fragment 1: unit-elastic midpoint -->
-            <g class="fragment" data-fragment-index="1">
-              <line x1="70" y1="155" x2="346" y2="155" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="5 4"/>
-              <circle cx="346" cy="155" r="7" fill="#7c3aed"/>
-              <text x="62" y="161" font-size="15" font-weight="700" fill="#7c3aed" text-anchor="end">P = $3</text>
-              <text x="366" y="146" font-size="16" fill="#7c3aed" font-weight="700">midpoint: |&epsilon;| = 2 &times; 3&frasl;6 = 1</text>
-            </g>
-            <!-- fragment 2: TR panel with curve -->
-            <g class="fragment" data-fragment-index="2">
-              <line x1="70" y1="490" x2="680" y2="490" stroke="#475569" stroke-width="2.5"/>
-              <polygon points="680,485 680,495 691,490" fill="#475569"/>
-              <line x1="70" y1="490" x2="70" y2="280" stroke="#475569" stroke-width="2.5"/>
-              <polygon points="65,280 75,280 70,269" fill="#475569"/>
-              <text x="698" y="496" font-size="16" fill="#1e293b" font-style="italic">Q</text>
-              <text x="36" y="264" font-size="16" fill="#7c3aed" font-style="italic">TR ($)</text>
-              <path class="build-line" d="M 70.0,490.0 L 81.5,473.8 L 93.0,458.4 L 104.5,443.6 L 116.0,429.5 L 127.5,416.1 L 139.0,403.4 L 150.5,391.3 L 162.0,380.0 L 173.5,369.3 L 185.0,359.4 L 196.5,350.1 L 208.0,341.5 L 219.5,333.6 L 231.0,326.4 L 242.5,319.8 L 254.0,314.0 L 265.5,308.8 L 277.0,304.4 L 288.5,300.6 L 300.0,297.5 L 311.5,295.1 L 323.0,293.4 L 334.5,292.3 L 346.0,292.0 L 357.5,292.3 L 369.0,293.4 L 380.5,295.1 L 392.0,297.5 L 403.5,300.6 L 415.0,304.4 L 426.5,308.8 L 438.0,314.0 L 449.5,319.8 L 461.0,326.4 L 472.5,333.6 L 484.0,341.5 L 495.5,350.1 L 507.0,359.4 L 518.5,369.3 L 530.0,380.0 L 541.5,391.3 L 553.0,403.4 L 564.5,416.1 L 576.0,429.5 L 587.5,443.6 L 599.0,458.4 L 610.5,473.8 L 622.0,490.0" fill="none" stroke="#7c3aed" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round"/>
-              <text x="576" y="380" font-size="16" fill="#7c3aed" font-style="italic">TR(Q)</text>
-            </g>
-            <!-- fragment 3: revenue peak -->
-            <g class="fragment" data-fragment-index="3">
-              <line x1="70" y1="292" x2="346" y2="292" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="5 4"/>
-              <circle cx="346" cy="292" r="7" fill="#7c3aed"/>
-              <text x="62" y="298" font-size="15" font-weight="700" fill="#7c3aed" text-anchor="end">$18</text>
-              <text x="346" y="512" font-size="15" font-weight="700" fill="#1e293b" text-anchor="middle">Q = 6</text>
-              <text x="366" y="286" font-size="16" fill="#7c3aed" font-weight="700">TR<tspan dy="4" font-size="12">max</tspan><tspan dy="-4"> = 3 &times; 6 = $18</tspan></text>
-            </g>
-            <!-- fragment 4: the link -->
-            <g class="fragment" data-fragment-index="4">
-              <line x1="346" y1="155" x2="346" y2="292" stroke="#d97706" stroke-width="2" stroke-dasharray="6 4"/>
-              <text x="346" y="450" font-size="16" font-weight="700" fill="#0f766e" text-anchor="middle">revenue peaks exactly at the unit-elastic midpoint</text>
-            </g>
-          </svg>
-        </section>
-
-        <!-- GROUP WORK Answers: graph -->
-        <section data-background-gradient="linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)">
-          <p class="eyebrow" style="color: #059669;">Group Work · Answers</p>
-          <h2>Maximizing Revenue, Graphically</h2>
-          <div class="slide-img-container" style="margin: 5px auto 0; padding: 8px;">
-            <img src="images/c2_gw_revenue_graph.png" alt="Two-panel graph: demand Q=12-2P with the unit-elastic midpoint at P=$3, and below it the total revenue curve peaking at TR=$18 when Q=6" style="max-height: 500px;">
-          </div>
-        </section>
-
       </section>
 
-
-      <!-- SECTION 8b: Opportunity Cost reminder (recap from Lecture 1) -->
-      <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
-        <p class="eyebrow">Costs · Reminder</p>
-        <h2>Reminder: Opportunity Cost</h2>
-        <div class="content-card">
-          <div class="def-card">
-            <div class="def-title">Definition</div>
-            <strong>Opportunity cost</strong> is the value of the best alternative forgone in making any choice.
-          </div>
-          <p style="margin-top: 15px;">Every cost a firm faces is ultimately an <strong>opportunity cost</strong> &mdash; the value of what those resources could have earned in their next-best use. Keep this in mind as we build up firms&rsquo; cost functions.</p>
-        </div>
-      </section>
 
       <!-- SECTION 4: Costs (Vertical Stack) -->
       <section>
@@ -2174,154 +2029,6 @@
       </section>
 
 
-      <!-- SECTION 5: Decision-Making & Sunk Costs (Vertical Stack) -->
-      <section>
-
-        <!-- Slide 6.1: Divider -->
-        <section data-background-gradient="linear-gradient(135deg, #0f172a 0%, #1e293b 100%)">
-          <p class="eyebrow" style="color: #2dd4bf;">Part 4</p>
-          <h1 style="color: white; font-size: 2.8em;">Sunk Costs &amp; Decision-Making</h1>
-          <p style="color: #94a3b8; margin-top: 20px;">Press <kbd style="background: #334155; color: #cbd5e1; border: 1px solid #475569; padding: 2px 6px; border-radius: 4px;">↓</kbd> to view case studies</p>
-        </section>
-
-        <!-- Slide 6.2: Marginal Thinking -->
-        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
-          <p class="eyebrow">Decision-Making</p>
-          <h2>Thinking on the Margin</h2>
-          <div class="content-card" style="text-align: center; padding: 40px;">
-            <p style="font-size: 1.1em; line-height: 1.5; margin-bottom: 25px;">What costs matter for a firm&rsquo;s decision-making process?</p>
-            <div class="def-card" style="display: inline-block; text-align: left; border-left-color: #3b82f6; background: rgba(59, 130, 246, 0.04);">
-              <div class="def-title" style="color: #3b82f6;">The Marginal Rule</div>
-              Firms maximize profits by setting quantity according to the rule:
-              <p style="font-weight: 700; color: #1e293b; text-align: center; font-size: 1.15em; margin-top: 8px;">
-                Marginal Benefit equals Marginal Cost
-              </p>
-            </div>
-            <p style="font-size: 0.95em; color: #0f766e; font-weight: 600; margin-top: 25px;">
-              Consequently, any cost incurred in the past does not matter!
-            </p>
-          </div>
-        </section>
-
-        <!-- Slide 6.3: Sunk Costs Definition -->
-        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
-          <p class="eyebrow">Decision-Making</p>
-          <h2>Sunk Costs</h2>
-          <div class="content-card">
-            <div class="def-card">
-              <div class="def-title">Definition</div>
-              <strong>Sunk costs</strong> are costs that occurred in the past and are completely irrecoverable.
-            </div>
-            <p style="margin-top: 15px;">Sunk costs must be ignored from the point of view of forward-looking decision-making.</p>
-            <div class="example-card fragment" style="margin-top: 15px;">
-              <div class="ex-title">Sunk Cost Fallacy</div>
-              The cognitive bias where individuals/firms justify making choices based on past resource investments rather than marginal benefits/costs.
-            </div>
-          </div>
-        </section>
-
-        <!-- Slide 6.4: Sunk Cost Example -->
-        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
-          <p class="eyebrow">Decision-Making · Case Study 1</p>
-          <h2>Headphone Reseller: Sunk Costs</h2>
-          <div class="content-card">
-            <div class="example-card">
-              <div class="ex-title">Case Study 1</div>
-              Rex is a licensed headphone reseller and owns a shop. He bought 1,000 units of wireless headphones for <strong>$500/unit</strong>. <br><br>
-              Every pair of headphones purchased requires initial maintenance costing <strong>$160/unit per year</strong>. This is an unavoidable cost. <br><br>
-              Right now, he receives an offer from another reseller, who offers to buy all 1,000 units for <strong>$450/unit</strong>.
-            </div>
-            <p class="fragment" style="font-weight: 600; text-align: center; color: #b91c1c; margin-top: 20px;">
-              Should he sell all of his stock or not? Explain why.
-            </p>
-          </div>
-        </section>
-
-        <!-- Slide 6.5: Marginal Cost Example -->
-        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
-          <p class="eyebrow">Decision-Making · Case Study 2</p>
-          <h2>Headphone Reseller: Marginal Cost</h2>
-          <div class="content-card">
-            <div class="example-card">
-              <div class="ex-title">Case Study 2</div>
-              Rex bought 1,000 units of wireless headphones for <strong>$500/unit</strong>. To run the shop, he hires 18 clerks at <strong>$55,000/year</strong>; pays <strong>$30,000</strong> in utilities per year; pays himself <strong>$270,000/year</strong>. <br><br>
-              Every pair of headphones purchased requires initial maintenance costing <strong>$160/unit per year</strong> (unavoidable). <br><br>
-              He sold all 1,000 headphones. He has got a buyer for another headphone (of the same model).
-            </div>
-            <p class="fragment" style="font-weight: 600; text-align: center; color: #0f766e; margin-top: 20px;">
-              What is his marginal cost of selling 1 additional unit?
-            </p>
-          </div>
-        </section>
-
-        <!-- Slide 6.6: Transition to Market Analysis -->
-        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
-          <p class="eyebrow">Market Structure · Introduction</p>
-          <h2>Putting It All Together</h2>
-          <div class="content-card">
-            <p>We have now separate models for:</p>
-            <ul>
-              <li class="fragment">Consumer Behavior (Demand, Elasticity)</li>
-              <li class="fragment">Firm's Marginal Revenue</li>
-              <li class="fragment">Firm's Cost Structure</li>
-            </ul>
-            <p class="fragment" style="margin-top: 15px; font-weight: 600; color: #0f766e;">We are ready to combine these to examine supply and demand in a market context.</p>
-            <div class="def-card fragment" style="margin-top: 15px; text-align: center;">
-              The simplest market structure to analyze is where there is no competition: <strong>Monopoly</strong>.
-            </div>
-          </div>
-        </section>
-
-        <!-- Slide 6.7: GROUP WORK - Sunk Costs & Marginal Thinking -->
-        <section data-background-gradient="linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%)">
-          <p class="eyebrow" style="color: #b45309;">Group Work · Decision-Making</p>
-          <h2>&#127922; Group Work: Thinking on the Margin</h2>
-          <div class="content-card" style="font-size: 0.88em; background: rgba(255, 255, 255, 0.7);">
-            <div class="example-card" style="border-left-color: #b45309; background: rgba(180, 83, 9, 0.05); margin: 8px 0;">
-              <div class="ex-title" style="color: #b45309;">Question 1</div>
-              Rex&rsquo;s shop paid a <strong>non-refundable $2,000</strong> booth fee for a weekend trade fair. Attending would cost an <strong>additional $600</strong> in staff and transport, and he expects <strong>$500</strong> of extra revenue from attending. <br>
-              <strong>Should he attend the fair? Justify using marginal reasoning.</strong>
-            </div>
-            <div style="margin: 4px 0 12px;">
-              <button class="group-roll-btn" onclick="rollGroup('l3gw4q1')">&#127922; Pick a group for Q1</button>
-              <span class="group-roll-result" id="l3gw4q1">&mdash;</span>
-            </div>
-            <div class="example-card" style="border-left-color: #b45309; background: rgba(180, 83, 9, 0.05); margin: 8px 0;">
-              <div class="ex-title" style="color: #b45309;">Question 2</div>
-              Rex buys headsets at <strong>$120/unit</strong> wholesale plus <strong>$15/unit</strong> shipping, and pays <strong>$3,000/month</strong> rent for the shop. <br>
-              <strong>What is his marginal cost of selling one additional headset?</strong>
-            </div>
-            <div style="margin: 4px 0 0;">
-              <button class="group-roll-btn" onclick="rollGroup('l3gw4q2')">&#127922; Pick a group for Q2</button>
-              <span class="group-roll-result" id="l3gw4q2">&mdash;</span>
-            </div>
-          </div>
-        </section>
-
-        <!-- Slide 6.7b: GROUP WORK Answers - Sunk Costs & Marginal Thinking -->
-        <section data-background-gradient="linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)">
-          <p class="eyebrow" style="color: #059669;">Group Work · Answers</p>
-          <h2>Answers: Thinking on the Margin</h2>
-          <div class="content-card" style="font-size: 0.9em;">
-            <div class="def-card">
-              <div class="def-title">Question 1: Sunk Cost Decision</div>
-              <ul>
-                <li>The $2,000 booth fee is <strong>sunk</strong> &mdash; it is gone whether or not he attends, so it must be ignored.</li>
-                <li>Marginal benefit ($500) &lt; Marginal cost ($600) &rArr; <strong>do not attend</strong>.</li>
-                <li>Attending &ldquo;to get his money&rsquo;s worth&rdquo; would be the <strong>sunk cost fallacy</strong>.</li>
-              </ul>
-            </div>
-            <div class="def-card fragment">
-              <div class="def-title">Question 2: Marginal Cost</div>
-              \[ MC = \$120 + \$15 = \$135 \]
-              <p style="font-size: 0.9em; margin-top: 8px;">Rent is a <strong>fixed cost</strong> &mdash; it does not change with one more unit sold, so it is excluded from marginal cost.</p>
-            </div>
-          </div>
-        </section>
-
-      </section>
-
-
       <!-- SECTION 9: Wrap-up (Horizontal) -->
       
       <!-- Slide 10: Where to go from here? -->
@@ -2385,6 +2092,16 @@
       slideNumber: 'c/t',
       transition: 'slide',
       plugins: [ RevealHighlight, RevealNotes, RevealMath.KaTeX ]
+    });
+
+    // Let a fragment toggle a green highlight on a target table row.
+    Reveal.on('fragmentshown', function (e) {
+      var id = e.fragment.dataset.highlightRow;
+      if (id) { var r = document.getElementById(id); if (r) r.classList.add('row-highlight'); }
+    });
+    Reveal.on('fragmenthidden', function (e) {
+      var id = e.fragment.dataset.highlightRow;
+      if (id) { var r = document.getElementById(id); if (r) r.classList.remove('row-highlight'); }
     });
   </script>
   <script src="elasticity-explorer.js"></script>
