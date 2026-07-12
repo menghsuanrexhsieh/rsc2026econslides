@@ -530,7 +530,10 @@
               <div class="def-title">Question 1: Sunk Cost Decision</div>
               <ul>
                 <li>The $1,200 license is <strong>sunk</strong> &mdash; it is gone whether or not the caf&eacute; opens next month, so ignore it.</li>
-                <li>Marginal benefit ($1,700) &lt; Marginal cost ($2,000) &rArr; <strong>do not stay open</strong> next month.</li>
+                <!-- Wrap one amount in a span so the two "$" land in separate text
+                     nodes; otherwise KaTeX pairs them as $...$ inline math and
+                     italicizes "Marginal cost". -->
+                <li>Marginal benefit (<span>$1,700</span>) &lt; Marginal cost ($2,000) &rArr; <strong>do not stay open</strong> next month.</li>
                 <li>Staying open &ldquo;to make the license worth it&rdquo; would be the <strong>sunk cost fallacy</strong>.</li>
               </ul>
             </div>

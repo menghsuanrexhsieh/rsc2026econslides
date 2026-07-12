@@ -1856,7 +1856,10 @@
               <div class="def-title">Question 1: Sunk Cost Decision</div>
               <ul>
                 <li>The $2,000 booth fee is <strong>sunk</strong> &mdash; it is gone whether or not he attends, so it must be ignored.</li>
-                <li>Marginal benefit ($500) &lt; Marginal cost ($600) &rArr; <strong>do not attend</strong>.</li>
+                <!-- Wrap one amount in a span so the two "$" land in separate text
+                     nodes; otherwise KaTeX pairs them as $...$ inline math and
+                     italicizes "Marginal cost". -->
+                <li>Marginal benefit (<span>$500</span>) &lt; Marginal cost ($600) &rArr; <strong>do not attend</strong>.</li>
                 <li>Attending &ldquo;to get his money&rsquo;s worth&rdquo; would be the <strong>sunk cost fallacy</strong>.</li>
               </ul>
             </div>
