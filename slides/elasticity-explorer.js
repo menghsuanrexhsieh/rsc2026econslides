@@ -1,7 +1,7 @@
 /*
  * elasticity-explorer.js
  *
- * Interactive point-elasticity widget for the lecture decks. Any
+ * Interactive point-elasticity widget for the class decks. Any
  * <svg class="elasticity-explorer" data-a="..." data-b="..."> is turned into
  * a chart of the affine demand curve Q = A - B*P with a point that can be
  * dragged (mouse, touch, or stylus) along the curve. As the point moves the

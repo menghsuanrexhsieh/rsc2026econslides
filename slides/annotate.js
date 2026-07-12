@@ -1,5 +1,5 @@
 /*
- * Stylus annotation layer for the reveal.js lecture decks.
+ * Stylus annotation layer for the reveal.js class decks.
  * Adds a floating toolbar (pen / highlighter / eraser / undo / clear) and a
  * full-window canvas. Strokes are stored per slide (in memory for the session)
  * and redrawn when you navigate back to a slide.

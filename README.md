@@ -2,9 +2,9 @@
 
 Course website for the **RSC Economics Experience** (summer 2026). Built with
 [Jekyll](https://jekyllrb.com) and hosted on GitHub Pages. It serves the course
-**syllabus** and **HTML5 lecture slides** (reveal.js).
+**syllabus** and **HTML5 class slides** (reveal.js).
 
-🔗 **Live site:** https://menghsuanrexhsieh.github.io/rsc2026econ/
+🔗 **Live site:** https://menghsuanrexhsieh.github.io/rsc2026econslides/
 
 ## Structure
 
@@ -23,12 +23,12 @@ assets/css/style.css Site styles
 
 ```bash
 bundle install          # first time only
-bundle exec jekyll serve # → http://localhost:4000/rsc2026econ/
+bundle exec jekyll serve # → http://localhost:4000/rsc2026econslides/
 ```
 
 If you have Jekyll installed globally you can also just run `jekyll serve`.
 
-## Add a lecture deck
+## Add a class deck
 
 Slides are plain **HTML5** files in `slides/`. Copy `slides/lecture-01.html`,
 edit the `<section>` blocks (one per slide), then link the new deck from

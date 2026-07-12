@@ -4,9 +4,9 @@ description: "A summer economics course — July 2026"
 author: "RSC"
 
 # Used to build absolute URLs. For a GitHub Pages project site served at
-# https://menghsuanrexhsieh.github.io/rsc2026econ/ the baseurl is the repo name.
+# https://menghsuanrexhsieh.github.io/rsc2026econslides/ the baseurl is the repo name.
 url: "https://menghsuanrexhsieh.github.io"
-baseurl: "/rsc2026econ"
+baseurl: "/rsc2026econslides"
 
 # --- Build settings ---
 markdown: kramdown

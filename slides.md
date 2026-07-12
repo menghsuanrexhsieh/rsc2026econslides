@@ -1,9 +1,9 @@
 ---
 layout: page
-title: Lecture Slides
+title: Class Slides
 subtitle: HTML5 decks — open in any modern browser
 permalink: /slides/
-description: "HTML5 lecture slide decks for the RSC Economics Experience."
+description: "HTML5 class slide decks for the RSC Economics Experience."
 ---
 
 Each deck is a self-contained **HTML5** presentation built with
@@ -13,31 +13,31 @@ and <code>Esc</code> for a slide overview.
 
 <div class="cards">
   <a class="card" href="{{ '/slides/lecture-01.html' | relative_url }}">
-    <h3>Lecture 1</h3>
+    <h3>Class 1</h3>
     <p>Intro, Scarcity, Supply &amp; Demand, Equilibrium</p>
   </a>
   <a class="card" href="{{ '/slides/lecture-02.html' | relative_url }}">
-    <h3>Lecture 2</h3>
+    <h3>Class 2</h3>
     <p>Algebra, Shifts, Elasticity &amp; Marginal Revenue</p>
   </a>
   <a class="card" href="{{ '/slides/lecture-03.html' | relative_url }}">
-    <h3>Lecture 3</h3>
+    <h3>Class 3</h3>
     <p>Elasticities, Marginal Revenue, &amp; Cost Functions</p>
   </a>
   <a class="card" href="{{ '/slides/lecture-04.html' | relative_url }}">
-    <h3>Lecture 4</h3>
+    <h3>Class 4</h3>
     <p>Monopoly, Perfect Competition, &amp; Equilibria</p>
   </a>
   <a class="card" href="{{ '/slides/lecture-05.html' | relative_url }}">
-    <h3>Lecture 5</h3>
+    <h3>Class 5</h3>
     <p>Social Welfare, Efficiency, &amp; Deadweight Loss</p>
   </a>
   <a class="card" href="{{ '/slides/lecture-06.html' | relative_url }}">
-    <h3>Lecture 6</h3>
+    <h3>Class 6</h3>
     <p>Game Theory: Nash Equilibrium &amp; Coordination</p>
   </a>
   <a class="card" href="{{ '/slides/lecture-07.html' | relative_url }}">
-    <h3>Lecture 7</h3>
+    <h3>Class 7</h3>
     <p>Game Theory: Sequential Moves &amp; Credible Threats</p>
   </a>
 </div>

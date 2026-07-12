@@ -22,18 +22,18 @@
   links:
     - label: All decks
       url: /slides/
-    - label: "Lecture 1 · Intro, Supply & Demand"
+    - label: "Class 1 · Intro, Supply & Demand"
       url: /slides/lecture-01.html
-    - label: "Lecture 2 · More on Supply and Demand, and Elasticity"
+    - label: "Class 2 · More on Supply and Demand, and Elasticity"
       url: /slides/lecture-02.html
-    - label: "Lecture 3 · Elasticities, Marginal Revenue, and Costs"
+    - label: "Class 3 · Elasticities, Marginal Revenue, and Costs"
       url: /slides/lecture-03.html
-    - label: "Lecture 4 · Monopoly and Perfect Competition"
+    - label: "Class 4 · Monopoly and Perfect Competition"
       url: /slides/lecture-04.html
-    - label: "Lecture 5 · Welfare and Policy Interventions"
+    - label: "Class 5 · Welfare and Policy Interventions"
       url: /slides/lecture-05.html
-    - label: "Lecture 6 · Game Theory: Nash Equilibrium, Coordination"
+    - label: "Class 6 · Game Theory: Nash Equilibrium, Coordination"
       url: /slides/lecture-06.html
-    - label: "Lecture 7 · Game Theory: Sequential Moves, Credible Threats"
+    - label: "Class 7 · Game Theory: Sequential Moves, Credible Threats"
       url: /slides/lecture-07.html
 

@@ -13,3 +13,6 @@ vendor/
 
 # Local Claude Code settings (per-machine, not part of the site)
 .claude/
+
+# Working scratch folder — source PDFs and helper scripts (not part of the site)
+TEMP/

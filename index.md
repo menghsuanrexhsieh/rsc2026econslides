@@ -4,43 +4,37 @@ title: Home
 ---
 
 <section class="hero">
-  <p class="eyebrow">Summer 2026 · July</p>
-  <h1>Economics 101 Experience</h1>
-  <p class="lede">A fast-paced, realistic preview of the microeconomics you'll take in
-  your first year at Michigan — from decision-making on the margin and markets to
-  competition, market failure, and strategy. The full syllabus and lecture slides
-  live here.</p>
-  <div class="btn-row">
-    <a class="btn" href="{{ '/syllabus/' | relative_url }}">Read the syllabus</a>
-    <a class="btn secondary" href="{{ '/slides/' | relative_url }}">Browse slides</a>
-  </div>
+  <p class="eyebrow">July 2026</p>
+  <h1>Ross Summer Connection<br>Economics 101 Experience</h1>
 </section>
 
-## What you'll find here
-
 <div class="cards">
-  <a class="card" href="{{ '/syllabus/' | relative_url }}">
-    <h3>Syllabus</h3>
-    <p>Course goals, weekly schedule, grading, and policies.</p>
+  <a class="card" href="{{ '/slides/lecture-01.html' | relative_url }}">
+    <h3>Class 1</h3>
+    <p>Intro, Scarcity, Supply &amp; Demand, Equilibrium</p>
   </a>
-  <a class="card" href="{{ '/slides/' | relative_url }}">
-    <h3>Lecture slides</h3>
-    <p>HTML5 slide decks for every session — open in any browser.</p>
+  <a class="card" href="{{ '/slides/lecture-02.html' | relative_url }}">
+    <h3>Class 2</h3>
+    <p>Algebra, Shifts, Elasticity &amp; Marginal Revenue</p>
   </a>
-  <a class="card" href="{{ '/syllabus/#schedule' | relative_url }}">
-    <h3>Schedule</h3>
-    <p>All nine sessions with topics, quizzes, and the final exam.</p>
+  <a class="card" href="{{ '/slides/lecture-03.html' | relative_url }}">
+    <h3>Class 3</h3>
+    <p>Elasticities, Marginal Revenue, &amp; Cost Functions</p>
+  </a>
+  <a class="card" href="{{ '/slides/lecture-04.html' | relative_url }}">
+    <h3>Class 4</h3>
+    <p>Monopoly, Perfect Competition, &amp; Equilibria</p>
+  </a>
+  <a class="card" href="{{ '/slides/lecture-05.html' | relative_url }}">
+    <h3>Class 5</h3>
+    <p>Social Welfare, Efficiency, &amp; Deadweight Loss</p>
+  </a>
+  <a class="card" href="{{ '/slides/lecture-06.html' | relative_url }}">
+    <h3>Class 6</h3>
+    <p>Game Theory: Nash Equilibrium &amp; Coordination</p>
+  </a>
+  <a class="card" href="{{ '/slides/lecture-07.html' | relative_url }}">
+    <h3>Class 7</h3>
+    <p>Game Theory: Sequential Moves &amp; Credible Threats</p>
   </a>
 </div>
-
-## About the course
-
-The **Ross Summer Connection: Economics 101 Experience** is an intensive four-week
-introduction to the principles of **microeconomics** — how economists think about
-decision-making — and how to use those principles to reason about managerial problems
-and public-policy challenges. We start with decision-making on the margin and supply
-and demand, then build toward competition, market failure, and game theory.
-
-It's a realistic preview of the actual ECON 101 you'll take in your first year, taught
-by **Rex**. No prior economics is assumed — bring curiosity and a willingness to ask
-(and answer) questions.
