@@ -20,30 +20,9 @@ and <code>Esc</code> for a slide overview.
     <h3>Class 2</h3>
     <p>Algebra, Shifts, Elasticity &amp; Marginal Revenue</p>
   </a>
-  <a class="card" href="{{ '/slides/lecture-03.html' | relative_url }}">
-    <h3>Class 3</h3>
-    <p>Elasticities, Marginal Revenue, &amp; Cost Functions</p>
-  </a>
-  <a class="card" href="{{ '/slides/lecture-04.html' | relative_url }}">
-    <h3>Class 4</h3>
-    <p>Monopoly, Perfect Competition, &amp; Equilibria</p>
-  </a>
-  <a class="card" href="{{ '/slides/lecture-05.html' | relative_url }}">
-    <h3>Class 5</h3>
-    <p>Social Welfare, Efficiency, &amp; Deadweight Loss</p>
-  </a>
-  <a class="card" href="{{ '/slides/lecture-06.html' | relative_url }}">
-    <h3>Class 6</h3>
-    <p>Game Theory: Nash Equilibrium &amp; Coordination</p>
-  </a>
-  <a class="card" href="{{ '/slides/lecture-07.html' | relative_url }}">
-    <h3>Class 7</h3>
-    <p>Game Theory: Sequential Moves &amp; Credible Threats</p>
-  </a>
 </div>
 
-More decks will appear here as the course progresses — see the
-[schedule]({{ '/syllabus/#schedule' | relative_url }}) for what's coming.
+More decks will appear here as the course progresses.
 
 ---
 
@@ -53,5 +32,5 @@ Slides are plain HTML5 files in the `slides/` folder. To create the next one:
 
 1. Copy `slides/lecture-01.html` to `slides/lecture-02.html`.
 2. Edit the `<section>` blocks — each `<section>` is one slide.
-3. Add a card above (and a link in the syllabus) pointing to the new file.
+3. Add a card above pointing to the new file.
 4. Commit and push; GitHub Pages serves it automatically.

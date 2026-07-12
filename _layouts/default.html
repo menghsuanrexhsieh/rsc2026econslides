@@ -19,14 +19,8 @@
   <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
 </head>
 <body>
-  <!-- pure-CSS off-canvas toggle for mobile -->
-  <input type="checkbox" id="nav-toggle" class="nav-toggle-cb" hidden>
-
   <header class="topbar">
     <div class="topbar-inner">
-      <label for="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
-        <span></span><span></span><span></span>
-      </label>
       <a class="brand" href="{{ '/' | relative_url }}">
         <span class="brand-mark">RSC</span>
         <span class="brand-text">Economics Experience</span>
@@ -51,27 +45,7 @@
         <p class="muted">&copy; {{ 'now' | date: "%Y" }}</p>
       </footer>
     </main>
-
-    <aside class="sidebar">
-      <nav class="sidenav">
-        {% for group in site.data.nav %}
-        <div class="nav-group">
-          <p class="nav-group-title">{{ group.title }}</p>
-          <ul>
-            {% for link in group.links %}
-            <li>
-              <a href="{{ link.url | relative_url }}"{% if link.url == page.url %} class="active" aria-current="page"{% endif %}>{{ link.label }}</a>
-            </li>
-            {% endfor %}
-          </ul>
-        </div>
-        {% endfor %}
-      </nav>
-    </aside>
   </div>
-
-  <!-- tap-outside scrim to close the mobile drawer -->
-  <label for="nav-toggle" class="nav-scrim" aria-hidden="true"></label>
 
   <!-- theme toggle handler + transition class -->
   <script>

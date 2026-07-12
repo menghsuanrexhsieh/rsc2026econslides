@@ -31,8 +31,7 @@
   --shadow-sm:   0 1px 2px rgba(20,22,30,.05), 0 6px 18px rgba(20,22,30,.05);
 
   --topbar-h:    62px;
-  --sidebar-w:   280px;
-  --maxw:        1360px;
+  --maxw:        920px;
 }
 
 /* ======================================================================
@@ -184,10 +183,6 @@ strong { font-weight: 600; }
   max-width: var(--maxw);
   margin: 0 auto;
   padding: 30px 24px 64px;
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) var(--sidebar-w);
-  gap: 36px;
-  align-items: start;
 }
 
 /* ------------------------------------------------------------- Sidebar */
