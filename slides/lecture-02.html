@@ -1443,8 +1443,8 @@
               <p>For this year, Mondelez <span class="lnk">is forecasting a 10% drop</span> in adjusted earnings per share, which is relatively mild when compared to a mid-30% estimated decline at Hershey. Over the past two years, Hershey&rsquo;s stock is down about 35%, while Mondelez has fallen roughly 5%.</p>
             </div>
             <div style="flex: 0 0 322px; display: flex; flex-direction: column; gap: 11px;">
-              <div class="wsj-callout teal fragment"><span class="tag">&#127466;&#127482; Europe &middot; Mondelez</span>Prices passed on <strong>&ldquo;without sacrificing volume&rdquo;</strong> &mdash; quantity barely responds &rarr; relatively <strong>inelastic</strong>.</div>
-              <div class="wsj-callout amber fragment"><span class="tag">&#127482;&#127480; U.S. &middot; Hershey</span>Consumers proved <strong>&ldquo;more fickle&rdquo;</strong> &mdash; quantity drops sharply when prices rise &rarr; relatively <strong>elastic</strong>.</div>
+              <div class="wsj-callout teal fragment"><span class="tag">&#127466;&#127482; Europe &middot; Mondelez</span>Prices passed on <strong>&ldquo;without sacrificing volume&rdquo;</strong> &mdash; quantity barely responds &rarr; demand is relatively <strong>inelastic</strong>.</div>
+              <div class="wsj-callout amber fragment"><span class="tag">&#127482;&#127480; U.S. &middot; Hershey</span>Consumers proved <strong>&ldquo;more fickle&rdquo;</strong> &mdash; quantity drops sharply when prices rise &rarr; demand is relatively <strong>elastic</strong>.</div>
               <div class="wsj-q fragment"><strong>Q:</strong> Which region&rsquo;s demand for chocolate is more <strong>elastic</strong> &mdash; and how can you tell from the article?</div>
             </div>
           </div>
@@ -1477,12 +1477,16 @@
             <text x="56" y="50" font-size="16" fill="#1e293b" font-style="italic">P</text>
             <text x="672" y="396" font-size="16" fill="#1e293b" font-style="italic">Q</text>
 
-            <!-- step 1: both demand curves + common start -->
+            <!-- step 1a: U.S. demand curve first (elastic, flatter) -->
+            <g class="fragment">
+              <line class="build-line" x1="129" y1="60" x2="506" y2="390" stroke="#d97706" stroke-width="3.5"/>
+              <text x="514" y="384" font-size="14" font-weight="700" fill="#d97706" font-style="italic">D<tspan dy="3" font-size="10">U.S.</tspan></text>
+            </g>
+
+            <!-- step 1b: Europe demand curve (inelastic, steeper) + common start point -->
             <g class="fragment">
               <line class="build-line" x1="317" y1="60" x2="411" y2="390" stroke="#0f766e" stroke-width="3.5"/>
               <text x="300" y="66" font-size="14" font-weight="700" fill="#0f766e" text-anchor="end" font-style="italic">D<tspan dy="3" font-size="10">Europe</tspan></text>
-              <line class="build-line" x1="129" y1="60" x2="506" y2="390" stroke="#d97706" stroke-width="3.5"/>
-              <text x="514" y="384" font-size="14" font-weight="700" fill="#d97706" font-style="italic">D<tspan dy="3" font-size="10">U.S.</tspan></text>
               <line x1="80" y1="280" x2="380" y2="280" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="5 4"/>
               <line x1="380" y1="280" x2="380" y2="390" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="5 4"/>
               <circle cx="380" cy="280" r="6" fill="#1e293b"/>
