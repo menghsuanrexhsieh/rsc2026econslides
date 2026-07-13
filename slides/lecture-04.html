@@ -429,11 +429,12 @@
             <ul>
               <li class="fragment"><strong>Large number of sellers and buyers</strong>; no individual has market power.</li>
               <li class="fragment"><strong>Homogeneous products</strong>: Only identical products are sold in the market, with no product differentiation.</li>
+              <li class="fragment"><strong>No barriers to entry or exit</strong>: firms can <strong>freely enter</strong> when profits are positive and <strong>exit</strong> when they are negative.</li>
               <li class="fragment"><strong>Perfect information</strong>: Buyers and sellers have complete knowledge of prices and technology.</li>
             </ul>
             <div class="def-card fragment" style="margin-top: 15px;">
-              <div class="def-title">Price Takers</div>
-              These imply sellers and buyers have no influence over the market price — the (aggregate) market demand and supply decides prices!
+              <div class="def-title">&#8658; Everyone is a Price Taker</div>
+              Together these imply <strong>no single buyer or seller can influence the market price</strong> — the (aggregate) market demand and supply decide the price, and every firm simply takes it as given!
             </div>
           </div>
         </section>
@@ -698,7 +699,7 @@
                 <text x="566" y="196" font-size="14" fill="#16a34a" font-weight="700" font-style="italic">AC</text>
                 <!-- MC / S (red): dashed below e1, solid through e1..e4 -->
                 <path d="M 158,398 L 200,350" fill="none" stroke="#ef4444" stroke-width="4" stroke-dasharray="8 6"/>
-                <path d="M 200,350 L 320,270 L 420,190 L 520,110 L 562,82" fill="none" stroke="#ef4444" stroke-width="4"/>
+                <path d="M 200,350 Q 260,318 320,270 Q 370,238 420,190 Q 470,158 520,110 L 562,82" fill="none" stroke="#ef4444" stroke-width="4"/>
                 <text x="132" y="392" font-size="14" fill="#ef4444" font-weight="700" font-style="italic">MC</text>
                 <text x="548" y="74" font-size="14" fill="#ef4444" font-weight="700" font-style="italic">S</text>
                 <!-- equilibrium points -->
@@ -946,25 +947,19 @@
               </div>
             </div>
             <div style="flex: 1.1;">
-              <svg class="anim-graph" viewBox="0 0 760 520" style="width: 100%; max-height: 340px; margin: 0 auto; display: block; background: white; border: 1px solid #e2e8f0; border-radius: 10px;" role="img" aria-label="Animated short-run cost curves for a competitive firm: U-shaped AVC and ATC with MC rising through both minima.">
+              <svg class="anim-graph" viewBox="0 0 760 520" style="width: 100%; max-height: 340px; margin: 0 auto; display: block; background: white; border: 1px solid #e2e8f0; border-radius: 10px;" role="img" aria-label="Short-run cost curves for a competitive firm: U-shaped AVC and ATC with MC rising through both minima.">
                 <line x1="80" y1="460" x2="705" y2="460" stroke="#475569" stroke-width="2.5"/>
                 <polygon points="705,455 705,465 716,460" fill="#475569"/>
                 <line x1="80" y1="460" x2="80" y2="52" stroke="#475569" stroke-width="2.5"/>
                 <polygon points="75,52 85,52 80,41" fill="#475569"/>
                 <text x="723" y="466" font-size="17" fill="#1e293b" font-style="italic">q</text>
                 <text x="40" y="34" font-size="16" fill="#1e293b">$/unit</text>
-                <g class="fragment">
-                  <path class="build-line" pathLength="950" d="M 145,300 Q 197,385 250,385 Q 370,385 560,250" fill="none" stroke="#2563eb" stroke-width="3.5" stroke-linecap="round"/>
-                  <text x="566" y="254" font-size="17" fill="#2563eb" font-style="italic">AVC</text>
-                </g>
-                <g class="fragment">
-                  <path class="build-line" pathLength="950" d="M 235,215 Q 277,345 320,345 Q 440,345 560,230" fill="none" stroke="#d97706" stroke-width="3.5" stroke-linecap="round"/>
-                  <text x="566" y="228" font-size="17" fill="#d97706" font-style="italic">ATC</text>
-                </g>
-                <g class="fragment">
-                  <path class="build-line" pathLength="950" d="M 158,432 Q 205,410 250,385 Q 288,367 320,345 Q 425,288 560,205" fill="none" stroke="#dc2626" stroke-width="3.5" stroke-linecap="round"/>
-                  <text x="503" y="196" font-size="17" fill="#dc2626" font-style="italic">MC</text>
-                </g>
+                <path d="M 145,300 Q 197,385 250,385 Q 370,385 560,250" fill="none" stroke="#2563eb" stroke-width="3.5" stroke-linecap="round"/>
+                <text x="566" y="254" font-size="17" fill="#2563eb" font-style="italic">AVC</text>
+                <path d="M 235,215 Q 277,345 320,345 Q 440,345 560,230" fill="none" stroke="#d97706" stroke-width="3.5" stroke-linecap="round"/>
+                <text x="566" y="228" font-size="17" fill="#d97706" font-style="italic">ATC</text>
+                <path d="M 158,432 Q 205,410 250,385 Q 288,367 320,345 Q 425,288 560,205" fill="none" stroke="#dc2626" stroke-width="3.5" stroke-linecap="round"/>
+                <text x="503" y="196" font-size="17" fill="#dc2626" font-style="italic">MC</text>
               </svg>
             </div>
           </div>
@@ -1026,7 +1021,7 @@
         <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
           <p class="eyebrow">Short-Run Equilibrium · Profits Graph</p>
           <h2>Positive Economic Profit Graph</h2>
-          <p style="font-size: 0.55em; color: #64748b; margin: 0 0 4px;">The market (right) sets the price \( P^* \); the firm (left) produces where \( P = MC \). Because \( P &gt; ATC \) at \( q^* \), the firm earns short-run profit. Press <kbd style="background: #e2e8f0; border: 1px solid #cbd5e1; padding: 1px 6px; border-radius: 4px;">&rarr;</kbd>.</p>
+          <p style="font-size: 0.55em; color: #64748b; margin: 0 0 4px;">The firm (left) earns short-run profit since \( P &gt; ATC \). New firms then <strong>enter</strong>, market (right) supply shifts <strong>right</strong>, and the price falls back to \( \min(ATC) \) where profit \( = 0 \). Press <kbd style="background: #e2e8f0; border: 1px solid #cbd5e1; padding: 1px 6px; border-radius: 4px;">&rarr;</kbd>.</p>
           <svg class="anim-graph" viewBox="0 0 940 430" style="width: 94%; max-height: 380px; margin: 0 auto; display: block; background: white; border: 1px solid #e2e8f0; border-radius: 10px;" role="img" aria-label="Side by side: on the right, a market with supply and demand crossing at price P-star. On the left, the representative firm takes P-star as its flat demand; because P-star exceeds average total cost at the profit-maximizing quantity, the firm earns a positive profit shown as a shaded rectangle.">
             <line x1="70" y1="360" x2="410" y2="360" stroke="#475569" stroke-width="2.5"/>
             <polygon points="410,355 410,365 421,360" fill="#475569"/>
@@ -1073,6 +1068,22 @@
               <line x1="270" y1="210" x2="270" y2="360" stroke="#64748b" stroke-width="1.5" stroke-dasharray="5 4"/>
               <circle cx="270" cy="210" r="5" fill="#0f172a"/>
               <text x="270" y="379" font-size="12" font-weight="700" fill="#475569" text-anchor="middle">q*</text>
+            </g>
+            <g class="fragment">
+              <line x1="656" y1="360" x2="885" y2="168" stroke="#0f766e" stroke-width="3" stroke-dasharray="8 6"/>
+              <text x="868" y="162" font-size="13" fill="#0f766e" font-weight="700" font-style="italic">S&#8242;</text>
+              <line x1="610" y1="300" x2="712" y2="300" stroke="#16a34a" stroke-width="2.5" marker-end="url(#c4entryarr)"/>
+              <text x="661" y="318" font-size="12.5" font-weight="700" fill="#16a34a" text-anchor="middle">firms enter</text>
+              <circle cx="771" cy="265" r="5.5" fill="#16a34a"/>
+              <text x="532" y="269" font-size="12" font-weight="700" fill="#475569" text-anchor="end">P&#8242;</text>
+              <defs><marker id="c4entryarr" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M 0 0 L 9 4.5 L 0 9 z" fill="#16a34a"/></marker></defs>
+            </g>
+            <g class="fragment">
+              <line class="build-line" x1="771" y1="265" x2="202" y2="265" stroke="#16a34a" stroke-width="2.5"/>
+              <polygon points="202,259 202,271 190,265" fill="#16a34a"/>
+              <circle cx="200" cy="265" r="5.5" fill="#16a34a"/>
+              <text x="240" y="288" font-size="12.5" font-weight="700" fill="#16a34a">P&#8242; = MR&#8242; = min ATC</text>
+              <text x="240" y="307" font-size="12" fill="#64748b">economic profit = 0</text>
             </g>
           </svg>
         </section>
@@ -1169,25 +1180,47 @@
         <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
           <p class="eyebrow">Long-Run Equilibrium · Price</p>
           <h2>The Long-Run Equilibrium Price</h2>
-          <div style="display: flex; align-items: center; justify-content: center; gap: 20px; max-width: 1090px; margin: 0 auto;">
-            <div style="flex: 1; text-align: left;">
-              <div class="content-card" style="margin: 0; padding: 20px 25px; font-size: 0.95em;">
-                <p style="font-weight: 600; color: #0f766e; margin-bottom: 12px;">In long-run equilibrium:</p>
-                <ul>
-                  <li>What must the market price be?</li>
-                  <li>It must settle at the minimum of ATC:
-                    \[ P^* = \min(ATC) \]
-                  </li>
-                  <li>At this point, economic profit is exactly zero.</li>
-                </ul>
-              </div>
-            </div>
-            <div style="flex: 1.2;">
-              <div class="slide-img-container" style="margin: 0; padding: 6px;">
-                <img src="images/c4_page_37_graph.png" alt="Long-Run Market and Firm Equilibrium Graph" style="max-height: 310px;">
-              </div>
-            </div>
-          </div>
+          <p style="font-size: 0.55em; color: #64748b; margin: 0 0 4px;">In long-run equilibrium, free entry drives the price down to \( P^* = \min(ATC) \), where every firm earns exactly zero economic profit. (Market on the right; representative firm on the left.)</p>
+          <svg viewBox="0 0 940 430" style="width: 94%; max-height: 360px; margin: 0 auto; display: block; background: white; border: 1px solid #e2e8f0; border-radius: 10px;" role="img" aria-label="Static long-run equilibrium: on the right, the market where supply shifts right from S to S-prime as firms enter, lowering the price from P to P-prime; on the left, the representative firm whose flat demand falls from P=MR to P-prime=MR-prime, ending tangent to the minimum of ATC where economic profit is zero. Pink dashed lines connect each market price to the firm.">
+            <line x1="70" y1="360" x2="410" y2="360" stroke="#475569" stroke-width="2.5"/>
+            <polygon points="410,355 410,365 421,360" fill="#475569"/>
+            <line x1="70" y1="360" x2="70" y2="45" stroke="#475569" stroke-width="2.5"/>
+            <polygon points="65,45 75,45 70,34" fill="#475569"/>
+            <text x="54" y="44" font-size="15" fill="#1e293b" font-style="italic">P</text>
+            <text x="424" y="366" font-size="14" fill="#1e293b" font-style="italic">q</text>
+            <line x1="540" y1="360" x2="880" y2="360" stroke="#475569" stroke-width="2.5"/>
+            <polygon points="880,355 880,365 891,360" fill="#475569"/>
+            <line x1="540" y1="360" x2="540" y2="45" stroke="#475569" stroke-width="2.5"/>
+            <polygon points="535,45 545,45 540,34" fill="#475569"/>
+            <text x="524" y="44" font-size="15" fill="#1e293b" font-style="italic">P</text>
+            <text x="894" y="366" font-size="14" fill="#1e293b" font-style="italic">Q</text>
+            <text x="240" y="30" font-size="16" font-weight="700" fill="#0f766e" text-anchor="middle">The Firm</text>
+            <text x="710" y="30" font-size="16" font-weight="700" fill="#0f766e" text-anchor="middle">The Market</text>
+            <path d="M 110,140 Q 170,255 230,255 Q 310,255 380,175" fill="none" stroke="#475569" stroke-width="3.5"/>
+            <text x="384" y="172" font-size="14" fill="#475569" font-weight="700" font-style="italic">ATC</text>
+            <path d="M 135,315 Q 185,282 230,255 Q 275,225 320,170" fill="none" stroke="#7c3aed" stroke-width="3.5" stroke-dasharray="9 7"/>
+            <text x="324" y="166" font-size="14" fill="#7c3aed" font-weight="700" font-style="italic">MC</text>
+            <line x1="70" y1="210" x2="405" y2="210" stroke="#15803d" stroke-width="3.5"/>
+            <text x="150" y="203" font-size="12.5" fill="#15803d" font-weight="700">P = MR</text>
+            <line x1="70" y1="255" x2="405" y2="255" stroke="#15803d" stroke-width="3.5"/>
+            <text x="120" y="272" font-size="12.5" fill="#15803d" font-weight="700">P&#8242; = MR&#8242; = min ATC</text>
+            <circle cx="230" cy="255" r="5" fill="#15803d"/>
+            <line x1="560" y1="95" x2="850" y2="325" stroke="#0f172a" stroke-width="3.5"/>
+            <text x="854" y="327" font-size="14" fill="#0f172a" font-weight="700" font-style="italic">D</text>
+            <line x1="590" y1="320" x2="820" y2="100" stroke="#0f766e" stroke-width="3.5"/>
+            <text x="824" y="98" font-size="14" fill="#0f766e" font-weight="700" font-style="italic">S</text>
+            <line x1="660" y1="350" x2="885" y2="141" stroke="#0f766e" stroke-width="3" stroke-dasharray="8 6"/>
+            <text x="889" y="140" font-size="14" fill="#0f766e" font-weight="700" font-style="italic">S&#8242;</text>
+            <line x1="640" y1="290" x2="726" y2="290" stroke="#16a34a" stroke-width="2.5" marker-end="url(#c4lrarr)"/>
+            <text x="683" y="308" font-size="12" font-weight="700" fill="#16a34a" text-anchor="middle">entry</text>
+            <circle cx="705" cy="210" r="6" fill="#1e293b"/>
+            <text x="716" y="204" font-size="12" font-weight="700" fill="#1e293b">E</text>
+            <circle cx="762" cy="255" r="6" fill="#16a34a"/>
+            <text x="773" y="250" font-size="12" font-weight="700" fill="#16a34a">E&#8242;</text>
+            <line x1="705" y1="210" x2="410" y2="210" stroke="#ec4899" stroke-width="2" stroke-dasharray="8 6"/>
+            <line x1="762" y1="255" x2="410" y2="255" stroke="#ec4899" stroke-width="2" stroke-dasharray="8 6"/>
+            <defs><marker id="c4lrarr" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M 0 0 L 9 4.5 L 0 9 z" fill="#16a34a"/></marker></defs>
+          </svg>
         </section>
 
         <!-- Animated: entry dynamics to zero profit -->
@@ -1383,6 +1416,67 @@
               </p>
             </div>
           </div>
+        </section>
+
+        <!-- Animated: short-run -> long-run transition -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Fred&rsquo;s Hats &middot; Short Run &rarr; Long Run</p>
+          <h2>From Short-Run Profit to Long-Run Equilibrium</h2>
+          <p style="font-size: 0.55em; color: #64748b; margin: 0 0 4px;">Short-run profit attracts entry; market (right) supply shifts right, so the price falls until it reaches \( \min(ATC) \) and the firm (left) earns zero profit. Press <kbd style="background: #e2e8f0; border: 1px solid #cbd5e1; padding: 1px 6px; border-radius: 4px;">&rarr;</kbd>.</p>
+          <svg class="anim-graph" viewBox="0 0 940 430" style="width: 94%; max-height: 380px; margin: 0 auto; display: block; background: white; border: 1px solid #e2e8f0; border-radius: 10px;" role="img" aria-label="Animated transition from short run to long run. The firm (left) starts with a flat demand P=MR above minimum ATC, earning a profit rectangle. Entry shifts the market (right) supply from S to S-prime, lowering the price; the firm's demand falls to P-prime=MR-prime tangent to minimum ATC, where profit is zero.">
+            <line x1="70" y1="360" x2="410" y2="360" stroke="#475569" stroke-width="2.5"/>
+            <polygon points="410,355 410,365 421,360" fill="#475569"/>
+            <line x1="70" y1="360" x2="70" y2="45" stroke="#475569" stroke-width="2.5"/>
+            <polygon points="65,45 75,45 70,34" fill="#475569"/>
+            <text x="54" y="44" font-size="15" fill="#1e293b" font-style="italic">P</text>
+            <text x="424" y="366" font-size="14" fill="#1e293b" font-style="italic">q</text>
+            <line x1="540" y1="360" x2="880" y2="360" stroke="#475569" stroke-width="2.5"/>
+            <polygon points="880,355 880,365 891,360" fill="#475569"/>
+            <line x1="540" y1="360" x2="540" y2="45" stroke="#475569" stroke-width="2.5"/>
+            <polygon points="535,45 545,45 540,34" fill="#475569"/>
+            <text x="524" y="44" font-size="15" fill="#1e293b" font-style="italic">P</text>
+            <text x="894" y="366" font-size="14" fill="#1e293b" font-style="italic">Q</text>
+            <text x="240" y="30" font-size="16" font-weight="700" fill="#0f766e" text-anchor="middle">The Firm</text>
+            <text x="710" y="30" font-size="16" font-weight="700" fill="#0f766e" text-anchor="middle">The Market</text>
+            <g class="fragment">
+              <line class="build-line" x1="560" y1="95" x2="850" y2="325" stroke="#0f172a" stroke-width="3.5"/>
+              <line class="build-line" x1="590" y1="320" x2="820" y2="100" stroke="#0f766e" stroke-width="3.5"/>
+              <text x="854" y="327" font-size="14" fill="#0f172a" font-weight="700" font-style="italic">D</text>
+              <text x="824" y="98" font-size="14" fill="#0f766e" font-weight="700" font-style="italic">S</text>
+              <circle cx="705" cy="210" r="6" fill="#1e293b"/>
+              <text x="716" y="204" font-size="12" font-weight="700" fill="#1e293b">E</text>
+              <path class="build-line" pathLength="950" d="M 110,140 Q 170,255 230,255 Q 310,255 380,175" fill="none" stroke="#475569" stroke-width="3.5"/>
+              <text x="384" y="172" font-size="14" fill="#475569" font-weight="700" font-style="italic">ATC</text>
+              <path class="build-line" pathLength="950" d="M 135,315 Q 185,282 230,255 Q 275,225 320,170" fill="none" stroke="#7c3aed" stroke-width="3.5" stroke-linecap="round"/>
+              <text x="324" y="166" font-size="14" fill="#7c3aed" font-weight="700" font-style="italic">MC</text>
+              <line x1="705" y1="210" x2="70" y2="210" stroke="#ec4899" stroke-width="2" stroke-dasharray="8 6"/>
+              <text x="150" y="203" font-size="12.5" fill="#15803d" font-weight="700">P = MR</text>
+              <line x1="70" y1="210" x2="405" y2="210" stroke="#15803d" stroke-width="3.5"/>
+            </g>
+            <g class="fragment">
+              <rect x="70" y="210" width="214" height="35" fill="#facc15" fill-opacity="0.5"/>
+              <text x="165" y="233" font-size="13" font-weight="700" fill="#a16207" text-anchor="middle">profit</text>
+              <line x1="284" y1="210" x2="284" y2="360" stroke="#64748b" stroke-width="1.5" stroke-dasharray="5 4"/>
+              <circle cx="284" cy="210" r="5" fill="#0f172a"/>
+              <text x="360" y="120" font-size="13" font-weight="700" fill="#a16207">short run: P &gt; min ATC</text>
+            </g>
+            <g class="fragment">
+              <line x1="660" y1="350" x2="885" y2="141" stroke="#0f766e" stroke-width="3" stroke-dasharray="8 6"/>
+              <text x="889" y="140" font-size="14" fill="#0f766e" font-weight="700" font-style="italic">S&#8242;</text>
+              <line x1="640" y1="290" x2="726" y2="290" stroke="#16a34a" stroke-width="2.5" marker-end="url(#c4trarr)"/>
+              <text x="683" y="308" font-size="12" font-weight="700" fill="#16a34a" text-anchor="middle">firms enter</text>
+              <circle cx="762" cy="255" r="6" fill="#16a34a"/>
+              <text x="773" y="250" font-size="12" font-weight="700" fill="#16a34a">E&#8242;</text>
+            </g>
+            <g class="fragment">
+              <line class="build-line" x1="762" y1="255" x2="232" y2="255" stroke="#16a34a" stroke-width="2.5"/>
+              <polygon points="232,249 232,261 220,255" fill="#16a34a"/>
+              <circle cx="230" cy="255" r="5.5" fill="#16a34a"/>
+              <text x="118" y="272" font-size="12.5" fill="#16a34a" font-weight="700">P&#8242; = MR&#8242; = min ATC</text>
+              <text x="360" y="140" font-size="13" font-weight="700" fill="#16a34a">long run: P = min ATC, profit = 0</text>
+              <defs><marker id="c4trarr" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M 0 0 L 9 4.5 L 0 9 z" fill="#16a34a"/></marker></defs>
+            </g>
+          </svg>
         </section>
 
         <!-- Slide 5.27: Why Market Structure Matters -->
