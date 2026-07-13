@@ -295,7 +295,6 @@
             <li class="fragment"><strong>Perfect Competition</strong>: Characteristics, price-taking behavior, and supply.</li>
             <li class="fragment"><strong>Supply Curve</strong>: Short-run individual firm supply in perfectly competitive markets.</li>
             <li class="fragment"><strong>Equilibria</strong>: Short-run versus long-run market equilibria.</li>
-            <li class="fragment"><strong>Next Steps</strong>: Wrap-up &amp; quiz preparation.</li>
           </ul>
         </div>
       </section>
@@ -395,7 +394,7 @@
         <!-- Slide 5.1: Divider -->
         <section data-background-gradient="linear-gradient(135deg, #0f766e 0%, #115e59 100%)">
           <p class="eyebrow" style="color: #ccfbf1;">Part 2</p>
-          <h1 style="color: white; font-size: 2.8em;">Perfect Competition &amp;<br>Market Equilibria</h1>
+          <h1 style="color: white; font-size: 2.8em;">Perfect Competition<br>&mdash; Definitions</h1>
           <p style="color: #ccfbf1; margin-top: 20px;">Press <kbd style="background: #115e59; color: white; border: 1px solid #134e4a; padding: 2px 6px; border-radius: 4px;">↓</kbd> to study competitive markets</p>
         </section>
 
@@ -605,7 +604,6 @@
           <div class="content-card">
             <p style="font-size: 1.1em; line-height: 1.5; margin-bottom: 15px;">How do price-taking firms behave in equilibrium in a perfectly competitive market?</p>
             <ul>
-              <li class="fragment">So far, we have only described the environment, not the equilibrium.</li>
               <li class="fragment">The fact that every firm takes prices as given — rather than setting prices themselves — must have consequences for the market equilibrium!</li>
             </ul>
           </div>
@@ -659,7 +657,7 @@
               </div>
             </div>
             <div style="flex: 1.1;">
-              <svg viewBox="0 0 640 480" style="width: 100%; max-height: 340px; background: #fff; border: 1px solid #e2e8f0; border-radius: 10px;" role="img" aria-label="A competitive firm's marginal cost curve MC (also its supply curve S above the shutdown point) rising through four points e1 to e4 on horizontal price lines p1=5 through p4=8. e1 sits at the minimum of average variable cost AVC (q=50); e2 sits at the minimum of average cost AC (q=140). Dotted lines drop to quantities q1=50, q2=140, q3=215, q4=285.">
+              <svg viewBox="0 0 640 480" style="width: 100%; max-height: 340px; background: #fff; border: 1px solid #e2e8f0; border-radius: 10px;" role="img" aria-label="A competitive firm's straight-line marginal cost curve MC (also its supply curve S above the shutdown point) rising through four equally spaced points e1 to e4 on horizontal price lines p1=5 through p4=8. e1 sits at the minimum of average variable cost AVC (q=50); e2 sits at the minimum of average cost AC (q=100). AVC lies strictly below AC everywhere. Dotted lines drop to quantities q1=50, q2=100, q3=150, q4=200.">
                 <!-- price grid lines -->
                 <line x1="90" y1="350" x2="600" y2="350" stroke="#38bdf8" stroke-width="1.6"/>
                 <line x1="90" y1="270" x2="600" y2="270" stroke="#38bdf8" stroke-width="1.6"/>
@@ -682,35 +680,35 @@
                 <text x="80" y="450" font-size="13" fill="#475569" text-anchor="end">0</text>
                 <text x="30" y="150" font-size="14" fill="#1e293b" transform="rotate(-90 30 150)">p, $ per ton</text>
                 <text x="360" y="474" font-size="13" fill="#1e293b" text-anchor="middle">q, Thousand metric tons of lime per year</text>
-                <!-- dotted quantity droplines -->
+                <!-- dotted quantity droplines (equally spaced under a linear MC) -->
                 <line x1="200" y1="350" x2="200" y2="440" stroke="#1e293b" stroke-width="1.3" stroke-dasharray="2 4"/>
-                <line x1="320" y1="270" x2="320" y2="440" stroke="#1e293b" stroke-width="1.3" stroke-dasharray="2 4"/>
-                <line x1="420" y1="190" x2="420" y2="440" stroke="#1e293b" stroke-width="1.3" stroke-dasharray="2 4"/>
-                <line x1="520" y1="110" x2="520" y2="440" stroke="#1e293b" stroke-width="1.3" stroke-dasharray="2 4"/>
+                <line x1="290" y1="270" x2="290" y2="440" stroke="#1e293b" stroke-width="1.3" stroke-dasharray="2 4"/>
+                <line x1="380" y1="190" x2="380" y2="440" stroke="#1e293b" stroke-width="1.3" stroke-dasharray="2 4"/>
+                <line x1="470" y1="110" x2="470" y2="440" stroke="#1e293b" stroke-width="1.3" stroke-dasharray="2 4"/>
                 <text x="200" y="459" font-size="12.5" fill="#1e293b" text-anchor="middle">q&#8321; = 50</text>
-                <text x="320" y="459" font-size="12.5" fill="#1e293b" text-anchor="middle">q&#8322; = 140</text>
-                <text x="420" y="459" font-size="12.5" fill="#1e293b" text-anchor="middle">q&#8323; = 215</text>
-                <text x="520" y="459" font-size="12.5" fill="#1e293b" text-anchor="middle">q&#8324; = 285</text>
-                <!-- AVC (purple), min at e1 -->
-                <path d="M 120,232 Q 160,350 200,350 Q 340,350 495,205" fill="none" stroke="#a855f7" stroke-width="4"/>
-                <text x="500" y="210" font-size="14" fill="#a855f7" font-weight="700" font-style="italic">AVC</text>
-                <!-- AC (green), min at e2 -->
-                <path d="M 178,74 Q 250,270 320,270 Q 445,270 560,192" fill="none" stroke="#22c55e" stroke-width="4"/>
-                <text x="566" y="196" font-size="14" fill="#16a34a" font-weight="700" font-style="italic">AC</text>
-                <!-- MC / S (red): dashed below e1, solid through e1..e4 -->
-                <path d="M 158,398 L 200,350" fill="none" stroke="#ef4444" stroke-width="4" stroke-dasharray="8 6"/>
-                <path d="M 200,350 Q 260,318 320,270 Q 370,238 420,190 Q 470,158 520,110 L 562,82" fill="none" stroke="#ef4444" stroke-width="4"/>
-                <text x="132" y="392" font-size="14" fill="#ef4444" font-weight="700" font-style="italic">MC</text>
-                <text x="548" y="74" font-size="14" fill="#ef4444" font-weight="700" font-style="italic">S</text>
-                <!-- equilibrium points -->
+                <text x="290" y="459" font-size="12.5" fill="#1e293b" text-anchor="middle">q&#8322; = 100</text>
+                <text x="380" y="459" font-size="12.5" fill="#1e293b" text-anchor="middle">q&#8323; = 150</text>
+                <text x="470" y="459" font-size="12.5" fill="#1e293b" text-anchor="middle">q&#8324; = 200</text>
+                <!-- AC (green), min at e2 (290,270); drawn first so AVC sits clearly below it -->
+                <path d="M 180,95 Q 250,270 290,270 Q 420,270 560,175" fill="none" stroke="#22c55e" stroke-width="4"/>
+                <text x="566" y="179" font-size="14" fill="#16a34a" font-weight="700" font-style="italic">AC</text>
+                <!-- AVC (purple), min at e1 (200,350); stays strictly below AC everywhere (gap = AFC, shrinking) -->
+                <path d="M 125,258 Q 165,350 200,350 Q 340,352 500,260" fill="none" stroke="#a855f7" stroke-width="4"/>
+                <text x="506" y="264" font-size="14" fill="#a855f7" font-weight="700" font-style="italic">AVC</text>
+                <!-- MC / S (red): straight line; dashed below e1, solid through e1..e4 -->
+                <path d="M 160,385.6 L 200,350" fill="none" stroke="#ef4444" stroke-width="4" stroke-dasharray="8 6"/>
+                <path d="M 200,350 L 500,83.3" fill="none" stroke="#ef4444" stroke-width="4"/>
+                <text x="150" y="398" font-size="14" fill="#ef4444" font-weight="700" font-style="italic" text-anchor="end">MC</text>
+                <text x="506" y="80" font-size="14" fill="#ef4444" font-weight="700" font-style="italic">S</text>
+                <!-- equilibrium points on the linear MC -->
                 <circle cx="200" cy="350" r="5.5" fill="#0f172a"/>
-                <circle cx="320" cy="270" r="5.5" fill="#0f172a"/>
-                <circle cx="420" cy="190" r="5.5" fill="#0f172a"/>
-                <circle cx="520" cy="110" r="5.5" fill="#0f172a"/>
+                <circle cx="290" cy="270" r="5.5" fill="#0f172a"/>
+                <circle cx="380" cy="190" r="5.5" fill="#0f172a"/>
+                <circle cx="470" cy="110" r="5.5" fill="#0f172a"/>
                 <text x="192" y="338" font-size="13" font-weight="700" fill="#0f172a" text-anchor="end">e&#8321;</text>
-                <text x="312" y="258" font-size="13" font-weight="700" fill="#0f172a" text-anchor="end">e&#8322;</text>
-                <text x="412" y="178" font-size="13" font-weight="700" fill="#0f172a" text-anchor="end">e&#8323;</text>
-                <text x="512" y="98" font-size="13" font-weight="700" fill="#0f172a" text-anchor="end">e&#8324;</text>
+                <text x="282" y="258" font-size="13" font-weight="700" fill="#0f172a" text-anchor="end">e&#8322;</text>
+                <text x="372" y="178" font-size="13" font-weight="700" fill="#0f172a" text-anchor="end">e&#8323;</text>
+                <text x="462" y="98" font-size="13" font-weight="700" fill="#0f172a" text-anchor="end">e&#8324;</text>
               </svg>
             </div>
           </div>
@@ -820,13 +818,16 @@
               <text x="88" y="389" font-size="17" font-weight="700" fill="#db2777">P&#8323; = $4</text>
               <text x="450" y="420" font-size="16" font-weight="700" fill="#db2777">Case 3: P&#8323; &lt; min AVC &#8658; shut down (q = 0)!</text>
             </g>
-            <!-- fragment 5: short-run supply curve -->
+            <!-- fragment 5: upward-sloping part of the short-run supply curve -->
             <g class="fragment" data-fragment-index="5">
               <path d="M 380.0,380.0 L 384.0,376.1 L 388.0,372.0 L 392.0,367.8 L 396.0,363.4 L 400.0,358.9 L 404.0,354.2 L 408.0,349.4 L 412.0,344.4 L 416.0,339.2 L 420.0,333.9 L 424.0,328.5 L 428.0,322.9 L 432.0,317.1 L 436.0,311.2 L 440.0,305.1 L 444.0,298.9 L 448.0,292.5 L 452.0,286.0 L 456.0,279.3 L 460.0,272.5 L 464.0,265.5 L 468.0,258.3 L 472.0,251.1 L 476.0,243.6 L 480.0,236.0 L 484.0,228.2 L 488.0,220.3 L 492.0,212.3 L 496.0,204.1 L 500.0,195.7 L 504.0,187.2 L 508.0,178.5 L 512.0,169.6 L 516.0,160.7 L 520.0,151.5 L 524.0,142.2 L 528.0,132.8 L 532.0,123.2 L 536.0,113.4 L 540.0,103.5 L 544.0,93.5" fill="none" stroke="#0d9488" stroke-width="13" stroke-opacity="0.45" stroke-linecap="round"/>
-              <line x1="80" y1="460" x2="80" y2="380" stroke="#0d9488" stroke-width="13" stroke-opacity="0.45" stroke-linecap="round"/>
-              <circle cx="380" cy="380" r="6" fill="#0d9488"/>
               <text x="555" y="140" font-size="16" font-weight="700" fill="#0f766e">short-run supply =</text>
               <text x="555" y="158" font-size="16" font-weight="700" fill="#0f766e">MC above min AVC</text>
+            </g>
+            <!-- fragment 6: vertical shut-down part of the short-run supply curve -->
+            <g class="fragment" data-fragment-index="6">
+              <line x1="80" y1="460" x2="80" y2="380" stroke="#0d9488" stroke-width="13" stroke-opacity="0.45" stroke-linecap="round"/>
+              <circle cx="380" cy="380" r="6" fill="#0d9488"/>
               <text x="100" y="440" font-size="15" fill="#64748b">shutdown point (min AVC = $5)</text>
               <path d="M 240 432 Q 300 420 372 388" fill="none" stroke="#64748b" stroke-width="1.5" marker-end="url(#c4arrow2)"/>
             </g>
@@ -836,6 +837,19 @@
               </marker>
             </defs>
           </svg>
+        </section>
+
+      </section>
+
+
+      <!-- SECTION 4b: Short- and Long-Run Equilibria (Vertical Stack) -->
+      <section>
+
+        <!-- Slide 5.14b: Part 3 Divider -->
+        <section data-background-gradient="linear-gradient(135deg, #0f766e 0%, #115e59 100%)">
+          <p class="eyebrow" style="color: #ccfbf1;">Part 3</p>
+          <h1 style="color: white; font-size: 2.4em;">Short- and Long-Run Equilibria<br>in Perfectly Competitive Markets</h1>
+          <p style="color: #ccfbf1; margin-top: 20px;">Press <kbd style="background: #115e59; color: white; border: 1px solid #134e4a; padding: 2px 6px; border-radius: 4px;">↓</kbd> to continue</p>
         </section>
 
         <!-- Slide 5.15: Short-Run Equilibrium Definition -->
@@ -904,24 +918,29 @@
                 <polygon points="75,52 85,52 80,41" fill="#475569"/>
                 <text x="723" y="466" font-size="17" fill="#1e293b" font-style="italic">q</text>
                 <text x="40" y="34" font-size="16" fill="#1e293b">$/unit</text>
-                <g class="fragment">
-                  <path class="build-line" pathLength="950" d="M 145,300 Q 197,385 250,385 Q 370,385 560,250" fill="none" stroke="#2563eb" stroke-width="3.5" stroke-linecap="round"/>
+                <!-- Cost curves inherited from the previous slide (shown immediately) -->
+                <g>
+                  <path d="M 145,300 Q 197,385 250,385 Q 370,385 560,250" fill="none" stroke="#2563eb" stroke-width="3.5" stroke-linecap="round"/>
                   <text x="566" y="254" font-size="17" fill="#2563eb" font-style="italic">AVC</text>
                 </g>
-                <g class="fragment">
-                  <path class="build-line" pathLength="950" d="M 235,215 Q 277,345 320,345 Q 440,345 560,230" fill="none" stroke="#d97706" stroke-width="3.5" stroke-linecap="round"/>
+                <g>
+                  <path d="M 235,215 Q 277,345 320,345 Q 440,345 560,230" fill="none" stroke="#d97706" stroke-width="3.5" stroke-linecap="round"/>
                   <text x="566" y="228" font-size="17" fill="#d97706" font-style="italic">ATC</text>
                 </g>
-                <g class="fragment">
-                  <path class="build-line" pathLength="950" d="M 158,432 Q 205,410 250,385 Q 288,367 320,345 Q 425,288 560,205" fill="none" stroke="#dc2626" stroke-width="3.5" stroke-linecap="round"/>
+                <g>
+                  <path d="M 158,432 Q 205,410 250,385 Q 288,367 320,345 Q 425,288 560,205" fill="none" stroke="#dc2626" stroke-width="3.5" stroke-linecap="round"/>
                   <text x="503" y="196" font-size="17" fill="#dc2626" font-style="italic">MC</text>
                 </g>
+                <!-- Fragment 1: upper slanted portion of the supply highlight along MC -->
                 <g class="fragment">
                   <path d="M 250,385 Q 288,367 320,345 Q 425,288 560,205" fill="none" stroke="#0d9488" stroke-width="13" stroke-opacity="0.42" stroke-linecap="round"/>
-                  <line x1="80" y1="460" x2="80" y2="385" stroke="#0d9488" stroke-width="13" stroke-opacity="0.42" stroke-linecap="round"/>
                   <circle cx="250" cy="385" r="6" fill="#0d9488"/>
                   <text x="300" y="150" font-size="16" font-weight="700" fill="#0f766e">supply = MC</text>
                   <text x="300" y="170" font-size="16" font-weight="700" fill="#0f766e">above min AVC</text>
+                </g>
+                <!-- Fragment 2: vertical shut-down portion of the supply curve -->
+                <g class="fragment">
+                  <line x1="80" y1="460" x2="80" y2="385" stroke="#0d9488" stroke-width="13" stroke-opacity="0.42" stroke-linecap="round"/>
                   <text x="95" y="442" font-size="14" fill="#64748b">shut down below min AVC</text>
                 </g>
               </svg>
@@ -1168,6 +1187,10 @@
               <div class="def-title">Definition: Long-Run Equilibrium</div>
               Long-run equilibrium is where firms consider only variable costs in making their production decisions.
             </div>
+            <div class="def-card" style="margin: 0 0 15px; border-left-color: #b45309; background: rgba(180, 83, 9, 0.05);">
+              <div class="def-title" style="color: #b45309;">Short run vs. long run: which costs matter?</div>
+              In the <strong>short run, all costs matter</strong>. In the <strong>long run, only variable costs matter</strong> &mdash; all fixed costs are treated as <strong>sunk</strong>.
+            </div>
             <p style="font-weight: 600; color: #0f766e; margin-bottom: 8px;">Practical consequences:</p>
             <ul>
               <li>Firms view fixed costs as sunk, hence the only thing that characterizes any long-run equilibrium is <strong>zero profits</strong>.</li>
@@ -1329,27 +1352,27 @@
           </div>
         </section>
 
-        <!-- Slide 5.25: Fred's Hats Example 1 -->
+        <!-- Slide 5.25: Rex's Ties Example 1 -->
         <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
           <p class="eyebrow">Perfect Competition · Example 1</p>
-          <h2>Fred's Hats Calculation</h2>
+          <h2>Rex's Ties Calculation</h2>
           <div class="content-card">
             <div class="example-card">
               <div class="ex-title">Problem Statement</div>
-              Fred’s Hats, a company involved in the production of University of Michigan Rose Bowl hats, has total cost and marginal cost functions as follows:
+              Rex’s Ties, a company involved in the production of University of Michigan Rose Bowl ties, has total cost and marginal cost functions as follows:
               \[ TC(q) = q^2 + 2q + 49 \]
               \[ MC(q) = 2q + 2 \]
-              where \( q \) is the quantity of hats produced by Fred’s Hats and marginal cost is measured in dollars per unit. Fred’s Hats operates in a perfectly competitive market, where the market price for these hats is currently $20 each.
+              where \( q \) is the quantity of ties produced by Rex’s Ties and marginal cost is measured in dollars per unit. Rex’s Ties operates in a perfectly competitive market, where the market price for these ties is currently $20 each.
               <br><br>
-              <strong>Calculate the short-run profit maximizing quantity of hats that Fred’s Hats should produce, and the profit that they make. Then, state whether the market is in a long-run equilibrium.</strong>
+              <strong>Calculate the short-run profit maximizing quantity of ties that Rex’s Ties should produce, and the profit that they make. Then, state whether the market is in a long-run equilibrium.</strong>
             </div>
           </div>
         </section>
 
-        <!-- Slide 5.25b: Solution - Fred's Hats -->
+        <!-- Slide 5.25b: Solution - Rex's Ties -->
         <section data-background-gradient="linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)">
           <p class="eyebrow" style="color: #059669;">Perfect Competition · Solution 1</p>
-          <h2>Solution: Fred's Hats</h2>
+          <h2>Solution: Rex's Ties</h2>
           <div class="content-card" style="font-size: 0.92em;">
             <div class="def-card">
               <div class="def-title">Step 1: Profit-Maximizing Quantity</div>
@@ -1372,16 +1395,16 @@
           </div>
         </section>
 
-        <!-- Slide 5.26: Fred's Hats Example 2 -->
+        <!-- Slide 5.26: Rex's Ties Example 2 -->
         <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
           <p class="eyebrow">Perfect Competition · Example 2</p>
-          <h2>Fred's Hats: Long-Run Equilibrium</h2>
+          <h2>Rex's Ties: Long-Run Equilibrium</h2>
           <div class="content-card">
             <div class="example-card">
               <div class="ex-title">Problem Statement (continued)</div>
-              Suppose market demand for these hats is given by:
+              Suppose market demand for these ties is given by:
               \[ Q_D = 220 - 5P_D \quad \text{or} \quad P_D = 44 - 0.2Q_D \]
-              and the cost structure for Fred’s Hats remains the same as those on the previous slide.
+              and the cost structure for Rex’s Ties remains the same as those on the previous slide.
               <br><br>
               <strong>Calculate the long-run equilibrium market price.</strong>
             </div>
@@ -1391,7 +1414,7 @@
           </div>
         </section>
 
-        <!-- Slide 5.26b: Solution - Fred's Hats LR -->
+        <!-- Slide 5.26b: Solution - Rex's Ties LR -->
         <section data-background-gradient="linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)">
           <p class="eyebrow" style="color: #059669;">Perfect Competition · Solution 2</p>
           <h2>Solution: Long-Run Equilibrium</h2>
@@ -1420,7 +1443,7 @@
 
         <!-- Animated: short-run -> long-run transition -->
         <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
-          <p class="eyebrow">Fred&rsquo;s Hats &middot; Short Run &rarr; Long Run</p>
+          <p class="eyebrow">Rex&rsquo;s Ties &middot; Short Run &rarr; Long Run</p>
           <h2>From Short-Run Profit to Long-Run Equilibrium</h2>
           <p style="font-size: 0.55em; color: #64748b; margin: 0 0 4px;">Short-run profit attracts entry; market (right) supply shifts right, so the price falls until it reaches \( \min(ATC) \) and the firm (left) earns zero profit. Press <kbd style="background: #e2e8f0; border: 1px solid #cbd5e1; padding: 1px 6px; border-radius: 4px;">&rarr;</kbd>.</p>
           <svg class="anim-graph" viewBox="0 0 940 430" style="width: 94%; max-height: 380px; margin: 0 auto; display: block; background: white; border: 1px solid #e2e8f0; border-radius: 10px;" role="img" aria-label="Animated transition from short run to long run. The firm (left) starts with a flat demand P=MR above minimum ATC, earning a profit rectangle. Entry shifts the market (right) supply from S to S-prime, lowering the price; the firm's demand falls to P-prime=MR-prime tangent to minimum ATC, where profit is zero.">
@@ -1490,7 +1513,7 @@
               Nomenclature: market structure has <strong>welfare implications</strong> for the society.
             </div>
             <p class="fragment" style="color: #64748b; font-size: 0.9em; margin-top: 25px;">
-              <strong>More on Welfare Analysis next time, and that concludes Part 1 of this class!</strong>
+              <strong>We close today with a first look at welfare &mdash; and Class 5 goes deeper!</strong>
             </p>
           </div>
         </section>
@@ -1602,6 +1625,59 @@
           <h2>Price Takers, Graphically</h2>
           <div class="slide-img-container" style="margin: 5px auto 0; padding: 8px;">
             <img src="../slides/images/c4_gw_pricetaker_graph.png" alt="Competitive firm diagram: P=$10 line meets MC=2Q+2 at Q*=4; ATC(4)=$8 gives the profit rectangle (10-8)x4=$8, and entry pushes the price down toward minimum ATC" style="max-height: 470px;">
+          </div>
+        </section>
+
+      </section>
+
+
+      <!-- SECTION 4c: Part 4 - A First Look at Welfare (Vertical Stack) -->
+      <section>
+
+        <!-- Part 4 Divider -->
+        <section data-background-gradient="linear-gradient(135deg, #0f766e 0%, #115e59 100%)">
+          <p class="eyebrow" style="color: #ccfbf1;">Part 4</p>
+          <h1 style="color: white; font-size: 2.6em;">A First Look at Welfare</h1>
+          <p style="color: #ccfbf1; margin-top: 20px;">Press <kbd style="background: #115e59; color: white; border: 1px solid #134e4a; padding: 2px 6px; border-radius: 4px;">↓</kbd> for a quick, intuitive preview</p>
+        </section>
+
+        <!-- Welfare 1: Consumer, Producer & Social Surplus -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Welfare &middot; Intuition</p>
+          <h2>Consumer, Producer &amp; Social Surplus</h2>
+          <div class="content-card">
+            <p style="font-weight: 600; color: #0f766e; margin-bottom: 12px;">Why care about market structure? It shapes how well-off people and firms are.</p>
+            <div style="display: flex; gap: 14px;">
+              <div class="def-card" style="flex: 1; margin: 0;">
+                <div class="def-title">Consumer Surplus (CS)</div>
+                The value buyers get <strong>above what they pay</strong> &mdash; willingness to pay minus price.
+              </div>
+              <div class="def-card" style="flex: 1; margin: 0;">
+                <div class="def-title">Producer Surplus (PS)</div>
+                The gain sellers get <strong>above their cost</strong> &mdash; revenue minus cost of producing.
+              </div>
+            </div>
+            <div class="def-card fragment" style="margin-top: 14px; border-left-color: #3b82f6; background: rgba(59, 130, 246, 0.04);">
+              <div class="def-title" style="color: #3b82f6;">Social Welfare (Social Surplus)</div>
+              The total gains from trade in a market:
+              \[ W = CS + PS \]
+            </div>
+          </div>
+        </section>
+
+        <!-- Welfare 2: Efficiency & Deadweight Loss -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Welfare &middot; Efficiency &amp; DWL</p>
+          <h2>Efficiency &amp; Deadweight Loss</h2>
+          <div class="content-card">
+            <ul>
+              <li class="fragment"><strong>Perfect competition maximizes</strong> social welfare &mdash; the market is <strong>efficient</strong> (no surplus left on the table).</li>
+              <li class="fragment"><strong>Market power</strong> (e.g. monopoly) sets price above \( MC \) and <strong>restricts output</strong>.</li>
+              <li class="fragment">The lost gains from trade are a <strong>deadweight loss (DWL)</strong> &mdash; surplus that is simply gone, transferred to no one.</li>
+            </ul>
+            <div class="def-card fragment" style="margin-top: 12px; border-left-color: #b45309; background: rgba(180, 83, 9, 0.05);">
+              This is why market structure has <strong>welfare implications</strong> for society. We study surplus, efficiency, and deadweight loss in depth in <strong>Class 5</strong>.
+            </div>
           </div>
         </section>
 
