@@ -1,0 +1,1275 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Game Theory, Part 2: Sequential Moves &amp; Credible Threats</title>
+
+  <!-- reveal.js core + theme (HTML5 slides, loaded from CDN) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reset.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/white.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/highlight/monokai.css">
+
+  <!-- Google Fonts for premium typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --r-main-font: 'Plus Jakarta Sans', sans-serif;
+      --r-heading-font: 'Outfit', sans-serif;
+      --r-main-color: #1e293b;
+      --r-heading-color: #0f172a;
+      --r-link-color: #0f766e;
+      --r-selection-background-color: #ccfbf1;
+    }
+
+    .reveal {
+      font-family: var(--r-main-font);
+      color: var(--r-main-color);
+      font-size: 24px;
+    }
+
+    .reveal h1, .reveal h2, .reveal h3, .reveal h4 {
+      font-family: var(--r-heading-font);
+      color: var(--r-heading-color);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .reveal h1 { font-size: 2.2em; line-height: 1.1; }
+    .reveal h2 { font-size: 1.6em; line-height: 1.2; margin-bottom: 15px; }
+    .reveal h3 { font-size: 1.2em; line-height: 1.3; }
+
+    .reveal .eyebrow {
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      font-size: 0.45em;
+      font-weight: 700;
+      color: #0f766e;
+      margin-bottom: 10px;
+      display: inline-block;
+    }
+
+    /* Elegant card container */
+    .reveal .content-card {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      border-radius: 12px;
+      padding: 18px 24px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.02);
+      margin: 12px auto;
+      text-align: left;
+      max-width: 920px;
+    }
+
+    .reveal .def-card {
+      border-left: 4px solid #0f766e;
+      background: rgba(15, 118, 110, 0.04);
+      border-radius: 4px 10px 10px 4px;
+      padding: 12px 18px;
+      margin: 12px 0;
+      text-align: left;
+    }
+    .reveal .def-card .def-title {
+      font-family: var(--r-heading-font);
+      font-weight: 700;
+      color: #0f766e;
+      font-size: 0.8em;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 4px;
+    }
+
+    .reveal .example-card {
+      border-left: 4px solid #3b82f6;
+      background: rgba(59, 130, 246, 0.04);
+      border-radius: 4px 10px 10px 4px;
+      padding: 12px 18px;
+      margin: 12px 0;
+      text-align: left;
+    }
+    .reveal .example-card .ex-title {
+      font-family: var(--r-heading-font);
+      font-weight: 700;
+      color: #3b82f6;
+      font-size: 0.8em;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 4px;
+    }
+
+    /* Slide image styling */
+    .reveal .slide-img-container {
+      background: white;
+      padding: 8px;
+      border-radius: 10px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.02);
+      border: 1px solid #e2e8f0;
+      display: inline-block;
+      margin-top: 8px;
+    }
+    .reveal .slide-img-container img {
+      max-height: 280px;
+      width: auto;
+      margin: 0;
+      display: block;
+      border-radius: 4px;
+    }
+
+    /* Grid for side-by-side clips */
+    .reveal .img-gallery {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 15px;
+      flex-wrap: wrap;
+      margin-top: 15px;
+    }
+    .reveal .img-gallery .gallery-item {
+      background: white;
+      padding: 6px;
+      border-radius: 10px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.02);
+      border: 1px solid #e2e8f0;
+    }
+    .reveal .img-gallery img {
+      max-height: 220px;
+      width: auto;
+      display: block;
+      border-radius: 4px;
+      margin: 0;
+    }
+
+    /* Standard list styling (for inside cards, columns, etc.) */
+    .reveal ul, .reveal ol {
+      display: block;
+      text-align: left;
+      margin: 10px 0 !important;
+      padding-left: 20px;
+    }
+
+    .reveal ul {
+      list-style-type: disc;
+    }
+
+    .reveal ol {
+      list-style-type: decimal;
+    }
+
+    .reveal li {
+      text-align: left;
+      margin-bottom: 8px;
+      line-height: 1.35;
+    }
+
+    /* Indentation and bullets for nested lists */
+    .reveal li ul, .reveal li ol {
+      margin: 4px 0 4px 20px !important;
+      display: block;
+      min-width: unset;
+    }
+
+    .reveal li ul {
+      list-style-type: circle;
+    }
+
+    /* Centered list layout (only when list is the main slide element or explicitly centered) */
+    .reveal section > ul, .reveal section > ol, .reveal .center-list {
+      display: inline-block;
+      text-align: left;
+      margin: 15px auto !important;
+      padding-left: 20px;
+      min-width: 65%;
+      max-width: 95%;
+    }
+
+    /* Home link and footer elements */
+    .reveal .home-link {
+      position: fixed;
+      bottom: 16px;
+      left: 20px;
+      z-index: 30;
+      font-size: 13px;
+      color: #94a3b8;
+      text-decoration: none;
+      font-family: var(--r-main-font);
+      font-weight: 500;
+      transition: color 0.2s ease;
+    }
+    .reveal .home-link:hover {
+      color: #0f766e;
+    }
+
+    .reveal .slide-footer {
+      position: fixed;
+      bottom: 16px;
+      right: 20px;
+      z-index: 30;
+      font-size: 11px;
+      color: #94a3b8;
+      font-family: var(--r-main-font);
+    }
+
+    /* Interactive blank */
+    .reveal .fill-blank {
+      display: inline-block;
+      border-bottom: 2px dashed #94a3b8;
+      min-width: 140px;
+      height: 1.1em;
+      vertical-align: bottom;
+    }
+
+    .reveal .katex-display {
+      margin: 8px 0;
+    }
+
+    /* Payoff matrices for games */
+    .reveal .game-wrap {
+      display: flex;
+      justify-content: center;
+      margin: 12px 0;
+    }
+    .reveal table.game-table {
+      border-collapse: collapse;
+      font-size: 0.72em;
+      font-family: var(--r-main-font);
+      margin: 0;
+    }
+    .reveal .game-table td, .reveal .game-table th {
+      border: none;
+      padding: 5px 12px;
+    }
+    .reveal .game-table .col-player {
+      color: #db2777;
+      font-weight: 700;
+      text-align: center;
+      padding-bottom: 2px;
+    }
+    .reveal .game-table .row-player {
+      color: #db2777;
+      font-weight: 700;
+      text-align: right;
+      padding-right: 14px;
+      vertical-align: middle;
+    }
+    .reveal .game-table th.action {
+      font-weight: 700;
+      color: #0f172a;
+      text-align: center;
+    }
+    .reveal .game-table th.action-row {
+      font-weight: 700;
+      color: #0f172a;
+      text-align: right;
+      padding-right: 12px;
+    }
+    .reveal .game-table td.cell {
+      border: 2px solid #334155;
+      padding: 10px 22px;
+      text-align: center;
+      font-weight: 600;
+      background: white;
+      min-width: 110px;
+    }
+
+    /* Group work slides: random group picker */
+    .reveal .group-roll-btn {
+      font-family: var(--r-heading-font);
+      font-weight: 700;
+      font-size: 0.75em;
+      color: white;
+      background: #b45309;
+      border: none;
+      border-radius: 999px;
+      padding: 8px 18px;
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+    .reveal .group-roll-btn:hover {
+      background: #92400e;
+    }
+    .reveal .group-roll-result {
+      display: inline-block;
+      min-width: 2em;
+      margin-left: 10px;
+      font-family: var(--r-heading-font);
+      font-weight: 800;
+      color: #b45309;
+      font-size: 1.2em;
+      vertical-align: middle;
+    }
+  /* Step-by-step animated graph: lines draw themselves in as fragments appear */
+    .reveal svg.anim-graph { font-family: var(--r-main-font); }
+    .reveal svg.anim-graph text { font-family: var(--r-main-font); }
+    .reveal .anim-graph .build-line {
+      stroke-dasharray: 950;
+      stroke-dashoffset: 950;
+    }
+    .reveal .fragment.visible .build-line {
+      animation: drawline 0.9s ease-out forwards;
+    }
+    @keyframes drawline {
+      to { stroke-dashoffset: 0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- SECTION 1: Welcome & Overview (Horizontal) -->
+
+      <!-- Slide 1: Title -->
+      <section data-background-gradient="linear-gradient(135deg, #0f172a 0%, #1e293b 100%)">
+        <p class="eyebrow" style="color: #2dd4bf;">RSC Economics Experience · July 2026</p>
+        <h1 style="color: white; font-size: 2.5em; margin-bottom: 15px;">Class 7</h1>
+        <h3 style="color: #94a3b8; font-weight: 400; margin-bottom: 45px;">Game Theory, Part 2: Sequential Moves &amp; Credible Threats</h3>
+        <p style="color: #2dd4bf; font-weight: 600; font-size: 0.9em; margin-bottom: 5px;">Meng Hsuan &ldquo;Rex&rdquo; Hsieh</p>
+        <p style="color: #64748b; font-size: 0.75em; margin-top: 30px;">Press <kbd style="background: #334155; color: #cbd5e1; border: 1px solid #475569; padding: 2px 6px; border-radius: 4px;">→</kbd> to begin</p>
+      </section>
+
+      <!-- Slide 2: Agenda -->
+      <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+        <p class="eyebrow">Agenda for Today</p>
+        <h2>Sequential Moves &amp; Credible Threats</h2>
+        <div class="content-card">
+          <ul>
+            <li class="fragment"><strong>Sequential move games</strong>: study games where players take turns, in more detail.</li>
+            <li class="fragment"><strong>Backward induction</strong>: define and use it to solve finitely repeated and sequential games.</li>
+            <li class="fragment"><strong>Credible threats</strong>: define credibility, and see how commitment can make threats credible.</li>
+            <li class="fragment">&hellip;and <strong>Quiz 5 next class</strong>!</li>
+          </ul>
+        </div>
+      </section>
+
+
+      <!-- SECTION 2: Recap & Finitely Repeated Games (Vertical Stack) -->
+      <section>
+
+        <!-- Slide 3.1: Divider -->
+        <section data-background-gradient="linear-gradient(135deg, #0f766e 0%, #115e59 100%)">
+          <p class="eyebrow" style="color: #ccfbf1;">Part 1</p>
+          <h1 style="color: white; font-size: 2.8em;"><em>Finitely</em> Repeated Games</h1>
+          <p style="color: #ccfbf1; margin-top: 20px;">Press <kbd style="background: #115e59; color: white; border: 1px solid #134e4a; padding: 2px 6px; border-radius: 4px;">↓</kbd> to continue</p>
+        </section>
+
+        <!-- Slide 3.2: Where we left off -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Recap · Last Time</p>
+          <h2>Where We Left Off Last Time&hellip;</h2>
+          <div class="content-card">
+            <p style="font-weight: 600; color: #0f766e; margin-bottom: 12px;">Games and strategic interactions:</p>
+            <ul>
+              <li class="fragment">Definitions of <strong>actions, strategies, best-responses</strong>.</li>
+              <li class="fragment">Definition of <strong>Nash equilibrium</strong> (mutual best-responses).</li>
+              <li class="fragment"><strong>Coordination games</strong> &mdash; and games with more than one NE.</li>
+              <li class="fragment"><strong>Infinitely repeated games</strong> &mdash; the grim trigger sustains cooperation when players are patient.</li>
+            </ul>
+            <p class="fragment" style="font-weight: 600; color: #db2777; margin-top: 12px;">Today: what happens when the game has an <em>end in sight</em> &mdash; and when players take <em>turns</em>?</p>
+          </div>
+        </section>
+
+        <!-- Slide 3.3: Played twice -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Finitely Repeated · 1/4</p>
+          <h2>The Fun Begins When There's an End in Sight</h2>
+          <div class="content-card" style="font-size: 0.9em;">
+            <p>Suppose Philips and Sony play the same entry game &mdash; but only <em>twice</em>.</p>
+            <div class="game-wrap">
+              <table class="game-table">
+                <tr><td></td><td></td><td class="col-player" colspan="2">Sony</td></tr>
+                <tr><td></td><td></td><th class="action">Enter Now</th><th class="action">Stay Out</th></tr>
+                <tr><td class="row-player" rowspan="2">Philips</td><th class="action-row">Enter Now</th><td class="cell">30, 30</td><td class="cell">14, 55</td></tr>
+                <tr><th class="action-row">Stay Out</th><td class="cell">55, 14</td><td class="cell">20, 20</td></tr>
+              </table>
+            </div>
+            <p class="fragment">There's now an <strong>end in sight</strong> &mdash; namely, the second round. The NE (in pure strategies) of the stage game is still <strong>(Stay Out, Stay Out)</strong>.</p>
+            <p class="fragment" style="font-weight: 600; color: #db2777;">What must happen in the second (final) round?</p>
+          </div>
+        </section>
+
+        <!-- Slide 3.4: Iterate the logic -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Finitely Repeated · 2/4</p>
+          <h2>Iterating the Logic</h2>
+          <div class="content-card">
+            <ul>
+              <li class="fragment">In the <strong>final round</strong>, there is no future to protect &mdash; both players simply play the stage-game NE: (Stay Out, Stay Out).</li>
+              <li class="fragment">But then, in the <strong>second-to-last round</strong>, cooperation cannot be rewarded (the last round is already lost) &mdash; so both defect there too.</li>
+              <li class="fragment">Iterate: do the players have incentives to deviate from the NE in the 5th round? The 10th round? <strong>No &mdash; the whole game unravels from the end!</strong></li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- Slide 3.5: Endgame problem -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Finitely Repeated · 3/4</p>
+          <h2>Why Did We Reach This Conclusion?</h2>
+          <div class="content-card" style="font-size: 0.92em;">
+            <div class="def-card">
+              <div class="def-title">The Endgame Problem</div>
+              If there is a definite end to the game, both players know there is no benefit to cooperating in the last round &mdash; so they defect at the end, and (by iteration) all the way back to round one.
+            </div>
+            <p class="fragment" style="margin-top: 12px;">We say finite games suffer from <strong style="color: #db2777;">non-credible threats</strong>: the threat of &ldquo;pulling the grim trigger&rdquo; has no bite when the game is finite.</p>
+            <p class="fragment">By extension, threats and promises are also not credible in the second-to-last round, third-to-last round, etc.</p>
+          </div>
+        </section>
+
+        <!-- Slide 3.6: Backward induction defn -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Finitely Repeated · 4/4</p>
+          <h2>How to Solve Finite Games, Then?</h2>
+          <div class="content-card">
+            <p>Finite games have an <strong style="color: #3b82f6;">endgame</strong>. So let's start from the end, and work backwards!</p>
+            <div class="def-card fragment" style="margin-top: 15px;">
+              <div class="def-title">Definition: Backward Induction</div>
+              <strong>Backward induction</strong> is the way to solve finitely repeated (and sequential) games: start at the <em>end</em> of the game and work backwards in &ldquo;time&rdquo;, to figure out the equilibrium strategies and payoffs.
+            </div>
+            <p class="fragment" style="font-weight: 600; color: #0f766e; margin-top: 15px;">Let's see how backward induction works in <em>sequential move games</em>!</p>
+          </div>
+        </section>
+
+      </section>
+
+
+      <!-- SECTION 3: Sequential Move Games (Vertical Stack) -->
+      <section>
+
+        <!-- Slide 4.1: Divider -->
+        <section data-background-gradient="linear-gradient(135deg, #0f766e 0%, #115e59 100%)">
+          <p class="eyebrow" style="color: #ccfbf1;">Part 2</p>
+          <h1 style="color: white; font-size: 2.8em;">Sequential Move Games</h1>
+          <p style="color: #ccfbf1; margin-top: 20px;">Press <kbd style="background: #115e59; color: white; border: 1px solid #134e4a; padding: 2px 6px; border-radius: 4px;">↓</kbd> to continue</p>
+        </section>
+
+        <!-- Slide 4.2: Definition -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Sequential Games · Definition</p>
+          <h2>Sequential Move Games</h2>
+          <div class="content-card">
+            <div class="def-card" style="margin-top: 0;">
+              <div class="def-title">Definition: Sequential Move Game</div>
+              A <strong>sequential move game</strong> is a game where players take turns deciding what moves to play.
+            </div>
+            <p class="fragment" style="margin-top: 12px;">Let's see how the equilibrium of a given game changes &mdash; if at all &mdash; if it were played in:</p>
+            <ol style="font-size: 0.95em;">
+              <li class="fragment">simultaneous move, <strong>one-shot</strong>;</li>
+              <li class="fragment">simultaneous move, <strong>finitely repeated</strong>;</li>
+              <li class="fragment">simultaneous move, <strong>infinitely repeated</strong>;</li>
+              <li class="fragment"><strong style="color: #db2777;">sequential moves</strong>.</li>
+            </ol>
+          </div>
+        </section>
+
+        <!-- Slide 4.3: Warranty setup + Q0 -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Sequential Games · Running Example</p>
+          <h2>Offering a Warranty Becomes a Game</h2>
+          <div class="content-card" style="font-size: 0.88em;">
+            <div class="example-card" style="margin: 0 0 8px;">
+              <div class="ex-title">Long Example</div>
+              Honda and Suzuki are competing motorcycle manufacturers. Both are <u>simultaneously considering</u> offering 10-year warranties &mdash; costly, but making their vehicles more attractive relative to the competitor's.
+            </div>
+            <div class="game-wrap">
+              <table class="game-table">
+                <tr><td></td><td></td><td class="col-player" colspan="2">Suzuki</td></tr>
+                <tr><td></td><td></td><th class="action">Offer</th><th class="action">Don't Offer</th></tr>
+                <tr><td class="row-player" rowspan="2">Honda</td><th class="action-row">Offer</th><td class="cell">25, 35</td><td class="cell">85, 15</td></tr>
+                <tr><th class="action-row">Don't Offer</th><td class="cell">20, 95</td><td class="cell">50, 55</td></tr>
+              </table>
+            </div>
+            <p class="fragment" style="font-weight: 600; color: #db2777;">Question 0. If the game is played <em>once</em>, what is the NE?</p>
+          </div>
+        </section>
+
+        <!-- Slide 4.3b: Q0 solution -->
+        <section data-background-gradient="linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)">
+          <p class="eyebrow" style="color: #059669;">Sequential Games · Solution</p>
+          <h2>Solution: One-Shot NE</h2>
+          <div class="content-card" style="font-size: 0.92em;">
+            <div class="def-card" style="margin: 8px 0;">
+              <div class="def-title">Best Responses</div>
+              <strong>Honda</strong>: vs. Offer, 25 &gt; 20; vs. Don't Offer, 85 &gt; 50 &rArr; <strong>Offer is dominant</strong>.<br>
+              <strong>Suzuki</strong>: vs. Offer, 35 &gt; 15; vs. Don't Offer, 95 &gt; 55 &rArr; <strong>Offer is dominant</strong>.
+            </div>
+            <div class="def-card fragment" style="margin: 8px 0;">
+              <div class="def-title">Conclusion</div>
+              The unique NE (in dominant strategies) is <strong>(Offer, Offer) = (25, 35)</strong> &mdash; even though both would prefer (Don't, Don't) = (50, 55). A classic prisoner's dilemma!
+            </div>
+          </div>
+        </section>
+
+        <!-- Slide 4.4: Q1 repeated 23 times -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Sequential Games · Practice</p>
+          <h2>Practice: Repeat It 23 Times</h2>
+          <div class="content-card">
+            <div class="example-card" style="margin: 0;">
+              <div class="ex-title">Question 1</div>
+              Now, suppose the game is repeated <strong>23 times</strong>. What is the outcome of the game? Is it the same as what you described in <strong>Question 0</strong>? Why or why not?
+              <br><br>
+              <em>(Hint: use backward induction &mdash; no maths is needed to answer this question.)</em>
+            </div>
+          </div>
+        </section>
+
+        <!-- Slide 4.4b: Q1 solution -->
+        <section data-background-gradient="linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)">
+          <p class="eyebrow" style="color: #059669;">Sequential Games · Solution</p>
+          <h2>Solution: 23 Repetitions</h2>
+          <div class="content-card" style="font-size: 0.92em;">
+            <div class="def-card" style="margin: 8px 0;">
+              <div class="def-title">Backward Induction</div>
+              In round 23 (the last round) there is no future &mdash; both play the dominant strategy: (Offer, Offer). But then nothing can be rewarded in round 22 either&hellip; and the game unravels all the way to round 1.
+            </div>
+            <div class="def-card fragment" style="margin: 8px 0;">
+              <div class="def-title">Conclusion</div>
+              <strong>(Offer, Offer) in every round</strong> &mdash; exactly the same as Question 0. The endgame problem strikes: with a finite horizon, cooperation cannot be sustained.
+            </div>
+          </div>
+        </section>
+
+        <!-- Slide 4.5: Q2 grim trigger -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Sequential Games · Practice</p>
+          <h2>Practice: Now Repeat It Forever</h2>
+          <div class="content-card" style="font-size: 0.88em;">
+            <div class="example-card" style="margin: 0 0 10px;">
+              <div class="ex-title">Question 2</div>
+              Now the game is <u>infinitely repeated</u>. Honda and Suzuki agreed, contractually, to <em>not offer warranties</em>. Both companies want to use a <strong>grim trigger strategy</strong> to deter the other from defecting from the agreement.
+              <br><br>
+              <strong>At what level of interest rate / discount factor \( r \) does the grim trigger constitute a NE in this infinitely repeated game?</strong>
+            </div>
+            <div class="game-wrap">
+              <table class="game-table" style="font-size: 0.68em;">
+                <tr><td></td><td></td><td class="col-player" colspan="2">Suzuki</td></tr>
+                <tr><td></td><td></td><th class="action">Offer</th><th class="action">Don't Offer</th></tr>
+                <tr><td class="row-player" rowspan="2">Honda</td><th class="action-row">Offer</th><td class="cell">25, 35</td><td class="cell">85, 15</td></tr>
+                <tr><th class="action-row">Don't Offer</th><td class="cell">20, 95</td><td class="cell">50, 55</td></tr>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- Slide 4.5b: Q2 solution -->
+        <section data-background-gradient="linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)">
+          <p class="eyebrow" style="color: #059669;">Sequential Games · Solution</p>
+          <h2>Solution: When Does the Grim Trigger Work?</h2>
+          <div class="content-card" style="font-size: 0.82em;">
+            <div class="def-card" style="margin: 6px 0;">
+              <div class="def-title">Honda: Cooperate vs. Defect</div>
+              Cooperate (Don't, Don't) forever: \( 50 + \frac{50}{r} \). Defect once (grab 85), then punished at (Offer, Offer) forever: \( 85 + \frac{25}{r} \).
+              \[ 50 + \frac{50}{r} \ge 85 + \frac{25}{r} \iff \frac{25}{r} \ge 35 \iff r \le \frac{5}{7} \approx 0.71 \]
+            </div>
+            <div class="def-card fragment" style="margin: 6px 0;">
+              <div class="def-title">Suzuki: Cooperate vs. Defect</div>
+              Cooperate: \( 55 + \frac{55}{r} \). Defect once (grab 95), then \( 35 \) forever: \( 95 + \frac{35}{r} \).
+              \[ 55 + \frac{55}{r} \ge 95 + \frac{35}{r} \iff \frac{20}{r} \ge 40 \iff r \le \frac{1}{2} \]
+            </div>
+            <div class="def-card fragment" style="margin: 6px 0; border-left-color: #3b82f6; background: rgba(59, 130, 246, 0.04);">
+              <div class="def-title" style="color: #3b82f6;">Conclusion</div>
+              Both conditions must hold &rArr; the grim trigger is a NE iff \( r \le 0.5 \) (Suzuki's condition binds &mdash; Suzuki is more tempted to defect).
+            </div>
+          </div>
+        </section>
+
+        <!-- Slide 4.6: Q3 setup + extensive form -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Sequential Games · Extensive Form</p>
+          <h2>Q3: The Move Structure Changes</h2>
+          <div class="content-card" style="font-size: 0.9em;">
+            <div class="example-card" style="margin: 0 0 10px;">
+              <div class="ex-title">Question 3</div>
+              Honda decides in <u>January 2019</u> whether to offer the warranty. Suzuki decides in <u>March 2019</u>. The payoffs are the same. Analyze the outcome via <em>backward induction</em>.
+            </div>
+            <div class="def-card fragment" style="margin: 10px 0 0;">
+              <div class="def-title">Definition: Extensive Form &amp; Game Tree</div>
+              The <strong>extensive form</strong> of a sequential game shows actions taken by players in succession, in a <strong>game tree</strong>. The order in which players move matters &mdash; it affects how we draw the tree! Payoffs sit at the ends of the tree (the <em>leaves</em>).
+            </div>
+          </div>
+        </section>
+
+        <!-- Slide 4.7: base tree -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Sequential Games · Game Tree</p>
+          <h2>The Warranty Game, in Extensive Form</h2>
+          <div class="content-card" style="font-size: 0.85em; max-width: 1000px; padding: 10px 18px;">
+            <p style="margin: 4px 0;">Honda moves first &mdash; it is the <em>parent</em> (root) of the game tree. Suzuki moves second: conditional on what Honda does, we transfer the payoffs from the normal form to the <em>leaves</em>.</p>
+          </div>
+          <div class="slide-img-container" style="margin: 4px auto 0; padding: 8px;">
+            <img src="../slides/images/c7_tree_warranty_base.png" alt="Warranty game tree: Honda chooses Offer or Not Offer, then Suzuki chooses, with payoffs 25,35 / 85,15 / 20,95 / 50,55 at the leaves" style="max-height: 380px;">
+          </div>
+        </section>
+
+        <!-- Slide 4.8: solved tree -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Sequential Games · Backward Induction</p>
+          <h2>Solving the Tree, Backwards</h2>
+          <div class="content-card" style="font-size: 0.85em; max-width: 1000px; padding: 10px 18px;">
+            <p style="margin: 4px 0;"><strong>Step 1:</strong> Suzuki moves last &mdash; in each branch it picks its best reply. <strong>Step 2:</strong> Honda, anticipating Suzuki, compares 25 (Offer) vs. 20 (Not Offer) &rArr; <strong>Offer</strong>.</p>
+          </div>
+          <div class="slide-img-container" style="margin: 4px auto 0; padding: 8px;">
+            <img src="../slides/images/c7_tree_warranty_solved.png" alt="Warranty game tree solved by backward induction: Suzuki offers in both subgames, Honda offers, SPE outcome (25, 35)" style="max-height: 380px;">
+          </div>
+        </section>
+
+        <!-- Slide 4.9: SPE definition + subgames -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Sequential Games · SPE</p>
+          <h2>Subgame Perfect Equilibrium</h2>
+          <div style="display: flex; align-items: center; justify-content: center; gap: 18px; max-width: 1120px; margin: 0 auto;">
+            <div style="flex: 1; text-align: left;">
+              <div class="content-card" style="margin: 0; font-size: 0.8em;">
+                <div class="def-card" style="margin: 0 0 10px;">
+                  <div class="def-title">Definition: Subgame Perfect Equilibrium (SPE)</div>
+                  A <strong>subgame perfect equilibrium</strong> is a Nash equilibrium in <em>every subgame</em> of the game.
+                </div>
+                <ul>
+                  <li class="fragment">Think of each &ldquo;branch&rdquo; as a subgame: one where Honda plays Offer, another where Honda plays Not Offer.</li>
+                  <li class="fragment">The backward-induction answer to Q3 <em>is</em> the SPE: Honda plays Offer; Suzuki plays (Offer if Offer; Offer if Not Offer). Outcome: <strong>(25, 35)</strong>.</li>
+                </ul>
+              </div>
+            </div>
+            <div style="flex: 1;">
+              <div class="slide-img-container" style="margin: 0; padding: 6px;">
+                <img src="../slides/images/c7_tree_warranty_subgames.png" alt="Warranty game tree with the two Suzuki subgames outlined in dashed boxes" style="max-height: 400px;">
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Slide 4.10: Q4 order swap -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Sequential Games · Order of Moves</p>
+          <h2>Q4: What If Suzuki Moves First?</h2>
+          <div class="content-card" style="font-size: 0.92em;">
+            <div class="example-card" style="margin: 0 0 10px;">
+              <div class="ex-title">Question 4</div>
+              Now <em>Suzuki</em> decides in January 2019, and Honda decides in March 2019. Does this change the outcome of our analysis? Why / why not?
+            </div>
+            <div class="def-card fragment" style="margin: 8px 0;">
+              <div class="def-title">Answer</div>
+              <strong>No.</strong> Offer is a <em>dominant strategy</em> for both players &mdash; each plays Offer no matter what the other does, so the move order doesn't matter here. Outcome: (Offer, Offer) = (25, 35), again.
+            </div>
+            <p class="fragment" style="font-weight: 600; color: #db2777; margin-top: 10px;">But in general, the order <em>can</em> matter &mdash; when the game has no dominant-strategy equilibrium!</p>
+          </div>
+        </section>
+
+        <!-- Slide 4.11: First-mover advantage -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Sequential Games · First-Mover Advantage</p>
+          <h2>Who Moves First Can Change Everything</h2>
+          <div class="content-card" style="font-size: 0.82em; max-width: 1060px; padding: 10px 18px;">
+            <p style="margin: 4px 0;">Two coworkers each prefer to <em>avoid</em> doing what the other does (payoffs: same choice &rArr; 0, 0). There is no DSE &mdash; and the SPE depends on who moves first: the <strong style="color: #db2777;">first mover</strong> steers the game to their preferred equilibrium.</p>
+          </div>
+          <div class="slide-img-container" style="margin: 4px auto 0; padding: 8px;">
+            <img src="../slides/images/c7_tree_firstmover.png" alt="Two solved game trees: when Person 1 moves first the SPE is (2,1); when Person 2 moves first the SPE is (1,2) - first-mover advantage" style="max-height: 340px;">
+          </div>
+        </section>
+
+        <!-- Slide 4.12: Takeaways -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Sequential Games · Takeaways</p>
+          <h2>Takeaways From Sequential Move Games</h2>
+          <div class="content-card" style="font-size: 0.82em;">
+            <ol>
+              <li class="fragment">We represent sequential move games in <strong>extensive form</strong>, using game trees.</li>
+              <li class="fragment"><strong>Backward induction</strong> solves finitely repeated and sequential games.</li>
+              <li class="fragment">The order of moves matters for the SPE when the game has no DSE &mdash; there is usually <strong style="color: #db2777;">first-mover advantage</strong> in such games.</li>
+              <li class="fragment">Move structures can dramatically change our equilibrium predictions, <em>even if payoffs don't change</em>.</li>
+              <li class="fragment">Mark all the <strong>off-equilibrium paths</strong>: rational players never go down them, but they are part of the <em>beliefs</em> we need to state the SPE. In a SPE, players best-respond both <em>on</em> and <em>off</em> the equilibrium path!</li>
+            </ol>
+          </div>
+        </section>
+
+        <!-- GROUP WORK 1: Solve the Tree -->
+        <section data-background-gradient="linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%)">
+          <p class="eyebrow" style="color: #b45309;">Group Work &middot; Sequential Games</p>
+          <h2>&#127922; Group Work: Solve the Tree</h2>
+          <div class="content-card" style="font-size: 0.78em; background: rgba(255, 255, 255, 0.7);">
+            <div class="example-card" style="border-left-color: #b45309; background: rgba(180, 83, 9, 0.05); margin: 6px 0;">
+              <div class="ex-title" style="color: #b45309;">Question 1</div>
+              Rival software firms Alpha and Beta decide whether to run an ad campaign. Payoffs (Alpha, Beta): (Ad, Ad) = (4, 4); (Ad, No Ad) = (12, 2); (No Ad, Ad) = (2, 12); (No Ad, No Ad) = (8, 8). <br><strong>(a) Find the NE of the one-shot simultaneous game. (b) Now Alpha commits its ad budget first and Beta observes. Draw the game tree, use backward induction to find the SPE. Does the outcome change?</strong>
+            </div>
+            <div style="margin: 2px 0 8px;">
+              <button class="group-roll-btn" onclick="rollGroup('l7gw1q1')">&#127922; Pick a group for Q1</button>
+              <span class="group-roll-result" id="l7gw1q1">&mdash;</span>
+            </div>
+            <div class="example-card" style="border-left-color: #b45309; background: rgba(180, 83, 9, 0.05); margin: 6px 0;">
+              <div class="ex-title" style="color: #b45309;">Question 2</div>
+              Ana and Berto each pick a street corner (North or South) for their food carts. Payoffs (Ana, Berto): (N, N) = (1, 1); (N, S) = (5, 3); (S, N) = (3, 5); (S, S) = (0, 0). <br><strong>Draw the game tree and find the SPE if Ana moves first, and if Berto moves first. Is there a first-mover advantage?</strong>
+            </div>
+            <div style="margin: 2px 0 0;">
+              <button class="group-roll-btn" onclick="rollGroup('l7gw1q2')">&#127922; Pick a group for Q2</button>
+              <span class="group-roll-result" id="l7gw1q2">&mdash;</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- GROUP WORK 1 Answers -->
+        <section data-background-gradient="linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)">
+          <p class="eyebrow" style="color: #059669;">Group Work &middot; Answers</p>
+          <h2>Answers: Solve the Tree</h2>
+          <div class="content-card" style="font-size: 0.82em;">
+            <div class="def-card" style="margin: 6px 0;">
+              <div class="def-title">Question 1: Alpha &amp; Beta</div>
+              (a) Advertise is <strong>dominant</strong> for both (4 &gt; 2 and 12 &gt; 8) &rArr; NE = (Ad, Ad) = (4, 4).<br>
+              (b) Sequential: Beta advertises in <em>both</em> subgames; Alpha compares 4 vs. 2 &rArr; Advertise. SPE outcome <strong>(4, 4)</strong> &mdash; unchanged, because both players have a dominant strategy.
+            </div>
+            <div class="def-card fragment" style="margin: 6px 0;">
+              <div class="def-title">Question 2: Ana &amp; Berto</div>
+              Ana first: Berto avoids Ana's corner &rArr; Ana picks North, Berto picks South &rArr; SPE outcome <strong>(5, 3)</strong>.<br>
+              Berto first: by symmetry &rArr; SPE outcome <strong>(3, 5)</strong>.<br>
+              <strong>Yes</strong> &mdash; whoever moves first earns 5: a first-mover advantage. Let&rsquo;s see the trees &darr;
+            </div>
+          </div>
+        </section>
+
+        <!-- GROUP WORK Answers: step-by-step animated graph -->
+        <section data-background-gradient="linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)">
+          <p class="eyebrow" style="color: #059669;">Group Work &middot; Answers</p>
+          <h2>Question 1, Step by Step</h2>
+          <p style="font-size: 0.55em; color: #64748b; margin: 0 0 4px;">Press <kbd style="background: #e2e8f0; border: 1px solid #cbd5e1; padding: 1px 6px; border-radius: 4px;">&rarr;</kbd> to add each element of the graph</p>
+          <svg class="anim-graph" viewBox="0 0 830 520" style="width: 92%; max-height: 480px; margin: 0 auto; display: block; background: white; border: 1px solid #e2e8f0; border-radius: 10px;" role="img" aria-label="Animated backward induction on the Alpha-Beta advertising tree: Beta advertises in both subgames, Alpha compares 4 vs 2 and advertises, giving the subgame-perfect equilibrium (4, 4)">
+            <!-- base tree (always visible) -->
+            <g>
+              <line x1="150" y1="248" x2="330" y2="148" stroke="#cbd5e1" stroke-width="3"/>
+              <line x1="150" y1="272" x2="330" y2="372" stroke="#cbd5e1" stroke-width="3"/>
+              <line x1="440" y1="128" x2="600" y2="80" stroke="#cbd5e1" stroke-width="3"/>
+              <line x1="440" y1="152" x2="600" y2="192" stroke="#cbd5e1" stroke-width="3"/>
+              <line x1="440" y1="368" x2="600" y2="320" stroke="#cbd5e1" stroke-width="3"/>
+              <line x1="440" y1="392" x2="600" y2="432" stroke="#cbd5e1" stroke-width="3"/>
+              <rect x="40" y="235" width="110" height="50" rx="10" fill="#ecfdf5" stroke="#0f766e" stroke-width="2.5"/><text x="95" y="267" font-size="20" font-weight="700" fill="#0f766e" text-anchor="middle">Alpha</text>
+              <rect x="330" y="115" width="110" height="50" rx="10" fill="#f5f3ff" stroke="#7c3aed" stroke-width="2.5"/><text x="385" y="147" font-size="20" font-weight="700" fill="#6d28d9" text-anchor="middle">Beta</text>
+              <rect x="330" y="355" width="110" height="50" rx="10" fill="#f5f3ff" stroke="#7c3aed" stroke-width="2.5"/><text x="385" y="387" font-size="20" font-weight="700" fill="#6d28d9" text-anchor="middle">Beta</text>
+              <rect x="600" y="55" width="100" height="40" rx="6" fill="white" stroke="#94a3b8" stroke-width="2"/><text x="650" y="82" font-size="19" font-weight="700" fill="#1e293b" text-anchor="middle">4,&#8202; 4</text>
+              <rect x="600" y="175" width="100" height="40" rx="6" fill="white" stroke="#94a3b8" stroke-width="2"/><text x="650" y="202" font-size="19" font-weight="700" fill="#1e293b" text-anchor="middle">12,&#8202; 2</text>
+              <rect x="600" y="295" width="100" height="40" rx="6" fill="white" stroke="#94a3b8" stroke-width="2"/><text x="650" y="322" font-size="19" font-weight="700" fill="#1e293b" text-anchor="middle">2,&#8202; 12</text>
+              <rect x="600" y="415" width="100" height="40" rx="6" fill="white" stroke="#94a3b8" stroke-width="2"/><text x="650" y="442" font-size="19" font-weight="700" fill="#1e293b" text-anchor="middle">8,&#8202; 8</text>
+              <text x="225" y="182" font-size="16" fill="#334155" font-weight="600" text-anchor="middle">Advertise</text>
+              <text x="225" y="342" font-size="16" fill="#334155" font-weight="600" text-anchor="middle">No Ad</text>
+              <text x="512" y="86" font-size="16" fill="#334155" font-weight="600" text-anchor="middle">Advertise</text>
+              <text x="512" y="190" font-size="16" fill="#334155" font-weight="600" text-anchor="middle">No Ad</text>
+              <text x="512" y="328" font-size="16" fill="#334155" font-weight="600" text-anchor="middle">Advertise</text>
+              <text x="512" y="428" font-size="16" fill="#334155" font-weight="600" text-anchor="middle">No Ad</text>
+              <text x="650" y="505" font-size="14" fill="#94a3b8" text-anchor="middle">Payoff convention: (Alpha, Beta)</text>
+            </g>
+            <!-- fragment 1: top Beta decision -->
+            <g class="fragment" data-fragment-index="1">
+              <line class="build-line" x1="440" y1="128" x2="600" y2="80" stroke="#d97706" stroke-width="6" stroke-linecap="round"/>
+              <text x="505" y="48" font-size="15" fill="#b45309" font-weight="700" text-anchor="middle">Beta: 4 &gt; 2 &rArr; Advertise</text>
+            </g>
+            <!-- fragment 2: bottom Beta decision -->
+            <g class="fragment" data-fragment-index="2">
+              <line class="build-line" x1="440" y1="368" x2="600" y2="320" stroke="#d97706" stroke-width="6" stroke-linecap="round"/>
+              <text x="505" y="290" font-size="15" fill="#b45309" font-weight="700" text-anchor="middle">Beta: 12 &gt; 8 &rArr; Advertise</text>
+            </g>
+            <!-- fragment 3: Alpha decision -->
+            <g class="fragment" data-fragment-index="3">
+              <line class="build-line" x1="150" y1="248" x2="330" y2="148" stroke="#d97706" stroke-width="6" stroke-linecap="round"/>
+              <text x="40" y="320" font-size="15" fill="#b45309" font-weight="700" text-anchor="start">Alpha: 4 vs. 2</text>
+              <text x="40" y="342" font-size="15" fill="#b45309" font-weight="700" text-anchor="start">&rArr; Advertise</text>
+            </g>
+            <!-- fragment 4: SPE -->
+            <g class="fragment" data-fragment-index="4">
+              <rect x="595" y="50" width="110" height="50" rx="8" fill="none" stroke="#dc2626" stroke-width="3.5"/>
+              <text x="720" y="80" font-size="18" fill="#dc2626" font-weight="700" text-anchor="start">SPE: (4, 4)</text>
+            </g>
+          </svg>
+        </section>
+
+        <!-- GROUP WORK 1: Q1 graph -->
+        <section data-background-gradient="linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)">
+          <p class="eyebrow" style="color: #059669;">Group Work &middot; Answers</p>
+          <h2>Question 1, Graphically</h2>
+          <div class="slide-img-container" style="margin: 5px auto 0; padding: 8px;">
+            <img src="../slides/images/c7_gw1_q1_tree.png" alt="Alpha-Beta advertising game tree solved by backward induction: Beta advertises in both subgames, Alpha advertises, SPE (4, 4)" style="max-height: 480px;">
+          </div>
+        </section>
+
+        <!-- GROUP WORK Answers: step-by-step animated graph -->
+        <section data-background-gradient="linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)">
+          <p class="eyebrow" style="color: #059669;">Group Work &middot; Answers</p>
+          <h2>Question 2, Step by Step</h2>
+          <p style="font-size: 0.55em; color: #64748b; margin: 0 0 4px;">Press <kbd style="background: #e2e8f0; border: 1px solid #cbd5e1; padding: 1px 6px; border-radius: 4px;">&rarr;</kbd> to add each element of the graph</p>
+          <svg class="anim-graph" viewBox="0 0 980 540" style="width: 92%; max-height: 470px; margin: 0 auto; display: block; background: white; border: 1px solid #e2e8f0; border-radius: 10px;" role="img" aria-label="Animated backward induction on both Ana-Berto trees: when Ana moves first the SPE is (5, 3); when Berto moves first it is (3, 5) - whoever moves first earns 5">
+            <!-- both trees (always visible) -->
+            <g>
+              <text x="225" y="38" font-size="18" font-weight="700" fill="#0f172a" text-anchor="middle">Ana moves first</text>
+              <line x1="120" y1="245" x2="215" y2="140" stroke="#cbd5e1" stroke-width="3"/>
+              <line x1="120" y1="265" x2="215" y2="370" stroke="#cbd5e1" stroke-width="3"/>
+              <line x1="305" y1="125" x2="380" y2="78" stroke="#cbd5e1" stroke-width="3"/>
+              <line x1="305" y1="145" x2="380" y2="175" stroke="#cbd5e1" stroke-width="3"/>
+              <line x1="305" y1="365" x2="380" y2="318" stroke="#cbd5e1" stroke-width="3"/>
+              <line x1="305" y1="385" x2="380" y2="415" stroke="#cbd5e1" stroke-width="3"/>
+              <rect x="30" y="233" width="90" height="44" rx="10" fill="#ecfdf5" stroke="#0f766e" stroke-width="2.5"/><text x="75" y="262" font-size="18" font-weight="700" fill="#0f766e" text-anchor="middle">Ana</text>
+              <rect x="215" y="113" width="90" height="44" rx="10" fill="#f5f3ff" stroke="#7c3aed" stroke-width="2.5"/><text x="260" y="142" font-size="18" font-weight="700" fill="#6d28d9" text-anchor="middle">Berto</text>
+              <rect x="215" y="353" width="90" height="44" rx="10" fill="#f5f3ff" stroke="#7c3aed" stroke-width="2.5"/><text x="260" y="382" font-size="18" font-weight="700" fill="#6d28d9" text-anchor="middle">Berto</text>
+              <rect x="382" y="59" width="86" height="36" rx="6" fill="white" stroke="#94a3b8" stroke-width="2"/><text x="425" y="84" font-size="17" font-weight="700" fill="#1e293b" text-anchor="middle">1,&#8202; 1</text>
+              <rect x="382" y="159" width="86" height="36" rx="6" fill="white" stroke="#94a3b8" stroke-width="2"/><text x="425" y="184" font-size="17" font-weight="700" fill="#1e293b" text-anchor="middle">5,&#8202; 3</text>
+              <rect x="382" y="299" width="86" height="36" rx="6" fill="white" stroke="#94a3b8" stroke-width="2"/><text x="425" y="324" font-size="17" font-weight="700" fill="#1e293b" text-anchor="middle">3,&#8202; 5</text>
+              <rect x="382" y="399" width="86" height="36" rx="6" fill="white" stroke="#94a3b8" stroke-width="2"/><text x="425" y="424" font-size="17" font-weight="700" fill="#1e293b" text-anchor="middle">0,&#8202; 0</text>
+              <text x="160" y="180" font-size="14" fill="#334155" font-weight="600" text-anchor="middle">North</text>
+              <text x="160" y="330" font-size="14" fill="#334155" font-weight="600" text-anchor="middle">South</text>
+              <text x="338" y="88" font-size="14" fill="#334155" font-weight="600" text-anchor="middle">North</text>
+              <text x="338" y="178" font-size="14" fill="#334155" font-weight="600" text-anchor="middle">South</text>
+              <text x="338" y="328" font-size="14" fill="#334155" font-weight="600" text-anchor="middle">North</text>
+              <text x="338" y="418" font-size="14" fill="#334155" font-weight="600" text-anchor="middle">South</text>
+              <text x="725" y="38" font-size="18" font-weight="700" fill="#0f172a" text-anchor="middle">Berto moves first</text>
+              <line x1="620" y1="245" x2="715" y2="140" stroke="#cbd5e1" stroke-width="3"/>
+              <line x1="620" y1="265" x2="715" y2="370" stroke="#cbd5e1" stroke-width="3"/>
+              <line x1="805" y1="125" x2="880" y2="78" stroke="#cbd5e1" stroke-width="3"/>
+              <line x1="805" y1="145" x2="880" y2="175" stroke="#cbd5e1" stroke-width="3"/>
+              <line x1="805" y1="365" x2="880" y2="318" stroke="#cbd5e1" stroke-width="3"/>
+              <line x1="805" y1="385" x2="880" y2="415" stroke="#cbd5e1" stroke-width="3"/>
+              <rect x="530" y="233" width="90" height="44" rx="10" fill="#f5f3ff" stroke="#7c3aed" stroke-width="2.5"/><text x="575" y="262" font-size="18" font-weight="700" fill="#6d28d9" text-anchor="middle">Berto</text>
+              <rect x="715" y="113" width="90" height="44" rx="10" fill="#ecfdf5" stroke="#0f766e" stroke-width="2.5"/><text x="760" y="142" font-size="18" font-weight="700" fill="#0f766e" text-anchor="middle">Ana</text>
+              <rect x="715" y="353" width="90" height="44" rx="10" fill="#ecfdf5" stroke="#0f766e" stroke-width="2.5"/><text x="760" y="382" font-size="18" font-weight="700" fill="#0f766e" text-anchor="middle">Ana</text>
+              <rect x="882" y="59" width="86" height="36" rx="6" fill="white" stroke="#94a3b8" stroke-width="2"/><text x="925" y="84" font-size="17" font-weight="700" fill="#1e293b" text-anchor="middle">3,&#8202; 5</text>
+              <rect x="882" y="159" width="86" height="36" rx="6" fill="white" stroke="#94a3b8" stroke-width="2"/><text x="925" y="184" font-size="17" font-weight="700" fill="#1e293b" text-anchor="middle">1,&#8202; 1</text>
+              <rect x="882" y="299" width="86" height="36" rx="6" fill="white" stroke="#94a3b8" stroke-width="2"/><text x="925" y="324" font-size="17" font-weight="700" fill="#1e293b" text-anchor="middle">0,&#8202; 0</text>
+              <rect x="882" y="399" width="86" height="36" rx="6" fill="white" stroke="#94a3b8" stroke-width="2"/><text x="925" y="424" font-size="17" font-weight="700" fill="#1e293b" text-anchor="middle">5,&#8202; 3</text>
+              <text x="660" y="180" font-size="14" fill="#334155" font-weight="600" text-anchor="middle">North</text>
+              <text x="660" y="330" font-size="14" fill="#334155" font-weight="600" text-anchor="middle">South</text>
+              <text x="838" y="88" font-size="14" fill="#334155" font-weight="600" text-anchor="middle">South</text>
+              <text x="838" y="178" font-size="14" fill="#334155" font-weight="600" text-anchor="middle">North</text>
+              <text x="838" y="328" font-size="14" fill="#334155" font-weight="600" text-anchor="middle">South</text>
+              <text x="838" y="418" font-size="14" fill="#334155" font-weight="600" text-anchor="middle">North</text>
+              <text x="20" y="528" font-size="14" fill="#94a3b8" text-anchor="start">Payoff convention: (Ana, Berto)</text>
+            </g>
+            <!-- fragment 1: Berto's subgame choices (left tree) -->
+            <g class="fragment" data-fragment-index="1">
+              <line class="build-line" x1="305" y1="145" x2="380" y2="175" stroke="#d97706" stroke-width="6" stroke-linecap="round"/>
+              <line class="build-line" x1="305" y1="365" x2="380" y2="318" stroke="#d97706" stroke-width="6" stroke-linecap="round"/>
+              <text x="260" y="215" font-size="14" fill="#b45309" font-weight="700" text-anchor="middle">Berto avoids Ana&#8217;s corner</text>
+            </g>
+            <!-- fragment 2: Ana picks North, SPE (5,3) -->
+            <g class="fragment" data-fragment-index="2">
+              <line class="build-line" x1="120" y1="245" x2="215" y2="140" stroke="#d97706" stroke-width="6" stroke-linecap="round"/>
+              <rect x="377" y="154" width="96" height="46" rx="8" fill="none" stroke="#dc2626" stroke-width="3.5"/>
+              <text x="230" y="470" font-size="15" fill="#dc2626" font-weight="700" text-anchor="middle">Ana: 5 vs. 3 &rArr; North.  SPE: (5, 3) &mdash; Ana gets 5</text>
+            </g>
+            <!-- fragment 3: Ana's subgame choices (right tree) -->
+            <g class="fragment" data-fragment-index="3">
+              <line class="build-line" x1="805" y1="125" x2="880" y2="78" stroke="#d97706" stroke-width="6" stroke-linecap="round"/>
+              <line class="build-line" x1="805" y1="385" x2="880" y2="415" stroke="#d97706" stroke-width="6" stroke-linecap="round"/>
+              <text x="760" y="215" font-size="14" fill="#b45309" font-weight="700" text-anchor="middle">Ana avoids Berto&#8217;s corner</text>
+            </g>
+            <!-- fragment 4: Berto picks North, SPE (3,5) -->
+            <g class="fragment" data-fragment-index="4">
+              <line class="build-line" x1="620" y1="245" x2="715" y2="140" stroke="#d97706" stroke-width="6" stroke-linecap="round"/>
+              <rect x="877" y="54" width="96" height="46" rx="8" fill="none" stroke="#dc2626" stroke-width="3.5"/>
+              <text x="730" y="470" font-size="15" fill="#dc2626" font-weight="700" text-anchor="middle">Berto: 5 vs. 3 &rArr; North.  SPE: (3, 5) &mdash; Berto gets 5</text>
+            </g>
+            <!-- fragment 5: conclusion -->
+            <g class="fragment" data-fragment-index="5">
+              <text x="490" y="516" font-size="17" fill="#0f766e" font-weight="700" text-anchor="middle">Whoever moves first earns 5: a first-mover advantage!</text>
+            </g>
+          </svg>
+        </section>
+
+        <!-- GROUP WORK 1: Q2 graph -->
+        <section data-background-gradient="linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)">
+          <p class="eyebrow" style="color: #059669;">Group Work &middot; Answers</p>
+          <h2>Question 2, Graphically</h2>
+          <div class="slide-img-container" style="margin: 5px auto 0; padding: 8px;">
+            <img src="../slides/images/c7_gw1_q2_trees.png" alt="Two solved trees for the Ana-Berto corner game: Ana first gives SPE (5,3); Berto first gives SPE (3,5) - the first mover gets 5" style="max-height: 400px; max-width: 100%; width: auto;">
+          </div>
+        </section>
+
+      </section>
+
+
+      <!-- SECTION 4: Incumbent-Entrant & Credible Threats (Vertical Stack) -->
+      <section>
+
+        <!-- Slide 5.1: Divider -->
+        <section data-background-gradient="linear-gradient(135deg, #0f766e 0%, #115e59 100%)">
+          <p class="eyebrow" style="color: #ccfbf1;">Part 3</p>
+          <h1 style="color: white; font-size: 2.8em;">Credible Threats</h1>
+          <p style="color: #ccfbf1; margin-top: 20px;">Press <kbd style="background: #115e59; color: white; border: 1px solid #134e4a; padding: 2px 6px; border-radius: 4px;">↓</kbd> to continue</p>
+        </section>
+
+        <!-- Slide 5.2: Incumbent-entrant setup -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Credible Threats · Incumbent&ndash;Entrant</p>
+          <h2>Honda Wants to Enter a New Space&hellip;</h2>
+          <div class="content-card" style="font-size: 0.82em; max-width: 1040px; padding: 10px 18px;">
+            <p style="margin: 4px 0;">Suzuki already has significant market power in distributing certain motorcycle parts. Honda wants to enter this space. We model this as an <strong style="color: #3b82f6;">incumbent&ndash;entrant game</strong>.</p>
+            <p class="fragment" style="margin: 4px 0; font-weight: 600; color: #db2777;">Question 0. Use backward induction to solve this game. What is the SPE?</p>
+          </div>
+          <div class="slide-img-container" style="margin: 4px auto 0; padding: 8px;">
+            <img src="../slides/images/c7_tree_entrant_base.png" alt="Incumbent-entrant game tree: Honda chooses Enter or Stay Out; after Enter, Suzuki chooses Fight (-10,30) or Accommodate (30,50); Stay Out gives (0,100)" style="max-height: 330px;">
+          </div>
+        </section>
+
+        <!-- Slide 5.2b: Q0 solution -->
+        <section data-background-gradient="linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)">
+          <p class="eyebrow" style="color: #059669;">Credible Threats · Solution</p>
+          <h2>Solution: The SPE</h2>
+          <div class="content-card" style="font-size: 0.85em; max-width: 1040px; padding: 10px 18px;">
+            <p style="margin: 4px 0;">Suzuki (moving last): 50 &gt; 30 &rArr; <strong>Accommodate</strong>. Honda, anticipating this: 30 &gt; 0 &rArr; <strong>Enter</strong>. SPE outcome: <strong>(30, 50)</strong>.</p>
+          </div>
+          <div class="slide-img-container" style="margin: 4px auto 0; padding: 8px;">
+            <img src="../slides/images/c7_tree_entrant_solved.png" alt="Incumbent-entrant tree solved: Suzuki accommodates (50 > 30), Honda enters (30 > 0), SPE (30, 50)" style="max-height: 330px;">
+          </div>
+        </section>
+
+        <!-- Slide 5.3: Q1 Suzuki's problem -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Credible Threats · The Incumbent's Problem</p>
+          <h2>Q1: Suzuki's Problem</h2>
+          <div class="content-card" style="font-size: 0.9em;">
+            <div class="example-card" style="margin: 0 0 10px;">
+              <div class="ex-title">Question 1</div>
+              Given your answer to Question 0, what is the problem here for Suzuki (the incumbent)? Can it do better than the SPE you found? Describe in words.
+            </div>
+            <div class="def-card fragment" style="margin: 8px 0;">
+              <div class="def-title">Answer</div>
+              Suzuki would love Honda to <strong>Stay Out</strong> (payoff 100 &gt; 50). It could <em>threaten</em> to Fight&hellip; but once Honda has entered, Fighting pays 30 &lt; 50 &mdash; a rational Suzuki would Accommodate. The threat is <strong style="color: #db2777;">non-credible</strong>, and Honda knows it!
+            </div>
+            <div class="def-card fragment" style="margin: 8px 0;">
+              <div class="def-title">Definition: Credible Threat</div>
+              A threat is <strong>credible</strong> if, when the time comes, carrying it out is in the threatener's own best interest.
+            </div>
+          </div>
+        </section>
+
+        <!-- Slide 5.4: Q2 investment -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Credible Threats · Commitment</p>
+          <h2>Q2: Suzuki Brings a Gun to a Knife-Fight</h2>
+          <div class="content-card" style="font-size: 0.85em;">
+            <div class="example-card" style="margin: 0;">
+              <div class="ex-title">Question 2 &mdash; Turn &ldquo;Fight&rdquo; into a credible threat</div>
+              Suzuki anticipates Honda's potential entry, and considers <strong style="color: #3b82f6;">preemptively expanding its production capacity</strong>. The expansion costs <strong>$30,000</strong>, which is wasted unless a price war happens &mdash; i.e. the cost is borne if Honda plays &ldquo;Stay Out&rdquo; or Suzuki plays &ldquo;Accommodate&rdquo;. Assume the &ldquo;Fight&rdquo; payoff already incorporates the $30,000.
+              <br><br>
+              New payoffs: Fight (&minus;10, 30); Accommodate (30, <u>20</u>); Stay Out (0, <u>70</u>).
+              <br><br>
+              <strong>Does Honda enter? What are the profits in equilibrium?</strong>
+            </div>
+          </div>
+        </section>
+
+        <!-- Slide 5.4b: Q2 solution -->
+        <section data-background-gradient="linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)">
+          <p class="eyebrow" style="color: #059669;">Credible Threats · Solution</p>
+          <h2>Solution: Fight Becomes Credible</h2>
+          <div class="content-card" style="font-size: 0.85em; max-width: 1040px; padding: 10px 18px;">
+            <p style="margin: 4px 0;">With the capacity in place, Suzuki now prefers to <strong>Fight</strong> after entry (30 &gt; 20). Honda anticipates this: entering yields &minus;10 &lt; 0 &rArr; <strong>Stay Out</strong>. SPE outcome: <strong>(0, 70)</strong> &mdash; entry deterred!</p>
+          </div>
+          <div class="slide-img-container" style="margin: 4px auto 0; padding: 8px;">
+            <img src="../slides/images/c7_tree_entrant_invest.png" alt="Incumbent-entrant tree with preemptive investment: Suzuki fights (30 > 20), Honda stays out (0 > -10), SPE (0, 70)" style="max-height: 330px;">
+          </div>
+        </section>
+
+        <!-- Slide 5.5: Q3 full tree question -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Credible Threats · The Full Game</p>
+          <h2>Q3: Completing the Game Tree</h2>
+          <div class="content-card" style="font-size: 0.9em;">
+            <div class="example-card" style="margin: 0;">
+              <div class="ex-title">Question 3</div>
+              The tree in Questions 0&ndash;1 is the game <em>without</em> preemptive capacity investment. The tree in Question 2 is the game <em>with</em> it. <strong>Draw the full game tree encompassing both scenarios.</strong>
+              <br><br>
+              Given your full tree: what will Suzuki (the incumbent) do <em>before</em> Honda decides? <strong>Will Suzuki make the preemptive investment?</strong>
+            </div>
+          </div>
+        </section>
+
+        <!-- Slide 5.5b: Q3 solution -->
+        <section data-background-gradient="linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)">
+          <p class="eyebrow" style="color: #059669;">Credible Threats · Solution</p>
+          <h2>Solution: The Full Game Tree</h2>
+          <div class="content-card" style="font-size: 0.82em; max-width: 1060px; padding: 8px 18px;">
+            <p style="margin: 4px 0;">Suzuki moves first: Don't invest &rArr; branch worth <strong>50</strong> (Honda enters, Suzuki accommodates). Invest &rArr; branch worth <strong>70</strong> (Fight credible, Honda stays out). Since 70 &gt; 50, <strong>Suzuki invests</strong>: commitment pays!</p>
+          </div>
+          <div class="slide-img-container" style="margin: 4px auto 0; padding: 8px;">
+            <img src="../slides/images/c7_tree_entrant_full.png" alt="Full two-stage tree: Suzuki chooses Invest or Don't Invest, then the entry game plays out; investing yields 70 > 50, so Suzuki invests and deters entry, SPE (0, 70)" style="max-height: 400px;">
+          </div>
+        </section>
+
+        <!-- Slide 5.6: commitment takeaway -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Credible Threats · Takeaway</p>
+          <h2>The Value of Commitment</h2>
+          <div class="content-card">
+            <ul>
+              <li class="fragment">An empty threat changes nothing &mdash; rational rivals see through it.</li>
+              <li class="fragment">By <strong>sinking a cost up front</strong>, Suzuki changed its <em>own future incentives</em> &mdash; making the threat to Fight genuinely optimal to carry out.</li>
+              <li class="fragment">Paradox of commitment: <strong>burning money (or bridges!) can make you better off</strong>, because it changes how others expect you to behave.</li>
+            </ul>
+            <p class="fragment" style="font-weight: 600; color: #0f766e; margin-top: 12px;">Real-world examples: capacity expansion, exclusive contracts, loyalty pricing, &ldquo;we will match any price&rdquo; guarantees&hellip;</p>
+          </div>
+        </section>
+
+        <!-- GROUP WORK 2: Make the Threat Credible -->
+        <section data-background-gradient="linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%)">
+          <p class="eyebrow" style="color: #b45309;">Group Work &middot; Credible Threats</p>
+          <h2>&#127922; Group Work: Make the Threat Credible</h2>
+          <div class="content-card" style="font-size: 0.76em; background: rgba(255, 255, 255, 0.7);">
+            <div class="example-card" style="border-left-color: #b45309; background: rgba(180, 83, 9, 0.05); margin: 6px 0;">
+              <div class="ex-title" style="color: #b45309;">Question 1</div>
+              Lumen (entrant) considers entering a regional coffee market dominated by BrewCo (incumbent). If Lumen Enters, BrewCo can Fight (&minus;20, 40) or Accommodate (40, 60); if Lumen Stays Out, payoffs are (0, 120). Payoffs in $'000, (Lumen, BrewCo). <br><strong>Draw the game tree and find the SPE by backward induction. Is BrewCo's threat to fight credible?</strong>
+            </div>
+            <div style="margin: 2px 0 8px;">
+              <button class="group-roll-btn" onclick="rollGroup('l7gw2q1')">&#127922; Pick a group for Q1</button>
+              <span class="group-roll-result" id="l7gw2q1">&mdash;</span>
+            </div>
+            <div class="example-card" style="border-left-color: #b45309; background: rgba(180, 83, 9, 0.05); margin: 6px 0;">
+              <div class="ex-title" style="color: #b45309;">Question 2</div>
+              Before Lumen decides, BrewCo can <strong>Commit</strong>: sign binding long-term supply contracts costing $50k unless a price war happens. If BrewCo commits, Accommodate becomes (40, 10) and Stay Out becomes (0, 70); Fight stays (&minus;20, 40). <br><strong>Draw the full two-stage tree. Does the threat become credible? Does Lumen enter? Does BrewCo commit?</strong>
+            </div>
+            <div style="margin: 2px 0 0;">
+              <button class="group-roll-btn" onclick="rollGroup('l7gw2q2')">&#127922; Pick a group for Q2</button>
+              <span class="group-roll-result" id="l7gw2q2">&mdash;</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- GROUP WORK 2 Answers -->
+        <section data-background-gradient="linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)">
+          <p class="eyebrow" style="color: #059669;">Group Work &middot; Answers</p>
+          <h2>Answers: Make the Threat Credible</h2>
+          <div class="content-card" style="font-size: 0.82em;">
+            <div class="def-card" style="margin: 6px 0;">
+              <div class="def-title">Question 1: No Commitment</div>
+              BrewCo (last mover): 60 &gt; 40 &rArr; Accommodate. Lumen: 40 &gt; 0 &rArr; Enter. SPE outcome <strong>(40, 60)</strong>. The threat to Fight is <strong>not credible</strong> (40 &lt; 60 once entry has happened).
+            </div>
+            <div class="def-card fragment" style="margin: 6px 0;">
+              <div class="def-title">Question 2: With Commitment</div>
+              After committing: Fight pays 40 &gt; 10 &rArr; Fighting is now <strong>credible</strong>. Lumen: entering yields &minus;20 &lt; 0 &rArr; <strong>Stays Out</strong> &rArr; (0, 70).<br>
+              At the root, BrewCo compares 60 (don't commit) vs. 70 (commit): <strong>BrewCo commits</strong> and entry is deterred. Let&rsquo;s see the trees &darr;
+            </div>
+          </div>
+        </section>
+
+        <!-- GROUP WORK Answers: step-by-step animated graph -->
+        <section data-background-gradient="linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)">
+          <p class="eyebrow" style="color: #059669;">Group Work &middot; Answers</p>
+          <h2>Question 1, Step by Step</h2>
+          <p style="font-size: 0.55em; color: #64748b; margin: 0 0 4px;">Press <kbd style="background: #e2e8f0; border: 1px solid #cbd5e1; padding: 1px 6px; border-radius: 4px;">&rarr;</kbd> to add each element of the graph</p>
+          <svg class="anim-graph" viewBox="0 0 920 470" style="width: 92%; max-height: 440px; margin: 0 auto; display: block; background: white; border: 1px solid #e2e8f0; border-radius: 10px;" role="img" aria-label="Animated backward induction on the Lumen-BrewCo entry tree: BrewCo accommodates since 60 > 40, so Lumen enters since 40 > 0; the SPE is (40, 60) and the fight threat is not credible">
+            <!-- base tree (always visible) -->
+            <g>
+              <line x1="150" y1="238" x2="345" y2="158" stroke="#cbd5e1" stroke-width="3"/>
+              <line x1="150" y1="262" x2="610" y2="418" stroke="#cbd5e1" stroke-width="3"/>
+              <line x1="455" y1="138" x2="610" y2="78" stroke="#cbd5e1" stroke-width="3"/>
+              <line x1="455" y1="162" x2="610" y2="222" stroke="#cbd5e1" stroke-width="3"/>
+              <rect x="40" y="225" width="110" height="50" rx="10" fill="#ecfdf5" stroke="#0f766e" stroke-width="2.5"/><text x="95" y="257" font-size="20" font-weight="700" fill="#0f766e" text-anchor="middle">Lumen</text>
+              <rect x="340" y="125" width="120" height="50" rx="10" fill="#f5f3ff" stroke="#7c3aed" stroke-width="2.5"/><text x="400" y="157" font-size="20" font-weight="700" fill="#6d28d9" text-anchor="middle">BrewCo</text>
+              <rect x="610" y="55" width="110" height="40" rx="6" fill="white" stroke="#94a3b8" stroke-width="2"/><text x="665" y="82" font-size="19" font-weight="700" fill="#1e293b" text-anchor="middle">&minus;20,&#8202; 40</text>
+              <rect x="610" y="205" width="110" height="40" rx="6" fill="white" stroke="#94a3b8" stroke-width="2"/><text x="665" y="232" font-size="19" font-weight="700" fill="#1e293b" text-anchor="middle">40,&#8202; 60</text>
+              <rect x="610" y="400" width="110" height="40" rx="6" fill="white" stroke="#94a3b8" stroke-width="2"/><text x="665" y="427" font-size="19" font-weight="700" fill="#1e293b" text-anchor="middle">0,&#8202; 120</text>
+              <text x="240" y="180" font-size="16" fill="#334155" font-weight="600" text-anchor="middle">Enter</text>
+              <text x="390" y="360" font-size="16" fill="#334155" font-weight="600" text-anchor="middle">Stay Out</text>
+              <text x="520" y="90" font-size="16" fill="#334155" font-weight="600" text-anchor="middle">Fight</text>
+              <text x="510" y="212" font-size="15" fill="#334155" font-weight="600" text-anchor="middle">Accommodate</text>
+              <text x="895" y="414" font-size="14" fill="#94a3b8" text-anchor="end">Payoffs in $&#8217;000</text>
+              <text x="895" y="434" font-size="14" fill="#94a3b8" text-anchor="end">(Lumen, BrewCo)</text>
+            </g>
+            <!-- fragment 1: BrewCo's choice -->
+            <g class="fragment" data-fragment-index="1">
+              <line class="build-line" x1="455" y1="162" x2="610" y2="222" stroke="#d97706" stroke-width="6" stroke-linecap="round"/>
+              <text x="520" y="268" font-size="15" fill="#b45309" font-weight="700" text-anchor="middle">BrewCo: 60 &gt; 40 &rArr; Accommodate</text>
+            </g>
+            <!-- fragment 2: Lumen's choice -->
+            <g class="fragment" data-fragment-index="2">
+              <line class="build-line" x1="150" y1="238" x2="345" y2="158" stroke="#d97706" stroke-width="6" stroke-linecap="round"/>
+              <text x="40" y="310" font-size="15" fill="#b45309" font-weight="700" text-anchor="start">Lumen: 40 vs. 0</text>
+              <text x="40" y="332" font-size="15" fill="#b45309" font-weight="700" text-anchor="start">&rArr; Enter</text>
+            </g>
+            <!-- fragment 3: SPE -->
+            <g class="fragment" data-fragment-index="3">
+              <rect x="605" y="200" width="120" height="50" rx="8" fill="none" stroke="#dc2626" stroke-width="3.5"/>
+              <text x="745" y="220" font-size="18" fill="#dc2626" font-weight="700" text-anchor="start">SPE: (40, 60)</text>
+              <text x="745" y="246" font-size="14" fill="#64748b" text-anchor="start">the Fight threat is</text>
+              <text x="745" y="264" font-size="14" fill="#64748b" text-anchor="start">not credible</text>
+            </g>
+          </svg>
+        </section>
+
+        <!-- GROUP WORK 2: Q1 graph -->
+        <section data-background-gradient="linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)">
+          <p class="eyebrow" style="color: #059669;">Group Work &middot; Answers</p>
+          <h2>Question 1, Graphically</h2>
+          <div class="slide-img-container" style="margin: 5px auto 0; padding: 8px;">
+            <img src="../slides/images/c7_gw2_q1_tree.png" alt="Lumen-BrewCo entry tree solved: BrewCo accommodates (60 > 40), Lumen enters (40 > 0), SPE (40, 60) - the fight threat is not credible" style="max-height: 420px;">
+          </div>
+        </section>
+
+        <!-- GROUP WORK Answers: step-by-step animated graph -->
+        <section data-background-gradient="linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)">
+          <p class="eyebrow" style="color: #059669;">Group Work &middot; Answers</p>
+          <h2>Question 2, Step by Step</h2>
+          <p style="font-size: 0.55em; color: #64748b; margin: 0 0 4px;">Press <kbd style="background: #e2e8f0; border: 1px solid #cbd5e1; padding: 1px 6px; border-radius: 4px;">&rarr;</kbd> to add each element of the graph</p>
+          <svg class="anim-graph" viewBox="0 0 1010 560" style="width: 92%; max-height: 470px; margin: 0 auto; display: block; background: white; border: 1px solid #e2e8f0; border-radius: 10px;" role="img" aria-label="Animated backward induction on the full two-stage commitment tree: the no-commit branch replays Q1 giving BrewCo 60; after committing, Fight is credible so Lumen stays out, giving BrewCo 70; BrewCo commits and the SPE outcome is (0, 70)">
+            <!-- base tree (always visible) -->
+            <g>
+              <line x1="140" y1="268" x2="275" y2="158" stroke="#cbd5e1" stroke-width="3"/>
+              <line x1="140" y1="292" x2="275" y2="442" stroke="#cbd5e1" stroke-width="3"/>
+              <line x1="385" y1="138" x2="505" y2="98" stroke="#cbd5e1" stroke-width="3"/>
+              <line x1="385" y1="162" x2="788" y2="213" stroke="#cbd5e1" stroke-width="3"/>
+              <line x1="615" y1="78" x2="788" y2="42" stroke="#cbd5e1" stroke-width="3"/>
+              <line x1="615" y1="102" x2="788" y2="128" stroke="#cbd5e1" stroke-width="3"/>
+              <line x1="385" y1="418" x2="505" y2="378" stroke="#cbd5e1" stroke-width="3"/>
+              <line x1="385" y1="442" x2="788" y2="503" stroke="#cbd5e1" stroke-width="3"/>
+              <line x1="615" y1="358" x2="788" y2="332" stroke="#cbd5e1" stroke-width="3"/>
+              <line x1="615" y1="382" x2="788" y2="418" stroke="#cbd5e1" stroke-width="3"/>
+              <rect x="30" y="255" width="110" height="50" rx="10" fill="#f5f3ff" stroke="#7c3aed" stroke-width="2.5"/><text x="85" y="287" font-size="19" font-weight="700" fill="#6d28d9" text-anchor="middle">BrewCo</text>
+              <rect x="280" y="127" width="100" height="46" rx="10" fill="#ecfdf5" stroke="#0f766e" stroke-width="2.5"/><text x="330" y="157" font-size="18" font-weight="700" fill="#0f766e" text-anchor="middle">Lumen</text>
+              <rect x="280" y="407" width="100" height="46" rx="10" fill="#ecfdf5" stroke="#0f766e" stroke-width="2.5"/><text x="330" y="437" font-size="18" font-weight="700" fill="#0f766e" text-anchor="middle">Lumen</text>
+              <rect x="505" y="67" width="110" height="46" rx="10" fill="#f5f3ff" stroke="#7c3aed" stroke-width="2.5"/><text x="560" y="97" font-size="18" font-weight="700" fill="#6d28d9" text-anchor="middle">BrewCo</text>
+              <rect x="505" y="347" width="110" height="46" rx="10" fill="#f5f3ff" stroke="#7c3aed" stroke-width="2.5"/><text x="560" y="377" font-size="18" font-weight="700" fill="#6d28d9" text-anchor="middle">BrewCo</text>
+              <rect x="788" y="22" width="94" height="36" rx="6" fill="white" stroke="#94a3b8" stroke-width="2"/><text x="835" y="47" font-size="16" font-weight="700" fill="#1e293b" text-anchor="middle">&minus;20,&#8202; 40</text>
+              <rect x="788" y="112" width="94" height="36" rx="6" fill="white" stroke="#94a3b8" stroke-width="2"/><text x="835" y="137" font-size="16" font-weight="700" fill="#1e293b" text-anchor="middle">40,&#8202; 60</text>
+              <rect x="788" y="197" width="94" height="36" rx="6" fill="white" stroke="#94a3b8" stroke-width="2"/><text x="835" y="222" font-size="16" font-weight="700" fill="#1e293b" text-anchor="middle">0,&#8202; 120</text>
+              <rect x="788" y="312" width="94" height="36" rx="6" fill="white" stroke="#94a3b8" stroke-width="2"/><text x="835" y="337" font-size="16" font-weight="700" fill="#1e293b" text-anchor="middle">&minus;20,&#8202; 40</text>
+              <rect x="788" y="402" width="94" height="36" rx="6" fill="white" stroke="#94a3b8" stroke-width="2"/><text x="835" y="427" font-size="16" font-weight="700" fill="#1e293b" text-anchor="middle">40,&#8202; 10</text>
+              <rect x="788" y="487" width="94" height="36" rx="6" fill="white" stroke="#94a3b8" stroke-width="2"/><text x="835" y="512" font-size="16" font-weight="700" fill="#1e293b" text-anchor="middle">0,&#8202; 70</text>
+              <text x="178" y="196" font-size="15" fill="#334155" font-weight="600" text-anchor="middle">Don&#8217;t commit</text>
+              <text x="185" y="388" font-size="15" fill="#334155" font-weight="600" text-anchor="middle">Commit</text>
+              <text x="442" y="102" font-size="14" fill="#334155" font-weight="600" text-anchor="middle">Enter</text>
+              <text x="570" y="206" font-size="14" fill="#334155" font-weight="600" text-anchor="middle">Stay Out</text>
+              <text x="695" y="44" font-size="14" fill="#334155" font-weight="600" text-anchor="middle">Fight</text>
+              <text x="680" y="134" font-size="13" fill="#334155" font-weight="600" text-anchor="middle">Accommodate</text>
+              <text x="442" y="382" font-size="14" fill="#334155" font-weight="600" text-anchor="middle">Enter</text>
+              <text x="570" y="496" font-size="14" fill="#334155" font-weight="600" text-anchor="middle">Stay Out</text>
+              <text x="695" y="334" font-size="14" fill="#334155" font-weight="600" text-anchor="middle">Fight</text>
+              <text x="680" y="424" font-size="13" fill="#334155" font-weight="600" text-anchor="middle">Accommodate</text>
+              <text x="25" y="30" font-size="13" fill="#94a3b8" text-anchor="start">Payoffs in $&#8217;000 (Lumen, BrewCo)</text>
+            </g>
+            <!-- fragment 1: top branch = Question 1 -->
+            <g class="fragment" data-fragment-index="1">
+              <line class="build-line" x1="615" y1="102" x2="788" y2="128" stroke="#d97706" stroke-width="6" stroke-linecap="round"/>
+              <line class="build-line" x1="385" y1="138" x2="505" y2="98" stroke="#d97706" stroke-width="6" stroke-linecap="round"/>
+              <text x="400" y="60" font-size="14" fill="#b45309" font-weight="700" text-anchor="middle">same as Q1 &rArr; (40, 60)</text>
+              <text x="230" y="110" font-size="13" fill="#64748b" text-anchor="middle">branch payoff</text>
+              <text x="230" y="127" font-size="13" fill="#64748b" font-weight="700" text-anchor="middle">to BrewCo: 60</text>
+            </g>
+            <!-- fragment 2: after committing, Fight is credible -->
+            <g class="fragment" data-fragment-index="2">
+              <line class="build-line" x1="615" y1="358" x2="788" y2="332" stroke="#d97706" stroke-width="6" stroke-linecap="round"/>
+              <text x="660" y="304" font-size="14" fill="#b45309" font-weight="700" text-anchor="middle">40 &gt; 10 &rArr; Fight is now credible!</text>
+            </g>
+            <!-- fragment 3: Lumen stays out -->
+            <g class="fragment" data-fragment-index="3">
+              <line class="build-line" x1="385" y1="442" x2="788" y2="503" stroke="#d97706" stroke-width="6" stroke-linecap="round"/>
+              <text x="430" y="470" font-size="14" fill="#b45309" font-weight="700" text-anchor="middle">Lumen: &minus;20 &lt; 0 &rArr; Stay Out</text>
+              <text x="175" y="450" font-size="13" fill="#64748b" text-anchor="middle">branch payoff</text>
+              <text x="175" y="467" font-size="13" fill="#64748b" font-weight="700" text-anchor="middle">to BrewCo: 70</text>
+            </g>
+            <!-- fragment 4: root decision -->
+            <g class="fragment" data-fragment-index="4">
+              <line class="build-line" x1="140" y1="292" x2="275" y2="442" stroke="#d97706" stroke-width="6" stroke-linecap="round"/>
+              <text x="30" y="340" font-size="14" fill="#b45309" font-weight="700" text-anchor="start">BrewCo: 70 &gt; 60</text>
+              <text x="30" y="362" font-size="14" fill="#b45309" font-weight="700" text-anchor="start">&rArr; Commit</text>
+            </g>
+            <!-- fragment 5: SPE -->
+            <g class="fragment" data-fragment-index="5">
+              <rect x="783" y="482" width="104" height="46" rx="8" fill="none" stroke="#dc2626" stroke-width="3.5"/>
+              <text x="900" y="510" font-size="17" fill="#dc2626" font-weight="700" text-anchor="start">SPE: (0, 70)</text>
+              <text x="900" y="532" font-size="14" fill="#64748b" text-anchor="start">entry deterred!</text>
+            </g>
+          </svg>
+        </section>
+
+        <!-- GROUP WORK 2: Q2 graph -->
+        <section data-background-gradient="linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)">
+          <p class="eyebrow" style="color: #059669;">Group Work &middot; Answers</p>
+          <h2>Question 2, Graphically</h2>
+          <div class="slide-img-container" style="margin: 5px auto 0; padding: 8px;">
+            <img src="../slides/images/c7_gw2_q2_tree.png" alt="Full two-stage Lumen-BrewCo tree: committing makes Fight credible, Lumen stays out, and BrewCo commits since 70 > 60; SPE outcome (0, 70)" style="max-height: 480px;">
+          </div>
+        </section>
+
+      </section>
+
+
+      <!-- SECTION 5: Summary & Wrap-Up (Vertical Stack) -->
+      <section>
+
+        <!-- Slide 6.1: Divider -->
+        <section data-background-gradient="linear-gradient(135deg, #0f766e 0%, #115e59 100%)">
+          <p class="eyebrow" style="color: #ccfbf1;">Summary</p>
+          <h1 style="color: white; font-size: 2.8em;">Summary &amp; Wrap-Up</h1>
+          <p style="color: #ccfbf1; margin-top: 20px;">Press <kbd style="background: #115e59; color: white; border: 1px solid #134e4a; padding: 2px 6px; border-radius: 4px;">↓</kbd> to continue</p>
+        </section>
+
+        <!-- Slide 6.2: Summary -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Summary</p>
+          <h2>What We Learned Today</h2>
+          <div class="content-card" style="font-size: 0.9em;">
+            <ul>
+              <li class="fragment"><strong>Finite games unravel</strong>: the endgame problem kills cooperation, because grim-trigger threats are non-credible with an end in sight.</li>
+              <li class="fragment"><strong>Backward induction</strong>: solve sequential games from the last move backwards; the result is a <strong>subgame perfect equilibrium</strong> &mdash; a NE in every subgame.</li>
+              <li class="fragment"><strong>Order matters</strong> (without a DSE): expect first-mover advantage.</li>
+              <li class="fragment"><strong>Credible threats</strong>: a threat only works if carrying it out is in your own interest &mdash; and <strong>commitment</strong> (sinking costs) can make it so.</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- Slide 6.3: For next time -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Wrap-Up</p>
+          <h2>For Next Time</h2>
+          <div class="content-card" style="text-align: center; padding: 35px;">
+            <p style="font-size: 1.15em; font-weight: 700; color: #db2777; margin-bottom: 20px;">
+              Quiz 5 next time! Come on time.
+            </p>
+            <p style="font-size: 1.0em; line-height: 1.5;">
+              Come to office hours with any questions or concerns &mdash; or email me / DM me on Slack.
+            </p>
+          </div>
+        </section>
+
+      </section>
+
+
+      <!-- SECTION 6: Closing Slide (Horizontal) -->
+
+      <!-- Slide 7: Closing -->
+      <section data-background-gradient="linear-gradient(135deg, #0f172a 0%, #1e293b 100%)">
+        <p class="eyebrow" style="color: #2dd4bf;">Schedule</p>
+        <h2 style="color: white;">Preparation for Next Class</h2>
+        <div class="content-card" style="background: rgba(30, 41, 59, 0.7); border-color: rgba(255, 255, 255, 0.1); text-align: center;">
+          <p style="color: #cbd5e1; font-weight: 600; margin-bottom: 10px;">Please stay on top of everything!</p>
+          <p style="color: #94a3b8; font-size: 1.15em;"><strong>See you on Wednesday (9am sharp)!</strong></p>
+          <p style="color: #64748b; font-size: 0.85em; margin-top: 10px;">Quiz 5 at the start of class &mdash; come on time!</p>
+        </div>
+        <p style="margin-top: 40px; color: #64748b; font-size: 0.75em;">Thank you!</p>
+      </section>
+
+    </div>
+  </div>
+
+  <a class="home-link" href="../">&larr; Back to course site</a>
+  <div class="slide-footer">RSC Economics Experience · Class 7</div>
+
+  <!-- reveal.js core + plugins -->
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/notes/notes.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/highlight/highlight.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/math/math.js"></script>
+  <script>
+    // Group work: randomly pick a group number between 1 and 7 (inclusive)
+    function rollGroup(id) {
+      document.getElementById(id).textContent = Math.floor(Math.random() * 7) + 1;
+    }
+
+    Reveal.initialize({
+      hash: true,
+      slideNumber: 'c/t',
+      transition: 'slide',
+      plugins: [ RevealHighlight, RevealNotes, RevealMath.KaTeX ]
+    });
+  </script>
+  <script src="../slides/annotate.js"></script>
+</body>
+</html>

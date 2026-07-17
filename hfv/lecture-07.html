@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Game Theory, Part 2: Sequential Moves &amp; Credible Threats</title>
+  <title>Game Theory, Part 1: Basic Definitions, Nash Equilibrium, Coordination</title>
 
   <!-- reveal.js core + theme (HTML5 slides, loaded from CDN) -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reset.css">
@@ -327,8 +327,8 @@
       <!-- Slide 1: Title -->
       <section data-background-gradient="linear-gradient(135deg, #0f172a 0%, #1e293b 100%)">
         <p class="eyebrow" style="color: #2dd4bf;">RSC Economics Experience · July 2026</p>
-        <h1 style="color: white; font-size: 2.5em; margin-bottom: 15px;">Class 7</h1>
-        <h3 style="color: #94a3b8; font-weight: 400; margin-bottom: 45px;">Game Theory, Part 2: Sequential Moves &amp; Credible Threats</h3>
+        <h1 style="color: white; font-size: 2.5em; margin-bottom: 15px;">Class 6</h1>
+        <h3 style="color: #94a3b8; font-weight: 400; margin-bottom: 45px;">Game Theory, Part 1: Basic Definitions, Nash Equilibrium, Coordination</h3>
         <p style="color: #2dd4bf; font-weight: 600; font-size: 0.9em; margin-bottom: 5px;">Meng Hsuan &ldquo;Rex&rdquo; Hsieh</p>
         <p style="color: #64748b; font-size: 0.75em; margin-top: 30px;">Press <kbd style="background: #334155; color: #cbd5e1; border: 1px solid #475569; padding: 2px 6px; border-radius: 4px;">→</kbd> to begin</p>
       </section>
@@ -336,895 +336,1360 @@
       <!-- Slide 2: Agenda -->
       <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
         <p class="eyebrow">Agenda for Today</p>
-        <h2>Sequential Moves &amp; Credible Threats</h2>
+        <h2>Welcome to Part 2: Game Theory!</h2>
         <div class="content-card">
           <ul>
-            <li class="fragment"><strong>Sequential move games</strong>: study games where players take turns, in more detail.</li>
-            <li class="fragment"><strong>Backward induction</strong>: define and use it to solve finitely repeated and sequential games.</li>
-            <li class="fragment"><strong>Credible threats</strong>: define credibility, and see how commitment can make threats credible.</li>
-            <li class="fragment">&hellip;and <strong>Quiz 5 next class</strong>!</li>
+            <li class="fragment">Moving onto studying <strong>strategic interactions</strong>.</li>
+            <li class="fragment">Defining <strong>actions, strategies, best-response</strong>, and one-shot, simultaneous-move games.</li>
+            <li class="fragment">Defining <strong>dominant strategy equilibrium</strong> and <strong>Nash equilibrium</strong> (in pure strategies).</li>
+            <li class="fragment">Coordination, <strong>strategic commitment</strong>, and tacit collusion.</li>
+            <li class="fragment"><strong>Repeated games</strong>: infinitely and finitely many repetitions.</li>
           </ul>
         </div>
       </section>
 
 
-      <!-- SECTION 2: Recap & Finitely Repeated Games (Vertical Stack) -->
+      <!-- SECTION 2: Recap & Motivations (Vertical Stack) -->
       <section>
 
         <!-- Slide 3.1: Divider -->
         <section data-background-gradient="linear-gradient(135deg, #0f766e 0%, #115e59 100%)">
           <p class="eyebrow" style="color: #ccfbf1;">Part 1</p>
-          <h1 style="color: white; font-size: 2.8em;"><em>Finitely</em> Repeated Games</h1>
+          <h1 style="color: white; font-size: 2.8em;">Strategic Interactions</h1>
           <p style="color: #ccfbf1; margin-top: 20px;">Press <kbd style="background: #115e59; color: white; border: 1px solid #134e4a; padding: 2px 6px; border-radius: 4px;">↓</kbd> to continue</p>
         </section>
 
-        <!-- Slide 3.2: Where we left off -->
+        <!-- Slide 3.2: Recap spectrum -->
         <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
-          <p class="eyebrow">Recap · Last Time</p>
-          <h2>Where We Left Off Last Time&hellip;</h2>
-          <div class="content-card">
-            <p style="font-weight: 600; color: #0f766e; margin-bottom: 12px;">Games and strategic interactions:</p>
-            <ul>
-              <li class="fragment">Definitions of <strong>actions, strategies, best-responses</strong>.</li>
-              <li class="fragment">Definition of <strong>Nash equilibrium</strong> (mutual best-responses).</li>
-              <li class="fragment"><strong>Coordination games</strong> &mdash; and games with more than one NE.</li>
-              <li class="fragment"><strong>Infinitely repeated games</strong> &mdash; the grim trigger sustains cooperation when players are patient.</li>
-            </ul>
-            <p class="fragment" style="font-weight: 600; color: #db2777; margin-top: 12px;">Today: what happens when the game has an <em>end in sight</em> &mdash; and when players take <em>turns</em>?</p>
+          <p class="eyebrow">Markets &amp; Competition · Recap</p>
+          <h2>Strategizing When Every Firm Has Market Power</h2>
+          <div style="display: flex; align-items: center; justify-content: center; gap: 20px; max-width: 1120px; margin: 0 auto;">
+            <div style="flex: 0.9; text-align: left;">
+              <div class="content-card" style="margin: 0; padding: 15px 20px; font-size: 0.9em;">
+                <ul>
+                  <li>We studied <strong>perfect competition</strong> (&ldquo;price takers&rdquo;) and <strong>monopoly</strong> (&ldquo;price makers&rdquo;).</li>
+                  <li class="fragment">In between sits <strong>oligopoly</strong>: few firms, some market power.</li>
+                  <li class="fragment">There, your choices affect your rivals &mdash; and theirs affect you: <strong style="color: #0f766e;">&ldquo;strategic interactions&rdquo;</strong>.</li>
+                </ul>
+              </div>
+            </div>
+            <div style="flex: 1.2;">
+              <div class="slide-img-container" style="margin: 0; padding: 6px;">
+                <img src="../slides/images/c6_market_spectrum.png" alt="Market structure spectrum: perfect competition, oligopoly, monopoly" style="max-height: 330px;">
+              </div>
+            </div>
           </div>
         </section>
 
-        <!-- Slide 3.3: Played twice -->
+        <!-- Slide 3.3: Motivations 1/4 Disney -->
         <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
-          <p class="eyebrow">Finitely Repeated · 1/4</p>
-          <h2>The Fun Begins When There's an End in Sight</h2>
+          <p class="eyebrow">Motivations · 1/4</p>
+          <h2>Strategic Interactions</h2>
+          <div class="slide-img-container" style="padding: 6px;">
+            <img src="../slides/images/c6_motiv_disney.png" alt="Disney's next move news clippings" style="max-height: 330px;">
+          </div>
+          <p style="font-size: 0.75em; color: #475569; max-width: 850px; margin: 10px auto; line-height: 1.35;">
+            <strong style="color: #db2777;">Strategic interactions</strong>: how to act when you impact your competitors and their choices impact yours.
+          </p>
+        </section>
+
+        <!-- Slide 3.4: Motivations 2/4 FTC -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Motivations · 2/4</p>
+          <h2>Coordination &amp; Collusion</h2>
+          <div class="slide-img-container" style="padding: 6px;">
+            <img src="../slides/images/c6_motiv_formula.png" alt="Baby-formula makers face FTC investigation for collusion" style="max-height: 330px;">
+          </div>
+          <p style="font-size: 0.75em; color: #475569; max-width: 850px; margin: 10px auto; line-height: 1.35;">
+            <strong style="color: #db2777;">Coordination</strong>: thinking about motivations behind <strong>tacit collusion</strong> (and <strong>collusion</strong> <em>per se</em>).
+          </p>
+        </section>
+
+        <!-- Slide 3.5: Motivations 3/4 JetBlue -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Motivations · 3/4</p>
+          <h2>Consolidation &amp; Entry</h2>
+          <div class="slide-img-container" style="padding: 6px;">
+            <img src="../slides/images/c6_motiv_jetblue.png" alt="JetBlue-Spirit merger consolidation in the airlines industry" style="max-height: 330px;">
+          </div>
+          <p style="font-size: 0.75em; color: #475569; max-width: 850px; margin: 10px auto; line-height: 1.35;">
+            <strong style="color: #db2777;">Coordination</strong>: consolidation reduces a potential entrant&rsquo;s <strong>willingness-to-enter</strong>.
+          </p>
+        </section>
+
+        <!-- Slide 3.6: Motivations 4/4 Teva -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Motivations · 4/4</p>
+          <h2>Misaligned Incentives</h2>
+          <div class="slide-img-container" style="padding: 6px;">
+            <img src="../slides/images/c6_motiv_teva.png" alt="Teva price-fixing settlement and PBM drug system clippings" style="max-height: 330px;">
+          </div>
+          <p style="font-size: 0.75em; color: #475569; max-width: 850px; margin: 10px auto; line-height: 1.35;">
+            <strong style="color: #db2777;">Misaligned incentives</strong> (between supply-side and demand-side): price-fixing (&ldquo;cartels&rdquo;); pharmacy benefits managers (PBMs).
+          </p>
+        </section>
+
+        <!-- Slide 3.7: Roadmap -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Part 2 of the Course</p>
+          <h2>A Brief Roadmap</h2>
+          <div class="content-card" style="font-size: 0.85em;">
+            <p style="font-weight: 600; color: #0f766e; margin-bottom: 10px;">Each scenario above can be viewed as a <em>game</em>! We will:</p>
+            <ol>
+              <li class="fragment">Define what a <strong>game</strong> is: all the components that describe strategic interactions between players.</li>
+              <li class="fragment">Define notions of equilibrium: <strong>dominant strategy equilibrium</strong>, and <strong>Nash equilibrium in pure strategies</strong>.</li>
+              <li class="fragment">Study coordination in simultaneous-move/one-shot games: the <strong>prisoner&rsquo;s dilemma</strong>.</li>
+              <li class="fragment">Analyze <strong>repeated games</strong> &mdash; and why conclusions differ with finitely vs. infinitely many repetitions (the &ldquo;grim trigger&rdquo;).</li>
+              <li class="fragment">Next class: <strong>sequential games</strong>, subgame perfect equilibrium, tacit collusion, and strategic hold-ups/opportunism.</li>
+            </ol>
+          </div>
+        </section>
+
+      </section>
+
+
+      <!-- SECTION 3: Preliminary Definitions (Vertical Stack) -->
+      <section>
+
+        <!-- Slide 4.1: Divider -->
+        <section data-background-gradient="linear-gradient(135deg, #0f172a 0%, #1e293b 100%)">
+          <p class="eyebrow" style="color: #2dd4bf;">Part 2</p>
+          <h1 style="color: white; font-size: 2.8em;">Preliminary Definitions:<br>What Makes a Game?</h1>
+          <p style="color: #94a3b8; margin-top: 20px;">Press <kbd style="background: #334155; color: #cbd5e1; border: 1px solid #475569; padding: 2px 6px; border-radius: 4px;">↓</kbd> to continue</p>
+        </section>
+
+        <!-- Slide 4.2: Players -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Preliminary Definitions · Players (1/5)</p>
+          <h2>Players</h2>
+          <div class="content-card">
+            <div class="def-card">
+              <div class="def-title">Definition: Players</div>
+              All games need <strong>players</strong>. Players are economic agents &mdash; e.g. friends, consumers, firms, the government, or <em>Nature</em>.
+            </div>
+            <p class="fragment" style="font-size: 0.9em; color: #64748b; margin-top: 12px;">
+              (Yes, even the weather can be a player &mdash; we&rsquo;ll see this shortly!)
+            </p>
+          </div>
+        </section>
+
+        <!-- Slide 4.3: Actions -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Preliminary Definitions · Actions (2/5)</p>
+          <h2>Actions &amp; Payoffs</h2>
+          <div class="content-card">
+            <div class="def-card">
+              <div class="def-title">Definition: Actions</div>
+              All players can play some number of <strong>actions</strong> &mdash; e.g. &ldquo;move left&rdquo;, &ldquo;move right&rdquo;, &ldquo;pay a fine&rdquo;, &ldquo;don&rsquo;t enter a market&rdquo;.
+            </div>
+            <p class="fragment" style="margin-top: 12px;">
+              Each player&rsquo;s actions come with rewards (<strong style="color: #047857;">positive payoff</strong>) or &ldquo;punishment&rdquo; (<strong style="color: #b91c1c;">negative payoff</strong>).
+            </p>
+          </div>
+        </section>
+
+        <!-- Slide 4.4: Strategies -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Preliminary Definitions · Strategies (3/5)</p>
+          <h2>Strategies as Contingency Plans</h2>
           <div class="content-card" style="font-size: 0.9em;">
-            <p>Suppose Philips and Sony play the same entry game &mdash; but only <em>twice</em>.</p>
+            <p>Each player is rational (enough) to have <strong style="color: #db2777;">contingency plans</strong>.</p>
+            <div class="example-card fragment" style="margin: 10px 0;">
+              <div class="ex-title">Example: It&rsquo;s Me Against the World</div>
+              Rex plays a game with Nature. He has the actions: (1) bring an umbrella, (2) not bring an umbrella. Nature has the actions: (1) make it sunny in Ann Arbor, (2) make it rain in Ann Arbor.
+              <br><br>
+              Rex&rsquo;s contingency plans include (but are not limited to): bring an umbrella if it rains; bring an umbrella if it is sunny; &hellip;
+            </div>
+            <div class="def-card fragment" style="margin: 10px 0 0;">
+              <div class="def-title">Definition: Strategy</div>
+              A player&rsquo;s <strong>strategy</strong> is their entire collection of contingency plans. For this class, we use <strong>strategies</strong> and <strong>actions</strong> interchangeably (don&rsquo;t worry about the distinction!).
+            </div>
+          </div>
+        </section>
+
+        <!-- Slide 4.5: Payoffs & Normal Form -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Preliminary Definitions · Payoffs (4/5)</p>
+          <h2>Payoffs and the Normal Form</h2>
+          <div class="content-card" style="font-size: 0.9em;">
+            <div class="def-card" style="margin: 5px 0 10px;">
+              <div class="def-title">Definition: Payoff &amp; Normal Form</div>
+              A <strong>payoff</strong> is an outcome of a game that depends on the strategies every player selects. We represent players, actions/strategies, and payoffs in the <strong>normal form</strong> of a game:
+            </div>
             <div class="game-wrap">
               <table class="game-table">
+                <tr><td></td><td></td><td class="col-player" colspan="2">Rex (Player 2)</td></tr>
+                <tr><td></td><td></td><th class="action">Bring Umbrella (B)</th><th class="action">Don&rsquo;t Bring Umbrella (D)</th></tr>
+                <tr><td class="row-player" rowspan="2">Nature<br>(Player 1)</td><th class="action-row">Rain (R)</th><td class="cell">2, 4</td><td class="cell">3, 2</td></tr>
+                <tr><th class="action-row">No Rain (N)</th><td class="cell">2.5, 1.5</td><td class="cell">3.5, 0</td></tr>
+              </table>
+            </div>
+            <p class="fragment" style="font-size: 0.85em; color: #64748b; text-align: center; margin-top: 8px;">
+              In each cell: <strong>Player 1&rsquo;s payoff first, Player 2&rsquo;s payoff second</strong> &mdash; e.g. &ldquo;3, 2&rdquo; means Nature gets 3 and Rex gets 2.
+            </p>
+          </div>
+        </section>
+
+        <!-- Slide 4.6: Simultaneous Move -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Preliminary Definitions · Rules (5/5)</p>
+          <h2>Simultaneous-Move, One-Shot Games</h2>
+          <div class="content-card" style="font-size: 0.92em;">
+            <p>Players, actions, strategies, payoffs give the basic structure of a game. We still need <strong style="color: #d97706;">rules</strong>.</p>
+            <div class="example-card fragment" style="margin: 10px 0;">
+              <div class="ex-title">Example, continued</div>
+              Say Rex and Nature <em>both</em> decide what to play <em>at the same time</em>, and they play this game <em>once</em>: a <strong>simultaneous-move, one-shot game</strong>.
+            </div>
+            <div class="def-card fragment" style="margin: 10px 0;">
+              <div class="def-title">Definitions</div>
+              A <strong>simultaneous-move game</strong> is a game where players choose their strategies at the same time. A <strong>one-shot game</strong> is where players play the game exactly once.
+            </div>
+            <p class="fragment" style="font-weight: 600; color: #3b82f6; margin-top: 12px;">
+              Question 1: What does an equilibrium look like in Rex&rsquo;s game with Nature (in simultaneous-move, one-shot games)?
+            </p>
+          </div>
+        </section>
+
+      </section>
+
+
+      <!-- SECTION 4: Equilibrium Concepts (Vertical Stack) -->
+      <section>
+
+        <!-- Slide 5.1: Divider -->
+        <section data-background-gradient="linear-gradient(135deg, #0f766e 0%, #115e59 100%)">
+          <p class="eyebrow" style="color: #ccfbf1;">Part 3</p>
+          <h1 style="color: white; font-size: 2.8em;">Equilibrium Concepts</h1>
+          <p style="color: #ccfbf1; margin-top: 20px;">Press <kbd style="background: #115e59; color: white; border: 1px solid #134e4a; padding: 2px 6px; border-radius: 4px;">↓</kbd> to continue</p>
+        </section>
+
+        <!-- Slide 5.2: Dominance -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Equilibrium Concepts · Dominance (1/11)</p>
+          <h2>Dominant &amp; Dominated Strategies</h2>
+          <div class="content-card" style="font-size: 0.9em;">
+            <p><strong style="color: #3b82f6;">First answer to Question 1</strong>: imagine everyone has a strategy that gives the <u>highest possible payoff</u>, regardless of what anyone else does. This is the idea of <strong style="color: #db2777;">dominance</strong>.</p>
+            <div class="def-card fragment" style="margin: 10px 0;">
+              <div class="def-title">Definition: Dominant Strategy</div>
+              A player&rsquo;s <strong>dominant strategy</strong> gives the highest possible payoff, <em>regardless of what anyone else does</em>.
+            </div>
+            <div class="def-card fragment" style="margin: 10px 0;">
+              <div class="def-title">Definition: Dominated Strategy</div>
+              A player&rsquo;s <strong>dominated strategy</strong> does <em>not</em> give the highest possible payoff, regardless of what anyone else does.
+            </div>
+            <p class="fragment" style="font-weight: 600; color: #3b82f6; margin-top: 10px;">In Rex&rsquo;s game with Nature, do the players have dominant strategies?</p>
+          </div>
+        </section>
+
+        <!-- Slide 5.3: Elimination steps -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Equilibrium Concepts · Dominance (2/11)</p>
+          <h2>Eliminating Dominated Strategies</h2>
+          <div class="content-card" style="font-size: 0.88em;">
+            <div class="def-card" style="margin: 5px 0;">
+              <div class="def-title">Step 1</div>
+              Start with player 1 (Nature; payoffs listed <strong>first</strong>). Does one of its strategies <u>always</u> give <u>lower</u> payoffs for itself? If yes, it is a <em>dominated</em> strategy &mdash; <u>delete it</u>.
+            </div>
+            <div class="def-card fragment" style="margin: 8px 0;">
+              <div class="def-title">Step 2</div>
+              Move onto player 2 (Rex; payoffs listed <strong>second</strong>). Does one of his strategies <u>always</u> give <u>lower</u> payoffs for himself? If yes, <u>delete it</u>.
+            </div>
+            <div class="game-wrap">
+              <table class="game-table">
+                <tr><td></td><td></td><td class="col-player" colspan="2">Rex (Player 2)</td></tr>
+                <tr><td></td><td></td><th class="action">Bring Umbrella (B)</th><th class="action">Don&rsquo;t Bring Umbrella (D)</th></tr>
+                <tr><td class="row-player" rowspan="2">Nature<br>(Player 1)</td><th class="action-row">Rain (R)</th><td class="cell">2, 4</td><td class="cell">3, 2</td></tr>
+                <tr><th class="action-row">No Rain (N)</th><td class="cell">2.5, 1.5</td><td class="cell">3.5, 0</td></tr>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- Slide 5.4: Answer dominant strategies -->
+        <section data-background-gradient="linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)">
+          <p class="eyebrow" style="color: #059669;">Equilibrium Concepts · Answer</p>
+          <h2>Dominant Strategies: Found!</h2>
+          <div class="content-card" style="font-size: 0.92em;">
+            <p style="font-weight: 600; color: #059669;">In Rex&rsquo;s game with Nature, do the players have dominant strategies? Yes!</p>
+            <ul>
+              <li class="fragment"><strong>Rex&rsquo;s dominant strategy: bring umbrella (B)</strong> &mdash; if Rain: 4 &gt; 2; if No Rain: 1.5 &gt; 0.</li>
+              <li class="fragment"><strong>Nature&rsquo;s dominant strategy: no rain (N)</strong> &mdash; vs. B: 2.5 &gt; 2; vs. D: 3.5 &gt; 3.</li>
+            </ul>
+            <div class="game-wrap fragment">
+              <table class="game-table">
+                <tr><td></td><td></td><td class="col-player" colspan="2">Rex (Player 2)</td></tr>
+                <tr><td></td><td></td><th class="action">Bring Umbrella (B)</th><th class="action">Don&rsquo;t Bring Umbrella (D)</th></tr>
+                <tr><td class="row-player" rowspan="2">Nature<br>(Player 1)</td><th class="action-row">Rain (R)</th><td class="cell">2, 4</td><td class="cell">3, 2</td></tr>
+                <tr><th class="action-row">No Rain (N)</th><td class="cell" style="border-color: #059669; border-width: 3px; background: rgba(5, 150, 105, 0.08);">2.5, 1.5</td><td class="cell">3.5, 0</td></tr>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- Slide 5.5: DSE -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Equilibrium Concepts · DSE (3/11)</p>
+          <h2>Dominant Strategy Equilibrium</h2>
+          <div class="content-card">
+            <div class="def-card">
+              <div class="def-title">Definition: Dominant Strategy Equilibrium (DSE)</div>
+              A <strong>dominant strategy equilibrium (DSE)</strong> is an equilibrium where every player plays their dominant strategy (<em>if it exists for every player</em>).
+            </div>
+            <p class="fragment" style="margin-top: 15px;">
+              In Rex&rsquo;s game with Nature, the DSE is <strong>(No Rain, Bring Umbrella)</strong> with payoffs (2.5, 1.5).
+            </p>
+          </div>
+        </section>
+
+        <!-- Slide 5.6: Conceptual questions on DSE -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Equilibrium Concepts · DSE (4&ndash;5/11)</p>
+          <h2>Two Conceptual Questions</h2>
+          <div class="content-card" style="font-size: 0.92em;">
+            <div class="def-card" style="margin: 5px 0;">
+              <div class="def-title">Conceptual Question #1: Is there always a dominant strategy?</div>
+              <span class="fragment"><strong>No!</strong> So, a DSE does not always exist.</span>
+            </div>
+            <div class="def-card fragment" style="margin: 12px 0;">
+              <div class="def-title">Conceptual Question #2: Is a dominant strategy always &ldquo;good&rdquo;?</div>
+              <span class="fragment"><strong>No, not always!</strong> In the umbrella game, the outcome (Rain, Don&rsquo;t Bring) would give Nature 3 &gt; 2.5 &mdash; playing dominant strategies isn&rsquo;t always the &ldquo;most optimal&rdquo; outcome.</span>
+            </div>
+            <p class="fragment" style="font-weight: 600; color: #0f766e; margin-top: 12px;">
+              Takeaway: DSE is a <em>very strong</em> definition of equilibrium. It often does not exist, and is not always the &ldquo;most optimal&rdquo; equilibrium even when it does.
+            </p>
+          </div>
+        </section>
+
+        <!-- Slide 5.7: Nash equilibrium -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Equilibrium Concepts · Nash Equilibrium (6/11)</p>
+          <h2>Best-Responses &amp; Nash Equilibrium</h2>
+          <div class="content-card" style="font-size: 0.9em;">
+            <p><strong style="color: #3b82f6;">Updated answer to Question 1</strong>: &ldquo;zoom out&rdquo; from DSE &mdash; everyone has a strategy that gives the highest possible payoff, but only <em>conditional on</em> the strategies other players are playing.</p>
+            <div class="def-card fragment" style="margin: 10px 0;">
+              <div class="def-title">Definition: Best-Response</div>
+              A player&rsquo;s <strong>best-response</strong> is the strategy that gives the highest possible payoff to the player &mdash; <em>taking all other players&rsquo; strategies as given</em>.
+            </div>
+            <div class="def-card fragment" style="margin: 10px 0;">
+              <div class="def-title">Definition: Nash Equilibrium (NE)</div>
+              A <strong>Nash equilibrium (NE)</strong> is an equilibrium where every player plays best-responses (or, equivalently, plays <em>mutual</em> best-responses).
+            </div>
+          </div>
+        </section>
+
+        <!-- Slide 5.8: Steps for finding NE -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Equilibrium Concepts · Nash Equilibrium (7/11)</p>
+          <h2>Steps for Finding NE</h2>
+          <div class="content-card" style="font-size: 0.88em;">
+            <div class="def-card" style="margin: 5px 0;">
+              <div class="def-title">Step 1</div>
+              Fix player 2&rsquo;s strategy. If Rex plays &ldquo;B&rdquo;, which of Nature&rsquo;s strategies gives it a higher payoff? Repeat for Rex playing &ldquo;D&rdquo;.
+            </div>
+            <div class="def-card fragment" style="margin: 8px 0;">
+              <div class="def-title">Step 2</div>
+              Fix player 1&rsquo;s strategy. If Nature plays &ldquo;R&rdquo;, which of Rex&rsquo;s strategies gives him a higher payoff? Repeat for Nature playing &ldquo;N&rdquo;.
+            </div>
+            <p class="fragment" style="font-size: 0.92em; margin: 8px 0;">A cell where <strong>both</strong> players are best-responding is a Nash equilibrium: here, <strong>(N, B)</strong> &mdash; the same as the DSE!</p>
+            <div class="game-wrap">
+              <table class="game-table">
+                <tr><td></td><td></td><td class="col-player" colspan="2">Rex (Player 2)</td></tr>
+                <tr><td></td><td></td><th class="action">Bring Umbrella (B)</th><th class="action">Don&rsquo;t Bring Umbrella (D)</th></tr>
+                <tr><td class="row-player" rowspan="2">Nature<br>(Player 1)</td><th class="action-row">Rain (R)</th><td class="cell">2, 4</td><td class="cell">3, 2</td></tr>
+                <tr><th class="action-row">No Rain (N)</th><td class="cell">2.5, 1.5</td><td class="cell">3.5, 0</td></tr>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- Slide 5.9: DSE vs NE -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Equilibrium Concepts · Nash Equilibrium (8/11)</p>
+          <h2>DSE vs. NE</h2>
+          <div class="content-card">
+            <p style="font-weight: 600; color: #0f766e;">It&rsquo;s not a coincidence that the DSE and NE coincide in this game!</p>
+            <ul>
+              <li class="fragment">A DSE is <strong>always</strong> a NE!</li>
+              <li class="fragment">But a NE is <strong><u>not always</u></strong> a DSE!</li>
+            </ul>
+            <div class="def-card fragment" style="margin-top: 15px; border-left-color: #3b82f6; background: rgba(59, 130, 246, 0.04);">
+              <div class="def-title" style="color: #3b82f6;">Jargon</div>
+              DSE is a stronger/stricter definition of an equilibrium. We say DSE is a <strong>refinement</strong> of NE.
+            </div>
+          </div>
+        </section>
+
+        <!-- Slide 5.10: Pure strategies + remark -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Equilibrium Concepts · Jargon (9/11)</p>
+          <h2>NE in Pure Strategies</h2>
+          <div class="content-card" style="font-size: 0.92em;">
+            <div class="def-card" style="margin: 5px 0;">
+              <div class="def-title">Definition: Pure Strategy</div>
+              A <strong>pure strategy</strong> is a strategy in which a player chooses a particular action <em>with certainty</em>. We&rsquo;ve defined <strong>NE in pure strategies</strong>; a DSE is always in pure strategies.
+            </div>
+            <div class="def-card fragment" style="margin: 12px 0; border-left-color: #3b82f6; background: rgba(59, 130, 246, 0.04);">
+              <div class="def-title" style="color: #3b82f6;">Remark (Rex&rsquo;s unconventional POV!)</div>
+              We ought to understand NE as the <strong>&ldquo;end point&rdquo; of a &ldquo;learning process&rdquo;</strong>: each player chooses the optimal action, assuming all other players choose the same actions now <em>as they did in the previous time period</em>.
+            </div>
+          </div>
+        </section>
+
+        <!-- Slide 5.11: Mixed strategies + Question 2 -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Equilibrium Concepts · Jargon (10/11)</p>
+          <h2>NE in Mixed Strategies</h2>
+          <div class="content-card">
+            <div class="def-card">
+              <div class="def-title">Definition: Mixed Strategy</div>
+              A <strong>mixed strategy</strong> is a strategy in which a player <em>randomizes</em> over a particular collection of actions.
+            </div>
+            <p class="fragment" style="font-weight: 600; color: #db2777; margin-top: 12px;">We won&rsquo;t bother with NE in mixed strategies for this class.</p>
+            <p class="fragment" style="font-weight: 600; color: #3b82f6; margin-top: 18px;">
+              Question 2: Is a NE always the best outcome for the players, normatively? I.e., does a NE always give the highest possible payoffs to <em>all</em> players?
+            </p>
+          </div>
+        </section>
+
+        <!-- Slide 5.12: Prisoner's dilemma -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Equilibrium Concepts · Prisoner&rsquo;s Dilemma (11/11)</p>
+          <h2>The Prisoner&rsquo;s Dilemma</h2>
+          <div class="content-card">
+            <div class="def-card">
+              <div class="def-title">Definition: Prisoner&rsquo;s Dilemma</div>
+              A <strong>prisoner&rsquo;s dilemma</strong> is a situation where the Nash equilibrium outcome is <em>worse off</em> for all players in the game &mdash; <em>worse</em> compared to if they deviate from the strategies they play in the Nash equilibrium.
+            </div>
+            <p class="fragment" style="font-weight: 600; color: #3b82f6; margin-top: 15px;">
+              Is Rex&rsquo;s game with Nature an example of a prisoner&rsquo;s dilemma? We&rsquo;ll see clean examples of true PDs shortly!
+            </p>
+          </div>
+        </section>
+
+        <!-- Slide 5.13: NE not unique -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Equilibrium Concepts · Multiplicity</p>
+          <h2>Nash Equilibrium Is <em>Not</em> Unique!</h2>
+          <div class="content-card" style="font-size: 0.9em;">
+            <p>Competing on movie release dates. <strong>Find all NE.</strong></p>
+            <div class="game-wrap">
+              <table class="game-table">
+                <tr><td></td><td></td><td class="col-player" colspan="2">The Eras Tour</td></tr>
+                <tr><td></td><td></td><th class="action">Oct Release</th><th class="action">Dec Release</th></tr>
+                <tr><td class="row-player" rowspan="2">Renaissance: A<br>Film by Beyonc&eacute;</td><th class="action-row">Oct Release</th><td class="cell">&minus;10, &minus;10</td><td class="cell">10, 6</td></tr>
+                <tr><th class="action-row">Dec Release</th><td class="cell">6, 10</td><td class="cell">&minus;12, &minus;12</td></tr>
+              </table>
+            </div>
+            <p class="fragment" style="margin-top: 8px;"><strong>Two NE</strong>: (Oct, Dec) and (Dec, Oct) &mdash; each film wants to release in the <em>opposite</em> month from its rival. Not all equilibria are the same <em>normatively</em>: each movie prefers to release first (10 &gt; 6)!</p>
+            <p class="fragment" style="font-weight: 600; color: #3b82f6;">Can there be NE where only one player has a dominant strategy?</p>
+          </div>
+        </section>
+
+        <!-- Slide 5.14: One-sided dominance -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Equilibrium Concepts · One-Sided Dominance</p>
+          <h2>One-Sided Dominance: Entry Game</h2>
+          <div class="content-card" style="font-size: 0.9em;">
+            <p>Take the following streaming launch game. <strong>Find all NE in this game.</strong></p>
+            <div class="game-wrap">
+              <table class="game-table">
+                <tr><td></td><td></td><td class="col-player" colspan="2">HBO Max</td></tr>
+                <tr><td></td><td></td><th class="action">2020 Launch</th><th class="action">2021 Launch</th></tr>
+                <tr><td class="row-player" rowspan="2">Disney+</td><th class="action-row">2020 Launch</th><td class="cell">400, 200</td><td class="cell">600, 150</td></tr>
+                <tr><th class="action-row">2021 Launch</th><td class="cell">80, 160</td><td class="cell">120, 180</td></tr>
+              </table>
+            </div>
+            <p class="fragment" style="margin-top: 8px;">Disney+ has a <strong>dominant strategy</strong>: 2020 Launch (400 &gt; 80; 600 &gt; 120). HBO Max does not &mdash; but given Disney+ launches in 2020, HBO Max best-responds with 2020 Launch (200 &gt; 150). <strong>NE: (2020 Launch, 2020 Launch)</strong>.</p>
+          </div>
+        </section>
+
+        <!-- Slide 5.15: Lesson for HBO Max -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Equilibrium Concepts · One-Sided Dominance</p>
+          <h2>Lesson from the Entry Game</h2>
+          <div class="content-card">
+            <p style="font-weight: 600; margin-bottom: 12px;">Lesson for HBO Max (and for <strong>any player who doesn&rsquo;t have a dominant strategy</strong>):</p>
+            <ul>
+              <li class="fragment">Check and see if your rival has a dominant strategy!</li>
+              <li class="fragment">If your rival does &mdash; and assuming they behave rationally &mdash; select the strategy that <u>maximizes your payoffs</u> given the favored strategy of your rival.</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- Slide 5.16: Example 1 PD -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Equilibrium Concepts · Example 1</p>
+          <h2>Example 1: A Prisoner&rsquo;s Dilemma, Again</h2>
+          <div class="content-card" style="font-size: 0.9em;">
+            <div class="example-card" style="margin: 0 0 8px;">
+              <div class="ex-title">Choosing Prices Simultaneously</div>
+              Two theaters operating in the same market must choose between a high price and a low price. <strong>Find the NE in pure strategies. Given your answer: can each player do better than the NE (by choosing the alternative strategies)?</strong>
+            </div>
+            <div class="game-wrap">
+              <table class="game-table">
+                <tr><td></td><td></td><td class="col-player" colspan="2">AB Theater</td></tr>
+                <tr><td></td><td></td><th class="action">Price High</th><th class="action">Price Low</th></tr>
+                <tr><td class="row-player" rowspan="2">Tuppan<br>Theater</td><th class="action-row">Price High</th><td class="cell">35, 35</td><td class="cell">60, 25</td></tr>
+                <tr><th class="action-row">Price Low</th><td class="cell">25, 60</td><td class="cell">52, 52</td></tr>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- Slide 5.16b: Solution Example 1 -->
+        <section data-background-gradient="linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)">
+          <p class="eyebrow" style="color: #059669;">Equilibrium Concepts · Solution 1</p>
+          <h2>Solution: Theater Pricing</h2>
+          <div class="content-card" style="font-size: 0.92em;">
+            <div class="def-card">
+              <div class="def-title">Step 1: Check for Dominant Strategies</div>
+              For Tuppan: if AB prices High, 35 &gt; 25; if AB prices Low, 60 &gt; 52 &mdash; <strong>Price High is dominant</strong>. By symmetry, Price High is dominant for AB too.
+            </div>
+            <div class="def-card fragment">
+              <div class="def-title">Step 2: The NE</div>
+              The unique NE (and DSE) is <strong>(Price High, Price High)</strong> with payoffs (35, 35).
+            </div>
+            <div class="def-card fragment">
+              <div class="def-title">Step 3: Can They Do Better?</div>
+              Yes! Both playing Price Low gives (52, 52) &gt; (35, 35) &mdash; the NE is worse for <em>everyone</em>: a textbook <strong>prisoner&rsquo;s dilemma</strong>.
+            </div>
+          </div>
+        </section>
+
+        <!-- Slide 5.17: Example 2 reading comprehension -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Equilibrium Concepts · Example 2</p>
+          <h2>Example 2: Descriptions into a Game</h2>
+          <div class="content-card" style="font-size: 0.88em;">
+            <div class="example-card" style="margin: 0;">
+              <div class="ex-title">A Reading Comprehension</div>
+              Two firms that sell the popular Elmo and Barney stuffed animals are considering a new Christmas advertising campaign.
+              <ul style="margin: 8px 0 8px 20px !important;">
+                <li>Advertising costs money, and each firm makes <strong>$50 million</strong> if both choose <em>not</em> to advertise.</li>
+                <li>If both advertise, they compete for the same customers and each earns only <strong>$30 million</strong>.</li>
+                <li>If one advertises and the other does not, the advertiser gets <strong>$70 million</strong> and the other only <strong>$20 million</strong>.</li>
+              </ul>
+              <strong>Given these descriptions: (i) write down the normal form of this game, (ii) find all NE.</strong>
+            </div>
+          </div>
+        </section>
+
+        <!-- Slide 5.17b: Solution Example 2 -->
+        <section data-background-gradient="linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)">
+          <p class="eyebrow" style="color: #059669;">Equilibrium Concepts · Solution 2</p>
+          <h2>Solution: Advertising Game</h2>
+          <div class="content-card" style="font-size: 0.9em;">
+            <div class="def-card" style="margin: 5px 0;">
+              <div class="def-title">(i) The Normal Form</div>
+              <div class="game-wrap" style="margin: 8px 0 2px;">
+                <table class="game-table">
+                  <tr><td></td><td></td><td class="col-player" colspan="2">Barney Firm</td></tr>
+                  <tr><td></td><td></td><th class="action">Advertise</th><th class="action">Don&rsquo;t Advertise</th></tr>
+                  <tr><td class="row-player" rowspan="2">Elmo Firm</td><th class="action-row">Advertise</th><td class="cell">30, 30</td><td class="cell">70, 20</td></tr>
+                  <tr><th class="action-row">Don&rsquo;t Advertise</th><td class="cell">20, 70</td><td class="cell">50, 50</td></tr>
+                </table>
+              </div>
+            </div>
+            <div class="def-card fragment" style="margin: 8px 0;">
+              <div class="def-title">(ii) Find All NE</div>
+              Advertise is <strong>dominant</strong> for both (30 &gt; 20; 70 &gt; 50). Unique NE: <strong>(Advertise, Advertise)</strong> = (30, 30) &mdash; even though (50, 50) would be better for both. Another prisoner&rsquo;s dilemma!
+            </div>
+          </div>
+        </section>
+
+        <!-- Slide 5.18: Example 3 three actions -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Equilibrium Concepts · Example 3</p>
+          <h2>Example 3: There Are 3 Actions</h2>
+          <div class="content-card" style="font-size: 0.9em;">
+            <div class="example-card" style="margin: 0 0 8px;">
+              <div class="ex-title">More Actions Isn&rsquo;t Always Better (for the Game Theorist)</div>
+              <strong>Find all NEs in the following game.</strong>
+            </div>
+            <div class="game-wrap">
+              <table class="game-table" style="font-size: 0.68em;">
+                <tr><td></td><td></td><td class="col-player" colspan="3">AB Theater</td></tr>
+                <tr><td></td><td></td><th class="action">Expand</th><th class="action">Remodel</th><th class="action">Stay</th></tr>
+                <tr><td class="row-player" rowspan="3">Tuppan<br>Theater</td><th class="action-row">Expand</th><td class="cell">200, 200</td><td class="cell">300, 400</td><td class="cell">400, 150</td></tr>
+                <tr><th class="action-row">Remodel</th><td class="cell">400, 300</td><td class="cell">450, 450</td><td class="cell">300, 175</td></tr>
+                <tr><th class="action-row">Stay</th><td class="cell">150, 300</td><td class="cell">175, 350</td><td class="cell">350, 300</td></tr>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- Slide 5.18b: Solution Example 3 -->
+        <section data-background-gradient="linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)">
+          <p class="eyebrow" style="color: #059669;">Equilibrium Concepts · Solution 3</p>
+          <h2>Solution: Three Actions</h2>
+          <div class="content-card" style="font-size: 0.92em;">
+            <div class="def-card">
+              <div class="def-title">Step 1: AB Theater&rsquo;s Best Responses</div>
+              Against Expand: 400 (Remodel). Against Remodel: 450 (Remodel). Against Stay: 350 (Remodel). <strong>Remodel is dominant for AB.</strong>
+            </div>
+            <div class="def-card fragment">
+              <div class="def-title">Step 2: Tuppan&rsquo;s Best Response to Remodel</div>
+              Given AB Remodels: 300 vs. <strong>450</strong> vs. 175 &mdash; Tuppan Remodels too.
+            </div>
+            <div class="def-card fragment">
+              <div class="def-title">Conclusion</div>
+              Unique NE: <strong>(Remodel, Remodel)</strong> with payoffs (450, 450).
+            </div>
+          </div>
+        </section>
+
+        <!-- Slide 5.19: GROUP WORK - Equilibrium Concepts -->
+        <section data-background-gradient="linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%)">
+          <p class="eyebrow" style="color: #b45309;">Group Work · Equilibrium Concepts</p>
+          <h2>&#127922; Group Work: Finding Equilibria</h2>
+          <div class="content-card" style="font-size: 0.82em; background: rgba(255, 255, 255, 0.7);">
+            <div class="example-card" style="border-left-color: #b45309; background: rgba(180, 83, 9, 0.05); margin: 8px 0;">
+              <div class="ex-title" style="color: #b45309;">Question 1</div>
+              Two rival toy stores choose whether to run an ad campaign. Payoffs: both advertise: (25, 25); one advertises: 60 for the advertiser, 15 for the other; neither: (40, 40).
+              <strong>Write the normal form. Does either store have a dominant strategy? Find the DSE &mdash; is this a prisoner&rsquo;s dilemma?</strong>
+            </div>
+            <div style="margin: 4px 0 10px;">
+              <button class="group-roll-btn" onclick="rollGroup('l6gw1q1')">&#127922; Pick a group for Q1</button>
+              <span class="group-roll-result" id="l6gw1q1">&mdash;</span>
+            </div>
+            <div class="example-card" style="border-left-color: #b45309; background: rgba(180, 83, 9, 0.05); margin: 8px 0;">
+              <div class="ex-title" style="color: #b45309;">Question 2</div>
+              Ava and Ben pick between a party and a movie. Together at the party: (5, 4); together at the movie: (4, 5); apart (either way): (1, 1).
+              <strong>Does anyone have a dominant strategy? Find all pure-strategy NE.</strong>
+            </div>
+            <div style="margin: 4px 0 0;">
+              <button class="group-roll-btn" onclick="rollGroup('l6gw1q2')">&#127922; Pick a group for Q2</button>
+              <span class="group-roll-result" id="l6gw1q2">&mdash;</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- GROUP WORK Q1: step-by-step best-response walkthrough -->
+        <section data-background-gradient="linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)">
+          <p class="eyebrow" style="color: #059669;">Group Work &middot; Step by Step</p>
+          <h2>Question 1, Step by Step</h2>
+          <p style="font-size: 0.55em; color: #64748b; margin: 0 0 4px;">Press <kbd style="background: #e2e8f0; border: 1px solid #cbd5e1; padding: 1px 6px; border-radius: 4px;">&rarr;</kbd> to build the answer &mdash; <span style="color: #0f766e; font-weight: 700;">underline</span> = best response</p>
+          <svg class="anim-graph" viewBox="0 0 760 520" style="width: 92%; max-height: 480px; margin: 0 auto; display: block; background: white; border: 1px solid #e2e8f0; border-radius: 10px;" role="img" aria-label="Animated best-response analysis of the advertising game: the normal form fills in, Store A's best responses are underlined (Advertise is dominant), then Store B's (symmetric), the dominant-strategy equilibrium (Advertise, Advertise) with (25, 25) is boxed, and (Don't, Don't) with (40, 40) is shown to be better for both - a prisoner's dilemma">
+            <!-- grid + labels (always visible) -->
+            <g>
+              <text x="470" y="96" font-size="20" font-weight="800" fill="#d97706" text-anchor="middle">Store B</text>
+              <text x="375" y="136" font-size="17" font-weight="700" fill="#1e293b" text-anchor="middle">Advertise</text>
+              <text x="565" y="136" font-size="17" font-weight="700" fill="#1e293b" text-anchor="middle">Don&rsquo;t</text>
+              <text x="120" y="256" font-size="20" font-weight="800" fill="#0f766e" text-anchor="middle">Store A</text>
+              <text x="266" y="206" font-size="17" font-weight="700" fill="#1e293b" text-anchor="end">Advertise</text>
+              <text x="266" y="306" font-size="17" font-weight="700" fill="#1e293b" text-anchor="end">Don&rsquo;t</text>
+              <line x1="280" y1="150" x2="660" y2="150" stroke="#475569" stroke-width="2"/>
+              <line x1="280" y1="250" x2="660" y2="250" stroke="#475569" stroke-width="2"/>
+              <line x1="280" y1="350" x2="660" y2="350" stroke="#475569" stroke-width="2"/>
+              <line x1="280" y1="150" x2="280" y2="350" stroke="#475569" stroke-width="2"/>
+              <line x1="470" y1="150" x2="470" y2="350" stroke="#475569" stroke-width="2"/>
+              <line x1="660" y1="150" x2="660" y2="350" stroke="#475569" stroke-width="2"/>
+            </g>
+            <!-- fragment 1: payoffs (the normal form) -->
+            <g class="fragment" data-fragment-index="1">
+              <text x="345" y="207" font-size="22" font-weight="700" fill="#0f766e" text-anchor="middle">25</text>
+              <text x="375" y="207" font-size="22" fill="#475569" text-anchor="middle">,</text>
+              <text x="405" y="207" font-size="22" font-weight="700" fill="#d97706" text-anchor="middle">25</text>
+              <text x="535" y="207" font-size="22" font-weight="700" fill="#0f766e" text-anchor="middle">60</text>
+              <text x="565" y="207" font-size="22" fill="#475569" text-anchor="middle">,</text>
+              <text x="595" y="207" font-size="22" font-weight="700" fill="#d97706" text-anchor="middle">15</text>
+              <text x="345" y="307" font-size="22" font-weight="700" fill="#0f766e" text-anchor="middle">15</text>
+              <text x="375" y="307" font-size="22" fill="#475569" text-anchor="middle">,</text>
+              <text x="405" y="307" font-size="22" font-weight="700" fill="#d97706" text-anchor="middle">60</text>
+              <text x="535" y="307" font-size="22" font-weight="700" fill="#0f766e" text-anchor="middle">40</text>
+              <text x="565" y="307" font-size="22" fill="#475569" text-anchor="middle">,</text>
+              <text x="595" y="307" font-size="22" font-weight="700" fill="#d97706" text-anchor="middle">40</text>
+              <text x="380" y="420" font-size="16" fill="#475569" text-anchor="middle">Payoffs: (both advertise) = (25, 25); one advertiser earns 60, the other 15; (neither) = (40, 40).</text>
+            </g>
+            <!-- fragment 2: Store A's best responses -->
+            <g class="fragment" data-fragment-index="2">
+              <line class="build-line" x1="329" y1="214" x2="361" y2="214" stroke="#0f766e" stroke-width="3.5"/>
+              <line class="build-line" x1="519" y1="214" x2="551" y2="214" stroke="#0f766e" stroke-width="3.5"/>
+              <text x="380" y="450" font-size="16" font-weight="700" fill="#0f766e" text-anchor="middle">Store A: vs. Advertise 25 &gt; 15; vs. Don&rsquo;t 60 &gt; 40 &nbsp;&rArr;&nbsp; Advertise is dominant.</text>
+            </g>
+            <!-- fragment 3: Store B's best responses -->
+            <g class="fragment" data-fragment-index="3">
+              <line class="build-line" x1="389" y1="214" x2="421" y2="214" stroke="#d97706" stroke-width="3.5"/>
+              <line class="build-line" x1="389" y1="314" x2="421" y2="314" stroke="#d97706" stroke-width="3.5"/>
+              <text x="380" y="478" font-size="16" font-weight="700" fill="#d97706" text-anchor="middle">Store B: same comparisons (the game is symmetric) &nbsp;&rArr;&nbsp; Advertise is dominant too.</text>
+            </g>
+            <!-- fragment 4: DSE -->
+            <g class="fragment" data-fragment-index="4">
+              <rect x="285" y="155" width="180" height="90" rx="8" fill="none" stroke="#0f172a" stroke-width="3.5"/>
+              <text x="375" y="180" font-size="14" font-weight="800" fill="#0f172a" text-anchor="middle">DSE</text>
+            </g>
+            <!-- fragment 5: prisoner's dilemma -->
+            <g class="fragment" data-fragment-index="5">
+              <rect x="475" y="255" width="180" height="90" rx="8" fill="none" stroke="#dc2626" stroke-width="3" stroke-dasharray="8 6"/>
+              <text x="380" y="506" font-size="16" font-weight="700" fill="#dc2626" text-anchor="middle">But (Don&rsquo;t, Don&rsquo;t) = (40, 40) is better for BOTH than (25, 25) &nbsp;&rArr;&nbsp; a prisoner&rsquo;s dilemma!</text>
+            </g>
+          </svg>
+        </section>
+
+        <!-- GROUP WORK Q2: step-by-step best-response walkthrough -->
+        <section data-background-gradient="linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)">
+          <p class="eyebrow" style="color: #059669;">Group Work &middot; Step by Step</p>
+          <h2>Question 2, Step by Step</h2>
+          <p style="font-size: 0.55em; color: #64748b; margin: 0 0 4px;">Press <kbd style="background: #e2e8f0; border: 1px solid #cbd5e1; padding: 1px 6px; border-radius: 4px;">&rarr;</kbd> to build the answer &mdash; <span style="color: #0f766e; font-weight: 700;">underline</span> = best response</p>
+          <svg class="anim-graph" viewBox="0 0 760 520" style="width: 92%; max-height: 480px; margin: 0 auto; display: block; background: white; border: 1px solid #e2e8f0; border-radius: 10px;" role="img" aria-label="Animated best-response analysis of the Ava-Ben coordination game: Ava's best responses are underlined, then Ben's, and the two cells where both payoffs are underlined - (Party, Party) and (Movie, Movie) - are circled as the two pure-strategy Nash equilibria">
+            <!-- grid + labels + payoffs (always visible) -->
+            <g>
+              <text x="470" y="96" font-size="20" font-weight="800" fill="#d97706" text-anchor="middle">Ben</text>
+              <text x="375" y="136" font-size="17" font-weight="700" fill="#1e293b" text-anchor="middle">Party</text>
+              <text x="565" y="136" font-size="17" font-weight="700" fill="#1e293b" text-anchor="middle">Movie</text>
+              <text x="120" y="256" font-size="20" font-weight="800" fill="#0f766e" text-anchor="middle">Ava</text>
+              <text x="266" y="206" font-size="17" font-weight="700" fill="#1e293b" text-anchor="end">Party</text>
+              <text x="266" y="306" font-size="17" font-weight="700" fill="#1e293b" text-anchor="end">Movie</text>
+              <line x1="280" y1="150" x2="660" y2="150" stroke="#475569" stroke-width="2"/>
+              <line x1="280" y1="250" x2="660" y2="250" stroke="#475569" stroke-width="2"/>
+              <line x1="280" y1="350" x2="660" y2="350" stroke="#475569" stroke-width="2"/>
+              <line x1="280" y1="150" x2="280" y2="350" stroke="#475569" stroke-width="2"/>
+              <line x1="470" y1="150" x2="470" y2="350" stroke="#475569" stroke-width="2"/>
+              <line x1="660" y1="150" x2="660" y2="350" stroke="#475569" stroke-width="2"/>
+              <text x="345" y="207" font-size="22" font-weight="700" fill="#0f766e" text-anchor="middle">5</text>
+              <text x="375" y="207" font-size="22" fill="#475569" text-anchor="middle">,</text>
+              <text x="405" y="207" font-size="22" font-weight="700" fill="#d97706" text-anchor="middle">4</text>
+              <text x="535" y="207" font-size="22" font-weight="700" fill="#0f766e" text-anchor="middle">1</text>
+              <text x="565" y="207" font-size="22" fill="#475569" text-anchor="middle">,</text>
+              <text x="595" y="207" font-size="22" font-weight="700" fill="#d97706" text-anchor="middle">1</text>
+              <text x="345" y="307" font-size="22" font-weight="700" fill="#0f766e" text-anchor="middle">1</text>
+              <text x="375" y="307" font-size="22" fill="#475569" text-anchor="middle">,</text>
+              <text x="405" y="307" font-size="22" font-weight="700" fill="#d97706" text-anchor="middle">1</text>
+              <text x="535" y="307" font-size="22" font-weight="700" fill="#0f766e" text-anchor="middle">4</text>
+              <text x="565" y="307" font-size="22" fill="#475569" text-anchor="middle">,</text>
+              <text x="595" y="307" font-size="22" font-weight="700" fill="#d97706" text-anchor="middle">5</text>
+            </g>
+            <!-- fragment 1: Ava's best responses -->
+            <g class="fragment" data-fragment-index="1">
+              <line class="build-line" x1="331" y1="214" x2="359" y2="214" stroke="#0f766e" stroke-width="3.5"/>
+              <line class="build-line" x1="521" y1="314" x2="549" y2="314" stroke="#0f766e" stroke-width="3.5"/>
+              <text x="380" y="420" font-size="16" font-weight="700" fill="#0f766e" text-anchor="middle">Ava: vs. Party 5 &gt; 1 &rarr; Party; vs. Movie 4 &gt; 1 &rarr; Movie. She wants to match &mdash; no dominant strategy!</text>
+            </g>
+            <!-- fragment 2: Ben's best responses -->
+            <g class="fragment" data-fragment-index="2">
+              <line class="build-line" x1="391" y1="214" x2="419" y2="214" stroke="#d97706" stroke-width="3.5"/>
+              <line class="build-line" x1="581" y1="314" x2="609" y2="314" stroke="#d97706" stroke-width="3.5"/>
+              <text x="380" y="450" font-size="16" font-weight="700" fill="#d97706" text-anchor="middle">Ben: vs. Party 4 &gt; 1 &rarr; Party; vs. Movie 5 &gt; 1 &rarr; Movie. He wants to match too &mdash; no dominant strategy.</text>
+            </g>
+            <!-- fragment 3: the two NE -->
+            <g class="fragment" data-fragment-index="3">
+              <rect x="285" y="155" width="180" height="90" rx="8" fill="none" stroke="#0f172a" stroke-width="3.5"/>
+              <rect x="475" y="255" width="180" height="90" rx="8" fill="none" stroke="#0f172a" stroke-width="3.5"/>
+              <text x="380" y="483" font-size="16" font-weight="700" fill="#059669" text-anchor="middle">Both payoffs underlined &rArr; Nash equilibrium: (Party, Party) = (5, 4) and (Movie, Movie) = (4, 5).</text>
+              <text x="380" y="507" font-size="16" fill="#475569" text-anchor="middle">Two pure-strategy NE &mdash; NE need not be unique, and the players disagree about which is better!</text>
+            </g>
+          </svg>
+        </section>
+
+        <!-- Slide 5.19b: GROUP WORK Answers -->
+        <section data-background-gradient="linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)">
+          <p class="eyebrow" style="color: #059669;">Group Work · Answers</p>
+          <h2>Answers: Finding Equilibria</h2>
+          <div class="content-card" style="font-size: 0.88em;">
+            <div class="def-card">
+              <div class="def-title">Question 1: Advertising Game</div>
+              Advertise is <strong>dominant for both</strong> (vs. Advertise: 25 &gt; 15; vs. Don&rsquo;t: 60 &gt; 40). DSE = <strong>(Advertise, Advertise)</strong> with (25, 25) &mdash; but (Don&rsquo;t, Don&rsquo;t) gives (40, 40), better for both. <strong>Yes, a prisoner&rsquo;s dilemma.</strong>
+            </div>
+            <div class="def-card fragment">
+              <div class="def-title">Question 2: Coordination Game</div>
+              No dominant strategies (each wants to match the other). Two pure-strategy NE: <strong>(Party, Party)</strong> = (5, 4) and <strong>(Movie, Movie)</strong> = (4, 5). NE need not be unique &mdash; and the players disagree about which one is better!
+            </div>
+          </div>
+        </section>
+
+      </section>
+
+
+      <!-- SECTION 5: Strategic Commitment in Coordination Games (Vertical Stack) -->
+      <section>
+
+        <!-- Slide 6.1: Divider -->
+        <section data-background-gradient="linear-gradient(135deg, #0f172a 0%, #1e293b 100%)">
+          <p class="eyebrow" style="color: #2dd4bf;">Part 4</p>
+          <h1 style="color: white; font-size: 2.8em;">Strategic Commitment in<br>Coordination Games</h1>
+          <p style="color: #94a3b8; margin-top: 20px;">Press <kbd style="background: #334155; color: #cbd5e1; border: 1px solid #475569; padding: 2px 6px; border-radius: 4px;">↓</kbd> to continue</p>
+        </section>
+
+        <!-- Slide 6.2: Focal points -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Strategic Commitment · Focal Points (1/5)</p>
+          <h2>Which Equilibrium Actually Happens?</h2>
+          <div class="content-card">
+            <ul>
+              <li class="fragment">When there are multiple Nash equilibria and players <em>cannot communicate</em>, it is difficult to tell which one will actually occur.</li>
+              <li class="fragment">Sometimes one equilibrium seems more likely, or is <strong>&ldquo;focal&rdquo;</strong>.</li>
+              <li class="fragment">A <strong>focal point</strong> is a solution people tend to use in the absence of communication because it seems natural, obvious, or special.</li>
+            </ul>
+            <div class="example-card fragment" style="margin-top: 12px;">
+              <div class="ex-title">Example</div>
+              Guessing where we might meet up @ Ross!
+            </div>
+          </div>
+        </section>
+
+        <!-- Slide 6.3: Strategic commitments -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Strategic Commitment · Definition (2/5)</p>
+          <h2>Strategic Commitments</h2>
+          <div class="content-card" style="font-size: 0.95em;">
+            <p>One way to pin down a specific equilibrium is by making a <strong>commitment</strong>.</p>
+            <div class="def-card fragment" style="margin: 12px 0;">
+              <div class="def-title">Definition: Strategic Commitment</div>
+              <strong>Strategic commitments</strong> are decisions that have long-term impacts and are difficult to reverse.
+            </div>
+            <div class="example-card fragment" style="margin: 12px 0;">
+              <div class="ex-title">Examples</div>
+              Investments in the positioning of a brand; investments in capacity; long-term contracts with suppliers or customers.
+            </div>
+            <p class="fragment" style="font-size: 0.9em; color: #0f766e; font-weight: 600;">
+              Strategic commitments can help solve coordination problems, help solve prisoner&rsquo;s dilemmas, and improve outcomes (from bargaining, competition, etc.).
+            </p>
+          </div>
+        </section>
+
+        <!-- Slide 6.4: Philips Sony game -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Strategic Commitment · Entry &amp; Coordination (3/5)</p>
+          <h2>Entry and Coordination Game</h2>
+          <div class="content-card" style="font-size: 0.9em;">
+            <div class="example-card" style="margin: 0 0 8px;">
+              <div class="ex-title">Problem Statement</div>
+              Philips and Sony are making entry decisions for LED smart lightbulb introduction to the U.S. market. The payoffs are profits for each firm. <strong>Does either firm have a dominant strategy? Find all Nash equilibria.</strong>
+            </div>
+            <div class="game-wrap">
+              <table class="game-table">
+                <tr><td></td><td></td><td class="col-player" colspan="2">Sony</td></tr>
+                <tr><td></td><td></td><th class="action">Enter Now</th><th class="action">Stay Out</th></tr>
+                <tr><td class="row-player" rowspan="2">Philips</td><th class="action-row">Enter Now</th><td class="cell">12, 4</td><td class="cell">18, 5</td></tr>
+                <tr><th class="action-row">Stay Out</th><td class="cell">15, 7</td><td class="cell">16, 6</td></tr>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- Slide 6.5: Philips Sony summary -->
+        <section data-background-gradient="linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)">
+          <p class="eyebrow" style="color: #059669;">Strategic Commitment · Summary (4/5)</p>
+          <h2>Entry Game: A Summary</h2>
+          <div class="content-card" style="font-size: 0.9em;">
+            <ul>
+              <li class="fragment">If Sony &ldquo;enters now&rdquo;, Philips wants to delay and &ldquo;stay out&rdquo; (15 &gt; 12).</li>
+              <li class="fragment">If Sony waits and &ldquo;stays out&rdquo;, Philips wants to &ldquo;enter now&rdquo; (18 &gt; 16).</li>
+              <li class="fragment">Similarly for Sony (7 &gt; 6 and 5 &gt; 4): Sony wants to do the <em>opposite</em> of whatever Philips does.</li>
+              <li class="fragment"><strong>Neither firm has a dominant strategy.</strong></li>
+            </ul>
+            <p class="fragment" style="font-weight: 600; color: #059669; margin-top: 12px;">
+              There are <strong>two</strong> Nash equilibria: (Enter Now, Stay Out) = (18, 5), and (Stay Out, Enter Now) = (15, 7). But these aren&rsquo;t <em>normatively</em> the same!
+            </p>
+          </div>
+        </section>
+
+        <!-- Slide 6.6: Credible commitment -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Strategic Commitment · Credibility (5/5)</p>
+          <h2>Starting and Building a Credible Commitment</h2>
+          <div class="content-card" style="font-size: 0.92em;">
+            <p>Clearly, Philips can do better than the $15 payoff!</p>
+            <div class="def-card fragment" style="margin: 10px 0;">
+              <div class="def-title">Question: What would Philips like to convince Sony of?</div>
+              Philips would like Sony to believe that it will <strong>&ldquo;Enter Now&rdquo;</strong>! (Philips can&rsquo;t tell Sony this explicitly &mdash; doing so is <em>per se</em> collusion, which is illegal.)
+            </div>
+            <p class="fragment" style="font-weight: 600; color: #3b82f6; margin-top: 12px;">
+              Question: How might Philips go about convincing Sony that it will &ldquo;Enter Now&rdquo;? &rArr; a credible <strong>strategic commitment</strong> (e.g., visibly investing in capacity)!
+            </p>
+          </div>
+        </section>
+
+        <!-- Slide 6.7: Transition fighting competition -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Transition</p>
+          <h2>Thinking About Competition &mdash; and Fighting It</h2>
+          <div class="content-card">
+            <p style="margin-bottom: 10px;">Firms with market power can:</p>
+            <ol>
+              <li class="fragment">Engage in <strong>product differentiation</strong> (cf. our earlier discussions);</li>
+              <li class="fragment">Engage in <strong>price discrimination</strong>;</li>
+              <li class="fragment">Price cooperatively, i.e. <strong style="color: #0f766e;">tacitly collude</strong>;</li>
+              <li class="fragment"><strong>Fight and accommodate</strong> (of which there are many ways&hellip;).</li>
+            </ol>
+            <p class="fragment" style="font-weight: 600; color: #0f766e; margin-top: 12px;">Let&rsquo;s start with point #3 &mdash; via repeated games!</p>
+          </div>
+        </section>
+
+        <!-- Slide 6.8: GROUP WORK - Coordination -->
+        <section data-background-gradient="linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%)">
+          <p class="eyebrow" style="color: #b45309;">Group Work · Coordination &amp; Commitment</p>
+          <h2>&#127922; Group Work: Entry Timing</h2>
+          <div class="content-card" style="font-size: 0.82em; background: rgba(255, 255, 255, 0.7);">
+            <div class="example-card" style="border-left-color: #b45309; background: rgba(180, 83, 9, 0.05); margin: 8px 0;">
+              <div class="ex-title" style="color: #b45309;">Question 1</div>
+              Airo and Beem decide when to enter a new smart-speaker market:
+              <div class="game-wrap" style="margin: 8px 0;">
+                <table class="game-table" style="font-size: 0.85em;">
+                  <tr><td></td><td></td><td class="col-player" colspan="2">Beem</td></tr>
+                  <tr><td></td><td></td><th class="action">Enter Now</th><th class="action">Stay Out</th></tr>
+                  <tr><td class="row-player" rowspan="2">Airo</td><th class="action-row">Enter Now</th><td class="cell">3, 2</td><td class="cell">9, 4</td></tr>
+                  <tr><th class="action-row">Stay Out</th><td class="cell">6, 5</td><td class="cell">5, 3</td></tr>
+                </table>
+              </div>
+              <strong>Does either firm have a dominant strategy? Find all pure-strategy NE.</strong>
+            </div>
+            <div style="margin: 4px 0 10px;">
+              <button class="group-roll-btn" onclick="rollGroup('l6gw2q1')">&#127922; Pick a group for Q1</button>
+              <span class="group-roll-result" id="l6gw2q1">&mdash;</span>
+            </div>
+            <div class="example-card" style="border-left-color: #b45309; background: rgba(180, 83, 9, 0.05); margin: 8px 0;">
+              <div class="ex-title" style="color: #b45309;">Question 2</div>
+              <strong>Which NE does Airo prefer, and what could Airo do to make that equilibrium happen &mdash; without illegally communicating with Beem?</strong>
+            </div>
+            <div style="margin: 4px 0 0;">
+              <button class="group-roll-btn" onclick="rollGroup('l6gw2q2')">&#127922; Pick a group for Q2</button>
+              <span class="group-roll-result" id="l6gw2q2">&mdash;</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- GROUP WORK: Entry Timing step-by-step best-response walkthrough -->
+        <section data-background-gradient="linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)">
+          <p class="eyebrow" style="color: #059669;">Group Work &middot; Step by Step</p>
+          <h2>Entry Timing, Step by Step</h2>
+          <p style="font-size: 0.55em; color: #64748b; margin: 0 0 4px;">Press <kbd style="background: #e2e8f0; border: 1px solid #cbd5e1; padding: 1px 6px; border-radius: 4px;">&rarr;</kbd> to build the answer &mdash; <span style="color: #0f766e; font-weight: 700;">underline</span> = best response</p>
+          <svg class="anim-graph" viewBox="0 0 760 520" style="width: 92%; max-height: 480px; margin: 0 auto; display: block; background: white; border: 1px solid #e2e8f0; border-radius: 10px;" role="img" aria-label="Animated best-response analysis of the Airo-Beem entry game: each firm's best responses are underlined showing neither has a dominant strategy, the two Nash equilibria (9, 4) and (6, 5) are boxed, and Airo's strategic commitment selects its preferred equilibrium">
+            <!-- grid + labels + payoffs (always visible) -->
+            <g>
+              <text x="470" y="96" font-size="20" font-weight="800" fill="#d97706" text-anchor="middle">Beem</text>
+              <text x="375" y="136" font-size="17" font-weight="700" fill="#1e293b" text-anchor="middle">Enter Now</text>
+              <text x="565" y="136" font-size="17" font-weight="700" fill="#1e293b" text-anchor="middle">Stay Out</text>
+              <text x="120" y="256" font-size="20" font-weight="800" fill="#0f766e" text-anchor="middle">Airo</text>
+              <text x="266" y="206" font-size="17" font-weight="700" fill="#1e293b" text-anchor="end">Enter Now</text>
+              <text x="266" y="306" font-size="17" font-weight="700" fill="#1e293b" text-anchor="end">Stay Out</text>
+              <line x1="280" y1="150" x2="660" y2="150" stroke="#475569" stroke-width="2"/>
+              <line x1="280" y1="250" x2="660" y2="250" stroke="#475569" stroke-width="2"/>
+              <line x1="280" y1="350" x2="660" y2="350" stroke="#475569" stroke-width="2"/>
+              <line x1="280" y1="150" x2="280" y2="350" stroke="#475569" stroke-width="2"/>
+              <line x1="470" y1="150" x2="470" y2="350" stroke="#475569" stroke-width="2"/>
+              <line x1="660" y1="150" x2="660" y2="350" stroke="#475569" stroke-width="2"/>
+              <text x="345" y="207" font-size="22" font-weight="700" fill="#0f766e" text-anchor="middle">3</text>
+              <text x="375" y="207" font-size="22" fill="#475569" text-anchor="middle">,</text>
+              <text x="405" y="207" font-size="22" font-weight="700" fill="#d97706" text-anchor="middle">2</text>
+              <text x="535" y="207" font-size="22" font-weight="700" fill="#0f766e" text-anchor="middle">9</text>
+              <text x="565" y="207" font-size="22" fill="#475569" text-anchor="middle">,</text>
+              <text x="595" y="207" font-size="22" font-weight="700" fill="#d97706" text-anchor="middle">4</text>
+              <text x="345" y="307" font-size="22" font-weight="700" fill="#0f766e" text-anchor="middle">6</text>
+              <text x="375" y="307" font-size="22" fill="#475569" text-anchor="middle">,</text>
+              <text x="405" y="307" font-size="22" font-weight="700" fill="#d97706" text-anchor="middle">5</text>
+              <text x="535" y="307" font-size="22" font-weight="700" fill="#0f766e" text-anchor="middle">5</text>
+              <text x="565" y="307" font-size="22" fill="#475569" text-anchor="middle">,</text>
+              <text x="595" y="307" font-size="22" font-weight="700" fill="#d97706" text-anchor="middle">3</text>
+            </g>
+            <!-- fragment 1: Airo's best responses -->
+            <g class="fragment" data-fragment-index="1">
+              <line class="build-line" x1="331" y1="314" x2="359" y2="314" stroke="#0f766e" stroke-width="3.5"/>
+              <line class="build-line" x1="521" y1="214" x2="549" y2="214" stroke="#0f766e" stroke-width="3.5"/>
+              <text x="380" y="420" font-size="16" font-weight="700" fill="#0f766e" text-anchor="middle">Airo: vs. Enter 6 &gt; 3 &rarr; Stay Out; vs. Stay Out 9 &gt; 5 &rarr; Enter. Does the opposite &mdash; no dominant strategy.</text>
+            </g>
+            <!-- fragment 2: Beem's best responses -->
+            <g class="fragment" data-fragment-index="2">
+              <line class="build-line" x1="581" y1="214" x2="609" y2="214" stroke="#d97706" stroke-width="3.5"/>
+              <line class="build-line" x1="391" y1="314" x2="419" y2="314" stroke="#d97706" stroke-width="3.5"/>
+              <text x="380" y="450" font-size="16" font-weight="700" fill="#d97706" text-anchor="middle">Beem: vs. Enter 4 &gt; 2 &rarr; Stay Out; vs. Stay Out 5 &gt; 3 &rarr; Enter. Also no dominant strategy.</text>
+            </g>
+            <!-- fragment 3: the two NE -->
+            <g class="fragment" data-fragment-index="3">
+              <rect x="475" y="155" width="180" height="90" rx="8" fill="none" stroke="#0f172a" stroke-width="3.5"/>
+              <rect x="285" y="255" width="180" height="90" rx="8" fill="none" stroke="#0f172a" stroke-width="3.5"/>
+              <text x="380" y="480" font-size="16" font-weight="700" fill="#059669" text-anchor="middle">Two NE: (Enter Now, Stay Out) = (9, 4) and (Stay Out, Enter Now) = (6, 5).</text>
+            </g>
+            <!-- fragment 4: Airo's commitment -->
+            <g class="fragment" data-fragment-index="4">
+              <rect x="480" y="160" width="170" height="80" rx="6" fill="rgba(15, 118, 110, 0.10)" stroke="none"/>
+              <text x="380" y="507" font-size="15.5" font-weight="700" fill="#0f766e" text-anchor="middle">Airo prefers (9, 4) &rarr; commit visibly to entering (capacity, contracts, sunk marketing) so Beem stays out.</text>
+            </g>
+          </svg>
+        </section>
+
+        <!-- Slide 6.8b: GROUP WORK Answers -->
+        <section data-background-gradient="linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)">
+          <p class="eyebrow" style="color: #059669;">Group Work · Answers</p>
+          <h2>Answers: Entry Timing</h2>
+          <div class="content-card" style="font-size: 0.88em;">
+            <div class="def-card">
+              <div class="def-title">Question 1: Dominant Strategies &amp; NE</div>
+              Airo: vs. Enter, 6 &gt; 3 (Stay Out); vs. Stay Out, 9 &gt; 5 (Enter) &mdash; no dominant strategy. Beem: vs. Enter, 4 &gt; 2 (Stay Out); vs. Stay Out, 5 &gt; 3 (Enter) &mdash; no dominant strategy either. Each wants to do the <em>opposite</em> of its rival.
+              <br><br>
+              <strong>Two NE: (Enter Now, Stay Out) = (9, 4) and (Stay Out, Enter Now) = (6, 5).</strong>
+            </div>
+            <div class="def-card fragment">
+              <div class="def-title">Question 2: Airo&rsquo;s Preferred NE &amp; Commitment</div>
+              Airo prefers <strong>(Enter Now, Stay Out)</strong>, earning 9. To make it credible, Airo can make a <strong>strategic commitment</strong> that is hard to reverse: visibly invest in production capacity, sign long-term supplier contracts, or announce a launch with sunk marketing spend &mdash; convincing Beem it will enter, so Beem&rsquo;s best response is to stay out. (Explicitly agreeing with Beem would be <em>per se</em> collusion &mdash; illegal!)
+            </div>
+          </div>
+        </section>
+
+      </section>
+
+
+      <!-- SECTION 6: Infinitely Repeated Games (Vertical Stack) -->
+      <section>
+
+        <!-- Slide 7.1: Divider -->
+        <section data-background-gradient="linear-gradient(135deg, #0f766e 0%, #115e59 100%)">
+          <p class="eyebrow" style="color: #ccfbf1;">Part 5</p>
+          <h1 style="color: white; font-size: 2.8em;"><em>Infinitely</em> Repeated Games</h1>
+          <p style="color: #ccfbf1; margin-top: 20px;">Press <kbd style="background: #115e59; color: white; border: 1px solid #134e4a; padding: 2px 6px; border-radius: 4px;">↓</kbd> to continue</p>
+        </section>
+
+        <!-- Slide 7.2: Repeated game def -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Infinitely Repeated Games · 1/11</p>
+          <h2>Repeated Games</h2>
+          <div class="content-card">
+            <div class="def-card">
+              <div class="def-title">Definition: Repeated Game</div>
+              A <strong>repeated game</strong> is a simultaneous-move game that is played <u>more than once</u> by the same players.
+            </div>
+            <p class="fragment" style="margin-top: 12px;">In repeated games, players are presented with the opportunity to <strong>tacitly coordinate</strong> with one another and reach better outcomes.</p>
+            <p class="fragment" style="margin-top: 10px; color: #0f766e; font-weight: 600;">By &ldquo;reaching better outcomes&rdquo;, we mean: the players can avoid &ldquo;being plagued&rdquo; by the prisoner&rsquo;s dilemma.</p>
+          </div>
+        </section>
+
+        <!-- Slide 7.3: Philips Sony repeated setup -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Infinitely Repeated Games · 2/11</p>
+          <h2>Philips and Sony, With New Payoffs</h2>
+          <div class="content-card" style="font-size: 0.88em;">
+            <div class="game-wrap">
+              <table class="game-table">
+                <tr><td></td><td></td><td class="col-player" colspan="2">Sony</td></tr>
+                <tr><td></td><td></td><th class="action">Enter Now</th><th class="action">Stay Out</th></tr>
+                <tr><td class="row-player" rowspan="2">Philips</td><th class="action-row">Enter Now</th><td class="cell">30, 30</td><td class="cell">14, 35</td></tr>
+                <tr><th class="action-row">Stay Out</th><td class="cell">35, 14</td><td class="cell">20, 20</td></tr>
+              </table>
+            </div>
+            <p class="fragment" style="margin-top: 10px;"><strong style="color: #3b82f6;">Interesting question:</strong> is there incentive to deviate from the NE to the &ldquo;better for both players&rdquo; outcome &mdash; if Philips and Sony play this game <em>forever</em>? Assume both players know the rules, and know they will play this game forever.</p>
+            <p class="fragment" style="font-size: 0.85em; color: #db2777; margin-top: 8px;">(<strong>Fact:</strong> it is <em>much</em> easier to analyze a game with an infinite time horizon!)</p>
+          </div>
+        </section>
+
+        <!-- Slide 7.4: Thought experiment -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Infinitely Repeated Games · 3/11</p>
+          <h2>A Thought Experiment</h2>
+          <div class="content-card" style="font-size: 0.85em;">
+            <p><strong style="color: #3b82f6;">Thought experiment.</strong> Imagine they agree to play this game, with the following rules:</p>
+            <ul style="margin: 8px 0 !important;">
+              <li class="fragment"><strong style="color: #db2777;">(Cooperate)</strong> Philips agrees to play &ldquo;Enter Now&rdquo; forever, as long as Sony plays &ldquo;Enter Now&rdquo; forever.</li>
+              <li class="fragment"><strong style="color: #db2777;">(Defect)</strong> If Sony plays &ldquo;Stay Out&rdquo; at any point, Philips responds by playing &ldquo;Stay Out&rdquo; in all subsequent rounds. Sony signals to do the same.</li>
+            </ul>
+            <p class="fragment" style="font-weight: 600; margin: 8px 0;">Is this strategy sustainable? I.e., is this a strategy Sony and Philips play in equilibrium?</p>
+            <div class="game-wrap">
+              <table class="game-table" style="font-size: 0.85em;">
+                <tr><td></td><td></td><td class="col-player" colspan="2">Sony</td></tr>
+                <tr><td></td><td></td><th class="action">Enter Now</th><th class="action">Stay Out</th></tr>
+                <tr><td class="row-player" rowspan="2">Philips</td><th class="action-row">Enter Now</th><td class="cell">30, 30</td><td class="cell">7, 55</td></tr>
+                <tr><th class="action-row">Stay Out</th><td class="cell">55, 7</td><td class="cell">14, 14</td></tr>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- Slide 7.5: Step 0 discounting -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Infinitely Repeated Games · 4/11</p>
+          <h2>Step 0: Discounting Future Payments</h2>
+          <div class="content-card" style="font-size: 0.9em;">
+            <p>Remember how we discount future payments, using interest rate \( r \):</p>
+            <div class="example-card fragment" style="margin: 10px 0;">
+              <div class="ex-title">Example</div>
+              A payment of \( \$100 \), due in 1 year, is worth \( PV = \frac{100}{1+r} \) today. If \( r = 0.05 \), the present value of \( \$100 \) (due in 1 year) is \( \approx \$95.24 \) today.
+            </div>
+            <div class="def-card fragment" style="margin: 10px 0;">
+              <div class="def-title">Fact (Please Remember This Formula!)</div>
+              The sum of all discounted PVs of \( \$100 \) paid from 1 year out until forever:
+              \[ \frac{100}{1+r} + \frac{100}{(1+r)^2} + \cdots = \frac{100}{r} \]
+            </div>
+            <p class="fragment" style="font-size: 0.9em;">We call \( r \) a <strong>discount factor</strong> in game theory.</p>
+          </div>
+        </section>
+
+        <!-- Slide 7.6: Step 1 cooperate -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Infinitely Repeated Games · 5/11</p>
+          <h2>Step 1: PV of Income Streams &mdash; Cooperate</h2>
+          <div class="content-card" style="font-size: 0.92em;">
+            <p><strong style="color: #3b82f6;">Case (a) &mdash; Cooperate.</strong> Philips plays &ldquo;Enter Now&rdquo; forever, as long as Sony plays &ldquo;Enter Now&rdquo; forever: both earn 30 every round.</p>
+            <div class="def-card fragment" style="margin-top: 12px;">
+              <div class="def-title">Philips&rsquo; (and Sony&rsquo;s) Total PV If They Always Cooperate</div>
+              \[ 30 + \frac{30}{1+r} + \frac{30}{(1+r)^2} + \cdots = 30 + \frac{30}{r} \quad (\square) \]
+            </div>
+          </div>
+        </section>
+
+        <!-- Slide 7.7: Step 1 defect -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Infinitely Repeated Games · 6/11</p>
+          <h2>Step 2: PV of Income Streams &mdash; Defect</h2>
+          <div class="content-card" style="font-size: 0.92em;">
+            <p><strong style="color: #3b82f6;">Case (b) &mdash; Defect.</strong> Defecting today means grabbing 55 once (playing &ldquo;Stay Out&rdquo; while the rival cooperates) &mdash; then both play &ldquo;Stay Out&rdquo; forever, earning 14 per round.</p>
+            <div class="def-card fragment" style="margin-top: 12px;">
+              <div class="def-title">Philips&rsquo; (and Sony&rsquo;s) Total PV If They Defect</div>
+              \[ 55 + \frac{14}{1+r} + \frac{14}{(1+r)^2} + \cdots = 55 + \frac{14}{r} \quad (\star) \]
+            </div>
+            <p class="fragment" style="margin-top: 12px;">Philips will defect and play &ldquo;Stay Out&rdquo; if \( (\star) > (\square) \). The conclusion for Sony is identical, because the game is symmetric.</p>
+          </div>
+        </section>
+
+        <!-- Slide 7.8: Step 3 compare -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Infinitely Repeated Games · 7/11</p>
+          <h2>Step 3: Compare the Streams</h2>
+          <div class="content-card" style="font-size: 0.92em;">
+            <p>\( (\star) > (\square) \) means:</p>
+            <div style="margin: 10px 0;">
+              \[ 55 + \frac{14}{r} > 30 + \frac{30}{r} \]
+            </div>
+            <p class="fragment">Solving, we have:</p>
+            <div class="fragment" style="margin: 10px 0;">
+              \[ 25 > \frac{16}{r} \iff r > \frac{16}{25} = 0.64 \]
+            </div>
+            <div class="def-card fragment" style="margin-top: 12px;">
+              <div class="def-title">Step 4: Conclude</div>
+              Philips and Sony will defect (and not cooperate!) if their discount rate is <em>very high</em>, i.e. if \( r > 0.64 \) &mdash; meaning they heavily discount the future (they are <strong>impatient</strong>).
+            </div>
+          </div>
+        </section>
+
+        <!-- Slide 7.9: Grim trigger -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Infinitely Repeated Games · 8/11</p>
+          <h2>The Grim Trigger</h2>
+          <div class="content-card" style="font-size: 0.92em;">
+            <p><strong style="color: #3b82f6;">Interpretation:</strong> so long as each firm cares <em>enough</em> about the future, it will cooperate &mdash; and <em>tacitly collude</em> &mdash; with its rival.</p>
+            <div class="def-card fragment" style="margin: 12px 0;">
+              <div class="def-title">Definition: Grim Trigger</div>
+              &ldquo;<strong>&lsquo;Enter Now&rsquo; forever, unless the other player plays &lsquo;Stay Out&rsquo; in any round</strong>&rdquo; &mdash; this strategy is called a <strong>grim trigger</strong>.
+            </div>
+            <p class="fragment" style="font-weight: 600; color: #0f766e;">
+              The grim trigger strategy is a Nash equilibrium strategy for both players when \( r \le 0.64 \). Otherwise, Sony and Philips will find it worthwhile to &ldquo;defect&rdquo;. &#9632;
+            </p>
+          </div>
+        </section>
+
+        <!-- Slide 7.10: When grim triggers work -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Infinitely Repeated Games · 9/11</p>
+          <h2>When Do We See Grim Triggers?</h2>
+          <div class="content-card" style="font-size: 0.92em;">
+            <p style="font-weight: 600;">Grim triggers work (and can be NE!) when:</p>
+            <ul>
+              <li class="fragment">&#10003; Cooperating is a best-response when the other player is cooperating;</li>
+              <li class="fragment">&#10003; There is an &ldquo;infinite time horizon&rdquo;;</li>
+              <li class="fragment">&#10003; A threat of future punishment exists, and is <strong>credible</strong> (a <strong>credible threat</strong>).</li>
+            </ul>
+            <p class="fragment" style="margin-top: 10px;">If players are not sufficiently patient (\( r > 0.64 \) in our example), defection happens &mdash; we end up with suboptimal outcomes for both players.</p>
+            <p class="fragment" style="font-weight: 600; color: #0f766e; margin-top: 10px;">In general: cooperation can be sustained in most games like this &mdash; as long as players are <em>patient enough</em>.</p>
+          </div>
+        </section>
+
+        <!-- Slide 7.11: Steps recipe -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Infinitely Repeated Games · 10/11</p>
+          <h2>Steps to Solve an Infinitely Repeated Game</h2>
+          <div class="content-card" style="font-size: 0.92em;">
+            <div class="def-card" style="margin: 6px 0;">
+              <strong>Step 1.</strong> Calculate the income streams of payoffs under the &ldquo;Cooperate&rdquo; and &ldquo;Defect&rdquo; strategies.
+            </div>
+            <div class="def-card fragment" style="margin: 6px 0;">
+              <strong>Step 2.</strong> Discount those income streams to the present.
+            </div>
+            <div class="def-card fragment" style="margin: 6px 0;">
+              <strong>Step 3.</strong> Compare the streams; figure out the discount rate under which PV of &ldquo;Cooperate&rdquo; &gt; PV of &ldquo;Defect&rdquo;.
+            </div>
+            <div class="def-card fragment" style="margin: 6px 0;">
+              <strong>Step 4.</strong> Conclude the analysis by stating the discount factor under which players always cooperate (i.e., no one pulls the grim trigger).
+            </div>
+          </div>
+        </section>
+
+        <!-- Slide 7.12: GROUP WORK - Repeated Games -->
+        <section data-background-gradient="linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%)">
+          <p class="eyebrow" style="color: #b45309;">Group Work · Repeated Games</p>
+          <h2>&#127922; Group Work: Pulling the Grim Trigger</h2>
+          <div class="content-card" style="font-size: 0.85em; background: rgba(255, 255, 255, 0.7);">
+            <p style="margin-bottom: 8px;">Two ride-share firms play an infinitely repeated pricing game. Cooperating (both price high) pays each firm <strong>50 per period, forever</strong>. Defecting pays <strong>90 once</strong>, after which both firms revert to the punishment payoff of <strong>30 per period, forever</strong>.</p>
+            <div class="example-card" style="border-left-color: #b45309; background: rgba(180, 83, 9, 0.05); margin: 8px 0;">
+              <div class="ex-title" style="color: #b45309;">Question 1</div>
+              <strong>Write down the present value of the &ldquo;Cooperate&rdquo; stream and the &ldquo;Defect&rdquo; stream</strong> (use discount rate \( r \) and the perpetuity formula).
+            </div>
+            <div style="margin: 4px 0 10px;">
+              <button class="group-roll-btn" onclick="rollGroup('l6gw3q1')">&#127922; Pick a group for Q1</button>
+              <span class="group-roll-result" id="l6gw3q1">&mdash;</span>
+            </div>
+            <div class="example-card" style="border-left-color: #b45309; background: rgba(180, 83, 9, 0.05); margin: 8px 0;">
+              <div class="ex-title" style="color: #b45309;">Question 2</div>
+              <strong>For which values of \( r \) is the grim trigger a Nash equilibrium strategy (i.e., cooperation is sustained)?</strong> Interpret your answer.
+            </div>
+            <div style="margin: 4px 0 0;">
+              <button class="group-roll-btn" onclick="rollGroup('l6gw3q2')">&#127922; Pick a group for Q2</button>
+              <span class="group-roll-result" id="l6gw3q2">&mdash;</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- GROUP WORK: Grim Trigger step-by-step payoff-stream comparison -->
+        <section data-background-gradient="linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)">
+          <p class="eyebrow" style="color: #059669;">Group Work &middot; Step by Step</p>
+          <h2>Grim Trigger, Step by Step</h2>
+          <p style="font-size: 0.55em; color: #64748b; margin: 0 0 4px;">Press <kbd style="background: #e2e8f0; border: 1px solid #cbd5e1; padding: 1px 6px; border-radius: 4px;">&rarr;</kbd> to compare the two payoff streams</p>
+          <svg class="anim-graph" viewBox="0 0 760 520" style="width: 92%; max-height: 480px; margin: 0 auto; display: block; background: white; border: 1px solid #e2e8f0; border-radius: 10px;" role="img" aria-label="Animated comparison of the two payoff streams in the repeated pricing game: cooperating pays 50 every period forever, defecting pays 90 once and then 30 forever; the present values 50 + 50/r and 90 + 30/r imply cooperation survives when r is at most 0.5">
+            <!-- time axis (always visible) -->
+            <g>
+              <line x1="70" y1="370" x2="700" y2="370" stroke="#475569" stroke-width="2.5"/>
+              <polygon points="700,365 700,375 711,370" fill="#475569"/>
+              <text x="130" y="394" font-size="15" fill="#475569" text-anchor="middle">t = 0</text>
+              <text x="225" y="394" font-size="15" fill="#475569" text-anchor="middle">1</text>
+              <text x="320" y="394" font-size="15" fill="#475569" text-anchor="middle">2</text>
+              <text x="415" y="394" font-size="15" fill="#475569" text-anchor="middle">3</text>
+              <text x="510" y="394" font-size="15" fill="#475569" text-anchor="middle">4</text>
+              <text x="605" y="394" font-size="15" fill="#475569" text-anchor="middle">5</text>
+              <text x="662" y="394" font-size="15" fill="#94a3b8">&#8230; forever</text>
+              <text x="52" y="120" font-size="14" fill="#64748b" transform="rotate(-90 52 120)" text-anchor="end">payoff per period</text>
+            </g>
+            <!-- fragment 1: cooperate stream -->
+            <g class="fragment" data-fragment-index="1">
+              <rect x="96" y="225" width="30" height="145" fill="#0f766e" rx="3"/>
+              <rect x="191" y="225" width="30" height="145" fill="#0f766e" rx="3"/>
+              <rect x="286" y="225" width="30" height="145" fill="#0f766e" rx="3"/>
+              <rect x="381" y="225" width="30" height="145" fill="#0f766e" rx="3"/>
+              <rect x="476" y="225" width="30" height="145" fill="#0f766e" rx="3"/>
+              <rect x="571" y="225" width="30" height="145" fill="#0f766e" rx="3"/>
+              <text x="111" y="217" font-size="14" font-weight="700" fill="#0f766e" text-anchor="middle">50</text>
+              <text x="206" y="217" font-size="14" font-weight="700" fill="#0f766e" text-anchor="middle">50</text>
+              <text x="301" y="217" font-size="14" font-weight="700" fill="#0f766e" text-anchor="middle">50</text>
+              <text x="396" y="217" font-size="14" font-weight="700" fill="#0f766e" text-anchor="middle">50</text>
+              <text x="491" y="217" font-size="14" font-weight="700" fill="#0f766e" text-anchor="middle">50</text>
+              <text x="586" y="217" font-size="14" font-weight="700" fill="#0f766e" text-anchor="middle">50</text>
+              <rect x="70" y="44" width="16" height="16" fill="#0f766e" rx="3"/>
+              <text x="95" y="58" font-size="16" font-weight="700" fill="#0f766e">Cooperate: 50 every period, forever</text>
+            </g>
+            <!-- fragment 2: defect stream -->
+            <g class="fragment" data-fragment-index="2">
+              <rect x="134" y="109" width="30" height="261" fill="#d97706" rx="3"/>
+              <rect x="229" y="283" width="30" height="87" fill="#d97706" rx="3"/>
+              <rect x="324" y="283" width="30" height="87" fill="#d97706" rx="3"/>
+              <rect x="419" y="283" width="30" height="87" fill="#d97706" rx="3"/>
+              <rect x="514" y="283" width="30" height="87" fill="#d97706" rx="3"/>
+              <rect x="609" y="283" width="30" height="87" fill="#d97706" rx="3"/>
+              <text x="149" y="101" font-size="14" font-weight="700" fill="#b45309" text-anchor="middle">90</text>
+              <text x="244" y="275" font-size="14" font-weight="700" fill="#b45309" text-anchor="middle">30</text>
+              <text x="339" y="275" font-size="14" font-weight="700" fill="#b45309" text-anchor="middle">30</text>
+              <text x="434" y="275" font-size="14" font-weight="700" fill="#b45309" text-anchor="middle">30</text>
+              <text x="529" y="275" font-size="14" font-weight="700" fill="#b45309" text-anchor="middle">30</text>
+              <text x="624" y="275" font-size="14" font-weight="700" fill="#b45309" text-anchor="middle">30</text>
+              <rect x="70" y="74" width="16" height="16" fill="#d97706" rx="3"/>
+              <text x="95" y="88" font-size="16" font-weight="700" fill="#b45309">Defect: 90 once, then the punishment payoff of 30 forever</text>
+            </g>
+            <!-- fragment 3: present values -->
+            <g class="fragment" data-fragment-index="3">
+              <text x="380" y="442" font-size="19" font-weight="700" fill="#1e293b" text-anchor="middle">PV(cooperate) = 50 + 50/r &nbsp;&nbsp;&nbsp;&nbsp; PV(defect) = 90 + 30/r</text>
+            </g>
+            <!-- fragment 4: the threshold -->
+            <g class="fragment" data-fragment-index="4">
+              <text x="380" y="474" font-size="17" font-weight="700" fill="#dc2626" text-anchor="middle">Defect pays only if 90 + 30/r &gt; 50 + 50/r &nbsp;&hArr;&nbsp; r &gt; 0.5</text>
+              <text x="380" y="502" font-size="17" font-weight="700" fill="#059669" text-anchor="middle">So the grim trigger sustains cooperation when r &le; 0.5 &mdash; patient firms collude tacitly.</text>
+            </g>
+          </svg>
+        </section>
+
+        <!-- Slide 7.12b: GROUP WORK Answers -->
+        <section data-background-gradient="linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)">
+          <p class="eyebrow" style="color: #059669;">Group Work · Answers</p>
+          <h2>Answers: Pulling the Grim Trigger</h2>
+          <div class="content-card" style="font-size: 0.9em;">
+            <div class="def-card">
+              <div class="def-title">Question 1: The Two PV Streams</div>
+              \[ PV_{\text{cooperate}} = 50 + \frac{50}{1+r} + \frac{50}{(1+r)^2} + \cdots = 50 + \frac{50}{r} \]
+              \[ PV_{\text{defect}} = 90 + \frac{30}{1+r} + \frac{30}{(1+r)^2} + \cdots = 90 + \frac{30}{r} \]
+            </div>
+            <div class="def-card fragment">
+              <div class="def-title">Question 2: When Does Cooperation Survive?</div>
+              Defect iff \( 90 + \frac{30}{r} > 50 + \frac{50}{r} \iff 40 > \frac{20}{r} \iff r > 0.5 \).
+              <p style="margin-top: 8px;">So the grim trigger sustains cooperation (is a NE) when <strong>\( r \le 0.5 \)</strong>: as long as the firms are patient enough &mdash; they value future profits highly &mdash; tacit collusion holds.</p>
+            </div>
+          </div>
+        </section>
+
+      </section>
+
+
+      <!-- SECTION 7: Finitely Repeated Games (Vertical Stack) -->
+      <section>
+
+        <!-- Slide 8.1: Divider -->
+        <section data-background-gradient="linear-gradient(135deg, #0f172a 0%, #1e293b 100%)">
+          <p class="eyebrow" style="color: #2dd4bf;">Part 6</p>
+          <h1 style="color: white; font-size: 2.8em;"><em>Finitely</em> Repeated Games</h1>
+          <p style="color: #94a3b8; margin-top: 20px;">Press <kbd style="background: #334155; color: #cbd5e1; border: 1px solid #475569; padding: 2px 6px; border-radius: 4px;">↓</kbd> to continue</p>
+        </section>
+
+        <!-- Slide 8.2: Play twice -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Finitely Repeated Games · 1/4</p>
+          <h2>The Fun Begins When There&rsquo;s an End in Sight</h2>
+          <div class="content-card" style="font-size: 0.9em;">
+            <p>Suppose we play the same game, but only <em>twice</em>.</p>
+            <div class="game-wrap">
+              <table class="game-table" style="font-size: 0.85em;">
                 <tr><td></td><td></td><td class="col-player" colspan="2">Sony</td></tr>
                 <tr><td></td><td></td><th class="action">Enter Now</th><th class="action">Stay Out</th></tr>
                 <tr><td class="row-player" rowspan="2">Philips</td><th class="action-row">Enter Now</th><td class="cell">30, 30</td><td class="cell">14, 55</td></tr>
                 <tr><th class="action-row">Stay Out</th><td class="cell">55, 14</td><td class="cell">20, 20</td></tr>
               </table>
             </div>
-            <p class="fragment">There's now an <strong>end in sight</strong> &mdash; namely, the second round. The NE (in pure strategies) of the stage game is still <strong>(Stay Out, Stay Out)</strong>.</p>
-            <p class="fragment" style="font-weight: 600; color: #db2777;">What must happen in the second (final) round?</p>
+            <p class="fragment" style="margin-top: 10px;">There&rsquo;s now an end in sight &mdash; namely, the second round. The NE (in pure strategies) of the stage game is still (Stay Out, Stay Out).</p>
+            <p class="fragment" style="font-weight: 600; color: #3b82f6;">What must happen in the second round?</p>
           </div>
         </section>
 
-        <!-- Slide 3.4: Iterate the logic -->
+        <!-- Slide 8.3: Iterate logic -->
         <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
-          <p class="eyebrow">Finitely Repeated · 2/4</p>
+          <p class="eyebrow">Finitely Repeated Games · 2/4</p>
           <h2>Iterating the Logic</h2>
           <div class="content-card">
-            <ul>
-              <li class="fragment">In the <strong>final round</strong>, there is no future to protect &mdash; both players simply play the stage-game NE: (Stay Out, Stay Out).</li>
-              <li class="fragment">But then, in the <strong>second-to-last round</strong>, cooperation cannot be rewarded (the last round is already lost) &mdash; so both defect there too.</li>
-              <li class="fragment">Iterate: do the players have incentives to deviate from the NE in the 5th round? The 10th round? <strong>No &mdash; the whole game unravels from the end!</strong></li>
-            </ul>
+            <p>In the final round, there is no future to protect &mdash; so both players defect and play the stage-game NE (Stay Out, Stay Out).</p>
+            <p class="fragment" style="margin-top: 12px;">Let&rsquo;s iterate the logic: do the players have incentives to deviate from NE in the 5th round? The 10th round?</p>
+            <p class="fragment" style="font-weight: 600; color: #b91c1c; margin-top: 12px;">Knowing the last round ends in defection, cooperation in the second-to-last round has no reward either &mdash; and the whole game <strong>unravels</strong> back to the start!</p>
           </div>
         </section>
 
-        <!-- Slide 3.5: Endgame problem -->
+        <!-- Slide 8.4: Endgame problem -->
         <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
-          <p class="eyebrow">Finitely Repeated · 3/4</p>
-          <h2>Why Did We Reach This Conclusion?</h2>
+          <p class="eyebrow">Finitely Repeated Games · 3/4</p>
+          <h2>The Endgame Problem</h2>
           <div class="content-card" style="font-size: 0.92em;">
             <div class="def-card">
               <div class="def-title">The Endgame Problem</div>
-              If there is a definite end to the game, both players know there is no benefit to cooperating in the last round &mdash; so they defect at the end, and (by iteration) all the way back to round one.
+              If there is a definite end, then both players know there is no benefit to cooperating in the last round (i.e., they &ldquo;Stay Out&rdquo; in the final round).
             </div>
-            <p class="fragment" style="margin-top: 12px;">We say finite games suffer from <strong style="color: #db2777;">non-credible threats</strong>: the threat of &ldquo;pulling the grim trigger&rdquo; has no bite when the game is finite.</p>
-            <p class="fragment">By extension, threats and promises are also not credible in the second-to-last round, third-to-last round, etc.</p>
-          </div>
-        </section>
-
-        <!-- Slide 3.6: Backward induction defn -->
-        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
-          <p class="eyebrow">Finitely Repeated · 4/4</p>
-          <h2>How to Solve Finite Games, Then?</h2>
-          <div class="content-card">
-            <p>Finite games have an <strong style="color: #3b82f6;">endgame</strong>. So let's start from the end, and work backwards!</p>
-            <div class="def-card fragment" style="margin-top: 15px;">
-              <div class="def-title">Definition: Backward Induction</div>
-              <strong>Backward induction</strong> is the way to solve finitely repeated (and sequential) games: start at the <em>end</em> of the game and work backwards in &ldquo;time&rdquo;, to figure out the equilibrium strategies and payoffs.
-            </div>
-            <p class="fragment" style="font-weight: 600; color: #0f766e; margin-top: 15px;">Let's see how backward induction works in <em>sequential move games</em>!</p>
-          </div>
-        </section>
-
-      </section>
-
-
-      <!-- SECTION 3: Sequential Move Games (Vertical Stack) -->
-      <section>
-
-        <!-- Slide 4.1: Divider -->
-        <section data-background-gradient="linear-gradient(135deg, #0f766e 0%, #115e59 100%)">
-          <p class="eyebrow" style="color: #ccfbf1;">Part 2</p>
-          <h1 style="color: white; font-size: 2.8em;">Sequential Move Games</h1>
-          <p style="color: #ccfbf1; margin-top: 20px;">Press <kbd style="background: #115e59; color: white; border: 1px solid #134e4a; padding: 2px 6px; border-radius: 4px;">↓</kbd> to continue</p>
-        </section>
-
-        <!-- Slide 4.2: Definition -->
-        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
-          <p class="eyebrow">Sequential Games · Definition</p>
-          <h2>Sequential Move Games</h2>
-          <div class="content-card">
-            <div class="def-card" style="margin-top: 0;">
-              <div class="def-title">Definition: Sequential Move Game</div>
-              A <strong>sequential move game</strong> is a game where players take turns deciding what moves to play.
-            </div>
-            <p class="fragment" style="margin-top: 12px;">Let's see how the equilibrium of a given game changes &mdash; if at all &mdash; if it were played in:</p>
-            <ol style="font-size: 0.95em;">
-              <li class="fragment">simultaneous move, <strong>one-shot</strong>;</li>
-              <li class="fragment">simultaneous move, <strong>finitely repeated</strong>;</li>
-              <li class="fragment">simultaneous move, <strong>infinitely repeated</strong>;</li>
-              <li class="fragment"><strong style="color: #db2777;">sequential moves</strong>.</li>
-            </ol>
-          </div>
-        </section>
-
-        <!-- Slide 4.3: Warranty setup + Q0 -->
-        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
-          <p class="eyebrow">Sequential Games · Running Example</p>
-          <h2>Offering a Warranty Becomes a Game</h2>
-          <div class="content-card" style="font-size: 0.88em;">
-            <div class="example-card" style="margin: 0 0 8px;">
-              <div class="ex-title">Long Example</div>
-              Honda and Suzuki are competing motorcycle manufacturers. Both are <u>simultaneously considering</u> offering 10-year warranties &mdash; costly, but making their vehicles more attractive relative to the competitor's.
-            </div>
-            <div class="game-wrap">
-              <table class="game-table">
-                <tr><td></td><td></td><td class="col-player" colspan="2">Suzuki</td></tr>
-                <tr><td></td><td></td><th class="action">Offer</th><th class="action">Don't Offer</th></tr>
-                <tr><td class="row-player" rowspan="2">Honda</td><th class="action-row">Offer</th><td class="cell">25, 35</td><td class="cell">85, 15</td></tr>
-                <tr><th class="action-row">Don't Offer</th><td class="cell">20, 95</td><td class="cell">50, 55</td></tr>
-              </table>
-            </div>
-            <p class="fragment" style="font-weight: 600; color: #db2777;">Question 0. If the game is played <em>once</em>, what is the NE?</p>
-          </div>
-        </section>
-
-        <!-- Slide 4.3b: Q0 solution -->
-        <section data-background-gradient="linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)">
-          <p class="eyebrow" style="color: #059669;">Sequential Games · Solution</p>
-          <h2>Solution: One-Shot NE</h2>
-          <div class="content-card" style="font-size: 0.92em;">
-            <div class="def-card" style="margin: 8px 0;">
-              <div class="def-title">Best Responses</div>
-              <strong>Honda</strong>: vs. Offer, 25 &gt; 20; vs. Don't Offer, 85 &gt; 50 &rArr; <strong>Offer is dominant</strong>.<br>
-              <strong>Suzuki</strong>: vs. Offer, 35 &gt; 15; vs. Don't Offer, 95 &gt; 55 &rArr; <strong>Offer is dominant</strong>.
-            </div>
-            <div class="def-card fragment" style="margin: 8px 0;">
-              <div class="def-title">Conclusion</div>
-              The unique NE (in dominant strategies) is <strong>(Offer, Offer) = (25, 35)</strong> &mdash; even though both would prefer (Don't, Don't) = (50, 55). A classic prisoner's dilemma!
-            </div>
-          </div>
-        </section>
-
-        <!-- Slide 4.4: Q1 repeated 23 times -->
-        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
-          <p class="eyebrow">Sequential Games · Practice</p>
-          <h2>Practice: Repeat It 23 Times</h2>
-          <div class="content-card">
-            <div class="example-card" style="margin: 0;">
-              <div class="ex-title">Question 1</div>
-              Now, suppose the game is repeated <strong>23 times</strong>. What is the outcome of the game? Is it the same as what you described in <strong>Question 0</strong>? Why or why not?
-              <br><br>
-              <em>(Hint: use backward induction &mdash; no maths is needed to answer this question.)</em>
-            </div>
-          </div>
-        </section>
-
-        <!-- Slide 4.4b: Q1 solution -->
-        <section data-background-gradient="linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)">
-          <p class="eyebrow" style="color: #059669;">Sequential Games · Solution</p>
-          <h2>Solution: 23 Repetitions</h2>
-          <div class="content-card" style="font-size: 0.92em;">
-            <div class="def-card" style="margin: 8px 0;">
-              <div class="def-title">Backward Induction</div>
-              In round 23 (the last round) there is no future &mdash; both play the dominant strategy: (Offer, Offer). But then nothing can be rewarded in round 22 either&hellip; and the game unravels all the way to round 1.
-            </div>
-            <div class="def-card fragment" style="margin: 8px 0;">
-              <div class="def-title">Conclusion</div>
-              <strong>(Offer, Offer) in every round</strong> &mdash; exactly the same as Question 0. The endgame problem strikes: with a finite horizon, cooperation cannot be sustained.
-            </div>
-          </div>
-        </section>
-
-        <!-- Slide 4.5: Q2 grim trigger -->
-        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
-          <p class="eyebrow">Sequential Games · Practice</p>
-          <h2>Practice: Now Repeat It Forever</h2>
-          <div class="content-card" style="font-size: 0.88em;">
-            <div class="example-card" style="margin: 0 0 10px;">
-              <div class="ex-title">Question 2</div>
-              Now the game is <u>infinitely repeated</u>. Honda and Suzuki agreed, contractually, to <em>not offer warranties</em>. Both companies want to use a <strong>grim trigger strategy</strong> to deter the other from defecting from the agreement.
-              <br><br>
-              <strong>At what level of interest rate / discount factor \( r \) does the grim trigger constitute a NE in this infinitely repeated game?</strong>
-            </div>
-            <div class="game-wrap">
-              <table class="game-table" style="font-size: 0.68em;">
-                <tr><td></td><td></td><td class="col-player" colspan="2">Suzuki</td></tr>
-                <tr><td></td><td></td><th class="action">Offer</th><th class="action">Don't Offer</th></tr>
-                <tr><td class="row-player" rowspan="2">Honda</td><th class="action-row">Offer</th><td class="cell">25, 35</td><td class="cell">85, 15</td></tr>
-                <tr><th class="action-row">Don't Offer</th><td class="cell">20, 95</td><td class="cell">50, 55</td></tr>
-              </table>
-            </div>
-          </div>
-        </section>
-
-        <!-- Slide 4.5b: Q2 solution -->
-        <section data-background-gradient="linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)">
-          <p class="eyebrow" style="color: #059669;">Sequential Games · Solution</p>
-          <h2>Solution: When Does the Grim Trigger Work?</h2>
-          <div class="content-card" style="font-size: 0.82em;">
-            <div class="def-card" style="margin: 6px 0;">
-              <div class="def-title">Honda: Cooperate vs. Defect</div>
-              Cooperate (Don't, Don't) forever: \( 50 + \frac{50}{r} \). Defect once (grab 85), then punished at (Offer, Offer) forever: \( 85 + \frac{25}{r} \).
-              \[ 50 + \frac{50}{r} \ge 85 + \frac{25}{r} \iff \frac{25}{r} \ge 35 \iff r \le \frac{5}{7} \approx 0.71 \]
-            </div>
-            <div class="def-card fragment" style="margin: 6px 0;">
-              <div class="def-title">Suzuki: Cooperate vs. Defect</div>
-              Cooperate: \( 55 + \frac{55}{r} \). Defect once (grab 95), then \( 35 \) forever: \( 95 + \frac{35}{r} \).
-              \[ 55 + \frac{55}{r} \ge 95 + \frac{35}{r} \iff \frac{20}{r} \ge 40 \iff r \le \frac{1}{2} \]
-            </div>
-            <div class="def-card fragment" style="margin: 6px 0; border-left-color: #3b82f6; background: rgba(59, 130, 246, 0.04);">
-              <div class="def-title" style="color: #3b82f6;">Conclusion</div>
-              Both conditions must hold &rArr; the grim trigger is a NE iff \( r \le 0.5 \) (Suzuki's condition binds &mdash; Suzuki is more tempted to defect).
-            </div>
-          </div>
-        </section>
-
-        <!-- Slide 4.6: Q3 setup + extensive form -->
-        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
-          <p class="eyebrow">Sequential Games · Extensive Form</p>
-          <h2>Q3: The Move Structure Changes</h2>
-          <div class="content-card" style="font-size: 0.9em;">
-            <div class="example-card" style="margin: 0 0 10px;">
-              <div class="ex-title">Question 3</div>
-              Honda decides in <u>January 2019</u> whether to offer the warranty. Suzuki decides in <u>March 2019</u>. The payoffs are the same. Analyze the outcome via <em>backward induction</em>.
-            </div>
-            <div class="def-card fragment" style="margin: 10px 0 0;">
-              <div class="def-title">Definition: Extensive Form &amp; Game Tree</div>
-              The <strong>extensive form</strong> of a sequential game shows actions taken by players in succession, in a <strong>game tree</strong>. The order in which players move matters &mdash; it affects how we draw the tree! Payoffs sit at the ends of the tree (the <em>leaves</em>).
-            </div>
-          </div>
-        </section>
-
-        <!-- Slide 4.7: base tree -->
-        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
-          <p class="eyebrow">Sequential Games · Game Tree</p>
-          <h2>The Warranty Game, in Extensive Form</h2>
-          <div class="content-card" style="font-size: 0.85em; max-width: 1000px; padding: 10px 18px;">
-            <p style="margin: 4px 0;">Honda moves first &mdash; it is the <em>parent</em> (root) of the game tree. Suzuki moves second: conditional on what Honda does, we transfer the payoffs from the normal form to the <em>leaves</em>.</p>
-          </div>
-          <div class="slide-img-container" style="margin: 4px auto 0; padding: 8px;">
-            <img src="../slides/images/c7_tree_warranty_base.png" alt="Warranty game tree: Honda chooses Offer or Not Offer, then Suzuki chooses, with payoffs 25,35 / 85,15 / 20,95 / 50,55 at the leaves" style="max-height: 380px;">
-          </div>
-        </section>
-
-        <!-- Slide 4.8: solved tree -->
-        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
-          <p class="eyebrow">Sequential Games · Backward Induction</p>
-          <h2>Solving the Tree, Backwards</h2>
-          <div class="content-card" style="font-size: 0.85em; max-width: 1000px; padding: 10px 18px;">
-            <p style="margin: 4px 0;"><strong>Step 1:</strong> Suzuki moves last &mdash; in each branch it picks its best reply. <strong>Step 2:</strong> Honda, anticipating Suzuki, compares 25 (Offer) vs. 20 (Not Offer) &rArr; <strong>Offer</strong>.</p>
-          </div>
-          <div class="slide-img-container" style="margin: 4px auto 0; padding: 8px;">
-            <img src="../slides/images/c7_tree_warranty_solved.png" alt="Warranty game tree solved by backward induction: Suzuki offers in both subgames, Honda offers, SPE outcome (25, 35)" style="max-height: 380px;">
-          </div>
-        </section>
-
-        <!-- Slide 4.9: SPE definition + subgames -->
-        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
-          <p class="eyebrow">Sequential Games · SPE</p>
-          <h2>Subgame Perfect Equilibrium</h2>
-          <div style="display: flex; align-items: center; justify-content: center; gap: 18px; max-width: 1120px; margin: 0 auto;">
-            <div style="flex: 1; text-align: left;">
-              <div class="content-card" style="margin: 0; font-size: 0.8em;">
-                <div class="def-card" style="margin: 0 0 10px;">
-                  <div class="def-title">Definition: Subgame Perfect Equilibrium (SPE)</div>
-                  A <strong>subgame perfect equilibrium</strong> is a Nash equilibrium in <em>every subgame</em> of the game.
-                </div>
-                <ul>
-                  <li class="fragment">Think of each &ldquo;branch&rdquo; as a subgame: one where Honda plays Offer, another where Honda plays Not Offer.</li>
-                  <li class="fragment">The backward-induction answer to Q3 <em>is</em> the SPE: Honda plays Offer; Suzuki plays (Offer if Offer; Offer if Not Offer). Outcome: <strong>(25, 35)</strong>.</li>
-                </ul>
-              </div>
-            </div>
-            <div style="flex: 1;">
-              <div class="slide-img-container" style="margin: 0; padding: 6px;">
-                <img src="../slides/images/c7_tree_warranty_subgames.png" alt="Warranty game tree with the two Suzuki subgames outlined in dashed boxes" style="max-height: 400px;">
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- Slide 4.10: Q4 order swap -->
-        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
-          <p class="eyebrow">Sequential Games · Order of Moves</p>
-          <h2>Q4: What If Suzuki Moves First?</h2>
-          <div class="content-card" style="font-size: 0.92em;">
-            <div class="example-card" style="margin: 0 0 10px;">
-              <div class="ex-title">Question 4</div>
-              Now <em>Suzuki</em> decides in January 2019, and Honda decides in March 2019. Does this change the outcome of our analysis? Why / why not?
-            </div>
-            <div class="def-card fragment" style="margin: 8px 0;">
-              <div class="def-title">Answer</div>
-              <strong>No.</strong> Offer is a <em>dominant strategy</em> for both players &mdash; each plays Offer no matter what the other does, so the move order doesn't matter here. Outcome: (Offer, Offer) = (25, 35), again.
-            </div>
-            <p class="fragment" style="font-weight: 600; color: #db2777; margin-top: 10px;">But in general, the order <em>can</em> matter &mdash; when the game has no dominant-strategy equilibrium!</p>
-          </div>
-        </section>
-
-        <!-- Slide 4.11: First-mover advantage -->
-        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
-          <p class="eyebrow">Sequential Games · First-Mover Advantage</p>
-          <h2>Who Moves First Can Change Everything</h2>
-          <div class="content-card" style="font-size: 0.82em; max-width: 1060px; padding: 10px 18px;">
-            <p style="margin: 4px 0;">Two coworkers each prefer to <em>avoid</em> doing what the other does (payoffs: same choice &rArr; 0, 0). There is no DSE &mdash; and the SPE depends on who moves first: the <strong style="color: #db2777;">first mover</strong> steers the game to their preferred equilibrium.</p>
-          </div>
-          <div class="slide-img-container" style="margin: 4px auto 0; padding: 8px;">
-            <img src="../slides/images/c7_tree_firstmover.png" alt="Two solved game trees: when Person 1 moves first the SPE is (2,1); when Person 2 moves first the SPE is (1,2) - first-mover advantage" style="max-height: 340px;">
-          </div>
-        </section>
-
-        <!-- Slide 4.12: Takeaways -->
-        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
-          <p class="eyebrow">Sequential Games · Takeaways</p>
-          <h2>Takeaways From Sequential Move Games</h2>
-          <div class="content-card" style="font-size: 0.82em;">
-            <ol>
-              <li class="fragment">We represent sequential move games in <strong>extensive form</strong>, using game trees.</li>
-              <li class="fragment"><strong>Backward induction</strong> solves finitely repeated and sequential games.</li>
-              <li class="fragment">The order of moves matters for the SPE when the game has no DSE &mdash; there is usually <strong style="color: #db2777;">first-mover advantage</strong> in such games.</li>
-              <li class="fragment">Move structures can dramatically change our equilibrium predictions, <em>even if payoffs don't change</em>.</li>
-              <li class="fragment">Mark all the <strong>off-equilibrium paths</strong>: rational players never go down them, but they are part of the <em>beliefs</em> we need to state the SPE. In a SPE, players best-respond both <em>on</em> and <em>off</em> the equilibrium path!</li>
-            </ol>
-          </div>
-        </section>
-
-        <!-- GROUP WORK 1: Solve the Tree -->
-        <section data-background-gradient="linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%)">
-          <p class="eyebrow" style="color: #b45309;">Group Work &middot; Sequential Games</p>
-          <h2>&#127922; Group Work: Solve the Tree</h2>
-          <div class="content-card" style="font-size: 0.78em; background: rgba(255, 255, 255, 0.7);">
-            <div class="example-card" style="border-left-color: #b45309; background: rgba(180, 83, 9, 0.05); margin: 6px 0;">
-              <div class="ex-title" style="color: #b45309;">Question 1</div>
-              Rival software firms Alpha and Beta decide whether to run an ad campaign. Payoffs (Alpha, Beta): (Ad, Ad) = (4, 4); (Ad, No Ad) = (12, 2); (No Ad, Ad) = (2, 12); (No Ad, No Ad) = (8, 8). <br><strong>(a) Find the NE of the one-shot simultaneous game. (b) Now Alpha commits its ad budget first and Beta observes. Draw the game tree, use backward induction to find the SPE. Does the outcome change?</strong>
-            </div>
-            <div style="margin: 2px 0 8px;">
-              <button class="group-roll-btn" onclick="rollGroup('l7gw1q1')">&#127922; Pick a group for Q1</button>
-              <span class="group-roll-result" id="l7gw1q1">&mdash;</span>
-            </div>
-            <div class="example-card" style="border-left-color: #b45309; background: rgba(180, 83, 9, 0.05); margin: 6px 0;">
-              <div class="ex-title" style="color: #b45309;">Question 2</div>
-              Ana and Berto each pick a street corner (North or South) for their food carts. Payoffs (Ana, Berto): (N, N) = (1, 1); (N, S) = (5, 3); (S, N) = (3, 5); (S, S) = (0, 0). <br><strong>Draw the game tree and find the SPE if Ana moves first, and if Berto moves first. Is there a first-mover advantage?</strong>
-            </div>
-            <div style="margin: 2px 0 0;">
-              <button class="group-roll-btn" onclick="rollGroup('l7gw1q2')">&#127922; Pick a group for Q2</button>
-              <span class="group-roll-result" id="l7gw1q2">&mdash;</span>
-            </div>
-          </div>
-        </section>
-
-        <!-- GROUP WORK 1 Answers -->
-        <section data-background-gradient="linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)">
-          <p class="eyebrow" style="color: #059669;">Group Work &middot; Answers</p>
-          <h2>Answers: Solve the Tree</h2>
-          <div class="content-card" style="font-size: 0.82em;">
-            <div class="def-card" style="margin: 6px 0;">
-              <div class="def-title">Question 1: Alpha &amp; Beta</div>
-              (a) Advertise is <strong>dominant</strong> for both (4 &gt; 2 and 12 &gt; 8) &rArr; NE = (Ad, Ad) = (4, 4).<br>
-              (b) Sequential: Beta advertises in <em>both</em> subgames; Alpha compares 4 vs. 2 &rArr; Advertise. SPE outcome <strong>(4, 4)</strong> &mdash; unchanged, because both players have a dominant strategy.
-            </div>
-            <div class="def-card fragment" style="margin: 6px 0;">
-              <div class="def-title">Question 2: Ana &amp; Berto</div>
-              Ana first: Berto avoids Ana's corner &rArr; Ana picks North, Berto picks South &rArr; SPE outcome <strong>(5, 3)</strong>.<br>
-              Berto first: by symmetry &rArr; SPE outcome <strong>(3, 5)</strong>.<br>
-              <strong>Yes</strong> &mdash; whoever moves first earns 5: a first-mover advantage. Let&rsquo;s see the trees &darr;
-            </div>
-          </div>
-        </section>
-
-        <!-- GROUP WORK Answers: step-by-step animated graph -->
-        <section data-background-gradient="linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)">
-          <p class="eyebrow" style="color: #059669;">Group Work &middot; Answers</p>
-          <h2>Question 1, Step by Step</h2>
-          <p style="font-size: 0.55em; color: #64748b; margin: 0 0 4px;">Press <kbd style="background: #e2e8f0; border: 1px solid #cbd5e1; padding: 1px 6px; border-radius: 4px;">&rarr;</kbd> to add each element of the graph</p>
-          <svg class="anim-graph" viewBox="0 0 830 520" style="width: 92%; max-height: 480px; margin: 0 auto; display: block; background: white; border: 1px solid #e2e8f0; border-radius: 10px;" role="img" aria-label="Animated backward induction on the Alpha-Beta advertising tree: Beta advertises in both subgames, Alpha compares 4 vs 2 and advertises, giving the subgame-perfect equilibrium (4, 4)">
-            <!-- base tree (always visible) -->
-            <g>
-              <line x1="150" y1="248" x2="330" y2="148" stroke="#cbd5e1" stroke-width="3"/>
-              <line x1="150" y1="272" x2="330" y2="372" stroke="#cbd5e1" stroke-width="3"/>
-              <line x1="440" y1="128" x2="600" y2="80" stroke="#cbd5e1" stroke-width="3"/>
-              <line x1="440" y1="152" x2="600" y2="192" stroke="#cbd5e1" stroke-width="3"/>
-              <line x1="440" y1="368" x2="600" y2="320" stroke="#cbd5e1" stroke-width="3"/>
-              <line x1="440" y1="392" x2="600" y2="432" stroke="#cbd5e1" stroke-width="3"/>
-              <rect x="40" y="235" width="110" height="50" rx="10" fill="#ecfdf5" stroke="#0f766e" stroke-width="2.5"/><text x="95" y="267" font-size="20" font-weight="700" fill="#0f766e" text-anchor="middle">Alpha</text>
-              <rect x="330" y="115" width="110" height="50" rx="10" fill="#f5f3ff" stroke="#7c3aed" stroke-width="2.5"/><text x="385" y="147" font-size="20" font-weight="700" fill="#6d28d9" text-anchor="middle">Beta</text>
-              <rect x="330" y="355" width="110" height="50" rx="10" fill="#f5f3ff" stroke="#7c3aed" stroke-width="2.5"/><text x="385" y="387" font-size="20" font-weight="700" fill="#6d28d9" text-anchor="middle">Beta</text>
-              <rect x="600" y="55" width="100" height="40" rx="6" fill="white" stroke="#94a3b8" stroke-width="2"/><text x="650" y="82" font-size="19" font-weight="700" fill="#1e293b" text-anchor="middle">4,&#8202; 4</text>
-              <rect x="600" y="175" width="100" height="40" rx="6" fill="white" stroke="#94a3b8" stroke-width="2"/><text x="650" y="202" font-size="19" font-weight="700" fill="#1e293b" text-anchor="middle">12,&#8202; 2</text>
-              <rect x="600" y="295" width="100" height="40" rx="6" fill="white" stroke="#94a3b8" stroke-width="2"/><text x="650" y="322" font-size="19" font-weight="700" fill="#1e293b" text-anchor="middle">2,&#8202; 12</text>
-              <rect x="600" y="415" width="100" height="40" rx="6" fill="white" stroke="#94a3b8" stroke-width="2"/><text x="650" y="442" font-size="19" font-weight="700" fill="#1e293b" text-anchor="middle">8,&#8202; 8</text>
-              <text x="225" y="182" font-size="16" fill="#334155" font-weight="600" text-anchor="middle">Advertise</text>
-              <text x="225" y="342" font-size="16" fill="#334155" font-weight="600" text-anchor="middle">No Ad</text>
-              <text x="512" y="86" font-size="16" fill="#334155" font-weight="600" text-anchor="middle">Advertise</text>
-              <text x="512" y="190" font-size="16" fill="#334155" font-weight="600" text-anchor="middle">No Ad</text>
-              <text x="512" y="328" font-size="16" fill="#334155" font-weight="600" text-anchor="middle">Advertise</text>
-              <text x="512" y="428" font-size="16" fill="#334155" font-weight="600" text-anchor="middle">No Ad</text>
-              <text x="650" y="505" font-size="14" fill="#94a3b8" text-anchor="middle">Payoff convention: (Alpha, Beta)</text>
-            </g>
-            <!-- fragment 1: top Beta decision -->
-            <g class="fragment" data-fragment-index="1">
-              <line class="build-line" x1="440" y1="128" x2="600" y2="80" stroke="#d97706" stroke-width="6" stroke-linecap="round"/>
-              <text x="505" y="48" font-size="15" fill="#b45309" font-weight="700" text-anchor="middle">Beta: 4 &gt; 2 &rArr; Advertise</text>
-            </g>
-            <!-- fragment 2: bottom Beta decision -->
-            <g class="fragment" data-fragment-index="2">
-              <line class="build-line" x1="440" y1="368" x2="600" y2="320" stroke="#d97706" stroke-width="6" stroke-linecap="round"/>
-              <text x="505" y="290" font-size="15" fill="#b45309" font-weight="700" text-anchor="middle">Beta: 12 &gt; 8 &rArr; Advertise</text>
-            </g>
-            <!-- fragment 3: Alpha decision -->
-            <g class="fragment" data-fragment-index="3">
-              <line class="build-line" x1="150" y1="248" x2="330" y2="148" stroke="#d97706" stroke-width="6" stroke-linecap="round"/>
-              <text x="40" y="320" font-size="15" fill="#b45309" font-weight="700" text-anchor="start">Alpha: 4 vs. 2</text>
-              <text x="40" y="342" font-size="15" fill="#b45309" font-weight="700" text-anchor="start">&rArr; Advertise</text>
-            </g>
-            <!-- fragment 4: SPE -->
-            <g class="fragment" data-fragment-index="4">
-              <rect x="595" y="50" width="110" height="50" rx="8" fill="none" stroke="#dc2626" stroke-width="3.5"/>
-              <text x="720" y="80" font-size="18" fill="#dc2626" font-weight="700" text-anchor="start">SPE: (4, 4)</text>
-            </g>
-          </svg>
-        </section>
-
-        <!-- GROUP WORK 1: Q1 graph -->
-        <section data-background-gradient="linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)">
-          <p class="eyebrow" style="color: #059669;">Group Work &middot; Answers</p>
-          <h2>Question 1, Graphically</h2>
-          <div class="slide-img-container" style="margin: 5px auto 0; padding: 8px;">
-            <img src="../slides/images/c7_gw1_q1_tree.png" alt="Alpha-Beta advertising game tree solved by backward induction: Beta advertises in both subgames, Alpha advertises, SPE (4, 4)" style="max-height: 480px;">
-          </div>
-        </section>
-
-        <!-- GROUP WORK Answers: step-by-step animated graph -->
-        <section data-background-gradient="linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)">
-          <p class="eyebrow" style="color: #059669;">Group Work &middot; Answers</p>
-          <h2>Question 2, Step by Step</h2>
-          <p style="font-size: 0.55em; color: #64748b; margin: 0 0 4px;">Press <kbd style="background: #e2e8f0; border: 1px solid #cbd5e1; padding: 1px 6px; border-radius: 4px;">&rarr;</kbd> to add each element of the graph</p>
-          <svg class="anim-graph" viewBox="0 0 980 540" style="width: 92%; max-height: 470px; margin: 0 auto; display: block; background: white; border: 1px solid #e2e8f0; border-radius: 10px;" role="img" aria-label="Animated backward induction on both Ana-Berto trees: when Ana moves first the SPE is (5, 3); when Berto moves first it is (3, 5) - whoever moves first earns 5">
-            <!-- both trees (always visible) -->
-            <g>
-              <text x="225" y="38" font-size="18" font-weight="700" fill="#0f172a" text-anchor="middle">Ana moves first</text>
-              <line x1="120" y1="245" x2="215" y2="140" stroke="#cbd5e1" stroke-width="3"/>
-              <line x1="120" y1="265" x2="215" y2="370" stroke="#cbd5e1" stroke-width="3"/>
-              <line x1="305" y1="125" x2="380" y2="78" stroke="#cbd5e1" stroke-width="3"/>
-              <line x1="305" y1="145" x2="380" y2="175" stroke="#cbd5e1" stroke-width="3"/>
-              <line x1="305" y1="365" x2="380" y2="318" stroke="#cbd5e1" stroke-width="3"/>
-              <line x1="305" y1="385" x2="380" y2="415" stroke="#cbd5e1" stroke-width="3"/>
-              <rect x="30" y="233" width="90" height="44" rx="10" fill="#ecfdf5" stroke="#0f766e" stroke-width="2.5"/><text x="75" y="262" font-size="18" font-weight="700" fill="#0f766e" text-anchor="middle">Ana</text>
-              <rect x="215" y="113" width="90" height="44" rx="10" fill="#f5f3ff" stroke="#7c3aed" stroke-width="2.5"/><text x="260" y="142" font-size="18" font-weight="700" fill="#6d28d9" text-anchor="middle">Berto</text>
-              <rect x="215" y="353" width="90" height="44" rx="10" fill="#f5f3ff" stroke="#7c3aed" stroke-width="2.5"/><text x="260" y="382" font-size="18" font-weight="700" fill="#6d28d9" text-anchor="middle">Berto</text>
-              <rect x="382" y="59" width="86" height="36" rx="6" fill="white" stroke="#94a3b8" stroke-width="2"/><text x="425" y="84" font-size="17" font-weight="700" fill="#1e293b" text-anchor="middle">1,&#8202; 1</text>
-              <rect x="382" y="159" width="86" height="36" rx="6" fill="white" stroke="#94a3b8" stroke-width="2"/><text x="425" y="184" font-size="17" font-weight="700" fill="#1e293b" text-anchor="middle">5,&#8202; 3</text>
-              <rect x="382" y="299" width="86" height="36" rx="6" fill="white" stroke="#94a3b8" stroke-width="2"/><text x="425" y="324" font-size="17" font-weight="700" fill="#1e293b" text-anchor="middle">3,&#8202; 5</text>
-              <rect x="382" y="399" width="86" height="36" rx="6" fill="white" stroke="#94a3b8" stroke-width="2"/><text x="425" y="424" font-size="17" font-weight="700" fill="#1e293b" text-anchor="middle">0,&#8202; 0</text>
-              <text x="160" y="180" font-size="14" fill="#334155" font-weight="600" text-anchor="middle">North</text>
-              <text x="160" y="330" font-size="14" fill="#334155" font-weight="600" text-anchor="middle">South</text>
-              <text x="338" y="88" font-size="14" fill="#334155" font-weight="600" text-anchor="middle">North</text>
-              <text x="338" y="178" font-size="14" fill="#334155" font-weight="600" text-anchor="middle">South</text>
-              <text x="338" y="328" font-size="14" fill="#334155" font-weight="600" text-anchor="middle">North</text>
-              <text x="338" y="418" font-size="14" fill="#334155" font-weight="600" text-anchor="middle">South</text>
-              <text x="725" y="38" font-size="18" font-weight="700" fill="#0f172a" text-anchor="middle">Berto moves first</text>
-              <line x1="620" y1="245" x2="715" y2="140" stroke="#cbd5e1" stroke-width="3"/>
-              <line x1="620" y1="265" x2="715" y2="370" stroke="#cbd5e1" stroke-width="3"/>
-              <line x1="805" y1="125" x2="880" y2="78" stroke="#cbd5e1" stroke-width="3"/>
-              <line x1="805" y1="145" x2="880" y2="175" stroke="#cbd5e1" stroke-width="3"/>
-              <line x1="805" y1="365" x2="880" y2="318" stroke="#cbd5e1" stroke-width="3"/>
-              <line x1="805" y1="385" x2="880" y2="415" stroke="#cbd5e1" stroke-width="3"/>
-              <rect x="530" y="233" width="90" height="44" rx="10" fill="#f5f3ff" stroke="#7c3aed" stroke-width="2.5"/><text x="575" y="262" font-size="18" font-weight="700" fill="#6d28d9" text-anchor="middle">Berto</text>
-              <rect x="715" y="113" width="90" height="44" rx="10" fill="#ecfdf5" stroke="#0f766e" stroke-width="2.5"/><text x="760" y="142" font-size="18" font-weight="700" fill="#0f766e" text-anchor="middle">Ana</text>
-              <rect x="715" y="353" width="90" height="44" rx="10" fill="#ecfdf5" stroke="#0f766e" stroke-width="2.5"/><text x="760" y="382" font-size="18" font-weight="700" fill="#0f766e" text-anchor="middle">Ana</text>
-              <rect x="882" y="59" width="86" height="36" rx="6" fill="white" stroke="#94a3b8" stroke-width="2"/><text x="925" y="84" font-size="17" font-weight="700" fill="#1e293b" text-anchor="middle">3,&#8202; 5</text>
-              <rect x="882" y="159" width="86" height="36" rx="6" fill="white" stroke="#94a3b8" stroke-width="2"/><text x="925" y="184" font-size="17" font-weight="700" fill="#1e293b" text-anchor="middle">1,&#8202; 1</text>
-              <rect x="882" y="299" width="86" height="36" rx="6" fill="white" stroke="#94a3b8" stroke-width="2"/><text x="925" y="324" font-size="17" font-weight="700" fill="#1e293b" text-anchor="middle">0,&#8202; 0</text>
-              <rect x="882" y="399" width="86" height="36" rx="6" fill="white" stroke="#94a3b8" stroke-width="2"/><text x="925" y="424" font-size="17" font-weight="700" fill="#1e293b" text-anchor="middle">5,&#8202; 3</text>
-              <text x="660" y="180" font-size="14" fill="#334155" font-weight="600" text-anchor="middle">North</text>
-              <text x="660" y="330" font-size="14" fill="#334155" font-weight="600" text-anchor="middle">South</text>
-              <text x="838" y="88" font-size="14" fill="#334155" font-weight="600" text-anchor="middle">South</text>
-              <text x="838" y="178" font-size="14" fill="#334155" font-weight="600" text-anchor="middle">North</text>
-              <text x="838" y="328" font-size="14" fill="#334155" font-weight="600" text-anchor="middle">South</text>
-              <text x="838" y="418" font-size="14" fill="#334155" font-weight="600" text-anchor="middle">North</text>
-              <text x="20" y="528" font-size="14" fill="#94a3b8" text-anchor="start">Payoff convention: (Ana, Berto)</text>
-            </g>
-            <!-- fragment 1: Berto's subgame choices (left tree) -->
-            <g class="fragment" data-fragment-index="1">
-              <line class="build-line" x1="305" y1="145" x2="380" y2="175" stroke="#d97706" stroke-width="6" stroke-linecap="round"/>
-              <line class="build-line" x1="305" y1="365" x2="380" y2="318" stroke="#d97706" stroke-width="6" stroke-linecap="round"/>
-              <text x="260" y="215" font-size="14" fill="#b45309" font-weight="700" text-anchor="middle">Berto avoids Ana&#8217;s corner</text>
-            </g>
-            <!-- fragment 2: Ana picks North, SPE (5,3) -->
-            <g class="fragment" data-fragment-index="2">
-              <line class="build-line" x1="120" y1="245" x2="215" y2="140" stroke="#d97706" stroke-width="6" stroke-linecap="round"/>
-              <rect x="377" y="154" width="96" height="46" rx="8" fill="none" stroke="#dc2626" stroke-width="3.5"/>
-              <text x="230" y="470" font-size="15" fill="#dc2626" font-weight="700" text-anchor="middle">Ana: 5 vs. 3 &rArr; North.  SPE: (5, 3) &mdash; Ana gets 5</text>
-            </g>
-            <!-- fragment 3: Ana's subgame choices (right tree) -->
-            <g class="fragment" data-fragment-index="3">
-              <line class="build-line" x1="805" y1="125" x2="880" y2="78" stroke="#d97706" stroke-width="6" stroke-linecap="round"/>
-              <line class="build-line" x1="805" y1="385" x2="880" y2="415" stroke="#d97706" stroke-width="6" stroke-linecap="round"/>
-              <text x="760" y="215" font-size="14" fill="#b45309" font-weight="700" text-anchor="middle">Ana avoids Berto&#8217;s corner</text>
-            </g>
-            <!-- fragment 4: Berto picks North, SPE (3,5) -->
-            <g class="fragment" data-fragment-index="4">
-              <line class="build-line" x1="620" y1="245" x2="715" y2="140" stroke="#d97706" stroke-width="6" stroke-linecap="round"/>
-              <rect x="877" y="54" width="96" height="46" rx="8" fill="none" stroke="#dc2626" stroke-width="3.5"/>
-              <text x="730" y="470" font-size="15" fill="#dc2626" font-weight="700" text-anchor="middle">Berto: 5 vs. 3 &rArr; North.  SPE: (3, 5) &mdash; Berto gets 5</text>
-            </g>
-            <!-- fragment 5: conclusion -->
-            <g class="fragment" data-fragment-index="5">
-              <text x="490" y="516" font-size="17" fill="#0f766e" font-weight="700" text-anchor="middle">Whoever moves first earns 5: a first-mover advantage!</text>
-            </g>
-          </svg>
-        </section>
-
-        <!-- GROUP WORK 1: Q2 graph -->
-        <section data-background-gradient="linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)">
-          <p class="eyebrow" style="color: #059669;">Group Work &middot; Answers</p>
-          <h2>Question 2, Graphically</h2>
-          <div class="slide-img-container" style="margin: 5px auto 0; padding: 8px;">
-            <img src="../slides/images/c7_gw1_q2_trees.png" alt="Two solved trees for the Ana-Berto corner game: Ana first gives SPE (5,3); Berto first gives SPE (3,5) - the first mover gets 5" style="max-height: 400px; max-width: 100%; width: auto;">
-          </div>
-        </section>
-
-      </section>
-
-
-      <!-- SECTION 4: Incumbent-Entrant & Credible Threats (Vertical Stack) -->
-      <section>
-
-        <!-- Slide 5.1: Divider -->
-        <section data-background-gradient="linear-gradient(135deg, #0f766e 0%, #115e59 100%)">
-          <p class="eyebrow" style="color: #ccfbf1;">Part 3</p>
-          <h1 style="color: white; font-size: 2.8em;">Credible Threats</h1>
-          <p style="color: #ccfbf1; margin-top: 20px;">Press <kbd style="background: #115e59; color: white; border: 1px solid #134e4a; padding: 2px 6px; border-radius: 4px;">↓</kbd> to continue</p>
-        </section>
-
-        <!-- Slide 5.2: Incumbent-entrant setup -->
-        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
-          <p class="eyebrow">Credible Threats · Incumbent&ndash;Entrant</p>
-          <h2>Honda Wants to Enter a New Space&hellip;</h2>
-          <div class="content-card" style="font-size: 0.82em; max-width: 1040px; padding: 10px 18px;">
-            <p style="margin: 4px 0;">Suzuki already has significant market power in distributing certain motorcycle parts. Honda wants to enter this space. We model this as an <strong style="color: #3b82f6;">incumbent&ndash;entrant game</strong>.</p>
-            <p class="fragment" style="margin: 4px 0; font-weight: 600; color: #db2777;">Question 0. Use backward induction to solve this game. What is the SPE?</p>
-          </div>
-          <div class="slide-img-container" style="margin: 4px auto 0; padding: 8px;">
-            <img src="../slides/images/c7_tree_entrant_base.png" alt="Incumbent-entrant game tree: Honda chooses Enter or Stay Out; after Enter, Suzuki chooses Fight (-10,30) or Accommodate (30,50); Stay Out gives (0,100)" style="max-height: 330px;">
-          </div>
-        </section>
-
-        <!-- Slide 5.2b: Q0 solution -->
-        <section data-background-gradient="linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)">
-          <p class="eyebrow" style="color: #059669;">Credible Threats · Solution</p>
-          <h2>Solution: The SPE</h2>
-          <div class="content-card" style="font-size: 0.85em; max-width: 1040px; padding: 10px 18px;">
-            <p style="margin: 4px 0;">Suzuki (moving last): 50 &gt; 30 &rArr; <strong>Accommodate</strong>. Honda, anticipating this: 30 &gt; 0 &rArr; <strong>Enter</strong>. SPE outcome: <strong>(30, 50)</strong>.</p>
-          </div>
-          <div class="slide-img-container" style="margin: 4px auto 0; padding: 8px;">
-            <img src="../slides/images/c7_tree_entrant_solved.png" alt="Incumbent-entrant tree solved: Suzuki accommodates (50 > 30), Honda enters (30 > 0), SPE (30, 50)" style="max-height: 330px;">
-          </div>
-        </section>
-
-        <!-- Slide 5.3: Q1 Suzuki's problem -->
-        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
-          <p class="eyebrow">Credible Threats · The Incumbent's Problem</p>
-          <h2>Q1: Suzuki's Problem</h2>
-          <div class="content-card" style="font-size: 0.9em;">
-            <div class="example-card" style="margin: 0 0 10px;">
-              <div class="ex-title">Question 1</div>
-              Given your answer to Question 0, what is the problem here for Suzuki (the incumbent)? Can it do better than the SPE you found? Describe in words.
-            </div>
-            <div class="def-card fragment" style="margin: 8px 0;">
-              <div class="def-title">Answer</div>
-              Suzuki would love Honda to <strong>Stay Out</strong> (payoff 100 &gt; 50). It could <em>threaten</em> to Fight&hellip; but once Honda has entered, Fighting pays 30 &lt; 50 &mdash; a rational Suzuki would Accommodate. The threat is <strong style="color: #db2777;">non-credible</strong>, and Honda knows it!
-            </div>
-            <div class="def-card fragment" style="margin: 8px 0;">
-              <div class="def-title">Definition: Credible Threat</div>
-              A threat is <strong>credible</strong> if, when the time comes, carrying it out is in the threatener's own best interest.
-            </div>
-          </div>
-        </section>
-
-        <!-- Slide 5.4: Q2 investment -->
-        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
-          <p class="eyebrow">Credible Threats · Commitment</p>
-          <h2>Q2: Suzuki Brings a Gun to a Knife-Fight</h2>
-          <div class="content-card" style="font-size: 0.85em;">
-            <div class="example-card" style="margin: 0;">
-              <div class="ex-title">Question 2 &mdash; Turn &ldquo;Fight&rdquo; into a credible threat</div>
-              Suzuki anticipates Honda's potential entry, and considers <strong style="color: #3b82f6;">preemptively expanding its production capacity</strong>. The expansion costs <strong>$30,000</strong>, which is wasted unless a price war happens &mdash; i.e. the cost is borne if Honda plays &ldquo;Stay Out&rdquo; or Suzuki plays &ldquo;Accommodate&rdquo;. Assume the &ldquo;Fight&rdquo; payoff already incorporates the $30,000.
-              <br><br>
-              New payoffs: Fight (&minus;10, 30); Accommodate (30, <u>20</u>); Stay Out (0, <u>70</u>).
-              <br><br>
-              <strong>Does Honda enter? What are the profits in equilibrium?</strong>
-            </div>
-          </div>
-        </section>
-
-        <!-- Slide 5.4b: Q2 solution -->
-        <section data-background-gradient="linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)">
-          <p class="eyebrow" style="color: #059669;">Credible Threats · Solution</p>
-          <h2>Solution: Fight Becomes Credible</h2>
-          <div class="content-card" style="font-size: 0.85em; max-width: 1040px; padding: 10px 18px;">
-            <p style="margin: 4px 0;">With the capacity in place, Suzuki now prefers to <strong>Fight</strong> after entry (30 &gt; 20). Honda anticipates this: entering yields &minus;10 &lt; 0 &rArr; <strong>Stay Out</strong>. SPE outcome: <strong>(0, 70)</strong> &mdash; entry deterred!</p>
-          </div>
-          <div class="slide-img-container" style="margin: 4px auto 0; padding: 8px;">
-            <img src="../slides/images/c7_tree_entrant_invest.png" alt="Incumbent-entrant tree with preemptive investment: Suzuki fights (30 > 20), Honda stays out (0 > -10), SPE (0, 70)" style="max-height: 330px;">
-          </div>
-        </section>
-
-        <!-- Slide 5.5: Q3 full tree question -->
-        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
-          <p class="eyebrow">Credible Threats · The Full Game</p>
-          <h2>Q3: Completing the Game Tree</h2>
-          <div class="content-card" style="font-size: 0.9em;">
-            <div class="example-card" style="margin: 0;">
-              <div class="ex-title">Question 3</div>
-              The tree in Questions 0&ndash;1 is the game <em>without</em> preemptive capacity investment. The tree in Question 2 is the game <em>with</em> it. <strong>Draw the full game tree encompassing both scenarios.</strong>
-              <br><br>
-              Given your full tree: what will Suzuki (the incumbent) do <em>before</em> Honda decides? <strong>Will Suzuki make the preemptive investment?</strong>
-            </div>
-          </div>
-        </section>
-
-        <!-- Slide 5.5b: Q3 solution -->
-        <section data-background-gradient="linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)">
-          <p class="eyebrow" style="color: #059669;">Credible Threats · Solution</p>
-          <h2>Solution: The Full Game Tree</h2>
-          <div class="content-card" style="font-size: 0.82em; max-width: 1060px; padding: 8px 18px;">
-            <p style="margin: 4px 0;">Suzuki moves first: Don't invest &rArr; branch worth <strong>50</strong> (Honda enters, Suzuki accommodates). Invest &rArr; branch worth <strong>70</strong> (Fight credible, Honda stays out). Since 70 &gt; 50, <strong>Suzuki invests</strong>: commitment pays!</p>
-          </div>
-          <div class="slide-img-container" style="margin: 4px auto 0; padding: 8px;">
-            <img src="../slides/images/c7_tree_entrant_full.png" alt="Full two-stage tree: Suzuki chooses Invest or Don't Invest, then the entry game plays out; investing yields 70 > 50, so Suzuki invests and deters entry, SPE (0, 70)" style="max-height: 400px;">
-          </div>
-        </section>
-
-        <!-- Slide 5.6: commitment takeaway -->
-        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
-          <p class="eyebrow">Credible Threats · Takeaway</p>
-          <h2>The Value of Commitment</h2>
-          <div class="content-card">
-            <ul>
-              <li class="fragment">An empty threat changes nothing &mdash; rational rivals see through it.</li>
-              <li class="fragment">By <strong>sinking a cost up front</strong>, Suzuki changed its <em>own future incentives</em> &mdash; making the threat to Fight genuinely optimal to carry out.</li>
-              <li class="fragment">Paradox of commitment: <strong>burning money (or bridges!) can make you better off</strong>, because it changes how others expect you to behave.</li>
-            </ul>
-            <p class="fragment" style="font-weight: 600; color: #0f766e; margin-top: 12px;">Real-world examples: capacity expansion, exclusive contracts, loyalty pricing, &ldquo;we will match any price&rdquo; guarantees&hellip;</p>
-          </div>
-        </section>
-
-        <!-- GROUP WORK 2: Make the Threat Credible -->
-        <section data-background-gradient="linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%)">
-          <p class="eyebrow" style="color: #b45309;">Group Work &middot; Credible Threats</p>
-          <h2>&#127922; Group Work: Make the Threat Credible</h2>
-          <div class="content-card" style="font-size: 0.76em; background: rgba(255, 255, 255, 0.7);">
-            <div class="example-card" style="border-left-color: #b45309; background: rgba(180, 83, 9, 0.05); margin: 6px 0;">
-              <div class="ex-title" style="color: #b45309;">Question 1</div>
-              Lumen (entrant) considers entering a regional coffee market dominated by BrewCo (incumbent). If Lumen Enters, BrewCo can Fight (&minus;20, 40) or Accommodate (40, 60); if Lumen Stays Out, payoffs are (0, 120). Payoffs in $'000, (Lumen, BrewCo). <br><strong>Draw the game tree and find the SPE by backward induction. Is BrewCo's threat to fight credible?</strong>
-            </div>
-            <div style="margin: 2px 0 8px;">
-              <button class="group-roll-btn" onclick="rollGroup('l7gw2q1')">&#127922; Pick a group for Q1</button>
-              <span class="group-roll-result" id="l7gw2q1">&mdash;</span>
-            </div>
-            <div class="example-card" style="border-left-color: #b45309; background: rgba(180, 83, 9, 0.05); margin: 6px 0;">
-              <div class="ex-title" style="color: #b45309;">Question 2</div>
-              Before Lumen decides, BrewCo can <strong>Commit</strong>: sign binding long-term supply contracts costing $50k unless a price war happens. If BrewCo commits, Accommodate becomes (40, 10) and Stay Out becomes (0, 70); Fight stays (&minus;20, 40). <br><strong>Draw the full two-stage tree. Does the threat become credible? Does Lumen enter? Does BrewCo commit?</strong>
-            </div>
-            <div style="margin: 2px 0 0;">
-              <button class="group-roll-btn" onclick="rollGroup('l7gw2q2')">&#127922; Pick a group for Q2</button>
-              <span class="group-roll-result" id="l7gw2q2">&mdash;</span>
-            </div>
-          </div>
-        </section>
-
-        <!-- GROUP WORK 2 Answers -->
-        <section data-background-gradient="linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)">
-          <p class="eyebrow" style="color: #059669;">Group Work &middot; Answers</p>
-          <h2>Answers: Make the Threat Credible</h2>
-          <div class="content-card" style="font-size: 0.82em;">
-            <div class="def-card" style="margin: 6px 0;">
-              <div class="def-title">Question 1: No Commitment</div>
-              BrewCo (last mover): 60 &gt; 40 &rArr; Accommodate. Lumen: 40 &gt; 0 &rArr; Enter. SPE outcome <strong>(40, 60)</strong>. The threat to Fight is <strong>not credible</strong> (40 &lt; 60 once entry has happened).
-            </div>
-            <div class="def-card fragment" style="margin: 6px 0;">
-              <div class="def-title">Question 2: With Commitment</div>
-              After committing: Fight pays 40 &gt; 10 &rArr; Fighting is now <strong>credible</strong>. Lumen: entering yields &minus;20 &lt; 0 &rArr; <strong>Stays Out</strong> &rArr; (0, 70).<br>
-              At the root, BrewCo compares 60 (don't commit) vs. 70 (commit): <strong>BrewCo commits</strong> and entry is deterred. Let&rsquo;s see the trees &darr;
-            </div>
-          </div>
-        </section>
-
-        <!-- GROUP WORK Answers: step-by-step animated graph -->
-        <section data-background-gradient="linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)">
-          <p class="eyebrow" style="color: #059669;">Group Work &middot; Answers</p>
-          <h2>Question 1, Step by Step</h2>
-          <p style="font-size: 0.55em; color: #64748b; margin: 0 0 4px;">Press <kbd style="background: #e2e8f0; border: 1px solid #cbd5e1; padding: 1px 6px; border-radius: 4px;">&rarr;</kbd> to add each element of the graph</p>
-          <svg class="anim-graph" viewBox="0 0 920 470" style="width: 92%; max-height: 440px; margin: 0 auto; display: block; background: white; border: 1px solid #e2e8f0; border-radius: 10px;" role="img" aria-label="Animated backward induction on the Lumen-BrewCo entry tree: BrewCo accommodates since 60 > 40, so Lumen enters since 40 > 0; the SPE is (40, 60) and the fight threat is not credible">
-            <!-- base tree (always visible) -->
-            <g>
-              <line x1="150" y1="238" x2="345" y2="158" stroke="#cbd5e1" stroke-width="3"/>
-              <line x1="150" y1="262" x2="610" y2="418" stroke="#cbd5e1" stroke-width="3"/>
-              <line x1="455" y1="138" x2="610" y2="78" stroke="#cbd5e1" stroke-width="3"/>
-              <line x1="455" y1="162" x2="610" y2="222" stroke="#cbd5e1" stroke-width="3"/>
-              <rect x="40" y="225" width="110" height="50" rx="10" fill="#ecfdf5" stroke="#0f766e" stroke-width="2.5"/><text x="95" y="257" font-size="20" font-weight="700" fill="#0f766e" text-anchor="middle">Lumen</text>
-              <rect x="340" y="125" width="120" height="50" rx="10" fill="#f5f3ff" stroke="#7c3aed" stroke-width="2.5"/><text x="400" y="157" font-size="20" font-weight="700" fill="#6d28d9" text-anchor="middle">BrewCo</text>
-              <rect x="610" y="55" width="110" height="40" rx="6" fill="white" stroke="#94a3b8" stroke-width="2"/><text x="665" y="82" font-size="19" font-weight="700" fill="#1e293b" text-anchor="middle">&minus;20,&#8202; 40</text>
-              <rect x="610" y="205" width="110" height="40" rx="6" fill="white" stroke="#94a3b8" stroke-width="2"/><text x="665" y="232" font-size="19" font-weight="700" fill="#1e293b" text-anchor="middle">40,&#8202; 60</text>
-              <rect x="610" y="400" width="110" height="40" rx="6" fill="white" stroke="#94a3b8" stroke-width="2"/><text x="665" y="427" font-size="19" font-weight="700" fill="#1e293b" text-anchor="middle">0,&#8202; 120</text>
-              <text x="240" y="180" font-size="16" fill="#334155" font-weight="600" text-anchor="middle">Enter</text>
-              <text x="390" y="360" font-size="16" fill="#334155" font-weight="600" text-anchor="middle">Stay Out</text>
-              <text x="520" y="90" font-size="16" fill="#334155" font-weight="600" text-anchor="middle">Fight</text>
-              <text x="510" y="212" font-size="15" fill="#334155" font-weight="600" text-anchor="middle">Accommodate</text>
-              <text x="895" y="414" font-size="14" fill="#94a3b8" text-anchor="end">Payoffs in $&#8217;000</text>
-              <text x="895" y="434" font-size="14" fill="#94a3b8" text-anchor="end">(Lumen, BrewCo)</text>
-            </g>
-            <!-- fragment 1: BrewCo's choice -->
-            <g class="fragment" data-fragment-index="1">
-              <line class="build-line" x1="455" y1="162" x2="610" y2="222" stroke="#d97706" stroke-width="6" stroke-linecap="round"/>
-              <text x="520" y="268" font-size="15" fill="#b45309" font-weight="700" text-anchor="middle">BrewCo: 60 &gt; 40 &rArr; Accommodate</text>
-            </g>
-            <!-- fragment 2: Lumen's choice -->
-            <g class="fragment" data-fragment-index="2">
-              <line class="build-line" x1="150" y1="238" x2="345" y2="158" stroke="#d97706" stroke-width="6" stroke-linecap="round"/>
-              <text x="40" y="310" font-size="15" fill="#b45309" font-weight="700" text-anchor="start">Lumen: 40 vs. 0</text>
-              <text x="40" y="332" font-size="15" fill="#b45309" font-weight="700" text-anchor="start">&rArr; Enter</text>
-            </g>
-            <!-- fragment 3: SPE -->
-            <g class="fragment" data-fragment-index="3">
-              <rect x="605" y="200" width="120" height="50" rx="8" fill="none" stroke="#dc2626" stroke-width="3.5"/>
-              <text x="745" y="220" font-size="18" fill="#dc2626" font-weight="700" text-anchor="start">SPE: (40, 60)</text>
-              <text x="745" y="246" font-size="14" fill="#64748b" text-anchor="start">the Fight threat is</text>
-              <text x="745" y="264" font-size="14" fill="#64748b" text-anchor="start">not credible</text>
-            </g>
-          </svg>
-        </section>
-
-        <!-- GROUP WORK 2: Q1 graph -->
-        <section data-background-gradient="linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)">
-          <p class="eyebrow" style="color: #059669;">Group Work &middot; Answers</p>
-          <h2>Question 1, Graphically</h2>
-          <div class="slide-img-container" style="margin: 5px auto 0; padding: 8px;">
-            <img src="../slides/images/c7_gw2_q1_tree.png" alt="Lumen-BrewCo entry tree solved: BrewCo accommodates (60 > 40), Lumen enters (40 > 0), SPE (40, 60) - the fight threat is not credible" style="max-height: 420px;">
-          </div>
-        </section>
-
-        <!-- GROUP WORK Answers: step-by-step animated graph -->
-        <section data-background-gradient="linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)">
-          <p class="eyebrow" style="color: #059669;">Group Work &middot; Answers</p>
-          <h2>Question 2, Step by Step</h2>
-          <p style="font-size: 0.55em; color: #64748b; margin: 0 0 4px;">Press <kbd style="background: #e2e8f0; border: 1px solid #cbd5e1; padding: 1px 6px; border-radius: 4px;">&rarr;</kbd> to add each element of the graph</p>
-          <svg class="anim-graph" viewBox="0 0 1010 560" style="width: 92%; max-height: 470px; margin: 0 auto; display: block; background: white; border: 1px solid #e2e8f0; border-radius: 10px;" role="img" aria-label="Animated backward induction on the full two-stage commitment tree: the no-commit branch replays Q1 giving BrewCo 60; after committing, Fight is credible so Lumen stays out, giving BrewCo 70; BrewCo commits and the SPE outcome is (0, 70)">
-            <!-- base tree (always visible) -->
-            <g>
-              <line x1="140" y1="268" x2="275" y2="158" stroke="#cbd5e1" stroke-width="3"/>
-              <line x1="140" y1="292" x2="275" y2="442" stroke="#cbd5e1" stroke-width="3"/>
-              <line x1="385" y1="138" x2="505" y2="98" stroke="#cbd5e1" stroke-width="3"/>
-              <line x1="385" y1="162" x2="788" y2="213" stroke="#cbd5e1" stroke-width="3"/>
-              <line x1="615" y1="78" x2="788" y2="42" stroke="#cbd5e1" stroke-width="3"/>
-              <line x1="615" y1="102" x2="788" y2="128" stroke="#cbd5e1" stroke-width="3"/>
-              <line x1="385" y1="418" x2="505" y2="378" stroke="#cbd5e1" stroke-width="3"/>
-              <line x1="385" y1="442" x2="788" y2="503" stroke="#cbd5e1" stroke-width="3"/>
-              <line x1="615" y1="358" x2="788" y2="332" stroke="#cbd5e1" stroke-width="3"/>
-              <line x1="615" y1="382" x2="788" y2="418" stroke="#cbd5e1" stroke-width="3"/>
-              <rect x="30" y="255" width="110" height="50" rx="10" fill="#f5f3ff" stroke="#7c3aed" stroke-width="2.5"/><text x="85" y="287" font-size="19" font-weight="700" fill="#6d28d9" text-anchor="middle">BrewCo</text>
-              <rect x="280" y="127" width="100" height="46" rx="10" fill="#ecfdf5" stroke="#0f766e" stroke-width="2.5"/><text x="330" y="157" font-size="18" font-weight="700" fill="#0f766e" text-anchor="middle">Lumen</text>
-              <rect x="280" y="407" width="100" height="46" rx="10" fill="#ecfdf5" stroke="#0f766e" stroke-width="2.5"/><text x="330" y="437" font-size="18" font-weight="700" fill="#0f766e" text-anchor="middle">Lumen</text>
-              <rect x="505" y="67" width="110" height="46" rx="10" fill="#f5f3ff" stroke="#7c3aed" stroke-width="2.5"/><text x="560" y="97" font-size="18" font-weight="700" fill="#6d28d9" text-anchor="middle">BrewCo</text>
-              <rect x="505" y="347" width="110" height="46" rx="10" fill="#f5f3ff" stroke="#7c3aed" stroke-width="2.5"/><text x="560" y="377" font-size="18" font-weight="700" fill="#6d28d9" text-anchor="middle">BrewCo</text>
-              <rect x="788" y="22" width="94" height="36" rx="6" fill="white" stroke="#94a3b8" stroke-width="2"/><text x="835" y="47" font-size="16" font-weight="700" fill="#1e293b" text-anchor="middle">&minus;20,&#8202; 40</text>
-              <rect x="788" y="112" width="94" height="36" rx="6" fill="white" stroke="#94a3b8" stroke-width="2"/><text x="835" y="137" font-size="16" font-weight="700" fill="#1e293b" text-anchor="middle">40,&#8202; 60</text>
-              <rect x="788" y="197" width="94" height="36" rx="6" fill="white" stroke="#94a3b8" stroke-width="2"/><text x="835" y="222" font-size="16" font-weight="700" fill="#1e293b" text-anchor="middle">0,&#8202; 120</text>
-              <rect x="788" y="312" width="94" height="36" rx="6" fill="white" stroke="#94a3b8" stroke-width="2"/><text x="835" y="337" font-size="16" font-weight="700" fill="#1e293b" text-anchor="middle">&minus;20,&#8202; 40</text>
-              <rect x="788" y="402" width="94" height="36" rx="6" fill="white" stroke="#94a3b8" stroke-width="2"/><text x="835" y="427" font-size="16" font-weight="700" fill="#1e293b" text-anchor="middle">40,&#8202; 10</text>
-              <rect x="788" y="487" width="94" height="36" rx="6" fill="white" stroke="#94a3b8" stroke-width="2"/><text x="835" y="512" font-size="16" font-weight="700" fill="#1e293b" text-anchor="middle">0,&#8202; 70</text>
-              <text x="178" y="196" font-size="15" fill="#334155" font-weight="600" text-anchor="middle">Don&#8217;t commit</text>
-              <text x="185" y="388" font-size="15" fill="#334155" font-weight="600" text-anchor="middle">Commit</text>
-              <text x="442" y="102" font-size="14" fill="#334155" font-weight="600" text-anchor="middle">Enter</text>
-              <text x="570" y="206" font-size="14" fill="#334155" font-weight="600" text-anchor="middle">Stay Out</text>
-              <text x="695" y="44" font-size="14" fill="#334155" font-weight="600" text-anchor="middle">Fight</text>
-              <text x="680" y="134" font-size="13" fill="#334155" font-weight="600" text-anchor="middle">Accommodate</text>
-              <text x="442" y="382" font-size="14" fill="#334155" font-weight="600" text-anchor="middle">Enter</text>
-              <text x="570" y="496" font-size="14" fill="#334155" font-weight="600" text-anchor="middle">Stay Out</text>
-              <text x="695" y="334" font-size="14" fill="#334155" font-weight="600" text-anchor="middle">Fight</text>
-              <text x="680" y="424" font-size="13" fill="#334155" font-weight="600" text-anchor="middle">Accommodate</text>
-              <text x="25" y="30" font-size="13" fill="#94a3b8" text-anchor="start">Payoffs in $&#8217;000 (Lumen, BrewCo)</text>
-            </g>
-            <!-- fragment 1: top branch = Question 1 -->
-            <g class="fragment" data-fragment-index="1">
-              <line class="build-line" x1="615" y1="102" x2="788" y2="128" stroke="#d97706" stroke-width="6" stroke-linecap="round"/>
-              <line class="build-line" x1="385" y1="138" x2="505" y2="98" stroke="#d97706" stroke-width="6" stroke-linecap="round"/>
-              <text x="400" y="60" font-size="14" fill="#b45309" font-weight="700" text-anchor="middle">same as Q1 &rArr; (40, 60)</text>
-              <text x="230" y="110" font-size="13" fill="#64748b" text-anchor="middle">branch payoff</text>
-              <text x="230" y="127" font-size="13" fill="#64748b" font-weight="700" text-anchor="middle">to BrewCo: 60</text>
-            </g>
-            <!-- fragment 2: after committing, Fight is credible -->
-            <g class="fragment" data-fragment-index="2">
-              <line class="build-line" x1="615" y1="358" x2="788" y2="332" stroke="#d97706" stroke-width="6" stroke-linecap="round"/>
-              <text x="660" y="304" font-size="14" fill="#b45309" font-weight="700" text-anchor="middle">40 &gt; 10 &rArr; Fight is now credible!</text>
-            </g>
-            <!-- fragment 3: Lumen stays out -->
-            <g class="fragment" data-fragment-index="3">
-              <line class="build-line" x1="385" y1="442" x2="788" y2="503" stroke="#d97706" stroke-width="6" stroke-linecap="round"/>
-              <text x="430" y="470" font-size="14" fill="#b45309" font-weight="700" text-anchor="middle">Lumen: &minus;20 &lt; 0 &rArr; Stay Out</text>
-              <text x="175" y="450" font-size="13" fill="#64748b" text-anchor="middle">branch payoff</text>
-              <text x="175" y="467" font-size="13" fill="#64748b" font-weight="700" text-anchor="middle">to BrewCo: 70</text>
-            </g>
-            <!-- fragment 4: root decision -->
-            <g class="fragment" data-fragment-index="4">
-              <line class="build-line" x1="140" y1="292" x2="275" y2="442" stroke="#d97706" stroke-width="6" stroke-linecap="round"/>
-              <text x="30" y="340" font-size="14" fill="#b45309" font-weight="700" text-anchor="start">BrewCo: 70 &gt; 60</text>
-              <text x="30" y="362" font-size="14" fill="#b45309" font-weight="700" text-anchor="start">&rArr; Commit</text>
-            </g>
-            <!-- fragment 5: SPE -->
-            <g class="fragment" data-fragment-index="5">
-              <rect x="783" y="482" width="104" height="46" rx="8" fill="none" stroke="#dc2626" stroke-width="3.5"/>
-              <text x="900" y="510" font-size="17" fill="#dc2626" font-weight="700" text-anchor="start">SPE: (0, 70)</text>
-              <text x="900" y="532" font-size="14" fill="#64748b" text-anchor="start">entry deterred!</text>
-            </g>
-          </svg>
-        </section>
-
-        <!-- GROUP WORK 2: Q2 graph -->
-        <section data-background-gradient="linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)">
-          <p class="eyebrow" style="color: #059669;">Group Work &middot; Answers</p>
-          <h2>Question 2, Graphically</h2>
-          <div class="slide-img-container" style="margin: 5px auto 0; padding: 8px;">
-            <img src="../slides/images/c7_gw2_q2_tree.png" alt="Full two-stage Lumen-BrewCo tree: committing makes Fight credible, Lumen stays out, and BrewCo commits since 70 > 60; SPE outcome (0, 70)" style="max-height: 480px;">
-          </div>
-        </section>
-
-      </section>
-
-
-      <!-- SECTION 5: Summary & Wrap-Up (Vertical Stack) -->
-      <section>
-
-        <!-- Slide 6.1: Divider -->
-        <section data-background-gradient="linear-gradient(135deg, #0f766e 0%, #115e59 100%)">
-          <p class="eyebrow" style="color: #ccfbf1;">Summary</p>
-          <h1 style="color: white; font-size: 2.8em;">Summary &amp; Wrap-Up</h1>
-          <p style="color: #ccfbf1; margin-top: 20px;">Press <kbd style="background: #115e59; color: white; border: 1px solid #134e4a; padding: 2px 6px; border-radius: 4px;">↓</kbd> to continue</p>
-        </section>
-
-        <!-- Slide 6.2: Summary -->
-        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
-          <p class="eyebrow">Summary</p>
-          <h2>What We Learned Today</h2>
-          <div class="content-card" style="font-size: 0.9em;">
-            <ul>
-              <li class="fragment"><strong>Finite games unravel</strong>: the endgame problem kills cooperation, because grim-trigger threats are non-credible with an end in sight.</li>
-              <li class="fragment"><strong>Backward induction</strong>: solve sequential games from the last move backwards; the result is a <strong>subgame perfect equilibrium</strong> &mdash; a NE in every subgame.</li>
-              <li class="fragment"><strong>Order matters</strong> (without a DSE): expect first-mover advantage.</li>
-              <li class="fragment"><strong>Credible threats</strong>: a threat only works if carrying it out is in your own interest &mdash; and <strong>commitment</strong> (sinking costs) can make it so.</li>
+            <ul style="margin-top: 12px;">
+              <li class="fragment">We say finite games suffer from <strong style="color: #db2777;">non-credible threats</strong>: the threat of pulling the grim trigger has no &ldquo;bite&rdquo; in finite games.</li>
+              <li class="fragment">By extension, threats and promises are also not credible in the second-to-last round, third-to-last round, etc.</li>
             </ul>
           </div>
         </section>
 
-        <!-- Slide 6.3: For next time -->
+        <!-- Slide 8.5: Backwards induction -->
         <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
-          <p class="eyebrow">Wrap-Up</p>
-          <h2>For Next Time</h2>
-          <div class="content-card" style="text-align: center; padding: 35px;">
-            <p style="font-size: 1.15em; font-weight: 700; color: #db2777; margin-bottom: 20px;">
-              Quiz 5 next time! Come on time.
-            </p>
-            <p style="font-size: 1.0em; line-height: 1.5;">
-              Come to office hours with any questions or concerns &mdash; or email me / DM me on Slack.
+          <p class="eyebrow">Finitely Repeated Games · 4/4</p>
+          <h2>How to Solve Finite Games: Backwards Induction</h2>
+          <div class="content-card">
+            <p>Finite games have an <strong style="color: #3b82f6;">endgame</strong>. Let&rsquo;s start from the end, and work backwards.</p>
+            <div class="def-card fragment" style="margin-top: 12px;">
+              <div class="def-title">Definition: Backwards Induction</div>
+              <strong>Backwards induction</strong> is the way to solve finitely repeated games: start at the end of the game and work backwards in &ldquo;time&rdquo; to figure out the equilibrium strategies and payoffs.
+            </div>
+            <p class="fragment" style="font-weight: 600; color: #0f766e; margin-top: 15px;">
+              It&rsquo;s easier to illustrate backwards induction in <em>sequential-move games</em> &mdash; the subject of next class!
             </p>
           </div>
         </section>
@@ -1232,16 +1697,30 @@
       </section>
 
 
-      <!-- SECTION 6: Closing Slide (Horizontal) -->
+      <!-- SECTION 8: Wrap-up (Horizontal) -->
 
-      <!-- Slide 7: Closing -->
+      <!-- Slide 9: Summary -->
+      <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+        <p class="eyebrow">Recap</p>
+        <h2>Class 6 Summary</h2>
+        <div class="content-card" style="font-size: 0.92em;">
+          <ul>
+            <li class="fragment">Games = players + actions/strategies + payoffs + rules; represented in <strong>normal form</strong>.</li>
+            <li class="fragment"><strong>DSE</strong> (everyone plays dominant strategies) is a refinement of <strong>NE</strong> (everyone plays mutual best-responses); NE need not be unique or &ldquo;good&rdquo; (<strong>prisoner&rsquo;s dilemma</strong>).</li>
+            <li class="fragment"><strong>Strategic commitments</strong> can select an equilibrium in coordination games.</li>
+            <li class="fragment">In <strong>infinitely repeated games</strong>, patient players (low \( r \)) sustain cooperation with <strong>grim trigger</strong> strategies; finite games unravel via the <strong>endgame problem</strong>.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Slide 10: Closing -->
       <section data-background-gradient="linear-gradient(135deg, #0f172a 0%, #1e293b 100%)">
-        <p class="eyebrow" style="color: #2dd4bf;">Schedule</p>
+        <p class="eyebrow" style="color: #2dd4bf;">For next time</p>
         <h2 style="color: white;">Preparation for Next Class</h2>
         <div class="content-card" style="background: rgba(30, 41, 59, 0.7); border-color: rgba(255, 255, 255, 0.1); text-align: center;">
           <p style="color: #cbd5e1; font-weight: 600; margin-bottom: 10px;">Please stay on top of everything!</p>
-          <p style="color: #94a3b8; font-size: 1.15em;"><strong>See you on Wednesday (9am sharp)!</strong></p>
-          <p style="color: #64748b; font-size: 0.85em; margin-top: 10px;">Quiz 5 at the start of class &mdash; come on time!</p>
+          <p style="color: #94a3b8; font-size: 1.0em;">Come to office hours with any questions or concerns &mdash; or email me / DM me on Slack.</p>
+          <p style="color: #94a3b8; font-size: 1.15em; margin-top: 15px;"><strong>See you next class (9am sharp)!</strong></p>
         </div>
         <p style="margin-top: 40px; color: #64748b; font-size: 0.75em;">Thank you!</p>
       </section>
@@ -1250,7 +1729,7 @@
   </div>
 
   <a class="home-link" href="../">&larr; Back to course site</a>
-  <div class="slide-footer">RSC Economics Experience · Class 7</div>
+  <div class="slide-footer">RSC Economics Experience · Class 6</div>
 
   <!-- reveal.js core + plugins -->
   <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
