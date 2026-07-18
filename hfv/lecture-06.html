@@ -1,0 +1,1228 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Market Interventions, Public Goods &amp; Externalities</title>
+
+  <!-- reveal.js core + theme (HTML5 slides, loaded from CDN) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reset.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/white.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/highlight/monokai.css">
+
+  <!-- Google Fonts for premium typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --r-main-font: 'Plus Jakarta Sans', sans-serif;
+      --r-heading-font: 'Outfit', sans-serif;
+      --r-main-color: #1e293b;
+      --r-heading-color: #0f172a;
+      --r-link-color: #0f766e;
+      --r-selection-background-color: #ccfbf1;
+    }
+    
+    .reveal {
+      font-family: var(--r-main-font);
+      color: var(--r-main-color);
+      font-size: 24px;
+    }
+    
+    .reveal h1, .reveal h2, .reveal h3, .reveal h4 {
+      font-family: var(--r-heading-font);
+      color: var(--r-heading-color);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .reveal h1 { font-size: 2.2em; line-height: 1.1; }
+    .reveal h2 { font-size: 1.6em; line-height: 1.2; margin-bottom: 15px; }
+    .reveal h3 { font-size: 1.2em; line-height: 1.3; }
+    
+    .reveal .eyebrow {
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      font-size: 0.45em;
+      font-weight: 700;
+      color: #0f766e;
+      margin-bottom: 10px;
+      display: inline-block;
+    }
+    
+    /* Elegant card container */
+    .reveal .content-card {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      border-radius: 12px;
+      padding: 18px 24px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.02);
+      margin: 12px auto;
+      text-align: left;
+      max-width: 920px;
+    }
+    
+    .reveal .def-card {
+      border-left: 4px solid #0f766e;
+      background: rgba(15, 118, 110, 0.04);
+      border-radius: 4px 10px 10px 4px;
+      padding: 12px 18px;
+      margin: 12px 0;
+      text-align: left;
+    }
+    .reveal .def-card .def-title {
+      font-family: var(--r-heading-font);
+      font-weight: 700;
+      color: #0f766e;
+      font-size: 0.8em;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 4px;
+    }
+    
+    .reveal .example-card {
+      border-left: 4px solid #3b82f6;
+      background: rgba(59, 130, 246, 0.04);
+      border-radius: 4px 10px 10px 4px;
+      padding: 12px 18px;
+      margin: 12px 0;
+      text-align: left;
+    }
+    .reveal .example-card .ex-title {
+      font-family: var(--r-heading-font);
+      font-weight: 700;
+      color: #3b82f6;
+      font-size: 0.8em;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 4px;
+    }
+    
+    /* Slide image styling */
+    .reveal .slide-img-container {
+      background: white;
+      padding: 8px;
+      border-radius: 10px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.02);
+      border: 1px solid #e2e8f0;
+      display: inline-block;
+      margin-top: 8px;
+    }
+    .reveal .slide-img-container img {
+      max-height: 280px;
+      width: auto;
+      margin: 0;
+      display: block;
+      border-radius: 4px;
+    }
+    
+    /* Standard list styling (for inside cards, columns, etc.) */
+    .reveal ul, .reveal ol {
+      display: block;
+      text-align: left;
+      margin: 10px 0 !important;
+      padding-left: 20px;
+    }
+    
+    .reveal ul {
+      list-style-type: disc;
+    }
+    
+    .reveal ol {
+      list-style-type: decimal;
+    }
+    
+    .reveal li {
+      text-align: left;
+      margin-bottom: 8px;
+      line-height: 1.35;
+    }
+    
+    /* Indentation and bullets for nested lists */
+    .reveal li ul, .reveal li ol {
+      margin: 4px 0 4px 20px !important;
+      display: block;
+      min-width: unset;
+    }
+    
+    .reveal li ul {
+      list-style-type: circle;
+    }
+    
+    /* Centered list layout (only when list is the main slide element or explicitly centered) */
+    .reveal section > ul, .reveal section > ol, .reveal .center-list {
+      display: inline-block;
+      text-align: left;
+      margin: 15px auto !important;
+      padding-left: 20px;
+      min-width: 65%;
+      max-width: 95%;
+    }
+    
+    /* Grid for side-by-side clips */
+    .reveal .img-gallery {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 15px;
+      flex-wrap: wrap;
+      margin-top: 15px;
+    }
+    .reveal .img-gallery .gallery-item {
+      background: white;
+      padding: 6px;
+      border-radius: 10px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.02);
+      border: 1px solid #e2e8f0;
+    }
+    .reveal .img-gallery img {
+      max-height: 220px;
+      width: auto;
+      display: block;
+      border-radius: 4px;
+      margin: 0;
+    }
+    
+    /* Home link and footer elements */
+    .reveal .home-link {
+      position: fixed;
+      bottom: 16px;
+      left: 20px;
+      z-index: 30;
+      font-size: 13px;
+      color: #94a3b8;
+      text-decoration: none;
+      font-family: var(--r-main-font);
+      font-weight: 500;
+      transition: color 0.2s ease;
+    }
+    .reveal .home-link:hover {
+      color: #0f766e;
+    }
+    
+    .reveal .slide-footer {
+      position: fixed;
+      bottom: 16px;
+      right: 20px;
+      z-index: 30;
+      font-size: 11px;
+      color: #94a3b8;
+      font-family: var(--r-main-font);
+    }
+    
+    /* Interactive blank */
+    .reveal .fill-blank {
+      display: inline-block;
+      border-bottom: 2px dashed #94a3b8;
+      min-width: 140px;
+      height: 1.1em;
+      vertical-align: bottom;
+    }
+
+    .reveal .katex-display {
+      margin: 8px 0;
+    }
+
+    /* Group work slides: random group picker */
+    .reveal .group-roll-btn {
+      font-family: var(--r-heading-font);
+      font-weight: 700;
+      font-size: 0.75em;
+      color: white;
+      background: #b45309;
+      border: none;
+      border-radius: 999px;
+      padding: 8px 18px;
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+    .reveal .group-roll-btn:hover {
+      background: #92400e;
+    }
+    .reveal .group-roll-result {
+      display: inline-block;
+      min-width: 2em;
+      margin-left: 10px;
+      font-family: var(--r-heading-font);
+      font-weight: 800;
+      color: #b45309;
+      font-size: 1.2em;
+      vertical-align: middle;
+    }
+  /* Step-by-step animated graph: lines draw themselves in as fragments appear */
+    .reveal svg.anim-graph { font-family: var(--r-main-font); }
+    .reveal svg.anim-graph text { font-family: var(--r-main-font); }
+    .reveal .anim-graph .build-line {
+      stroke-dasharray: 950;
+      stroke-dashoffset: 950;
+    }
+    .reveal .fragment.visible .build-line {
+      animation: drawline 0.9s ease-out forwards;
+    }
+    @keyframes drawline {
+      to { stroke-dashoffset: 0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- SECTION 1: Welcome & Overview (Horizontal) -->
+
+      <!-- Slide 1: Title -->
+      <section data-background-gradient="linear-gradient(135deg, #0f172a 0%, #1e293b 100%)">
+        <p class="eyebrow" style="color: #2dd4bf;">RSC Economics Experience &middot; July 2026</p>
+        <h1 style="color: white; font-size: 2.5em; margin-bottom: 15px;">Class 6</h1>
+        <h3 style="color: #94a3b8; font-weight: 400; margin-bottom: 45px;">Market Interventions, Public Goods &amp; Externalities</h3>
+        <p style="color: #2dd4bf; font-weight: 600; font-size: 0.9em; margin-bottom: 5px;">Meng Hsuan &ldquo;Rex&rdquo; Hsieh</p>
+        <p style="color: #64748b; font-size: 0.75em; margin-top: 30px;">Press <kbd style="background: #334155; color: #cbd5e1; border: 1px solid #475569; padding: 2px 6px; border-radius: 4px;">&rarr;</kbd> to begin</p>
+      </section>
+
+      <!-- Slide 2: Agenda -->
+      <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+        <p class="eyebrow">Agenda for Today</p>
+        <h2>Interventions, Public Goods &amp; Externalities</h2>
+        <div class="content-card">
+          <ul>
+            <li class="fragment"><strong>Market Interventions</strong>: how price controls and taxes distort markets and create deadweight loss.</li>
+            <li class="fragment"><strong>Public Goods</strong>: what makes a good &ldquo;public,&rdquo; and why markets fail to provide them &mdash; using clean air.</li>
+            <li class="fragment"><strong>Externalities</strong>: spillover costs like wildfire smoke, and why no one pays for them.</li>
+            <li class="fragment"><strong>The Role of Government</strong>: why public goods and externalities call for collective action.</li>
+          </ul>
+        </div>
+      </section>
+
+
+      <!-- SECTION 2: Market Interventions — moved from Class 5 (Vertical Stack) -->
+      <section>
+
+        <!-- Slide 5.1: Divider -->
+        <section data-background-gradient="linear-gradient(135deg, #0f766e 0%, #115e59 100%)">
+          <p class="eyebrow" style="color: #ccfbf1;">Part 1</p>
+          <h1 style="color: white; font-size: 2.8em;">Market Interventions</h1>
+          <p style="color: #ccfbf1; margin-top: 20px;">Press <kbd style="background: #115e59; color: white; border: 1px solid #134e4a; padding: 2px 6px; border-radius: 4px;">↓</kbd> to continue</p>
+        </section>
+
+        <!-- Slide 5.2: Why Intervene? -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Interventions · Rationale</p>
+          <h2>Why Intervene in Markets?</h2>
+          <div class="content-card" style="font-size: 0.9em;">
+            <p style="font-weight: 600; color: #0f766e;">Market efficiency relies on several critical assumptions:</p>
+            <ol>
+              <li class="fragment"><strong>Income Distribution</strong>: Competitive markets maximize total surplus given the <em>initial</em> distribution of income, which might be unequal or undesirable.</li>
+              <li class="fragment"><strong>Consumer Sovereignty</strong>: Consumers are assumed to be the best judges of their own utility.</li>
+              <li class="fragment"><strong>No Externalities</strong>: Producers must bear all production costs, and purchasers must receive all benefits.</li>
+            </ol>
+            <p class="fragment" style="margin-top: 15px;">
+              If any of these assumptions fail, government intervention may be economically justified to "generate desirable market outcomes."
+            </p>
+          </div>
+        </section>
+
+        <!-- Slide 5.3: Price Controls Ceilings Floors -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Interventions · Price Controls</p>
+          <h2>Price Ceilings &amp; Price Floors</h2>
+          <div style="display: flex; align-items: center; justify-content: center; gap: 20px; max-width: 1090px; margin: 0 auto;">
+            <div style="flex: 1; text-align: left;">
+              <div class="content-card" style="margin: 0; padding: 20px;">
+                <div class="def-card" style="margin: 0 0 15px;">
+                  <div class="def-title">Definition</div>
+                  <strong>Price controls</strong> are legislation that guarantees market prices &mdash; preventing prices from moving to equilibrium.
+                </div>
+                <ul>
+                  <li><strong>Price Ceiling</strong> (\( p^1 \)): A legal maximum price (e.g. rent control).</li>
+                  <li><strong>Price Floor</strong> (\( p^0 \)): A legal minimum price (e.g. minimum wage).</li>
+                </ul>
+                <p class="fragment" style="font-weight: 600; color: #3b82f6; font-size: 0.9em; margin-top: 12px;">
+                  Questions: What is the effect of a price ceiling? Of a price floor? How much is actually traded at these prices?
+                </p>
+              </div>
+            </div>
+            <div style="flex: 1.1;">
+              <div class="slide-img-container" style="margin: 0; padding: 6px;">
+                <img src="../slides/images/c5_page_20_graph.png" alt="Price Controls Graph" style="max-height: 350px;">
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Slide 5.3b: Real-World Price Controls -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Interventions · In the Real World</p>
+          <h2>Price Controls in the Real World</h2>
+          <div class="content-card">
+            <div class="example-card" style="margin: 0 0 15px;">
+              <div class="ex-title">Example: Price Ceiling</div>
+              The CFPB issued a rule that <strong>caps credit card late fees</strong> (<a href="https://tinyurl.com/22w3k875" target="_blank" rel="noopener">tinyurl.com/22w3k875</a>).
+              <br>
+              Let&rsquo;s look at the &ldquo;market&rdquo; for credit card (fees)!
+            </div>
+            <div class="example-card fragment" style="margin: 0;">
+              <div class="ex-title">Example: Price Floor</div>
+              The USDA&rsquo;s <strong>loan rate / Crop Commodity Programs</strong> guarantee minimum prices for agricultural products (<a href="https://tinyurl.com/yw437vvn" target="_blank" rel="noopener">tinyurl.com/yw437vvn</a>).
+              <br>
+              Let&rsquo;s look at the market for agricultural products (e.g. grain sorghum)!
+            </div>
+          </div>
+        </section>
+
+        <!-- Slide 5.4: Minimum Wage Floor -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Interventions · Price Floor</p>
+          <h2>Policy Example: Minimum Wage</h2>
+          <div class="content-card">
+            <p style="font-weight: 600; color: #0f766e; margin-bottom: 15px;">Welfare Effects of a Price Floor:</p>
+            <ul>
+              <li>A minimum wage sets a legal minimum price in the labor market.</li>
+              <li class="fragment">If set above the market equilibrium wage, it increases the quantity of labor supplied (more people want to work) but reduces the quantity of labor demanded (firms hire fewer workers).</li>
+              <li class="fragment">This discrepancy creates a surplus of labor (unemployment) and generates a deadweight loss for society.</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- Slide 5.5: Rent Control Ceiling Example -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Interventions · Price Ceiling</p>
+          <h2>Practice: Rent Control</h2>
+          <div style="display: flex; align-items: center; justify-content: center; gap: 20px; max-width: 1090px; margin: 0 auto;">
+            <div style="flex: 1.1; text-align: left;">
+              <div class="example-card" style="margin: 0; font-size: 0.8em; padding: 15px;">
+                <div class="ex-title">Problem Statement</div>
+                A rent control policy setting \( \$1500 \) per month rent on apartments in San Francisco is being considered. Assume apartments are identical, with demand given by:
+                \[ P = 3600 - Q \]
+                and supply given by:
+                \[ P = 400 + Q \]
+                <br>
+                <strong>1. Calculate the deadweight loss due to this price ceiling.</strong>
+                <br>
+                <strong>2. If supply were perfectly inelastic at the equilibrium point, would the deadweight loss be smaller or larger?</strong>
+              </div>
+            </div>
+            <div style="flex: 0.9;">
+              <div class="slide-img-container" style="margin: 0; padding: 6px;">
+                <img src="../slides/images/c5_page_22_graph.png" alt="Rent Control Graph" style="max-height: 320px;">
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Slide 5.5b: Solution Rent Control -->
+        <section data-background-gradient="linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)">
+          <p class="eyebrow" style="color: #059669;">Interventions · Solution</p>
+          <h2>Solution: Rent Control</h2>
+          <div class="content-card" style="font-size: 0.84em; max-width: 1020px;">
+            <div class="def-card" style="margin: 5px 0;">
+              <div class="def-title">Step 1: Find Market Equilibrium (No Intervention)</div>
+              \[ 3600 - Q = 400 + Q \implies 3200 = 2Q \implies Q^* = 1600, P^* = \$2000 \]
+            </div>
+            <div class="def-card fragment" style="margin: 5px 0;">
+              <div class="def-title">Step 2: Apply Price Ceiling (\( P_c = 1500 \))</div>
+              At \( P = 1500 \), supply is binding: \( Q_S = 1500 - 400 = 1100 \) units (Shortage: \( Q_D - Q_S = 2100 - 1100 = 1000 \)).
+            </div>
+            <div class="def-card fragment" style="margin: 5px 0;">
+              <div class="def-title">Step 3: Calculate Deadweight Loss (DWL)</div>
+              At \( Q = 1100 \), demand valuation is \( P_D = 3600 - 1100 = 2500 \); MC is \( P_S = 1500 \).
+              \[ DWL = \frac{1}{2} \times (Q^* - Q_S) \times (P_D - P_S) = \frac{1}{2} \times (1600 - 1100) \times (2500 - 1500) \]
+              \[ DWL = \frac{1}{2} \times 500 \times 1000 = \$250,000 \]
+            </div>
+            <div class="def-card fragment" style="margin: 5px 0; border-left-color: #3b82f6; background: rgba(59, 130, 246, 0.04);">
+              <div class="def-title" style="color: #3b82f6;">Part 2: Inelastic Supply</div>
+              If supply is perfectly inelastic at \( Q = 1600 \), quantity remains unchanged at 1600.
+              No output is lost, so <strong>DWL is zero</strong> (which is <strong>smaller</strong>).
+            </div>
+          </div>
+        </section>
+
+        <!-- Slide 5.6: Taxes Intro -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Interventions · Taxes</p>
+          <h2>Prices Controlled by Taxes</h2>
+          <div class="content-card">
+            <p style="font-weight: 600; color: #0f766e; margin-bottom: 15px;">How do taxes affect market outcomes?</p>
+            <ul>
+              <li>Governments artificially change transaction prices by introducing per-unit or percentage taxes.</li>
+              <li>A tax creates a wedge between what consumers pay (\( P_b \)) and what sellers receive (\( P_s \)).</li>
+              <li>This tax wedge restricts the quantity traded and creates deadweight loss.</li>
+            </ul>
+            <div class="def-card fragment" style="margin-top: 15px; border-left-color: #3b82f6; background: rgba(59, 130, 246, 0.04);">
+              <div class="def-title" style="color: #3b82f6;">Tax Identity</div>
+              \[ P_b = P_s + t \]
+              where \( t \) is the per-unit tax rate.
+            </div>
+          </div>
+        </section>
+
+        <!-- Slide 5.7: Taxes on Producers Example -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Interventions · Tax Example</p>
+          <h2>Practice: Producer Tax</h2>
+          <div style="display: flex; align-items: center; justify-content: center; gap: 20px; max-width: 1090px; margin: 0 auto;">
+            <div style="flex: 1.1; text-align: left;">
+              <div class="example-card" style="margin: 0; font-size: 0.8em; padding: 15px;">
+                <div class="ex-title">Problem Statement</div>
+                Suppose supply and demand for a competitively supplied product are given as:
+                \[ Q_D = 150 - 25P \quad\text{or}\quad P = 6 - 0.04Q_D \]
+                \[ Q_S = 50P \quad\text{or}\quad P = 0.02Q_S \]
+                <br>
+                <strong>1. Find the equilibrium market price and quantity.</strong>
+                <br>
+                <strong>2. The government imposes a per-unit tax of $0.30 on suppliers. Calculate:</strong>
+                <ul>
+                  <li>New equilibrium price paid by consumers (\( P_b \)).</li>
+                  <li>Price received by sellers (\( P_s \)).</li>
+                  <li>Quantity transacted (\( Q_{\text{tax}} \)).</li>
+                  <li>The tax incidence (portion paid by consumers).</li>
+                </ul>
+              </div>
+            </div>
+            <div style="flex: 0.9;">
+              <div class="slide-img-container" style="margin: 0; padding: 6px;">
+                <img src="../slides/images/c5_page_24_graph.png" alt="Producer Tax Graph" style="max-height: 320px;">
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Slide 5.7b: Solution Producer Tax -->
+        <section data-background-gradient="linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)">
+          <p class="eyebrow" style="color: #059669;">Interventions · Solution</p>
+          <h2>Solution: Producer Tax</h2>
+          <div class="content-card" style="font-size: 0.9em; max-width: 1020px;">
+            <div class="def-card" style="margin: 5px 0;">
+              <div class="def-title">Step 1: Equilibrium without Tax</div>
+              \[ 150 - 25P = 50P \implies 75P = 150 \implies P^* = \$2.00, Q^* = 100 \text{ units} \]
+            </div>
+            <div class="def-card fragment" style="margin: 5px 0;">
+              <div class="def-title">Step 2: Solve with Tax wedge (\( P_b = P_s + 0.30 \))</div>
+              Substitute buyers' price into demand:
+              \[ 150 - 25(P_s + 0.30) = 50P_s \implies 150 - 25P_s - 7.5 = 50P_s \]
+              \[ 142.5 = 75P_s \implies P_s = \$1.90 \implies P_b = 1.90 + 0.30 = \$2.20 \]
+            </div>
+            <div class="def-card fragment" style="margin: 5px 0;">
+              <div class="def-title">Step 3: Quantity &amp; Tax Incidence</div>
+              Quantity transacted: \( Q_{\text{tax}} = 50(1.90) = 95 \) units.
+              <br>
+              Price rise for consumers: \( \Delta P_b = 2.20 - 2.00 = \$0.20 \).
+              <br>
+              Consumers' portion: \( \frac{\Delta P_b}{t} = \frac{0.20}{0.30} = \frac{2}{3} \approx 66.7\% \).
+            </div>
+          </div>
+        </section>
+
+        <!-- Slide 5.8: Tax Burden and Elasticities -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Interventions · Tax Burden</p>
+          <h2>Tax Incidence &amp; Elasticities</h2>
+          <div class="content-card" style="font-size: 0.95em;">
+            <div class="def-card" style="margin-top: 5px;">
+              <div class="def-title">Key Principle</div>
+              It does <strong>not</strong> matter on whom the tax is legally imposed; the economic burden (incidence) depends entirely on the relative elasticities of supply and demand.
+            </div>
+            <p style="font-weight: 600; color: #0f766e; margin-top: 15px;">Economic Incidence Formulas:</p>
+            <ul>
+              <li>Incidence on Buyers: \( \text{Burden}_C = \frac{\varepsilon_S}{\varepsilon_S + |\varepsilon_D|} \)</li>
+              <li>Incidence on Sellers: \( \text{Burden}_P = \frac{|\varepsilon_D|}{\varepsilon_S + |\varepsilon_D|} \)</li>
+            </ul>
+            <p class="fragment" style="font-size: 0.85em; color: #64748b; margin-top: 15px;">
+              The side of the market that is <strong>more inelastic</strong> (less responsive to price changes) bears the larger share of the tax burden.
+            </p>
+          </div>
+        </section>
+
+        <!-- Slide 5.9: Welfare Effects of Tax Example -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Interventions · Tax Welfare</p>
+          <h2>Practice: Tax Welfare Effects</h2>
+          <div class="content-card">
+            <div class="example-card" style="margin: 0;">
+              <div class="ex-title">Problem Statement</div>
+              Using the same supply and demand model:
+              \[ Q_D = 150 - 25P \]
+              \[ Q_S = 50P \]
+              where a per-unit tax of $0.30 is imposed.
+              <br><br>
+              <strong>Calculate the deadweight loss (DWL) resulting from this tax.</strong>
+            </div>
+          </div>
+        </section>
+
+        <!-- Slide 5.9b: Solution Tax DWL -->
+        <section data-background-gradient="linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)">
+          <p class="eyebrow" style="color: #059669;">Interventions · Solution</p>
+          <h2>Solution: Tax Deadweight Loss</h2>
+          <div class="content-card" style="font-size: 0.95em;">
+            <div class="def-card" style="margin: 8px 0;">
+              <div class="def-title">Step 1: Identify the Quantity reduction</div>
+              Equilibrium quantity fell from \( Q^* = 100 \) to \( Q_{\text{tax}} = 95 \) units.
+              \[ \Delta Q = 100 - 95 = 5 \text{ units} \]
+            </div>
+            <div class="def-card fragment" style="margin: 8px 0;">
+              <div class="def-title">Step 2: Identify the height (tax wedge)</div>
+              The vertical wedge between the demand price and supply price is the tax:
+              \[ t = \$0.30 \]
+            </div>
+            <div class="def-card fragment" style="margin: 8px 0;">
+              <div class="def-title">Step 3: Calculate the DWL Triangle</div>
+              \[ DWL = \frac{1}{2} \times \text{base} \times \text{height} = \frac{1}{2} \times \Delta Q \times t \]
+              \[ DWL = \frac{1}{2} \times 5 \times 0.30 = \$0.75 \]
+            </div>
+          </div>
+        </section>
+
+        <!-- Slide 5.10: Why Do Taxes Generate DWL? -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Interventions · Taxes</p>
+          <h2>Why Do Taxes Generate DWL?</h2>
+          <div class="content-card" style="font-size: 0.92em;">
+            <div class="def-card" style="margin: 5px 0 12px;">
+              <div class="def-title">The Key Insight</div>
+              Taxes generate deadweight loss because <strong>taxes affect relative prices</strong> &mdash; and therefore change behavior!
+            </div>
+            <ul>
+              <li class="fragment">The only tax that does not change prices is a <strong>lump-sum tax</strong> (a fixed amount, independent of any choice you make).</li>
+              <li class="fragment">Side note: taxes affect our decisions! E.g. marriage, migration, location of investment, residential choices, having children&hellip;</li>
+              <li class="fragment">This is covered in depth in your ECON 101 class &mdash; and a decent proportion of Rex&rsquo;s own research measures behavioral responses to tax policy changes (the <em>elasticity of taxable income</em>).</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- Slide 5.11: Dying to Save Taxes -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Interventions · Taxes</p>
+          <h2>Taxes Even Affect the Timing of Death!</h2>
+          <div style="max-width: 1000px; margin: 0 auto;">
+            <div class="slide-img-container" style="margin: 0 0 10px; padding: 6px;">
+              <img src="../slides/images/c5_slemrod_paper.png" alt="Kopczuk and Slemrod paper: Dying to Save Taxes — title, authors, and abstract" style="max-height: 300px; max-width: 100%; width: auto;">
+            </div>
+            <div class="content-card" style="margin: 0 auto; font-size: 0.78em; max-width: 1000px;">
+              <ul style="margin: 4px 0 !important;">
+                <li class="fragment">Kopczuk &amp; Slemrod use U.S. federal estate-tax returns to ask whether the <strong>timing of death</strong> responds to its tax consequences.</li>
+                <li class="fragment">Central estimate: for individuals dying within two weeks of a tax reform, a <strong>$10,000</strong> potential tax saving increases the probability of dying in the <strong>lower-tax regime by 1.6%</strong>.</li>
+                <li class="fragment">Taxes affect behavior &mdash; even the timing of behaviors we don&rsquo;t usually think respond to financial incentives!</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- GROUP WORK: A Tax in Action -->
+        <section data-background-gradient="linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%)">
+          <p class="eyebrow" style="color: #b45309;">Group Work &middot; Interventions</p>
+          <h2>&#127922; Group Work: A Tax in Action</h2>
+          <div class="content-card" style="font-size: 0.88em; background: rgba(255, 255, 255, 0.7);">
+            <div class="example-card" style="border-left-color: #b45309; background: rgba(180, 83, 9, 0.05); margin: 8px 0;">
+              <div class="ex-title" style="color: #b45309;">Question 1</div>
+              Demand is \( Q_D = 60 - 10P \) and supply is \( Q_S = 20P \). The government imposes a per-unit tax of <strong>$0.60 on suppliers</strong>. <br><br><strong>Find the price sellers receive \( P_s \), the price buyers pay \( P_b \), and the quantity transacted.</strong>
+            </div>
+            <div style="margin: 4px 0 12px;">
+              <button class="group-roll-btn" onclick="rollGroup('l5gw3q1')">&#127922; Pick a group for Q1</button>
+              <span class="group-roll-result" id="l5gw3q1">&mdash;</span>
+            </div>
+            <div class="example-card" style="border-left-color: #b45309; background: rgba(180, 83, 9, 0.05); margin: 8px 0;">
+              <div class="ex-title" style="color: #b45309;">Question 2</div>
+              <strong>Calculate the deadweight loss from this tax, and the share of the tax burden borne by buyers.</strong>
+            </div>
+            <div style="margin: 4px 0 0;">
+              <button class="group-roll-btn" onclick="rollGroup('l5gw3q2')">&#127922; Pick a group for Q2</button>
+              <span class="group-roll-result" id="l5gw3q2">&mdash;</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- GROUP WORK Answers: A Tax in Action -->
+        <section data-background-gradient="linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)">
+          <p class="eyebrow" style="color: #059669;">Group Work &middot; Answers</p>
+          <h2>Answers: A Tax in Action</h2>
+          <div class="content-card" style="font-size: 0.88em;">
+            <div class="def-card">
+              <div class="def-title">Question 1: The Tax Wedge</div>
+              No tax: \( 60 - 10P = 20P \implies P^* = 2, Q^* = 40 \). With \( P_b = P_s + 0.60 \):
+              \[ 60 - 10(P_s + 0.6) = 20P_s \implies 54 = 30P_s \implies P_s = \$1.80 \]
+              \[ P_b = 1.80 + 0.60 = \$2.40 \qquad Q_{\text{tax}} = 20(1.8) = 36 \]
+            </div>
+            <div class="def-card fragment">
+              <div class="def-title">Question 2: DWL &amp; Incidence</div>
+              \[ DWL = \frac{1}{2} \times (40 - 36) \times 0.60 = \$1.20 \]
+              <p style="font-size: 0.92em; margin-top: 8px;">Buyers&rsquo; price rose \( 2.40 - 2.00 = \$0.40 \) of the \( \$0.60 \) tax &rArr; buyers bear \( \frac{0.40}{0.60} = \frac{2}{3} \) of the burden (demand is relatively more inelastic here). Let&rsquo;s see it graphically &darr;</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- GROUP WORK Answers: step-by-step animated graph -->
+        <section data-background-gradient="linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)">
+          <p class="eyebrow" style="color: #059669;">Group Work &middot; Answers</p>
+          <h2>Question 2, Step by Step</h2>
+          <p style="font-size: 0.55em; color: #64748b; margin: 0 0 4px;">Press <kbd style="background: #e2e8f0; border: 1px solid #cbd5e1; padding: 1px 6px; border-radius: 4px;">&rarr;</kbd> to add each element of the graph</p>
+          <svg class="anim-graph" viewBox="0 0 760 520" style="width: 92%; max-height: 480px; margin: 0 auto; display: block; background: white; border: 1px solid #e2e8f0; border-radius: 10px;" role="img" aria-label="Animated build-up of the tax-welfare graph: equilibrium (40, $2), the quantity falling to 36, the $0.60 wedge between Pb=$2.40 and Ps=$1.80, buyers' and sellers' shares of the $21.60 revenue, the $1.20 DWL triangle, and the after-tax CS and PS">
+            <!-- after-tax CS and PS (fragment 5, drawn first so they sit under everything) -->
+            <g class="fragment" data-fragment-index="5">
+              <polygon points="70,112 70,321 419,321" fill="#d97706" fill-opacity="0.2"/>
+              <text x="150" y="270" font-size="15" font-weight="700" fill="#b45309">CS (after tax)</text>
+              <polygon points="70,460 70,356 419,356" fill="#0f766e" fill-opacity="0.2"/>
+              <text x="150" y="420" font-size="15" font-weight="700" fill="#0f766e">PS (after tax)</text>
+            </g>
+            <!-- revenue rectangles (fragment 3, under the curves) -->
+            <g class="fragment" data-fragment-index="3">
+              <rect x="70" y="321" width="349" height="23" fill="#7c3aed" fill-opacity="0.35"/>
+              <rect x="70" y="344" width="349" height="12" fill="#7c3aed" fill-opacity="0.18"/>
+              <text x="240" y="337" font-size="13" font-weight="700" fill="#4c1d95" text-anchor="middle">buyers&#8217; burden = $14.40</text>
+              <text x="240" y="354" font-size="12" font-weight="700" fill="#5b21b6" text-anchor="middle">sellers&#8217; burden = $7.20</text>
+              <text x="480" y="120" font-size="16" font-weight="700" fill="#5b21b6">Gov. revenue = 0.60 &times; 36 = $21.60</text>
+            </g>
+            <!-- axes + curves + equilibrium (always visible) -->
+            <g>
+              <line x1="70" y1="460" x2="705" y2="460" stroke="#475569" stroke-width="2.5"/>
+              <polygon points="705,455 705,465 716,460" fill="#475569"/>
+              <line x1="70" y1="460" x2="70" y2="52" stroke="#475569" stroke-width="2.5"/>
+              <polygon points="65,52 75,52 70,41" fill="#475569"/>
+              <text x="723" y="466" font-size="17" fill="#1e293b" font-style="italic">Q</text>
+              <text x="44" y="34" font-size="17" fill="#1e293b" font-style="italic">P ($)</text>
+              <line x1="70" y1="112" x2="652" y2="460" stroke="#1e293b" stroke-width="3.5"/>
+              <text x="658" y="452" font-size="17" fill="#1e293b" font-style="italic">D</text>
+              <line x1="70" y1="460" x2="652" y2="286" stroke="#1e293b" stroke-width="3.5"/>
+              <text x="658" y="280" font-size="17" fill="#1e293b" font-style="italic">S</text>
+              <text x="62" y="118" font-size="14" fill="#64748b" text-anchor="end">$6</text>
+              <circle cx="458" cy="344" r="6" fill="#1e293b"/>
+              <line x1="458" y1="344" x2="458" y2="460" stroke="#cbd5e1" stroke-width="1.5" stroke-dasharray="5 4"/>
+              <text x="470" y="490" font-size="14" fill="#64748b" text-anchor="middle">Q* = 40</text>
+              <text x="62" y="350" font-size="14" fill="#64748b" text-anchor="end">P* = $2.00</text>
+            </g>
+            <!-- fragment 1: quantity falls to 36 -->
+            <g class="fragment" data-fragment-index="1">
+              <line x1="419" y1="321" x2="419" y2="460" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="5 4"/>
+              <circle cx="419" cy="321" r="6" fill="#1e293b"/>
+              <circle cx="419" cy="356" r="6" fill="#1e293b"/>
+              <text x="404" y="490" font-size="14" font-weight="700" fill="#1e293b" text-anchor="middle">Q<tspan dy="4" font-size="11">tax</tspan><tspan dy="-4"> = 36</tspan></text>
+            </g>
+            <!-- fragment 2: the wedge -->
+            <g class="fragment" data-fragment-index="2">
+              <line x1="70" y1="321" x2="419" y2="321" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="5 4"/>
+              <line x1="70" y1="356" x2="419" y2="356" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="5 4"/>
+              <text x="62" y="322" font-size="14" font-weight="700" fill="#1e293b" text-anchor="end">P<tspan dy="4" font-size="11">b</tspan><tspan dy="-4"> = $2.40</tspan></text>
+              <text x="62" y="374" font-size="14" font-weight="700" fill="#1e293b" text-anchor="end">P<tspan dy="4" font-size="11">s</tspan><tspan dy="-4"> = $1.80</tspan></text>
+              <line x1="440" y1="321" x2="440" y2="356" stroke="#1e293b" stroke-width="2.5"/>
+              <polygon points="435,321 445,321 440,312" fill="#1e293b"/>
+              <polygon points="435,356 445,356 440,365" fill="#1e293b"/>
+              <text x="452" y="316" font-size="15" font-weight="700" fill="#1e293b">t = $0.60</text>
+            </g>
+            <!-- fragment 4: DWL -->
+            <g class="fragment" data-fragment-index="4">
+              <polygon points="419,321 419,356 458,344" fill="#dc2626" fill-opacity="0.45" stroke="#dc2626" stroke-opacity="0.6"/>
+              <text x="480" y="200" font-size="16" font-weight="700" fill="#dc2626">DWL = &frac12; &times; 4 &times; 0.60 = $1.20</text>
+              <path d="M 500 210 Q 460 260 438 330" fill="none" stroke="#dc2626" stroke-width="1.5" marker-end="url(#a5tax)"/>
+            </g>
+            <defs>
+              <marker id="a5tax" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+                <path d="M 0 0 L 8 4 L 0 8 z" fill="#dc2626"/>
+              </marker>
+            </defs>
+          </svg>
+        </section>
+
+        <!-- GROUP WORK Answers: Q2 graph -->
+        <section data-background-gradient="linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)">
+          <p class="eyebrow" style="color: #059669;">Group Work &middot; Answers</p>
+          <h2>Question 2, Graphically</h2>
+          <div class="slide-img-container" style="margin: 5px auto 0; padding: 8px;">
+            <img src="../slides/images/c5_tax_dwl_graph.png" alt="Tax welfare graph: after-tax CS and PS, buyers' ($14.40) and sellers' ($7.20) shares of the $21.60 government revenue, the $0.60 tax wedge, and the $1.20 DWL triangle between Q=36 and Q*=40" style="max-height: 500px;">
+          </div>
+        </section>
+
+      </section>
+
+
+      <!-- SECTION PG: Public Goods & Externalities (Vertical Stack) -->
+      <section>
+
+        <!-- PG Divider -->
+        <section data-background-gradient="linear-gradient(135deg, #0f766e 0%, #115e59 100%)">
+          <p class="eyebrow" style="color: #ccfbf1;">Part 2</p>
+          <h1 style="color: white; font-size: 2.6em;">Public Goods &amp; Externalities</h1>
+          <p style="color: #ccfbf1; margin-top: 20px;">Why the market won&rsquo;t give you clean air. Press <kbd style="background: #115e59; color: white; border: 1px solid #134e4a; padding: 2px 6px; border-radius: 4px;">&darr;</kbd></p>
+        </section>
+
+        <!-- PG1: Topical hook — Canadian wildfire smoke -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow" style="color: #b45309;">The Air We Breathe</p>
+          <h2>A Summer of Wildfire Smoke</h2>
+          <p style="font-size: 0.55em; color: #64748b; margin: 0 0 4px;">Canadian wildfires have blanketed cities in smoke this summer. Press <kbd style="background: #e2e8f0; border: 1px solid #cbd5e1; padding: 1px 6px; border-radius: 4px;">&rarr;</kbd> to watch the air change.</p>
+          <svg class="anim-graph" viewBox="0 0 900 420" style="width: 90%; max-height: 430px; margin: 0 auto; display: block; background: #e0f2fe; border: 1px solid #e2e8f0; border-radius: 10px;" role="img" aria-label="A city skyline under a clear blue sky with a bright sun. Then brown wildfire smoke drifts across, tinting the sky orange, and an air-quality badge reads Hazardous while the residents cough.">
+            <!-- ground -->
+            <rect x="0" y="360" width="900" height="60" fill="#cbd5e1"/>
+            <!-- sun -->
+            <circle cx="130" cy="95" r="34" fill="#fbbf24">
+              <animate attributeName="r" values="34;37;34" dur="4s" repeatCount="indefinite"/>
+            </circle>
+            <g stroke="#fbbf24" stroke-width="4" stroke-linecap="round">
+              <line x1="130" y1="35" x2="130" y2="18"/><line x1="130" y1="155" x2="130" y2="172"/>
+              <line x1="70" y1="95" x2="53" y2="95"/><line x1="190" y1="95" x2="207" y2="95"/>
+              <line x1="88" y1="53" x2="76" y2="41"/><line x1="172" y1="137" x2="184" y2="149"/>
+              <line x1="172" y1="53" x2="184" y2="41"/><line x1="88" y1="137" x2="76" y2="149"/>
+            </g>
+            <!-- skyline -->
+            <g fill="#64748b">
+              <rect x="250" y="230" width="70" height="130"/><rect x="335" y="180" width="80" height="180"/>
+              <rect x="430" y="255" width="60" height="105"/><rect x="505" y="150" width="90" height="210"/>
+              <rect x="610" y="215" width="72" height="145"/><rect x="695" y="270" width="70" height="90"/>
+            </g>
+            <g fill="#fde68a" opacity="0.9">
+              <rect x="352" y="200" width="12" height="16"/><rect x="378" y="200" width="12" height="16"/>
+              <rect x="352" y="235" width="12" height="16"/><rect x="378" y="235" width="12" height="16"/>
+              <rect x="525" y="172" width="12" height="16"/><rect x="555" y="172" width="12" height="16"/>
+              <rect x="525" y="210" width="12" height="16"/><rect x="555" y="210" width="12" height="16"/>
+            </g>
+            <!-- residents -->
+            <g>
+              <circle cx="330" cy="335" r="11" fill="#334155"/><rect x="322" y="347" width="16" height="13" rx="4" fill="#334155"/>
+              <circle cx="470" cy="335" r="11" fill="#334155"/><rect x="462" y="347" width="16" height="13" rx="4" fill="#334155"/>
+              <circle cx="640" cy="335" r="11" fill="#334155"/><rect x="632" y="347" width="16" height="13" rx="4" fill="#334155"/>
+            </g>
+
+            <!-- fragment 1: smoke rolls in + sky tints orange -->
+            <g class="fragment" data-fragment-index="1">
+              <rect x="0" y="0" width="900" height="360" fill="#c2410c" opacity="0.34"/>
+              <g fill="#78716c" opacity="0.82">
+                <g>
+                  <ellipse cx="720" cy="90" rx="70" ry="40"/><ellipse cx="790" cy="110" rx="80" ry="46"/>
+                  <ellipse cx="660" cy="120" rx="66" ry="38"/><ellipse cx="760" cy="150" rx="90" ry="50"/>
+                  <animateTransform attributeName="transform" type="translate" values="120 0; -40 8; 120 0" dur="14s" repeatCount="indefinite"/>
+                </g>
+                <g fill="#57534e">
+                  <ellipse cx="300" cy="70" rx="66" ry="36"/><ellipse cx="370" cy="95" rx="76" ry="42"/><ellipse cx="240" cy="100" rx="58" ry="34"/>
+                  <animateTransform attributeName="transform" type="translate" values="-30 0; 80 10; -30 0" dur="18s" repeatCount="indefinite"/>
+                </g>
+              </g>
+            </g>
+
+            <!-- fragment 2: AQI badge + coughing marks -->
+            <g class="fragment" data-fragment-index="2">
+              <rect x="600" y="30" width="270" height="70" rx="12" fill="#7f1d1d" stroke="#fecaca" stroke-width="2"/>
+              <text x="735" y="60" font-size="20" font-weight="700" fill="#fecaca" text-anchor="middle">AIR QUALITY INDEX</text>
+              <text x="735" y="86" font-size="22" font-weight="700" fill="#fff" text-anchor="middle">273 &mdash; HAZARDOUS</text>
+              <g font-size="20" fill="#7f1d1d" font-weight="700">
+                <text x="352" y="318">*cough*</text><text x="492" y="318">*cough*</text><text x="662" y="318">*cough*</text>
+              </g>
+            </g>
+          </svg>
+          <p class="fragment" data-fragment-index="2" style="text-align:center; font-weight:600; color:#0f766e; font-size:0.9em; margin-top:8px;">Everyone breathes the same air &mdash; so right now, everyone is breathing the same <em>bad</em> air. That sharing is the key to what economists call a <strong>public good</strong>.</p>
+        </section>
+
+        <!-- PG2: Definition of a public good -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow" style="color: #b45309;">Definition</p>
+          <h2>What Makes a Good a <em>Public</em> Good?</h2>
+          <div class="content-card" style="font-size: 0.95em;">
+            <p style="font-weight:600; color:#0f766e; margin-bottom:10px;">A <strong>public good</strong> has two defining properties:</p>
+            <div class="def-card fragment">
+              <div class="def-title">1 &middot; Non-excludable</div>
+              You <strong>cannot prevent</strong> someone from consuming it, even if they don&rsquo;t pay. No one can be stopped from breathing the air around them.
+            </div>
+            <div class="def-card fragment" style="border-left-color:#3b82f6; background:rgba(59,130,246,0.04);">
+              <div class="def-title" style="color:#3b82f6;">2 &middot; Non-rival</div>
+              One person&rsquo;s use <strong>does not reduce</strong> the amount available to anyone else. Your breath of clean air leaves just as much for everyone around you.
+            </div>
+            <div class="def-card fragment" style="border-left-color:#059669; background:rgba(5,150,105,0.05);">
+              <div class="def-title" style="color:#059669;">Clean air ticks both boxes</div>
+              Clean air is the textbook public good &mdash; non-excludable <em>and</em> non-rival. So are national defense, a lighthouse&rsquo;s beam, and radio broadcasts.
+            </div>
+          </div>
+        </section>
+
+        <!-- PG3: The 2x2 goods matrix -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow" style="color: #b45309;">Definition &middot; The Big Picture</p>
+          <h2>Four Kinds of Goods</h2>
+          <p style="font-size: 0.55em; color: #64748b; margin: 0 0 4px;">Cross &ldquo;can you exclude non-payers?&rdquo; with &ldquo;does one person&rsquo;s use crowd out another&rsquo;s?&rdquo; Press <kbd style="background: #e2e8f0; border: 1px solid #cbd5e1; padding: 1px 6px; border-radius: 4px;">&rarr;</kbd>.</p>
+          <svg viewBox="0 0 900 430" style="width: 88%; max-height: 420px; margin: 0 auto; display: block; background: #fff; border: 1px solid #e2e8f0; border-radius: 10px;" role="img" aria-label="A two-by-two matrix. Columns: Excludable and Non-excludable. Rows: Rival and Non-rival. Cells: private goods (a sandwich); common resources (ocean fish); club goods (a streaming subscription); and public goods (clean air), which is highlighted.">
+            <!-- column headers -->
+            <text x="415" y="40" font-size="19" font-weight="700" fill="#0f172a" text-anchor="middle">Excludable</text>
+            <text x="680" y="40" font-size="19" font-weight="700" fill="#0f172a" text-anchor="middle">Non-excludable</text>
+            <!-- row headers -->
+            <text x="70" y="150" font-size="19" font-weight="700" fill="#0f172a" text-anchor="middle" transform="rotate(-90 70 150)">Rival</text>
+            <text x="70" y="320" font-size="19" font-weight="700" fill="#0f172a" text-anchor="middle" transform="rotate(-90 70 320)">Non-rival</text>
+            <!-- cells -->
+            <g class="fragment" data-fragment-index="1">
+              <rect x="150" y="60" width="270" height="170" rx="10" fill="#eff6ff" stroke="#93c5fd" stroke-width="2"/>
+              <text x="285" y="92" font-size="17" font-weight="700" fill="#1d4ed8" text-anchor="middle">Private good</text>
+              <text x="285" y="150" font-size="34" text-anchor="middle">&#127837;</text>
+              <text x="285" y="200" font-size="14" fill="#475569" text-anchor="middle">a sandwich, a shirt</text>
+            </g>
+            <g class="fragment" data-fragment-index="2">
+              <rect x="435" y="60" width="270" height="170" rx="10" fill="#fff7ed" stroke="#fdba74" stroke-width="2"/>
+              <text x="570" y="92" font-size="17" font-weight="700" fill="#c2410c" text-anchor="middle">Common resource</text>
+              <text x="570" y="150" font-size="34" text-anchor="middle">&#128031;</text>
+              <text x="570" y="200" font-size="14" fill="#475569" text-anchor="middle">ocean fish, a shared road</text>
+            </g>
+            <g class="fragment" data-fragment-index="3">
+              <rect x="150" y="242" width="270" height="170" rx="10" fill="#f5f3ff" stroke="#c4b5fd" stroke-width="2"/>
+              <text x="285" y="274" font-size="17" font-weight="700" fill="#6d28d9" text-anchor="middle">Club good</text>
+              <text x="285" y="332" font-size="34" text-anchor="middle">&#127909;</text>
+              <text x="285" y="382" font-size="14" fill="#475569" text-anchor="middle">streaming, a toll bridge</text>
+            </g>
+            <g class="fragment" data-fragment-index="4">
+              <rect x="435" y="242" width="270" height="170" rx="10" fill="#ecfdf5" stroke="#34d399" stroke-width="3.5"/>
+              <text x="570" y="274" font-size="17" font-weight="700" fill="#047857" text-anchor="middle">PUBLIC GOOD</text>
+              <text x="570" y="332" font-size="34" text-anchor="middle">&#127788;&#65039;</text>
+              <text x="570" y="382" font-size="14" fill="#047857" font-weight="700" text-anchor="middle">clean air, national defense</text>
+            </g>
+            <!-- pointer to public good -->
+            <g class="fragment" data-fragment-index="4">
+              <text x="740" y="315" font-size="15" font-weight="700" fill="#047857">&larr; our focus</text>
+            </g>
+          </svg>
+        </section>
+
+        <!-- PG4: Non-rival animation (shared air) -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow" style="color: #b45309;">Clean Air &middot; Property 2</p>
+          <h2>Non-Rival: We All Share the Same Air</h2>
+          <p style="font-size: 0.55em; color: #64748b; margin: 0 0 4px;">Press <kbd style="background: #e2e8f0; border: 1px solid #cbd5e1; padding: 1px 6px; border-radius: 4px;">&rarr;</kbd> to let everyone breathe.</p>
+          <svg class="anim-graph" viewBox="0 0 900 420" style="width: 90%; max-height: 420px; margin: 0 auto; display: block; background: #fff; border: 1px solid #e2e8f0; border-radius: 10px;" role="img" aria-label="A shared pool of clean-air molecules floats above a row of four people. Each person breathes from the same air, and the amount of air stays the same — one person's breathing does not reduce what is left for the others.">
+            <!-- shared air region -->
+            <rect x="60" y="40" width="780" height="150" rx="16" fill="#e0f2fe" stroke="#7dd3fc" stroke-width="2"/>
+            <text x="450" y="70" font-size="16" font-weight="700" fill="#0369a1" text-anchor="middle">The shared air</text>
+            <!-- floating molecules -->
+            <g fill="#38bdf8">
+              <circle cx="150" cy="120" r="7"><animate attributeName="cy" values="120;100;120" dur="5s" repeatCount="indefinite"/></circle>
+              <circle cx="250" cy="150" r="7"><animate attributeName="cy" values="150;125;150" dur="6s" repeatCount="indefinite"/></circle>
+              <circle cx="360" cy="110" r="7"><animate attributeName="cy" values="110;140;110" dur="5.5s" repeatCount="indefinite"/></circle>
+              <circle cx="470" cy="150" r="7"><animate attributeName="cy" values="150;115;150" dur="6.5s" repeatCount="indefinite"/></circle>
+              <circle cx="580" cy="120" r="7"><animate attributeName="cy" values="120;95;120" dur="5s" repeatCount="indefinite"/></circle>
+              <circle cx="690" cy="150" r="7"><animate attributeName="cy" values="150;125;150" dur="6s" repeatCount="indefinite"/></circle>
+              <circle cx="760" cy="110" r="7"><animate attributeName="cy" values="110;135;110" dur="5.5s" repeatCount="indefinite"/></circle>
+            </g>
+            <!-- people -->
+            <g class="fragment" data-fragment-index="1">
+              <g>
+                <circle cx="200" cy="300" r="20" fill="#334155"/><rect x="182" y="322" width="36" height="70" rx="12" fill="#334155"/>
+                <line x1="200" y1="278" x2="200" y2="192" stroke="#0ea5e9" stroke-width="3" stroke-dasharray="6 6" marker-end="url(#pgbreath)"/>
+                <circle cx="200" cy="240" r="6" fill="#7dd3fc"><animate attributeName="r" values="4;9;4" dur="2.6s" repeatCount="indefinite"/></circle>
+              </g>
+              <g>
+                <circle cx="380" cy="300" r="20" fill="#475569"/><rect x="362" y="322" width="36" height="70" rx="12" fill="#475569"/>
+                <line x1="380" y1="278" x2="380" y2="192" stroke="#0ea5e9" stroke-width="3" stroke-dasharray="6 6" marker-end="url(#pgbreath)"/>
+                <circle cx="380" cy="240" r="6" fill="#7dd3fc"><animate attributeName="r" values="4;9;4" dur="3s" repeatCount="indefinite"/></circle>
+              </g>
+              <g>
+                <circle cx="540" cy="300" r="20" fill="#334155"/><rect x="522" y="322" width="36" height="70" rx="12" fill="#334155"/>
+                <line x1="540" y1="278" x2="540" y2="192" stroke="#0ea5e9" stroke-width="3" stroke-dasharray="6 6" marker-end="url(#pgbreath)"/>
+                <circle cx="540" cy="240" r="6" fill="#7dd3fc"><animate attributeName="r" values="4;9;4" dur="2.3s" repeatCount="indefinite"/></circle>
+              </g>
+              <g>
+                <circle cx="710" cy="300" r="20" fill="#475569"/><rect x="692" y="322" width="36" height="70" rx="12" fill="#475569"/>
+                <line x1="710" y1="278" x2="710" y2="192" stroke="#0ea5e9" stroke-width="3" stroke-dasharray="6 6" marker-end="url(#pgbreath)"/>
+                <circle cx="710" cy="240" r="6" fill="#7dd3fc"><animate attributeName="r" values="4;9;4" dur="2.8s" repeatCount="indefinite"/></circle>
+              </g>
+            </g>
+            <!-- callout -->
+            <g class="fragment" data-fragment-index="2">
+              <rect x="250" y="360" width="400" height="46" rx="10" fill="#ecfdf5" stroke="#34d399" stroke-width="2"/>
+              <text x="450" y="389" font-size="16" font-weight="700" fill="#047857" text-anchor="middle">Air used up = 0. There is always enough for one more.</text>
+            </g>
+            <defs><marker id="pgbreath" markerWidth="9" markerHeight="9" refX="5" refY="4.5" orient="auto"><path d="M 0 0 L 9 4.5 L 0 9 z" fill="#0ea5e9"/></marker></defs>
+          </svg>
+        </section>
+
+        <!-- PG5: Non-excludable animation (can't fence the air) -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow" style="color: #b45309;">Clean Air &middot; Property 1</p>
+          <h2>Non-Excludable: You Can&rsquo;t Fence the Air</h2>
+          <p style="font-size: 0.55em; color: #64748b; margin: 0 0 4px;">Suppose someone tried to <em>sell</em> clean air. Press <kbd style="background: #e2e8f0; border: 1px solid #cbd5e1; padding: 1px 6px; border-radius: 4px;">&rarr;</kbd>.</p>
+          <svg class="anim-graph" viewBox="0 0 900 420" style="width: 90%; max-height: 420px; margin: 0 auto; display: block; background: #fff; border: 1px solid #e2e8f0; border-radius: 10px;" role="img" aria-label="A vendor puts up a fence and a sign selling clean air for five dollars a breath. But the air flows straight through the fence, and the people outside simply breathe for free without paying — they are free riders, so the vendor collects nothing.">
+            <!-- vendor + sign -->
+            <g class="fragment" data-fragment-index="1">
+              <circle cx="150" cy="150" r="22" fill="#0f766e"/><rect x="130" y="174" width="40" height="80" rx="12" fill="#0f766e"/>
+              <rect x="70" y="60" width="200" height="60" rx="8" fill="#fff7ed" stroke="#b45309" stroke-width="2.5"/>
+              <text x="170" y="86" font-size="16" font-weight="700" fill="#b45309" text-anchor="middle">CLEAN AIR</text>
+              <text x="170" y="108" font-size="15" font-weight="700" fill="#b45309" text-anchor="middle">$5 / breath</text>
+            </g>
+            <!-- fence trying to enclose the air -->
+            <g class="fragment" data-fragment-index="2">
+              <g stroke="#92400e" stroke-width="6">
+                <line x1="300" y1="120" x2="300" y2="330"/><line x1="340" y1="120" x2="340" y2="330"/>
+                <line x1="380" y1="120" x2="380" y2="330"/><line x1="420" y1="120" x2="420" y2="330"/>
+                <line x1="285" y1="160" x2="435" y2="160"/><line x1="285" y1="290" x2="435" y2="290"/>
+              </g>
+              <!-- air leaks straight through -->
+              <g stroke="#0ea5e9" stroke-width="3.5" marker-end="url(#pgair)">
+                <line x1="270" y1="200" x2="470" y2="200"><animate attributeName="x2" values="360;470;360" dur="3s" repeatCount="indefinite"/></line>
+                <line x1="270" y1="250" x2="470" y2="250"><animate attributeName="x2" values="360;470;360" dur="3.6s" repeatCount="indefinite"/></line>
+              </g>
+              <text x="360" y="360" font-size="14" font-weight="700" fill="#0369a1" text-anchor="middle">air flows right through</text>
+            </g>
+            <!-- free riders breathing for free -->
+            <g class="fragment" data-fragment-index="3">
+              <g>
+                <circle cx="600" cy="210" r="20" fill="#334155"/><rect x="582" y="232" width="36" height="66" rx="12" fill="#334155"/>
+                <text x="600" y="170" font-size="13" fill="#334155" text-anchor="middle" font-weight="700">&ldquo;why pay?&rdquo;</text>
+              </g>
+              <g>
+                <circle cx="720" cy="230" r="20" fill="#475569"/><rect x="702" y="252" width="36" height="66" rx="12" fill="#475569"/>
+                <text x="720" y="190" font-size="13" fill="#475569" text-anchor="middle" font-weight="700">&ldquo;I&rsquo;ll just breathe&rdquo;</text>
+              </g>
+              <g>
+                <circle cx="820" cy="215" r="20" fill="#334155"/><rect x="802" y="237" width="36" height="66" rx="12" fill="#334155"/>
+              </g>
+              <rect x="560" y="345" width="320" height="46" rx="10" fill="#fef2f2" stroke="#fca5a5" stroke-width="2"/>
+              <text x="720" y="374" font-size="16" font-weight="700" fill="#b91c1c" text-anchor="middle">Vendor collects: $0. Everyone is a free rider.</text>
+            </g>
+            <defs><marker id="pgair" markerWidth="9" markerHeight="9" refX="6" refY="4.5" orient="auto"><path d="M 0 0 L 9 4.5 L 0 9 z" fill="#0ea5e9"/></marker></defs>
+          </svg>
+        </section>
+
+        <!-- PG6: The pricing problem — the main idea -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow" style="color: #b45309;">The Core Problem</p>
+          <h2>No Price &rArr; No Incentive to Produce</h2>
+          <p style="font-size: 0.55em; color: #64748b; margin: 0 0 4px;">Follow the logic a would-be producer of clean air faces. Press <kbd style="background: #e2e8f0; border: 1px solid #cbd5e1; padding: 1px 6px; border-radius: 4px;">&rarr;</kbd>.</p>
+          <svg class="anim-graph" viewBox="0 0 900 430" style="width: 92%; max-height: 420px; margin: 0 auto; display: block; background: #fff; border: 1px solid #e2e8f0; border-radius: 10px;" role="img" aria-label="A clean-air factory. Everyone values clean air highly, but because non-payers cannot be excluded, everyone free-rides, the factory's revenue is zero, and with no profit the private market produces almost none of it — the public good is under-provided.">
+            <!-- the producer: a clean-air factory / giant purifier -->
+            <g>
+              <rect x="60" y="180" width="150" height="150" rx="8" fill="#64748b"/>
+              <rect x="95" y="140" width="34" height="44" fill="#475569"/>
+              <circle cx="135" cy="255" r="46" fill="#e0f2fe" stroke="#38bdf8" stroke-width="5"/>
+              <g stroke="#0ea5e9" stroke-width="5" stroke-linecap="round">
+                <line x1="135" y1="255" x2="135" y2="222"/><line x1="135" y1="255" x2="163" y2="271"/><line x1="135" y1="255" x2="107" y2="271"/>
+                <animateTransform attributeName="transform" type="rotate" from="0 135 255" to="360 135 255" dur="4s" repeatCount="indefinite"/>
+              </g>
+              <text x="135" y="352" font-size="14" font-weight="700" fill="#334155" text-anchor="middle">clean-air producer</text>
+            </g>
+            <!-- logic chain on the right -->
+            <g class="fragment" data-fragment-index="1">
+              <rect x="270" y="70" width="560" height="56" rx="10" fill="#ecfdf5" stroke="#34d399" stroke-width="2"/>
+              <text x="290" y="96" font-size="16" fill="#065f46">&#9312; Everyone <tspan font-weight="700">values</tspan> clean air &mdash; social benefit is huge.</text>
+              <text x="290" y="116" font-size="13" fill="#047857">If it could be sold, demand would be enormous.</text>
+            </g>
+            <g class="fragment" data-fragment-index="2">
+              <rect x="270" y="140" width="560" height="56" rx="10" fill="#fff7ed" stroke="#fdba74" stroke-width="2"/>
+              <text x="290" y="166" font-size="16" fill="#7c2d12">&#9313; But it is <tspan font-weight="700">non-excludable</tspan> &mdash; you can&rsquo;t charge non-payers.</text>
+              <text x="290" y="186" font-size="13" fill="#c2410c">So everyone free-rides: &ldquo;I get it whether I pay or not.&rdquo;</text>
+            </g>
+            <g class="fragment" data-fragment-index="3">
+              <rect x="270" y="210" width="560" height="56" rx="10" fill="#fef2f2" stroke="#fca5a5" stroke-width="2"/>
+              <text x="290" y="236" font-size="16" fill="#7f1d1d">&#9314; Revenue collected = <tspan font-weight="700">$0</tspan>, so profit is negative.</text>
+              <text x="290" y="256" font-size="13" fill="#b91c1c">No firm can cover its costs by selling clean air.</text>
+            </g>
+            <g class="fragment" data-fragment-index="4">
+              <rect x="270" y="286" width="560" height="86" rx="12" fill="#1e293b"/>
+              <text x="550" y="322" font-size="19" font-weight="700" fill="#fff" text-anchor="middle">&#9315; No price &rArr; no incentive to produce.</text>
+              <text x="550" y="352" font-size="15" fill="#93c5fd" text-anchor="middle">The private market provides <tspan font-weight="700" fill="#fff">almost none</tspan> of the public good.</text>
+            </g>
+          </svg>
+        </section>
+
+        <!-- PG7: Wildfire smoke as a negative externality -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow" style="color: #b45309;">Externalities</p>
+          <h2>Wildfire Smoke: A Negative Externality</h2>
+          <p style="font-size: 0.55em; color: #64748b; margin: 0 0 4px;">The flip side of clean air. Press <kbd style="background: #e2e8f0; border: 1px solid #cbd5e1; padding: 1px 6px; border-radius: 4px;">&rarr;</kbd>.</p>
+          <div style="display:flex; gap:18px; align-items:center; max-width:1150px; margin:0 auto;">
+            <div style="flex:1.2;">
+              <svg class="anim-graph" viewBox="0 0 560 400" style="width:100%; max-height:360px; background:#fff; border:1px solid #e2e8f0; border-radius:10px;" role="img" aria-label="A smoke source emits smoke that drifts onto three bystanders, imposing health costs on them. The source pays none of those costs — they spill over onto third parties.">
+                <!-- smoke source -->
+                <rect x="40" y="250" width="120" height="120" rx="6" fill="#57534e"/>
+                <rect x="70" y="205" width="30" height="50" fill="#44403c"/>
+                <text x="100" y="390" font-size="13" font-weight="700" fill="#334155" text-anchor="middle">source (pays $0)</text>
+                <!-- smoke plume -->
+                <g fill="#78716c" opacity="0.8">
+                  <ellipse cx="120" cy="180" rx="34" ry="20"/><ellipse cx="165" cy="160" rx="40" ry="24"/>
+                  <ellipse cx="220" cy="150" rx="46" ry="26"/><ellipse cx="285" cy="150" rx="52" ry="30"/>
+                  <animateTransform attributeName="transform" type="translate" values="0 0; 40 -6; 0 0" dur="9s" repeatCount="indefinite"/>
+                </g>
+                <!-- bystanders -->
+                <g class="fragment" data-fragment-index="1">
+                  <g>
+                    <circle cx="380" cy="230" r="17" fill="#334155"/><rect x="365" y="249" width="30" height="56" rx="10" fill="#334155"/>
+                    <text x="380" y="200" font-size="18" fill="#b91c1c" font-weight="700" text-anchor="middle">&#9888;</text>
+                  </g>
+                  <g>
+                    <circle cx="450" cy="250" r="17" fill="#475569"/><rect x="435" y="269" width="30" height="56" rx="10" fill="#475569"/>
+                    <text x="450" y="220" font-size="18" fill="#b91c1c" font-weight="700" text-anchor="middle">&#9888;</text>
+                  </g>
+                  <g>
+                    <circle cx="510" cy="235" r="17" fill="#334155"/><rect x="495" y="254" width="30" height="56" rx="10" fill="#334155"/>
+                    <text x="510" y="205" font-size="18" fill="#b91c1c" font-weight="700" text-anchor="middle">&#9888;</text>
+                  </g>
+                </g>
+                <g class="fragment" data-fragment-index="2">
+                  <text x="445" y="345" font-size="14" font-weight="700" fill="#b91c1c" text-anchor="middle">they bear the cost</text>
+                  <text x="445" y="365" font-size="12" fill="#7f1d1d" text-anchor="middle">(health, lost days)</text>
+                </g>
+              </svg>
+            </div>
+            <div style="flex:1;">
+              <div class="content-card" style="margin:0; padding:16px 20px; font-size:0.86em;">
+                <div class="def-card">
+                  <div class="def-title">Externality</div>
+                  A cost (or benefit) imposed on <strong>third parties</strong> that is <strong>not reflected in any market price</strong>.
+                </div>
+                <div class="def-card fragment" style="border-left-color:#b91c1c; background:rgba(185,28,28,0.05);">
+                  <div class="def-title" style="color:#b91c1c;">Negative externality</div>
+                  Smoke, pollution, and congestion pile costs on others. Because the polluter doesn&rsquo;t pay them, the market <strong>over-produces</strong> the harm.
+                </div>
+                <p class="fragment" style="margin:10px 0 0; color:#64748b;">Two sides of one coin: clean air (a public good) is <strong>under</strong>-provided; dirty air (a negative externality) is <strong>over</strong>-produced. Prices capture neither.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- PG8: Market failure & the role of government -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow" style="color: #b45309;">Why It Matters</p>
+          <h2>Market Failure &amp; the Role of Government</h2>
+          <div class="content-card" style="font-size: 0.92em;">
+            <p style="font-weight:600; color:#0f766e;">Left to prices alone, the market gets both cases wrong:</p>
+            <div style="display:flex; gap:14px; margin-top:8px;">
+              <div class="def-card" style="flex:1; margin:0;">
+                <div class="def-title">Public goods</div>
+                Can&rsquo;t be priced &rArr; no incentive to produce &rArr; <strong>under-provided</strong> (too little clean air, defense, research).
+              </div>
+              <div class="def-card" style="flex:1; margin:0; border-left-color:#b91c1c; background:rgba(185,28,28,0.04);">
+                <div class="def-title" style="color:#b91c1c;">Negative externalities</div>
+                Costs fall on others, not the price &rArr; <strong>over-produced</strong> (too much smoke, pollution).
+              </div>
+            </div>
+            <div class="def-card fragment" style="margin-top:12px; border-left-color:#3b82f6; background:rgba(59,130,246,0.04);">
+              <div class="def-title" style="color:#3b82f6;">This is where government steps in</div>
+              <strong>Provide</strong> public goods directly, funded by <strong>taxes</strong> (recall Part 1); <strong>tax or regulate</strong> negative externalities (emissions limits, wildfire management) so the price finally reflects the true cost.
+            </div>
+          </div>
+        </section>
+
+        <!-- PG9: Quick check -->
+        <section data-background-gradient="linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%)">
+          <p class="eyebrow" style="color: #b45309;">Quick Check</p>
+          <h2>&#127922; Is It a Public Good?</h2>
+          <div class="content-card" style="font-size: 0.9em; background: rgba(255,255,255,0.7);">
+            <p style="font-weight:600; color:#b45309;">For each, ask: can you exclude non-payers? Is it rival?</p>
+            <ul>
+              <li>A fireworks display over the city</li>
+              <li>A slice of pizza</li>
+              <li>A congested public highway at rush hour</li>
+              <li>A Netflix subscription</li>
+            </ul>
+            <div style="margin: 6px 0 10px;">
+              <button class="group-roll-btn" onclick="rollGroup('l6pgq1')">&#127922; Pick a group</button>
+              <span class="group-roll-result" id="l6pgq1">&mdash;</span>
+            </div>
+            <div class="def-card fragment" style="margin-top:6px;">
+              <div class="def-title">Answers</div>
+              Fireworks = <strong>public good</strong> (non-excludable, non-rival). Pizza = <strong>private</strong>. Congested highway = <strong>common resource</strong> (non-excludable but rival). Netflix = <strong>club good</strong> (excludable but non-rival).
+            </div>
+          </div>
+        </section>
+
+      </section>
+
+
+      <!-- SECTION 3: Summary & Wrap-Up — moved from Class 5 (Vertical Stack) -->
+      <section>
+
+        <!-- Slide 7.1: Divider -->
+        <section data-background-gradient="linear-gradient(135deg, #0f766e 0%, #115e59 100%)">
+          <p class="eyebrow" style="color: #ccfbf1;">Summary</p>
+          <h1 style="color: white; font-size: 2.8em;">Summary &amp; Wrap-Up</h1>
+          <p style="color: #ccfbf1; margin-top: 20px;">Press <kbd style="background: #115e59; color: white; border: 1px solid #134e4a; padding: 2px 6px; border-radius: 4px;">↓</kbd> to continue</p>
+        </section>
+
+        <!-- Slide 7.2: Summary 1/2 -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Summary</p>
+          <h2>Welfare and Efficiency</h2>
+          <div class="content-card" style="font-size: 0.95em;">
+            <p style="font-weight: 600; color: #0f766e;">If competitive assumptions are met, market equilibrium is efficient:</p>
+            <ul>
+              <li>Production costs are minimized.</li>
+              <li>The sum of consumer and producer surplus is maximized.</li>
+            </ul>
+            <div class="def-card fragment" style="margin-top: 15px;">
+              <div class="def-title">Policy Takeaway</div>
+              In the absence of market failures, government interference with the competitive equilibrium via price controls or taxes leads to <strong>deadweight loss</strong>.
+            </div>
+          </div>
+        </section>
+
+        <!-- Slide 7.4: Done with Part 1! -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Wrap-Up</p>
+          <h2>We're Done with Part 1!</h2>
+          <div class="content-card" style="text-align: center; padding: 40px;">
+            <p style="font-size: 1.25em; font-weight: 700; color: #0f766e; margin-bottom: 20px;">
+              This wraps up the first part of the course!
+            </p>
+            <p style="font-size: 1.05em; line-height: 1.5;">
+              We have covered decision-making on the margin, supply and demand dynamics, elasticities, firm cost structures, monopoly, perfect competition, and welfare economics.
+            </p>
+            <p class="fragment" style="color: #3b82f6; font-weight: 600; font-size: 1.1em; margin-top: 25px;">
+              This means&hellip; something fun next Monday, and the Final Exam next Wednesday!
+            </p>
+          </div>
+        </section>
+
+        <!-- Slide 7.5: Final Exam Rules -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Wrap-Up · Final Exam</p>
+          <h2>Rules for the Final Exam</h2>
+          <div class="content-card" style="font-size: 0.92em;">
+            <ol>
+              <li class="fragment"><strong>6 double-sided cheat sheets</strong> allowed (max. <strong>12 sides</strong>), handwritten or typed. If your cheat sheet is on an iPad, <strong>email it to me and Jasmine before the Final Exam</strong> so you&rsquo;re cleared to use it.</li>
+              <li class="fragment"><strong>Final Exam is 45&ndash;60 mins (TBD)</strong>: 40% multiple-choice, 20% True/False, 40% written responses.</li>
+              <li class="fragment"><strong>Try your best</strong> for the Final Exam!</li>
+            </ol>
+            <p class="fragment" style="font-weight: 600; color: #0f766e; margin-top: 15px; text-align: center;">
+              Be prepared for a fun discussion session after the Final Exam! Over the next week, reflect on your time here at RSC.
+            </p>
+          </div>
+        </section>
+
+      </section>
+
+
+      <!-- SECTION 7: Closing Slide (Horizontal) -->
+
+      <!-- Slide: Closing -->
+      <section data-background-gradient="linear-gradient(135deg, #0f172a 0%, #1e293b 100%)">
+        <p class="eyebrow" style="color: #2dd4bf;">Thank You</p>
+        <h2 style="color: white;">That&rsquo;s a Wrap on the Economics!</h2>
+        <div class="content-card" style="background: rgba(30, 41, 59, 0.7); border-color: rgba(255, 255, 255, 0.1); text-align: center;">
+          <p style="color: #cbd5e1; font-weight: 600; margin-bottom: 10px;">From scarcity to public goods &mdash; you made it through the whole arc.</p>
+          <p style="color: #94a3b8; font-size: 1.15em;"><strong>Good luck on the Final Exam!</strong></p>
+          <p style="color: #64748b; font-size: 0.85em; margin-top: 10px;">Come to office hours w/ any questions or concerns.</p>
+        </div>
+        <p style="margin-top: 40px; color: #64748b; font-size: 0.75em;">Thank you for a great summer!</p>
+      </section>
+
+    </div>
+  </div>
+
+  <a class="home-link" href="../">&larr; Back to course site</a>
+  <div class="slide-footer">RSC Economics Experience · Class 6</div>
+
+  <!-- reveal.js core + plugins -->
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/notes/notes.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/highlight/highlight.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/math/math.js"></script>
+  <script>
+    // Group work: randomly pick a group number between 1 and 7 (inclusive)
+    function rollGroup(id) {
+      document.getElementById(id).textContent = Math.floor(Math.random() * 7) + 1;
+    }
+
+    Reveal.initialize({
+      hash: true,
+      slideNumber: 'c/t',
+      transition: 'slide',
+      plugins: [ RevealHighlight, RevealNotes, RevealMath.KaTeX ]
+    });
+  </script>
+  <script src="../slides/annotate.js"></script>
+</body>
+</html>
