@@ -996,6 +996,62 @@
           </div>
         </section>
 
+        <!-- Slide 3.6c: Elasticity & CS side-by-side comparison (animated) -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Surplus · Consumer</p>
+          <h2>Elasticity &amp; CS: The Two Cases</h2>
+          <p style="font-size: 0.55em; color: #64748b; margin: 0 0 4px;">Same market price \( P^* \) and quantity \( Q^* \) in both panels &mdash; only the slope of demand differs. Press <kbd style="background: #e2e8f0; border: 1px solid #cbd5e1; padding: 1px 6px; border-radius: 4px;">&rarr;</kbd>.</p>
+          <svg class="anim-graph" viewBox="0 0 960 460" style="width: 94%; max-height: 420px; margin: 0 auto; display: block; background: #fff; border: 1px solid #e2e8f0; border-radius: 10px;" role="img" aria-label="Two side-by-side panels at the same price P-star and quantity Q-star. Left: a steep, inelastic demand curve produces a tall, large consumer-surplus triangle. Right: a flat, elastic demand curve produces a short, small consumer-surplus triangle. Same price and quantity, but the steeper demand yields the larger surplus.">
+            <!-- panel titles -->
+            <text x="255" y="34" font-size="17" font-weight="700" fill="#0f766e" text-anchor="middle">Inelastic &mdash; steep demand</text>
+            <text x="730" y="34" font-size="17" font-weight="700" fill="#0f766e" text-anchor="middle">Elastic &mdash; flat demand</text>
+            <!-- left axes -->
+            <line x1="80" y1="380" x2="430" y2="380" stroke="#475569" stroke-width="2.5"/>
+            <polygon points="430,375 430,385 441,380" fill="#475569"/>
+            <line x1="80" y1="380" x2="80" y2="55" stroke="#475569" stroke-width="2.5"/>
+            <polygon points="75,55 85,55 80,44" fill="#475569"/>
+            <text x="442" y="386" font-size="14" fill="#1e293b" font-style="italic">Q</text>
+            <text x="64" y="64" font-size="14" fill="#1e293b" font-style="italic">P</text>
+            <!-- right axes -->
+            <line x1="555" y1="380" x2="905" y2="380" stroke="#475569" stroke-width="2.5"/>
+            <polygon points="905,375 905,385 916,380" fill="#475569"/>
+            <line x1="555" y1="380" x2="555" y2="55" stroke="#475569" stroke-width="2.5"/>
+            <polygon points="550,55 560,55 555,44" fill="#475569"/>
+            <text x="917" y="386" font-size="14" fill="#1e293b" font-style="italic">Q</text>
+            <text x="539" y="64" font-size="14" fill="#1e293b" font-style="italic">P</text>
+            <!-- fragment 1: demand curves -->
+            <g class="fragment" data-fragment-index="1">
+              <line class="build-line" x1="80" y1="90" x2="352" y2="380" stroke="#1e293b" stroke-width="3.5"/>
+              <text x="356" y="378" font-size="14" fill="#1e293b" font-weight="700" font-style="italic">D</text>
+              <line class="build-line" x1="555" y1="190" x2="905" y2="330" stroke="#1e293b" stroke-width="3.5"/>
+              <text x="909" y="330" font-size="14" fill="#1e293b" font-weight="700" font-style="italic">D</text>
+            </g>
+            <!-- fragment 2: price P* + Q* + equilibrium points -->
+            <g class="fragment" data-fragment-index="2">
+              <line x1="80" y1="250" x2="230" y2="250" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="5 4"/>
+              <line x1="230" y1="250" x2="230" y2="380" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="5 4"/>
+              <circle cx="230" cy="250" r="5" fill="#1e293b"/>
+              <text x="72" y="255" font-size="13" font-weight="700" fill="#1e293b" text-anchor="end">P*</text>
+              <text x="230" y="398" font-size="13" font-weight="700" fill="#1e293b" text-anchor="middle">Q*</text>
+              <line x1="555" y1="250" x2="705" y2="250" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="5 4"/>
+              <line x1="705" y1="250" x2="705" y2="380" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="5 4"/>
+              <circle cx="705" cy="250" r="5" fill="#1e293b"/>
+              <text x="547" y="255" font-size="13" font-weight="700" fill="#1e293b" text-anchor="end">P*</text>
+              <text x="705" y="398" font-size="13" font-weight="700" fill="#1e293b" text-anchor="middle">Q*</text>
+            </g>
+            <!-- fragment 3: CS triangles + comparison -->
+            <g class="fragment" data-fragment-index="3">
+              <polygon points="80,90 80,250 230,250" fill="#d97706" fill-opacity="0.28"/>
+              <text x="110" y="205" font-size="16" font-weight="700" fill="#b45309">CS</text>
+              <text x="248" y="118" font-size="14" font-weight="700" fill="#b45309">larger CS</text>
+              <polygon points="555,190 555,250 705,250" fill="#d97706" fill-opacity="0.28"/>
+              <text x="590" y="238" font-size="14" font-weight="700" fill="#b45309">CS</text>
+              <text x="726" y="206" font-size="14" font-weight="700" fill="#b45309">smaller CS</text>
+              <text x="480" y="442" font-size="15" font-weight="700" fill="#0f766e" text-anchor="middle">Same P* and Q* &mdash; steeper (inelastic) demand &#8658; the larger consumer surplus.</text>
+            </g>
+          </svg>
+        </section>
+
         <!-- Slide 3.7: CS Example -->
         <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
           <p class="eyebrow">Surplus · Practice</p>
