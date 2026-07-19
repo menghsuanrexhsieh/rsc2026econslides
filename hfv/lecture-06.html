@@ -1140,12 +1140,119 @@
                   The market trades where buyers meet <strong>private</strong> cost \( (D = MPC) \), at \( Q_{\text{market}} \).
                 </div>
                 <div class="def-card fragment" style="margin:6px 0; border-left-color:#b91c1c; background:rgba(185,28,28,0.05);">
-                  With smoke, social cost is higher: \( MSC = MPC + \text{external cost} \). Society should stop at \( Q^* < Q_{\text{market}} \) &mdash; every extra unit costs more than it&rsquo;s worth.
+                  With smoke, social cost is higher: \( MSC = MPC + \text{external cost} \). Society should stop at \( Q^* < Q_{\text{market}} \), so the market <strong>over-produces</strong> &mdash; every extra unit costs more than it&rsquo;s worth.
                 </div>
                 <div class="def-card fragment" style="margin:6px 0; border-left-color:#3b82f6; background:rgba(59,130,246,0.04);">
                   The red triangle is the <strong>deadweight loss</strong> &mdash; the very same welfare tool from Class 5, now drawn by the free market itself.
                 </div>
               </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- PG7c: Externalities — the general rule (framework) -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow" style="color: #b45309;">Externalities &middot; The Rule</p>
+          <h2>Which Way Does the Market Miss?</h2>
+          <div class="content-card" style="font-size: 0.92em;">
+            <p style="font-weight:600; color:#0f766e; margin:0 0 8px;">An externality drives a wedge between <em>private</em> value (what the decision-maker feels) and <em>social</em> value (what everyone feels). Two cases:</p>
+            <div style="display:flex; gap:14px;">
+              <div class="def-card" style="flex:1; margin:0; border-left-color:#b91c1c; background:rgba(185,28,28,0.04);">
+                <div class="def-title" style="color:#b91c1c;">Negative &rArr; over-produced</div>
+                The true cost is higher than the seller pays: \( MSC > MPC \). The market trades where buyers meet \( MPC \), <strong>past</strong> the efficient point (where they&rsquo;d meet \( MSC \)), so \( Q_{\text{market}} > Q^* \).
+                <p style="margin:8px 0 0; font-size:0.9em; color:#7f1d1d;">e.g. a steel mill dumping waste into a river.</p>
+              </div>
+              <div class="def-card" style="flex:1; margin:0; border-left-color:#2563eb; background:rgba(37,99,235,0.05);">
+                <div class="def-title" style="color:#2563eb;">Positive &rArr; under-produced</div>
+                The true benefit is higher than the buyer enjoys: \( MSB > MPB \). Buyers stop where <em>their</em> benefit meets cost, <strong>short</strong> of where <em>social</em> benefit meets cost, so \( Q_{\text{market}} < Q^* \).
+                <p style="margin:8px 0 0; font-size:0.9em; color:#1e40af;">e.g. a flu shot that also protects classmates.</p>
+              </div>
+            </div>
+            <div class="def-card fragment" style="margin-top:12px; border-left-color:#059669; background:rgba(5,150,105,0.05);">
+              <div class="def-title" style="color:#059669;">Where does the wedge sit?</div>
+              A <strong>production</strong> externality moves the <strong>cost</strong> curve (\( MPC \) vs. \( MSC \)); a <strong>consumption</strong> externality moves the <strong>benefit</strong> curve (\( MPB \) vs. \( MSB \)).
+            </div>
+          </div>
+        </section>
+
+        <!-- PG7d: Positive externality in consumption — flu shots (mirror of PG7b) -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow" style="color: #b45309;">Externalities &middot; Positive</p>
+          <h2>Positive Externality: Flu Shots</h2>
+          <p style="font-size: 0.55em; color: #64748b; margin: 0 0 4px;">A flu shot protects the buyer <em>and</em> the people around them &mdash; a benefit the buyer never counts. Press <kbd style="background: #e2e8f0; border: 1px solid #cbd5e1; padding: 1px 6px; border-radius: 4px;">&rarr;</kbd>.</p>
+          <div style="display:flex; gap:18px; align-items:center; max-width:1160px; margin:0 auto;">
+            <div style="flex:1.3;">
+              <svg class="anim-graph" viewBox="0 0 720 440" style="width:100%; max-height:400px; background:#fff; border:1px solid #e2e8f0; border-radius:10px;" role="img" aria-label="A supply-and-demand graph for flu shots, a good with a positive consumption externality. Supply equals marginal cost. Demand equals marginal private benefit MPB; marginal social benefit MSB lies above MPB by the external benefit. The market trades at Q-market where supply meets MPB, but the efficient quantity Q-star, where supply meets MSB, is larger. The red triangle between them is the deadweight loss from under-provision.">
+                <line x1="90" y1="380" x2="660" y2="380" stroke="#475569" stroke-width="2.5"/>
+                <polygon points="660,375 660,385 671,380" fill="#475569"/>
+                <line x1="90" y1="380" x2="90" y2="40" stroke="#475569" stroke-width="2.5"/>
+                <polygon points="85,40 95,40 90,29" fill="#475569"/>
+                <text x="676" y="386" font-size="14" fill="#1e293b" font-style="italic">Q</text>
+                <text x="72" y="40" font-size="14" fill="#1e293b">$</text>
+                <!-- fragment 1: S = MC, D = MPB, market equilibrium -->
+                <g class="fragment" data-fragment-index="1">
+                  <line x1="120" y1="340" x2="600" y2="100" stroke="#0f766e" stroke-width="3.5"/>
+                  <text x="606" y="102" font-size="14" fill="#0f766e" font-weight="700" font-style="italic">S = MC</text>
+                  <line x1="120" y1="200" x2="520" y2="360" stroke="#0f172a" stroke-width="3.5"/>
+                  <text x="526" y="362" font-size="14" fill="#0f172a" font-weight="700" font-style="italic">D = MPB</text>
+                  <circle cx="276" cy="262" r="6" fill="#1e293b"/>
+                  <line x1="276" y1="262" x2="276" y2="380" stroke="#94a3b8" stroke-width="1.4" stroke-dasharray="5 4"/>
+                  <text x="276" y="400" font-size="13" font-weight="700" fill="#1e293b" text-anchor="middle">Q<tspan font-size="10" dy="3">market</tspan></text>
+                </g>
+                <!-- fragment 2: MSB + social optimum -->
+                <g class="fragment" data-fragment-index="2">
+                  <line x1="120" y1="120" x2="520" y2="280" stroke="#2563eb" stroke-width="3.5"/>
+                  <text x="526" y="282" font-size="14" fill="#2563eb" font-weight="700" font-style="italic">MSB</text>
+                  <circle cx="364" cy="218" r="6" fill="#2563eb"/>
+                  <line x1="364" y1="218" x2="364" y2="380" stroke="#94a3b8" stroke-width="1.4" stroke-dasharray="5 4"/>
+                  <text x="372" y="400" font-size="13" font-weight="700" fill="#2563eb" text-anchor="middle">Q*</text>
+                </g>
+                <!-- fragment 3: DWL triangle (under-provision) -->
+                <g class="fragment" data-fragment-index="3">
+                  <polygon points="276,262 276,182 364,218" fill="#ef4444" fill-opacity="0.30" stroke="#b91c1c" stroke-width="1.5"/>
+                  <text x="300" y="150" font-size="14" font-weight="700" fill="#b91c1c">deadweight loss</text>
+                  <line x1="335" y1="158" x2="330" y2="206" stroke="#b91c1c" stroke-width="1.5" marker-end="url(#pgdwl2)"/>
+                </g>
+                <defs><marker id="pgdwl2" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M 0 0 L 8 4 L 0 8 z" fill="#b91c1c"/></marker></defs>
+              </svg>
+            </div>
+            <div style="flex:1;">
+              <div class="content-card" style="margin:0; padding:16px 20px; font-size:0.82em;">
+                <div class="def-card" style="margin:6px 0;">
+                  Buyers get shots where <strong>their own</strong> benefit meets the cost \( (MPB = S) \), at \( Q_{\text{market}} \).
+                </div>
+                <div class="def-card fragment" style="margin:6px 0; border-left-color:#2563eb; background:rgba(37,99,235,0.05);">
+                  But each shot also protects others: \( MSB = MPB + \text{external benefit} \). Society should reach \( Q^* > Q_{\text{market}} \) &mdash; the market makes <strong>too few</strong>.
+                </div>
+                <div class="def-card fragment" style="margin:6px 0; border-left-color:#3b82f6; background:rgba(59,130,246,0.04);">
+                  The red triangle is the <strong>deadweight loss</strong> from <strong>under-provision</strong> &mdash; surplus left on the table.
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- PG7e: Correcting externalities — Pigouvian taxes & subsidies -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow" style="color: #b45309;">Externalities &middot; The Fix</p>
+          <h2>Correcting Externalities: Tax vs. Subsidy</h2>
+          <div class="content-card" style="font-size: 0.9em;">
+            <p style="font-weight:600; color:#0f766e; margin:0 0 8px;">Make the decision-maker face the <em>true</em> social cost or benefit &mdash; that pushes the traded quantity to \( Q^* \):</p>
+            <div style="display:flex; gap:14px;">
+              <div class="def-card" style="flex:1; margin:0; border-left-color:#b91c1c; background:rgba(185,28,28,0.04);">
+                <div class="def-title" style="color:#b91c1c;">Negative &mdash; a Pigouvian <u>tax</u></div>
+                Tax the seller by the external cost. Private cost rises to \( MSC \), supply shifts up/left, and the <strong>quantity falls</strong> toward \( Q^* \).
+                <p style="margin:8px 0 0; font-size:0.9em; color:#7f1d1d;">Fixes over-production (steel, pollution).</p>
+              </div>
+              <div class="def-card" style="flex:1; margin:0; border-left-color:#2563eb; background:rgba(37,99,235,0.05);">
+                <div class="def-title" style="color:#2563eb;">Positive &mdash; a <u>subsidy</u></div>
+                Subsidize the buyer by the external benefit. Effective benefit rises to \( MSB \), demand shifts up/right, and the <strong>quantity rises</strong> toward \( Q^* \).
+                <p style="margin:8px 0 0; font-size:0.9em; color:#1e40af;">Fixes under-production (flu shots, education).</p>
+              </div>
+            </div>
+            <div class="def-card fragment" style="margin-top:12px; border-left-color:#059669; background:rgba(5,150,105,0.05);">
+              <div class="def-title" style="color:#059669;">One idea</div>
+              A <strong>tax shrinks</strong> a market that harms others; a <strong>subsidy grows</strong> a market that helps others. Both move the traded quantity to the socially efficient level and erase the deadweight loss.
             </div>
           </div>
         </section>
@@ -1168,7 +1275,7 @@
             </div>
             <div class="def-card fragment" style="margin-top:12px; border-left-color:#3b82f6; background:rgba(59,130,246,0.04);">
               <div class="def-title" style="color:#3b82f6;">This is where government steps in</div>
-              <strong>Provide</strong> public goods directly, funded by <strong>taxes</strong> (recall Part 1); <strong>tax or regulate</strong> negative externalities (emissions limits, wildfire management) so the price finally reflects the true cost.
+              <strong>Provide</strong> public goods directly, funded by <strong>taxes</strong> (recall Part 1); <strong>tax or regulate</strong> negative externalities (emissions limits, wildfire management) and <strong>subsidize</strong> positive ones (vaccines, education) so prices finally reflect the true social cost and benefit.
             </div>
             <div class="def-card fragment" style="margin-top:10px; border-left-color:#059669; background:rgba(5,150,105,0.05);">
               <div class="def-title" style="color:#059669;">The welfare flip</div>
@@ -1193,6 +1300,7 @@
               <tr class="fragment"><td style="padding:6px 12px;">Taxes &amp; price controls</td><td style="padding:6px 12px; color:#b91c1c; font-weight:600;">Deadweight loss</td></tr>
               <tr class="fragment"><td style="padding:6px 12px;">Public goods</td><td style="padding:6px 12px; color:#b91c1c; font-weight:600;">Under-provided &rarr; lost surplus</td></tr>
               <tr class="fragment"><td style="padding:6px 12px;">Negative externalities</td><td style="padding:6px 12px; color:#b91c1c; font-weight:600;">Over-produced &rarr; deadweight loss</td></tr>
+              <tr class="fragment"><td style="padding:6px 12px;">Positive externalities</td><td style="padding:6px 12px; color:#b91c1c; font-weight:600;">Under-produced &rarr; lost surplus</td></tr>
             </table>
             <div class="def-card fragment" style="margin-top:12px; border-left-color:#3b82f6; background:rgba(59,130,246,0.04);">
               <div class="def-title" style="color:#3b82f6;">The bottom line</div>
