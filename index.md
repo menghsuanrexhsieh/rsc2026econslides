@@ -25,4 +25,8 @@ title: Home
     <h3>Class 4</h3>
     <p>More on Monopoly Pricing and Perfect Competition</p>
   </a>
+  <a class="card" href="{{ '/slides/lecture-05.html' | relative_url }}">
+    <h3>Class 5</h3>
+    <p>Social Welfare, Efficiency, and Deadweight Loss</p>
+  </a>
 </div>
