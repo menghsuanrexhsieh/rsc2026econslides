@@ -1327,7 +1327,7 @@
           <div class="content-card">
             <div class="def-card">
               <div class="def-title">Definition</div>
-              <strong>Deadweight loss (DWL)</strong> is the net reduction in total surplus from an event, action, or policy that <em>alters the market equilibrium</em>, resulting in a loss of social surplus that is <strong>not offset</strong> by a gain to another group.
+              <strong>Deadweight loss (DWL)</strong> is the net reduction in social surplus from an event, action, or policy that <em>alters the market equilibrium</em>, resulting in a loss of social surplus that is <strong>not offset</strong> by a gain to another group.
             </div>
             <p style="font-weight: 600; color: #0f766e; margin-top: 15px;">Why does it occur?</p>
             <ul>
@@ -1466,9 +1466,85 @@
             </div>
             <div class="def-card fragment" style="margin: 8px 0;">
               <div class="def-title">Step 3: Welfare Comparison</div>
-              Consumer surplus shrinks (higher price, fewer units), and total surplus falls relative to the pre-shock market. Some previously beneficial transactions no longer happen &mdash; consumers and producers are both hurt by the shock.
+              Consumer surplus shrinks (higher price, fewer units), and social surplus falls relative to the pre-shock market. Some previously beneficial transactions no longer happen &mdash; consumers and producers are both hurt by the shock.
             </div>
           </div>
+        </section>
+
+        <!-- Slide 4.5h: Welfare Effects of a Shock — animated graph -->
+        <section data-background-gradient="linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)">
+          <p class="eyebrow" style="color: #059669;">Welfare · Solution (graph)</p>
+          <h2>Welfare Effects of a Shock, Graphically</h2>
+          <p style="font-size: 0.55em; color: #64748b; margin: 0 0 4px;">Doubled costs shift supply up &mdash; watch the price, the quantity, and every surplus change. Press <kbd style="background: #e2e8f0; border: 1px solid #cbd5e1; padding: 1px 6px; border-radius: 4px;">&rarr;</kbd>.</p>
+          <svg class="anim-graph" viewBox="0 0 720 470" style="width: 80%; max-height: 420px; margin: 0 auto; display: block; background: #fff; border: 1px solid #e2e8f0; border-radius: 10px;" role="img" aria-label="Welfare effect of a negative supply shock. Demand D is fixed. Supply shifts up from S to S-prime because production costs doubled, so equilibrium moves from E0 (lower price, higher quantity) to E1 (higher price P1, lower quantity Q1). After the shock the green diagonally-striped triangle above P1 is consumer surplus, the blue oppositely-striped region below P1 and above S-prime is producer surplus, and the red cross-hatched triangle between demand and the original supply over the lost output from Q1 to Q0 is the deadweight loss.">
+            <defs>
+              <pattern id="shkCS" width="9" height="9" patternTransform="rotate(45)" patternUnits="userSpaceOnUse">
+                <rect width="9" height="9" fill="#22c55e" fill-opacity="0.10"/>
+                <line x1="0" y1="0" x2="0" y2="9" stroke="#16a34a" stroke-width="2.2" stroke-opacity="0.65"/>
+              </pattern>
+              <pattern id="shkPS" width="9" height="9" patternTransform="rotate(-45)" patternUnits="userSpaceOnUse">
+                <rect width="9" height="9" fill="#3b82f6" fill-opacity="0.10"/>
+                <line x1="0" y1="0" x2="0" y2="9" stroke="#2563eb" stroke-width="2.2" stroke-opacity="0.65"/>
+              </pattern>
+              <pattern id="shkDWL" width="8" height="8" patternUnits="userSpaceOnUse">
+                <rect width="8" height="8" fill="#ef4444" fill-opacity="0.16"/>
+                <path d="M 0,0 L 8,8 M 0,8 L 8,0" stroke="#b91c1c" stroke-width="1.5" stroke-opacity="0.75"/>
+              </pattern>
+              <marker id="shkArr" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M 0 0 L 9 4.5 L 0 9 z" fill="#b45309"/></marker>
+              <marker id="shkArrK" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M 0 0 L 8 4 L 0 8 z" fill="#b91c1c"/></marker>
+            </defs>
+            <!-- axes -->
+            <line x1="80" y1="400" x2="660" y2="400" stroke="#475569" stroke-width="2.5"/>
+            <polygon points="660,395 660,405 671,400" fill="#475569"/>
+            <line x1="80" y1="400" x2="80" y2="40" stroke="#475569" stroke-width="2.5"/>
+            <polygon points="75,40 85,40 80,29" fill="#475569"/>
+            <text x="672" y="406" font-size="14" fill="#1e293b" font-style="italic">Q</text>
+            <text x="62" y="50" font-size="14" fill="#1e293b">$</text>
+            <!-- fragment 1: before the shock (D, S, E0) -->
+            <g class="fragment" data-fragment-index="1">
+              <line x1="120" y1="90" x2="600" y2="370" stroke="#0f172a" stroke-width="3.5"/>
+              <text x="606" y="373" font-size="14" fill="#0f172a" font-weight="700" font-style="italic">D</text>
+              <line x1="120" y1="370" x2="560" y2="110" stroke="#0f766e" stroke-width="3.5"/>
+              <text x="566" y="108" font-size="14" fill="#0f766e" font-weight="700" font-style="italic">S</text>
+              <circle cx="358" cy="229" r="6" fill="#1e293b"/>
+              <text x="368" y="224" font-size="13" font-weight="700" fill="#1e293b">E&#8320;</text>
+              <line x1="80" y1="229" x2="358" y2="229" stroke="#94a3b8" stroke-width="1.3" stroke-dasharray="5 4"/>
+              <line x1="358" y1="229" x2="358" y2="400" stroke="#94a3b8" stroke-width="1.3" stroke-dasharray="5 4"/>
+              <text x="72" y="234" font-size="13" font-weight="700" fill="#475569" text-anchor="end">P&#8320;</text>
+              <text x="358" y="418" font-size="13" font-weight="700" fill="#475569" text-anchor="middle">Q&#8320;</text>
+            </g>
+            <!-- fragment 2: the shock — supply shifts up, new equilibrium -->
+            <g class="fragment" data-fragment-index="2">
+              <line x1="120" y1="280" x2="490" y2="61" stroke="#b45309" stroke-width="3.5"/>
+              <text x="496" y="62" font-size="14" fill="#b45309" font-weight="700" font-style="italic">S&#8242;</text>
+              <line x1="250" y1="291" x2="250" y2="211" stroke="#b45309" stroke-width="2" marker-end="url(#shkArr)"/>
+              <line x1="185" y1="333" x2="185" y2="253" stroke="#b45309" stroke-width="2" marker-end="url(#shkArr)"/>
+              <text x="120" y="360" font-size="12.5" fill="#b45309" font-weight="700">cost doubles &rarr; supply shifts up</text>
+              <circle cx="282" cy="184" r="6" fill="#b45309"/>
+              <text x="290" y="178" font-size="13" font-weight="700" fill="#b45309">E&#8321;</text>
+              <line x1="80" y1="184" x2="282" y2="184" stroke="#94a3b8" stroke-width="1.3" stroke-dasharray="5 4"/>
+              <line x1="282" y1="184" x2="282" y2="400" stroke="#94a3b8" stroke-width="1.3" stroke-dasharray="5 4"/>
+              <text x="72" y="189" font-size="13" font-weight="700" fill="#b45309" text-anchor="end">P&#8321;</text>
+              <text x="282" y="418" font-size="13" font-weight="700" fill="#b45309" text-anchor="middle">Q&#8321;</text>
+              <text x="93" y="211" font-size="12" fill="#b91c1c" font-weight="700">P&#8593;</text>
+              <text x="300" y="393" font-size="12" fill="#b91c1c" font-weight="700">Q&#8595;</text>
+            </g>
+            <!-- fragment 3: consumer & producer surplus after the shock -->
+            <g class="fragment" data-fragment-index="3">
+              <polygon points="120,90 120,184 282,184" fill="url(#shkCS)" stroke="#16a34a" stroke-width="1" stroke-opacity="0.45"/>
+              <text x="150" y="150" font-size="15" font-weight="700" fill="#15803d">CS</text>
+              <polygon points="120,184 120,280 282,184" fill="url(#shkPS)" stroke="#2563eb" stroke-width="1" stroke-opacity="0.45"/>
+              <text x="150" y="230" font-size="15" font-weight="700" fill="#1e40af">PS</text>
+            </g>
+            <!-- fragment 4: deadweight loss (lost trades) -->
+            <g class="fragment" data-fragment-index="4">
+              <polygon points="282,184 282,274 358,229" fill="url(#shkDWL)" stroke="#b91c1c" stroke-width="1.4"/>
+              <line x1="418" y1="330" x2="333" y2="240" stroke="#b91c1c" stroke-width="1.5" marker-end="url(#shkArrK)"/>
+              <text x="422" y="332" font-size="13.5" font-weight="700" fill="#b91c1c">DWL</text>
+              <text x="422" y="349" font-size="11.5" fill="#7f1d1d">lost gains from trade</text>
+            </g>
+          </svg>
+          <p class="fragment" data-fragment-index="4" style="text-align:center; font-weight:600; color:#059669; font-size:0.82em; margin-top:6px;">Price rises and quantity falls; consumer and producer surplus both shrink, and the red cross-hatched triangle is the deadweight loss &mdash; gains from trade on the units no longer produced.</p>
         </section>
 
         <!-- Slide 4.6: Taxes and Price Controls Intro -->
