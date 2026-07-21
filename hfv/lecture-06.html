@@ -314,14 +314,13 @@
           <p class="eyebrow">Interventions · Rationale</p>
           <h2>Why Intervene in Markets?</h2>
           <div class="content-card" style="font-size: 0.9em;">
-            <p style="font-weight: 600; color: #0f766e;">Market efficiency relies on several critical assumptions:</p>
+            <p style="font-weight: 600; color: #0f766e;">A competitive market is efficient only when a big assumption holds: <strong>no market failures</strong>. This deck examines the two that break it:</p>
             <ol>
-              <li class="fragment"><strong>Income Distribution</strong>: Competitive markets maximize total surplus given the <em>initial</em> distribution of income, which might be unequal or undesirable.</li>
-              <li class="fragment"><strong>Consumer Sovereignty</strong>: Consumers are assumed to be the best judges of their own utility.</li>
-              <li class="fragment"><strong>No Externalities</strong>: Producers must bear all production costs, and purchasers must receive all benefits.</li>
+              <li class="fragment"><strong>No externalities</strong>: producers must bear <em>all</em> production costs, and buyers must receive <em>all</em> the benefits. Wildfire smoke and pollution violate this.</li>
+              <li class="fragment"><strong>Everything can be priced &amp; excluded</strong>: if you can&rsquo;t charge non-payers, no firm will supply the good. Clean air and other <strong>public goods</strong> violate this.</li>
             </ol>
             <p class="fragment" style="margin-top: 15px;">
-              If any of these assumptions fail, government intervention may be economically justified to "generate desirable market outcomes."
+              When either assumption fails, the market misfires on its own &mdash; and government intervention may be economically justified.
             </p>
           </div>
         </section>
@@ -448,82 +447,74 @@
         <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
           <p class="eyebrow">Interventions · Price Ceiling</p>
           <h2>Rent Control: Reading the Deadweight Loss</h2>
-          <div style="display: flex; align-items: center; justify-content: center; gap: 20px; max-width: 1090px; margin: 0 auto;">
-            <div style="flex: 1.1; text-align: left;">
-              <div class="example-card" style="margin: 0; font-size: 0.82em; padding: 15px;">
-                <div class="ex-title">The Setup</div>
-                San Francisco caps rent at <strong>$1,500</strong> &mdash; below the <strong>$2,000</strong> market rent. Don&rsquo;t compute it; <em>read</em> the graph &rarr;
-                <ul style="margin: 8px 0 0 !important;">
-                  <li class="fragment" data-fragment-index="1">The ceiling binds, so landlords supply only \( Q_s \) &mdash; far fewer units than renters demand (\( Q_d \)). The gap \( Q_d - Q_s \) is the <strong>shortage</strong>.</li>
-                  <li class="fragment" data-fragment-index="2">Units rented fall from \( Q^* \) to \( Q_s \). Each one in between was valued by a renter <em>above</em> the landlord&rsquo;s cost &mdash; a trade that now never happens.</li>
-                  <li class="fragment" data-fragment-index="2">Those lost gains from trade <em>are</em> the <strong style="color:#dc2626;">red DWL triangle</strong> &mdash; that&rsquo;s <em>why</em> it sits between \( Q_s \) and \( Q^* \) and points back at equilibrium.</li>
-                </ul>
-                <p class="fragment" data-fragment-index="3" style="font-weight: 600; color: #0f766e; margin-top: 12px; font-size: 0.92em;">
-                  The more <strong>inelastic</strong> (steeper) supply is, the fewer units disappear &mdash; the triangle shrinks. Perfectly inelastic supply &rArr; no units lost &rArr; <strong>zero</strong> DWL.
-                </p>
-              </div>
-            </div>
-            <div style="flex: 0.9;">
-              <svg class="anim-graph" viewBox="0 0 600 450" style="width: 100%; max-height: 380px; display: block; background: white; border: 1px solid #e2e8f0; border-radius: 10px;" role="img" aria-label="Supply and demand for rent control. Equilibrium is at Q=1600, P=$2000. Price ceiling at $1500 reduces transacted quantity to Qs=1100, creating a shortage of 1000 and a red DWL triangle.">
-                <!-- Axes -->
-                <line x1="80" y1="400" x2="550" y2="400" stroke="#475569" stroke-width="2.5"/>
-                <polygon points="550,395 550,405 561,400" fill="#475569"/>
-                <line x1="80" y1="400" x2="80" y2="40" stroke="#475569" stroke-width="2.5"/>
-                <polygon points="75,40 85,40 80,29" fill="#475569"/>
-                <text x="565" y="406" font-size="15" fill="#1e293b" font-style="italic">Q</text>
-                <text x="50" y="34" font-size="15" fill="#1e293b" font-style="italic">P ($)</text>
-
-                <!-- Curves -->
-                <line x1="80" y1="112" x2="530" y2="352" stroke="#1e293b" stroke-width="3.5"/> <!-- Demand -->
-                <text x="536" y="357" font-size="15" fill="#1e293b" font-style="italic">D</text>
-                <line x1="80" y1="368" x2="530" y2="128" stroke="#0f766e" stroke-width="3.5"/> <!-- Supply -->
-                <text x="536" y="126" font-size="15" fill="#0f766e" font-style="italic">S</text>
-
-                <!-- Equilibrium -->
-                <circle cx="320" cy="240" r="6" fill="#1e293b"/>
-                <line x1="320" y1="240" x2="320" y2="400" stroke="#cbd5e1" stroke-width="1.5" stroke-dasharray="5 4"/>
-                <line x1="80" y1="240" x2="320" y2="240" stroke="#cbd5e1" stroke-width="1.5" stroke-dasharray="5 4"/>
-                <text x="320" y="422" font-size="14" fill="#64748b" text-anchor="middle">1600</text>
-                <text x="70" y="244" font-size="14" fill="#64748b" text-anchor="end">$2000</text>
-
-                <!-- Price Ceiling Fragment -->
-                <g class="fragment" data-fragment-index="1">
-                  <line x1="80" y1="280" x2="430" y2="280" stroke="#dc2626" stroke-width="2.5" stroke-dasharray="6 4"/>
-                  <text x="70" y="284" font-size="14" font-weight="700" fill="#dc2626" text-anchor="end">$1500</text>
-                  <text x="440" y="284" font-size="13" font-weight="700" fill="#dc2626">Ceiling</text>
-
-                  <circle cx="245" cy="280" r="5" fill="#0f766e"/>
-                  <line x1="245" y1="280" x2="245" y2="400" stroke="#94a3b8" stroke-width="1.2" stroke-dasharray="3 3"/>
-                  <text x="245" y="422" font-size="13" font-weight="700" fill="#0f766e" text-anchor="middle">1100 (Q<tspan dy="3" font-size="9">s</tspan>)</text>
-
-                  <circle cx="395" cy="280" r="5" fill="#1e293b"/>
-                  <line x1="395" y1="280" x2="395" y2="400" stroke="#94a3b8" stroke-width="1.2" stroke-dasharray="3 3"/>
-                  <text x="395" y="422" font-size="13" font-weight="700" fill="#1e293b" text-anchor="middle">2100 (Q<tspan dy="3" font-size="9">d</tspan>)</text>
-
-                  <line x1="255" y1="300" x2="385" y2="300" stroke="#dc2626" stroke-width="2" marker-start="url(#rcarrow-l)" marker-end="url(#rcarrow-r)"/>
-                  <text x="320" y="316" font-size="13" font-weight="700" fill="#dc2626" text-anchor="middle">Shortage = 1000</text>
-                </g>
-
-                <!-- DWL Shading Fragment -->
-                <g class="fragment" data-fragment-index="2">
-                  <polygon points="245,280 245,200 320,240" fill="#dc2626" fill-opacity="0.3" stroke="#dc2626" stroke-width="1.5"/>
-                  <circle cx="245" cy="200" r="5" fill="#1e293b"/>
-                  <line x1="80" y1="200" x2="245" y2="200" stroke="#94a3b8" stroke-width="1.2" stroke-dasharray="3 3"/>
-                  <text x="70" y="204" font-size="13" fill="#1e293b" text-anchor="end">$2500</text>
-                  <text x="270" y="215" font-size="13" font-weight="700" fill="#dc2626">DWL</text>
-                </g>
-
-                <!-- Arrow markers -->
-                <defs>
-                  <marker id="rcarrow-l" markerWidth="6" markerHeight="6" refX="1" refY="3" orient="auto">
-                    <path d="M 6 0 L 0 3 L 6 6 z" fill="#dc2626"/>
-                  </marker>
-                  <marker id="rcarrow-r" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
-                    <path d="M 0 0 L 6 3 L 0 6 z" fill="#dc2626"/>
-                  </marker>
-                </defs>
-              </svg>
-            </div>
+          <div style="max-width: 1160px; margin: 0 auto;">
+            <p style="font-size: 0.5em; color: #64748b; margin: 0 0 2px;">San Francisco caps rent at <strong>$1,500</strong>, below the <strong>$2,000</strong> market rent. Don&rsquo;t compute it &mdash; <em>read</em> the graph. Press <kbd style="background:#e2e8f0;border:1px solid #cbd5e1;padding:1px 6px;border-radius:4px;">&rarr;</kbd>.</p>
+            <svg class="anim-graph" viewBox="0 0 1000 560" style="width: 100%; max-height: 545px; display: block; background: white; border: 1px solid #e2e8f0; border-radius: 10px;" role="img" aria-label="Large supply-and-demand graph for rent control. Equilibrium at 1600 units, $2000. A $1500 ceiling binds: landlords supply only 1100 while renters want 2100, a shortage of 1000. Rented units fall to 1100 and the red deadweight-loss triangle opens between 1100 and 1600. Callouts explain the shortage, the DWL triangle, and why steeper (more inelastic) supply shrinks it.">
+              <!-- axes -->
+              <line x1="110" y1="470" x2="690" y2="470" stroke="#475569" stroke-width="2.5"/>
+              <polygon points="690,465 690,475 701,470" fill="#475569"/>
+              <line x1="110" y1="470" x2="110" y2="60" stroke="#475569" stroke-width="2.5"/>
+              <polygon points="105,60 115,60 110,49" fill="#475569"/>
+              <text x="706" y="476" font-size="16" fill="#1e293b" font-style="italic">Q</text>
+              <text x="86" y="56" font-size="16" fill="#1e293b" font-style="italic">P ($)</text>
+              <!-- curves -->
+              <line x1="110" y1="110" x2="660" y2="420" stroke="#1e293b" stroke-width="3.5"/>
+              <text x="666" y="424" font-size="16" fill="#1e293b" font-style="italic">D</text>
+              <line x1="110" y1="420" x2="660" y2="110" stroke="#0f766e" stroke-width="3.5"/>
+              <text x="666" y="112" font-size="16" fill="#0f766e" font-style="italic">S</text>
+              <!-- equilibrium -->
+              <circle cx="385" cy="265" r="6" fill="#1e293b"/>
+              <line x1="385" y1="265" x2="385" y2="470" stroke="#cbd5e1" stroke-width="1.5" stroke-dasharray="5 4"/>
+              <line x1="110" y1="265" x2="385" y2="265" stroke="#cbd5e1" stroke-width="1.5" stroke-dasharray="5 4"/>
+              <text x="385" y="490" font-size="13" fill="#64748b" text-anchor="middle">1600 (Q*)</text>
+              <text x="100" y="270" font-size="13" fill="#64748b" text-anchor="end">$2000</text>
+              <!-- fragment 1: ceiling + shortage + callout A -->
+              <g class="fragment" data-fragment-index="1">
+                <line x1="110" y1="316" x2="560" y2="316" stroke="#dc2626" stroke-width="2.5" stroke-dasharray="6 4"/>
+                <text x="100" y="321" font-size="13" font-weight="700" fill="#dc2626" text-anchor="end">$1500</text>
+                <text x="566" y="321" font-size="13" font-weight="700" fill="#dc2626">Ceiling</text>
+                <circle cx="295" cy="316" r="5" fill="#0f766e"/>
+                <line x1="295" y1="316" x2="295" y2="470" stroke="#94a3b8" stroke-width="1.2" stroke-dasharray="3 3"/>
+                <text x="295" y="490" font-size="13" font-weight="700" fill="#0f766e" text-anchor="middle">1100 (Q<tspan dy="3" font-size="9">s</tspan>)</text>
+                <circle cx="476" cy="316" r="5" fill="#1e293b"/>
+                <line x1="476" y1="316" x2="476" y2="470" stroke="#94a3b8" stroke-width="1.2" stroke-dasharray="3 3"/>
+                <text x="476" y="490" font-size="13" font-weight="700" fill="#1e293b" text-anchor="middle">2100 (Q<tspan dy="3" font-size="9">d</tspan>)</text>
+                <line x1="305" y1="345" x2="466" y2="345" stroke="#dc2626" stroke-width="2" marker-start="url(#rcL)" marker-end="url(#rcR)"/>
+                <text x="385" y="363" font-size="13" font-weight="700" fill="#dc2626" text-anchor="middle">Shortage = 1000</text>
+                <line x1="700" y1="305" x2="486" y2="344" stroke="#cbd5e1" stroke-width="1.4"/>
+                <foreignObject x="700" y="258" width="292" height="100">
+                  <div xmlns="http://www.w3.org/1999/xhtml" style="font-family:'Plus Jakarta Sans',sans-serif; font-size:14px; line-height:1.3; text-align:left; color:#1e293b; background:rgba(220,38,38,0.06); border-left:4px solid #dc2626; border-radius:4px 8px 8px 4px; padding:8px 12px;">
+                    <strong style="color:#dc2626;">Shortage.</strong> The ceiling holds rent below $2,000, so landlords supply only <em>Q<sub>s</sub></em> while renters want <em>Q<sub>d</sub></em>. The gap <em>Q<sub>d</sub>&thinsp;&minus;&thinsp;Q<sub>s</sub></em> is the shortage.
+                  </div>
+                </foreignObject>
+              </g>
+              <!-- fragment 2: DWL triangle + callout B -->
+              <g class="fragment" data-fragment-index="2">
+                <polygon points="295,316 295,214 385,265" fill="#dc2626" fill-opacity="0.3" stroke="#dc2626" stroke-width="1.5"/>
+                <circle cx="295" cy="214" r="5" fill="#1e293b"/>
+                <line x1="110" y1="214" x2="295" y2="214" stroke="#94a3b8" stroke-width="1.2" stroke-dasharray="3 3"/>
+                <text x="100" y="219" font-size="13" fill="#1e293b" text-anchor="end">$2500</text>
+                <text x="318" y="262" font-size="14" font-weight="700" fill="#dc2626">DWL</text>
+                <line x1="710" y1="156" x2="352" y2="258" stroke="#cbd5e1" stroke-width="1.4"/>
+                <foreignObject x="700" y="66" width="292" height="182">
+                  <div xmlns="http://www.w3.org/1999/xhtml" style="font-family:'Plus Jakarta Sans',sans-serif; font-size:14px; line-height:1.3; text-align:left; color:#1e293b; background:rgba(220,38,38,0.06); border-left:4px solid #dc2626; border-radius:4px 8px 8px 4px; padding:8px 12px;">
+                    <strong style="color:#dc2626;">The DWL triangle.</strong> Rented units fall from <em>Q*</em> to <em>Q<sub>s</sub></em>. Each lost unit was one a renter valued <em>above</em> the landlord&rsquo;s cost &mdash; a trade that never happens. Those lost gains from trade <em>are</em> the red triangle: it sits between <em>Q<sub>s</sub></em> and <em>Q*</em> and points back at equilibrium.
+                  </div>
+                </foreignObject>
+              </g>
+              <!-- fragment 3: elasticity note (callout C) -->
+              <g class="fragment" data-fragment-index="3">
+                <foreignObject x="700" y="372" width="292" height="120">
+                  <div xmlns="http://www.w3.org/1999/xhtml" style="font-family:'Plus Jakarta Sans',sans-serif; font-size:14px; line-height:1.3; text-align:left; color:#1e293b; background:rgba(15,118,110,0.06); border-left:4px solid #0f766e; border-radius:4px 8px 8px 4px; padding:8px 12px;">
+                    <strong style="color:#0f766e;">Why this size?</strong> The more <strong>inelastic</strong> (steeper) supply is, the fewer units disappear &mdash; so the triangle shrinks. Perfectly inelastic supply &rArr; no units lost &rArr; <strong>zero</strong> DWL.
+                  </div>
+                </foreignObject>
+              </g>
+              <defs>
+                <marker id="rcL" markerWidth="6" markerHeight="6" refX="1" refY="3" orient="auto"><path d="M 6 0 L 0 3 L 6 6 z" fill="#dc2626"/></marker>
+                <marker id="rcR" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M 0 0 L 6 3 L 0 6 z" fill="#dc2626"/></marker>
+              </defs>
+            </svg>
           </div>
         </section>
 
@@ -575,68 +566,90 @@
           </div>
         </section>
 
+        <!-- Slide 5.6a: Pay vs Remit; Burden vs Harm — terminology (NEW) -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Interventions &middot; Taxes</p>
+          <h2>Careful With Words: <em>Remit</em> vs. <em>Bear</em> a Tax</h2>
+          <div class="content-card" style="font-size: 0.85em;">
+            <div style="display:flex; gap:14px;">
+              <div class="def-card" style="flex:1; margin:0;">
+                <div class="def-title">&ldquo;Pay&rdquo; is ambiguous &rarr; say <em>remit</em></div>
+                The party the law names &mdash; often the <strong>seller</strong> (or your <strong>employer</strong>) &mdash; writes the check to the government. They <strong>remit</strong> the tax. But handing over the check is <em>not</em> the same as bearing the cost, so we avoid the loose phrase &ldquo;who <em>pays</em> the tax.&rdquo;
+              </div>
+              <div class="def-card" style="flex:1; margin:0; border-left-color:#3b82f6; background:rgba(59,130,246,0.04);">
+                <div class="def-title" style="color:#3b82f6;">Statutory vs. economic incidence</div>
+                <strong>Statutory</strong> = who the law says must remit. <strong>Economic</strong> = who actually <strong>bears</strong> it once the price adjusts (\( P_b \) up, \( P_s \) down). The identity \( P_b = P_s + t \) holds <em>no matter who remits</em> &mdash; the split depends on elasticity (soon).
+              </div>
+            </div>
+            <div class="def-card fragment" style="margin-top:12px; border-left-color:#b45309; background:rgba(180,83,9,0.05);">
+              <div class="def-title" style="color:#b45309;">&ldquo;Burden&rdquo; &ne; harm</div>
+              Your <strong>burden</strong> (incidence) is the slice of the tax you swallow through a worse price. But that money isn&rsquo;t destroyed &mdash; the <strong>revenue is transferred</strong> to the government (funding roads, schools&hellip;). The <em>only</em> part truly lost to everyone is the <strong style="color:#dc2626;">deadweight-loss triangle</strong>. So a tax &ldquo;burden&rdquo; is mostly a <em>transfer</em>, not harm; the efficiency <em>harm</em> is just the DWL &mdash; which we&rsquo;ll draw next.
+            </div>
+          </div>
+        </section>
+
         <!-- Slide 5.6b: Anatomy of a Tax — animated build-up (the core single-tax visual) -->
         <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
           <p class="eyebrow">Interventions &middot; Taxes</p>
           <h2>Anatomy of a Tax: Wedge, Revenue &amp; DWL</h2>
-          <p style="font-size: 0.6em; color: #64748b; margin: 0 0 4px;">A market at equilibrium \( (Q^* = 40,\ P^* = \$2.00) \) is hit by a \( \$0.60 \) per-unit tax. Press <kbd style="background: #e2e8f0; border: 1px solid #cbd5e1; padding: 1px 6px; border-radius: 4px;">&rarr;</kbd> to add each piece.</p>
-          <svg class="anim-graph" viewBox="0 0 760 520" style="width: 92%; max-height: 480px; margin: 0 auto; display: block; background: white; border: 1px solid #e2e8f0; border-radius: 10px;" role="img" aria-label="Animated build-up of the tax-welfare graph: equilibrium (40, $2), the quantity falling to 36, the $0.60 wedge between Pb=$2.40 and Ps=$1.80, buyers' and sellers' shares of the $21.60 revenue, the $1.20 DWL triangle, and the after-tax CS and PS">
+          <p style="font-size: 0.6em; color: #64748b; margin: 0 0 4px;">A market at equilibrium \( (Q^* = 40,\ P^* = \$3) \) meets a <strong>big</strong> \( \$3 \) per-unit tax &mdash; drawn large (<em>not to scale</em>) so every piece shows. Press <kbd style="background: #e2e8f0; border: 1px solid #cbd5e1; padding: 1px 6px; border-radius: 4px;">&rarr;</kbd> to add each piece.</p>
+          <svg class="anim-graph" viewBox="0 0 720 480" style="width: 88%; max-height: 440px; margin: 0 auto; display: block; background: white; border: 1px solid #e2e8f0; border-radius: 10px;" role="img" aria-label="Anatomy of a large per-unit tax, not to scale. Equilibrium at Q*=40, P*=$3. A $3 tax opens a wide wedge: buyers pay Pb=$5, sellers keep Ps=$2, quantity falls from 40 to 20, government revenue is the $60 rectangle split into a $40 buyers' burden and $20 sellers' burden, and the large red triangle is the $30 deadweight loss.">
             <!-- after-tax CS and PS (fragment 5, drawn first so they sit under everything) -->
             <g class="fragment" data-fragment-index="5">
-              <polygon points="70,112 70,321 419,321" fill="#d97706" fill-opacity="0.2"/>
-              <text x="150" y="270" font-size="15" font-weight="700" fill="#b45309">CS (after tax)</text>
-              <polygon points="70,460 70,356 419,356" fill="#0f766e" fill-opacity="0.2"/>
-              <text x="150" y="420" font-size="15" font-weight="700" fill="#0f766e">PS (after tax)</text>
+              <polygon points="70,114 70,207 250,207" fill="#d97706" fill-opacity="0.2"/>
+              <text x="116" y="176" font-size="15" font-weight="700" fill="#b45309">CS (after tax)</text>
+              <polygon points="70,394 70,347 250,347" fill="#0f766e" fill-opacity="0.2"/>
+              <text x="110" y="379" font-size="15" font-weight="700" fill="#0f766e">PS (after tax)</text>
             </g>
             <!-- revenue rectangles (fragment 3, under the curves) -->
             <g class="fragment" data-fragment-index="3">
-              <rect x="70" y="321" width="349" height="23" fill="#7c3aed" fill-opacity="0.35"/>
-              <rect x="70" y="344" width="349" height="12" fill="#7c3aed" fill-opacity="0.18"/>
-              <text x="240" y="337" font-size="13" font-weight="700" fill="#4c1d95" text-anchor="middle">buyers&#8217; burden = $14.40</text>
-              <text x="240" y="354" font-size="12" font-weight="700" fill="#5b21b6" text-anchor="middle">sellers&#8217; burden = $7.20</text>
-              <text x="480" y="120" font-size="16" font-weight="700" fill="#5b21b6">Gov. revenue = 0.60 &times; 36 = $21.60</text>
+              <rect x="70" y="207" width="180" height="93" fill="#7c3aed" fill-opacity="0.35"/>
+              <rect x="70" y="300" width="180" height="47" fill="#7c3aed" fill-opacity="0.18"/>
+              <text x="160" y="259" font-size="14" font-weight="700" fill="#4c1d95" text-anchor="middle">buyers&#8217; burden = $40</text>
+              <text x="160" y="327" font-size="13" font-weight="700" fill="#5b21b6" text-anchor="middle">sellers&#8217; burden = $20</text>
+              <text x="330" y="92" font-size="16" font-weight="700" fill="#5b21b6">Gov. revenue = 3 &times; 20 = $60</text>
             </g>
             <!-- axes + curves + equilibrium (always visible) -->
             <g>
-              <line x1="70" y1="460" x2="705" y2="460" stroke="#475569" stroke-width="2.5"/>
-              <polygon points="705,455 705,465 716,460" fill="#475569"/>
-              <line x1="70" y1="460" x2="70" y2="52" stroke="#475569" stroke-width="2.5"/>
-              <polygon points="65,52 75,52 70,41" fill="#475569"/>
-              <text x="723" y="466" font-size="17" fill="#1e293b" font-style="italic">Q</text>
-              <text x="44" y="34" font-size="17" fill="#1e293b" font-style="italic">P ($)</text>
-              <line x1="70" y1="112" x2="652" y2="460" stroke="#1e293b" stroke-width="3.5"/>
-              <text x="658" y="452" font-size="17" fill="#1e293b" font-style="italic">D</text>
-              <line x1="70" y1="460" x2="652" y2="286" stroke="#1e293b" stroke-width="3.5"/>
-              <text x="658" y="280" font-size="17" fill="#1e293b" font-style="italic">S</text>
-              <text x="62" y="118" font-size="14" fill="#64748b" text-anchor="end">$6</text>
-              <circle cx="458" cy="344" r="6" fill="#1e293b"/>
-              <line x1="458" y1="344" x2="458" y2="460" stroke="#cbd5e1" stroke-width="1.5" stroke-dasharray="5 4"/>
-              <text x="470" y="490" font-size="14" fill="#64748b" text-anchor="middle">Q* = 40</text>
-              <text x="62" y="350" font-size="14" fill="#64748b" text-anchor="end">P* = $2.00</text>
+              <line x1="70" y1="440" x2="680" y2="440" stroke="#475569" stroke-width="2.5"/>
+              <polygon points="680,435 680,445 691,440" fill="#475569"/>
+              <line x1="70" y1="440" x2="70" y2="55" stroke="#475569" stroke-width="2.5"/>
+              <polygon points="65,55 75,55 70,44" fill="#475569"/>
+              <text x="698" y="446" font-size="17" fill="#1e293b" font-style="italic">Q</text>
+              <text x="44" y="50" font-size="16" fill="#1e293b" font-style="italic">P ($)</text>
+              <line x1="70" y1="114" x2="640" y2="409" stroke="#1e293b" stroke-width="3.5"/>
+              <text x="646" y="410" font-size="17" fill="#1e293b" font-style="italic">D</text>
+              <line x1="70" y1="394" x2="640" y2="245" stroke="#1e293b" stroke-width="3.5"/>
+              <text x="646" y="243" font-size="17" fill="#1e293b" font-style="italic">S</text>
+              <circle cx="430" cy="300" r="6" fill="#1e293b"/>
+              <line x1="70" y1="300" x2="430" y2="300" stroke="#cbd5e1" stroke-width="1.5" stroke-dasharray="5 4"/>
+              <line x1="430" y1="300" x2="430" y2="440" stroke="#cbd5e1" stroke-width="1.5" stroke-dasharray="5 4"/>
+              <text x="62" y="305" font-size="14" font-weight="700" fill="#64748b" text-anchor="end">P* = $3</text>
+              <text x="430" y="462" font-size="14" fill="#64748b" text-anchor="middle">Q* = 40</text>
             </g>
-            <!-- fragment 1: quantity falls to 36 -->
+            <!-- fragment 1: quantity falls to 20 -->
             <g class="fragment" data-fragment-index="1">
-              <line x1="419" y1="321" x2="419" y2="460" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="5 4"/>
-              <circle cx="419" cy="321" r="6" fill="#1e293b"/>
-              <circle cx="419" cy="356" r="6" fill="#1e293b"/>
-              <text x="404" y="490" font-size="14" font-weight="700" fill="#1e293b" text-anchor="middle">Q<tspan dy="4" font-size="11">tax</tspan><tspan dy="-4"> = 36</tspan></text>
+              <line x1="250" y1="347" x2="250" y2="440" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="5 4"/>
+              <circle cx="250" cy="207" r="6" fill="#1e293b"/>
+              <circle cx="250" cy="347" r="6" fill="#0f766e"/>
+              <text x="250" y="462" font-size="14" font-weight="700" fill="#1e293b" text-anchor="middle">Q<tspan dy="4" font-size="11">tax</tspan><tspan dy="-4"> = 20</tspan></text>
             </g>
             <!-- fragment 2: the wedge -->
             <g class="fragment" data-fragment-index="2">
-              <line x1="70" y1="321" x2="419" y2="321" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="5 4"/>
-              <line x1="70" y1="356" x2="419" y2="356" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="5 4"/>
-              <text x="62" y="322" font-size="14" font-weight="700" fill="#1e293b" text-anchor="end">P<tspan dy="4" font-size="11">b</tspan><tspan dy="-4"> = $2.40</tspan></text>
-              <text x="62" y="374" font-size="14" font-weight="700" fill="#1e293b" text-anchor="end">P<tspan dy="4" font-size="11">s</tspan><tspan dy="-4"> = $1.80</tspan></text>
-              <line x1="440" y1="321" x2="440" y2="356" stroke="#1e293b" stroke-width="2.5"/>
-              <polygon points="435,321 445,321 440,312" fill="#1e293b"/>
-              <polygon points="435,356 445,356 440,365" fill="#1e293b"/>
-              <text x="452" y="316" font-size="15" font-weight="700" fill="#1e293b">t = $0.60</text>
+              <line x1="70" y1="207" x2="250" y2="207" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="5 4"/>
+              <line x1="70" y1="347" x2="250" y2="347" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="5 4"/>
+              <text x="62" y="212" font-size="14" font-weight="700" fill="#1e293b" text-anchor="end">P<tspan dy="4" font-size="11">b</tspan><tspan dy="-4"> = $5</tspan></text>
+              <text x="62" y="352" font-size="14" font-weight="700" fill="#0f766e" text-anchor="end">P<tspan dy="4" font-size="11">s</tspan><tspan dy="-4"> = $2</tspan></text>
+              <line x1="250" y1="207" x2="250" y2="347" stroke="#1e293b" stroke-width="2.5"/>
+              <polygon points="245,207 255,207 250,198" fill="#1e293b"/>
+              <polygon points="245,347 255,347 250,356" fill="#1e293b"/>
+              <text x="243" y="282" font-size="15" font-weight="700" fill="#1e293b" text-anchor="end">t = $3</text>
             </g>
             <!-- fragment 4: DWL -->
             <g class="fragment" data-fragment-index="4">
-              <polygon points="419,321 419,356 458,344" fill="#dc2626" fill-opacity="0.45" stroke="#dc2626" stroke-opacity="0.6"/>
-              <text x="480" y="200" font-size="16" font-weight="700" fill="#dc2626">DWL = &frac12; &times; 4 &times; 0.60 = $1.20</text>
-              <path d="M 500 210 Q 460 260 438 330" fill="none" stroke="#dc2626" stroke-width="1.5" marker-end="url(#anatax)"/>
+              <polygon points="250,207 250,347 430,300" fill="#dc2626" fill-opacity="0.45" stroke="#dc2626" stroke-opacity="0.6"/>
+              <text x="455" y="162" font-size="16" font-weight="700" fill="#dc2626">DWL = &frac12; &times; 20 &times; 3 = $30</text>
+              <path d="M 470 172 Q 400 228 345 288" fill="none" stroke="#dc2626" stroke-width="1.5" marker-end="url(#anatax)"/>
             </g>
             <defs>
               <marker id="anatax" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
@@ -1490,12 +1503,13 @@
               </svg>
             </div>
             <div style="flex:1;">
-              <div class="content-card" style="margin:0; padding:16px 20px; font-size:0.82em;">
+              <div class="content-card" style="margin:0; padding:12px 16px; font-size:0.74em;">
                 <div class="def-card" style="margin:6px 0;">
                   The market trades where buyers meet <strong>private</strong> cost \( (D = MPC) \), at \( Q_{\text{market}} \).
                 </div>
                 <div class="def-card fragment" style="margin:6px 0; border-left-color:#b91c1c; background:rgba(185,28,28,0.05);">
-                  With smoke, social cost is higher: \( MSC = MPC + \text{external cost} \). Society should stop at \( Q^* < Q_{\text{market}} \), so the market <strong>over-produces</strong> &mdash; every extra unit costs more than it&rsquo;s worth.
+                  <div class="def-title" style="color:#b91c1c;">Why MSC sits <em>above</em> MPC</div>
+                  Every unit produced dumps smoke on bystanders &mdash; a real cost <em>no one in the market pays</em>. Stack that uncounted <strong>external cost</strong> on top of the firm&rsquo;s private cost and the whole curve lifts up: \( MSC = MPC + \text{external cost} \). So society should stop at \( Q^* < Q_{\text{market}} \) &mdash; the market <strong>over-produces</strong>.
                 </div>
                 <div class="def-card fragment" style="margin:6px 0; border-left-color:#3b82f6; background:rgba(59,130,246,0.04);">
                   The red triangle is the <strong>deadweight loss</strong> &mdash; the very same welfare tool from Class 5, now drawn by the free market itself.
@@ -1572,12 +1586,13 @@
               </svg>
             </div>
             <div style="flex:1;">
-              <div class="content-card" style="margin:0; padding:16px 20px; font-size:0.82em;">
+              <div class="content-card" style="margin:0; padding:12px 16px; font-size:0.74em;">
                 <div class="def-card" style="margin:6px 0;">
                   Buyers get shots where <strong>their own</strong> benefit meets the cost \( (MPB = S) \), at \( Q_{\text{market}} \).
                 </div>
                 <div class="def-card fragment" style="margin:6px 0; border-left-color:#2563eb; background:rgba(37,99,235,0.05);">
-                  But each shot also protects others: \( MSB = MPB + \text{external benefit} \). Society should reach \( Q^* > Q_{\text{market}} \) &mdash; the market makes <strong>too few</strong>.
+                  <div class="def-title" style="color:#2563eb;">Why MSB sits <em>above</em> MPB</div>
+                  Your shot doesn&rsquo;t just protect <em>you</em> &mdash; it stops you infecting classmates, a real benefit they never pay you for. Add that uncounted <strong>external benefit</strong> on top of your private benefit and the whole curve lifts up: \( MSB = MPB + \text{external benefit} \). So society should reach \( Q^* > Q_{\text{market}} \) &mdash; the market makes <strong>too few</strong>.
                 </div>
                 <div class="def-card fragment" style="margin:6px 0; border-left-color:#3b82f6; background:rgba(59,130,246,0.04);">
                   The red triangle is the <strong>deadweight loss</strong> from <strong>under-provision</strong> &mdash; surplus left on the table.
@@ -1634,7 +1649,7 @@
             </div>
             <div class="def-card fragment" style="margin-top:10px; border-left-color:#059669; background:rgba(5,150,105,0.05);">
               <div class="def-title" style="color:#059669;">The welfare flip</div>
-              In Class 5, intervening in a <em>healthy</em> market <strong>created</strong> deadweight loss. Here the free-market outcome is <em>already</em> inefficient, so well-aimed intervention <strong>recovers</strong> lost welfare. Same yardstick &mdash; opposite verdict.
+              In Class 5, intervening in a <em>healthy</em> market <strong>created</strong> deadweight loss. Here the free-market outcome is <em>already</em> inefficient, so well-aimed intervention <strong>recovers</strong> lost welfare.
             </div>
           </div>
         </section>
@@ -1744,12 +1759,12 @@
           <h2>Rules for the Final Exam</h2>
           <div class="content-card" style="font-size: 0.92em;">
             <ol>
-              <li class="fragment"><strong>6 double-sided cheat sheets</strong> allowed (max. <strong>12 sides</strong>), handwritten or typed. If your cheat sheet is on an iPad, <strong>email it to me and Jasmine before the Final Exam</strong> so you&rsquo;re cleared to use it.</li>
+              <li class="fragment"><strong>Open notebook!</strong> You can bring whatever handwritten and/or typed+printed notes you think will help you.</li>
               <li class="fragment"><strong>Final Exam is 45&ndash;60 mins (TBD)</strong>: 40% multiple-choice, 20% True/False, 40% written responses.</li>
               <li class="fragment"><strong>Try your best</strong> for the Final Exam!</li>
             </ol>
             <p class="fragment" style="font-weight: 600; color: #0f766e; margin-top: 15px; text-align: center;">
-              Be prepared for a fun discussion session after the Final Exam! Over the next week, reflect on your time here at RSC.
+              Post final exam, we&rsquo;ll have a fun little discussion/wrap-up!
             </p>
           </div>
         </section>
