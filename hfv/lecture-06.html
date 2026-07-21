@@ -1465,75 +1465,82 @@
         <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
           <p class="eyebrow" style="color: #b45309;">Externalities &middot; Back to Welfare</p>
           <h2>The Deadweight Loss of Smoke</h2>
-          <p style="font-size: 0.55em; color: #64748b; margin: 0 0 4px;">We build the surplus step by step &mdash; the benefit of the extra units, then their true cost &mdash; until the deadweight loss appears. Press <kbd style="background: #e2e8f0; border: 1px solid #cbd5e1; padding: 1px 6px; border-radius: 4px;">&rarr;</kbd>.</p>
-          <div style="display:flex; gap:18px; align-items:center; max-width:1180px; margin:0 auto;">
-            <div style="flex:1.45;">
-              <svg class="anim-graph" viewBox="0 0 720 460" style="width:100%; max-height:430px; background:#fff; border:1px solid #e2e8f0; border-radius:10px;" role="img" aria-label="Step-by-step deadweight-loss decomposition for a negative externality (smoke). Demand is marginal benefit; private supply is marginal private cost; marginal social cost lies above it by the external cost, so the efficient quantity Q-star is below the market quantity. For the over-produced units between Q-star and Q-market, a green area shows their benefit to buyers under marginal benefit, and a red hatched slab stacked on top shows the extra true cost up to MSC; that red slab is the deadweight loss.">
+          <p style="font-size: 0.55em; color: #64748b; margin: 0 0 4px;">Start from the market&rsquo;s own \( CS + PS \), then add the smoke society actually pays for. Press <kbd style="background: #e2e8f0; border: 1px solid #cbd5e1; padding: 1px 6px; border-radius: 4px;">&rarr;</kbd>.</p>
+          <div style="display:flex; gap:16px; align-items:center; max-width:1190px; margin:0 auto;">
+            <div style="flex:1.5;">
+              <svg class="anim-graph" viewBox="0 0 720 470" style="width:100%; max-height:415px; background:#fff; border:1px solid #e2e8f0; border-radius:10px;" role="img" aria-label="Welfare build-up for a negative externality. At the market equilibrium where demand meets marginal private cost, consumer surplus is shaded amber and producer surplus teal; together they are the surplus the market counts. Marginal social cost is then drawn above marginal private cost by the external cost, and the red hatched band between them is the smoke damage society bears, which must be subtracted. Up to the efficient quantity Q-star that damage is still covered by surplus, but past Q-star it rises above the demand curve, and that solid red wedge between demand and marginal social cost is the deadweight loss.">
                 <defs>
-                  <pattern id="hatchN" width="9" height="9" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+                  <pattern id="hatchSm" width="9" height="9" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
                     <rect width="9" height="9" fill="#dc2626" fill-opacity="0.10"/>
-                    <line x1="0" y1="0" x2="0" y2="9" stroke="#dc2626" stroke-width="2" stroke-opacity="0.5"/>
+                    <line x1="0" y1="0" x2="0" y2="9" stroke="#dc2626" stroke-width="2" stroke-opacity="0.55"/>
                   </pattern>
-                  <marker id="dwlArrN" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M 0 0 L 8 4 L 0 8 z" fill="#b91c1c"/></marker>
+                  <marker id="arrSmA" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M 0 0 L 8 4 L 0 8 z" fill="#b91c1c"/></marker>
+                  <marker id="arrSmB" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M 0 0 L 8 4 L 0 8 z" fill="#7f1d1d"/></marker>
                 </defs>
-                <line x1="80" y1="400" x2="660" y2="400" stroke="#475569" stroke-width="2.5"/>
-                <polygon points="660,395 660,405 671,400" fill="#475569"/>
-                <line x1="80" y1="400" x2="80" y2="45" stroke="#475569" stroke-width="2.5"/>
-                <polygon points="75,45 85,45 80,34" fill="#475569"/>
-                <text x="676" y="406" font-size="14" fill="#1e293b" font-style="italic">Q</text>
-                <text x="62" y="46" font-size="14" fill="#1e293b">$</text>
-                <!-- F1: D, MPC, market eq -->
+                <!-- AREAS first, so curves and labels paint on top -->
+                <g class="fragment" data-fragment-index="2"><polygon points="90,90 355,245 90,245" fill="#d97706" fill-opacity="0.32"/></g>
+                <g class="fragment" data-fragment-index="3"><polygon points="90,245 355,245 90,370" fill="#0f766e" fill-opacity="0.32"/></g>
+                <g class="fragment" data-fragment-index="5"><polygon points="90,370 355,245 355,155 90,280" fill="url(#hatchSm)" stroke="#dc2626" stroke-width="1.3" stroke-dasharray="4 3"/></g>
+                <g class="fragment" data-fragment-index="6"><polygon points="270,195 355,155 355,245" fill="#dc2626" fill-opacity="0.55" stroke="#7f1d1d" stroke-width="2"/></g>
+                <!-- axes -->
+                <line x1="90" y1="410" x2="670" y2="410" stroke="#475569" stroke-width="2.5"/>
+                <polygon points="670,405 670,415 681,410" fill="#475569"/>
+                <line x1="90" y1="410" x2="90" y2="40" stroke="#475569" stroke-width="2.5"/>
+                <polygon points="85,40 95,40 90,29" fill="#475569"/>
+                <text x="686" y="416" font-size="14" fill="#1e293b" font-style="italic">Q</text>
+                <text x="72" y="42" font-size="14" fill="#1e293b">$</text>
+                <!-- F1: D, MPC, market equilibrium -->
                 <g class="fragment" data-fragment-index="1">
-                  <line x1="100" y1="130" x2="640" y2="370" stroke="#0f172a" stroke-width="3.5"/>
-                  <text x="646" y="373" font-size="13" fill="#0f172a" font-weight="700" font-style="italic">D = MB</text>
-                  <line x1="100" y1="370" x2="640" y2="130" stroke="#0f766e" stroke-width="3.5"/>
-                  <text x="646" y="133" font-size="13" fill="#0f766e" font-weight="700" font-style="italic">S = MPC</text>
-                  <circle cx="370" cy="250" r="6" fill="#1e293b"/>
-                  <line x1="370" y1="250" x2="370" y2="400" stroke="#94a3b8" stroke-width="1.4" stroke-dasharray="5 4"/>
-                  <text x="370" y="420" font-size="12" font-weight="700" fill="#1e293b" text-anchor="middle">Q<tspan font-size="9" dy="3">market</tspan></text>
+                  <line x1="90" y1="90" x2="620" y2="400" stroke="#0f172a" stroke-width="3.5"/>
+                  <text x="626" y="398" font-size="13" fill="#0f172a" font-weight="700" font-style="italic">D = MB</text>
+                  <line x1="90" y1="370" x2="620" y2="120" stroke="#0f766e" stroke-width="3.5"/>
+                  <text x="626" y="120" font-size="13" fill="#0f766e" font-weight="700" font-style="italic">S = MPC</text>
+                  <circle cx="355" cy="245" r="6" fill="#1e293b"/>
+                  <line x1="355" y1="245" x2="355" y2="410" stroke="#94a3b8" stroke-width="1.3" stroke-dasharray="5 4"/>
+                  <line x1="90" y1="245" x2="355" y2="245" stroke="#94a3b8" stroke-width="1.3" stroke-dasharray="5 4"/>
+                  <text x="355" y="430" font-size="12" font-weight="700" fill="#1e293b" text-anchor="middle">Q<tspan font-size="9" dy="3">market</tspan></text>
+                  <text x="80" y="249" font-size="12" font-weight="700" fill="#1e293b" text-anchor="end">P<tspan font-size="9" dy="3">mkt</tspan></text>
                 </g>
-                <!-- F2: MSC, Q* -->
-                <g class="fragment" data-fragment-index="2">
-                  <line x1="100" y1="270" x2="640" y2="30" stroke="#b91c1c" stroke-width="3.5"/>
-                  <text x="646" y="33" font-size="13" fill="#b91c1c" font-weight="700" font-style="italic">MSC</text>
-                  <circle cx="258" cy="200" r="6" fill="#b91c1c"/>
-                  <line x1="258" y1="200" x2="258" y2="400" stroke="#94a3b8" stroke-width="1.4" stroke-dasharray="5 4"/>
-                  <text x="258" y="420" font-size="12" font-weight="700" fill="#b91c1c" text-anchor="middle">Q*</text>
-                </g>
-                <!-- F3: benefit (green) under D over the over-produced region -->
-                <g class="fragment" data-fragment-index="3">
-                  <polygon points="258,200 370,250 370,400 258,400" fill="#16a34a" fill-opacity="0.30"/>
-                  <text x="314" y="332" font-size="12" font-weight="700" fill="#15803d" text-anchor="middle">benefit</text>
-                  <text x="314" y="348" font-size="10" fill="#15803d" text-anchor="middle">(under MB)</text>
-                </g>
-                <!-- F4: true-cost slab (red hatch, D up to MSC) -->
+                <!-- F4: MSC + Q* -->
                 <g class="fragment" data-fragment-index="4">
-                  <polygon points="258,200 370,150 370,250" fill="url(#hatchN)" stroke="#dc2626" stroke-width="1.4" stroke-dasharray="4 3"/>
+                  <line x1="90" y1="280" x2="620" y2="30" stroke="#b91c1c" stroke-width="3.5"/>
+                  <text x="626" y="32" font-size="13" fill="#b91c1c" font-weight="700" font-style="italic">MSC</text>
+                  <circle cx="270" cy="195" r="6" fill="#b91c1c"/>
+                  <line x1="270" y1="195" x2="270" y2="410" stroke="#94a3b8" stroke-width="1.3" stroke-dasharray="5 4"/>
+                  <text x="270" y="430" font-size="12" font-weight="700" fill="#b91c1c" text-anchor="middle">Q*</text>
                 </g>
-                <!-- F5: DWL solid + label -->
+                <!-- labels painted on top -->
+                <g class="fragment" data-fragment-index="2"><text x="166" y="196" font-size="16" font-weight="700" fill="#b45309">CS</text></g>
+                <g class="fragment" data-fragment-index="3"><text x="166" y="294" font-size="16" font-weight="700" fill="#0f766e">PS</text></g>
                 <g class="fragment" data-fragment-index="5">
-                  <polygon points="258,200 370,150 370,250" fill="#dc2626" fill-opacity="0.40" stroke="#b91c1c" stroke-width="2"/>
-                  <text x="108" y="108" font-size="14" font-weight="700" fill="#b91c1c">deadweight loss</text>
-                  <line x1="150" y1="114" x2="300" y2="196" stroke="#b91c1c" stroke-width="1.5" marker-end="url(#dwlArrN)"/>
+                  <text x="445" y="382" font-size="12.5" font-weight="700" fill="#b91c1c">external cost</text>
+                  <line x1="443" y1="375" x2="310" y2="262" stroke="#b91c1c" stroke-width="1.3" marker-end="url(#arrSmA)"/>
+                </g>
+                <g class="fragment" data-fragment-index="6">
+                  <text x="402" y="76" font-size="14" font-weight="700" fill="#7f1d1d">deadweight loss</text>
+                  <line x1="426" y1="84" x2="336" y2="194" stroke="#7f1d1d" stroke-width="1.5" marker-end="url(#arrSmB)"/>
                 </g>
               </svg>
             </div>
             <div style="flex:1;">
-              <div class="content-card" style="margin:0; padding:12px 15px; font-size:0.7em;">
-                <div class="def-card fragment" data-fragment-index="1" style="margin:5px 0;">
-                  <strong>Market.</strong> Trades where buyers meet private cost \( (D = MPC) \), at \( Q_{\text{market}} \) &mdash; the smoke is ignored.
+              <div class="content-card" style="margin:0; padding:9px 12px; font-size:0.6em;">
+                <div class="def-card fragment" data-fragment-index="1" style="margin:3px 0;">
+                  <strong>Market.</strong> \( D = MPC \Rightarrow Q_{\text{market}} \) at price \( P_{\text{mkt}} \).
                 </div>
-                <div class="def-card fragment" data-fragment-index="2" style="margin:5px 0; border-left-color:#b91c1c; background:rgba(185,28,28,0.05);">
-                  <strong>True cost is higher.</strong> Each unit dumps smoke on others &mdash; an uncounted cost. Stack it on MPC: \( MSC = MPC + \text{ext. cost} \), so the efficient point is \( Q^* < Q_{\text{market}} \).
+                <div class="def-card fragment" data-fragment-index="2" style="margin:3px 0; border-left-color:#d97706; background:rgba(217,119,6,0.06);">
+                  <strong style="color:#b45309;">Consumer surplus</strong> &mdash; buyers&rsquo; gain above the price.
                 </div>
-                <div class="def-card fragment" data-fragment-index="3" style="margin:5px 0; border-left-color:#16a34a; background:rgba(22,163,74,0.06);">
-                  <strong style="color:#15803d;">&#9312; Benefit.</strong> The over-produced units \( Q^* \!\to\! Q_{\text{market}} \) are worth the <span style="color:#15803d;font-weight:700;">green area</span> to buyers (under MB).
+                <div class="def-card fragment" data-fragment-index="3" style="margin:3px 0;">
+                  <strong style="color:#0f766e;">Producer surplus</strong> &mdash; sellers&rsquo; gain above cost. \( CS + PS \) is the surplus the market <em>counts</em>.
                 </div>
-                <div class="def-card fragment" data-fragment-index="4" style="margin:5px 0; border-left-color:#dc2626; background:rgba(220,38,38,0.05);">
-                  <strong style="color:#b91c1c;">&#9313; True cost.</strong> They actually cost up to MSC. The <span style="color:#b91c1c;font-weight:700;">red slab</span> stacked on top is smoke cost with <em>no</em> matching benefit.
+                <div class="def-card fragment" data-fragment-index="4" style="margin:3px 0; border-left-color:#b91c1c; background:rgba(185,28,28,0.05);">
+                  <strong>True cost.</strong> Smoke lifts society&rsquo;s cost: \( MSC = MPC + \text{ext. cost} \Rightarrow Q^* < Q_{\text{market}} \).
                 </div>
-                <div class="def-card fragment" data-fragment-index="5" style="margin:5px 0; border-left-color:#b91c1c; background:rgba(185,28,28,0.08);">
-                  <strong style="color:#b91c1c;">&#9314; Deadweight loss.</strong> Red slab \(=\) true cost \(-\) benefit \(=\) welfare burned by over-producing past \( Q^* \).
+                <div class="def-card fragment" data-fragment-index="5" style="margin:3px 0; border-left-color:#dc2626; background:rgba(220,38,38,0.05);">
+                  <strong style="color:#b91c1c;">Subtract the damage.</strong> The red-hatched band \( (MPC \!\to\! MSC) \) is smoke society bears &mdash; take it out of \( CS + PS \).
+                </div>
+                <div class="def-card fragment" data-fragment-index="6" style="margin:3px 0; border-left-color:#7f1d1d; background:rgba(127,29,29,0.09);">
+                  <strong style="color:#7f1d1d;">Deadweight loss.</strong> Past \( Q^* \) the damage pokes <em>above</em> demand &mdash; those units cost more than they&rsquo;re worth. That solid red wedge is the DWL.
                 </div>
               </div>
             </div>
@@ -1569,75 +1576,82 @@
         <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
           <p class="eyebrow" style="color: #b45309;">Externalities &middot; Positive</p>
           <h2>Positive Externality: Flu Shots</h2>
-          <p style="font-size: 0.55em; color: #64748b; margin: 0 0 4px;">We build it step by step &mdash; the cost of the missing shots, then their true benefit &mdash; until the deadweight loss appears. Press <kbd style="background: #e2e8f0; border: 1px solid #cbd5e1; padding: 1px 6px; border-radius: 4px;">&rarr;</kbd>.</p>
-          <div style="display:flex; gap:18px; align-items:center; max-width:1180px; margin:0 auto;">
-            <div style="flex:1.45;">
-              <svg class="anim-graph" viewBox="0 0 720 460" style="width:100%; max-height:430px; background:#fff; border:1px solid #e2e8f0; border-radius:10px;" role="img" aria-label="Step-by-step deadweight-loss decomposition for a positive externality (flu shots). Supply is marginal cost; demand is marginal private benefit; marginal social benefit lies above it by the external benefit, so the efficient quantity Q-star is above the market quantity. For the missing units between Q-market and Q-star, a gray area shows their cost to make under marginal cost, and a green hatched slab stacked on top shows the extra true benefit up to MSB; that slab of net benefit is forgone by the market, so it is shaded red as the deadweight loss.">
+          <p style="font-size: 0.55em; color: #64748b; margin: 0 0 4px;">Start from the market&rsquo;s own \( CS + PS \), then add the protection society gets for free. Press <kbd style="background: #e2e8f0; border: 1px solid #cbd5e1; padding: 1px 6px; border-radius: 4px;">&rarr;</kbd>.</p>
+          <div style="display:flex; gap:16px; align-items:center; max-width:1190px; margin:0 auto;">
+            <div style="flex:1.5;">
+              <svg class="anim-graph" viewBox="0 0 720 470" style="width:100%; max-height:415px; background:#fff; border:1px solid #e2e8f0; border-radius:10px;" role="img" aria-label="Welfare build-up for a positive externality. At the market equilibrium where marginal private benefit meets marginal cost, consumer surplus is shaded amber and producer surplus teal; together they are the surplus the market counts. Marginal social benefit is then drawn above marginal private benefit by the external benefit, and the green hatched band between them is the extra protection society gets on every shot, which is added to the surplus. To the right of the market quantity, marginal social benefit still exceeds marginal cost up to the efficient quantity Q-star, so those shots would create value but are never made; that solid red wedge is the forgone deadweight loss.">
                 <defs>
-                  <pattern id="hatchP" width="9" height="9" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+                  <pattern id="hatchFl" width="9" height="9" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
                     <rect width="9" height="9" fill="#16a34a" fill-opacity="0.10"/>
                     <line x1="0" y1="0" x2="0" y2="9" stroke="#16a34a" stroke-width="2" stroke-opacity="0.55"/>
                   </pattern>
-                  <marker id="dwlArrP" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M 0 0 L 8 4 L 0 8 z" fill="#b91c1c"/></marker>
+                  <marker id="arrFlA" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M 0 0 L 8 4 L 0 8 z" fill="#15803d"/></marker>
+                  <marker id="arrFlB" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M 0 0 L 8 4 L 0 8 z" fill="#7f1d1d"/></marker>
                 </defs>
-                <line x1="80" y1="400" x2="660" y2="400" stroke="#475569" stroke-width="2.5"/>
-                <polygon points="660,395 660,405 671,400" fill="#475569"/>
-                <line x1="80" y1="400" x2="80" y2="45" stroke="#475569" stroke-width="2.5"/>
-                <polygon points="75,45 85,45 80,34" fill="#475569"/>
-                <text x="676" y="406" font-size="14" fill="#1e293b" font-style="italic">Q</text>
-                <text x="62" y="46" font-size="14" fill="#1e293b">$</text>
-                <!-- F1: S = MC, D = MPB, market eq -->
+                <!-- AREAS first, so curves and labels paint on top -->
+                <g class="fragment" data-fragment-index="2"><polygon points="90,200 290,272 90,272" fill="#d97706" fill-opacity="0.32"/></g>
+                <g class="fragment" data-fragment-index="3"><polygon points="90,272 290,272 90,370" fill="#0f766e" fill-opacity="0.32"/></g>
+                <g class="fragment" data-fragment-index="5"><polygon points="90,200 290,272 290,172 90,100" fill="url(#hatchFl)" stroke="#16a34a" stroke-width="1.3" stroke-dasharray="4 3"/></g>
+                <g class="fragment" data-fragment-index="6"><polygon points="290,172 290,272 408,214" fill="#dc2626" fill-opacity="0.55" stroke="#7f1d1d" stroke-width="2"/></g>
+                <!-- axes -->
+                <line x1="90" y1="410" x2="670" y2="410" stroke="#475569" stroke-width="2.5"/>
+                <polygon points="670,405 670,415 681,410" fill="#475569"/>
+                <line x1="90" y1="410" x2="90" y2="40" stroke="#475569" stroke-width="2.5"/>
+                <polygon points="85,40 95,40 90,29" fill="#475569"/>
+                <text x="686" y="416" font-size="14" fill="#1e293b" font-style="italic">Q</text>
+                <text x="72" y="42" font-size="14" fill="#1e293b">$</text>
+                <!-- F1: S = MC, D = MPB, market equilibrium -->
                 <g class="fragment" data-fragment-index="1">
-                  <line x1="100" y1="370" x2="640" y2="130" stroke="#0f766e" stroke-width="3.5"/>
-                  <text x="646" y="133" font-size="13" fill="#0f766e" font-weight="700" font-style="italic">S = MC</text>
-                  <line x1="100" y1="240" x2="560" y2="393" stroke="#0f172a" stroke-width="3.5"/>
-                  <text x="566" y="392" font-size="13" fill="#0f172a" font-weight="700" font-style="italic">D = MPB</text>
-                  <circle cx="267" cy="296" r="6" fill="#1e293b"/>
-                  <line x1="267" y1="296" x2="267" y2="400" stroke="#94a3b8" stroke-width="1.4" stroke-dasharray="5 4"/>
-                  <text x="267" y="420" font-size="12" font-weight="700" fill="#1e293b" text-anchor="middle">Q<tspan font-size="9" dy="3">market</tspan></text>
+                  <line x1="90" y1="370" x2="620" y2="110" stroke="#0f766e" stroke-width="3.5"/>
+                  <text x="626" y="112" font-size="13" fill="#0f766e" font-weight="700" font-style="italic">S = MC</text>
+                  <line x1="90" y1="200" x2="620" y2="390" stroke="#0f172a" stroke-width="3.5"/>
+                  <text x="626" y="392" font-size="13" fill="#0f172a" font-weight="700" font-style="italic">D = MPB</text>
+                  <circle cx="290" cy="272" r="6" fill="#1e293b"/>
+                  <line x1="290" y1="272" x2="290" y2="410" stroke="#94a3b8" stroke-width="1.3" stroke-dasharray="5 4"/>
+                  <line x1="90" y1="272" x2="290" y2="272" stroke="#94a3b8" stroke-width="1.3" stroke-dasharray="5 4"/>
+                  <text x="290" y="430" font-size="12" font-weight="700" fill="#1e293b" text-anchor="middle">Q<tspan font-size="9" dy="3">market</tspan></text>
+                  <text x="80" y="276" font-size="12" font-weight="700" fill="#1e293b" text-anchor="end">P<tspan font-size="9" dy="3">mkt</tspan></text>
                 </g>
-                <!-- F2: MSB, Q* -->
-                <g class="fragment" data-fragment-index="2">
-                  <line x1="100" y1="130" x2="640" y2="310" stroke="#2563eb" stroke-width="3.5"/>
-                  <text x="646" y="313" font-size="13" fill="#2563eb" font-weight="700" font-style="italic">MSB</text>
-                  <circle cx="409" cy="233" r="6" fill="#2563eb"/>
-                  <line x1="409" y1="233" x2="409" y2="400" stroke="#94a3b8" stroke-width="1.4" stroke-dasharray="5 4"/>
-                  <text x="409" y="420" font-size="12" font-weight="700" fill="#2563eb" text-anchor="middle">Q*</text>
-                </g>
-                <!-- F3: cost (gray) under MC over the missing region -->
-                <g class="fragment" data-fragment-index="3">
-                  <polygon points="267,296 409,233 409,400 267,400" fill="#64748b" fill-opacity="0.22"/>
-                  <text x="338" y="352" font-size="12" font-weight="700" fill="#475569" text-anchor="middle">cost</text>
-                  <text x="338" y="368" font-size="10" fill="#475569" text-anchor="middle">(under MC)</text>
-                </g>
-                <!-- F4: true-benefit slab (green hatch, MC up to MSB) -->
+                <!-- F4: MSB + Q* -->
                 <g class="fragment" data-fragment-index="4">
-                  <polygon points="267,296 267,186 409,233" fill="url(#hatchP)" stroke="#16a34a" stroke-width="1.4" stroke-dasharray="4 3"/>
+                  <line x1="90" y1="100" x2="620" y2="290" stroke="#2563eb" stroke-width="3.5"/>
+                  <text x="626" y="292" font-size="13" fill="#2563eb" font-weight="700" font-style="italic">MSB</text>
+                  <circle cx="408" cy="214" r="6" fill="#2563eb"/>
+                  <line x1="408" y1="214" x2="408" y2="410" stroke="#94a3b8" stroke-width="1.3" stroke-dasharray="5 4"/>
+                  <text x="408" y="430" font-size="12" font-weight="700" fill="#2563eb" text-anchor="middle">Q*</text>
                 </g>
-                <!-- F5: DWL solid + label -->
+                <!-- labels painted on top -->
+                <g class="fragment" data-fragment-index="2"><text x="150" y="250" font-size="16" font-weight="700" fill="#b45309">CS</text></g>
+                <g class="fragment" data-fragment-index="3"><text x="150" y="310" font-size="16" font-weight="700" fill="#0f766e">PS</text></g>
                 <g class="fragment" data-fragment-index="5">
-                  <polygon points="267,296 267,186 409,233" fill="#dc2626" fill-opacity="0.38" stroke="#b91c1c" stroke-width="2"/>
-                  <text x="436" y="150" font-size="14" font-weight="700" fill="#b91c1c">deadweight loss</text>
-                  <line x1="470" y1="156" x2="360" y2="228" stroke="#b91c1c" stroke-width="1.5" marker-end="url(#dwlArrP)"/>
+                  <text x="404" y="102" font-size="12.5" font-weight="700" fill="#15803d">external benefit</text>
+                  <line x1="402" y1="110" x2="258" y2="162" stroke="#15803d" stroke-width="1.3" marker-end="url(#arrFlA)"/>
+                </g>
+                <g class="fragment" data-fragment-index="6">
+                  <text x="452" y="322" font-size="14" font-weight="700" fill="#7f1d1d">deadweight loss</text>
+                  <line x1="466" y1="314" x2="354" y2="226" stroke="#7f1d1d" stroke-width="1.5" marker-end="url(#arrFlB)"/>
                 </g>
               </svg>
             </div>
             <div style="flex:1;">
-              <div class="content-card" style="margin:0; padding:12px 15px; font-size:0.7em;">
-                <div class="def-card fragment" data-fragment-index="1" style="margin:5px 0;">
-                  <strong>Market.</strong> Buyers get shots where <em>their own</em> benefit meets cost \( (D = MPB = S) \), at \( Q_{\text{market}} \).
+              <div class="content-card" style="margin:0; padding:9px 12px; font-size:0.6em;">
+                <div class="def-card fragment" data-fragment-index="1" style="margin:3px 0;">
+                  <strong>Market.</strong> Buyers stop where <em>their own</em> benefit meets cost: \( MPB = MC \Rightarrow Q_{\text{market}} \).
                 </div>
-                <div class="def-card fragment" data-fragment-index="2" style="margin:5px 0; border-left-color:#2563eb; background:rgba(37,99,235,0.05);">
-                  <strong>True benefit is higher.</strong> Your shot also protects others &mdash; an uncounted benefit. Add it: \( MSB = MPB + \text{ext. benefit} \), so the efficient point is \( Q^* > Q_{\text{market}} \).
+                <div class="def-card fragment" data-fragment-index="2" style="margin:3px 0; border-left-color:#d97706; background:rgba(217,119,6,0.06);">
+                  <strong style="color:#b45309;">Consumer surplus</strong> &mdash; buyers&rsquo; gain above the price.
                 </div>
-                <div class="def-card fragment" data-fragment-index="3" style="margin:5px 0; border-left-color:#64748b; background:rgba(100,116,139,0.07);">
-                  <strong>&#9312; Cost.</strong> Making the missing shots \( Q_{\text{market}} \!\to\! Q^* \) would cost the <span style="color:#475569;font-weight:700;">gray area</span> (under MC).
+                <div class="def-card fragment" data-fragment-index="3" style="margin:3px 0;">
+                  <strong style="color:#0f766e;">Producer surplus</strong> &mdash; sellers&rsquo; gain above cost. \( CS + PS \) is the surplus the market <em>counts</em>.
                 </div>
-                <div class="def-card fragment" data-fragment-index="4" style="margin:5px 0; border-left-color:#16a34a; background:rgba(22,163,74,0.06);">
-                  <strong style="color:#15803d;">&#9313; True benefit.</strong> They&rsquo;re worth more to society &mdash; up to MSB. The <span style="color:#15803d;font-weight:700;">green slab</span> on top is benefit beyond cost.
+                <div class="def-card fragment" data-fragment-index="4" style="margin:3px 0; border-left-color:#2563eb; background:rgba(37,99,235,0.05);">
+                  <strong>True benefit.</strong> Your shot also protects others: \( MSB = MPB + \text{ext. benefit} \Rightarrow Q^* > Q_{\text{market}} \).
                 </div>
-                <div class="def-card fragment" data-fragment-index="5" style="margin:5px 0; border-left-color:#b91c1c; background:rgba(185,28,28,0.08);">
-                  <strong style="color:#b91c1c;">&#9314; Deadweight loss.</strong> The market makes too few, so that slab of net benefit is <em>forgone</em> &mdash; surplus left on the table.
+                <div class="def-card fragment" data-fragment-index="5" style="margin:3px 0; border-left-color:#16a34a; background:rgba(22,163,74,0.06);">
+                  <strong style="color:#15803d;">Add the bonus.</strong> The green-hatched band \( (MPB \!\to\! MSB) \) is value society gets on <em>every</em> shot &mdash; add it to \( CS + PS \).
+                </div>
+                <div class="def-card fragment" data-fragment-index="6" style="margin:3px 0; border-left-color:#7f1d1d; background:rgba(127,29,29,0.09);">
+                  <strong style="color:#7f1d1d;">Deadweight loss.</strong> Right of \( Q_{\text{market}} \), MSB still beats MC &mdash; those shots would add value but never happen. The red wedge is that forgone surplus.
                 </div>
               </div>
             </div>
