@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Home
+rail: true
 ---
 
 <section class="hero">

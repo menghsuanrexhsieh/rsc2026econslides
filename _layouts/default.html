@@ -35,7 +35,7 @@
     </div>
   </header>
 
-  <div class="shell">
+  <div class="shell{% if page.rail %} has-rail{% endif %}">
     <main class="main">
       <div class="paper">
         {{ content }}
@@ -45,6 +45,16 @@
         <p class="muted">&copy; {{ 'now' | date: "%Y" }}</p>
       </footer>
     </main>
+
+    {% if page.rail %}
+    <aside class="side-rail">
+      <div class="rail-card">
+        <p class="rail-title">Going Further</p>
+        <a class="rail-btn" href="{{ '/slides/lecture-06-appendix.html' | relative_url }}">Lecture 6: Additional Content</a>
+        <p class="rail-note">Tax incidence and externalities, worked through in full.</p>
+      </div>
+    </aside>
+    {% endif %}
   </div>
 
   <!-- theme toggle handler + transition class -->

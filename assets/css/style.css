@@ -348,3 +348,40 @@ kbd {
   .hero h1 { font-size: 2.05rem; }
   .paper { padding: 26px 18px; }
 }
+
+/* ------------------------------------------------ Right rail (home page) */
+.shell.has-rail {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 258px;
+  gap: 30px;
+  align-items: start;
+  max-width: 1180px;
+}
+.side-rail { position: sticky; top: calc(var(--topbar-h) + 22px); }
+.rail-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 18px 18px 20px;
+  box-shadow: var(--shadow-sm);
+}
+.rail-title {
+  margin: 0;
+  font-size: .72rem; font-weight: 700;
+  letter-spacing: .1em; text-transform: uppercase;
+  color: var(--muted);
+}
+.rail-btn {
+  display: block; margin-top: 12px;
+  padding: 12px 14px; border-radius: var(--radius-sm);
+  background: var(--accent-soft); color: var(--accent-dk);
+  font-weight: 600; font-size: .95rem; line-height: 1.35;
+  border: 1px solid transparent;
+}
+.rail-btn:hover { text-decoration: none; border-color: var(--accent); box-shadow: var(--shadow-sm); }
+.rail-note { margin: 12px 0 0; font-size: .85rem; color: var(--ink-soft); }
+
+@media (max-width: 880px) {
+  .shell.has-rail { grid-template-columns: 1fr; gap: 22px; }
+  .side-rail { position: static; }
+}
