@@ -317,7 +317,7 @@
             <p style="font-weight: 600; color: #0f766e;">A competitive market is efficient only when a big assumption holds: <strong>no market failures</strong>. This deck examines the two that break it:</p>
             <ol>
               <li class="fragment"><strong>No externalities</strong>: producers must bear <em>all</em> production costs, and buyers must receive <em>all</em> the benefits. Wildfire smoke and pollution violate this.</li>
-              <li class="fragment"><strong>Everything can be priced &amp; excluded</strong>: if you can&rsquo;t charge non-payers, no firm will supply the good. Clean air and other <strong>public goods</strong> violate this.</li>
+              <li class="fragment"><strong>Everything is priced</strong>: if you can&rsquo;t charge non-payers, no firm will supply the good. Clean air and other <strong>public goods</strong> violate this.</li>
             </ol>
             <p class="fragment" style="margin-top: 15px;">
               When either assumption fails, the market misfires on its own &mdash; and government intervention may be economically justified.
@@ -429,17 +429,70 @@
           </div>
         </section>
 
-        <!-- Slide 5.4: Minimum Wage Floor -->
+        <!-- Slide 5.4: Minimum Wage Floor — big annotated graph (mirrors the rent-control slide) -->
         <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
           <p class="eyebrow">Interventions · Price Floor</p>
-          <h2>Policy Example: Minimum Wage</h2>
-          <div class="content-card">
-            <p style="font-weight: 600; color: #0f766e; margin-bottom: 15px;">Welfare Effects of a Price Floor:</p>
-            <ul>
-              <li>A minimum wage sets a legal minimum price in the labor market.</li>
-              <li class="fragment">If set above the market equilibrium wage, it increases the quantity of labor supplied (more people want to work) but reduces the quantity of labor demanded (firms hire fewer workers).</li>
-              <li class="fragment">This discrepancy creates a surplus of labor (unemployment) and generates a deadweight loss for society.</li>
-            </ul>
+          <h2>Minimum Wage: Reading the Deadweight Loss</h2>
+          <div style="max-width: 1160px; margin: 0 auto;">
+            <p style="font-size: 0.5em; color: #64748b; margin: 0 0 2px;">A minimum wage of <strong>$15</strong> sits above the <strong>$12</strong> market wage. Don&rsquo;t compute it &mdash; <em>read</em> the graph. Press <kbd style="background:#e2e8f0;border:1px solid #cbd5e1;padding:1px 6px;border-radius:4px;">&rarr;</kbd>.</p>
+            <svg class="anim-graph" viewBox="0 0 1000 560" style="width: 100%; max-height: 545px; display: block; background: white; border: 1px solid #e2e8f0; border-radius: 10px;" role="img" aria-label="Large labor-market graph for a minimum wage. Equilibrium at 800 workers, $12. A $15 minimum wage binds: 1100 people want to work but firms hire only 500, a labor surplus of 600 — unemployment. Employment falls to 500 and a red deadweight-loss triangle opens between 500 and 800. Callouts explain the unemployment gap and the DWL triangle.">
+              <!-- axes -->
+              <line x1="110" y1="470" x2="690" y2="470" stroke="#475569" stroke-width="2.5"/>
+              <polygon points="690,465 690,475 701,470" fill="#475569"/>
+              <line x1="110" y1="470" x2="110" y2="60" stroke="#475569" stroke-width="2.5"/>
+              <polygon points="105,60 115,60 110,49" fill="#475569"/>
+              <text x="706" y="476" font-size="16" fill="#1e293b" font-style="italic">L</text>
+              <text x="86" y="40" font-size="16" fill="#1e293b" font-style="italic">W ($)</text>
+              <!-- curves -->
+              <line x1="110" y1="110" x2="660" y2="420" stroke="#1e293b" stroke-width="3.5"/>
+              <text x="583" y="368" font-size="15" fill="#1e293b" font-style="italic">D (firms)</text>
+              <line x1="110" y1="420" x2="660" y2="110" stroke="#0f766e" stroke-width="3.5"/>
+              <text x="666" y="112" font-size="15" fill="#0f766e" font-style="italic">S (workers)</text>
+              <!-- equilibrium -->
+              <circle cx="385" cy="265" r="6" fill="#1e293b"/>
+              <line x1="385" y1="265" x2="385" y2="470" stroke="#cbd5e1" stroke-width="1.5" stroke-dasharray="5 4"/>
+              <line x1="110" y1="265" x2="385" y2="265" stroke="#cbd5e1" stroke-width="1.5" stroke-dasharray="5 4"/>
+              <text x="385" y="490" font-size="13" fill="#64748b" text-anchor="middle">800 (L*)</text>
+              <text x="100" y="270" font-size="13" fill="#64748b" text-anchor="end">$12</text>
+              <!-- fragment 1: minimum wage + unemployment + callout A -->
+              <g class="fragment" data-fragment-index="1">
+                <line x1="110" y1="214" x2="560" y2="214" stroke="#3b82f6" stroke-width="2.5" stroke-dasharray="6 4"/>
+                <text x="100" y="219" font-size="13" font-weight="700" fill="#3b82f6" text-anchor="end">$15</text>
+                <text x="566" y="219" font-size="13" font-weight="700" fill="#3b82f6">Minimum wage</text>
+                <circle cx="295" cy="214" r="5" fill="#1e293b"/>
+                <line x1="295" y1="214" x2="295" y2="470" stroke="#94a3b8" stroke-width="1.2" stroke-dasharray="3 3"/>
+                <text x="295" y="490" font-size="13" font-weight="700" fill="#1e293b" text-anchor="middle">500 (L<tspan dy="3" font-size="9">d</tspan>)</text>
+                <circle cx="476" cy="214" r="5" fill="#0f766e"/>
+                <line x1="476" y1="214" x2="476" y2="470" stroke="#94a3b8" stroke-width="1.2" stroke-dasharray="3 3"/>
+                <text x="476" y="490" font-size="13" font-weight="700" fill="#0f766e" text-anchor="middle">1100 (L<tspan dy="3" font-size="9">s</tspan>)</text>
+                <line x1="305" y1="190" x2="466" y2="190" stroke="#3b82f6" stroke-width="2" marker-start="url(#mwL)" marker-end="url(#mwR)"/>
+                <text x="385" y="180" font-size="13" font-weight="700" fill="#3b82f6" text-anchor="middle">Unemployment = 600</text>
+                <line x1="700" y1="250" x2="492" y2="216" stroke="#cbd5e1" stroke-width="1.4"/>
+                <foreignObject x="700" y="200" width="292" height="106">
+                  <div xmlns="http://www.w3.org/1999/xhtml" style="font-family:'Plus Jakarta Sans',sans-serif; font-size:14px; line-height:1.3; text-align:left; color:#1e293b; background:rgba(59,130,246,0.06); border-left:4px solid #3b82f6; border-radius:4px 8px 8px 4px; padding:8px 12px;">
+                    <strong style="color:#2563eb;">Labor surplus.</strong> The floor holds the wage above $12, so <em>L<sub>s</sub></em> = 1,100 want to work but firms hire only <em>L<sub>d</sub></em> = 500. That gap <em>is</em> unemployment.
+                  </div>
+                </foreignObject>
+              </g>
+              <!-- fragment 2: DWL triangle + callout B -->
+              <g class="fragment" data-fragment-index="2">
+                <polygon points="295,214 295,316 385,265" fill="#dc2626" fill-opacity="0.3" stroke="#dc2626" stroke-width="1.5"/>
+                <circle cx="295" cy="316" r="5" fill="#0f766e"/>
+                <line x1="110" y1="316" x2="295" y2="316" stroke="#94a3b8" stroke-width="1.2" stroke-dasharray="3 3"/>
+                <text x="100" y="321" font-size="13" fill="#1e293b" text-anchor="end">$9</text>
+                <text x="318" y="270" font-size="14" font-weight="700" fill="#dc2626">DWL</text>
+                <line x1="710" y1="392" x2="352" y2="272" stroke="#cbd5e1" stroke-width="1.4"/>
+                <foreignObject x="700" y="330" width="292" height="168">
+                  <div xmlns="http://www.w3.org/1999/xhtml" style="font-family:'Plus Jakarta Sans',sans-serif; font-size:14px; line-height:1.3; text-align:left; color:#1e293b; background:rgba(220,38,38,0.06); border-left:4px solid #dc2626; border-radius:4px 8px 8px 4px; padding:8px 12px;">
+                    <strong style="color:#dc2626;">The DWL triangle.</strong> Jobs fall from <em>L*</em> to <em>L<sub>d</sub></em>. Each lost job was one a firm valued <em>above</em> the worker&rsquo;s reservation wage &mdash; a trade that never happens. Those lost gains from trade <em>are</em> the red triangle.
+                  </div>
+                </foreignObject>
+              </g>
+              <defs>
+                <marker id="mwL" markerWidth="6" markerHeight="6" refX="1" refY="3" orient="auto"><path d="M 6 0 L 0 3 L 6 6 z" fill="#3b82f6"/></marker>
+                <marker id="mwR" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M 0 0 L 6 3 L 0 6 z" fill="#3b82f6"/></marker>
+              </defs>
+            </svg>
           </div>
         </section>
 
@@ -449,14 +502,14 @@
           <h2>Rent Control: Reading the Deadweight Loss</h2>
           <div style="max-width: 1160px; margin: 0 auto;">
             <p style="font-size: 0.5em; color: #64748b; margin: 0 0 2px;">San Francisco caps rent at <strong>$1,500</strong>, below the <strong>$2,000</strong> market rent. Don&rsquo;t compute it &mdash; <em>read</em> the graph. Press <kbd style="background:#e2e8f0;border:1px solid #cbd5e1;padding:1px 6px;border-radius:4px;">&rarr;</kbd>.</p>
-            <svg class="anim-graph" viewBox="0 0 1000 560" style="width: 100%; max-height: 545px; display: block; background: white; border: 1px solid #e2e8f0; border-radius: 10px;" role="img" aria-label="Large supply-and-demand graph for rent control. Equilibrium at 1600 units, $2000. A $1500 ceiling binds: landlords supply only 1100 while renters want 2100, a shortage of 1000. Rented units fall to 1100 and the red deadweight-loss triangle opens between 1100 and 1600. Callouts explain the shortage, the DWL triangle, and why steeper (more inelastic) supply shrinks it.">
+            <svg class="anim-graph" viewBox="0 0 1000 560" style="width: 100%; max-height: 545px; display: block; background: white; border: 1px solid #e2e8f0; border-radius: 10px;" role="img" aria-label="Large supply-and-demand graph for rent control. Equilibrium at 1600 units, $2000. A $1500 ceiling binds: landlords supply only 1100 while renters want 2100, a shortage of 1000. Rented units fall to 1100 and the red deadweight-loss triangle opens between 1100 and 1600. Callouts explain the shortage and the DWL triangle.">
               <!-- axes -->
               <line x1="110" y1="470" x2="690" y2="470" stroke="#475569" stroke-width="2.5"/>
               <polygon points="690,465 690,475 701,470" fill="#475569"/>
               <line x1="110" y1="470" x2="110" y2="60" stroke="#475569" stroke-width="2.5"/>
               <polygon points="105,60 115,60 110,49" fill="#475569"/>
               <text x="706" y="476" font-size="16" fill="#1e293b" font-style="italic">Q</text>
-              <text x="86" y="56" font-size="16" fill="#1e293b" font-style="italic">P ($)</text>
+              <text x="86" y="40" font-size="16" fill="#1e293b" font-style="italic">P ($)</text>
               <!-- curves -->
               <line x1="110" y1="110" x2="660" y2="420" stroke="#1e293b" stroke-width="3.5"/>
               <text x="666" y="424" font-size="16" fill="#1e293b" font-style="italic">D</text>
@@ -499,14 +552,6 @@
                 <foreignObject x="700" y="66" width="292" height="182">
                   <div xmlns="http://www.w3.org/1999/xhtml" style="font-family:'Plus Jakarta Sans',sans-serif; font-size:14px; line-height:1.3; text-align:left; color:#1e293b; background:rgba(220,38,38,0.06); border-left:4px solid #dc2626; border-radius:4px 8px 8px 4px; padding:8px 12px;">
                     <strong style="color:#dc2626;">The DWL triangle.</strong> Rented units fall from <em>Q*</em> to <em>Q<sub>s</sub></em>. Each lost unit was one a renter valued <em>above</em> the landlord&rsquo;s cost &mdash; a trade that never happens. Those lost gains from trade <em>are</em> the red triangle: it sits between <em>Q<sub>s</sub></em> and <em>Q*</em> and points back at equilibrium.
-                  </div>
-                </foreignObject>
-              </g>
-              <!-- fragment 3: elasticity note (callout C) -->
-              <g class="fragment" data-fragment-index="3">
-                <foreignObject x="700" y="372" width="292" height="120">
-                  <div xmlns="http://www.w3.org/1999/xhtml" style="font-family:'Plus Jakarta Sans',sans-serif; font-size:14px; line-height:1.3; text-align:left; color:#1e293b; background:rgba(15,118,110,0.06); border-left:4px solid #0f766e; border-radius:4px 8px 8px 4px; padding:8px 12px;">
-                    <strong style="color:#0f766e;">Why this size?</strong> The more <strong>inelastic</strong> (steeper) supply is, the fewer units disappear &mdash; so the triangle shrinks. Perfectly inelastic supply &rArr; no units lost &rArr; <strong>zero</strong> DWL.
                   </div>
                 </foreignObject>
               </g>
@@ -562,28 +607,6 @@
               <div class="def-title" style="color: #3b82f6;">Tax Identity</div>
               \[ P_b = P_s + t \]
               where \( t \) is the per-unit tax rate.
-            </div>
-          </div>
-        </section>
-
-        <!-- Slide 5.6a: Pay vs Remit; Burden vs Harm — terminology (NEW) -->
-        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
-          <p class="eyebrow">Interventions &middot; Taxes</p>
-          <h2>Careful With Words: <em>Remit</em> vs. <em>Bear</em> a Tax</h2>
-          <div class="content-card" style="font-size: 0.85em;">
-            <div style="display:flex; gap:14px;">
-              <div class="def-card" style="flex:1; margin:0;">
-                <div class="def-title">&ldquo;Pay&rdquo; is ambiguous &rarr; say <em>remit</em></div>
-                The party the law names &mdash; often the <strong>seller</strong> (or your <strong>employer</strong>) &mdash; writes the check to the government. They <strong>remit</strong> the tax. But handing over the check is <em>not</em> the same as bearing the cost, so we avoid the loose phrase &ldquo;who <em>pays</em> the tax.&rdquo;
-              </div>
-              <div class="def-card" style="flex:1; margin:0; border-left-color:#3b82f6; background:rgba(59,130,246,0.04);">
-                <div class="def-title" style="color:#3b82f6;">Statutory vs. economic incidence</div>
-                <strong>Statutory</strong> = who the law says must remit. <strong>Economic</strong> = who actually <strong>bears</strong> it once the price adjusts (\( P_b \) up, \( P_s \) down). The identity \( P_b = P_s + t \) holds <em>no matter who remits</em> &mdash; the split depends on elasticity (soon).
-              </div>
-            </div>
-            <div class="def-card fragment" style="margin-top:12px; border-left-color:#b45309; background:rgba(180,83,9,0.05);">
-              <div class="def-title" style="color:#b45309;">&ldquo;Burden&rdquo; &ne; harm</div>
-              Your <strong>burden</strong> (incidence) is the slice of the tax you swallow through a worse price. But that money isn&rsquo;t destroyed &mdash; the <strong>revenue is transferred</strong> to the government (funding roads, schools&hellip;). The <em>only</em> part truly lost to everyone is the <strong style="color:#dc2626;">deadweight-loss triangle</strong>. So a tax &ldquo;burden&rdquo; is mostly a <em>transfer</em>, not harm; the efficiency <em>harm</em> is just the DWL &mdash; which we&rsquo;ll draw next.
             </div>
           </div>
         </section>
@@ -658,6 +681,19 @@
             </defs>
           </svg>
           <p class="fragment" data-fragment-index="6" style="text-align:center; font-weight:600; color:#0f766e; font-size:0.82em; margin-top:6px;">Tax wedge \( t = P_b - P_s \) &rArr; quantity falls &rArr; the trades between \( Q_{\text{tax}} \) and \( Q^* \) vanish. That lost surplus is the <strong style="color:#dc2626;">DWL triangle</strong>.</p>
+        </section>
+
+        <!-- Slide 5.6c: Remit vs Bear — terminology (simplified; follows Anatomy) -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Interventions &middot; Taxes</p>
+          <h2>Careful With Words: <em>Remit</em> vs. <em>Bear</em> a Tax</h2>
+          <div class="content-card" style="font-size: 0.95em;">
+            <ul>
+              <li class="fragment">Whoever the law names &mdash; usually the <strong>seller</strong> or your <strong>employer</strong> &mdash; <strong>remits</strong> the tax (writes the check). That is <em>not</em> the same as bearing it, so we avoid saying who &ldquo;pays.&rdquo;</li>
+              <li class="fragment"><strong>Statutory</strong> incidence = who remits. <strong>Economic</strong> incidence = who actually <strong>bears</strong> it once prices adjust. \( P_b = P_s + t \) holds no matter who remits.</li>
+              <li class="fragment"><strong>Burden &ne; harm.</strong> The revenue is <em>transferred</em> to the government, not destroyed &mdash; only the <strong style="color:#dc2626;">DWL triangle</strong> you just saw is truly lost to everyone.</li>
+            </ul>
+          </div>
         </section>
 
         <!-- COMMENTED OUT — Slide 5.7: Producer Tax practice (calculation). Replaced by the graphical "Anatomy of a Tax" and "Tax Incidence & Elasticity" slides. Wrapped in <template> (inert, not rendered) because the SVG contains inner HTML comments that would break a plain HTML comment. Remove the <template> and matching </template> to restore. -->
@@ -931,8 +967,7 @@
             </div>
             <ul>
               <li class="fragment">The only tax that does not change prices is a <strong>lump-sum tax</strong> (a fixed amount, independent of any choice you make).</li>
-              <li class="fragment">Side note: taxes affect our decisions! E.g. marriage, migration, location of investment, residential choices, having children&hellip;</li>
-              <li class="fragment">This is covered in depth in your ECON 101 class &mdash; and a decent proportion of Rex&rsquo;s own research measures behavioral responses to tax policy changes (the <em>elasticity of taxable income</em>).</li>
+              <li class="fragment">Taxes affect our decisions &mdash; marriage, migration, location of investment, residential choices, having children&hellip; This is covered in depth in your ECON 101 class, and a decent proportion of <strong>my own research</strong> measures behavioral responses to tax policy changes (the <em>elasticity of taxable income</em>).</li>
             </ul>
           </div>
         </section>
@@ -1003,7 +1038,10 @@
               </svg>
               <div class="def-card fragment" data-fragment-index="1" style="margin:8px 0 0; border-left-color:#059669; background:rgba(5,150,105,0.05); font-size:0.78em; text-align:left;">
                 <div class="def-title" style="color:#059669;">The behavioral response (sound familiar?)</div>
-                Your filing status for the <strong>whole year</strong> is set by your status on <strong>Dec 31</strong>. So penalized couples measurably <strong>delay a late-December wedding into January</strong> for one more year of single filing &mdash; economists find wedding timing really does respond (Alm &amp; Whittington; Gelardi, 1996). Same timing trick as the estate-tax story.
+                <ul style="margin:4px 0 0 !important;">
+                  <li>Your filing status for the <strong>whole year</strong> is set by your status on <strong>Dec 31</strong>.</li>
+                  <li>So penalized couples measurably <strong>delay a late-December wedding into January</strong> for one more year of single filing (Gelardi, 1996) &mdash; the same timing trick as the estate-tax story.</li>
+                </ul>
               </div>
             </div>
           </div>
@@ -1072,10 +1110,6 @@
               <div class="def-title" style="color:#2563eb;">Q2 &mdash; Buyers bear more in the inelastic market (A)</div>
               The gap \( P_b - P^* \) is <strong>tall</strong> when demand is inelastic (buyers can&rsquo;t substitute away, so they eat the tax) and <strong>short</strong> when demand is elastic (buyers walk, so sellers eat more). Whoever is <strong>less able to move</strong> pays.
             </div>
-            <div class="def-card fragment" style="border-left-color:#3b82f6; background:rgba(59,130,246,0.04);">
-              <div class="def-title" style="color:#3b82f6;">One line to remember</div>
-              <strong>Elasticity is escape.</strong> The side that can escape the tax (the more elastic side) pays less &mdash; and when the market as a whole escapes easily, quantity collapses, so the deadweight loss is bigger.
-            </div>
           </div>
         </section>
 
@@ -1114,6 +1148,22 @@
           <p class="eyebrow" style="color: #ccfbf1;">Part 2</p>
           <h1 style="color: white; font-size: 2.6em;">Public Goods &amp; Externalities</h1>
           <p style="color: #ccfbf1; margin-top: 20px;">Why the market won&rsquo;t give you clean air. Press <kbd style="background: #115e59; color: white; border: 1px solid #134e4a; padding: 2px 6px; border-radius: 4px;">&darr;</kbd></p>
+        </section>
+
+        <!-- PG1b: Bridge — from welfare/efficiency (Class 5) to market failure (now precedes the hook) -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow" style="color: #b45309;">Bridge &middot; Back to Welfare</p>
+          <h2>When Does the Market Fail Us?</h2>
+          <div class="content-card" style="font-size: 0.93em;">
+            <div class="def-card">
+              <div class="def-title">Recall from Class 5</div>
+              A competitive market <strong>maximizes social welfare</strong> \( (CS + PS) \). We even saw that meddling with a <em>healthy</em> market &mdash; with taxes or price controls &mdash; <strong>destroys</strong> welfare, opening up a <strong>deadweight loss</strong>.
+            </div>
+            <div class="def-card fragment" style="border-left-color:#b45309; background:rgba(180,83,9,0.05);">
+              <div class="def-title" style="color:#b45309;">So is government always the villain?</div>
+              No! Sometimes the market, left alone, simply <strong>does not</strong> reach the efficient outcome. In these cases welfare is <strong>left on the table</strong>. Clean air is Exhibit A &mdash; let&rsquo;s see why, and what it costs society in lost surplus.
+            </div>
+          </div>
         </section>
 
         <!-- PG1: Topical hook — Canadian wildfire smoke -->
@@ -1181,97 +1231,15 @@
           <p class="fragment" data-fragment-index="2" style="text-align:center; font-weight:600; color:#0f766e; font-size:0.9em; margin-top:8px;">Because <strong>no one can be stopped from breathing it</strong>, and <strong>one person&rsquo;s breath leaves just as much for everyone else</strong>, clean air is a <strong>public good</strong>.</p>
         </section>
 
-        <!-- PG1b: Bridge — from welfare/efficiency (Class 5) to market failure -->
-        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
-          <p class="eyebrow" style="color: #b45309;">Bridge &middot; Back to Welfare</p>
-          <h2>When Does the Market Fail Us?</h2>
-          <div class="content-card" style="font-size: 0.93em;">
-            <div class="def-card">
-              <div class="def-title">Recall from Class 5</div>
-              A competitive market <strong>maximizes social welfare</strong> \( (CS + PS) \). We even saw that meddling with a <em>healthy</em> market &mdash; with taxes or price controls &mdash; <strong>destroys</strong> welfare, opening up a <strong>deadweight loss</strong>.
-            </div>
-            <div class="def-card fragment" style="border-left-color:#b45309; background:rgba(180,83,9,0.05);">
-              <div class="def-title" style="color:#b45309;">So is government always the villain?</div>
-              No &mdash; that result quietly assumed there were <strong>no market failures</strong>. Sometimes the market, left alone, simply <strong>does not</strong> reach the efficient outcome.
-            </div>
-            <div class="def-card fragment" style="border-left-color:#059669; background:rgba(5,150,105,0.05);">
-              <div class="def-title" style="color:#059669;">Public goods &amp; externalities <em>are</em> those failures</div>
-              In these cases welfare is <strong>left on the table</strong>. Clean air is Exhibit A &mdash; let&rsquo;s see why, and what it costs society in lost surplus.
-            </div>
-          </div>
-        </section>
-
-        <!-- PG2: Definition of a public good -->
-        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
-          <p class="eyebrow" style="color: #b45309;">Definition</p>
-          <h2>What Makes a Good a <em>Public</em> Good?</h2>
-          <div class="content-card" style="font-size: 0.95em;">
-            <p style="font-weight:600; color:#0f766e; margin-bottom:10px;">A <strong>public good</strong> has two defining properties:</p>
-            <div class="def-card fragment">
-              <div class="def-title">1 &middot; Non-excludable</div>
-              You <strong>cannot prevent</strong> someone from consuming it, even if they don&rsquo;t pay. No one can be stopped from breathing the air around them.
-            </div>
-            <div class="def-card fragment" style="border-left-color:#3b82f6; background:rgba(59,130,246,0.04);">
-              <div class="def-title" style="color:#3b82f6;">2 &middot; Non-rival</div>
-              One person&rsquo;s use <strong>does not reduce</strong> the amount available to anyone else. Your breath of clean air leaves just as much for everyone around you.
-            </div>
-            <div class="def-card fragment" style="border-left-color:#059669; background:rgba(5,150,105,0.05);">
-              <div class="def-title" style="color:#059669;">Clean air ticks both boxes</div>
-              Clean air is the textbook public good &mdash; non-excludable <em>and</em> non-rival. So are national defense, a lighthouse&rsquo;s beam, and radio broadcasts.
-            </div>
-          </div>
-        </section>
-
-        <!-- PG3: The 2x2 goods matrix -->
-        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
-          <p class="eyebrow" style="color: #b45309;">Definition &middot; The Big Picture</p>
-          <h2>Four Kinds of Goods</h2>
-          <p style="font-size: 0.55em; color: #64748b; margin: 0 0 4px;">Cross &ldquo;can you exclude non-payers?&rdquo; with &ldquo;does one person&rsquo;s use crowd out another&rsquo;s?&rdquo; Press <kbd style="background: #e2e8f0; border: 1px solid #cbd5e1; padding: 1px 6px; border-radius: 4px;">&rarr;</kbd>.</p>
-          <svg viewBox="0 0 900 430" style="width: 88%; max-height: 420px; margin: 0 auto; display: block; background: #fff; border: 1px solid #e2e8f0; border-radius: 10px;" role="img" aria-label="A two-by-two matrix. Columns: Excludable and Non-excludable. Rows: Rival and Non-rival. Cells: private goods (a sandwich); common resources (ocean fish); club goods (a streaming subscription); and public goods (clean air), which is highlighted.">
-            <!-- column headers (centered over each column: left col center 285, right col center 570) -->
-            <text x="285" y="42" font-size="19" font-weight="700" fill="#0f172a" text-anchor="middle">Excludable</text>
-            <text x="570" y="42" font-size="19" font-weight="700" fill="#0f172a" text-anchor="middle">Non-excludable</text>
-            <!-- row headers (centered on each row: top row center 145, bottom row center 327) -->
-            <text x="80" y="145" font-size="19" font-weight="700" fill="#0f172a" text-anchor="middle" dominant-baseline="central" transform="rotate(-90 80 145)">Rival</text>
-            <text x="80" y="327" font-size="19" font-weight="700" fill="#0f172a" text-anchor="middle" dominant-baseline="central" transform="rotate(-90 80 327)">Non-rival</text>
-            <!-- cells -->
-            <g class="fragment" data-fragment-index="1">
-              <rect x="150" y="60" width="270" height="170" rx="10" fill="#eff6ff" stroke="#93c5fd" stroke-width="2"/>
-              <text x="285" y="92" font-size="17" font-weight="700" fill="#1d4ed8" text-anchor="middle">Private good</text>
-              <text x="285" y="150" font-size="34" text-anchor="middle">&#127837;</text>
-              <text x="285" y="200" font-size="14" fill="#475569" text-anchor="middle">a sandwich, a shirt</text>
-            </g>
-            <g class="fragment" data-fragment-index="2">
-              <rect x="435" y="60" width="270" height="170" rx="10" fill="#fff7ed" stroke="#fdba74" stroke-width="2"/>
-              <text x="570" y="92" font-size="17" font-weight="700" fill="#c2410c" text-anchor="middle">Common resource</text>
-              <text x="570" y="150" font-size="34" text-anchor="middle">&#128031;</text>
-              <text x="570" y="200" font-size="14" fill="#475569" text-anchor="middle">ocean fish, a shared road</text>
-            </g>
-            <g class="fragment" data-fragment-index="3">
-              <rect x="150" y="242" width="270" height="170" rx="10" fill="#f5f3ff" stroke="#c4b5fd" stroke-width="2"/>
-              <text x="285" y="274" font-size="17" font-weight="700" fill="#6d28d9" text-anchor="middle">Club good</text>
-              <text x="285" y="332" font-size="34" text-anchor="middle">&#127909;</text>
-              <text x="285" y="382" font-size="14" fill="#475569" text-anchor="middle">streaming, a toll bridge</text>
-            </g>
-            <g class="fragment" data-fragment-index="4">
-              <rect x="435" y="242" width="270" height="170" rx="10" fill="#ecfdf5" stroke="#34d399" stroke-width="3.5"/>
-              <text x="570" y="274" font-size="17" font-weight="700" fill="#047857" text-anchor="middle">PUBLIC GOOD</text>
-              <text x="570" y="332" font-size="34" text-anchor="middle">&#127788;&#65039;</text>
-              <text x="570" y="382" font-size="14" fill="#047857" font-weight="700" text-anchor="middle">clean air, national defense</text>
-            </g>
-            <!-- pointer to public good -->
-            <g class="fragment" data-fragment-index="4">
-              <text x="740" y="315" font-size="15" font-weight="700" fill="#047857">&larr; our focus</text>
-            </g>
-          </svg>
-        </section>
-
         <!-- PG4: Non-rival animation (shared air) -->
         <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
-          <p class="eyebrow" style="color: #b45309;">Clean Air &middot; Property 2</p>
+          <p class="eyebrow" style="color: #b45309;">Public Goods &middot; Property 1 of 2</p>
           <h2>Non-Rival: We All Share the Same Air</h2>
-          <p style="font-size: 0.55em; color: #64748b; margin: 0 0 4px;">Press <kbd style="background: #e2e8f0; border: 1px solid #cbd5e1; padding: 1px 6px; border-radius: 4px;">&rarr;</kbd> to let everyone breathe.</p>
-          <svg class="anim-graph" viewBox="0 0 900 420" style="width: 90%; max-height: 420px; margin: 0 auto; display: block; background: #fff; border: 1px solid #e2e8f0; border-radius: 10px;" role="img" aria-label="A shared pool of clean-air molecules floats above a row of four people. Each person breathes from the same air, and the amount of air stays the same — one person's breathing does not reduce what is left for the others.">
+          <div class="def-card" style="max-width: 880px; margin: 2px auto 6px; font-size: 0.66em; text-align: left; border-left-color:#3b82f6; background:rgba(59,130,246,0.05);">
+            <div class="def-title" style="color:#3b82f6;">Non-rival</div>
+            One person&rsquo;s use <strong>does not reduce</strong> the amount available to anyone else. Your breath of clean air leaves just as much for everyone around you. Press <kbd style="background:#e2e8f0;border:1px solid #cbd5e1;padding:1px 5px;border-radius:4px;">&rarr;</kbd> to let everyone breathe.
+          </div>
+          <svg class="anim-graph" viewBox="0 0 900 420" style="width: 88%; max-height: 355px; margin: 0 auto; display: block; background: #fff; border: 1px solid #e2e8f0; border-radius: 10px;" role="img" aria-label="A shared pool of clean-air molecules floats above a row of four people. Each person breathes from the same air, and the amount of air stays the same — one person's breathing does not reduce what is left for the others.">
             <!-- shared air region -->
             <rect x="60" y="40" width="780" height="150" rx="16" fill="#e0f2fe" stroke="#7dd3fc" stroke-width="2"/>
             <text x="450" y="70" font-size="16" font-weight="700" fill="#0369a1" text-anchor="middle">The shared air</text>
@@ -1319,10 +1287,13 @@
 
         <!-- PG5: Non-excludable animation (can't fence the air) -->
         <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
-          <p class="eyebrow" style="color: #b45309;">Clean Air &middot; Property 1</p>
+          <p class="eyebrow" style="color: #b45309;">Public Goods &middot; Property 2 of 2</p>
           <h2>Non-Excludable: You Can&rsquo;t Fence the Air</h2>
-          <p style="font-size: 0.55em; color: #64748b; margin: 0 0 4px;">Suppose someone tried to <em>sell</em> clean air. Press <kbd style="background: #e2e8f0; border: 1px solid #cbd5e1; padding: 1px 6px; border-radius: 4px;">&rarr;</kbd>.</p>
-          <svg class="anim-graph" viewBox="0 0 900 420" style="width: 90%; max-height: 420px; margin: 0 auto; display: block; background: #fff; border: 1px solid #e2e8f0; border-radius: 10px;" role="img" aria-label="A vendor puts up a fence and a sign selling clean air for five dollars a breath. But the air flows straight through the fence, and the people outside simply breathe for free without paying — they are free riders, so the vendor collects nothing.">
+          <div class="def-card" style="max-width: 880px; margin: 2px auto 6px; font-size: 0.66em; text-align: left;">
+            <div class="def-title">Non-excludable</div>
+            You <strong>cannot prevent</strong> someone from consuming it, even if they don&rsquo;t pay. Suppose someone tried to <em>sell</em> clean air &mdash; press <kbd style="background:#e2e8f0;border:1px solid #cbd5e1;padding:1px 5px;border-radius:4px;">&rarr;</kbd>.
+          </div>
+          <svg class="anim-graph" viewBox="0 0 900 420" style="width: 88%; max-height: 355px; margin: 0 auto; display: block; background: #fff; border: 1px solid #e2e8f0; border-radius: 10px;" role="img" aria-label="A vendor puts up a fence and a sign selling clean air for five dollars a breath. But the air flows straight through the fence, and the people outside simply breathe for free without paying — they are free riders, so the vendor collects nothing.">
             <!-- vendor + sign -->
             <g class="fragment" data-fragment-index="1">
               <circle cx="150" cy="150" r="22" fill="#0f766e"/><rect x="130" y="174" width="40" height="80" rx="12" fill="#0f766e"/>
@@ -1361,6 +1332,50 @@
               <text x="720" y="374" font-size="16" font-weight="700" fill="#b91c1c" text-anchor="middle">Vendor collects: $0. Everyone is a free rider.</text>
             </g>
             <defs><marker id="pgair" markerWidth="9" markerHeight="9" refX="6" refY="4.5" orient="auto"><path d="M 0 0 L 9 4.5 L 0 9 z" fill="#0ea5e9"/></marker></defs>
+          </svg>
+        </section>
+
+        <!-- PG3: The 2x2 goods matrix (now follows the two property slides) -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow" style="color: #b45309;">Definition &middot; The Big Picture</p>
+          <h2>Four Kinds of Goods</h2>
+          <p style="font-size: 0.55em; color: #64748b; margin: 0 0 4px;">Cross &ldquo;can you exclude non-payers?&rdquo; with &ldquo;does one person&rsquo;s use crowd out another&rsquo;s?&rdquo; Press <kbd style="background: #e2e8f0; border: 1px solid #cbd5e1; padding: 1px 6px; border-radius: 4px;">&rarr;</kbd>.</p>
+          <svg viewBox="0 0 900 430" style="width: 88%; max-height: 420px; margin: 0 auto; display: block; background: #fff; border: 1px solid #e2e8f0; border-radius: 10px;" role="img" aria-label="A two-by-two matrix. Columns: Excludable and Non-excludable. Rows: Rival and Non-rival. Cells: private goods (a sandwich); common resources (ocean fish); club goods (a streaming subscription); and public goods (clean air), which is highlighted.">
+            <!-- column headers (centered over each column: left col center 285, right col center 570) -->
+            <text x="285" y="42" font-size="19" font-weight="700" fill="#0f172a" text-anchor="middle">Excludable</text>
+            <text x="570" y="42" font-size="19" font-weight="700" fill="#0f172a" text-anchor="middle">Non-excludable</text>
+            <!-- row headers (centered on each row: top row center 145, bottom row center 327) -->
+            <text x="80" y="145" font-size="19" font-weight="700" fill="#0f172a" text-anchor="middle" dominant-baseline="central" transform="rotate(-90 80 145)">Rival</text>
+            <text x="80" y="327" font-size="19" font-weight="700" fill="#0f172a" text-anchor="middle" dominant-baseline="central" transform="rotate(-90 80 327)">Non-rival</text>
+            <!-- cells -->
+            <g class="fragment" data-fragment-index="1">
+              <rect x="150" y="60" width="270" height="170" rx="10" fill="#eff6ff" stroke="#93c5fd" stroke-width="2"/>
+              <text x="285" y="92" font-size="17" font-weight="700" fill="#1d4ed8" text-anchor="middle">Private good</text>
+              <text x="285" y="150" font-size="34" text-anchor="middle">&#127837;</text>
+              <text x="285" y="200" font-size="14" fill="#475569" text-anchor="middle">a sandwich, a shirt</text>
+            </g>
+            <g class="fragment" data-fragment-index="2">
+              <rect x="435" y="60" width="270" height="170" rx="10" fill="#fff7ed" stroke="#fdba74" stroke-width="2"/>
+              <text x="570" y="92" font-size="17" font-weight="700" fill="#c2410c" text-anchor="middle">Common resource</text>
+              <text x="570" y="150" font-size="34" text-anchor="middle">&#128031;</text>
+              <text x="570" y="200" font-size="14" fill="#475569" text-anchor="middle">ocean fish, a shared road</text>
+            </g>
+            <g class="fragment" data-fragment-index="3">
+              <rect x="150" y="242" width="270" height="170" rx="10" fill="#f5f3ff" stroke="#c4b5fd" stroke-width="2"/>
+              <text x="285" y="274" font-size="17" font-weight="700" fill="#6d28d9" text-anchor="middle">Club good</text>
+              <text x="285" y="332" font-size="34" text-anchor="middle">&#127909;</text>
+              <text x="285" y="382" font-size="14" fill="#475569" text-anchor="middle">streaming, a toll bridge</text>
+            </g>
+            <g class="fragment" data-fragment-index="4">
+              <rect x="435" y="242" width="270" height="170" rx="10" fill="#ecfdf5" stroke="#34d399" stroke-width="3.5"/>
+              <text x="570" y="274" font-size="17" font-weight="700" fill="#047857" text-anchor="middle">PUBLIC GOOD</text>
+              <text x="570" y="332" font-size="34" text-anchor="middle">&#127788;&#65039;</text>
+              <text x="570" y="382" font-size="14" fill="#047857" font-weight="700" text-anchor="middle">clean air, national defense</text>
+            </g>
+            <!-- pointer to public good -->
+            <g class="fragment" data-fragment-index="4">
+              <text x="740" y="315" font-size="15" font-weight="700" fill="#047857">&larr; our focus</text>
+            </g>
           </svg>
         </section>
 
@@ -1446,16 +1461,16 @@
               </svg>
             </div>
             <div style="flex:1;">
-              <div class="content-card" style="margin:0; padding:16px 20px; font-size:0.86em;">
+              <div class="content-card" style="margin:0; padding:16px 20px; font-size:0.9em;">
                 <div class="def-card">
                   <div class="def-title">Externality</div>
-                  A cost (or benefit) imposed on <strong>third parties</strong> that is <strong>not reflected in any market price</strong>.
+                  A cost (or benefit) landing on <strong>third parties</strong>, not in any price.
                 </div>
                 <div class="def-card fragment" style="border-left-color:#b91c1c; background:rgba(185,28,28,0.05);">
                   <div class="def-title" style="color:#b91c1c;">Negative externality</div>
-                  Smoke, pollution, and congestion pile costs on others. Because the polluter doesn&rsquo;t pay them, the market <strong>over-produces</strong> the harm &mdash; the traded quantity runs past the socially efficient one, and welfare is lost.
+                  The polluter doesn&rsquo;t pay the smoke cost &rArr; the market <strong>over-produces</strong>.
                 </div>
-                <p class="fragment" style="margin:10px 0 0; color:#64748b;">Two sides of one coin: clean air (a public good) is <strong>under</strong>-provided; dirty air (a negative externality) is <strong>over</strong>-produced. Prices capture neither &mdash; and both leave a deadweight loss.</p>
+                <p class="fragment" style="margin:10px 0 0; color:#64748b;">Clean air is <strong>under</strong>-provided; dirty air is <strong>over</strong>-produced. Both leave a deadweight loss.</p>
               </div>
             </div>
           </div>
@@ -1467,8 +1482,8 @@
           <h2>The Deadweight Loss of Smoke</h2>
           <p style="font-size: 0.55em; color: #64748b; margin: 0 0 4px;">Start from the market&rsquo;s own \( CS + PS \), then add the smoke society actually pays for. Press <kbd style="background: #e2e8f0; border: 1px solid #cbd5e1; padding: 1px 6px; border-radius: 4px;">&rarr;</kbd>.</p>
           <div style="display:flex; gap:16px; align-items:center; max-width:1190px; margin:0 auto;">
-            <div style="flex:1.5;">
-              <svg class="anim-graph" viewBox="0 0 720 470" style="width:100%; max-height:415px; background:#fff; border:1px solid #e2e8f0; border-radius:10px;" role="img" aria-label="Welfare build-up for a negative externality. At the market equilibrium where demand meets marginal private cost, consumer surplus is shaded amber and producer surplus teal; together they are the surplus the market counts. Marginal social cost is then drawn above marginal private cost by the external cost, and the red hatched band between them is the smoke damage society bears, which must be subtracted. Up to the efficient quantity Q-star that damage is still covered by surplus, but past Q-star it rises above the demand curve, and that solid red wedge between demand and marginal social cost is the deadweight loss.">
+            <div style="flex:1.36;">
+              <svg class="anim-graph" viewBox="45 14 655 426" style="width:100%; max-height:450px; background:#fff; border:1px solid #e2e8f0; border-radius:10px;" role="img" aria-label="Welfare build-up for a negative externality. At the market equilibrium where demand meets marginal private cost, consumer surplus is shaded amber and producer surplus teal; together they are the surplus the market counts. Marginal social cost is then drawn above marginal private cost by the external cost, and the red hatched band between them is the smoke damage society bears, which must be subtracted. Up to the efficient quantity Q-star that damage is still covered by surplus, but past Q-star it rises above the demand curve, and that solid red wedge between demand and marginal social cost is the deadweight loss.">
                 <defs>
                   <pattern id="hatchSm" width="9" height="9" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
                     <rect width="9" height="9" fill="#dc2626" fill-opacity="0.10"/>
@@ -1523,7 +1538,7 @@
               </svg>
             </div>
             <div style="flex:1;">
-              <div class="content-card" style="margin:0; padding:9px 12px; font-size:0.6em;">
+              <div class="content-card" style="margin:0; padding:10px 13px; font-size:0.66em;">
                 <div class="def-card fragment" data-fragment-index="1" style="margin:3px 0;">
                   <strong>Market.</strong> \( D = MPC \Rightarrow Q_{\text{market}} \) at price \( P_{\text{mkt}} \).
                 </div>
@@ -1547,39 +1562,14 @@
           </div>
         </section>
 
-        <!-- PG7c: Externalities — the general rule (framework) -->
-        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
-          <p class="eyebrow" style="color: #b45309;">Externalities &middot; The Rule</p>
-          <h2>Which Way Does the Market Miss?</h2>
-          <div class="content-card" style="font-size: 0.92em;">
-            <p style="font-weight:600; color:#0f766e; margin:0 0 8px;">An externality drives a wedge between <em>private</em> value (what the decision-maker feels) and <em>social</em> value (what everyone feels). Two cases:</p>
-            <div style="display:flex; gap:14px;">
-              <div class="def-card" style="flex:1; margin:0; border-left-color:#b91c1c; background:rgba(185,28,28,0.04);">
-                <div class="def-title" style="color:#b91c1c;">Negative &rArr; over-produced</div>
-                The true cost is higher than the seller pays: \( MSC > MPC \). The market trades where buyers meet \( MPC \), <strong>past</strong> the efficient point (where they&rsquo;d meet \( MSC \)), so \( Q_{\text{market}} > Q^* \).
-                <p style="margin:8px 0 0; font-size:0.9em; color:#7f1d1d;">e.g. a steel mill dumping waste into a river.</p>
-              </div>
-              <div class="def-card" style="flex:1; margin:0; border-left-color:#2563eb; background:rgba(37,99,235,0.05);">
-                <div class="def-title" style="color:#2563eb;">Positive &rArr; under-produced</div>
-                The true benefit is higher than the buyer enjoys: \( MSB > MPB \). Buyers stop where <em>their</em> benefit meets cost, <strong>short</strong> of where <em>social</em> benefit meets cost, so \( Q_{\text{market}} < Q^* \).
-                <p style="margin:8px 0 0; font-size:0.9em; color:#1e40af;">e.g. a flu shot that also protects classmates.</p>
-              </div>
-            </div>
-            <div class="def-card fragment" style="margin-top:12px; border-left-color:#059669; background:rgba(5,150,105,0.05);">
-              <div class="def-title" style="color:#059669;">Where does the wedge sit?</div>
-              A <strong>production</strong> externality moves the <strong>cost</strong> curve (\( MPC \) vs. \( MSC \)); a <strong>consumption</strong> externality moves the <strong>benefit</strong> curve (\( MPB \) vs. \( MSB \)).
-            </div>
-          </div>
-        </section>
-
         <!-- PG7d: Positive externality in consumption — flu shots (mirror of PG7b) -->
         <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
           <p class="eyebrow" style="color: #b45309;">Externalities &middot; Positive</p>
           <h2>Positive Externality: Flu Shots</h2>
           <p style="font-size: 0.55em; color: #64748b; margin: 0 0 4px;">Start from the market&rsquo;s own \( CS + PS \), then add the protection society gets for free. Press <kbd style="background: #e2e8f0; border: 1px solid #cbd5e1; padding: 1px 6px; border-radius: 4px;">&rarr;</kbd>.</p>
           <div style="display:flex; gap:16px; align-items:center; max-width:1190px; margin:0 auto;">
-            <div style="flex:1.5;">
-              <svg class="anim-graph" viewBox="0 0 720 470" style="width:100%; max-height:415px; background:#fff; border:1px solid #e2e8f0; border-radius:10px;" role="img" aria-label="Welfare build-up for a positive externality. At the market equilibrium where marginal private benefit meets marginal cost, consumer surplus is shaded amber and producer surplus teal; together they are the surplus the market counts. Marginal social benefit is then drawn above marginal private benefit by the external benefit, and the green hatched band between them is the extra protection society gets on every shot, which is added to the surplus. To the right of the market quantity, marginal social benefit still exceeds marginal cost up to the efficient quantity Q-star, so those shots would create value but are never made; that solid red wedge is the forgone deadweight loss.">
+            <div style="flex:1.36;">
+              <svg class="anim-graph" viewBox="45 14 655 426" style="width:100%; max-height:450px; background:#fff; border:1px solid #e2e8f0; border-radius:10px;" role="img" aria-label="Welfare build-up for a positive externality. At the market equilibrium where marginal private benefit meets marginal cost, consumer surplus is shaded amber and producer surplus teal; together they are the surplus the market counts. Marginal social benefit is then drawn above marginal private benefit by the external benefit, and the green hatched band between them is the extra protection society gets on every shot, which is added to the surplus. To the right of the market quantity, marginal social benefit still exceeds marginal cost up to the efficient quantity Q-star, so those shots would create value but are never made; that solid red wedge is the forgone deadweight loss.">
                 <defs>
                   <pattern id="hatchFl" width="9" height="9" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
                     <rect width="9" height="9" fill="#16a34a" fill-opacity="0.10"/>
@@ -1634,7 +1624,7 @@
               </svg>
             </div>
             <div style="flex:1;">
-              <div class="content-card" style="margin:0; padding:9px 12px; font-size:0.6em;">
+              <div class="content-card" style="margin:0; padding:10px 13px; font-size:0.66em;">
                 <div class="def-card fragment" data-fragment-index="1" style="margin:3px 0;">
                   <strong>Market.</strong> Buyers stop where <em>their own</em> benefit meets cost: \( MPB = MC \Rightarrow Q_{\text{market}} \).
                 </div>
@@ -1658,6 +1648,31 @@
           </div>
         </section>
 
+        <!-- PG7c: Externalities — the general rule (now follows both DWL animations) -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow" style="color: #b45309;">Externalities &middot; The Rule</p>
+          <h2>Which Way Does the Market Miss?</h2>
+          <div class="content-card" style="font-size: 0.92em;">
+            <p style="font-weight:600; color:#0f766e; margin:0 0 8px;">An externality drives a wedge between <em>private</em> value (what the decision-maker feels) and <em>social</em> value (what everyone feels). Two cases:</p>
+            <div style="display:flex; gap:14px;">
+              <div class="def-card" style="flex:1; margin:0; border-left-color:#b91c1c; background:rgba(185,28,28,0.04);">
+                <div class="def-title" style="color:#b91c1c;">Negative &rArr; over-produced</div>
+                The true cost is higher than the seller pays: \( MSC > MPC \). The market trades where buyers meet \( MPC \), <strong>past</strong> the efficient point (where they&rsquo;d meet \( MSC \)), so \( Q_{\text{market}} > Q^* \).
+                <p style="margin:8px 0 0; font-size:0.9em; color:#7f1d1d;">e.g. a steel mill dumping waste into a river.</p>
+              </div>
+              <div class="def-card" style="flex:1; margin:0; border-left-color:#2563eb; background:rgba(37,99,235,0.05);">
+                <div class="def-title" style="color:#2563eb;">Positive &rArr; under-produced</div>
+                The true benefit is higher than the buyer enjoys: \( MSB > MPB \). Buyers stop where <em>their</em> benefit meets cost, <strong>short</strong> of where <em>social</em> benefit meets cost, so \( Q_{\text{market}} < Q^* \).
+                <p style="margin:8px 0 0; font-size:0.9em; color:#1e40af;">e.g. a flu shot that also protects classmates.</p>
+              </div>
+            </div>
+            <div class="def-card fragment" style="margin-top:12px; border-left-color:#059669; background:rgba(5,150,105,0.05);">
+              <div class="def-title" style="color:#059669;">Where does the wedge sit?</div>
+              A <strong>production</strong> externality moves the <strong>cost</strong> curve (\( MPC \) vs. \( MSC \)); a <strong>consumption</strong> externality moves the <strong>benefit</strong> curve (\( MPB \) vs. \( MSB \)).
+            </div>
+          </div>
+        </section>
+
         <!-- PG7e: Correcting externalities — Pigouvian taxes & subsidies -->
         <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
           <p class="eyebrow" style="color: #b45309;">Externalities &middot; The Fix</p>
@@ -1676,10 +1691,6 @@
                 <p style="margin:8px 0 0; font-size:0.9em; color:#1e40af;">Fixes under-production (flu shots, education).</p>
               </div>
             </div>
-            <div class="def-card fragment" style="margin-top:12px; border-left-color:#059669; background:rgba(5,150,105,0.05);">
-              <div class="def-title" style="color:#059669;">One idea</div>
-              A <strong>tax shrinks</strong> a market that harms others; a <strong>subsidy grows</strong> a market that helps others. Both move the traded quantity to the socially efficient level and erase the deadweight loss.
-            </div>
           </div>
         </section>
 
@@ -1687,25 +1698,25 @@
         <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
           <p class="eyebrow" style="color: #b45309;">Why It Matters</p>
           <h2>Market Failure &amp; the Role of Government</h2>
-          <div class="content-card" style="font-size: 0.92em;">
-            <p style="font-weight:600; color:#0f766e;">Left to prices alone, the market gets both cases wrong:</p>
+          <div class="content-card" style="font-size: 0.95em;">
+            <p style="font-weight:600; color:#0f766e;">Left to prices alone, the market misses both ways:</p>
             <div style="display:flex; gap:14px; margin-top:8px;">
               <div class="def-card" style="flex:1; margin:0;">
                 <div class="def-title">Public goods</div>
-                Can&rsquo;t be priced &rArr; no incentive to produce &rArr; <strong>under-provided</strong> (too little clean air, defense, research).
+                Can&rsquo;t be priced &rArr; <strong>under-provided</strong>.
               </div>
               <div class="def-card" style="flex:1; margin:0; border-left-color:#b91c1c; background:rgba(185,28,28,0.04);">
                 <div class="def-title" style="color:#b91c1c;">Negative externalities</div>
-                Costs fall on others, not the price &rArr; <strong>over-produced</strong> (too much smoke, pollution).
+                Costs land on others &rArr; <strong>over-produced</strong>.
               </div>
             </div>
             <div class="def-card fragment" style="margin-top:12px; border-left-color:#3b82f6; background:rgba(59,130,246,0.04);">
-              <div class="def-title" style="color:#3b82f6;">This is where government steps in</div>
-              <strong>Provide</strong> public goods directly, funded by <strong>taxes</strong> (recall Part 1); <strong>tax or regulate</strong> negative externalities (emissions limits, wildfire management) and <strong>subsidize</strong> positive ones (vaccines, education) so prices finally reflect the true social cost and benefit.
+              <div class="def-title" style="color:#3b82f6;">Government steps in</div>
+              <strong>Provide</strong> public goods; <strong>tax</strong> the bad, <strong>subsidize</strong> the good.
             </div>
             <div class="def-card fragment" style="margin-top:10px; border-left-color:#059669; background:rgba(5,150,105,0.05);">
               <div class="def-title" style="color:#059669;">The welfare flip</div>
-              In Class 5, intervening in a <em>healthy</em> market <strong>created</strong> deadweight loss. Here the free-market outcome is <em>already</em> inefficient, so well-aimed intervention <strong>recovers</strong> lost welfare.
+              Meddling with a <em>healthy</em> market <strong>creates</strong> DWL. Here the market is <em>already</em> broken, so good policy <strong>recovers</strong> welfare.
             </div>
           </div>
         </section>
@@ -1723,7 +1734,7 @@
               </tr>
               <tr class="fragment"><td style="padding:6px 12px;">Perfect competition</td><td style="padding:6px 12px; color:#047857; font-weight:700;">Maximized &mdash; efficient</td></tr>
               <tr class="fragment"><td style="padding:6px 12px;">Monopoly / market power</td><td style="padding:6px 12px; color:#b91c1c; font-weight:600;">Deadweight loss \( (P > MC) \)</td></tr>
-              <tr class="fragment"><td style="padding:6px 12px;">Taxes &amp; price controls</td><td style="padding:6px 12px; color:#b91c1c; font-weight:600;">Deadweight loss</td></tr>
+              <tr class="fragment"><td style="padding:6px 12px;">Taxes &amp; price controls</td><td style="padding:6px 12px; color:#b91c1c; font-weight:600;">DWL when markets are already efficient</td></tr>
               <tr class="fragment"><td style="padding:6px 12px;">Public goods</td><td style="padding:6px 12px; color:#b91c1c; font-weight:600;">Under-provided &rarr; lost surplus</td></tr>
               <tr class="fragment"><td style="padding:6px 12px;">Negative externalities</td><td style="padding:6px 12px; color:#b91c1c; font-weight:600;">Over-produced &rarr; deadweight loss</td></tr>
               <tr class="fragment"><td style="padding:6px 12px;">Positive externalities</td><td style="padding:6px 12px; color:#b91c1c; font-weight:600;">Under-produced &rarr; lost surplus</td></tr>
@@ -1755,6 +1766,30 @@
               <div class="def-title">Answers</div>
               Fireworks = <strong>public good</strong> (non-excludable, non-rival). Pizza = <strong>private</strong>. Congested highway = <strong>common resource</strong> (non-excludable but rival). Netflix = <strong>club good</strong> (excludable but non-rival).
             </div>
+          </div>
+        </section>
+
+        <!-- PG9b: Quick check — externalities, MSC/MSB -->
+        <section data-background-gradient="linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%)">
+          <p class="eyebrow" style="color: #b45309;">Quick Check</p>
+          <h2>&#127922; Which Way Does It Miss?</h2>
+          <div class="content-card" style="font-size: 0.88em; background: rgba(255,255,255,0.7);">
+            <p style="font-weight:600; color:#b45309;">For each: positive or negative externality? Does the market make <em>too much</em> or <em>too little</em>? Which curve moves &mdash; \( MSC \) or \( MSB \)?</p>
+            <ul>
+              <li>A factory dumping waste into a river</li>
+              <li>Your neighbour planting a beautiful garden</li>
+              <li>Getting a college education</li>
+              <li>Driving into downtown at rush hour</li>
+            </ul>
+            <div style="margin: 6px 0 10px;">
+              <button class="group-roll-btn" onclick="rollGroup('l6pgq2')">&#127922; Pick a group</button>
+              <span class="group-roll-result" id="l6pgq2">&mdash;</span>
+            </div>
+            <div class="def-card fragment" style="margin-top:6px;">
+              <div class="def-title">Answers</div>
+              Waste = <strong>negative</strong>, \( MSC > MPC \), over-produced. Garden = <strong>positive</strong>, \( MSB > MPB \), under-produced. College = <strong>positive</strong>, \( MSB > MPB \), under-produced. Rush-hour driving = <strong>negative</strong> (congestion), \( MSC > MPC \), over-produced.
+            </div>
+            <p class="fragment" style="margin:8px 0 0; font-weight:600; color:#0f766e;">Rule of thumb: the <em>social</em> curve always sits above the private one &mdash; cost side for negatives, benefit side for positives.</p>
           </div>
         </section>
 
@@ -1816,7 +1851,7 @@
           <div class="content-card" style="font-size: 0.92em;">
             <ol>
               <li class="fragment"><strong>Open notebook!</strong> You can bring whatever handwritten and/or typed+printed notes you think will help you.</li>
-              <li class="fragment"><strong>Final Exam is 45&ndash;60 mins (TBD)</strong>: 40% multiple-choice, 20% True/False, 40% written responses.</li>
+              <li class="fragment"><strong>Final Exam is 60 mins.</strong> 6 multiple-choice, 8 true/false questions, some short-answers, calculations, written explanations questions.</li>
               <li class="fragment"><strong>Try your best</strong> for the Final Exam!</li>
             </ol>
             <p class="fragment" style="font-weight: 600; color: #0f766e; margin-top: 15px; text-align: center;">
