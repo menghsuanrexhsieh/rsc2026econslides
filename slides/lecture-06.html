@@ -645,23 +645,23 @@
               <text x="62" y="305" font-size="14" font-weight="700" fill="#64748b" text-anchor="end">P* = $3</text>
               <text x="430" y="462" font-size="14" fill="#64748b" text-anchor="middle">Q* = 40</text>
             </g>
-            <!-- fragment 1: quantity falls to 20 -->
+            <!-- fragment 1: quantity falls to 20, and the sellers' price P_s appears first -->
             <g class="fragment" data-fragment-index="1">
               <line x1="250" y1="347" x2="250" y2="440" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="5 4"/>
-              <circle cx="250" cy="207" r="6" fill="#1e293b"/>
+              <line x1="70" y1="347" x2="250" y2="347" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="5 4"/>
               <circle cx="250" cy="347" r="6" fill="#0f766e"/>
+              <text x="62" y="352" font-size="14" font-weight="700" fill="#0f766e" text-anchor="end">P<tspan dy="4" font-size="11">s</tspan><tspan dy="-4"> = $2</tspan></text>
               <text x="250" y="462" font-size="14" font-weight="700" fill="#1e293b" text-anchor="middle">Q<tspan dy="4" font-size="11">tax</tspan><tspan dy="-4"> = 20</tspan></text>
             </g>
-            <!-- fragment 2: the wedge -->
+            <!-- fragment 2: travel up the wedge; only now does the buyers' price P_b appear -->
             <g class="fragment" data-fragment-index="2">
-              <line x1="70" y1="207" x2="250" y2="207" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="5 4"/>
-              <line x1="70" y1="347" x2="250" y2="347" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="5 4"/>
-              <text x="62" y="212" font-size="14" font-weight="700" fill="#1e293b" text-anchor="end">P<tspan dy="4" font-size="11">b</tspan><tspan dy="-4"> = $5</tspan></text>
-              <text x="62" y="352" font-size="14" font-weight="700" fill="#0f766e" text-anchor="end">P<tspan dy="4" font-size="11">s</tspan><tspan dy="-4"> = $2</tspan></text>
               <line x1="250" y1="207" x2="250" y2="347" stroke="#1e293b" stroke-width="2.5"/>
               <polygon points="245,207 255,207 250,198" fill="#1e293b"/>
               <polygon points="245,347 255,347 250,356" fill="#1e293b"/>
               <text x="243" y="282" font-size="15" font-weight="700" fill="#1e293b" text-anchor="end">t = $3</text>
+              <line x1="70" y1="207" x2="250" y2="207" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="5 4"/>
+              <circle cx="250" cy="207" r="6" fill="#1e293b"/>
+              <text x="62" y="212" font-size="14" font-weight="700" fill="#1e293b" text-anchor="end">P<tspan dy="4" font-size="11">b</tspan><tspan dy="-4"> = $5</tspan></text>
             </g>
             <!-- fragment 4: DWL -->
             <g class="fragment" data-fragment-index="4">
