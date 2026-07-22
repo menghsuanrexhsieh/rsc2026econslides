@@ -29,4 +29,8 @@ title: Home
     <h3>Class 5</h3>
     <p>Social Welfare, Efficiency, and Deadweight Loss</p>
   </a>
+  <a class="card" href="{{ '/slides/lecture-06.html' | relative_url }}">
+    <h3>Class 6</h3>
+    <p>Deadweight Loss, Public Goods, Externalities</p>
+  </a>
 </div>
