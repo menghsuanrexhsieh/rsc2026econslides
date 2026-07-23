@@ -1,0 +1,1032 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>In-Class Review 6.5 &mdash; Worked Solutions</title>
+
+  <!-- reveal.js core + theme (HTML5 slides, loaded from CDN) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reset.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/white.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/highlight/monokai.css">
+
+  <!-- Google Fonts for premium typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --r-main-font: 'Plus Jakarta Sans', sans-serif;
+      --r-heading-font: 'Outfit', sans-serif;
+      --r-main-color: #1e293b;
+      --r-heading-color: #0f172a;
+      --r-link-color: #0f766e;
+      --r-selection-background-color: #ccfbf1;
+    }
+
+    .reveal {
+      font-family: var(--r-main-font);
+      color: var(--r-main-color);
+      font-size: 24px;
+    }
+
+    .reveal h1, .reveal h2, .reveal h3, .reveal h4 {
+      font-family: var(--r-heading-font);
+      color: var(--r-heading-color);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .reveal h1 { font-size: 2.2em; line-height: 1.1; }
+    .reveal h2 { font-size: 1.6em; line-height: 1.2; margin-bottom: 15px; }
+    .reveal h3 { font-size: 1.2em; line-height: 1.3; }
+
+    .reveal .eyebrow {
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      font-size: 0.45em;
+      font-weight: 700;
+      color: #0f766e;
+      margin-bottom: 10px;
+      display: inline-block;
+    }
+
+    /* Elegant card container */
+    .reveal .content-card {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      border-radius: 12px;
+      padding: 18px 24px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.02);
+      margin: 12px auto;
+      text-align: left;
+      max-width: 920px;
+    }
+
+    .reveal .def-card {
+      border-left: 4px solid #0f766e;
+      background: rgba(15, 118, 110, 0.04);
+      border-radius: 4px 10px 10px 4px;
+      padding: 12px 18px;
+      margin: 12px 0;
+      text-align: left;
+    }
+    .reveal .def-card .def-title {
+      font-family: var(--r-heading-font);
+      font-weight: 700;
+      color: #0f766e;
+      font-size: 0.8em;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 4px;
+    }
+
+    .reveal .example-card {
+      border-left: 4px solid #3b82f6;
+      background: rgba(59, 130, 246, 0.04);
+      border-radius: 4px 10px 10px 4px;
+      padding: 12px 18px;
+      margin: 12px 0;
+      text-align: left;
+    }
+    .reveal .example-card .ex-title {
+      font-family: var(--r-heading-font);
+      font-weight: 700;
+      color: #3b82f6;
+      font-size: 0.8em;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 4px;
+    }
+
+    /* Slide image styling */
+    .reveal .slide-img-container {
+      background: white;
+      padding: 8px;
+      border-radius: 10px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.02);
+      border: 1px solid #e2e8f0;
+      display: inline-block;
+      margin-top: 8px;
+    }
+    .reveal .slide-img-container img {
+      max-height: 280px;
+      width: auto;
+      margin: 0;
+      display: block;
+      border-radius: 4px;
+    }
+
+    /* Standard list styling (for inside cards, columns, etc.) */
+    .reveal ul, .reveal ol {
+      display: block;
+      text-align: left;
+      margin: 10px 0 !important;
+      padding-left: 20px;
+    }
+
+    .reveal ul {
+      list-style-type: disc;
+    }
+
+    .reveal ol {
+      list-style-type: decimal;
+    }
+
+    .reveal li {
+      text-align: left;
+      margin-bottom: 8px;
+      line-height: 1.35;
+    }
+
+    /* Indentation and bullets for nested lists */
+    .reveal li ul, .reveal li ol {
+      margin: 4px 0 4px 20px !important;
+      display: block;
+      min-width: unset;
+    }
+
+    .reveal li ul {
+      list-style-type: circle;
+    }
+
+    /* Centered list layout (only when list is the main slide element or explicitly centered) */
+    .reveal section > ul, .reveal section > ol, .reveal .center-list {
+      display: inline-block;
+      text-align: left;
+      margin: 15px auto !important;
+      padding-left: 20px;
+      min-width: 65%;
+      max-width: 95%;
+    }
+
+    /* Grid for side-by-side clips */
+    .reveal .img-gallery {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 15px;
+      flex-wrap: wrap;
+      margin-top: 15px;
+    }
+    .reveal .img-gallery .gallery-item {
+      background: white;
+      padding: 6px;
+      border-radius: 10px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.02);
+      border: 1px solid #e2e8f0;
+    }
+    .reveal .img-gallery img {
+      max-height: 220px;
+      width: auto;
+      display: block;
+      border-radius: 4px;
+      margin: 0;
+    }
+
+    /* Home link and footer elements */
+    .reveal .home-link {
+      position: fixed;
+      bottom: 16px;
+      left: 20px;
+      z-index: 30;
+      font-size: 13px;
+      color: #94a3b8;
+      text-decoration: none;
+      font-family: var(--r-main-font);
+      font-weight: 500;
+      transition: color 0.2s ease;
+    }
+    .reveal .home-link:hover {
+      color: #0f766e;
+    }
+
+    .reveal .slide-footer {
+      position: fixed;
+      bottom: 16px;
+      right: 20px;
+      z-index: 30;
+      font-size: 11px;
+      color: #94a3b8;
+      font-family: var(--r-main-font);
+    }
+
+    /* Interactive blank */
+    .reveal .fill-blank {
+      display: inline-block;
+      border-bottom: 2px dashed #94a3b8;
+      min-width: 140px;
+      height: 1.1em;
+      vertical-align: bottom;
+    }
+
+    .reveal .katex-display {
+      margin: 8px 0;
+    }
+
+    /* Group work slides: random group picker */
+    .reveal .group-roll-btn {
+      font-family: var(--r-heading-font);
+      font-weight: 700;
+      font-size: 0.75em;
+      color: white;
+      background: #b45309;
+      border: none;
+      border-radius: 999px;
+      padding: 8px 18px;
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+    .reveal .group-roll-btn:hover {
+      background: #92400e;
+    }
+    .reveal .group-roll-result {
+      display: inline-block;
+      min-width: 2em;
+      margin-left: 10px;
+      font-family: var(--r-heading-font);
+      font-weight: 800;
+      color: #b45309;
+      font-size: 1.2em;
+      vertical-align: middle;
+    }
+  /* Step-by-step animated graph: lines draw themselves in as fragments appear */
+    .reveal svg.anim-graph { font-family: var(--r-main-font); }
+    .reveal svg.anim-graph text { font-family: var(--r-main-font); }
+    .reveal .anim-graph .build-line {
+      stroke-dasharray: 950;
+      stroke-dashoffset: 950;
+    }
+    .reveal .fragment.visible .build-line {
+      animation: drawline 0.9s ease-out forwards;
+    }
+    @keyframes drawline {
+      to { stroke-dashoffset: 0; }
+    }
+
+    /* Answer chip used in the concept warm-up */
+    .reveal .ans-chip {
+      display: inline-block;
+      font-weight: 800;
+      color: #047857;
+      background: rgba(5, 150, 105, 0.10);
+      border-radius: 6px;
+      padding: 0 8px;
+      margin-right: 6px;
+    }
+    .reveal .ans-chip.wrong { color: #b91c1c; background: rgba(185, 28, 28, 0.09); }
+    /* Compact question/answer rows */
+    .reveal .qa-row { margin: 6px 0; }
+    .reveal .qa-row .q { color: #1e293b; }
+  </style>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- ============================================================= -->
+      <!-- SECTION 0: Title & Roadmap                                     -->
+      <!-- ============================================================= -->
+
+      <!-- Slide 1: Title -->
+      <section data-background-gradient="linear-gradient(135deg, #0f172a 0%, #1e293b 100%)">
+        <p class="eyebrow" style="color: #2dd4bf;">RSC Economics Experience &middot; July 2026</p>
+        <h1 style="color: white; font-size: 2.3em; margin-bottom: 15px;">In-Class Review 6.5</h1>
+        <h3 style="color: #94a3b8; font-weight: 400; margin-bottom: 40px;">Worked Solutions &mdash; a walk through the key problems</h3>
+        <p style="color: #2dd4bf; font-weight: 600; font-size: 0.9em; margin-bottom: 5px;">Meng Hsuan &ldquo;Rex&rdquo; Hsieh</p>
+        <p style="color: #cbd5e1; font-size: 0.8em; max-width: 760px; margin: 10px auto 30px;">A comprehensive review of Classes 1&ndash;6: supply &amp; demand, elasticity, monopoly, perfect competition, welfare &amp; deadweight loss, taxes, externalities, and public goods.</p>
+        <p style="color: #64748b; font-size: 0.75em;">Press <kbd style="background: #334155; color: #cbd5e1; border: 1px solid #475569; padding: 2px 6px; border-radius: 4px;">&rarr;</kbd> to begin</p>
+      </section>
+
+      <!-- Slide 2: Roadmap -->
+      <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+        <p class="eyebrow">How we&rsquo;ll work</p>
+        <h2>The Plan for This Review</h2>
+        <div class="content-card" style="font-size: 0.92em;">
+          <p style="margin:0 0 8px;">For each problem we&rsquo;ll <strong>read the question first</strong>, then build the answer <strong>one step at a time</strong> &mdash; so you can pause and try each step yourself before the next one appears.</p>
+          <ul>
+            <li class="fragment"><strong>Concept warm-up</strong> (Parts A &amp; B): multiple choice, true/false, externalities, and public goods &mdash; the quick ideas.</li>
+            <li class="fragment"><strong>Six free-response problems</strong> (Part C): avocado toast, three elasticities, a monopoly food truck, a competitive bagel market, the APT Press saga, and a soda tax.</li>
+          </ul>
+          <p class="fragment" style="margin:12px 0 0; font-size:0.86em; color:#64748b;">Tip: press <kbd style="background:#e2e8f0;border:1px solid #cbd5e1;padding:1px 6px;border-radius:4px;">&darr;</kbd> to dig into a problem&rsquo;s parts, <kbd style="background:#e2e8f0;border:1px solid #cbd5e1;padding:1px 6px;border-radius:4px;">&rarr;</kbd> to move to the next.</p>
+        </div>
+      </section>
+
+
+      <!-- ============================================================= -->
+      <!-- SECTION 1: Concept Warm-Up (Parts A & B)                       -->
+      <!-- ============================================================= -->
+      <section>
+
+        <!-- Divider -->
+        <section data-background-gradient="linear-gradient(135deg, #0f766e 0%, #115e59 100%)">
+          <p class="eyebrow" style="color: #ccfbf1;">Warm-Up &middot; Parts A &amp; B</p>
+          <h1 style="color: white; font-size: 2.3em;">The Quick Ideas</h1>
+          <p style="color: #ccfbf1; margin-top: 20px;">Multiple choice, true/false, externalities, public goods. Press <kbd style="background: #115e59; color: white; border: 1px solid #134e4a; padding: 2px 6px; border-radius: 4px;">&darr;</kbd></p>
+        </section>
+
+        <!-- Multiple Choice Q1-4 -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Part A &middot; Multiple Choice</p>
+          <h2>Q1&ndash;4: Read, Then Reveal</h2>
+          <div class="content-card" style="font-size: 0.72em; max-width: 1040px;">
+            <div class="qa-row">
+              <p class="q"><strong>Q1.</strong> Which change shifts <em>market demand</em> for boba to the <strong>left</strong>?</p>
+              <p class="fragment" style="margin:2px 0 0;"><span class="ans-chip">(d)</span> A cheaper rival chain (a substitute) <em>and</em> falling income for a normal good both cut demand. A heat wave shifts it right; a lower boba price is a move <em>along</em> the curve.</p>
+            </div>
+            <div class="qa-row">
+              <p class="q"><strong>Q2.</strong> A \(\$60\) nonrefundable ticket &mdash; you&rsquo;d now rather stay home. How does the \(\$60\) factor in?</p>
+              <p class="fragment" style="margin:2px 0 0;"><span class="ans-chip">(a)</span> It&rsquo;s a <strong>sunk cost</strong> &mdash; unrecoverable and the same either way &mdash; so it&rsquo;s irrelevant. Compare only tonight&rsquo;s marginal benefit vs. cost, and stay home.</p>
+            </div>
+            <div class="qa-row">
+              <p class="q"><strong>Q3.</strong> \( |\varepsilon| = 0.8 \). Does a 10% price hike raise total revenue?</p>
+              <p class="fragment" style="margin:2px 0 0;"><span class="ans-chip">(a)</span> Demand is <strong>inelastic</strong> \( (|\varepsilon|<1) \): price up 10%, quantity down only about 8%, so revenue <strong>rises</strong>.</p>
+            </div>
+            <div class="qa-row">
+              <p class="q"><strong>Q4.</strong> For \( P = 20 - 2Q \), which statement about \( |\varepsilon| \) is right?</p>
+              <p class="fragment" style="margin:2px 0 0;"><span class="ans-chip">(d)</span> All of them. \( |\varepsilon| = \tfrac12\cdot\tfrac{P}{Q} \) gives \( 3,\ 1,\ \tfrac13 \) at \( Q = 2.5,\ 5,\ 7.5 \) &mdash; elasticity falls as you slide down the line.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Multiple Choice Q5-8 -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Part A &middot; Multiple Choice</p>
+          <h2>Q5&ndash;8: Read, Then Reveal</h2>
+          <div class="content-card" style="font-size: 0.72em; max-width: 1040px;">
+            <div class="qa-row">
+              <p class="q"><strong>Q5.</strong> Priya: \( MC=\$3.20 \), \( AVC=\$2.00 \), \( ATC=\$4.00 \) at 200 loaves; price \(\$2.80\). Do what?</p>
+              <p class="fragment" style="margin:2px 0 0;"><span class="ans-chip">(d)</span> \( P=\$2.80 > AVC \), so <strong>operate</strong> despite the loss. But \( MC=\$3.20 > P \): she&rsquo;s making too many &mdash; <strong>cut output</strong> until \( MC \) falls to \(\$2.80\).</p>
+            </div>
+            <div class="qa-row">
+              <p class="q"><strong>Q6.</strong> A monopolist&rsquo;s \( MC \) rises by exactly \(\$6\). Raise price by how much?</p>
+              <p class="fragment" style="margin:2px 0 0;"><span class="ans-chip">(c)</span> By <strong>less than \(\$6\)</strong>. \( MR \) has twice the slope of demand, so the new price rises by only about <em>half</em> the cost increase.</p>
+            </div>
+            <div class="qa-row">
+              <p class="q"><strong>Q7.</strong> A per-unit tax&rsquo;s <strong>deadweight loss</strong> is best described as&hellip;</p>
+              <p class="fragment" style="margin:2px 0 0;"><span class="ans-chip">(c)</span> The value of <strong>mutually beneficial trades that no longer happen</strong> because of the tax wedge. Revenue is a transfer, not a loss.</p>
+            </div>
+            <div class="qa-row">
+              <p class="q"><strong>Q8.</strong> Which is a <strong>public good</strong> (non-rival <em>and</em> non-excludable)?</p>
+              <p class="fragment" style="margin:2px 0 0;"><span class="ans-chip">(d)</span> <strong>National defense.</strong> A sandwich is private; a fishery is a common resource; streaming and a toll road are club goods (excludable).</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- True / False Q9 -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Part B &middot; True / False</p>
+          <h2>Q9: Some Right, Some Not</h2>
+          <div class="content-card" style="font-size: 0.66em; max-width: 1060px; padding: 14px 22px;">
+            <div class="qa-row">(a) A <em>decrease in a good&rsquo;s price</em> shifts its demand curve left. <span class="fragment"><span class="ans-chip wrong">False</span> that&rsquo;s a move <em>along</em> the curve.</span></div>
+            <div class="qa-row">(b) A linear demand curve is more elastic at higher prices (upper portion). <span class="fragment"><span class="ans-chip">True</span></span></div>
+            <div class="qa-row">(c) A good with income elasticity \( < 0 \) is a normal good. <span class="fragment"><span class="ans-chip wrong">False</span> negative \( \Rightarrow \) <strong>inferior</strong>.</span></div>
+            <div class="qa-row">(d) For linear demand, \( MR \) shares the intercept but has twice the slope. <span class="fragment"><span class="ans-chip">True</span></span></div>
+            <div class="qa-row">(e) A monopolist sets \( MR=MC \) for quantity, then charges the highest price demand allows. <span class="fragment"><span class="ans-chip">True</span></span></div>
+            <div class="qa-row">(f) A competitive firm should shut down whenever it makes a loss. <span class="fragment"><span class="ans-chip wrong">False</span> only if \( P < AVC \).</span></div>
+            <div class="qa-row">(g) In long-run competitive equilibrium, profit is zero and \( P = \min ATC \). <span class="fragment"><span class="ans-chip">True</span></span></div>
+            <div class="qa-row">(h) A per-unit tax&rsquo;s DWL equals the revenue it raises. <span class="fragment"><span class="ans-chip wrong">False</span> revenue is a transfer, not the loss.</span></div>
+          </div>
+        </section>
+
+        <!-- Externalities Q10 -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Part B &middot; Externalities</p>
+          <h2>Q10: Runoff &amp; Herd Immunity</h2>
+          <div class="content-card" style="font-size: 0.82em;">
+            <div class="example-card" style="margin:0 0 10px;">
+              <div class="ex-title">The question</div>
+              A fertilizer plant&rsquo;s runoff harms a downstream fishery (a <strong>negative externality in production</strong>); a vaccinated student protects classmates (a <strong>positive externality in consumption</strong>). For each: over- or under-produce? Name the corrective policy.
+            </div>
+            <div class="def-card fragment" style="margin:8px 0;">
+              <div class="def-title">Step 1 &mdash; Runoff: over-produce</div>
+              External harm means \( MSC > MPC \). The market trades where price meets <em>private</em> cost, ignoring the harm, so it <strong>over-produces</strong> relative to the efficient quantity (where price meets \( MSC \)).
+            </div>
+            <div class="def-card fragment" style="margin:8px 0; border-left-color:#2563eb; background:rgba(37,99,235,0.05);">
+              <div class="def-title" style="color:#2563eb;">Step 2 &mdash; Vaccines: under-produce</div>
+              External benefit means \( MSB > MPB \). Buyers consume where price meets <em>private</em> benefit, ignoring the gain to others, so the market <strong>under-produces</strong>.
+            </div>
+            <div class="def-card fragment" style="margin:8px 0; border-left-color:#b45309; background:rgba(180,83,9,0.05);">
+              <div class="def-title" style="color:#b45309;">Step 3 &mdash; The fix</div>
+              Negative externality \( \Rightarrow \) a <strong>Pigouvian tax</strong> on the polluter (<strong>lowers</strong> \( Q \) to \( Q^* \)). Positive externality \( \Rightarrow \) a <strong>subsidy</strong> to consumers (<strong>raises</strong> \( Q \) to \( Q^* \)).
+            </div>
+          </div>
+        </section>
+
+        <!-- Public goods Q11 -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Part B &middot; Public Goods</p>
+          <h2>Q11: No Price, No Producer</h2>
+          <div class="content-card" style="font-size: 0.82em;">
+            <div class="example-card" style="margin:0 0 10px;">
+              <div class="ex-title">The question</div>
+              A town weighs a Fourth-of-July fireworks display. Why is it non-rival and non-excludable? Why would a private firm under-provide it? Name a fix &mdash; and classify a <em>congested toll road</em>.
+            </div>
+            <div class="def-card fragment" style="margin:8px 0;">
+              <div class="def-title">Step 1 &mdash; Why it&rsquo;s a public good</div>
+              <strong>Non-rival:</strong> one person watching doesn&rsquo;t reduce anyone else&rsquo;s view. <strong>Non-excludable:</strong> you can&rsquo;t fence off the night sky to stop non-payers.
+            </div>
+            <div class="def-card fragment" style="margin:8px 0; border-left-color:#b91c1c; background:rgba(185,28,28,0.04);">
+              <div class="def-title" style="color:#b91c1c;">Step 2 &mdash; The free-rider problem</div>
+              Since non-payers can&rsquo;t be excluded, everyone waits for someone else to pay. A private firm can&rsquo;t collect enough to cover costs, so it <strong>under-provides (or never provides)</strong> &mdash; &ldquo;no price, no producer.&rdquo;
+            </div>
+            <div class="def-card fragment" style="margin:8px 0; border-left-color:#3b82f6; background:rgba(59,130,246,0.04);">
+              <div class="def-title" style="color:#3b82f6;">Step 3 &mdash; A fix, and the toll road</div>
+              Fix: <strong>government provision funded by taxes</strong>. A <em>congested</em> toll road is excludable (the toll) but rival (each car slows the rest) \( \Rightarrow \) it&rsquo;s a <strong>private good</strong>.
+            </div>
+          </div>
+        </section>
+
+      </section>
+
+
+      <!-- ============================================================= -->
+      <!-- SECTION 2: Part C Free Response                                -->
+      <!-- ============================================================= -->
+
+      <!-- Part C divider (horizontal) -->
+      <section data-background-gradient="linear-gradient(135deg, #0f172a 0%, #1e293b 100%)">
+        <p class="eyebrow" style="color: #2dd4bf;">Part C</p>
+        <h1 style="color: white; font-size: 2.4em;">Free Response</h1>
+        <p style="color: #94a3b8; margin-top: 20px; max-width: 720px;">Six problems, worked from scratch. Each part builds one step at a time &mdash; try it before you press <kbd style="background: #334155; color: #cbd5e1; border: 1px solid #475569; padding: 2px 6px; border-radius: 4px;">&rarr;</kbd>.</p>
+      </section>
+
+      <!-- ---------- Q12: Avocado Toast (vertical stack) ---------- -->
+      <section>
+
+        <!-- Q12 question -->
+        <section data-background-gradient="linear-gradient(135deg, #eff6ff 0%, #e0f2fe 100%)">
+          <p class="eyebrow" style="color:#2563eb;">Q12 &middot; 14 points</p>
+          <h2>Avocado Toast Economics</h2>
+          <div class="content-card" style="font-size: 0.86em;">
+            <p style="margin:0 0 6px;">The weekly market for avocados is perfectly competitive, with</p>
+            <p style="text-align:center;">\[ Q_D = 120 - 10P, \qquad Q_S = 20P \]</p>
+            <p style="margin:0 0 10px; font-size:0.9em; color:#64748b;">\( Q \) is in <em>thousands</em> of avocados; \( P \) is dollars per avocado.</p>
+            <div class="example-card" style="margin:0;">
+              <div class="ex-title">Your tasks</div>
+              <ul style="margin:4px 0 0;">
+                <li><strong>(a)</strong> Find the equilibrium price \( P^* \) and quantity \( Q^* \).</li>
+                <li><strong>(b)</strong> Compute \( CS \), \( PS \), and welfare \( W = CS + PS \); sketch and label the graph.</li>
+                <li><strong>(c)</strong> A heat wave cuts supply to \( Q_S = 20P - 60 \). Find the new equilibrium; say what happens to \( CS \) and to \( W \).</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- Q12(a) -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Q12 (a) &middot; Equilibrium</p>
+          <h2>Set Quantity Demanded = Quantity Supplied</h2>
+          <div class="content-card" style="font-size: 0.9em;">
+            <div class="def-card">
+              <div class="def-title">Step 1 &mdash; Equate the two curves</div>
+              \[ 120 - 10P = 20P \;\Longrightarrow\; 30P = 120 \;\Longrightarrow\; P^* = \$4 \]
+            </div>
+            <div class="def-card fragment">
+              <div class="def-title">Step 2 &mdash; Back out the quantity</div>
+              \[ Q^* = 20P^* = 20(4) = 80 \text{ thousand avocados} \]
+            </div>
+            <p class="fragment" style="margin:10px 0 0; font-weight:600; color:#0f766e;">Equilibrium: \( P^* = \$4 \), \( Q^* = 80 \) (thousand).</p>
+          </div>
+        </section>
+
+        <!-- Q12(b) with graph -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Q12 (b) &middot; Surplus &amp; Welfare</p>
+          <h2>Consumer Surplus, Producer Surplus, Welfare</h2>
+          <div style="display:flex; gap:18px; align-items:flex-start; max-width:1180px; margin:0 auto;">
+            <div style="flex:1;">
+              <p style="font-size:0.62em; color:#64748b; margin:0 0 6px;">Demand choke price (where \( Q_D = 0 \)) is \( P = \$12 \); supply passes through the origin.</p>
+              <div class="def-card" style="font-size:0.78em; margin:6px 0;">
+                <div class="def-title">Consumer surplus</div>
+                \[ CS = \tfrac12 Q^*(P_{\text{choke}} - P^*) = \tfrac12(80)(12-4) = \$320 \]
+              </div>
+              <div class="def-card fragment" style="font-size:0.78em; margin:6px 0; border-left-color:#16a34a; background:rgba(22,163,74,0.05);">
+                <div class="def-title" style="color:#16a34a;">Producer surplus</div>
+                \[ PS = \tfrac12 Q^* P^* = \tfrac12(80)(4) = \$160 \]
+              </div>
+              <div class="def-card fragment" style="font-size:0.78em; margin:6px 0; border-left-color:#3b82f6; background:rgba(59,130,246,0.05);">
+                <div class="def-title" style="color:#3b82f6;">Total welfare</div>
+                \[ W = CS + PS = 320 + 160 = \$480 \text{ thousand} \]
+              </div>
+            </div>
+            <div style="flex:1.05;">
+              <svg class="anim-graph" viewBox="0 0 560 400" style="width:100%; max-height:360px; background:#fff; border:1px solid #e2e8f0; border-radius:10px;" role="img" aria-label="Avocado market. Demand from a choke price of $12 down to Q=120; supply through the origin. Equilibrium at Q=80 thousand, P=$4. Consumer surplus is the blue triangle above $4 under demand; producer surplus is the green triangle below $4 above supply.">
+                <!-- surplus fills -->
+                <polygon points="70,70 363.3,256.7 70,256.7" fill="#1e3a8a" fill-opacity="0.12"/>
+                <polygon points="70,350 363.3,256.7 70,256.7" fill="#0f766e" fill-opacity="0.14"/>
+                <!-- axes -->
+                <line x1="70" y1="350" x2="510" y2="350" stroke="#475569" stroke-width="2.5"/>
+                <polygon points="510,345 510,355 521,350" fill="#475569"/>
+                <line x1="70" y1="350" x2="70" y2="55" stroke="#475569" stroke-width="2.5"/>
+                <polygon points="65,55 75,55 70,44" fill="#475569"/>
+                <text x="516" y="356" font-size="14" fill="#1e293b" font-style="italic">Q</text>
+                <text x="40" y="46" font-size="13" fill="#1e293b" font-style="italic">P ($)</text>
+                <!-- demand & supply -->
+                <line x1="70" y1="70" x2="510" y2="350" stroke="#1e3a8a" stroke-width="3.5"/>
+                <text x="514" y="348" font-size="14" font-weight="700" fill="#1e3a8a" font-style="italic">D</text>
+                <line x1="70" y1="350" x2="510" y2="210" stroke="#0f766e" stroke-width="3.5"/>
+                <text x="514" y="208" font-size="14" font-weight="700" fill="#0f766e" font-style="italic">S</text>
+                <!-- equilibrium -->
+                <circle cx="363.3" cy="256.7" r="5.5" fill="#0f172a"/>
+                <text x="372" y="250" font-size="13" font-weight="700" fill="#0f172a">E</text>
+                <line x1="70" y1="256.7" x2="363.3" y2="256.7" stroke="#cbd5e1" stroke-width="1.4" stroke-dasharray="5 4"/>
+                <line x1="363.3" y1="256.7" x2="363.3" y2="350" stroke="#cbd5e1" stroke-width="1.4" stroke-dasharray="5 4"/>
+                <text x="64" y="261" font-size="12.5" font-weight="700" fill="#0f172a" text-anchor="end">$4</text>
+                <text x="64" y="74" font-size="12" fill="#64748b" text-anchor="end">$12</text>
+                <text x="363.3" y="369" font-size="12.5" font-weight="700" fill="#0f172a" text-anchor="middle">80</text>
+                <!-- surplus labels -->
+                <text x="150" y="176" font-size="13" font-weight="700" fill="#1e3a8a">CS</text>
+                <text x="150" y="300" font-size="13" font-weight="700" fill="#0f766e">PS</text>
+              </svg>
+            </div>
+          </div>
+        </section>
+
+        <!-- Q12(c) heat wave -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Q12 (c) &middot; Supply Shock</p>
+          <h2>The Heat Wave: Supply Falls</h2>
+          <div class="content-card" style="font-size: 0.88em;">
+            <div class="def-card">
+              <div class="def-title">Step 1 &mdash; New equilibrium with \( Q_S = 20P - 60 \)</div>
+              \[ 120 - 10P = 20P - 60 \;\Longrightarrow\; 180 = 30P \;\Longrightarrow\; P = \$6 \]
+              \[ Q = 120 - 10(6) = 60 \text{ thousand} \]
+            </div>
+            <div class="def-card fragment" style="border-left-color:#b91c1c; background:rgba(185,28,28,0.04);">
+              <div class="def-title" style="color:#b91c1c;">Step 2 &mdash; Direction of \( CS \) and \( W \)</div>
+              Price rises (\(\$4 \to \$6\)) and quantity falls (\(80 \to 60\)). Consumers pay more and buy less, so \( CS \) <strong>falls</strong>; fewer mutually beneficial trades occur (and real costs are higher), so total welfare \( W \) <strong>falls</strong> too.
+            </div>
+          </div>
+        </section>
+
+      </section>
+
+      <!-- ---------- Q13: Three Elasticities (vertical stack) ---------- -->
+      <section>
+
+        <!-- Q13 question -->
+        <section data-background-gradient="linear-gradient(135deg, #eff6ff 0%, #e0f2fe 100%)">
+          <p class="eyebrow" style="color:#2563eb;">Q13 &middot; 8 points</p>
+          <h2>Three Elasticities</h2>
+          <div class="content-card" style="font-size: 0.86em;">
+            <div class="example-card" style="margin:0;">
+              <div class="ex-title">Your tasks &mdash; show the formula each time</div>
+              <ul style="margin:4px 0 0;">
+                <li><strong>(a)</strong> Demand \( Q = 60 - 5P \). Find the own-price point elasticity \( |\varepsilon| \) at \( P = 8 \). Elastic, unit-elastic, or inelastic?</li>
+                <li><strong>(b)</strong> Income falls 5%; instant-noodle purchases rise 2%. Income elasticity? Normal or inferior?</li>
+                <li><strong>(c)</strong> Coffee&rsquo;s price rises 20%; tea sales rise 8%. Cross-price elasticity? Complements or substitutes?</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- Q13 answer -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Q13 &middot; Worked Answers</p>
+          <h2>One Formula, Three Uses</h2>
+          <div class="content-card" style="font-size: 0.84em;">
+            <div class="def-card">
+              <div class="def-title">(a) Own-price point elasticity</div>
+              \( \left|\tfrac{\Delta Q}{\Delta P}\right| = 5 \); at \( P = 8 \), \( Q = 60 - 5(8) = 20 \).
+              \[ |\varepsilon| = \left|\tfrac{\Delta Q}{\Delta P}\right|\cdot\tfrac{P}{Q} = 5\cdot\tfrac{8}{20} = 2 \;>\; 1 \;\Rightarrow\; \textbf{elastic} \]
+            </div>
+            <div class="def-card fragment" style="border-left-color:#7c3aed; background:rgba(124,58,237,0.05);">
+              <div class="def-title" style="color:#7c3aed;">(b) Income elasticity</div>
+              \[ \varepsilon_I = \frac{\%\Delta Q}{\%\Delta I} = \frac{+2\%}{-5\%} = -0.4 \;<\; 0 \;\Rightarrow\; \textbf{inferior good} \]
+              Income falls yet she buys more &mdash; the hallmark of an inferior good.
+            </div>
+            <div class="def-card fragment" style="border-left-color:#b45309; background:rgba(180,83,9,0.05);">
+              <div class="def-title" style="color:#b45309;">(c) Cross-price elasticity</div>
+              \[ \varepsilon_{\text{tea, coffee}} = \frac{\%\Delta Q_{\text{tea}}}{\%\Delta P_{\text{coffee}}} = \frac{+8\%}{+20\%} = 0.4 \;>\; 0 \;\Rightarrow\; \textbf{substitutes} \]
+              Positive sign: pricier coffee sends buyers toward tea.
+            </div>
+          </div>
+        </section>
+
+      </section>
+
+      <!-- ---------- Q14: The Only Food Truck (vertical stack) ---------- -->
+      <section>
+
+        <!-- Q14 question -->
+        <section data-background-gradient="linear-gradient(135deg, #eff6ff 0%, #e0f2fe 100%)">
+          <p class="eyebrow" style="color:#2563eb;">Q14 &middot; 16 points</p>
+          <h2>The Only Food Truck</h2>
+          <div class="content-card" style="font-size: 0.86em;">
+            <p style="margin:0 0 6px;">A food truck is the sole seller of lunch &mdash; a <strong>monopoly</strong>. It faces</p>
+            <p style="text-align:center;">\[ P = 100 - 2Q, \qquad MC = \$20 \text{ (constant, no fixed cost)} \]</p>
+            <p style="margin:0 0 10px; font-size:0.9em; color:#64748b;">\( Q \) is meals per day (in <em>hundreds</em>); \( P \) is dollars per meal.</p>
+            <div class="example-card" style="margin:0;">
+              <div class="ex-title">Your tasks</div>
+              <ul style="margin:4px 0 0;">
+                <li><strong>(a)</strong> Derive \( MR \); find \( Q_M \), \( P_M \), and profit \( \pi \).</li>
+                <li><strong>(b)</strong> Find the competitive \( Q_c, P_c \) (where \( P = MC \)); then the monopoly \( CS \) and \( PS \).</li>
+                <li><strong>(c)</strong> Compute the deadweight loss vs. competition, and draw the labeled graph.</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- Q14(a) -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Q14 (a) &middot; The Monopoly Optimum</p>
+          <h2>Marginal Revenue, Then \( MR = MC \)</h2>
+          <div class="content-card" style="font-size: 0.88em;">
+            <div class="def-card">
+              <div class="def-title">Step 1 &mdash; Build \( MR \) from revenue</div>
+              \( R = PQ = (100 - 2Q)Q = 100Q - 2Q^2 \), so
+              \[ MR = 100 - 4Q \quad(\text{same intercept as } D,\ \text{twice the slope}) \]
+            </div>
+            <div class="def-card fragment">
+              <div class="def-title">Step 2 &mdash; Set \( MR = MC \) for quantity</div>
+              \[ 100 - 4Q = 20 \;\Longrightarrow\; 4Q = 80 \;\Longrightarrow\; Q_M = 20 \]
+            </div>
+            <div class="def-card fragment">
+              <div class="def-title">Step 3 &mdash; Price off demand, then profit</div>
+              \[ P_M = 100 - 2(20) = \$60, \qquad \pi = (P_M - MC)Q_M = (60-20)(20) = 800 \]
+              <span style="font-size:0.85em; color:#64748b;">(With \( Q \) in hundreds and no fixed cost, \( \pi = 800 \) hundreds \( = \$80{,}000 \)/day.)</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- Q14(b) -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Q14 (b) &middot; Benchmark &amp; Surplus</p>
+          <h2>Competitive Benchmark, Monopoly Surplus</h2>
+          <div class="content-card" style="font-size: 0.88em;">
+            <div class="def-card">
+              <div class="def-title">Step 1 &mdash; Competitive outcome \( (P = MC) \)</div>
+              \[ 100 - 2Q = 20 \;\Longrightarrow\; Q_c = 40, \qquad P_c = \$20 \]
+            </div>
+            <div class="def-card fragment">
+              <div class="def-title">Step 2 &mdash; Consumer surplus under monopoly (choke \(\$100\))</div>
+              \[ CS = \tfrac12 Q_M(P_{\text{choke}} - P_M) = \tfrac12(20)(100 - 60) = 400 \]
+            </div>
+            <div class="def-card fragment" style="border-left-color:#16a34a; background:rgba(22,163,74,0.05);">
+              <div class="def-title" style="color:#16a34a;">Step 3 &mdash; Producer surplus under monopoly</div>
+              \[ PS = (P_M - MC)Q_M = (60 - 20)(20) = 800 \quad(=\pi,\ \text{since } MC \text{ constant, no fixed cost}) \]
+            </div>
+          </div>
+        </section>
+
+        <!-- Q14(c) with graph -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Q14 (c) &middot; Deadweight Loss</p>
+          <h2>The Cost of Monopoly Power</h2>
+          <div style="display:flex; gap:18px; align-items:flex-start; max-width:1180px; margin:0 auto;">
+            <div style="flex:0.92;">
+              <div class="def-card" style="font-size:0.82em; margin:6px 0;">
+                <div class="def-title">The triangle between \( Q_M \) and \( Q_c \)</div>
+                \[ DWL = \tfrac12 (Q_c - Q_M)(P_M - MC) \]
+                \[ = \tfrac12 (40 - 20)(60 - 20) = 400 \]
+              </div>
+              <p class="fragment" style="font-size:0.72em; color:#64748b; margin:8px 0 0;">The monopoly makes only 20 (hundred) meals instead of 40. On units 20&ndash;40, buyers value lunch above the \(\$20\) cost of making it &mdash; those gains from trade simply vanish. That lost surplus is the red triangle.</p>
+            </div>
+            <div style="flex:1.1;">
+              <svg class="anim-graph" viewBox="0 0 560 400" style="width:100%; max-height:370px; background:#fff; border:1px solid #e2e8f0; border-radius:10px;" role="img" aria-label="Monopoly food truck. Demand P=100-2Q, MR with twice the slope, constant MC=$20. Monopoly point E_M at Q=20, P=$60; competitive point E_c at Q=40, P=$20. Blue consumer-surplus triangle, green producer-surplus rectangle, and a red deadweight-loss triangle between Q=20 and Q=40.">
+                <!-- fills -->
+                <polygon points="70,60 246,176 70,176" fill="#1e3a8a" fill-opacity="0.12"/>
+                <rect x="70" y="176" width="176" height="116" fill="#0f766e" fill-opacity="0.14"/>
+                <polygon points="246,176 246,292 422,292" fill="#dc2626" fill-opacity="0.30" stroke="#dc2626" stroke-width="1.2"/>
+                <!-- axes -->
+                <line x1="70" y1="350" x2="510" y2="350" stroke="#475569" stroke-width="2.5"/>
+                <polygon points="510,345 510,355 521,350" fill="#475569"/>
+                <line x1="70" y1="350" x2="70" y2="45" stroke="#475569" stroke-width="2.5"/>
+                <polygon points="65,45 75,45 70,34" fill="#475569"/>
+                <text x="516" y="356" font-size="14" fill="#1e293b" font-style="italic">Q</text>
+                <text x="40" y="42" font-size="13" fill="#1e293b" font-style="italic">P ($)</text>
+                <!-- curves -->
+                <line x1="70" y1="60" x2="510" y2="350" stroke="#1e3a8a" stroke-width="3.5"/>
+                <text x="514" y="348" font-size="14" font-weight="700" fill="#1e3a8a" font-style="italic">D</text>
+                <line x1="70" y1="60" x2="290" y2="350" stroke="#7c3aed" stroke-width="3"/>
+                <text x="292" y="366" font-size="13" font-weight="700" fill="#7c3aed" font-style="italic">MR</text>
+                <line x1="70" y1="292" x2="510" y2="292" stroke="#0f766e" stroke-width="3.5"/>
+                <text x="430" y="285" font-size="12.5" font-weight="700" fill="#0f766e">MC = P_c = 20</text>
+                <!-- points & projections -->
+                <line x1="70" y1="176" x2="246" y2="176" stroke="#cbd5e1" stroke-width="1.4" stroke-dasharray="5 4"/>
+                <line x1="246" y1="176" x2="246" y2="350" stroke="#cbd5e1" stroke-width="1.4" stroke-dasharray="5 4"/>
+                <line x1="422" y1="292" x2="422" y2="350" stroke="#cbd5e1" stroke-width="1.4" stroke-dasharray="5 4"/>
+                <circle cx="246" cy="176" r="5.5" fill="#0f172a"/>
+                <text x="254" y="170" font-size="12.5" font-weight="700" fill="#0f172a">E_M</text>
+                <circle cx="422" cy="292" r="5.5" fill="#0f172a"/>
+                <text x="430" y="308" font-size="12.5" font-weight="700" fill="#0f172a">E_c</text>
+                <circle cx="246" cy="292" r="3.5" fill="#0f172a"/>
+                <text x="64" y="180" font-size="12.5" font-weight="700" fill="#0f172a" text-anchor="end">$60</text>
+                <text x="64" y="64" font-size="12" fill="#64748b" text-anchor="end">$100</text>
+                <text x="64" y="296" font-size="12" fill="#64748b" text-anchor="end">$20</text>
+                <text x="246" y="368" font-size="12.5" font-weight="700" fill="#0f172a" text-anchor="middle">20</text>
+                <text x="422" y="368" font-size="12.5" font-weight="700" fill="#0f172a" text-anchor="middle">40</text>
+                <!-- region labels -->
+                <text x="120" y="150" font-size="12.5" font-weight="700" fill="#1e3a8a">CS</text>
+                <text x="140" y="242" font-size="12.5" font-weight="700" fill="#0f766e">PS</text>
+                <text x="322" y="250" font-size="13" font-weight="800" fill="#dc2626">DWL</text>
+              </svg>
+            </div>
+          </div>
+        </section>
+
+      </section>
+
+      <!-- ---------- Q15: A Dime a Dozen (vertical stack) ---------- -->
+      <section>
+
+        <!-- Q15 question -->
+        <section data-background-gradient="linear-gradient(135deg, #eff6ff 0%, #e0f2fe 100%)">
+          <p class="eyebrow" style="color:#2563eb;">Q15 &middot; 12 points</p>
+          <h2>A Dime a Dozen</h2>
+          <div class="content-card" style="font-size: 0.84em;">
+            <p style="margin:0 0 4px;">The generic-bagel market is perfectly competitive. Every identical firm has</p>
+            <p style="text-align:center;">\[ TC(q) = 2q^2 + 50, \quad MC(q) = 4q, \quad AVC = 2q, \quad ATC = \tfrac{50}{q} + 2q \]</p>
+            <p style="margin:0 0 8px; font-size:0.88em; color:#64748b;">\( q \) is in <em>hundreds</em> of bagels/day. Market demand: \( Q_D = 3000 - 25P \).</p>
+            <div class="example-card" style="margin:0;">
+              <div class="ex-title">Your tasks</div>
+              <ul style="margin:4px 0 0;">
+                <li><strong>(a)</strong> At \( P = \$40 \): find \( q \) and profit. Operate or shut down? Compare \( P \) to \( AVC \).</li>
+                <li><strong>(b)</strong> With free entry/exit, find the long-run price and each firm&rsquo;s output. <em>[min \( ATC \) at \( q = 5 \).]</em> Profit?</li>
+                <li><strong>(c)</strong> At the long-run price, find the total market quantity and the number of firms.</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- Q15(a) -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Q15 (a) &middot; Short Run</p>
+          <h2>Output, Profit, and the Shutdown Check</h2>
+          <div class="content-card" style="font-size: 0.88em;">
+            <div class="def-card">
+              <div class="def-title">Step 1 &mdash; A competitive firm sets \( P = MC \)</div>
+              \[ 40 = 4q \;\Longrightarrow\; q = 10 \]
+            </div>
+            <div class="def-card fragment">
+              <div class="def-title">Step 2 &mdash; Profit</div>
+              \[ \pi = TR - TC = 40(10) - \big[2(10)^2 + 50\big] = 400 - 250 = \$150 \]
+            </div>
+            <div class="def-card fragment" style="border-left-color:#16a34a; background:rgba(22,163,74,0.05);">
+              <div class="def-title" style="color:#16a34a;">Step 3 &mdash; Operate or shut down?</div>
+              \( AVC(10) = 2(10) = \$20 < P = \$40 \): the price covers average variable cost, so <strong>operate</strong> &mdash; indeed the firm earns a positive short-run profit.
+            </div>
+          </div>
+        </section>
+
+        <!-- Q15(b) -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Q15 (b) &middot; Long Run</p>
+          <h2>Free Entry Competes Profit Away</h2>
+          <div class="content-card" style="font-size: 0.9em;">
+            <div class="def-card">
+              <div class="def-title">Step 1 &mdash; In the long run, \( P = \min ATC \)</div>
+              With minimum \( ATC \) at \( q = 5 \):
+              \[ ATC(5) = \tfrac{50}{5} + 2(5) = 10 + 10 = \$20 \]
+            </div>
+            <div class="def-card fragment">
+              <div class="def-title">Step 2 &mdash; The long-run equilibrium</div>
+              \[ P_{LR} = \$20, \qquad q_{LR} = 5, \qquad \pi = \$0 \]
+              Each surviving firm just breaks even &mdash; zero economic profit.
+            </div>
+          </div>
+        </section>
+
+        <!-- Q15(c) -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Q15 (c) &middot; The Whole Market</p>
+          <h2>Market Quantity and the Number of Firms</h2>
+          <div class="content-card" style="font-size: 0.9em;">
+            <div class="def-card">
+              <div class="def-title">Step 1 &mdash; Market quantity at \( P_{LR} = \$20 \)</div>
+              \[ Q = 3000 - 25(20) = 2500 \]
+            </div>
+            <div class="def-card fragment">
+              <div class="def-title">Step 2 &mdash; Number of firms</div>
+              \[ \#\text{ firms} = \frac{Q}{q_{LR}} = \frac{2500}{5} = 500 \]
+            </div>
+          </div>
+        </section>
+
+      </section>
+
+      <!-- ---------- Q16: Making APT Decisions (vertical stack) ---------- -->
+      <section>
+
+        <!-- Q16 question -->
+        <section data-background-gradient="linear-gradient(135deg, #eff6ff 0%, #e0f2fe 100%)">
+          <p class="eyebrow" style="color:#2563eb;">Q16 &middot; 19 points (+5 E.C.)</p>
+          <h2>Making APT Decisions</h2>
+          <div class="content-card" style="font-size: 0.78em;">
+            <p style="margin:0 0 4px;">APT Press prints magazines in a <strong>perfectly competitive</strong> market. Demand and identical-firm costs:</p>
+            <p style="text-align:center;">\[ Q_D = 64 - 2P_D, \qquad TC(q) = 2q^2 + 2q + 32, \qquad MC(q) = 4q + 2 \]</p>
+            <p style="margin:0 0 8px; font-size:0.92em; color:#64748b;">\( Q_D \) in <em>thousands</em> of copies; \( q \) in <em>tens</em> of copies. Current price they take as given: \(\$10\).</p>
+            <div class="example-card" style="margin:0; font-size:0.94em;">
+              <div class="ex-title">Your tasks</div>
+              <ul style="margin:4px 0 0;">
+                <li><strong>(a)</strong> At \(\$10\), find APT&rsquo;s profit-maximizing \( q \). &nbsp; <strong>(b)</strong> Market quantity and number of firms.</li>
+                <li><strong>(c)</strong> Profit is negative &mdash; short-run or long-run? &nbsp; <strong>(d)</strong> Do firms enter or exit?</li>
+                <li><strong>(e)</strong> In long-run equilibrium: price, APT&rsquo;s \( q \), market quantity, number of firms.</li>
+                <li><strong>(f)</strong> If APT becomes a <strong>monopolist</strong>: profit-maximizing \( Q \) and \( P \). &nbsp; <strong>(g)</strong> [E.C.] Elasticity there, and why never price inelastic.</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- Q16(a-d) -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Q16 (a)&ndash;(d) &middot; Short Run</p>
+          <h2>Where APT Stands Today</h2>
+          <div class="content-card" style="font-size: 0.8em;">
+            <div class="def-card">
+              <div class="def-title">(a) Profit-maximizing output &mdash; \( MR = P = MC \)</div>
+              \[ 4q + 2 = 10 \;\Longrightarrow\; 4q = 8 \;\Longrightarrow\; q = 2 \text{ (tens of copies)} \]
+            </div>
+            <div class="def-card fragment">
+              <div class="def-title">(b) Market quantity and number of firms</div>
+              \( Q_D = 64 - 2(10) = 44 \) (thousand). With each firm at \( q = 2 \):
+              \[ N = \frac{Q_D}{q} = \frac{44}{2} = 22 \text{ (hundred)} \;\Rightarrow\; 2{,}200 \text{ firms} \]
+            </div>
+            <div class="def-card fragment" style="border-left-color:#b91c1c; background:rgba(185,28,28,0.04);">
+              <div class="def-title" style="color:#b91c1c;">(c)&ndash;(d) Losses, so&hellip;</div>
+              \( \pi = 10(2) - \big[2(2)^2 + 2(2) + 32\big] = 20 - 44 = -24 < 0 \). Negative profit \( \Rightarrow \) this is a <strong>short-run</strong> equilibrium, and as the market adjusts <strong>some firms will exit</strong>.
+            </div>
+          </div>
+        </section>
+
+        <!-- Q16(e) -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Q16 (e) &middot; Long Run</p>
+          <h2>Settling Into Long-Run Equilibrium</h2>
+          <div class="content-card" style="font-size: 0.84em;">
+            <div class="def-card">
+              <div class="def-title">Step 1 &mdash; Zero profit means \( MC = ATC \)</div>
+              With \( ATC = \tfrac{TC}{q} = 2q + 2 + \tfrac{32}{q} \):
+              \[ 2q + 2 + \tfrac{32}{q} = 4q + 2 \;\Longrightarrow\; 2q = \tfrac{32}{q} \;\Longrightarrow\; q^2 = 16 \;\Longrightarrow\; q = 4 \text{ (tens)} \]
+            </div>
+            <div class="def-card fragment">
+              <div class="def-title">Step 2 &mdash; Long-run price, market quantity</div>
+              \[ P = MC(4) = 4(4) + 2 = \$18, \qquad Q_D = 64 - 2(18) = 28 \text{ (thousand)} \]
+            </div>
+            <div class="def-card fragment">
+              <div class="def-title">Step 3 &mdash; Number of firms</div>
+              \[ N = \frac{Q_D}{q} = \frac{28}{4} = 7 \text{ (hundred)} \;\Rightarrow\; 700 \text{ firms} \]
+              <span style="font-size:0.85em; color:#64748b;">Consistent with (c)&ndash;(d): from 2,200 down to 700 &mdash; most firms exited.</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- Q16(f) -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Q16 (f) &middot; APT as Monopolist</p>
+          <h2>Last Firm Standing</h2>
+          <div class="content-card" style="font-size: 0.88em;">
+            <div class="def-card">
+              <div class="def-title">Step 1 &mdash; Invert demand, build \( MR \)</div>
+              \( Q_D = 64 - 2P \Rightarrow P_D = 32 - \tfrac12 Q_D \), so \( MR = 32 - Q \).
+            </div>
+            <div class="def-card fragment">
+              <div class="def-title">Step 2 &mdash; Set \( MR = MC \)</div>
+              \[ 32 - Q = 4Q + 2 \;\Longrightarrow\; 30 = 5Q \;\Longrightarrow\; Q^* = 6 \text{ (thousand)}, \quad P^* = 32 - \tfrac12(6) = \$29 \]
+            </div>
+            <div class="def-card fragment" style="border-left-color:#7c3aed; background:rgba(124,58,237,0.05);">
+              <div class="def-title" style="color:#7c3aed;">Step 3 &mdash; Profit (the +2 extra)</div>
+              \( TR = 29(6) = 174 \), \( TC = 2(6)^2 + 2(6) + 32 = 116 \), so \( \pi = 174 - 116 = \$58 \) thousand.
+            </div>
+          </div>
+        </section>
+
+        <!-- Q16(g) extra credit -->
+        <section data-background-gradient="linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%)">
+          <p class="eyebrow" style="color:#b45309;">Q16 (g) &middot; Extra Credit</p>
+          <h2>Why a Monopolist Avoids the Inelastic Region</h2>
+          <div class="content-card" style="font-size: 0.86em; background: rgba(255,255,255,0.75);">
+            <div class="def-card">
+              <div class="def-title">Step 1 &mdash; Elasticity at \( (P^*, Q^*) = (29, 6) \)</div>
+              \( Q_D = 64 - 2P \Rightarrow \tfrac{dQ}{dP} = -2 \), so
+              \[ \varepsilon_D = \frac{dQ}{dP}\cdot\frac{P}{Q} = -2\cdot\frac{29}{6} = -\frac{29}{3} \approx -9.67 \quad(\text{elastic}) \]
+            </div>
+            <div class="def-card fragment" style="border-left-color:#b45309; background:rgba(180,83,9,0.06);">
+              <div class="def-title" style="color:#b45309;">Step 2 &mdash; The intuition</div>
+              On the <strong>inelastic</strong> portion, \( MR < 0 \): cutting quantity (raising price) would <em>raise</em> total revenue <em>and</em> lower cost. So the firm can always increase profit by moving left &mdash; until \( MR = MC > 0 \), which lies on the <strong>elastic</strong> portion. A monopolist never optimally prices where demand is inelastic.
+            </div>
+          </div>
+        </section>
+
+      </section>
+
+      <!-- ---------- Q17: A Spoonful of Sugar Tax (vertical stack) ---------- -->
+      <section>
+
+        <!-- Q17 question -->
+        <section data-background-gradient="linear-gradient(135deg, #eff6ff 0%, #e0f2fe 100%)">
+          <p class="eyebrow" style="color:#2563eb;">Q17 &middot; 10 points</p>
+          <h2>A Spoonful of Sugar Tax</h2>
+          <div class="content-card" style="font-size: 0.86em;">
+            <p style="margin:0 0 6px;">The sugary-soda market (in thousands of cans) is perfectly competitive, with</p>
+            <p style="text-align:center;">\[ Q_D = 120 - 20P, \qquad Q_S = 40P \]</p>
+            <p style="margin:0 0 10px; font-size:0.9em; color:#64748b;">The city imposes a <strong>\(\$0.60\) per-can tax collected from sellers</strong>.</p>
+            <div class="example-card" style="margin:0;">
+              <div class="ex-title">Your tasks</div>
+              <ul style="margin:4px 0 0;">
+                <li><strong>(a)</strong> Find the pre-tax equilibrium \( P^* \), \( Q^* \).</li>
+                <li><strong>(b)</strong> Use the wedge \( P_b = P_s + 0.60 \): find \( P_b \), \( P_s \), \( Q_{\text{tax}} \). Who bears how much?</li>
+                <li><strong>(c)</strong> Compute the government&rsquo;s tax revenue and the deadweight loss.</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- Q17(a) -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Q17 (a) &middot; Pre-Tax</p>
+          <h2>The Starting Equilibrium</h2>
+          <div class="content-card" style="font-size: 0.9em;">
+            <div class="def-card">
+              <div class="def-title">Set \( Q_D = Q_S \)</div>
+              \[ 120 - 20P = 40P \;\Longrightarrow\; 60P = 120 \;\Longrightarrow\; P^* = \$2 \]
+              \[ Q^* = 40(2) = 80 \text{ thousand cans} \]
+            </div>
+          </div>
+        </section>
+
+        <!-- Q17(b) -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Q17 (b) &middot; The Tax Wedge</p>
+          <h2>Prices, Quantity, and Who Bears It</h2>
+          <div class="content-card" style="font-size: 0.86em;">
+            <div class="def-card">
+              <div class="def-title">Step 1 &mdash; Substitute the wedge into demand = supply</div>
+              With \( P_b = P_s + 0.60 \):
+              \[ 120 - 20(P_s + 0.60) = 40P_s \;\Longrightarrow\; 108 = 60P_s \;\Longrightarrow\; P_s = \$1.80,\; P_b = \$2.40 \]
+            </div>
+            <div class="def-card fragment">
+              <div class="def-title">Step 2 &mdash; Quantity traded</div>
+              \[ Q_{\text{tax}} = 40(1.80) = 72 \text{ thousand} \]
+            </div>
+            <div class="def-card fragment" style="border-left-color:#3b82f6; background:rgba(59,130,246,0.05);">
+              <div class="def-title" style="color:#3b82f6;">Step 3 &mdash; Incidence</div>
+              Consumers pay \(\$0.40\) more (\( 2.40 - 2.00 \)); producers receive \(\$0.20\) less (\( 2.00 - 1.80 \)). So consumers bear \( \tfrac23 \) and producers \( \tfrac13 \) of the tax &mdash; demand is the more inelastic side here.
+            </div>
+          </div>
+        </section>
+
+        <!-- Q17(c) -->
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Q17 (c) &middot; Revenue &amp; DWL</p>
+          <h2>What the Tax Raises &mdash; and What It Destroys</h2>
+          <div class="content-card" style="font-size: 0.9em;">
+            <div class="def-card">
+              <div class="def-title">Tax revenue</div>
+              \[ \text{Revenue} = t \times Q_{\text{tax}} = 0.60 \times 72 = \$43.2 \text{ thousand} \]
+            </div>
+            <div class="def-card fragment" style="border-left-color:#b91c1c; background:rgba(185,28,28,0.04);">
+              <div class="def-title" style="color:#b91c1c;">Deadweight loss</div>
+              \[ DWL = \tfrac12\, t\,(Q^* - Q_{\text{tax}}) = \tfrac12 (0.60)(80 - 72) = \$2.4 \text{ thousand} \]
+              The tax wedge blocks the 8 thousand cans between \( Q_{\text{tax}} \) and \( Q^* \) that buyers valued above sellers&rsquo; cost.
+            </div>
+          </div>
+        </section>
+
+      </section>
+
+      <!-- ---------- Closing ---------- -->
+      <section data-background-gradient="linear-gradient(135deg, #0f172a 0%, #1e293b 100%)">
+        <p class="eyebrow" style="color: #2dd4bf;">That&rsquo;s a wrap</p>
+        <h1 style="color: white; font-size: 2.1em; margin-bottom: 18px;">You&rsquo;ve Reviewed All of Classes 1&ndash;6</h1>
+        <div style="max-width: 820px; margin: 0 auto 26px; color:#cbd5e1; font-size:0.82em; text-align:left;">
+          <p style="margin:0 0 8px;">The through-line of every problem: <strong style="color:#2dd4bf;">total surplus</strong>. Competition maximizes it; monopoly, taxes, and market failures each open a gap.</p>
+          <ul style="color:#cbd5e1;">
+            <li>Equilibrium, \( CS \), \( PS \), and welfare &mdash; and how a supply shock moves them.</li>
+            <li>The three elasticities, and reading them off a demand curve.</li>
+            <li>Monopoly: \( MR = MC \), the markup, and the deadweight-loss triangle.</li>
+            <li>Perfect competition: the shutdown rule and the drive to \( P = \min ATC \).</li>
+            <li>Taxes: the wedge, incidence by elasticity, revenue, and \( DWL \).</li>
+          </ul>
+        </div>
+        <p style="color: #64748b; font-size: 0.75em;">Good luck &mdash; and keep asking questions as you go.</p>
+      </section>
+
+    </div>
+  </div>
+
+  <a class="home-link" href="../">&larr; Back to course site</a>
+  <div class="slide-footer">RSC Economics Experience &middot; In-Class Review 6.5</div>
+
+  <!-- reveal.js core + plugins -->
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/notes/notes.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/highlight/highlight.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/math/math.js"></script>
+  <script>
+    Reveal.initialize({
+      hash: true,
+      slideNumber: 'c/t',
+      transition: 'slide',
+      plugins: [ RevealHighlight, RevealNotes, RevealMath.KaTeX ]
+    });
+  </script>
+  <script src="../slides/annotate.js"></script>
+</body>
+</html>
+
