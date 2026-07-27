@@ -317,6 +317,10 @@
       min-width: 110px;
     }
 
+    /* The externality build-up slides stack six cards beside the graph; tighten
+       them so each card can name who its surplus actually belongs to. */
+    .reveal .build-notes .def-card { padding: 6px 13px; }
+
     /* Best-response underlines: short strokes that draw themselves across a
        payoff number as each fragment lands. The shared .build-line dasharray
        (950) is far too long to read as an animation at this length, so these
@@ -893,15 +897,15 @@
               </svg>
             </div>
             <div style="flex:1;">
-              <div class="content-card" style="margin:0; padding:10px 13px; font-size:0.66em;">
+              <div class="content-card build-notes" style="margin:0; padding:10px 13px; font-size:0.64em;">
                 <div class="def-card fragment" data-fragment-index="1" style="margin:3px 0;">
                   <strong>Market.</strong> \( D = MPC \Rightarrow Q_{\text{market}} \) at price \( P_{\text{mkt}} \).
                 </div>
                 <div class="def-card fragment" data-fragment-index="2" style="margin:3px 0; border-left-color:#d97706; background:rgba(217,119,6,0.06);">
-                  <strong style="color:#b45309;">Consumer surplus</strong> &mdash; buyers&rsquo; gain above the price.
+                  <strong style="color:#b45309;">Consumer surplus</strong> &mdash; buyers&rsquo; gain above the price. <span style="color:#64748b;">The buyers here are whoever wants what the plant makes &mdash; the power, the steel, the paper.</span>
                 </div>
                 <div class="def-card fragment" data-fragment-index="3" style="margin:3px 0;">
-                  <strong style="color:#0f766e;">Producer surplus</strong> &mdash; sellers&rsquo; gain above cost. \( CS + PS \) is the surplus the market <em>counts</em>.
+                  <strong style="color:#0f766e;">Producer surplus</strong> &mdash; sellers&rsquo; gain above cost. <span style="color:#64748b;">The sellers are the plant and its owners.</span> \( CS + PS \) is the surplus the market <em>counts</em> &mdash; and <strong>neither group is the neighbours breathing the smoke</strong>.
                 </div>
                 <div class="def-card fragment" data-fragment-index="4" style="margin:3px 0; border-left-color:#b91c1c; background:rgba(185,28,28,0.05);">
                   <strong>True cost.</strong> Smoke lifts society&rsquo;s cost: \( MSC = MPC + \text{ext. cost} \Rightarrow Q^* < Q_{\text{market}} \).
@@ -979,24 +983,24 @@
               </svg>
             </div>
             <div style="flex:1;">
-              <div class="content-card" style="margin:0; padding:10px 13px; font-size:0.66em;">
+              <div class="content-card build-notes" style="margin:0; padding:10px 13px; font-size:0.64em;">
                 <div class="def-card fragment" data-fragment-index="1" style="margin:3px 0;">
-                  <strong>Market.</strong> A university or company R&amp;D lab funds research up to where <em>its own</em> return meets the cost: \( MPB = MC \Rightarrow Q_{\text{market}} \).
+                  <strong>Market.</strong> A lab funds research up to where <em>its own</em> return meets the cost: \( MPB = MC \Rightarrow Q_{\text{market}} \).
                 </div>
                 <div class="def-card fragment" data-fragment-index="2" style="margin:3px 0; border-left-color:#d97706; background:rgba(217,119,6,0.06);">
-                  <strong style="color:#b45309;">Consumer surplus</strong> &mdash; buyers&rsquo; gain above the price.
+                  <strong style="color:#b45309;">Consumer surplus</strong> &mdash; buyers&rsquo; gain above the price. <span style="color:#64748b;">The consumers of foundational research are the universities and companies funding it.</span>
                 </div>
                 <div class="def-card fragment" data-fragment-index="3" style="margin:3px 0;">
-                  <strong style="color:#0f766e;">Producer surplus</strong> &mdash; sellers&rsquo; gain above cost. \( CS + PS \) is the surplus the market <em>counts</em>.
+                  <strong style="color:#0f766e;">Producer surplus</strong> &mdash; sellers&rsquo; gain above cost. <span style="color:#64748b;">The producers are the researchers and labs.</span> \( CS + PS \) is the surplus the market <em>counts</em> &mdash; and <strong>neither group is everyone who will build on the published result</strong>.
                 </div>
                 <div class="def-card fragment" data-fragment-index="4" style="margin:3px 0; border-left-color:#2563eb; background:rgba(37,99,235,0.05);">
-                  <strong>True benefit.</strong> Once published, every later researcher and firm builds on it: \( MSB = MPB + \text{ext. benefit} \Rightarrow Q^* > Q_{\text{market}} \).
+                  <strong>True benefit.</strong> Once published, everyone else builds on it: \( MSB = MPB + \text{ext. benefit} \Rightarrow Q^* > Q_{\text{market}} \).
                 </div>
                 <div class="def-card fragment" data-fragment-index="5" style="margin:3px 0; border-left-color:#16a34a; background:rgba(22,163,74,0.06);">
                   <strong style="color:#15803d;">Add the bonus.</strong> The green-hatched band \( (MPB \!\to\! MSB) \) is value society gets from <em>every</em> study &mdash; add it to \( CS + PS \).
                 </div>
                 <div class="def-card fragment" data-fragment-index="6" style="margin:3px 0; border-left-color:#7f1d1d; background:rgba(127,29,29,0.09);">
-                  <strong style="color:#7f1d1d;">Deadweight loss.</strong> Right of \( Q_{\text{market}} \), MSB still beats MC &mdash; that research would add value but never gets funded. The red wedge is that forgone surplus.
+                  <strong style="color:#7f1d1d;">Deadweight loss.</strong> Right of \( Q_{\text{market}} \), MSB still beats MC &mdash; that research would add value but is never funded. The red wedge is that loss.
                 </div>
               </div>
             </div>
