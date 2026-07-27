@@ -34,4 +34,8 @@ rail: true
     <h3>Class 6</h3>
     <p>Deadweight Loss, Public Goods, Externalities</p>
   </a>
+  <a class="card" href="{{ '/slides/lecture-07.html' | relative_url }}">
+    <h3>Class 7</h3>
+    <p>Externalities and Your First Game</p>
+  </a>
 </div>
