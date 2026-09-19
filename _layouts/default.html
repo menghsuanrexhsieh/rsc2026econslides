@@ -40,10 +40,6 @@
       <div class="paper">
         {{ content }}
       </div>
-      <footer class="site-footer">
-        <p>{{ site.title }} &middot; {{ site.description }}</p>
-        <p class="muted">&copy; {{ 'now' | date: "%Y" }}</p>
-      </footer>
     </main>
 
     {% if page.rail %}
@@ -56,6 +52,14 @@
     </aside>
     {% endif %}
   </div>
+
+  <!-- footer: locked to the bottom of the viewport on every page -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <p>Ross Summer Connection, 2026</p>
+      <p class="muted">&copy; {{ 'now' | date: "%Y" }}</p>
+    </div>
+  </footer>
 
   <!-- theme toggle handler + transition class -->
   <script>
