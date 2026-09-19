@@ -1,7 +1,7 @@
 /* ===========================================================================
    RSC Economics Experience — site styles
    Milk-white canvas · sticky top bar · left sidebar · white "paper" content.
-   Serif headings (Source Serif 4) + Inter body. No CSS framework.
+   Inter throughout (headings and body). No CSS framework.
    ======================================================================== */
 
 :root {
@@ -33,6 +33,7 @@
   --topbar-h:    62px;
   --footer-h:    64px;
   --maxw:        920px;
+  --maxw-rail:   1180px;   /* home page: content column + right rail */
 }
 
 /* ======================================================================
@@ -118,7 +119,6 @@ a { color: var(--accent); text-decoration: none; }
 a:hover { color: var(--accent-dk); text-decoration: underline; }
 
 h1, h2, h3, h4 {
-  font-family: "Source Serif 4", Georgia, "Times New Roman", serif;
   line-height: 1.22;
   color: var(--ink);
   font-weight: 600;
@@ -152,7 +152,6 @@ strong { font-weight: 600; }
 .brand { display: flex; align-items: center; gap: 11px; color: var(--ink); }
 .brand:hover { text-decoration: none; }
 .brand-mark {
-  font-family: "Source Serif 4", serif;
   font-weight: 700;
   font-size: .82rem;
   letter-spacing: .04em;
@@ -299,7 +298,6 @@ a.card:hover h3 { color: var(--accent-dk); }
 .toc-text { display: block; min-width: 0; }
 .toc-name {
   display: block;
-  font-family: "Source Serif 4", Georgia, serif;
   font-weight: 600; font-size: 1.1rem; line-height: 1.25;
   color: var(--ink);
 }
@@ -365,6 +363,7 @@ kbd {
   margin: 0 auto; padding: 10px 24px;
   text-align: left;
 }
+.site-footer.has-rail .footer-inner { max-width: var(--maxw-rail); }  /* align with the paper on the home page */
 .site-footer p { margin: 0; line-height: 1.45; }
 
 /* --------------------------------------------------------- Mobile drawer */
@@ -406,7 +405,7 @@ kbd {
   grid-template-columns: minmax(0, 1fr) 258px;
   gap: 30px;
   align-items: start;
-  max-width: 1180px;
+  max-width: var(--maxw-rail);
 }
 .side-rail { position: sticky; top: calc(var(--topbar-h) + 22px); }
 .rail-card {
