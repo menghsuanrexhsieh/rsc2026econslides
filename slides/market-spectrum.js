@@ -45,7 +45,7 @@
       price: '<em>P</em> = <em>MC</em>',
       power: 'None — the firm takes the price as given',
       profit: 'Zero in the long run',
-      dwl: 'None — the market is efficient',
+      dwl: 'None if there are no market failures',
       eg: 'Wheat; one stall among hundreds at a produce market'
     },
     {
@@ -56,10 +56,10 @@
       color: '#0d9488',
       tint: 'rgba(13, 148, 136, 0.06)',
       firms: 'Many, but each sells something slightly different',
-      price: '<em>P</em> a little above <em>MC</em>',
-      power: 'A little — it comes from being different, not from being big',
+      price: '<em>P</em> above <em>MC</em>',
+      power: 'Depends on differentiation and substitutes',
       profit: 'Competed back down to about zero as rivals enter',
-      dwl: 'Small',
+      dwl: 'Depends on demand and costs',
       eg: 'Coffee shops; restaurants; hair salons'
     },
     {
@@ -73,7 +73,7 @@
       firms: 'A handful — few enough to know each rival by name',
       price: 'Not pinned down: anywhere from <em>P</em> = <em>MC</em> to the monopoly price',
       power: 'However much their <em>strategies</em> leave them',
-      profit: 'Anything from zero to the full monopoly profit',
+      profit: 'Depends on costs, demand, entry, and strategies',
       dwl: 'Anywhere from none at all to monopoly-sized',
       eg: 'Airlines; phone carriers; two gas stations on the same corner',
       note: 'Unlike the other three, oligopoly has <strong>no single answer</strong>. Where it lands ' +
@@ -89,10 +89,10 @@
       color: '#be123c',
       tint: 'rgba(190, 18, 60, 0.06)',
       firms: 'One',
-      price: '<em>P</em> far above <em>MC</em> — set where <em>MR</em> = <em>MC</em>',
-      power: 'Total — the firm picks the point on the demand curve',
-      profit: 'Positive, protected by barriers to entry',
-      dwl: 'Large — the deadweight loss triangle from Class 5',
+      price: 'Choose output where <em>MR</em> = <em>MC</em>; read price from demand',
+      power: 'Constrained by demand and possible substitutes',
+      profit: 'Can be positive; depends on demand and total cost',
+      dwl: 'Depends on the output restriction, demand, and costs',
       eg: 'A drug still under patent; the only water utility in town'
     }
   ];

@@ -77,12 +77,18 @@
 
   /* Your best reply to a rival posting r, to the nearest cent. */
   function bestResponse(r) {
-    if (r > PCOLL) return { p: PCOLL, pi: profitAll(PCOLL), kind: 'monopoly' };
-    if (r > MC) {
-      var p = Math.max(MC, Math.round((r - STEP) * 100) / 100);
-      return { p: p, pi: profitAll(p), kind: 'undercut' };
+    // Check the actual whole-cent action set, including matching and selling
+    // nothing. A one-cent undercut need not beat a tie near marginal cost.
+    var best = { p: MC, pi: 0, kind: 'none' };
+    for (var cents = 0; cents <= Math.round(PMAX * 100); cents++) {
+      var p = cents / 100;
+      var pi = payoffs(p, r).pia;
+      if (pi > best.pi + 1e-10) {
+        best = { p: p, pi: pi,
+          kind: p === r ? 'match' : (p === PCOLL && r > PCOLL ? 'monopoly' : 'undercut') };
+      }
     }
-    return { p: r, pi: 0, kind: 'none' };
+    return best;
   }
 
   // ---------- tiny DOM helpers ----------
@@ -547,12 +553,16 @@
       if (br.kind === 'monopoly') {
         msg = 'Your rival is priced above the monopoly price. Undercut all the way to $3 — ' +
               'you take the whole market and earn ' + money(br.pi) + '.';
+      } else if (br.kind === 'match') {
+        msg = 'Match at $' + br.p.toFixed(2) + ' to earn ' + money(br.pi) +
+              '. On the whole-cent grid, undercutting to $1.00 earns zero.';
       } else if (br.kind === 'undercut') {
         msg = 'Shade a single cent under them, to $' + br.p.toFixed(2) + ', and you take the whole market: ' +
-              money(br.pi) + ' instead of ' + money(tiePi) + ' for matching. That is why nobody holds still.';
+              money(br.pi) + ' instead of ' + money(tiePi) + ' for matching.';
       } else {
-        msg = 'At $' + r.toFixed(2) + ' there is nothing left to take. Undercutting means pricing below ' +
-              'cost and losing money on every gallon — the race to the bottom has hit MC.';
+        msg = 'No positive profit is available against $' + r.toFixed(2) +
+              '. Posting $1.00 earns zero: it either matches marginal cost or makes no sales. ' +
+              'Selling below cost would make a loss.';
       }
       verdict.textContent = msg;
       svg.setAttribute('aria-label',

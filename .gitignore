@@ -16,3 +16,7 @@ vendor/
 
 # Working scratch folder — source PDFs and helper scripts (not part of the site)
 TEMP/
+
+# Local review notes (not part of the site)
+SLIDE_REVIEW.md
+MATH_AUDIT.md

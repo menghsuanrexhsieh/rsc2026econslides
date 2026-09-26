@@ -11,15 +11,15 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/white.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/highlight/monokai.css">
 
-  <!-- Google Fonts for premium typography -->
+  <!-- Roboto Light with heavier weights for headings and emphasis -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300..800;1,300..800&amp;display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --r-main-font: 'Plus Jakarta Sans', sans-serif;
-      --r-heading-font: 'Outfit', sans-serif;
+      --r-main-font: var(--font-sans);
+      --r-heading-font: var(--font-sans);
       --r-main-color: #1e293b;
       --r-heading-color: #0f172a;
       --r-link-color: #0f766e;
@@ -325,7 +325,7 @@
     .reveal .hl-teal { background: #5eead4; }
     .reveal .hl-amber { background: #fdba74; }
     /* Typed WSJ article excerpt + inline sentence highlights */
-    .reveal .wsj-article { background: #fff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 20px 26px; font-family: Georgia, 'Times New Roman', serif; text-align: left; line-height: 1.5; color: #1e293b; }
+    .reveal .wsj-article { background: #fff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 20px 26px; font-family: var(--font-sans); text-align: left; line-height: 1.5; color: #1e293b; }
     .reveal .wsj-article p { margin: 0 0 0.7em; }
     .reveal .wsj-article p:last-child { margin-bottom: 0; }
     .reveal .wsj-article .lnk { color: #2563eb; text-decoration: underline; }
@@ -340,6 +340,7 @@
     .reveal .wsj-q { background: #0f172a; color: #e2e8f0; border-radius: 12px; padding: 12px 15px; font-weight: 600; font-size: 0.62em; line-height: 1.35; text-align: left; }
     .reveal .wsj-q strong { color: #2dd4bf; }
   </style>
+  <link rel="stylesheet" href="../assets/css/typography.css">
 </head>
 <body>
   <div class="reveal">
@@ -383,30 +384,9 @@
         <!-- Slide 3.2: Recap - Scarcity, Opportunity Cost & the Margin -->
         <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
           <p class="eyebrow">Recap · 1 of 3</p>
-          <h2>Scarcity, Opportunity Cost &amp; the Margin</h2>
-          <div class="content-card">
-            <div style="display: flex; gap: 14px;">
-              <div class="def-card" style="flex: 1; margin: 0;">
-                <div class="def-title">Scarcity</div>
-                Resources are limited, so every choice involves a <strong>trade-off</strong>.
-              </div>
-              <div class="def-card" style="flex: 1; margin: 0;">
-                <div class="def-title">Opportunity Cost</div>
-                The value of the <strong>best alternative forgone</strong> when you make a choice.
-              </div>
-            </div>
-            <p class="fragment" style="font-size: 0.85em; color: #64748b; margin: 8px 0 0;">
-              <em>e.g.</em> coming to class &rarr; the opportunity cost is your best forgone use of that hour (sleep, a shift at work).
-            </p>
-            <div class="def-card fragment" style="margin-top: 12px; border-left-color: #0f766e;">
-              <div class="def-title">Decision rule: decide on the margin &mdash; set <strong>MB = MC</strong></div>
-              To maximize <strong>net benefit</strong> (total benefit &minus; costs), keep doing the activity while it adds value:
-              <ul style="margin: 8px 0 0 18px !important; font-size: 0.9em;">
-                <li class="fragment">If <strong>MB &gt; MC</strong>, doing one more unit still <em>raises</em> net benefit &rarr; do more.</li>
-                <li class="fragment">If <strong>MB &lt; MC</strong>, the last unit <em>lowers</em> net benefit &rarr; do less.</li>
-                <li class="fragment">So neither can hold at the optimum &mdash; net benefit is maximized only where <strong>MB = MC</strong>.</li>
-              </ul>
-            </div>
+          <h2>Scarcity, Opportunity Cost, and the Margin</h2>
+          <div class="content-card" style="font-size: 0.9em;">
+<div class="def-card"><div class="def-title">Opportunity cost</div>The value of the best alternative forgone. Include time and other resources, not just money.</div><div class="def-card"><div class="def-title">Marginal choice</div>Choose an extra unit when MB exceeds MC. With whole units, equality need not occur.</div><p>For smooth, divisible choices with falling MB and rising MC, the best interior quantity satisfies \( MB = MC \). Compare endpoints too.</p>
           </div>
         </section>
 
@@ -491,7 +471,7 @@
             </div>
             
             <ul style="margin-top: 15px;">
-              <li class="fragment">Market equilibrium changes <strong>only if</strong> a shock occurs that shifts the demand or supply curve.</li>
+              <li class="fragment">In this model, a new equilibrium follows a shift in demand or supply, holding the market rules fixed.</li>
               <li class="fragment">Demand or supply curve shifts occur if variables we were holding constant (tastes, income, government policies, costs of production) change.</li>
               <li class="fragment"><strong>Movement along</strong> the demand or supply curve is a result of <strong>only price changes</strong>.</li>
             </ul>
@@ -1106,7 +1086,7 @@
             <div style="flex: 1.2; text-align: left; display: flex; flex-direction: column; gap: 15px;">
               <div class="content-card" style="margin: 0; padding: 20px;">
                 <p style="font-size: 1.15em; font-weight: 600; color: #0f766e; margin-bottom: 15px;">
-                  Elasticity is a statement about changes to behavior when price changes.
+                  Elasticity compares percentage changes in two variables.
                 </p>
                 <p style="font-size: 0.9em; margin-bottom: 0;">
                   It measures how responsive consumers or producers are to changes in market conditions.
@@ -1127,28 +1107,11 @@
         <!-- Slide 6.3: Point Elasticity -->
         <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
           <p class="eyebrow">Elasticity · Definition</p>
-          <h2>(Own-Price) Elasticity of Demand</h2>
-          <div class="content-card" style="font-size: 0.92em;">
-            <div class="def-card" style="margin: 5px 0 15px;">
-              <div class="def-title">Definition</div>
-              The <strong>elasticity of demand</strong> is the ratio of the percentage change in quantity to the percentage change in price. (Also called <strong>point elasticity of demand</strong>).
-            </div>
-            
-            <p>We define the own-price elasticity of demand \( \varepsilon \) as:</p>
-            <div style="display: flex; justify-content: space-around; align-items: center; margin: 15px 0;">
-              <div>
-                \[ (1) \quad \varepsilon = \frac{\% \Delta Q}{\% \Delta P} \]
-              </div>
-              <div>
-                \[ (2) \quad \varepsilon = \frac{\Delta Q / Q}{\Delta P / P} = \frac{\Delta Q}{\Delta P} \times \frac{P}{Q} \]
-              </div>
-            </div>
-            
-            <p style="font-size: 0.85em; color: #515763; margin-top: 10px;">
-              Where \( \frac{\Delta Q}{\Delta P} \) is the derivative (slope) of the demand function.<br>
-              By definition, \( \varepsilon \) is negative, but we follow tradition and work with the absolute value <strong>\( |\varepsilon| \)</strong>.
-            </p>
+          <h2>Price Elasticity Without Calculus</h2>
+          <div class="content-card" style="font-size: 0.9em;">
+<p>Price elasticity compares the percentage change in quantity demanded with the percentage change in price, holding other factors constant.</p><div class="def-card"><div class="def-title">At a point on linear demand</div>For \( Q = a-bP \), with \(b>0\): \[ \varepsilon=-b\frac{P}{Q},\qquad |\varepsilon|=b\frac{P}{Q}. \]</div><p>Here b is the number of units quantity falls when price rises by $1. It is the magnitude of ΔQ/ΔP; the plotted P-versus-Q slope is −1/b.</p><p>For downward-sloping demand, ε is negative. We use |ε| for elastic versus inelastic.</p>
           </div>
+<aside class="notes">For a curved demand function, point elasticity uses its local slope. For a finite change, specify a percentage-change convention. This slide uses linear demand so no derivative rules are required.</aside>
         </section>
 
         <!-- Slide 6.4: Calculation example -->
@@ -1161,7 +1124,7 @@
                 <div class="ex-title">Calculation Exercise</div>
                 Given the demand function:
                 \[ Q = 10 - 0.5P \]
-                Calculate the own-price elasticity of demand \( |\varepsilon| \) at:
+                Find |ε| at the midpoint. Then describe what happens as we approach each intercept:
                 <ul>
                   <li>Midpoint: \( (Q=5, P=10) \)</li>
                   <li>Horizontal intercept: \( (Q=10, P=0) \)</li>
@@ -1178,31 +1141,16 @@
         </section>
 
 <!-- Slide 6.4b: Solution - Point Elasticity -->
-        <section data-background-gradient="linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)">
-          <p class="eyebrow" style="color: #059669;">Elasticity · Solution</p>
-          <h2>Solution: Point Elasticity</h2>
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Elasticity · Solution</p>
+          <h2>Elasticity at the Midpoint and Near the Ends</h2>
           <div class="content-card" style="font-size: 0.9em;">
-            <div class="def-card">
-              <div class="def-title">Formula</div>
-              \[ \varepsilon = \frac{dQ}{dP} \times \frac{P}{Q} = -0.5 \times \frac{P}{Q} \]
-            </div>
-            <div class="def-card fragment">
-              <div class="def-title">Midpoint (Q=5, P=10)</div>
-              \[ |\varepsilon| = 0.5 \times \frac{10}{5} = 1 \quad\text{(unit elastic)} \]
-            </div>
-            <div class="def-card fragment">
-              <div class="def-title">Horizontal intercept (Q=10, P=0)</div>
-              \[ |\varepsilon| = 0.5 \times \frac{0}{10} = 0 \quad\text{(perfectly inelastic)} \]
-            </div>
-            <div class="def-card fragment">
-              <div class="def-title">Vertical intercept (Q=0, P=20)</div>
-              \[ |\varepsilon| = 0.5 \times \frac{20}{0} \to \infty \quad\text{(perfectly elastic)} \]
-            </div>
+<p>For \(Q=10-0.5P\), use \(|\varepsilon|=0.5P/Q\).</p><div class="def-card"><div class="def-title">Midpoint</div>At \(P=10, Q=5\): \(|\varepsilon|=1\).</div><div class="def-card"><div class="def-title">Near the horizontal intercept</div>As P approaches 0, |ε| approaches 0.</div><div class="def-card"><div class="def-title">Near the vertical intercept</div>As Q approaches 0, |ε| grows without bound. At Q = 0 the formula is undefined.</div><p>These are endpoint limits on one sloped line. Perfectly elastic and perfectly inelastic demand curves are horizontal and vertical, respectively.</p>
           </div>
         </section>
         <!-- Slide 6.5: Midpoint Elasticity -->
         <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
-          <p class="eyebrow">Elasticity · Midpoint Rule</p>
+          <p class="eyebrow">Elasticity · Linear demand</p>
           <h2>Elasticity Along a Linear Demand Curve</h2>
           <div style="display: flex; align-items: center; justify-content: center; gap: 20px; max-width: 1090px; margin: 0 auto;">
             <div style="flex: 1; text-align: left;">
@@ -1234,21 +1182,9 @@
         <!-- Slide 6.6: Relative elasticity definition -->
         <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
           <p class="eyebrow">Elasticity · Classification</p>
-          <h2>Relatively Elastic vs. Inelastic</h2>
-          <div class="content-card">
-            <div class="def-card">
-              <div class="def-title">Definition: Relatively Elastic</div>
-              Demand is <strong>relatively elastic</strong> if, for a given percentage change in price, the resulting percentage change in quantity demanded is <strong>large</strong>.
-            </div>
-            
-            <div class="def-card fragment">
-              <div class="def-title">Definition: Relatively Inelastic</div>
-              Demand is <strong>relatively inelastic</strong> if, for a given percentage change in price, the resulting percentage change in quantity demanded is <strong>small</strong>.
-            </div>
-            
-            <p class="fragment" style="text-align: center; font-weight: 600; color: #0f766e; margin-top: 15px;">
-              Let&rsquo;s illustrate relatively elastic and inelastic demand on a graph.
-            </p>
+          <h2>Elastic or Inelastic?</h2>
+          <div class="content-card" style="font-size: 0.9em;">
+<ul><li>Elastic: |ε| &gt; 1. Quantity changes by a larger percentage than price.</li><li>Unit-elastic: |ε| = 1. The percentage changes have equal magnitudes.</li><li>Inelastic: |ε| &lt; 1. Quantity changes by a smaller percentage than price.</li></ul><p>Demand tends to be more elastic when close substitutes exist, the purchase uses more of the budget, or buyers have more time to adjust.</p>
           </div>
         </section>
 
@@ -1288,24 +1224,13 @@
         </section>
 
         <!-- Slide 6.7: Visualizing slopes -->
-        <section data-visibility="hidden" data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)" data-visibility="hidden">
           <p class="eyebrow">Elasticity · Slopes</p>
-          <h2>Elastic Demand vs. Inelastic Demand</h2>
-          <div class="content-card" style="text-align: center;">
-            <p style="margin-bottom: 20px; font-weight: 600;">How curve slopes represent sensitivity:</p>
-            <div style="display: flex; gap: 20px;">
-              <div class="def-card" style="flex: 1; margin: 0; border-left-color: #3b82f6; background: rgba(59, 130, 246, 0.03);">
-                <div class="def-title" style="color: #3b82f6;">Relatively Elastic</div>
-                <strong style="font-size: 1.1em; color: #1e293b;">Flatter Slope</strong>
-                <p style="font-size: 0.8em; margin-top: 8px; color: #515763;">Small price changes lead to large shifts in consumption. (High responsiveness)</p>
-              </div>
-              <div class="def-card" style="flex: 1; margin: 0; border-left-color: #ef4444; background: rgba(239, 68, 68, 0.03);">
-                <div class="def-title" style="color: #ef4444;">Relatively Inelastic</div>
-                <strong style="font-size: 1.1em; color: #1e293b;">Steeper Slope</strong>
-                <p style="font-size: 0.8em; margin-top: 8px; color: #515763;">Large price changes cause only tiny adjustments in consumption. (Low responsiveness)</p>
-              </div>
-            </div>
+          <h2>Compare Slopes at the Same Point</h2>
+          <div class="content-card" style="font-size: 0.9em;">
+<p>At the same price and quantity, using the same axis units, the flatter demand curve is more elastic.</p><p>Slope alone cannot compare elasticity at different points. Elasticity also depends on P/Q.</p><div class="def-card"><div class="def-title">Check</div>A straight demand line has a constant slope. Does that mean its elasticity is constant?</div>
           </div>
+<aside class="notes">No. P/Q changes along the line. The flatter-versus-steeper comparison requires common P, Q, and units; it is not a general definition of elasticity.</aside>
         </section>
 
         <!-- Slide 6.8: GROUP WORK - Elasticity -->
@@ -1405,12 +1330,13 @@
         </section>
 
         <!-- GROUP WORK Answers: graph -->
-        <section data-visibility="hidden" data-background-gradient="linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)">
-          <p class="eyebrow" style="color: #059669;">Group Work · Answers</p>
-          <h2>Point Elasticity, Graphically</h2>
-          <div class="slide-img-container" style="margin: 5px auto 0; padding: 8px;">
-            <img src="images/c2_gw_elasticity_graph.png" alt="Linear demand Q=24-4P with three marked points: elastic (|e|=5) at P=$5, unit-elastic (|e|=1) at the midpoint P=$3, and inelastic (|e|=0.2) at P=$1" style="max-height: 470px;">
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)" data-visibility="hidden">
+          <p class="eyebrow">Group Work · Answers</p>
+          <h2>Elasticity Between Two Prices</h2>
+          <div class="content-card" style="font-size: 0.9em;">
+<p>Suppose price rises from $10 to $12 and quantity falls from 100 to 80, with other demand factors unchanged.</p><div class="def-card"><div class="def-title">Use the midpoint method</div>\[ \varepsilon=\frac{(80-100)/90}{(12-10)/11}=-\frac{11}{9}\approx-1.22. \]</div><p>The denominators are the averages: quantity 90 and price $11. Demand is elastic over this interval.</p><p>Why use averages? Reversing the direction gives the same elasticity magnitude.</p>
           </div>
+<aside class="notes">Ask students to compute the two percentage changes first: −22.22% and +18.18%. This is arc elasticity over an interval, distinct from point elasticity at a particular price. It also differs from the geometric midpoint of a demand line. This replaces the static duplicate of the preceding graph.</aside>
         </section>
 
       </section>
@@ -1443,31 +1369,19 @@
         <!-- Slide 7.3: WSJ Part 2 - highlighted article + callouts -->
         <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
           <p class="eyebrow">WSJ Case Study · Part 2</p>
-          <h2>Comparing Geographic Responses</h2>
-          <div style="display: flex; align-items: flex-start; justify-content: center; gap: 22px; max-width: 1220px; margin: 0 auto;">
-            <div class="wsj-article" style="flex: 1 1 auto; max-width: 660px; font-size: 0.78em;">
-              <p>Since 2021, chocolate prices have risen more than 30% in both the U.S. and Europe, according to TD Cowen estimates based on Nielsen data. But the impact on demand has been more pronounced in the U.S., <span class="mk mk-yellow">due to key differences in price elasticity between the two markets</span>. While companies with a strong European presence like <span class="mk mk-teal">Mondelez have been able to pass on price increases there without sacrificing volume too much</span>, <span class="mk mk-amber">U.S.-centric manufacturers like Hershey have found North American consumers to be more fickle</span>.</p>
-              <p>Hershey gets about 87% of its overall net sales from the U.S. Mondelez, meanwhile, gets 60% of its chocolate sales from Europe and another 35% from developing markets. Less than 5% of its chocolate business is in North America, though it does have a wider snacking business there.</p>
-              <p>For this year, Mondelez <span class="lnk">is forecasting a 10% drop</span> in adjusted earnings per share, which is relatively mild when compared to a mid-30% estimated decline at Hershey. Over the past two years, Hershey&rsquo;s stock is down about 35%, while Mondelez has fallen roughly 5%.</p>
-            </div>
-            <div style="flex: 0 0 322px; display: flex; flex-direction: column; gap: 11px;">
-              <div class="wsj-q fragment"><strong>Q:</strong> Which region&rsquo;s demand for chocolate is more <strong>elastic</strong> &mdash; and how can you tell from the article?</div>
-              <div class="wsj-callout teal fragment"><span class="tag">&#127466;&#127482; Europe &middot; Mondelez</span>Prices passed on <strong>&ldquo;without sacrificing volume&rdquo;</strong> &mdash; quantity barely responds &rarr; demand is relatively <strong>inelastic</strong>.</div>
-              <div class="wsj-callout amber fragment"><span class="tag">&#127482;&#127480; U.S. &middot; Hershey</span>Consumers proved <strong>&ldquo;more fickle&rdquo;</strong> &mdash; quantity drops sharply when prices rise &rarr; demand is relatively <strong>elastic</strong>.</div>
-            </div>
+          <h2>Reading the Chocolate Case</h2>
+          <div class="content-card" style="font-size: 0.9em;">
+<p>The supplied article excerpt describes different sales responses to rising chocolate prices in the U.S. and Europe.</p><ul><li>Which market appears more responsive to price?</li><li>What price and quantity data would we need to calculate elasticity?</li><li>What else might explain changes in sales?</li></ul><p>Treat the excerpt as a historical case. Company earnings and stock returns do not measure demand elasticity.</p>
           </div>
+<aside class="notes">Suggested answers: the reported quantity response suggests greater responsiveness in the U.S., but does not establish a causal elasticity estimate. Need comparable percentage price and quantity changes, time periods, and controls for income, product mix, and demand shifts. Original article images remain on the preceding slide; verify its date in the course reading before reuse.</aside>
         </section>
 
         <!-- Slide 7.3b: WSJ Part 2 - discussion -->
         <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
           <p class="eyebrow">WSJ Case Study · Discussion</p>
-          <h2>What the Article Tells Us</h2>
-          <div class="content-card" style="font-size: 0.95em;">
-            <ul>
-              <li class="fragment" style="margin-bottom: 12px;"><strong style="color: #b45309;">U.S. demand is more elastic.</strong> Chocolate is an impulse buy, so a price surge makes Americans cut back a lot &mdash; U.S.-heavy Hershey (&asymp;87% of sales) faced a <strong>mid-30% profit decline</strong> and its stock fell <strong>~35%</strong>.</li>
-              <li class="fragment" style="margin-bottom: 12px;"><strong style="color: #0f766e;">European demand is more inelastic.</strong> Chocolate is a daily staple, so Europeans keep buying as prices climb &mdash; Mondelez (60% Europe) passed prices on &ldquo;without sacrificing volume,&rdquo; with only a <strong>~10% earnings dip</strong> (stock down <strong>~5%</strong>).</li>
-              <li class="fragment"><strong style="color: #0f172a;">Why it matters for firms:</strong> facing <em>inelastic</em> demand, a firm can raise price and lose little quantity, so revenue holds up; facing <em>elastic</em> demand, the same price hike can backfire. One cocoa shock, two very different outcomes.</li>
-            </ul>
+          <h2>What Can We Conclude?</h2>
+          <div class="content-card" style="font-size: 0.9em;">
+<div class="def-card"><div class="def-title">Evidence</div>A larger percentage fall in quantity for the same percentage price rise is consistent with more elastic demand, if other demand factors are unchanged.</div><div class="def-card"><div class="def-title">Limit</div>Sales data alone do not hold income, tastes, product quality, and competitors’ prices constant.</div><p>For a small price increase: total revenue rises with inelastic demand and falls with elastic demand. Profit also depends on costs.</p>
           </div>
         </section>
 
@@ -1475,7 +1389,7 @@
         <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
           <p class="eyebrow">WSJ Case Study · Elasticity in one picture</p>
           <h2>One Price Rise, Two Responses</h2>
-          <p style="font-size: 0.55em; color: #64748b; margin: 0 0 2px;">Both regions start with the <strong>same</strong> demand at price P<sub>0</sub> (common point). A single, common price increase makes quantity fall &mdash; by very different amounts. Press <kbd style="background: #e2e8f0; border: 1px solid #cbd5e1; padding: 1px 6px; border-radius: 4px;">&rarr;</kbd>.</p>
+          <p style="font-size: 0.55em; color: #64748b; margin: 0 0 2px;">In this illustrative graph, both regions start at the same price and quantity (the common point at P<sub>0</sub>). A single, common price increase makes quantity fall &mdash; by very different amounts. Press <kbd style="background: #e2e8f0; border: 1px solid #cbd5e1; padding: 1px 6px; border-radius: 4px;">&rarr;</kbd>.</p>
           <svg class="anim-graph" viewBox="0 0 720 470" style="width: 74%; max-height: 420px; margin: 0 auto; display: block; background: white; border: 1px solid #e2e8f0; border-radius: 10px;" role="img" aria-label="Two demand curves through a common point at price P0: a steep teal curve for Europe (inelastic) and a flat amber curve for the U.S. (elastic). When the common price rises to P1, Europe's quantity falls only a little while the U.S. quantity falls a lot.">
             <!-- base: axes -->
             <line x1="80" y1="390" x2="660" y2="390" stroke="#475569" stroke-width="2.5"/>
@@ -1573,25 +1487,9 @@
         <!-- Slide 8.2: Definitions of other measures -->
         <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
           <p class="eyebrow">Other elasticity measures</p>
-          <h2>Income &amp; Cross-Price Elasticities</h2>
-          <div class="content-card">
-            <div class="def-card">
-              <div class="def-title">Definition: Income Elasticity</div>
-              For any good \( X \), if the <strong>income elasticity of demand</strong> for \( X \) is:
-              <ul>
-                <li><strong>Negative</strong>: then \( X \) is an <strong>inferior good</strong>.</li>
-                <li><strong>Positive</strong>: then \( X \) is a <strong>normal good</strong>.</li>
-              </ul>
-            </div>
-            
-            <div class="def-card fragment">
-              <div class="def-title">Definition: Cross-Price Elasticity</div>
-              For any two goods \( X \) and \( Y \), if the <strong>cross-price elasticity of demand</strong> for \( X \) with respect to the price of \( Y \) is:
-              <ul>
-                <li><strong>Negative</strong>: then \( X \) and \( Y \) are <strong>complements</strong>.</li>
-                <li><strong>Positive</strong>: then \( X \) and \( Y \) are <strong>substitutes</strong>.</li>
-              </ul>
-            </div>
+          <h2>Income and Cross-Price Elasticities</h2>
+          <div class="content-card" style="font-size: 0.9em;">
+<div class="def-card"><div class="def-title">Income elasticity</div>\[ \varepsilon_I=\frac{\%\Delta Q_X}{\%\Delta I} \] Positive: normal good. Negative: inferior good.</div><div class="def-card"><div class="def-title">Cross-price elasticity</div>\[ \varepsilon_{X,Y}=\frac{\%\Delta Q_X}{\%\Delta P_Y} \] Positive: substitutes. Negative: complements.</div><p>Keep the sign. Hold other relevant factors constant. “Inferior” describes a response to income, not product quality.</p>
           </div>
         </section>
 
@@ -1610,6 +1508,7 @@
               Is sparkling water a normal or inferior good for Rex?
             </p>
           </div>
+        <aside class="notes">Assume other relevant factors, including own price, are unchanged. The exercise supplies percentage changes, so use those as given.</aside>
         </section>
 
 <!-- Slide 8.3b: Solution - Income Elasticity -->
@@ -1646,6 +1545,7 @@
               Are WAF and AO tickets complements or substitutes?
             </p>
           </div>
+        <aside class="notes">Assume other relevant factors, including own price, are unchanged. The exercise supplies percentage changes, so use those as given.</aside>
         </section>
 
 
@@ -1676,7 +1576,7 @@
           <div class="content-card" style="font-size: 0.9em; background: rgba(255, 255, 255, 0.7);">
             <div class="example-card" style="border-left-color: #b45309; background: rgba(180, 83, 9, 0.05); margin: 8px 0;">
               <div class="ex-title" style="color: #b45309;">Question 1</div>
-              A student&rsquo;s income rises by <strong>8%</strong>, and her spending on streaming subscriptions rises by <strong>12%</strong>. <br>
+              A student&rsquo;s income rises by <strong>8%</strong>, and the quantity of streaming subscriptions she buys rises by <strong>12%</strong>, with subscription prices unchanged. <br>
               <strong>Compute the income elasticity of demand.</strong> Are streaming subscriptions a normal or inferior good for her?
             </div>
             <div style="margin: 4px 0 12px;">
@@ -1744,19 +1644,9 @@
         <!-- Slide 6.2: Marginal Thinking -->
         <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
           <p class="eyebrow">Decision-Making</p>
-          <h2>Thinking on the Margin</h2>
-          <div class="content-card" style="text-align: center; padding: 40px;">
-            <p style="font-size: 1.1em; line-height: 1.5; margin-bottom: 25px;">What costs matter for a firm&rsquo;s decision-making process?</p>
-            <div class="def-card" style="display: inline-block; text-align: left; border-left-color: #3b82f6; background: rgba(59, 130, 246, 0.04);">
-              <div class="def-title" style="color: #3b82f6;">The Marginal Rule</div>
-              Firms maximize profits by setting quantity according to the rule:
-              <p style="font-weight: 700; color: #1e293b; text-align: center; font-size: 1.15em; margin-top: 8px;">
-                Marginal Benefit equals Marginal Cost
-              </p>
-            </div>
-            <p style="font-size: 0.95em; color: #0f766e; font-weight: 600; margin-top: 25px;">
-              Consequently, any cost incurred in the past does not matter!
-            </p>
+          <h2>Which Costs Matter Now?</h2>
+          <div class="content-card" style="font-size: 0.9em;">
+<p>Compare the additional revenue with the additional cost of the decision.</p><div class="def-card"><div class="def-title">Sunk cost</div>An unrecoverable cost is the same whichever option you choose now. It should not change that choice.</div><p>A previously purchased item can still have a resale value. Keeping it gives up that value, which is an opportunity cost.</p>
           </div>
         </section>
 
@@ -1780,53 +1670,31 @@
         <!-- Slide 6.4: Sunk Cost Example -->
         <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
           <p class="eyebrow">Decision-Making · Case Study 1</p>
-          <h2>Headphone Reseller: Sunk Costs</h2>
-          <div class="content-card">
-            <div class="example-card">
-              <div class="ex-title">Case Study 1</div>
-              Rex is a licensed headphone reseller and owns a shop. He bought 1,000 units of wireless headphones for <strong>$500/unit</strong>. <br><br>
-              Every pair of headphones purchased requires initial maintenance costing <strong>$160/unit per year</strong>. This is an unavoidable cost. <br><br>
-              Right now, he receives an offer from another reseller, who offers to buy all 1,000 units for <strong>$450/unit</strong>.
-            </div>
-            <p class="fragment" style="font-weight: 600; text-align: center; color: #b91c1c; margin-top: 20px;">
-              Should he sell all of his stock or not? Explain why.
-            </p>
+          <h2>Headphone Reseller: Keep or Sell?</h2>
+          <div class="content-card" style="font-size: 0.9em;">
+<p>Rex paid $500 each for 1,000 headphones. That payment cannot be recovered from the original seller. Another reseller now offers $450 each.</p><p>Keeping the stock for a year requires $160 per unit in maintenance; selling now avoids it. Ignore discounting and all other costs.</p><div class="def-card"><div class="def-title">Question</div>What minimum selling price next year would make keeping a unit at least as attractive as selling now?</div>
           </div>
+<aside class="notes">Answer: $610 = $450 forgone resale revenue + $160 future maintenance. The historical $500 is sunk. If the $160 were payable either way, it would cancel instead. This replaces the original under-specified question.</aside>
         </section>
 
         <!-- Slide 6.5: Marginal Cost Example -->
-        <section data-visibility="hidden" data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)" data-visibility="hidden">
           <p class="eyebrow">Decision-Making · Case Study 2</p>
-          <h2>Headphone Reseller: Marginal Cost</h2>
-          <div class="content-card">
-            <div class="example-card">
-              <div class="ex-title">Case Study 2</div>
-              Rex bought 1,000 units of wireless headphones for <strong>$500/unit</strong>. To run the shop, he hires 18 clerks at <strong>$55,000/year</strong>; pays <strong>$30,000</strong> in utilities per year; pays himself <strong>$270,000/year</strong>. <br><br>
-              Every pair of headphones purchased requires initial maintenance costing <strong>$160/unit per year</strong> (unavoidable). <br><br>
-              He sold all 1,000 headphones. He has got a buyer for another headphone (of the same model).
-            </div>
-            <p class="fragment" style="font-weight: 600; text-align: center; color: #0f766e; margin-top: 20px;">
-              What is his marginal cost of selling 1 additional unit?
-            </p>
+          <h2>Headphone Reseller: One More Sale</h2>
+          <div class="content-card" style="font-size: 0.9em;">
+<p>Rex has sold his existing stock. To fill one extra order, he must buy one new headphone for $500 and pay $160 to prepare that unit for sale.</p><p>His staffing, rent, utilities, and own pay do not change for this order; there is spare capacity.</p><div class="def-card"><div class="def-title">Question</div>What is the marginal cost of filling the order?</div>
           </div>
+<aside class="notes">Answer: $660. Both new payments are avoidable if he declines the order. Past inventory costs are irrelevant; future restocking is not sunk. If overtime or extra shipping were needed, include those too.</aside>
         </section>
 
         <!-- Slide 6.6: Transition to Market Analysis -->
         <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
           <p class="eyebrow">Market Structure · Introduction</p>
-          <h2>Putting It All Together</h2>
-          <div class="content-card">
-            <p>We have now separate models for:</p>
-            <ul>
-              <li class="fragment">Consumer Behavior (Demand, Elasticity)</li>
-              <li class="fragment">Firm's Marginal Revenue</li>
-              <li class="fragment">Firm's Cost Structure</li>
-            </ul>
-            <p class="fragment" style="margin-top: 15px; font-weight: 600; color: #0f766e;">We are ready to combine these to examine supply and demand in a market context.</p>
-            <div class="def-card fragment" style="margin-top: 15px; text-align: center;">
-              The simplest market structure to analyze is where there is no competition: <strong>Monopoly</strong>.
-            </div>
+          <h2>Economic Profit Counts Opportunity Costs</h2>
+          <div class="content-card" style="font-size: 0.9em;">
+<div class="def-card"><div class="def-title">Accounting profit</div>Revenue minus explicit payments, such as wages and materials.</div><div class="def-card"><div class="def-title">Economic profit</div>Revenue minus explicit payments and implicit opportunity costs, such as the owner’s forgone earnings.</div><p>Rex earns $40,000 after paying the shop’s bills. He could earn $40,000 in another job. What is his economic profit?</p>
           </div>
+<aside class="notes">Answer: zero, assuming no other implicit costs. Zero economic profit includes compensation for the owner’s next-best use of time and capital; it does not mean zero income.</aside>
         </section>
 
         <!-- Slide 6.7: GROUP WORK - Sunk Costs & Marginal Thinking -->
@@ -1917,7 +1785,7 @@
             </div>
             <div class="def-card fragment">
               <div class="def-title">Definition: Variable Costs (VC)</div>
-              Costs that <strong>vary</strong> directly with the level of quantity produced (e.g., raw materials, hourly labor).
+              Costs that change with the quantity produced (e.g., raw materials, hourly labor).
             </div>
           </div>
         </section>
@@ -1925,19 +1793,11 @@
         <!-- Slide 5.4: Marginal Cost -->
         <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
           <p class="eyebrow">Firms and Costs</p>
-          <h2>Total &amp; Marginal Cost</h2>
-          <div class="content-card">
-            <p>We write the total cost as the sum of fixed and variable costs:</p>
-            <div style="margin: 15px 0; text-align: center;">
-              \[ C(Q) = FC + VC(Q) \]
-            </div>
-            <p>Where \( FC \) is a constant number, and \( VC(Q) \) is a function of quantity.</p>
-            <div class="def-card fragment" style="margin-top: 15px;">
-              <div class="def-title">Definition: Marginal Cost (MC)</div>
-              The incremental cost made by firms when they produce one additional unit of product. It is the derivative of total cost:
-              \[ MC(Q) = C'(Q) = VC'(Q) \]
-            </div>
+          <h2>Total Cost and Marginal Cost</h2>
+          <div class="content-card" style="font-size: 0.9em;">
+<p>\[ C(Q)=FC+VC(Q) \]</p><p>For whole units, the cost of the next unit is C(Q + 1) − C(Q). Over a small interval, marginal cost is ΔC/ΔQ.</p><div class="def-card"><div class="def-title">Example</div>Total cost rises from $140 for 4 units to $155 for 5 units. The fifth unit costs $15.</div><p>For smooth cost curves, we will supply the MC formula so you can focus on the economic decision.</p>
           </div>
+<aside class="notes">The continuous MC formula is the derivative of total cost. It need not equal the cost of one whole extra unit. For quadratic costs, the finite difference includes an additional term. No calculus is assumed.</aside>
         </section>
 
         <!-- Slide 5.5: Combined Profit Function -->
@@ -1960,7 +1820,7 @@
           <p class="eyebrow">Firms and Costs</p>
           <h2>Average Cost Functions</h2>
           <div class="content-card" style="font-size: 0.92em;">
-            <p style="margin-bottom: 12px;">We also look at cost averages taken over quantities to understand unit profitability:</p>
+            <p style="margin-bottom: 12px;">For Q &gt; 0, average costs divide each cost by output:</p>
             <div class="def-card" style="margin: 8px 0;">
               <div class="def-title">Average Total Cost (ATC)</div>
               Total cost divided by quantity: \[ ATC(Q) = \frac{C(Q)}{Q} \]
@@ -1979,42 +1839,18 @@
         <!-- Slide 5.7: Cost Example -->
         <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
           <p class="eyebrow">Firms and Costs · Example</p>
-          <h2>Calculation Exercise</h2>
-          <div class="content-card">
-            <div class="example-card">
-              <div class="ex-title">Cost Function scenario</div>
-              Given the total cost function:
-              \[ C(Q) = 100 + 24Q - 8Q^2 + Q^3 \]
-              Find the following expressions:
-              <ul>
-                <li>Total Fixed Cost (TFC) &amp; Total Variable Cost (TVC)</li>
-                <li>Average Total Cost (ATC), Average Fixed Cost (AFC), &amp; Average Variable Cost (AVC)</li>
-                <li>Marginal Cost function (MC)</li>
-              </ul>
-            </div>
+          <h2>Calculate Fixed, Variable, and Average Costs</h2>
+          <div class="content-card" style="font-size: 0.9em;">
+<p>\[ C(Q)=100+10Q+Q^2,\qquad MC(Q)=10+2Q\quad\text{(given)} \]</p><ul><li>Identify FC and VC(Q).</li><li>Write ATC, AFC, and AVC for Q &gt; 0.</li><li>At Q = 5, find total cost, ATC, and the given MC.</li></ul><p>Use algebra and substitution; you do not need to differentiate.</p>
           </div>
         </section>
 
 <!-- Slide 5.7b: Solution - Cost Functions -->
-        <section data-background-gradient="linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)">
-          <p class="eyebrow" style="color: #059669;">Costs · Solution</p>
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Costs · Solution</p>
           <h2>Solution: Cost Functions</h2>
-          <div class="content-card" style="font-size: 0.88em;">
-            <div class="def-card">
-              <div class="def-title">Total Fixed Cost &amp; Total Variable Cost</div>
-              \[ TFC = 100 \]
-              \[ TVC = 24Q - 8Q^2 + Q^3 \]
-            </div>
-            <div class="def-card fragment">
-              <div class="def-title">Average Cost Functions</div>
-              \[ ATC = \frac{100}{Q} + 24 - 8Q + Q^2 \]
-              \[ AFC = \frac{100}{Q} \]
-              \[ AVC = 24 - 8Q + Q^2 \]
-            </div>
-            <div class="def-card fragment">
-              <div class="def-title">Marginal Cost</div>
-              \[ MC = \frac{dC}{dQ} = 24 - 16Q + 3Q^2 \]
-            </div>
+          <div class="content-card" style="font-size: 0.9em;">
+<p>\[ FC=100,\qquad VC(Q)=10Q+Q^2 \]</p><p>\[ ATC=100/Q+10+Q,\quad AFC=100/Q,\quad AVC=10+Q \]</p><div class="def-card"><div class="def-title">At Q = 5</div>\[ C(5)=175,\qquad ATC(5)=35,\qquad MC(5)=20. \]</div><p>The cost of the sixth whole unit is C(6) − C(5) = 196 − 175 = $21. The given smooth MC at Q = 5 is $20.</p>
           </div>
         </section>
         <!-- Slide 5.8: Cost Curves Visual -->
@@ -2024,7 +1860,7 @@
           <div style="display: flex; align-items: center; justify-content: center; gap: 20px; max-width: 1090px; margin: 0 auto;">
             <div style="flex: 1; text-align: left;">
               <div class="content-card" style="margin: 0; padding: 15px 20px; font-size: 0.95em;">
-                <p style="font-weight: 600; color: #0f766e; margin-bottom: 10px;">Properties of cost curves:</p>
+                <p style="font-weight: 600; color: #0f766e; margin-bottom: 10px;">For the U-shaped average cost curves shown:</p>
                 <ul>
                   <li class="fragment">\( MC \) passes through the minimum points of both \( ATC \) and \( AVC \).</li>
                   <li class="fragment">\( AFC \) drops continuously as quantity increases.</li>
@@ -2038,6 +1874,7 @@
               </div>
             </div>
           </div>
+        <aside class="notes">These are schematic curves, not the graph of the previous quadratic example, whose AVC is increasing. When MC is below an average, that average falls; above it, the average rises. At a smooth interior minimum they are equal. This is the same logic as adding a test score to an average.</aside>
         </section>
 
         <!-- Slide 5.9: GROUP WORK - Cost Functions -->
@@ -2048,7 +1885,7 @@
             <div class="example-card" style="border-left-color: #b45309; background: rgba(180, 83, 9, 0.05); margin: 8px 0;">
               <div class="ex-title" style="color: #b45309;">Question 1</div>
               Given the total cost function:
-              \[ C(Q) = 50 + 10Q + 2Q^2 \]
+              \[ C(Q) = 50 + 10Q + 2Q^2,\quad MC(Q)=10+4Q\ \text{(given)} \]
               <strong>Find FC, VC, ATC, AFC, AVC, and MC.</strong>
             </div>
             <div style="margin: 4px 0 12px;">
@@ -2154,16 +1991,13 @@
       
       <!-- Slide 10: Where to go from here? -->
       <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
-        <p class="eyebrow">Recap</p>
-        <h2>Class 2 Summary</h2>
-        <div class="content-card" style="text-align: center; padding: 35px;">
-          <p style="font-size: 1.1em; color: #0f766e; font-weight: 600; margin-bottom: 20px;">We are going to start moving quickly!</p>
-          <p>Please stay on top of all new content, concepts, practice questions, etc!</p>
-          <p class="fragment" style="margin-top: 20px; color: #64748b; font-size: 0.9em;">
-            Come to office hours later this week w/ any questions or concerns!
-          </p>
-        </div>
-      </section>
+          <p class="eyebrow">Recap</p>
+          <h2>Three Quick Checks</h2>
+          <div class="content-card" style="font-size: 0.9em;">
+<ul><li>A 1% price rise reduces quantity demanded by about 2%. Is demand elastic? What happens to revenue?</li><li>A fixed fee has already been paid and cannot be refunded. Does it affect whether to accept one more order?</li><li>Can a firm have positive accounting profit and zero economic profit?</li></ul>
+          </div>
+<aside class="notes">Answers: elastic; revenue falls for a small price rise. The nonrefundable fee is sunk and does not change incremental cost. Yes, if accounting profit exactly covers implicit opportunity costs.</aside>
+        </section>
 
       <!-- Slide 11: Closing -->
       <section data-background-gradient="linear-gradient(135deg, #0f172a 0%, #1e293b 100%)">

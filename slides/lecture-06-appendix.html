@@ -11,15 +11,15 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/white.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/highlight/monokai.css">
 
-  <!-- Google Fonts for premium typography -->
+  <!-- Roboto Light with heavier weights for headings and emphasis -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300..800;1,300..800&amp;display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --r-main-font: 'Plus Jakarta Sans', sans-serif;
-      --r-heading-font: 'Outfit', sans-serif;
+      --r-main-font: var(--font-sans);
+      --r-heading-font: var(--font-sans);
       --r-main-color: #1e293b;
       --r-heading-color: #0f172a;
       --r-link-color: #0f766e;
@@ -268,6 +268,7 @@
       to { stroke-dashoffset: 0; }
     }
   </style>
+  <link rel="stylesheet" href="../assets/css/typography.css">
 </head>
 <body>
   <div class="reveal">
@@ -478,7 +479,7 @@
         <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
           <p class="eyebrow">Interventions &middot; Tax Burden</p>
           <h2>Tax Incidence &amp; Elasticity: Same Tax, Different Damage</h2>
-          <p style="font-size: 0.55em; color: #64748b; margin: 0 0 4px;">Identical market and identical tax \( t \) &mdash; only the <em>elasticity of demand</em> differs. Press <kbd style="background: #e2e8f0; border: 1px solid #cbd5e1; padding: 1px 6px; border-radius: 4px;">&rarr;</kbd> for the wedge, the burden split, then the DWL.</p>
+          <p style="font-size: 0.55em; color: #64748b; margin: 0 0 4px;">Same initial P and Q, same supply, and same tax \( t \) &mdash; only the <em>elasticity of demand</em> differs. Press <kbd style="background: #e2e8f0; border: 1px solid #cbd5e1; padding: 1px 6px; border-radius: 4px;">&rarr;</kbd> for the wedge, the burden split, then the DWL.</p>
           <div style="display:flex; gap:18px; justify-content:center; align-items:flex-start; max-width:1150px; margin:0 auto;">
             <div style="flex:1;">
               <div style="text-align:center; font-weight:700; color:#0f766e; font-size:0.72em; margin-bottom:2px;">Inelastic demand (steep D) &mdash; buyers can&rsquo;t walk away</div>
@@ -590,7 +591,7 @@
             </div>
           </div>
           <div class="def-card fragment" data-fragment-index="3" style="max-width:1080px; margin:8px auto 0; border-left-color:#3b82f6; background:rgba(59,130,246,0.04); font-size:0.82em;">
-            It doesn&rsquo;t matter <em>who legally pays</em> &mdash; the more <strong>inelastic</strong> side bears more of the tax, and the more <strong>elastic</strong> the market, the <strong>bigger</strong> the deadweight loss (quantity moves more, so more gains from trade vanish).
+            It doesn&rsquo;t matter <em>who legally pays</em> &mdash; the more <strong>inelastic</strong> side bears more of the tax, and holding the initial P, Q, and tax fixed, greater responsiveness makes the quantity reduction and DWL larger (quantity moves more, so more gains from trade vanish).
           </div>
         </section>
 
@@ -731,15 +732,15 @@
         <!-- PG7: Wildfire smoke as a negative externality -->
         <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
           <p class="eyebrow" style="color: #b45309;">Externalities &middot; A Second Source of DWL</p>
-          <h2>Wildfire Smoke: A Negative Externality</h2>
-          <p style="font-size: 0.6em; color: #475569; margin: 0 auto 6px; max-width: 1010px;">In the main deck, <strong>public goods</strong> left surplus on the table by making <strong>too little</strong> of something good. Externalities are the <strong>second</strong> way &mdash; the market makes <strong>too much</strong> of something harmful. Press <kbd style="background: #e2e8f0; border: 1px solid #cbd5e1; padding: 1px 6px; border-radius: 4px;">&rarr;</kbd>.</p>
+          <h2>Factory Smoke: A Negative Externality</h2>
+          <p style="font-size: 0.6em; color: #475569; margin: 0 auto 6px; max-width: 1010px;">In the main deck, <strong>public goods</strong> left surplus on the table by making <strong>too little</strong> of something good. Externalities are the <strong>second</strong> way &mdash; a producer can ignore harm imposed on other people. Press <kbd style="background: #e2e8f0; border: 1px solid #cbd5e1; padding: 1px 6px; border-radius: 4px;">&rarr;</kbd>.</p>
           <div style="display:flex; gap:18px; align-items:center; max-width:1150px; margin:0 auto;">
             <div style="flex:1.2;">
               <svg class="anim-graph" viewBox="0 0 560 400" style="width:100%; max-height:360px; background:#fff; border:1px solid #e2e8f0; border-radius:10px;" role="img" aria-label="A smoke source emits smoke that drifts onto three bystanders, imposing health costs on them. The source pays none of those costs — they spill over onto third parties.">
                 <!-- smoke source -->
                 <rect x="40" y="250" width="120" height="120" rx="6" fill="#57534e"/>
                 <rect x="70" y="205" width="30" height="50" fill="#44403c"/>
-                <text x="100" y="390" font-size="13" font-weight="700" fill="#334155" text-anchor="middle">source (pays $0)</text>
+                <text x="100" y="390" font-size="13" font-weight="700" fill="#334155" text-anchor="middle">source (ignores external harm)</text>
                 <!-- smoke plume -->
                 <g fill="#78716c" opacity="0.8">
                   <ellipse cx="120" cy="180" rx="34" ry="20"/><ellipse cx="165" cy="160" rx="40" ry="24"/>
@@ -781,12 +782,13 @@
               </div>
             </div>
           </div>
+        <aside class="notes">The quantity is the factory’s output, not naturally occurring wildfire smoke. Output creates emissions. Private marginal cost is positive; the source ignores the external damage in this simplified model. Pollution and public-good provision can describe related aspects of the same problem.</aside>
         </section>
 
         <!-- PG7b: Externality deadweight-loss graph — the concrete welfare bridge -->
         <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
           <p class="eyebrow" style="color: #b45309;">Externalities &middot; Back to Welfare</p>
-          <h2>The Deadweight Loss of Smoke</h2>
+          <h2>The Deadweight Loss of Pollution</h2>
           <p style="font-size: 0.55em; color: #64748b; margin: 0 0 4px;">Start from the market&rsquo;s own \( CS + PS \), then add the smoke society actually pays for. Press <kbd style="background: #e2e8f0; border: 1px solid #cbd5e1; padding: 1px 6px; border-radius: 4px;">&rarr;</kbd>.</p>
           <div style="display:flex; gap:16px; align-items:center; max-width:1190px; margin:0 auto;">
             <div style="flex:1.36;">
@@ -856,7 +858,7 @@
                   <strong style="color:#0f766e;">Producer surplus</strong> &mdash; sellers&rsquo; gain above cost. \( CS + PS \) is the surplus the market <em>counts</em>.
                 </div>
                 <div class="def-card fragment" data-fragment-index="4" style="margin:3px 0; border-left-color:#b91c1c; background:rgba(185,28,28,0.05);">
-                  <strong>True cost.</strong> Smoke lifts society&rsquo;s cost: \( MSC = MPC + \text{ext. cost} \Rightarrow Q^* < Q_{\text{market}} \).
+                  <strong>True cost.</strong> Smoke lifts society&rsquo;s cost: \( MSC = MPC + \text{marginal external cost} \Rightarrow Q^* < Q_{\text{market}} \).
                 </div>
                 <div class="def-card fragment" data-fragment-index="5" style="margin:3px 0; border-left-color:#dc2626; background:rgba(220,38,38,0.05);">
                   <strong style="color:#b91c1c;">Subtract the damage.</strong> The red-hatched band \( (MPC \!\to\! MSC) \) is smoke society bears &mdash; take it out of \( CS + PS \).
@@ -942,7 +944,7 @@
                   <strong style="color:#0f766e;">Producer surplus</strong> &mdash; sellers&rsquo; gain above cost. \( CS + PS \) is the surplus the market <em>counts</em>.
                 </div>
                 <div class="def-card fragment" data-fragment-index="4" style="margin:3px 0; border-left-color:#2563eb; background:rgba(37,99,235,0.05);">
-                  <strong>True benefit.</strong> Your shot also protects others: \( MSB = MPB + \text{ext. benefit} \Rightarrow Q^* > Q_{\text{market}} \).
+                  <strong>True benefit.</strong> Your shot also protects others: \( MSB = MPB + \text{marginal external benefit} \Rightarrow Q^* > Q_{\text{market}} \).
                 </div>
                 <div class="def-card fragment" data-fragment-index="5" style="margin:3px 0; border-left-color:#16a34a; background:rgba(22,163,74,0.06);">
                   <strong style="color:#15803d;">Add the bonus.</strong> The green-hatched band \( (MPB \!\to\! MSB) \) is value society gets on <em>every</em> shot &mdash; add it to \( CS + PS \).
@@ -957,80 +959,29 @@
 
         <!-- PG7c: Externalities — the general rule (now follows both DWL animations) -->
         <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
-          <p class="eyebrow" style="color: #b45309;">Externalities &middot; The Rule</p>
-          <h2>Which Way Does the Market Miss?</h2>
-          <div class="content-card" style="font-size: 1.02em;">
-            <p style="font-weight:600; color:#0f766e; margin:0 0 12px;">Private value \( \ne \) social value. Two cases:</p>
-            <div style="display:flex; gap:16px;">
-              <div class="def-card" style="flex:1; margin:0; border-left-color:#b91c1c; background:rgba(185,28,28,0.04);">
-                <div class="def-title" style="color:#b91c1c;">Negative</div>
-                \( MSC > MPC \) &rArr; <strong>too much</strong>
-                <p style="margin:8px 0 0; font-size:0.85em; color:#7f1d1d;">e.g. a steel mill&rsquo;s waste</p>
-              </div>
-              <div class="def-card" style="flex:1; margin:0; border-left-color:#2563eb; background:rgba(37,99,235,0.05);">
-                <div class="def-title" style="color:#2563eb;">Positive</div>
-                \( MSB > MPB \) &rArr; <strong>too little</strong>
-                <p style="margin:8px 0 0; font-size:0.85em; color:#1e40af;">e.g. a flu shot</p>
-              </div>
-            </div>
-            <div class="def-card fragment" style="margin-top:14px; border-left-color:#059669; background:rgba(5,150,105,0.05);">
-              <div style="margin-bottom:8px;">
-                <strong>Production</strong> externality &rarr; moves the <strong>cost</strong> curve.<br>
-                <span style="font-variant:small-caps; font-size:0.86em; color:#7f1d1d;">e.g. pollution: negative externality, moves cost curve to the <span class="fill-blank" style="min-width:85px;"></span></span>
-              </div>
-              <div>
-                <strong>Consumption</strong> externality &rarr; moves the <strong>benefit</strong> curve.<br>
-                <span style="font-variant:small-caps; font-size:0.86em; color:#1e40af;">e.g. a flu shot: positive externality, moves benefit curve to the <span class="fill-blank" style="min-width:85px;"></span></span>
-              </div>
-            </div>
+          <p class="eyebrow">Externalities &middot; The Rule</p>
+          <h2>Private and Social Values</h2>
+          <div class="content-card" style="font-size: 0.9em;">
+<p>MPC and MPB are marginal private cost and benefit. MSC and MSB include effects on third parties.</p><div class="def-card"><div class="def-title">Polluting production</div>MSC = MPC + marginal external harm. Private output is too high when buyers receive all benefits.</div><div class="def-card"><div class="def-title">Beneficial spillovers</div>MSB = MPB + marginal external benefit. Private output is too low when sellers bear all costs.</div><p>Efficiency requires MSB = MSC at the best interior quantity.</p>
           </div>
         </section>
 
         <!-- PG7e: Correcting externalities — Pigouvian taxes & subsidies -->
         <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
-          <p class="eyebrow" style="color: #b45309;">Externalities &middot; The Fix</p>
-          <h2>Correcting Externalities: Tax vs. Subsidy</h2>
+          <p class="eyebrow">Externalities &middot; The Fix</p>
+          <h2>Corrective Taxes and Subsidies</h2>
           <div class="content-card" style="font-size: 0.9em;">
-            <p style="font-weight:600; color:#0f766e; margin:0 0 8px;">Make the decision-maker face the <em>true</em> social cost or benefit &mdash; that pushes the traded quantity to \( Q^* \):</p>
-            <div style="display:flex; gap:14px;">
-              <div class="def-card" style="flex:1; margin:0; border-left-color:#b91c1c; background:rgba(185,28,28,0.04);">
-                <div class="def-title" style="color:#b91c1c;">Negative &mdash; a Pigouvian <u>tax</u></div>
-                Tax the seller by the external cost. Private cost rises to \( MSC \), supply shifts up/left, and the <strong>quantity falls</strong> toward \( Q^* \).
-                <p style="margin:8px 0 0; font-size:0.9em; color:#7f1d1d;">Fixes over-production (steel, pollution).</p>
-              </div>
-              <div class="def-card" style="flex:1; margin:0; border-left-color:#2563eb; background:rgba(37,99,235,0.05);">
-                <div class="def-title" style="color:#2563eb;">Positive &mdash; a <u>subsidy</u></div>
-                Subsidize the buyer by the external benefit. Effective benefit rises to \( MSB \), demand shifts up/right, and the <strong>quantity rises</strong> toward \( Q^* \).
-                <p style="margin:8px 0 0; font-size:0.9em; color:#1e40af;">Fixes under-production (flu shots, education).</p>
-              </div>
-            </div>
+<div class="def-card"><div class="def-title">Negative production externality</div>A per-unit tax equal to marginal external harm at the efficient quantity can make the producer face the right incentive.</div><div class="def-card"><div class="def-title">Positive external benefit</div>A per-unit subsidy equal to the marginal external benefit at the efficient quantity can encourage more of the activity.</div><p>The policy amount uses the external effect of one more unit, not total external damage or benefit.</p>
           </div>
+<aside class="notes">For constant marginal external harm, the tax shifts MPC up to MSC everywhere. With varying harm, a constant tax need only match marginal harm at the optimum. Assume competition and no other distortions. Government must estimate these effects; a poorly chosen rate need not improve welfare.</aside>
         </section>
 
         <!-- PG8: Market failure & the role of government -->
         <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
-          <p class="eyebrow" style="color: #b45309;">Why It Matters</p>
-          <h2>Market Failure &amp; the Role of Government</h2>
-          <div class="content-card" style="font-size: 0.95em;">
-            <p style="font-weight:600; color:#0f766e;">Left to prices alone, the market misses both ways:</p>
-            <div style="display:flex; gap:14px; margin-top:8px;">
-              <div class="def-card" style="flex:1; margin:0;">
-                <div class="def-title">Public goods</div>
-                Can&rsquo;t be priced &rArr; <strong>under-provided</strong>.
-              </div>
-              <div class="def-card" style="flex:1; margin:0; border-left-color:#b91c1c; background:rgba(185,28,28,0.04);">
-                <div class="def-title" style="color:#b91c1c;">Negative externalities</div>
-                Costs land on others &rArr; <strong>over-produced</strong>.
-              </div>
-            </div>
-            <div class="def-card fragment" style="margin-top:12px; border-left-color:#3b82f6; background:rgba(59,130,246,0.04);">
-              <div class="def-title" style="color:#3b82f6;">Government steps in</div>
-              <strong>Provide</strong> public goods (defense, clean air); <strong>tax</strong> pollution; <strong>subsidize</strong> vaccines and education.
-            </div>
-            <div class="def-card fragment" style="margin-top:10px; border-left-color:#059669; background:rgba(5,150,105,0.05);">
-              <div class="def-title" style="color:#059669;">The welfare flip</div>
-              Meddling with a <em>healthy</em> market <strong>creates</strong> DWL. Here the market is <em>already</em> broken, so well-thought-out policy intervention <strong>recovers</strong> welfare.
-            </div>
+          <p class="eyebrow">Why It Matters</p>
+          <h2>Evaluate the Policy</h2>
+          <div class="content-card" style="font-size: 0.9em;">
+<ul><li>Identify the market failure: which costs or benefits are missing from private choices?</li><li>Explain how the policy changes incentives.</li><li>Compare gains with implementation costs and unintended effects.</li><li>Describe who pays and who benefits.</li></ul><p>Public funding, pollution taxes, and subsidies can improve outcomes when well targeted.</p>
           </div>
         </section>
 
@@ -1053,10 +1004,11 @@
               <tr class="fragment"><td style="padding:6px 12px;">Positive externalities</td><td style="padding:6px 12px; color:#b91c1c; font-weight:600;">Under-produced &rarr; lost surplus</td></tr>
             </table>
             <div class="def-card fragment" style="margin-top:12px; border-left-color:#3b82f6; background:rgba(59,130,246,0.04);">
-              <div class="def-title" style="color:#3b82f6;">The bottom line</div>
-              Government <strong>helps</strong> when it fixes a market failure and <strong>hurts</strong> when it distorts a market that already works. Welfare is how you tell the two apart.
+              <div class="def-title" style="color:#3b82f6;">Efficiency and distribution</div>
+              Compare social benefits and costs, then consider who gains and loses. Total surplus alone does not settle fairness.
             </div>
           </div>
+        <aside class="notes">The table summarizes the stated models: competitive markets without externalities; monopoly with an interior solution; quantity-reducing taxes and binding controls in otherwise efficient markets; underfunded public goods; and the illustrated externalities. Nonbinding controls, perfectly inelastic supply or demand, and corrective taxes are exceptions. A loss from higher real resource costs is not necessarily inefficiency.</aside>
         </section>
 
         <!-- PG9: Quick check -->
@@ -1102,8 +1054,9 @@
               <div class="def-title">Answers</div>
               Waste = <strong>negative</strong>, \( MSC > MPC \), over-produced. Garden = <strong>positive</strong>, \( MSB > MPB \), under-produced. College = <strong>positive</strong>, \( MSB > MPB \), under-produced. Rush-hour driving = <strong>negative</strong> (congestion), \( MSC > MPC \), over-produced.
             </div>
-            <p class="fragment" style="margin:8px 0 0; font-weight:600; color:#0f766e;">Rule of thumb: the <em>social</em> curve always sits above the private one &mdash; cost side for negatives, benefit side for positives.</p>
+            <p class="fragment" style="margin:8px 0 0; font-weight:600; color:#0f766e;">Rule of thumb: in these examples, the relevant social curve sits above the private one &mdash; cost side for negatives, benefit side for positives.</p>
           </div>
+        <aside class="notes">The curve direction is specific to the examples, not all externalities. Positive production spillovers can make MSC lower than MPC; negative consumption externalities can make MSB lower than MPB. For the garden and education examples, focus on benefits to others beyond private enjoyment or earnings.</aside>
         </section>
 
       </section>

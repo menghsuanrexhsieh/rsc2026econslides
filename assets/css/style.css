@@ -1,7 +1,7 @@
 /* ===========================================================================
    RSC Economics Experience — site styles
    Milk-white canvas · sticky top bar · left sidebar · white "paper" content.
-   Inter throughout (headings and body). No CSS framework.
+   Roboto Light body text with heavier headings and emphasis. No CSS framework.
    ======================================================================== */
 
 :root {
@@ -13,7 +13,7 @@
   /* ink */
   --ink:         #1c1e24;
   --ink-soft:    #515763;
-  --muted:       #8b909c;
+  --muted:       #626a78;
 
   /* lines */
   --line:        #e7e2d6;
@@ -48,7 +48,7 @@
 
   --ink:         #e4e4e7;
   --ink-soft:    #9da0a8;
-  --muted:       #6b6f78;
+  --muted:       #a0a6b0;
 
   --line:        #35373b;
   --line-soft:   #2d2f33;
@@ -108,7 +108,7 @@ body {
   padding-bottom: var(--footer-h);   /* clear the locked footer */
   color: var(--ink);
   background: var(--bg);
-  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-family: var(--font-sans);
   font-size: 16.5px;
   line-height: 1.68;
   -webkit-font-smoothing: antialiased;
@@ -334,10 +334,10 @@ ul, ol { padding-left: 1.3em; }
 li { margin: .25em 0; }
 code {
   background: #f3f0e8; padding: .12em .42em; border-radius: 6px;
-  font-size: .88em; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: .88em; font-family: var(--font-sans);
 }
 kbd {
-  font-family: ui-monospace, Menlo, Consolas, monospace; font-size: .8em;
+  font-family: var(--font-sans); font-size: .8em;
   background: #fff; border: 1px solid var(--line); border-bottom-width: 2px;
   border-radius: 6px; padding: 1px 6px;
 }

@@ -11,15 +11,15 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/white.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/highlight/monokai.css">
 
-  <!-- Google Fonts for premium typography -->
+  <!-- Roboto Light with heavier weights for headings and emphasis -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300..800;1,300..800&amp;display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --r-main-font: 'Plus Jakarta Sans', sans-serif;
-      --r-heading-font: 'Outfit', sans-serif;
+      --r-main-font: var(--font-sans);
+      --r-heading-font: var(--font-sans);
       --r-main-color: #1e293b;
       --r-heading-color: #0f172a;
       --r-link-color: #0f766e;
@@ -269,6 +269,7 @@
       to { stroke-dashoffset: 0; }
     }
   </style>
+  <link rel="stylesheet" href="../assets/css/typography.css">
 </head>
 <body>
   <div class="reveal">
@@ -315,12 +316,12 @@
           <p class="eyebrow">Class 3 Recap &middot; Marginal Revenue</p>
           <h2>Marginal Revenue &amp; Point Elasticity</h2>
           <div class="content-card">
-            <p><strong>Marginal revenue (MR)</strong> is the extra revenue from selling one more unit. To sell more, a firm must lower the price on <em>every</em> unit &mdash; so MR falls below the price:</p>
+            <p><strong>Marginal revenue (MR)</strong> is the extra revenue from selling one more unit. A single-price seller facing downward-sloping demand must lower the price on <em>every</em> unit &mdash; so MR falls below the price:</p>
             <div style="text-align: center; margin: 14px 0;">
-              \[ MR(Q) = \frac{d\big(P(Q)\,Q\big)}{dQ} = P(Q)\left(1 + \frac{1}{\varepsilon}\right) \]
+              \[ MR(Q) = P(Q)\left(1 + \frac{1}{\varepsilon}\right) \]
             </div>
             <ul>
-              <li class="fragment">Because demand slopes down, \( \varepsilon &lt; 0 \), so \( \left(1 + \tfrac{1}{\varepsilon}\right) &lt; 1 \) and <strong>\( MR &lt; P \)</strong> always.</li>
+              <li class="fragment">Because demand slopes down, \( \varepsilon &lt; 0 \), so \( \left(1 + \tfrac{1}{\varepsilon}\right) &lt; 1 \) and <strong>\( MR &lt; P \)</strong> at positive output under these assumptions. A price taker instead has MR = P.</li>
               <li class="fragment"><strong>Elastic</strong> demand (\( |\varepsilon| &gt; 1 \)) \( \Rightarrow MR &gt; 0 \): selling more still raises revenue.</li>
               <li class="fragment"><strong>Inelastic</strong> demand (\( |\varepsilon| &lt; 1 \)) \( \Rightarrow MR &lt; 0 \): selling more <em>lowers</em> revenue.</li>
             </ul>
@@ -497,7 +498,7 @@
             </p>
             <div class="def-card fragment">
               <div class="def-title">Demand that Firms Face is Perfectly Elastic</div>
-              A single firm is too small to affect the market. It can sell any quantity it wants at the market price \( P \), but nothing at a higher price.
+              A single firm is too small to affect the market. Within its feasible scale, it can sell its output at the market price \( P \), but nothing at a higher price.
             </div>
           </div>
         </section>
@@ -593,76 +594,11 @@
         <!-- Slide 5.14: Profit Graph -->
         <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
           <p class="eyebrow">Market Equilibrium · Profits</p>
-          <h2>Profit Calculations on the Graph</h2>
-          <div style="display: flex; align-items: center; justify-content: center; gap: 20px; max-width: 1090px; margin: 0 auto;">
-            <div style="flex: 1; text-align: left;">
-              <div class="content-card" style="margin: 0; padding: 20px 25px; font-size: 0.95em;">
-                <div class="def-card" style="margin: 0 0 12px;">
-                  \[ \text{Profit} = (P^* - ATC(Q^*)) \times Q^* \]
-                </div>
-                <ul>
-                  <li>Firms produce where \( MC = MR = P \).</li>
-                  <li>Economic profits at \( e_1 \) is <strong>\( \$ \)<span class="fill-blank" style="min-width: 100px;"></span></strong>.</li>
-                  <li>For market price below \( AVC \) (i.e. below point \( e_2 \)), economic profits is <strong>\( \$ \)<span class="fill-blank" style="min-width: 100px;"></span></strong>, and the firm <strong>shuts down</strong>!</li>
-                </ul>
-              </div>
-            </div>
-            <div style="flex: 1.1;">
-              <svg viewBox="0 0 640 480" style="width: 100%; max-height: 340px; background: #fff; border: 1px solid #e2e8f0; border-radius: 10px;" role="img" aria-label="A competitive firm's straight-line marginal cost curve MC (also its supply curve S above the shutdown point) rising through four equally spaced points e1 to e4 on horizontal price lines p1=5 through p4=8. e1 sits at the minimum of average variable cost AVC (q=50); e2 sits at the minimum of average cost AC (q=100). AVC lies strictly below AC everywhere. Dotted lines drop to quantities q1=50, q2=100, q3=150, q4=200.">
-                <!-- price grid lines -->
-                <line x1="90" y1="350" x2="600" y2="350" stroke="#38bdf8" stroke-width="1.6"/>
-                <line x1="90" y1="270" x2="600" y2="270" stroke="#38bdf8" stroke-width="1.6"/>
-                <line x1="90" y1="190" x2="600" y2="190" stroke="#38bdf8" stroke-width="1.6"/>
-                <line x1="90" y1="110" x2="600" y2="110" stroke="#38bdf8" stroke-width="1.6"/>
-                <text x="606" y="354" font-size="13" fill="#475569">p&#8321;</text>
-                <text x="606" y="274" font-size="13" fill="#475569">p&#8322;</text>
-                <text x="606" y="194" font-size="13" fill="#475569">p&#8323;</text>
-                <text x="606" y="114" font-size="13" fill="#475569">p&#8324;</text>
-                <!-- axes -->
-                <line x1="90" y1="440" x2="612" y2="440" stroke="#475569" stroke-width="2.5"/>
-                <polygon points="612,435 612,445 623,440" fill="#475569"/>
-                <line x1="90" y1="440" x2="90" y2="42" stroke="#475569" stroke-width="2.5"/>
-                <polygon points="85,42 95,42 90,31" fill="#475569"/>
-                <path d="M 84,418 L 96,410 M 84,410 L 96,402" stroke="#475569" stroke-width="1.6" fill="none"/>
-                <text x="70" y="360" font-size="13" fill="#475569" text-anchor="end">5</text>
-                <text x="70" y="280" font-size="13" fill="#475569" text-anchor="end">6</text>
-                <text x="70" y="200" font-size="13" fill="#475569" text-anchor="end">7</text>
-                <text x="70" y="120" font-size="13" fill="#475569" text-anchor="end">8</text>
-                <text x="80" y="450" font-size="13" fill="#475569" text-anchor="end">0</text>
-                <text x="30" y="150" font-size="14" fill="#1e293b" transform="rotate(-90 30 150)">p, $ per ton</text>
-                <text x="360" y="474" font-size="13" fill="#1e293b" text-anchor="middle">q, Thousand metric tons of lime per year</text>
-                <!-- dotted quantity droplines (equally spaced under a linear MC) -->
-                <line x1="200" y1="350" x2="200" y2="440" stroke="#1e293b" stroke-width="1.3" stroke-dasharray="2 4"/>
-                <line x1="290" y1="270" x2="290" y2="440" stroke="#1e293b" stroke-width="1.3" stroke-dasharray="2 4"/>
-                <line x1="380" y1="190" x2="380" y2="440" stroke="#1e293b" stroke-width="1.3" stroke-dasharray="2 4"/>
-                <line x1="470" y1="110" x2="470" y2="440" stroke="#1e293b" stroke-width="1.3" stroke-dasharray="2 4"/>
-                <text x="200" y="459" font-size="12.5" fill="#1e293b" text-anchor="middle">q&#8321; = 50</text>
-                <text x="290" y="459" font-size="12.5" fill="#1e293b" text-anchor="middle">q&#8322; = 100</text>
-                <text x="380" y="459" font-size="12.5" fill="#1e293b" text-anchor="middle">q&#8323; = 150</text>
-                <text x="470" y="459" font-size="12.5" fill="#1e293b" text-anchor="middle">q&#8324; = 200</text>
-                <!-- AC (green), min at e2 (290,270); drawn first so AVC sits clearly below it -->
-                <path d="M 180,95 Q 250,270 290,270 Q 420,270 560,175" fill="none" stroke="#22c55e" stroke-width="4"/>
-                <text x="566" y="179" font-size="14" fill="#16a34a" font-weight="700" font-style="italic">AC</text>
-                <!-- AVC (purple), min at e1 (200,350); stays strictly below AC everywhere (gap = AFC, shrinking) -->
-                <path d="M 125,258 Q 165,350 200,350 Q 340,352 500,260" fill="none" stroke="#a855f7" stroke-width="4"/>
-                <text x="506" y="264" font-size="14" fill="#a855f7" font-weight="700" font-style="italic">AVC</text>
-                <!-- MC / S (red): straight line; dashed below e1, solid through e1..e4 -->
-                <path d="M 160,385.6 L 200,350" fill="none" stroke="#ef4444" stroke-width="4" stroke-dasharray="8 6"/>
-                <path d="M 200,350 L 500,83.3" fill="none" stroke="#ef4444" stroke-width="4"/>
-                <text x="150" y="398" font-size="14" fill="#ef4444" font-weight="700" font-style="italic" text-anchor="end">MC</text>
-                <text x="506" y="80" font-size="14" fill="#ef4444" font-weight="700" font-style="italic">S</text>
-                <!-- equilibrium points on the linear MC -->
-                <circle cx="200" cy="350" r="5.5" fill="#0f172a"/>
-                <circle cx="290" cy="270" r="5.5" fill="#0f172a"/>
-                <circle cx="380" cy="190" r="5.5" fill="#0f172a"/>
-                <circle cx="470" cy="110" r="5.5" fill="#0f172a"/>
-                <text x="192" y="338" font-size="13" font-weight="700" fill="#0f172a" text-anchor="end">e&#8321;</text>
-                <text x="282" y="258" font-size="13" font-weight="700" fill="#0f172a" text-anchor="end">e&#8322;</text>
-                <text x="372" y="178" font-size="13" font-weight="700" fill="#0f172a" text-anchor="end">e&#8323;</text>
-                <text x="462" y="98" font-size="13" font-weight="700" fill="#0f172a" text-anchor="end">e&#8324;</text>
-              </svg>
-            </div>
+          <h2>Profit, Loss, or Shutdown?</h2>
+          <div class="content-card" style="font-size: 0.9em;">
+<p>For an operating firm, \(\Pi=(P-ATC)q\). First find the quantity where P meets rising MC.</p><ul><li>P &gt; ATC: economic profit is positive.</li><li>AVC &lt; P &lt; ATC: operate at a loss in the short run.</li><li>P &lt; min AVC: shut down; the loss equals unavoidable fixed cost.</li></ul><div class="def-card"><div class="def-title">Check</div>Revenue is $80, variable cost is $60, and unavoidable fixed cost is $40. Operate or shut down?</div>
           </div>
+<aside class="notes">Operate: profit is −$20, versus −$40 if shut down. At P = min AVC, operation and shutdown can yield the same profit. This assumes no additional avoidable fixed operating cost.</aside>
         </section>
 
         <!-- Animated: Case 1 profit -->
@@ -806,16 +742,11 @@
         <!-- Slide 5.15: Short-Run Equilibrium Definition -->
         <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
           <p class="eyebrow">Short-Run Equilibrium · Definition</p>
-          <h2>Defining Short-Run Equilibrium</h2>
-          <div class="content-card">
-            <div class="def-card" style="margin: 0 0 15px;">
-              <div class="def-title">Definition: Short-Run Equilibrium</div>
-              The state where firms choose production levels considering both fixed and variable costs, with the number of firms in the industry fixed (no entry/exit).
-            </div>
-            <p style="font-size: 0.95em; color: #515763;">
-              In the short run, capital is fixed, meaning firms face fixed costs and cannot immediately exit the industry or enter it.
-            </p>
+          <h2>The Short Run</h2>
+          <div class="content-card" style="font-size: 0.9em;">
+<p>At least one input is fixed. We hold the number of firms fixed while existing firms choose output.</p><p>A firm may shut down temporarily, producing zero while still owing unavoidable fixed costs.</p><p>The operating decision compares revenue with avoidable costs. Fixed costs still count when calculating profit.</p>
           </div>
+<aside class="notes">Short run is defined by adjustment possibilities, not a fixed number of months. Shutdown differs from permanent exit.</aside>
         </section>
 
         <!-- Slide 5.16: Short-Run Supply Curve -->
@@ -828,10 +759,10 @@
                 <p style="font-weight: 600; color: #0f766e; margin-bottom: 10px;">The Shutdown Rule:</p>
                 <ul>
                   <li>The short-run supply curve is the section of the \( MC \) curve <strong>above the \( AVC \) minimum</strong>.</li>
-                  <li>If \( P &lt; AVC \), the firm produces zero (\( Q = 0 \)) and shuts down.</li>
+                  <li>If \( P < \min AVC \), the firm produces zero (\( Q = 0 \)) and shuts down.</li>
                 </ul>
                 <div class="def-card" style="margin-top: 15px; font-size: 0.95em;">
-                  <strong>Takeaway</strong>: In short-run market equilibrium, firms will still operate even if they make operating loss, provided they cover variable costs. If they cannot cover variable costs, they shut down.
+                  <strong>Takeaway</strong>: In short-run market equilibrium, firms will still operate even if they make economic loss, provided they cover variable costs. If they cannot cover variable costs, they shut down.
                 </div>
               </div>
             </div>
@@ -882,8 +813,8 @@
               <div class="content-card" style="margin: 0; padding: 20px 25px;">
                 <p style="font-weight: 600; color: #0f766e; margin-bottom: 10px;">Market Adjustments:</p>
                 <ul>
-                  <li>Short run is also characterized by free entry and exit due to no barriers to entry.</li>
-                  <li>Every firm is selling identical, undifferentiated products, so barriers to entry are low.</li>
+                  <li>Entry and exit occur as the market adjusts toward the long run; the short-run number of firms is fixed.</li>
+                  <li>Free entry and exit are assumptions of this model. Identical products alone do not guarantee them.</li>
                 </ul>
                 <p style="font-weight: 600; margin-top: 15px; color: #1e293b;">
                   Why might new firms enter, and existing firms exit, if everyone takes the market price as given?
@@ -914,7 +845,7 @@
           <p class="eyebrow">Short-Run Equilibrium · Entry/Exit</p>
           <h2>Illustrating Entry Dynamics</h2>
           <div class="content-card" style="max-width: 700px; margin: 0 auto;">
-            <p style="font-weight: 600; color: #0f766e; margin-bottom: 12px;">In the short run:</p>
+            <p style="font-weight: 600; color: #0f766e; margin-bottom: 12px;">Adjustment toward the long run:</p>
             <ul>
               <li>Possible for firms in competitive markets to earn economic profit.</li>
               <li>Profit encourages new firms to enter the market.</li>
@@ -1069,29 +1000,18 @@
         <!-- Slide 5.21: Long-Run Equilibrium Definition -->
         <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
           <p class="eyebrow">Long-Run Equilibrium · Definition</p>
-          <h2>Defining Long-Run Equilibrium</h2>
-          <div class="content-card" style="font-size: 0.95em;">
-            <div class="def-card" style="margin: 0 0 15px;">
-              <div class="def-title">Definition: Long-Run Equilibrium</div>
-              Long-run equilibrium is where firms consider only variable costs in making their production decisions.
-            </div>
-            <div class="def-card" style="margin: 0 0 15px; border-left-color: #b45309; background: rgba(180, 83, 9, 0.05);">
-              <div class="def-title" style="color: #b45309;">Short run vs. long run: which costs matter?</div>
-              In the <strong>short run, all costs matter</strong>. In the <strong>long run, only variable costs matter</strong> &mdash; all fixed costs are treated as <strong>sunk</strong>.
-            </div>
-            <p style="font-weight: 600; color: #0f766e; margin-bottom: 8px;">Practical consequences:</p>
-            <ul>
-              <li>Firms view fixed costs as sunk, hence the only thing that characterizes any long-run equilibrium is <strong>zero profits</strong>.</li>
-              <li class="fragment">Why? Because if profits are not zero, there will continue to be free entry and exit, and that is a function of fixed costs, too.</li>
-            </ul>
+          <h2>The Long Run</h2>
+          <div class="content-card" style="font-size: 0.9em;">
+<p>All inputs can be adjusted, and firms can enter or exit. Costs that were fixed in the short run can now be avoided or changed.</p><div class="def-card"><div class="def-title">Zero economic profit</div>With free entry, identical firms, and unchanged input prices, entry or exit drives price to minimum average total cost.</div><p>Zero economic profit covers all economic costs, including the owner’s next-best use of time and capital.</p>
           </div>
+<aside class="notes">Sunk means unrecoverable; fixed means unchanged with output over a stated horizon. These are different properties. Do not describe all fixed costs as sunk. With changing scale choices, the formal benchmark is minimum long-run average cost.</aside>
         </section>
 
         <!-- Slide 5.22: Long-Run Equilibrium Price -->
         <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
           <p class="eyebrow">Long-Run Equilibrium · Price</p>
           <h2>The Long-Run Equilibrium Price</h2>
-          <p style="font-size: 0.55em; color: #64748b; margin: 0 0 4px;">In long-run equilibrium, free entry drives the price down to \( P^* = \min(ATC) \), where every firm earns exactly zero economic profit. (Market on the right; representative firm on the left.)</p>
+          <p style="font-size: 0.55em; color: #64748b; margin: 0 0 4px;">With identical firms and unchanged input prices, free entry drives the price down to \( P^* = \min(ATC) \), where every firm earns exactly zero economic profit. (Market on the right; representative firm on the left.)</p>
           <svg viewBox="0 0 940 430" style="width: 94%; max-height: 360px; margin: 0 auto; display: block; background: white; border: 1px solid #e2e8f0; border-radius: 10px;" role="img" aria-label="Static long-run equilibrium: on the right, the market where supply shifts right from S to S-prime as firms enter, lowering the price from P to P-prime; on the left, the representative firm whose flat demand falls from P=MR to P-prime=MR-prime, ending tangent to the minimum of ATC where economic profit is zero. Pink dashed lines connect each market price to the firm.">
             <line x1="70" y1="360" x2="410" y2="360" stroke="#475569" stroke-width="2.5"/>
             <polygon points="410,355 410,365 421,360" fill="#475569"/>
@@ -1224,17 +1144,11 @@
         <!-- Slide 5.24: Short-Run vs Long-Run Recap -->
         <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
           <p class="eyebrow">Perfect Competition · Recap</p>
-          <h2>Short-Run vs. Long-Run Equilibria</h2>
-          <div class="content-card" style="font-size: 0.95em;">
-            <div class="def-card" style="margin: 8px 0;">
-              <div class="def-title">Short-Run Equilibrium</div>
-              Economic profits can be positive or negative or zero, there is free entry and exit, and shutdown occurs when the market price cannot cover variable costs.
-            </div>
-            <div class="def-card fragment" style="margin: 8px 0; border-left-color: #3b82f6; background: rgba(59, 130, 246, 0.04);">
-              <div class="def-title" style="color: #3b82f6;">Long-Run Equilibrium</div>
-              All firms earn zero economic profits, due to free exit and entry going from short-run to long-run.
-            </div>
+          <h2>Short Run and Long Run</h2>
+          <div class="content-card" style="font-size: 0.9em;">
+<div class="def-card"><div class="def-title">Short run</div>The number of firms and at least one input are fixed. Economic profit may be positive, zero, or negative. Shut down if P is below minimum AVC.</div><div class="def-card"><div class="def-title">Long run</div>Firms can change all inputs and enter or exit. In our identical-firm model, P = minimum ATC and economic profit is zero.</div><p>Can a firm rationally stay open while losing money? Explain using avoidable costs.</p>
           </div>
+<aside class="notes">Yes: if revenue covers variable costs and part of unavoidable fixed costs, operating loses less than shutting down.</aside>
         </section>
 
       </section>
@@ -1266,7 +1180,7 @@
               </div>
               <div class="def-card" style="flex: 1; margin: 0;">
                 <div class="def-title">Producer Surplus (PS)</div>
-                The gain sellers get <strong>above their cost</strong> &mdash; revenue minus cost of producing.
+                The gain sellers get <strong>above their cost</strong> &mdash; revenue minus variable cost; profit also subtracts fixed cost.
               </div>
             </div>
             <div class="def-card fragment" style="margin-top: 14px; border-left-color: #3b82f6; background: rgba(59, 130, 246, 0.04);">
@@ -1283,7 +1197,7 @@
           <h2>Efficiency &amp; Deadweight Loss</h2>
           <div class="content-card">
             <ul>
-              <li class="fragment"><strong>Perfect competition maximizes</strong> social welfare &mdash; the market is <strong>efficient</strong> (no surplus left on the table).</li>
+              <li class="fragment"><strong>Perfect competition maximizes</strong> total surplus when prices reflect all social costs and benefits &mdash; the market is <strong>efficient</strong> (no surplus left on the table).</li>
               <li class="fragment"><strong>Market power</strong> (e.g. monopoly) sets price above \( MC \) and <strong>restricts output</strong>.</li>
               <li class="fragment">The lost gains from trade are a <strong>deadweight loss (DWL)</strong> &mdash; surplus that is simply gone, transferred to no one.</li>
             </ul>

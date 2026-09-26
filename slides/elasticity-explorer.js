@@ -22,13 +22,13 @@
   var REGIMES = {
     elastic:   { fill: '#d97706', text: '#b45309', tint: 'rgba(217, 119, 6, 0.13)',
                  chip: 'ELASTIC · |ε| > 1',
-                 note: '%ΔQ exceeds %ΔP — consumers are highly responsive here.' },
+                 note: 'For small changes, |%ΔQ| exceeds |%ΔP|.' },
     unit:      { fill: '#7c3aed', text: '#6d28d9', tint: 'rgba(124, 58, 237, 0.13)',
                  chip: 'UNIT-ELASTIC · |ε| = 1',
-                 note: '%ΔQ exactly matches %ΔP — the midpoint of a linear demand curve.' },
+                 note: 'At the midpoint, small percentage changes have equal magnitudes.' },
     inelastic: { fill: '#0d9488', text: '#0f766e', tint: 'rgba(13, 148, 136, 0.13)',
                  chip: 'INELASTIC · |ε| < 1',
-                 note: '%ΔQ is smaller than %ΔP — consumers barely respond here.' }
+                 note: 'For small changes, |%ΔQ| is smaller than |%ΔP|.' }
   };
 
   var INK = '#1e293b', MUTED = '#64748b', AXIS = '#475569', GUIDE = '#94a3b8';
@@ -163,7 +163,7 @@
       var pt = new DOMPoint(e.clientX, e.clientY).matrixTransform(ctm.inverse());
       // Orthogonal projection of the pointer onto the demand segment
       var t = ((pt.x - qx(0)) * dx + (pt.y - py(Pmax)) * dy) / (len * len);
-      t = Math.max(T_MIN, Math.min(1, t));
+      t = Math.max(T_MIN, Math.min(1 - T_MIN, t));
       return Math.round(t / T_STEP) * T_STEP;
     }
 
@@ -206,7 +206,7 @@
       else return;
       e.preventDefault();
       e.stopPropagation();
-      tCur = Math.max(T_MIN, Math.min(1, tCur + delta));
+      tCur = Math.max(T_MIN, Math.min(1 - T_MIN, tCur + delta));
       update(tCur);
     });
 

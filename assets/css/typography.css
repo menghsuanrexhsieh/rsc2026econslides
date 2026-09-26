@@ -1,0 +1,34 @@
+/* Shared typography for the course site and standalone slide decks. */
+:root {
+  --font-sans: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+body,
+.reveal {
+  font-family: var(--font-sans);
+  font-weight: 300;
+}
+
+/* Controls and keyboard hints should use the surrounding text face. */
+:where(button, input, select, textarea, kbd) {
+  font-family: inherit;
+  font-weight: inherit;
+}
+
+strong,
+b,
+.reveal strong,
+.reveal b {
+  font-weight: 600;
+}
+
+.reveal kbd,
+.reveal .slide-number,
+.reveal .speaker-notes {
+  font-family: var(--font-sans);
+}
+
+.reveal .slide-number {
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+}

@@ -11,15 +11,15 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/white.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/highlight/monokai.css">
 
-  <!-- Google Fonts for premium typography -->
+  <!-- Roboto Light with heavier weights for headings and emphasis -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300..800;1,300..800&amp;display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --r-main-font: 'Plus Jakarta Sans', sans-serif;
-      --r-heading-font: 'Outfit', sans-serif;
+      --r-main-font: var(--font-sans);
+      --r-heading-font: var(--font-sans);
       --r-main-color: #1e293b;
       --r-heading-color: #0f172a;
       --r-link-color: #0f766e;
@@ -268,6 +268,7 @@
       to { stroke-dashoffset: 0; }
     }
   </style>
+  <link rel="stylesheet" href="../assets/css/typography.css">
 </head>
 <body>
   <div class="reveal">
@@ -364,7 +365,7 @@
             <div style="text-align: center; font-size: 1.25em; font-weight: 700; margin: 10px 0; color: #1e293b;">\( MR = \) market price \( P \)</div>
             <div class="def-card fragment">
               <div class="def-title">The demand a single firm faces is&hellip;</div>
-              <strong>horizontal (perfectly elastic)</strong> at the market price &mdash; the firm can sell any quantity at \( P \), but nothing at a higher price.
+              <strong>horizontal (perfectly elastic)</strong> at the market price &mdash; the small firm can sell its feasible output at \( P \), but nothing at a higher price.
             </div>
             <div class="def-card fragment" style="border-left-color: #3b82f6; background: rgba(59, 130, 246, 0.04);">
               <div class="def-title" style="color: #3b82f6;">The market demand is&hellip;</div>
@@ -461,7 +462,7 @@
           <h2>The Long Run: Everyone Earns Zero Profit</h2>
           <div class="content-card" style="font-size: 0.92em;">
             <div class="def-card">
-              <div class="def-title">The most salient feature</div>
+              <div class="def-title">The benchmark result</div>
               In the long run, every firm in a perfectly competitive market earns <strong>\( \$0 \) economic profit</strong>. Why? Because there are <strong>no barriers to entry or exit</strong>.
             </div>
             <div class="def-card fragment" style="border-left-color: #059669; background: rgba(5, 150, 105, 0.05);">
@@ -473,6 +474,7 @@
               Firms suffering \( \Pi < 0 \) <strong>exit</strong> the market. Market <strong>supply shifts left</strong>, the price <strong>rises</strong>, and losses shrink &mdash; until \( \Pi = 0 \).
             </div>
           </div>
+        <aside class="notes">Assume identical firms, free entry, and the same technology and input prices available to entrants. Zero economic profit includes a normal return to the owner. Scarce firm-specific advantages can produce rents outside this benchmark.</aside>
         </section>
 
         <!-- Group 7 (b): The long-run price = min ATC (reused graph) -->
@@ -848,7 +850,7 @@
           <div class="content-card">
             <div class="example-card" style="margin: 0;">
               <div class="ex-title">Example</div>
-              Rex wants to buy a Nintendo Switch 2. He is willing to pay <strong>$600</strong> for a unit. The MSRP is <strong>$500</strong>.
+              Rex wants to buy a Nintendo Switch 2. He is willing to pay <strong>$600</strong> for a unit. For this hypothetical purchase, the price is <strong>$500</strong>.
               <br><br>
               <strong>What is his surplus if he buys one unit of Nintendo Switch 2?</strong>
             </div>
@@ -907,19 +909,11 @@
         <!-- Slide 3.6b: Elasticity and CS -->
         <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
           <p class="eyebrow">Surplus · Consumer</p>
-          <h2>Elasticity Matters for Consumer Surplus</h2>
-          <div class="content-card">
-            <p style="font-weight: 600; color: #0f766e; margin-bottom: 15px;">
-              For a fixed market price, how elastic demand is has direct implications for the size of consumer surplus!
-            </p>
-            <ul>
-              <li class="fragment"><strong>Relatively inelastic (steeper) demand</strong>: consumers value inframarginal units far above the price &rArr; a <strong>larger</strong> CS area.</li>
-              <li class="fragment"><strong>Relatively elastic (flatter) demand</strong>: valuations sit close to the price &rArr; a <strong>smaller</strong> CS area.</li>
-            </ul>
-            <p class="fragment" style="font-style: italic; color: #64748b; text-align: center; margin-top: 15px;">
-              Let&rsquo;s draw the two cases on the board to see this!
-            </p>
+          <h2>Compare Consumer Surplus Carefully</h2>
+          <div class="content-card" style="font-size: 0.9em;">
+<p>Compare two straight demand curves through the same price and quantity, using the same units.</p><p>The steeper curve has a higher willingness to pay for earlier units, so its consumer surplus triangle is larger.</p><p>Elasticity at a single point does not determine total consumer surplus for an arbitrary demand curve.</p>
           </div>
+<aside class="notes">The following graph is an illustrative comparison with common P and Q, not a general claim that less elastic consumers always have more surplus.</aside>
         </section>
 
         <!-- Slide 3.6c: Elasticity & CS side-by-side comparison (animated) -->
@@ -1011,7 +1005,7 @@
             </div>
             <div class="def-card fragment" style="margin: 8px 0;">
               <div class="def-title">Step 3: Calculate the Triangle Area</div>
-              CS is the area of the triangle below demand and above price (\( P = 5 \Delta P \)):
+              CS is the area of the triangle below demand and above price (\(P=5\)):
               \[ CS = \frac{1}{2} \times \text{base} \times \text{height} = \frac{1}{2} \times Q_D \times (P_{\text{choke}} - P) \]
               \[ CS = \frac{1}{2} \times 5 \times (6 - 5) = \$2.50 \]
             </div>
@@ -1021,20 +1015,11 @@
         <!-- Slide 3.8: Defining Producer Surplus -->
         <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
           <p class="eyebrow">Surplus · Producer</p>
-          <h2>Defining Producer Surplus</h2>
-          <div class="content-card">
-            <p style="font-weight: 600; color: #0f766e; margin-bottom: 15px;">How do we measure producer well-being?</p>
-            <ul>
-              <li>Each producer has their own supply curve, representing their willingness to produce/sell at different prices.</li>
-              <li>The market price determines the revenue they earn from selling.</li>
-            </ul>
-            <div class="def-card fragment" style="margin-top: 15px;">
-              <div class="def-title">Definition</div>
-              <strong>Producer surplus (PS)</strong> is the difference between total revenue and total cost/expenditure (for a given level of production).
-              <br><br>
-              Graphically, it is the area <strong>above the supply curve</strong> and <strong>below the price line</strong>.
-            </div>
+          <h2>Producer Surplus and Profit</h2>
+          <div class="content-card" style="font-size: 0.9em;">
+<div class="def-card"><div class="def-title">Producer surplus</div>\[ PS=TR-VC \] It is the area above marginal cost and below price, up to the quantity sold.</div><div class="def-card"><div class="def-title">Economic profit</div>\[ \Pi=TR-VC-FC=PS-FC \]</div><p>If revenue is $100, variable cost is $60, and fixed cost is $30, what are PS and profit?</p>
           </div>
+<aside class="notes">Answer: PS = $40; economic profit = $10, assuming the stated costs include all opportunity costs. Supply reflects marginal opportunity cost. Sunk fixed costs do not change the gains from an extra trade.</aside>
         </section>
 
         <!-- Slide 3.8b: Warm-Up Nintendo PS -->
@@ -1044,7 +1029,7 @@
           <div class="content-card">
             <div class="example-card" style="margin: 0;">
               <div class="ex-title">Example</div>
-              Nintendo is selling one unit of Nintendo Switch 2 to Rex at <strong>$500</strong>. Nintendo&rsquo;s manufacturing cost for one unit of Switch 2 is <strong>$338</strong>.
+              Nintendo is selling one unit of Nintendo Switch 2 to Rex at <strong>$500</strong>. Assume the variable cost of this extra unit is <strong>$338</strong>; this is an illustrative figure.
               <br><br>
               <strong>What is Nintendo&rsquo;s surplus if they sell him one unit of Nintendo Switch 2?</strong>
             </div>
@@ -1053,6 +1038,7 @@
               \[ PS = \text{Revenue} - \text{Cost} = 500 - 338 = \$162 \]
             </div>
           </div>
+        <aside class="notes">Incremental producer surplus is $162 under the stated assumption. Do not present $338 as a verified manufacturing-cost estimate or treat it as including allocated fixed costs.</aside>
         </section>
 
         <!-- Slide 3.9: PS Example -->
@@ -1064,11 +1050,12 @@
               <div class="ex-title">Problem Statement</div>
               A firm has supply function for packs of gum given by:
               \[ Q_S = 10 + 5P_S \]
-              Suppose the firm sells each pack of gum at the market price of $5.
+              Assume MC is zero for the first 10 packs, then rises as shown by supply. Suppose the firm sells each pack of gum at the market price of $5.
               <br><br>
               <strong>Determine the producer surplus for this firm.</strong>
             </div>
           </div>
+        <aside class="notes">Supply is specified for nonnegative prices. Assume the first 10 units have zero marginal cost; beyond 10 units, MC = (Q − 10)/5. Thus total variable cost is nonnegative and surplus includes a rectangle plus a triangle. Extending the line to negative prices would be a different model and give different surplus.</aside>
         </section>
 
         <!-- Slide 3.9b: PS Solution -->
@@ -1088,9 +1075,7 @@
             <div class="def-card fragment" style="margin: 8px 0;">
               <div class="def-title">Step 3: Calculate the Trapezoid Area</div>
               \[ PS = \frac{\text{base}_1 + \text{base}_2}{2} \times \text{height} = \frac{10 + 35}{2} \times 5 = 22.5 \times 5 = \$112.50 \]
-              <p style="font-size: 0.85em; color: #64748b; margin-top: 5px;">
-                Alternatively, integrate \( Q_S(P) \): \( \int_0^5 (10 + 5P) dP = [10P + 2.5P^2]_0^5 = 50 + 62.5 = \$112.50 \).
-              </p>
+              <p>Rectangle + triangle: PS = (10 × $5) + ½(25 × $5) = $112.50.</p>
             </div>
           </div>
         </section>
@@ -1107,9 +1092,10 @@
               and market supply is given by:
               \[ Q_S = 10 + 5P_S \]
               <br>
-              <strong>Calculate the market equilibrium price and quantity, and then determine both the consumer surplus and producer surplus in equilibrium.</strong>
+              <strong>Assume the first 10 units have zero marginal cost. Calculate the market equilibrium price and quantity, and then determine both the consumer surplus and producer surplus in equilibrium.</strong>
             </div>
           </div>
+        <aside class="notes">Supply is specified for nonnegative prices. Assume the first 10 units have zero marginal cost; beyond 10 units, MC = (Q − 10)/5. Thus total variable cost is nonnegative and surplus includes a rectangle plus a triangle. Extending the line to negative prices would be a different model and give different surplus.</aside>
         </section>
 
         <!-- Slide 3.10b: Market-Level Solution -->
@@ -1280,7 +1266,7 @@
                   \[ W = CS + PS \]
                 </div>
                 <ul>
-                  <li>Social welfare/surplus is <strong>maximized under perfect competition</strong>.</li>
+                  <li>Without externalities or other market failures, competitive equilibrium maximizes total surplus. This measures gains from trade; it does not establish fairness.</li>
                   <li>Monopolist pricing <strong>reduces</strong> social surplus.</li>
                 </ul>
                 <div class="def-card fragment" style="margin: 12px 0 0;">
@@ -1300,11 +1286,11 @@
         <!-- Slide 4.3: Introducing Deadweight Loss -->
         <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
           <p class="eyebrow">Welfare · Deadweight Loss</p>
-          <h2>Welfare Loss from Market Shocks</h2>
+          <h2>Welfare Loss from Restricted Output</h2>
           <div style="display: flex; align-items: center; justify-content: center; gap: 20px; max-width: 1090px; margin: 0 auto;">
             <div style="flex: 1; text-align: left;">
               <div class="content-card" style="margin: 0; padding: 20px;">
-                <p style="font-weight: 600; color: #0f766e; margin-bottom: 12px;">What happens when markets deviate from equilibrium?</p>
+                <p style="font-weight: 600; color: #0f766e; margin-bottom: 12px;">In this monopoly example, output is below the efficient quantity:</p>
                 <ul>
                   <li>Quantities transacted decrease.</li>
                   <li>Some consumer and producer surplus is lost.</li>
@@ -1323,18 +1309,11 @@
         <!-- Slide 4.4: Defining Deadweight Loss -->
         <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
           <p class="eyebrow">Welfare · Deadweight Loss</p>
-          <h2>Defining Deadweight Loss</h2>
-          <div class="content-card">
-            <div class="def-card">
-              <div class="def-title">Definition</div>
-              <strong>Deadweight loss (DWL)</strong> is the net reduction in social surplus from an event, action, or policy that <em>alters the market equilibrium</em>, resulting in a loss of social surplus that is <strong>not offset</strong> by a gain to another group.
-            </div>
-            <p style="font-weight: 600; color: #0f766e; margin-top: 15px;">Why does it occur?</p>
-            <ul>
-              <li>Consumers value extra output by more than the marginal cost of producing it.</li>
-              <li>By restricting trade, society misses out on mutually beneficial transactions.</li>
-            </ul>
+          <h2>Deadweight Loss</h2>
+          <div class="content-card" style="font-size: 0.9em;">
+<div class="def-card"><div class="def-title">Definition</div>Deadweight loss is the gap between the maximum feasible total surplus and actual total surplus, using the same demand, technology, and resource costs.</div><p>Underproduction misses units whose social marginal benefit exceeds social marginal cost. Overproduction adds units whose social cost exceeds their benefit.</p><p>A real cost increase can reduce surplus even when the new allocation is efficient.</p>
           </div>
+<aside class="notes">Benchmark discipline: compare outcomes under the same resource constraints. A transfer changes who receives surplus; deadweight loss reduces the total.</aside>
         </section>
 
         <!-- Slide 4.5: Social Welfare Under Market Power -->
@@ -1472,14 +1451,11 @@
         <!-- Slide 4.5d: How Else Might DWL Arise? -->
         <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
           <p class="eyebrow">Welfare · Deadweight Loss</p>
-          <h2>How Else Might Deadweight Loss Arise?</h2>
-          <div class="content-card" style="text-align: center; padding: 30px;">
-            <p style="font-size: 1.1em; line-height: 1.5;">A natural follow-up question is: <strong style="color: #0f766e;">how else might deadweight loss arise?</strong></p>
-            <div class="def-card" style="margin-top: 20px; text-align: left;">
-              <div class="def-title">The Common Theme</div>
-              There are many possibilities, but all of them share the same theme: some party (or parties) is <strong>&ldquo;hurt&rdquo;</strong> as a result of the event, action, or policy change.
-            </div>
+          <h2>A Transfer or a Deadweight Loss?</h2>
+          <div class="content-card" style="font-size: 0.9em;">
+<p>A buyer pays $2 more and a seller receives $2 more, with quantity and real costs unchanged.</p><div class="def-card"><div class="def-title">Question</div>Has total surplus fallen? What if a mutually beneficial trade no longer takes place?</div>
           </div>
+<aside class="notes">The $2 is a transfer: buyer surplus falls and seller surplus rises equally. Forgone trades with benefit above cost create deadweight loss. Someone being worse off is not enough to prove inefficiency.</aside>
         </section>
 
         <!-- Slide 4.5e: Christmas DWL Example -->
@@ -1488,24 +1464,7 @@
           <h2>The Inefficiencies of Christmas</h2>
           <div style="display: flex; align-items: center; justify-content: center; gap: 20px; max-width: 1090px; margin: 0 auto;">
             <div style="flex: 1.1; text-align: left;">
-              <div class="content-card" style="margin: 0; font-size: 0.85em;">
-                <div class="example-card" style="margin: 0 0 12px;">
-                  <div class="ex-title">Case Study: Gift-Giving Economics (The Economist)</div>
-                  Joel Waldfogel (1993) identified a <strong>&ldquo;deadweight loss&rdquo; of Christmas</strong>: the gap between what seasonal gifts cost and how much recipients actually value them.
-                </div>
-                <ul>
-                  <li class="fragment">Cash spent on another person yields only about <strong>85%</strong> of the benefit of cash people spend on themselves.</li>
-                  <li class="fragment">One estimate: unwanted gifts destroyed around <strong>&pound;3bn of the &pound;25bn</strong> spent on gifts by British adults in 2021.</li>
-                  <li class="fragment">Gift-giving may make people happy &mdash; but as an allocation mechanism, it is <em>&ldquo;a lousy way to allocate resources.&rdquo;</em></li>
-                </ul>
-              </div>
-            </div>
-            <div style="flex: 0.9;">
-              <div class="slide-img-container" style="margin: 0; padding: 6px;">
-                <img src="../slides/images/c5_waldfogel_article.png" alt="The Economist article: The inefficiencies of Christmas" style="max-height: 430px;">
-              </div>
-            </div>
-          </div>
+              <div style="display:flex; gap:20px; align-items:center; max-width:1000px; margin:auto;"><div style="flex:1; font-size:0.85em; text-align:left;"><div class="def-card"><div class="def-title">Gift giving and value</div>Waldfogel’s 1993 study asked students to value gifts excluding sentimental value. It compared those valuations with what the gifts cost.</div><p>Could a gift be worth less than its purchase price yet still improve well-being? Consider sentimental value and the giver’s enjoyment.</p></div><div style="flex:1;"><img src="../slides/images/c5_waldfogel_article.png" alt="The Economist article: The inefficiencies of Christmas" style="max-height: 360px; max-width: 100%; object-fit: contain;"></div></div><aside class="notes">The valuation gap is not a complete welfare measure if it omits sentimental or giver benefits. Source: Joel Waldfogel, “The Deadweight Loss of Christmas,” American Economic Review 83(5), 1993, pp. 1328–1336. <a href="https://jmvidal.cse.sc.edu/library/waldfogel93a.pdf">Original paper</a>.</aside>
         </section>
 
         <!-- Slide 4.5f: DWL from Shocks -->
@@ -1515,7 +1474,7 @@
           <div class="content-card">
             <div class="example-card" style="margin: 0;">
               <div class="ex-title">Problem Statement</div>
-              The market for Nintendo Switch 2 is in equilibrium. Now, a shock hits: supply chain issues <strong>doubled the costs of production</strong>.
+              A hypothetical competitive market for identical USB chargers is in equilibrium. Now, supply chain issues <strong>raise the marginal cost of production at each quantity</strong>.
               <br><br>
               <strong>Perform a welfare analysis, graphically, that shows the impact of this shock. Assume market demand remains unchanged.</strong>
             </div>
@@ -1529,7 +1488,7 @@
           <div class="content-card" style="font-size: 0.95em;">
             <div class="def-card" style="margin: 8px 0;">
               <div class="def-title">Step 1: Shift the Supply Curve</div>
-              Doubled production costs shift the supply curve <strong>up/left</strong> (each quantity now requires a higher price to be supplied). Demand stays put.
+              Higher marginal production costs shift the supply curve <strong>up/left</strong> (each quantity now requires a higher price to be supplied). Demand stays put.
             </div>
             <div class="def-card fragment" style="margin: 8px 0;">
               <div class="def-title">Step 2: New Equilibrium</div>
@@ -1537,17 +1496,18 @@
             </div>
             <div class="def-card fragment" style="margin: 8px 0;">
               <div class="def-title">Step 3: Welfare Comparison</div>
-              Consumer surplus shrinks (higher price, fewer units), and social surplus falls relative to the pre-shock market. Some previously beneficial transactions no longer happen &mdash; consumers and producers are both hurt by the shock.
+              Consumer surplus shrinks (higher price, fewer units), and social surplus falls relative to the pre-shock market. The new competitive equilibrium is still efficient given the higher costs. Producer surplus can rise or fall; its direction requires more information.
             </div>
           </div>
+        <aside class="notes">Ask: “Has the economy become poorer, less efficient, or both?” Answer: attainable total surplus falls, but competitive trade remains efficient at the new costs. Producer surplus need not fall; with an initially fixed quantity and higher price it can rise. Do not infer every group loses from aggregate surplus falling.</aside>
         </section>
 
         <!-- Slide 4.5h: Welfare Effects of a Shock — animated graph -->
         <section data-background-gradient="linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)">
           <p class="eyebrow" style="color: #059669;">Welfare · Solution (graph)</p>
           <h2>Welfare Effects of a Shock, Graphically</h2>
-          <p style="font-size: 0.55em; color: #64748b; margin: 0 0 4px;">Doubled costs shift supply up &mdash; watch the price, the quantity, and every surplus change. Press <kbd style="background: #e2e8f0; border: 1px solid #cbd5e1; padding: 1px 6px; border-radius: 4px;">&rarr;</kbd>.</p>
-          <svg class="anim-graph" viewBox="0 0 720 470" style="width: 80%; max-height: 420px; margin: 0 auto; display: block; background: #fff; border: 1px solid #e2e8f0; border-radius: 10px;" role="img" aria-label="Welfare effect of a negative supply shock. Demand D is fixed. Supply shifts up from S to S-prime because production costs doubled, so equilibrium moves from E0 (lower price, higher quantity) to E1 (higher price P1, lower quantity Q1). After the shock the green diagonally-striped triangle above P1 is consumer surplus, the blue oppositely-striped region below P1 and above S-prime is producer surplus, and the red cross-hatched triangle between demand and the original supply over the lost output from Q1 to Q0 is the deadweight loss.">
+          <p style="font-size: 0.55em; color: #64748b; margin: 0 0 4px;">Higher real costs shift supply up. Compare the old and new efficient outcomes. Press <kbd style="background: #e2e8f0; border: 1px solid #cbd5e1; padding: 1px 6px; border-radius: 4px;">&rarr;</kbd>.</p>
+          <svg class="anim-graph" viewBox="0 0 720 470" style="width: 80%; max-height: 420px; margin: 0 auto; display: block; background: #fff; border: 1px solid #e2e8f0; border-radius: 10px;" role="img" aria-label="A real cost increase shifts supply up. Price rises and quantity falls. The shaded loss in total surplus includes higher costs on units still produced and old gains on units no longer produced. The new equilibrium is efficient given the new costs; this is not deadweight loss.">
             <defs>
               <pattern id="shkCS" width="9" height="9" patternTransform="rotate(45)" patternUnits="userSpaceOnUse">
                 <rect width="9" height="9" fill="#22c55e" fill-opacity="0.10"/>
@@ -1590,7 +1550,7 @@
               <text x="496" y="62" font-size="14" fill="#b45309" font-weight="700" font-style="italic">S&#8242;</text>
               <line x1="250" y1="291" x2="250" y2="211" stroke="#b45309" stroke-width="2" marker-end="url(#shkArr)"/>
               <line x1="185" y1="333" x2="185" y2="253" stroke="#b45309" stroke-width="2" marker-end="url(#shkArr)"/>
-              <text x="120" y="360" font-size="12.5" fill="#b45309" font-weight="700">cost doubles &rarr; supply shifts up</text>
+              <text x="120" y="360" font-size="12.5" fill="#b45309" font-weight="700">cost rises &rarr; supply shifts up</text>
               <circle cx="282" cy="184" r="6" fill="#b45309"/>
               <text x="290" y="178" font-size="13" font-weight="700" fill="#b45309">E&#8321;</text>
               <line x1="80" y1="184" x2="282" y2="184" stroke="#94a3b8" stroke-width="1.3" stroke-dasharray="5 4"/>
@@ -1609,13 +1569,14 @@
             </g>
             <!-- fragment 4: deadweight loss (lost trades) -->
             <g class="fragment" data-fragment-index="4">
+              <polygon points="120,280 120,370 282,274 282,184" fill="url(#shkDWL)" stroke="#b91c1c" stroke-width="1"/>
               <polygon points="282,184 282,274 358,229" fill="url(#shkDWL)" stroke="#b91c1c" stroke-width="1.4"/>
               <line x1="418" y1="330" x2="333" y2="240" stroke="#b91c1c" stroke-width="1.5" marker-end="url(#shkArrK)"/>
-              <text x="422" y="332" font-size="13.5" font-weight="700" fill="#b91c1c">DWL</text>
-              <text x="422" y="349" font-size="11.5" fill="#7f1d1d">lost gains from trade</text>
+              <text x="422" y="332" font-size="13.5" font-weight="700" fill="#b91c1c">Lower total surplus</text>
+              <text x="422" y="349" font-size="11.5" fill="#7f1d1d">higher real costs</text>
             </g>
           </svg>
-          <p class="fragment" data-fragment-index="4" style="text-align:center; font-weight:600; color:#059669; font-size:0.82em; margin-top:6px;">Price rises and quantity falls; consumer and producer surplus both shrink, and the red cross-hatched triangle is the deadweight loss &mdash; gains from trade on the units no longer produced.</p>
+          <p class="fragment" data-fragment-index="4" style="text-align:center; font-weight:600; color:#059669; font-size:0.82em; margin-top:6px;">Price rises and quantity falls. Total surplus is lower, but the new equilibrium has no DWL relative to the new costs.</p>
         </section>
 
         <!-- Slide 4.6: Taxes and Price Controls Intro -->
@@ -1628,7 +1589,7 @@
             </p>
             <div class="def-card" style="margin-top: 20px; text-align: left;">
               <div class="def-title">Government Interventions</div>
-              Taxes and price controls artificially alter market prices, restricting transactions and inducing deadweight loss.
+              In an otherwise efficient market, a tax or binding price control can prevent beneficial trades. Policies can also address market failures or distributional goals.
             </div>
             <p class="fragment" style="color: #64748b; font-size: 0.9em; margin-top: 25px; font-weight: 600;">
               We analyze these interventions in detail next class.
@@ -1651,7 +1612,7 @@
             </div>
             <div class="example-card" style="border-left-color: #b45309; background: rgba(180, 83, 9, 0.05); margin: 8px 0;">
               <div class="ex-title" style="color: #b45309;">Question 2</div>
-              In the tablet market, marginal cost is constant at \( \$3 \); under competition \( Q_c = 12 \)M units sell at \( P_c = \$3 \). A monopolist would instead set \( P_m = \$9 \) and sell \( Q_m = 6 \)M. <br><br><strong>Calculate the deadweight loss from market power.</strong>
+              In the tablet market, demand is linear and marginal cost is constant at \( \$3 \); under competition \( Q_c = 12 \)M units sell at \( P_c = \$3 \). A monopolist would instead set \( P_m = \$9 \) and sell \( Q_m = 6 \)M. <br><br><strong>Calculate the deadweight loss from market power.</strong>
             </div>
             <div style="margin: 4px 0 0;">
               <button class="group-roll-btn" onclick="rollGroup('l5gw2q2')">&#127922; Pick a group for Q2</button>

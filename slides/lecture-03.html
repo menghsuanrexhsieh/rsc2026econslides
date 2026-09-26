@@ -11,15 +11,15 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/white.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/highlight/monokai.css">
 
-  <!-- Google Fonts for premium typography -->
+  <!-- Roboto Light with heavier weights for headings and emphasis -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300..800;1,300..800&amp;display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --r-main-font: 'Plus Jakarta Sans', sans-serif;
-      --r-heading-font: 'Outfit', sans-serif;
+      --r-main-font: var(--font-sans);
+      --r-heading-font: var(--font-sans);
       --r-main-color: #1e293b;
       --r-heading-color: #0f172a;
       --r-link-color: #0f766e;
@@ -268,6 +268,7 @@
       to { stroke-dashoffset: 0; }
     }
   </style>
+  <link rel="stylesheet" href="../assets/css/typography.css">
 </head>
 <body>
   <div class="reveal">
@@ -286,20 +287,12 @@
 
       <!-- Slide 2: Agenda -->
       <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
-        <p class="eyebrow">Agenda for Today</p>
-        <h2>Competition and Market Analysis</h2>
-        <div class="content-card">
-          <p style="font-weight: 600; color: #0f766e; margin-bottom: 12px;">Where we left off last time:</p>
-          <ul>
-            <li class="fragment">Analyzed markets using some algebra.</li>
-            <li class="fragment">Defined elasticities as a concept to quantify economic behavior.</li>
-          </ul>
-          <div class="def-card fragment" style="margin-top: 15px;">
-            <div class="def-title">Today's Goal</div>
-            Further operationalize the supply and demand model to analyze firm behaviors and competition in markets (focusing on <strong>Monopoly</strong>).
+          <p class="eyebrow">Agenda for Today</p>
+          <h2>Today: Revenue, Cost, and Monopoly</h2>
+          <div class="content-card" style="font-size: 0.9em;">
+<ul><li>Use elasticity to predict how a price change affects revenue.</li><li>Obtain marginal revenue from a linear demand curve using a supplied rule.</li><li>Choose output, price, and profit for a monopolist.</li></ul><p>We will use algebra, percentages, and graph areas. Calculus is optional.</p>
           </div>
-        </div>
-      </section>
+        </section>
 
 
       <!-- SECTION 2: Wrapping up Elasticities (Vertical Stack) -->
@@ -315,53 +308,31 @@
         <!-- Slide 3.2: Recap 1 of 3 - Point Elasticity of Demand -->
         <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
           <p class="eyebrow">Recap · 1 of 3</p>
-          <h2>(Own-Price) Point Elasticity of Demand</h2>
+          <h2>Point Elasticity: A Quick Recap</h2>
           <div class="content-card" style="font-size: 0.9em;">
-            <div class="def-card" style="margin: 0 0 10px;">
-              <div class="def-title">Definition</div>
-              The <strong>elasticity of demand</strong> is the ratio of the percentage change in quantity to the percentage change in price (also called <strong>point elasticity of demand</strong>).
-            </div>
-            <div style="display: flex; justify-content: space-around; align-items: center; margin: 8px 0;">
-              <div>
-                \[ \varepsilon = \frac{\% \Delta Q}{\% \Delta P} \]
-              </div>
-              <div>
-                \[ \varepsilon = \frac{\Delta Q / Q}{\Delta P / P} = \frac{\Delta Q}{\Delta P} \times \frac{P}{Q} \]
-              </div>
-            </div>
-            <p style="font-size: 0.82em; color: #515763; margin: 6px 0 10px;">
-              Where \( \frac{\Delta Q}{\Delta P} \) is the slope of the demand function. By definition \( \varepsilon \) is negative, but we work with the absolute value <strong>\( |\varepsilon| \)</strong>.
-            </p>
-            <div class="def-card" style="margin: 0; border-left-color: #3b82f6; background: rgba(59, 130, 246, 0.04);">
-              <div class="def-title" style="color: #3b82f6;">Regions along a linear demand curve</div>
-              <ul style="margin: 4px 0 0 !important;">
-                <li><strong>Elastic</strong> above the midpoint: \( |\varepsilon| &gt; 1 \)</li>
-                <li><strong>Unit-elastic</strong> at the midpoint: \( |\varepsilon| = 1 \)</li>
-                <li><strong>Inelastic</strong> below the midpoint: \( |\varepsilon| &lt; 1 \)</li>
-              </ul>
-            </div>
+<p>For linear demand \(Q=a-bP\), \[ \varepsilon=-bP/Q,\qquad |\varepsilon|=bP/Q. \]</p><p>b is the magnitude of ΔQ/ΔP. On the usual graph with P vertical, the slope is −1/b.</p><ul><li>Above the midpoint: elastic, |ε| &gt; 1.</li><li>At the midpoint: unit-elastic, |ε| = 1.</li><li>Below the midpoint: inelastic, |ε| &lt; 1.</li></ul><p>These classifications apply to positive price and quantity.</p>
           </div>
         </section>
 
         <!-- Slide 3.3: Recap 2 of 3 - Relatively Elastic vs Inelastic (chocolate) -->
         <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
           <p class="eyebrow">Recap · 2 of 3</p>
-          <h2>Relatively Elastic vs. Inelastic &mdash; Chocolate</h2>
+          <h2>Relatively Elastic vs. Inelastic: Chocolate</h2>
           <div style="display: flex; align-items: center; justify-content: center; gap: 20px; max-width: 1140px; margin: 0 auto;">
             <div style="flex: 1; text-align: left;">
               <div class="content-card" style="margin: 0; padding: 14px 18px; font-size: 0.82em;">
                 <div class="def-card" style="margin: 0 0 8px; padding: 8px 12px;">
                   <div class="def-title">Relatively elastic</div>
-                  A given % change in price produces a <strong>large</strong> % change in quantity (flatter curve).
+                  A given % change in price produces a <strong>large</strong> % change in quantity (flatter at a common P and Q).
                 </div>
                 <div class="def-card" style="margin: 0 0 8px; padding: 8px 12px;">
                   <div class="def-title">Relatively inelastic</div>
-                  A given % change in price produces a <strong>small</strong> % change in quantity (steeper curve).
+                  A given % change in price produces a <strong>small</strong> % change in quantity (steeper at a common P and Q).
                 </div>
-                <p style="margin: 6px 0 0; color: #515763;">Cocoa prices rose ~30% in both markets, but:</p>
+                <p style="margin: 6px 0 0; color: #515763;">In the supplied historical chocolate case:</p>
                 <ul style="margin: 4px 0 0 !important;">
-                  <li><strong style="color: #d97706;">U.S. (Hershey)</strong> &mdash; "fickle" buyers, quantity fell a lot &rarr; <strong>elastic</strong>.</li>
-                  <li><strong style="color: #0f766e;">Europe (Mondelez)</strong> &mdash; prices passed on "without sacrificing volume" &rarr; <strong>inelastic</strong>.</li>
+                  <li><strong style="color: #d97706;">U.S. (Hershey)</strong> &mdash; the excerpt describes a larger sales response.</li>
+                  <li><strong style="color: #0f766e;">Europe (Mondelez)</strong> &mdash; the excerpt describes a smaller sales response.</li>
                 </ul>
               </div>
             </div>
@@ -413,6 +384,7 @@
               </svg>
             </div>
           </div>
+        <aside class="notes">Illustrative comparison motivated by a historical article, not a causal estimate. Prices and quantities must be compared over the same period; income, tastes, and product mix can also change sales. Relatively more elastic does not by itself imply elasticity exceeds one.</aside>
         </section>
 
         <!-- Slide 3.4: Recap 3 of 3 - Sunk Costs & Total Cost Function -->
@@ -446,19 +418,11 @@
         <!-- Slide 3.5: Recap wrap - why elasticity varies along the curve -->
         <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
           <p class="eyebrow">Recap · Check Your Understanding</p>
-          <h2>Why Does Elasticity Change Along the Curve?</h2>
-          <div class="content-card">
-            <p style="font-weight: 600; color: #0f766e; margin-bottom: 8px;">Fix a percentage change in price:</p>
-            <ul>
-              <li class="fragment">If the price is <strong>high</strong> (we&rsquo;re on the <strong>&ldquo;upper-left&rdquo;</strong> portion of the demand curve), that same % change in price is a <strong>large change in dollar terms</strong>.</li>
-              <li class="fragment">A large dollar change strongly <strong>disincentivizes</strong> people from consuming.</li>
-              <li class="fragment">So the point elasticity of demand on the <strong>&ldquo;upper-left&rdquo;</strong> portion is <strong>high</strong> (in absolute value) &rarr; <strong>elastic</strong>.</li>
-              <li class="fragment">The <strong>converse</strong> is true when the price is <strong>low</strong> (the <strong>&ldquo;lower-right&rdquo;</strong> portion of the demand curve) &rarr; <strong>inelastic</strong>.</li>
-            </ul>
-            <p class="fragment" style="font-size: 0.9em; font-style: italic; color: #64748b; margin-top: 12px; text-align: center;">
-              Same % change in price, very different (but intuitive!) effects on quantity demanded.
-            </p>
+          <h2>Why Elasticity Changes on a Straight Line</h2>
+          <div class="content-card" style="font-size: 0.9em;">
+<p>For \(Q=a-bP\), the slope magnitude b stays fixed, but \(|\varepsilon|=bP/Q\) changes.</p><ul><li>Near the top: P is high and Q is small, so P/Q is large.</li><li>Near the bottom: P is low and Q is large, so P/Q is small.</li></ul><div class="def-card"><div class="def-title">Check</div>If the same price change reduces purchases by 2 units, is that a larger percentage change from 4 units or from 20 units?</div>
           </div>
+<aside class="notes">Answer: 50% from 4 units, 10% from 20. Elasticity depends on the starting levels as well as the slope.</aside>
         </section>
 
       </section>
@@ -567,7 +531,7 @@
                   For a firm facing a given demand function, the firm&rsquo;s <strong>marginal revenue is zero</strong> when they set a price where the customer&rsquo;s demand is <strong>unit-elastic</strong> (\( |\varepsilon| = 1 \)).
                 </div>
                 <p style="font-size: 0.85em; font-style: italic; color: #64748b;">
-                  This represents the peak of total revenue (midpoint for linear demand). This explains why firms care about knowing elasticity!
+                  For linear demand, this is the peak of total revenue, at the midpoint. This explains why firms care about knowing elasticity!
                 </p>
               </div>
             </div>
@@ -586,7 +550,7 @@
           <div class="content-card">
             <div class="def-card">
               <div class="def-title">Definition</div>
-              <strong>Marginal revenue (MR)</strong> is the incremental revenue made by firms when they produce one additional unit of product.
+              <strong>Marginal revenue (MR)</strong> is the incremental revenue made by firms when they sell additional output.
             </div>
             <p style="margin-top: 15px;">This is the concept of marginal benefits for firms!</p>
           </div>
@@ -725,39 +689,21 @@
         <!-- Slide 4.6: Deriving MR -->
         <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
           <p class="eyebrow">Profit Maximization · Formulation</p>
-          <h2>Deriving Marginal Revenue</h2>
-          <div class="content-card">
-            <p>Marginal revenue is the derivative of the revenue function with respect to quantity. For a linear inverse demand:</p>
-            <div class="def-card" style="margin: 15px 0;">
-              \[ R(Q) = aQ - bQ^2 \]
-              Applying the power rule, we get the marginal revenue function:
-              \[ MR(Q) = a - 2bQ \]
-            </div>
-            <div class="fragment def-card" style="border-left-color: #3b82f6; background: rgba(59, 130, 246, 0.04);">
-              <div class="def-title" style="color: #3b82f6;">Key Relationship</div>
-              The marginal revenue function shares the <strong>same intercept (\( a \))</strong> as the linear inverse demand function, but has <strong>twice the slope (\( -2b \))</strong>!
-            </div>
+          <h2>Marginal Revenue for Linear Demand</h2>
+          <div class="content-card" style="font-size: 0.9em;">
+<p>For a single-price seller with \(P=a-bQ\): \[ R(Q)=aQ-bQ^2,\qquad MR(Q)=a-2bQ. \]</p><p>Use this rule: MR has the same price intercept and twice the slope of inverse demand.</p><div class="def-card"><div class="def-title">Why MR is below price</div>Selling more requires a lower price on the units already sold. That lost revenue offsets part of the revenue from new sales.</div>
           </div>
+<aside class="notes">The smooth MC and MR formulas describe very small output changes. Optional calculus: differentiating aQ − bQ² gives a − 2bQ. Students may use the rule without deriving it.</aside>
         </section>
 
         <!-- Slide 4.7: Math Derivation with Elasticity -->
         <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
           <p class="eyebrow">Profit Maximization · Derivation</p>
-          <h2>Relating MR to Elasticity of Demand</h2>
-          <div class="content-card" style="font-size: 0.88em; max-width: 980px;">
-            <p>Using the definition of demand elasticity \( \varepsilon \) and inverse demand slope:</p>
-            <div style="margin: 10px 0;">
-              \[ \varepsilon = \frac{\Delta Q}{\Delta P} \times \frac{P}{Q} \implies \frac{\Delta P}{\Delta Q} = \frac{P}{Q} \frac{1}{\varepsilon} \]
-            </div>
-            <p>Deriving Marginal Revenue using the product rule:</p>
-            <div style="margin: 10px 0;">
-              \[ MR(Q) = \frac{d(P(Q) \times Q)}{dQ} = P'(Q) \times Q + P(Q) \]
-              \[ MR(Q) = \left( \frac{P(Q)}{Q} \frac{1}{\varepsilon} \right) Q + P(Q) = P(Q)\left(1 + \frac{1}{\varepsilon}\right) \]
-            </div>
-            <p style="font-size: 0.8em; color: #515763; margin-top: 8px; text-align: center;">
-              This is the general relation linking price, marginal revenue, and elasticity!
-            </p>
+          <h2>Marginal Revenue and Elasticity</h2>
+          <div class="content-card" style="font-size: 0.9em;">
+<p>For a single-price seller facing downward-sloping demand:</p><p>\[ MR=P\left(1-\frac{1}{|\varepsilon|}\right) \]</p><ul><li>Elastic demand: MR &gt; 0. Selling more raises revenue.</li><li>Unit-elastic demand: MR = 0.</li><li>Inelastic demand: MR &lt; 0. Selling more lowers revenue.</li></ul><p>Example: P = $9 and |ε| = 3 gives MR = 9(1 − 1/3) = $6.</p>
           </div>
+<aside class="notes">Equivalent signed formula: MR = P(1 + 1/ε), with ε < 0. The formula uses point elasticity at positive P and Q and a differentiable inverse demand. Optional derivation: MR = P + Q dP/dQ. This is supplied, not assessed as a calculus derivation.</aside>
         </section>
 
         <!-- Slide 4.8: Intuition of MR & Elasticity -->
@@ -771,7 +717,7 @@
             <ul>
               <li class="fragment">Notice that \( P(Q) \) is the price at quantity \( Q \).</li>
               <li class="fragment">Because elasticity \( \varepsilon \) is negative, the term \( \left(1 + \frac{1}{\varepsilon}\right) \) is less than 1.</li>
-              <li class="fragment"><strong>The Takeaway</strong>: When consumers are sensitive to price changes (elastic demand), firms have the incentive to lower prices to earn positive marginal revenue!</li>
+              <li class="fragment"><strong>The Takeaway</strong>: When consumers are sensitive to price changes (elastic demand), a small price cut raises revenue. It raises profit only if the extra revenue exceeds the extra cost.</li>
             </ul>
           </div>
         </section>
@@ -842,7 +788,7 @@
           <p class="eyebrow">Profit Maximization · Summary</p>
           <h2>Revenue Maximization</h2>
           <div class="content-card" style="text-align: center; padding: 35px;">
-            <p style="font-size: 1.1em; line-height: 1.5;">Calculus tells us that revenue is maximized when <strong>marginal revenue is zero</strong> (\( MR = 0 \)).</p>
+            <p style="font-size: 1.1em; line-height: 1.5;">For linear demand, revenue rises while MR is positive and falls while MR is negative. Revenue is maximized where marginal revenue is zero (\( MR = 0 \)).</p>
             <div class="def-card fragment" style="margin-top: 20px; display: inline-block;">
               In the case of linear demand, this occurs exactly at the <strong>midpoint</strong> of the demand curve, where \( |\varepsilon| = 1 \) (unit-elastic).
             </div>
@@ -856,7 +802,7 @@
           <div style="display: flex; align-items: center; justify-content: center; gap: 20px; max-width: 1090px; margin: 0 auto;">
             <div style="flex: 1; text-align: left;">
               <div class="content-card" style="margin: 0; padding: 15px 20px; font-size: 0.95em;">
-                <p style="font-weight: 600; color: #0f766e; margin-bottom: 10px;">To summarize:</p>
+                <p style="font-weight: 600; color: #0f766e; margin-bottom: 10px;">For the linear demand curve shown:</p>
                 <ul>
                   <li><strong>Elastic Region (\( |\varepsilon| &gt; 1 \))</strong>: MR is positive; lowering price increases total revenue (TR).</li>
                   <li><strong>Unit-Elastic Point (\( |\varepsilon| = 1 \))</strong>: MR is zero; TR is maximized.</li>
@@ -1109,6 +1055,7 @@
               The monopolist does <strong>not</strong> set an arbitrary price. They are constrained by consumer demand!
             </div>
           </div>
+        <aside class="notes">Quick check: when Q* = 8 and inverse demand is P = 20 − Q, is price $4 (MC) or $12? Answer: $12 from demand. MC determines the quantity through MR = MC, not the sales price.</aside>
         </section>
 
         <!-- Slide 4.5b: Why not just price off the demand curve? -->
@@ -1132,23 +1079,11 @@
         <!-- Slide 4.5c: Why MR = MC? -->
         <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
           <p class="eyebrow">Monopoly &middot; Why MR = MC</p>
-          <h2>So Why Set MR = MC?</h2>
-          <div class="content-card" style="font-size: 0.88em;">
-            <p>The firm chooses \( Q \) to maximize profit, so we differentiate and set it to zero:</p>
-            <div style="text-align: center; margin: 8px 0;">
-              \[ \Pi(Q) = R(Q) - C(Q) \implies \frac{d\Pi}{dQ} = MR(Q) - MC(Q) = 0 \implies MR = MC \]
-            </div>
-            <p style="font-weight: 600; color: #0f766e; margin: 8px 0 4px;">The same thing, in words (thinking on the margin):</p>
-            <ul style="margin: 4px 0 !important;">
-              <li class="fragment">If \( MR > MC \): the next unit brings in <strong>more revenue than it costs</strong> &rarr; <strong>produce more</strong>.</li>
-              <li class="fragment">If \( MR &lt; MC \): the last unit <strong>cost more than it brought in</strong> &rarr; <strong>produce less</strong>.</li>
-              <li class="fragment">Neither can hold at the optimum &rArr; profit is maximized <strong>only</strong> where \( MR = MC \).</li>
-            </ul>
-            <div class="def-card fragment" style="margin-top: 10px; padding: 10px 14px; border-left-color: #3b82f6; background: rgba(59, 130, 246, 0.04);">
-              <div class="def-title" style="color: #3b82f6;">The punchline</div>
-              Because \( MR &lt; P \), setting \( MR = MC \) gives \( P^* > MC \) &mdash; a <strong>markup</strong> (in perfect competition, \( P = MC \)). The price is then <strong>determined by the demand curve</strong>: \( P^* = P(Q^*) \).
-            </div>
+          <h2>Why Compare MR and MC?</h2>
+          <div class="content-card" style="font-size: 0.9em;">
+<ul><li>If an extra unit adds more revenue than cost, it raises profit.</li><li>If the last unit costs more than the revenue it adds, reduce output.</li><li>For the smooth examples here, choose the feasible quantity where MR crosses MC from above.</li></ul><p>\[ MR=MC,\qquad P^*=P(Q^*) \]</p><p>Check whether operating beats producing zero. With whole units, compare profits at nearby feasible quantities.</p>
           </div>
+<aside class="notes">Equality is an interior condition, not a universal sufficient rule. In the linear-demand, nondecreasing-MC examples, profit is concave, so the crossing maximizes operating profit. Include avoidable fixed costs when comparing operation with shutdown.</aside>
         </section>
 
         <!-- Slide 4.5d: The monopolist's recipe (ported from Class 4) -->
@@ -1180,7 +1115,7 @@
               A monopolist faces demand for their product:
               \[ Q_D = 14 - 3P_D \]
               They have a constant marginal cost function:
-              \[ MC(Q) = 2 \]
+              \[ MC(Q) = 2,\qquad TC(Q)=2Q\quad\text{(no fixed cost)} \]
               <strong>Determine their profit-maximizing quantity (to produce), price, and their profits at these choices.</strong>
             </div>
             <p class="fragment" style="font-weight: 600; color: #0f766e; text-align: center; margin-top: 20px;">
@@ -1223,7 +1158,7 @@
               A monopolist faces demand for their product:
               \[ P_D = 10 - 2Q_D \]
               They have a variable marginal cost function:
-              \[ MC(Q) = 2Q \]
+              \[ MC(Q) = 2Q,\qquad TC(Q)=Q^2\quad\text{(given)} \]
               <strong>Determine their profit-maximizing quantity (to produce), price, and their profits at these choices.</strong>
             </div>
             <p class="fragment" style="font-weight: 600; color: #0f766e; text-align: center; margin-top: 20px;">
@@ -1252,9 +1187,10 @@
             
             <div class="def-card fragment">
               <div class="def-title">Step 3: Price</div>
-              \[ P^* = 10 - 2\left(\frac{5}{3}\right) = \frac{20}{3} \approx 6.67 \]
+              \[ P^* = \frac{20}{3},\qquad \Pi=\frac{20}{3}\frac{5}{3}-\left(\frac{5}{3}\right)^2=\frac{25}{3}\approx 8.33 \]
             </div>
           </div>
+        <aside class="notes">The supplied TC function is needed to compute profit. MC alone does not identify fixed cost. Fractions represent a divisible-output model; for indivisible goods, compare nearby integer quantities.</aside>
         </section>
 
         <!-- GROUP WORK: Monopoly Pricing -->

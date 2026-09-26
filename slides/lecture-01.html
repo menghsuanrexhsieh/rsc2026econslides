@@ -11,15 +11,15 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/white.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/highlight/monokai.css">
 
-  <!-- Google Fonts for premium typography -->
+  <!-- Roboto Light with heavier weights for headings and emphasis -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300..800;1,300..800&amp;display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --r-main-font: 'Plus Jakarta Sans', sans-serif;
-      --r-heading-font: 'Outfit', sans-serif;
+      --r-main-font: var(--font-sans);
+      --r-heading-font: var(--font-sans);
       --r-main-color: #1e293b;
       --r-heading-color: #0f172a;
       --r-link-color: #0f766e;
@@ -440,6 +440,7 @@
       stroke-linejoin: round;
     }
   </style>
+  <link rel="stylesheet" href="../assets/css/typography.css">
 </head>
 <body>
   <div class="reveal">
@@ -687,7 +688,7 @@
           <h2>The Study of Choices</h2>
           <div class="content-card">
             <p style="font-size: 1.15em; margin-bottom: 15px; font-weight: 600; text-align: center;">
-              Microeconomics is, very broadly, the study of decision-making.
+              Microeconomics studies how people and firms make choices with limited resources, and how they interact in markets.
             </p>
             <div style="text-align: center;">
               <ul>
@@ -698,7 +699,7 @@
                     <li><strong>Opportunity Cost</strong></li>
                   </ul>
                 </li>
-                <li class="fragment">By understanding these three ingredients <span style="color: #0f766e; font-weight: bold; margin: 0 4px;">&rArr;</span> we can start analyzing intriguing phenomena that we observe in the real world.</li>
+                <li class="fragment">These ideas help us explain choices about prices, work, spending, and production.</li>
               </ul>
             </div>
             <p class="fragment" style="margin-top: 15px; font-style: italic; color: #0f766e; text-align: center; font-weight: 500;">
@@ -714,7 +715,7 @@
           <div class="content-card">
             <div class="def-card">
               <div class="def-title">Definition</div>
-              A <strong>scarce good</strong> is one for which the choice of one alternative requires that another be given up.
+              <strong>Scarcity</strong> means that available resources cannot satisfy all wants. Using time, money, or materials for one purpose leaves less for another.
             </div>
             
             <p style="margin-top: 15px; font-weight: 600; text-align: center;">Scarcity is associated with three fundamental questions:</p>
@@ -771,6 +772,7 @@
               What does having a nonzero opportunity cost imply?
             </p>
           </div>
+        <aside class="notes">Ask students to name their best alternative to attending, rather than add up every alternative. The diagram assumes sleeping is the best alternative. A positive opportunity cost does not mean attending is a mistake: compare benefit with that cost.</aside>
         </section>
 
         <!-- Slide 5.5: Ford Plant Example -->
@@ -836,8 +838,8 @@
             
             <div class="def-card fragment" style="margin-top: 15px;">
               <div class="def-title">Rational Choice Assumption</div>
-              Economists assume individuals maximize the <strong>net benefit</strong> of each potential decision:
-              \[ \text{Net Benefit} = \text{Total Benefit} - \text{Opportunity Costs} \]
+              In this model, people choose the feasible option with the highest net benefit:
+              \[ \text{Net Benefit} = \text{Total Benefit} - \text{Economic Costs} \]
             </div>
 
             <svg class="anim-graph" viewBox="0 0 660 160" style="width: 70%; max-height: 150px; margin: 10px auto 0; display: block;" role="img" aria-label="A bar representing total benefit, with the opportunity-cost portion carved out on the right; the remainder on the left is the net benefit that decision-makers maximize">
@@ -849,10 +851,10 @@
                 <text x="330" y="20" font-size="15" font-weight="700" fill="#475569" text-anchor="middle">Total Benefit</text>
                 <rect x="70" y="44" width="520" height="48" rx="4" fill="#0f766e"/>
               </g>
-              <!-- step 2: carve out Opportunity Costs from the right -->
+              <!-- step 2: carve out Economic Costs from the right -->
               <g class="fragment">
                 <rect x="390" y="44" width="200" height="48" rx="4" fill="#fef2f2" stroke="#dc2626" stroke-width="2" stroke-dasharray="6 4"/>
-                <text x="490" y="74" font-size="15" font-weight="700" fill="#dc2626" text-anchor="middle">&minus; Opportunity Costs</text>
+                <text x="490" y="74" font-size="15" font-weight="700" fill="#dc2626" text-anchor="middle">&minus; Economic Costs</text>
               </g>
               <!-- step 3: what remains is Net Benefit -->
               <g class="fragment">
@@ -868,6 +870,7 @@
               What do we use to characterize how these decisions are made?
             </p>
           </div>
+        <aside class="notes">Economic costs include payments and the value of forgone alternatives, such as time or earnings. Count each sacrifice once. This is a model of choice, not a claim that everyone always calculates perfectly.</aside>
         </section>
 
         <!-- Slide 6.3: Thinking on the Margin -->
@@ -896,7 +899,7 @@
           <h2>The Decision Rule</h2>
           <div class="content-card">
             <p style="font-weight: 600; margin-bottom: 15px; text-align: center;">
-              Decision rule: we want to make a decision where the marginal benefit equals marginal cost.
+              Choose another unit when its marginal benefit exceeds its marginal cost.
             </p>
             <p style="text-align: center;">Specifically, think about the marginal decision of doing an activity:</p>
             <div style="display: flex; align-items: center; justify-content: center; gap: 24px;">
@@ -948,7 +951,7 @@
 
             <div class="example-card fragment" style="margin-top: 12px;">
               <div class="ex-title">Why? Spotify Example</div>
-              Imagine buying a subscription to Spotify, which is an all-or-nothing decision.
+              For an all-or-nothing subscription, compare the benefit of subscribing with its full additional cost. Equality is not required.
             </div>
           </div>
         </section>
@@ -956,20 +959,11 @@
         <!-- Slide 6.5: Key Takeaway -->
         <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
           <p class="eyebrow">How to make economic decisions?</p>
-          <h2>The Core Principle</h2>
-          <div class="content-card" style="text-align: center; padding: 25px;">
-            <p style="font-size: 1.1em; color: #64748b; margin-bottom: 15px;">We will spend a lot of time with the following decision rule:</p>
-            
-            <div style="background: rgba(15, 118, 110, 0.04); border: 2px solid #0f766e; border-radius: 12px; padding: 20px; margin: 15px 0;">
-              <h2 style="color: #0f766e; margin-bottom: 5px; font-size: 2.2em;">MB = MC</h2>
-              <p style="font-size: 1.1em; font-weight: 700; color: #0f172a; margin: 0;">
-                Individuals and firms make decisions at which marginal benefit equals marginal cost.
-              </p>
-            </div>
-            
-            <p style="color: #0f766e; font-weight: 700; margin-top: 15px;">Please remember this decision rule!</p>
-            <p style="font-size: 0.9em; color: #64748b; margin-top: 5px;">We now begin translating this fundamental decision into objects that are important in economics.</p>
+          <h2>When Does MB = MC Apply?</h2>
+          <div class="content-card" style="font-size: 0.9em;">
+<div class="def-card"><div class="def-title">Divisible choices</div>If marginal benefit falls and marginal cost rises, an interior best choice satisfies \( MB = MC \).</div><div class="def-card"><div class="def-title">Whole units</div>Take the units whose additional benefits exceed their additional costs. Stop before the next unit costs more than it adds.</div><p>A first hour of study adds 8 points; a second adds 3. Each hour costs you the equivalent of 5 points. How many hours should you study?</p>
           </div>
+<aside class="notes">Answer: one hour. Net gains are 3 points for one hour and 1 point for two hours. With equality, either choice can be equally good. Also compare feasible endpoints, including doing none.</aside>
         </section>
 
         <!-- Slide 6.6: Course Roadmap -->
@@ -1014,35 +1008,21 @@
         <!-- Slide 7.2: Demand Def -->
         <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
           <p class="eyebrow">Supply and Demand · Demand</p>
-          <h2>Demand</h2>
-          <div class="content-card">
-            <p>We begin with demand.</p>
-            <div class="def-card fragment" style="margin-top: 15px;">
-              <div class="def-title">Definition</div>
-              <strong>Demand</strong> for a good or service is the amount of a good that a consumer is <strong>willing to buy</strong> at a given price.
-            </div>
+          <h2>Demand and Quantity Demanded</h2>
+          <div class="content-card" style="font-size: 0.9em;">
+<div class="def-card"><div class="def-title">Demand</div>The relationship between price and the quantity buyers are willing and able to purchase, holding other factors constant.</div><div class="def-card"><div class="def-title">Quantity demanded</div>The amount buyers would purchase at one specified price, during a specified period.</div><p>Example: cups of coffee per day on campus. Does a lower coffee price change demand or quantity demanded?</p>
           </div>
+<aside class="notes">Answer: quantity demanded changes along the same demand curve. A change in tastes or income can shift the whole curve.</aside>
         </section>
 
         <!-- Slide 7.3: The Market -->
         <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
           <p class="eyebrow">Supply and Demand · Demand</p>
-          <h2>Markets &amp; Demand</h2>
-          <div class="content-card">
-            <p>When we talk about demand, there is always a market.</p>
-            <div class="def-card fragment">
-              <div class="def-title">Definition</div>
-              A <strong>market</strong> refers to a specific product being bought and sold at a given quantity, at a specific location, and at a given point in time.
-            </div>
-            
-            <p class="fragment" style="margin-top: 15px;">
-              Therefore, &ldquo;my demand&rdquo; always refers to a specific product or other commodities and services. My demand for a product is equivalent to saying what quantity of a product I want.
-            </p>
-            
-            <p class="fragment" style="font-weight: 600; text-align: center; color: #0f766e; margin-top: 20px;">
-              What affects my demand for a product?
-            </p>
+          <h2>Define the Market</h2>
+          <div class="content-card" style="font-size: 0.9em;">
+<p>A market brings buyers and sellers of a particular good or service together. Specify the product, place, and time period.</p><div class="def-card"><div class="def-title">Example</div>Coffee sold on campus per day: price is dollars per cup; quantity is cups per day.</div><p>Individual demand describes one buyer. Market demand adds all buyers’ quantities at each price.</p>
           </div>
+<aside class="notes">Quick check: if two students buy 2 and 3 cups at $3, market quantity demanded at $3 is 5 cups. Add quantities at a common price.</aside>
         </section>
 
         <!-- Slide 7.4: Factors Affecting Demand -->
@@ -1050,7 +1030,7 @@
           <p class="eyebrow">Supply and Demand · Demand</p>
           <h2>What Affects Demand?</h2>
           <div class="content-card" style="text-align: center;">
-            <p style="font-weight: 600; margin-bottom: 15px; text-align: center;">What affects my demand for a product?</p>
+            <p style="font-weight: 600; margin-bottom: 15px; text-align: center;">What affects how much I buy? Which factors shift demand?</p>
             <ol>
               <li class="fragment"><strong>Price</strong></li>
               <li class="fragment">My <strong>income</strong></li>
@@ -1064,21 +1044,13 @@
         </section>
 
 <!-- Slide 7.4b: Solution - Demand Factors -->
-        <section data-background-gradient="linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)">
-          <p class="eyebrow" style="color: #059669;">Supply and Demand · Solution</p>
-          <h2>What Affects Demand?</h2>
-          <div class="content-card" style="text-align: center;">
-            <div class="def-card">
-              <div class="def-title">Answer</div>
-              <p>The four factors that affect demand:</p>
-              <ol>
-                <li><strong>Price</strong></li>
-                <li><strong>Income</strong></li>
-                <li><strong>Desires and tastes</strong></li>
-                <li><strong>Prices of related goods &amp; expectations</strong></li>
-              </ol>
-            </div>
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Supply and Demand · Solution</p>
+          <h2>What Shifts Demand?</h2>
+          <div class="content-card" style="font-size: 0.9em;">
+<p>A change in the good’s own price changes quantity demanded along the curve.</p><ul><li>Income: demand rises for a normal good and falls for an inferior good when income rises.</li><li>Tastes, expectations, and prices of substitutes or complements can shift demand.</li><li>The number of buyers also shifts market demand.</li></ul><p>If tea becomes cheaper, what happens to demand for coffee, assuming they are substitutes?</p>
           </div>
+<aside class="notes">Coffee demand shifts left. Ceteris paribus means holding other relevant factors constant.</aside>
         </section>
         <!-- Slide 7.5: Law of Demand -->
         <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
@@ -1111,7 +1083,7 @@
             <div class="def-card">
               <div class="def-title">Definition</div>
               <p style="font-weight: 700; font-size: 1.05em; color: #1e293b;">
-                Ceteris paribus, as the price of a good increases, the quantity demanded decreases, and vice versa.
+                Holding other factors constant (ceteris paribus), as the price of a good increases, the quantity demanded decreases, and vice versa.
               </p>
               <p style="font-size: 0.85em; color: #64748b; margin-top: 8px;">
                 This is the <strong>Law of Demand</strong> &mdash; an inverse relationship between price and quantity demanded.
@@ -1205,40 +1177,19 @@
         <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
           <p class="eyebrow">Supply and Demand · Supply</p>
           <h2>Supply</h2>
-          <div class="content-card">
-            <p>We now define supply.</p>
-            
-            <div class="def-card fragment" style="margin-top: 15px;">
-              <div class="def-title">Definition</div>
-              <strong>Supply</strong> of a product is the quantity of the good that a producer is <strong>willing to (produce and) sell</strong>.
-            </div>
-            
-            <p class="fragment" style="margin-top: 15px;">
-              It is important to emphasize &ldquo;willing to sell&rdquo; in the definition, and we will see this is a function of costs.
-            </p>
-            
-            <p class="fragment" style="font-weight: 600; text-align: center; color: #0f766e; margin-top: 20px;">
-              What affects a producer&rsquo;s supply of a product?
-            </p>
+          <div class="content-card" style="font-size: 0.9em;">
+<div class="def-card"><div class="def-title">Supply</div>The relationship between price and the quantity sellers are willing and able to sell during a given period, holding other factors constant.</div><p>Quantity supplied is the amount offered at one specified price.</p><p>Higher input costs can shift supply. A change in the product’s own price causes a movement along supply.</p>
           </div>
         </section>
 
         <!-- Slide 8.3: Factors Affecting Supply -->
         <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
           <p class="eyebrow">Supply and Demand · Supply</p>
-          <h2>What Affects Supply?</h2>
-          <div class="content-card" style="text-align: center;">
-            <p style="font-weight: 600; margin-bottom: 15px; text-align: center;">What affects a producer's supply of a product?</p>
-            <ol>
-              <li class="fragment"><strong>Price</strong></li>
-              <li class="fragment"><strong>Cost of production</strong> (e.g., labor, raw materials)</li>
-              <li class="fragment">Seller's <strong>outside options</strong></li>
-              <li class="fragment">
-                <span class="fill-blank"></span>
-                <span style="color: #64748b; font-size: 0.85em; margin-left: 10px;">(e.g., Technology, government regulations)</span>
-              </li>
-            </ol>
+          <h2>What Shifts Supply?</h2>
+          <div class="content-card" style="font-size: 0.9em;">
+<ul><li>Input prices, such as wages and raw-material costs.</li><li>Technology, taxes or subsidies, and production conditions such as weather.</li><li>Alternative uses of resources and the number of sellers.</li></ul><p>If coffee beans become more expensive, which curve shifts in the market for cups of coffee?</p>
           </div>
+<aside class="notes">Supply of cups shifts left/up. The higher price of coffee beans is an input-price change in this market, not a change in the price of a cup.</aside>
         </section>
 
         <!-- Slide 8.4: Law of Supply -->
@@ -1391,7 +1342,7 @@
             <div style="flex: 1; text-align: left;">
               <div class="def-card" style="margin: 0;">
                 <div class="def-title">Definition</div>
-                The <strong>market equilibrium</strong> is where supply meets demand. Any equilibrium consists of an <strong>equilibrium price</strong> and <strong>equilibrium quantity</strong>.
+                The <strong>market equilibrium</strong> is where quantity demanded equals quantity supplied at the same price. Any equilibrium consists of an <strong>equilibrium price</strong> and <strong>equilibrium quantity</strong>.
               </div>
             </div>
             <div style="flex: 1.3;">
@@ -1506,10 +1457,10 @@
           <p class="eyebrow">Supply and Demand Together</p>
           <h2>When the Price Is &ldquo;Wrong&rdquo;: Surplus &amp; Shortage</h2>
           <p style="font-size: 0.62em; color: #475569; margin: 0 auto 2px; max-width: 900px; line-height: 1.35;">
-            A caf&eacute;&rsquo;s supply and demand for coffee cross at one special price, <strong>P*</strong> &mdash; the price where every cup brewed gets sold. What happens at any <strong>other</strong> price?
+            Market supply and demand for coffee cross at P*, where planned purchases equal planned sales. What happens at any <strong>other</strong> price?
             <span style="color: #94a3b8;">Press <kbd style="background: #e2e8f0; border: 1px solid #cbd5e1; padding: 1px 6px; border-radius: 4px;">&rarr;</kbd> to walk through it.</span>
           </p>
-          <svg class="anim-graph halo" viewBox="0 0 760 470" style="width: 90%; max-height: 452px; margin: 0 auto; display: block; background: white; border: 1px solid #e2e8f0; border-radius: 10px;" role="img" aria-label="A café's coffee market. Demand slopes down, supply slopes up, and they cross at the market-clearing price P*. When the price is set too high, the café wants to sell more cups than customers will buy, creating an excess supply (surplus) of unsold cups, so the café cuts the price. When the price is set too low, customers want more cups than the café can brew, creating an excess demand (shortage), so buyers bid the price up. Either way the price is pushed back to P*.">
+          <svg class="anim-graph halo" viewBox="0 0 760 470" style="width: 90%; max-height: 452px; margin: 0 auto; display: block; background: white; border: 1px solid #e2e8f0; border-radius: 10px;" role="img" aria-label="A competitive coffee market. Demand slopes down, supply slopes up, and they cross at the market-clearing price P*. When the price is set too high, the café wants to sell more cups than customers will buy, creating an excess supply (surplus) of unsold cups, so the café cuts the price. When the price is set too low, customers want more cups than the café can brew, creating an excess demand (shortage), so buyers bid the price up. Either way the price is pushed back to P*.">
             <!-- axes, curves, equilibrium (always visible) -->
             <g>
               <line x1="80" y1="410" x2="700" y2="410" stroke="#475569" stroke-width="2.5"/>
@@ -1592,9 +1543,10 @@
 
             <!-- fragment 7: payoff -->
             <g class="fragment" data-fragment-index="7">
-              <text x="377" y="452" font-size="15" font-weight="700" fill="#059669" text-anchor="middle">Either way, the price is pushed back to P* &mdash; the market fixes itself.</text>
+              <text x="377" y="452" font-size="15" font-weight="700" fill="#059669" text-anchor="middle">Either way, the price is pushed back to P* &mdash; if prices can adjust.</text>
             </g>
           </svg>
+        <aside class="notes">Treat the café as one of many sellers. Price adjustment is a model mechanism; search costs, contracts, or price controls can slow or prevent it. Equilibrium does not by itself establish fairness or efficiency.</aside>
         </section>
 
       </section>
@@ -1747,7 +1699,7 @@
                     <li>Equilibrium <strong>price increased</strong> (&uarr;)</li>
                   </ul>
                   <p style="font-size: 0.85em; color: #64748b; margin-top: 8px;">
-                    Both rise because the demand curve shifts right along a fixed supply curve.
+                    Demand shifts right. The new equilibrium is farther up the unchanged supply curve.
                   </p>
                 </div>
               </div>
@@ -1801,7 +1753,7 @@
             </div>
             
             <ul style="margin-top: 15px;">
-              <li class="fragment">Market equilibrium changes <strong>only if</strong> a shock occurs that shifts the demand or supply curve.</li>
+              <li class="fragment">In this model, a new equilibrium follows a shift in demand or supply, holding the market rules fixed.</li>
               <li class="fragment">Demand or supply curve shifts occur if variables we were holding constant (tastes, income, government policies, costs of production) change.</li>
               <li class="fragment"><strong>Movement along</strong> the demand or supply curve is a result of <strong>only price changes</strong>.</li>
             </ul>
@@ -2077,12 +2029,13 @@
         </section>
 
         <!-- GROUP WORK Answers: graph -->
-        <section data-background-gradient="linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)">
-          <p class="eyebrow" style="color: #059669;">Group Work · Answers</p>
-          <h2>Finding Equilibrium, Graphically</h2>
-          <div class="slide-img-container" style="margin: 5px auto 0; padding: 8px;">
-            <img src="images/c2_gw_equilibrium_graph.png" alt="Supply and demand graph: equilibrium at P*=$4, Q*=12; at P=$6, Qd=8 and Qs=16 give an excess supply of 8, so the price falls toward $4" style="max-height: 470px;">
+        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+          <p class="eyebrow">Group Work · Answers</p>
+          <h2>Prediction or Value Judgment?</h2>
+          <div class="content-card" style="font-size: 0.9em;">
+<p>Economists distinguish claims about what happens from claims about what ought to happen.</p><div class="def-card"><div class="def-title">Positive statement</div>Holding other factors constant, a higher coffee price reduces quantity demanded. This is a testable prediction.</div><div class="def-card"><div class="def-title">Normative statement</div>The college ought to make coffee affordable for every student. This expresses a value judgment.</div><p>Which kind of statement is “Lower prices are always better for society”?</p>
           </div>
+<aside class="notes">Normative as phrased, and it also hides empirical assumptions about who benefits and what costs arise. Ask students to separate a policy goal from a prediction of its effects. This replaces a static duplicate of the preceding worked graph.</aside>
         </section>
 
       </section>
@@ -2092,20 +2045,13 @@
       
       <!-- Slide 10: Where to go from here? -->
       <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
-        <p class="eyebrow">A brief recap...</p>
-        <h2>Where to Go from Here?</h2>
-        <div class="content-card" style="text-align: center;">
-          <p style="font-size: 0.9em; margin-bottom: 15px; line-height: 1.4; text-align: left;">
-            So far, we have defined the fundamental objects of modern economic analyses and taken a first pass at working with them algebraically &mdash; finding equilibria and analyzing excess supply and demand.
-          </p>
-          <p style="font-weight: 600; color: #0f766e; margin-bottom: 5px; text-align: center;">Next time, we will:</p>
-          <ol>
-            <li class="fragment">Explain how economists use the supply and demand model to analyze changes in markets.</li>
-            <li class="fragment">Work through more numerical examples.</li>
-            <li class="fragment">And then define more objects of interest within the supply and demand model, starting with <strong>elasticity</strong>.</li>
-          </ol>
-        </div>
-      </section>
+          <p class="eyebrow">A brief recap...</p>
+          <h2>Check Before You Leave</h2>
+          <div class="content-card" style="font-size: 0.9em;">
+<ul><li>A concert ticket is already paid for and cannot be refunded. Which costs matter when deciding whether to attend?</li><li>Coffee’s price falls. Is that a demand shift or a movement along demand?</li><li>A frost reduces coffee supply. Predict the direction of price and quantity.</li></ul>
+          </div>
+<aside class="notes">Answers: compare future benefits and avoidable costs, including time; movement along demand; price rises and quantity falls, with demand unchanged. Next class: simultaneous shifts and elasticity.</aside>
+        </section>
 
       <!-- Slide 11: Closing -->
       <section data-background-gradient="linear-gradient(135deg, #0f172a 0%, #1e293b 100%)">

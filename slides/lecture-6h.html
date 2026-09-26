@@ -11,15 +11,15 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/white.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/highlight/monokai.css">
 
-  <!-- Google Fonts for premium typography -->
+  <!-- Roboto Light with heavier weights for headings and emphasis -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300..800;1,300..800&amp;display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --r-main-font: 'Plus Jakarta Sans', sans-serif;
-      --r-heading-font: 'Outfit', sans-serif;
+      --r-main-font: var(--font-sans);
+      --r-heading-font: var(--font-sans);
       --r-main-color: #1e293b;
       --r-heading-color: #0f172a;
       --r-link-color: #0f766e;
@@ -283,6 +283,7 @@
     .reveal .qa-row { margin: 6px 0; }
     .reveal .qa-row .q { color: #1e293b; }
   </style>
+  <link rel="stylesheet" href="../assets/css/typography.css">
 </head>
 <body>
   <div class="reveal">
@@ -332,49 +333,20 @@
         <!-- Multiple Choice Q1-4 -->
         <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
           <p class="eyebrow">Part A &middot; Multiple Choice</p>
-          <h2>Q1&ndash;4: Read, Then Reveal</h2>
-          <div class="content-card" style="font-size: 0.72em; max-width: 1040px;">
-            <div class="qa-row">
-              <p class="q"><strong>Q1.</strong> Which change shifts <em>market demand</em> for boba to the <strong>left</strong>?</p>
-              <p class="fragment" style="margin:2px 0 0;"><span class="ans-chip">(d)</span> A cheaper rival chain (a substitute) <em>and</em> falling income for a normal good both cut demand. A heat wave shifts it right; a lower boba price is a move <em>along</em> the curve.</p>
-            </div>
-            <div class="qa-row">
-              <p class="q"><strong>Q2.</strong> A \(\$60\) nonrefundable ticket &mdash; you&rsquo;d now rather stay home. How does the \(\$60\) factor in?</p>
-              <p class="fragment" style="margin:2px 0 0;"><span class="ans-chip">(a)</span> It&rsquo;s a <strong>sunk cost</strong> &mdash; unrecoverable and the same either way &mdash; so it&rsquo;s irrelevant. Compare only tonight&rsquo;s marginal benefit vs. cost, and stay home.</p>
-            </div>
-            <div class="qa-row">
-              <p class="q"><strong>Q3.</strong> \( |\varepsilon| = 0.8 \). Does a 10% price hike raise total revenue?</p>
-              <p class="fragment" style="margin:2px 0 0;"><span class="ans-chip">(a)</span> Demand is <strong>inelastic</strong> \( (|\varepsilon|<1) \): price up 10%, quantity down only about 8%, so revenue <strong>rises</strong>.</p>
-            </div>
-            <div class="qa-row">
-              <p class="q"><strong>Q4.</strong> For \( P = 20 - 2Q \), which statement about \( |\varepsilon| \) is right?</p>
-              <p class="fragment" style="margin:2px 0 0;"><span class="ans-chip">(d)</span> All of them. \( |\varepsilon| = \tfrac12\cdot\tfrac{P}{Q} \) gives \( 3,\ 1,\ \tfrac13 \) at \( Q = 2.5,\ 5,\ 7.5 \) &mdash; elasticity falls as you slide down the line.</p>
-            </div>
+          <h2>Q1–4: Read, Then Reveal</h2>
+          <div class="content-card" style="font-size: 0.74em;">
+<div class="qa-row"><p>Q1. For boba, classify a cheaper substitute, lower income for a normal good, and a lower own price.</p><p class="fragment">The first two shift demand left. A lower own price moves along demand.</p></div><div class="qa-row"><p>Q2. A $60 ticket is nonrefundable and cannot be resold. You now prefer staying home. Does the $60 matter?</p><p class="fragment">It is sunk. Compare tonight’s benefits and avoidable costs.</p></div><div class="qa-row"><p>Q3. At |ε| = 0.8, does a small price increase raise revenue?</p><p class="fragment">Yes, locally: a 1% price rise reduces quantity by about 0.8%.</p></div><div class="qa-row"><p>Q4. For \(P=20-2Q\), find |ε| at Q = 2.5, 5, and 7.5.</p><p class="fragment">Using \(|\varepsilon|=0.5P/Q\), the answers are 3, 1, and 1/3.</p></div>
           </div>
         </section>
 
         <!-- Multiple Choice Q5-8 -->
         <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
           <p class="eyebrow">Part A &middot; Multiple Choice</p>
-          <h2>Q5&ndash;8: Read, Then Reveal</h2>
-          <div class="content-card" style="font-size: 0.72em; max-width: 1040px;">
-            <div class="qa-row">
-              <p class="q"><strong>Q5.</strong> Priya: \( MC=\$3.20 \), \( AVC=\$2.00 \), \( ATC=\$4.00 \) at 200 loaves; price \(\$2.80\). Do what?</p>
-              <p class="fragment" style="margin:2px 0 0;"><span class="ans-chip">(d)</span> \( P=\$2.80 > AVC \), so <strong>operate</strong> despite the loss. But \( MC=\$3.20 > P \): she&rsquo;s making too many &mdash; <strong>cut output</strong> until \( MC \) falls to \(\$2.80\).</p>
-            </div>
-            <div class="qa-row">
-              <p class="q"><strong>Q6.</strong> A monopolist&rsquo;s \( MC \) rises by exactly \(\$6\). Raise price by how much?</p>
-              <p class="fragment" style="margin:2px 0 0;"><span class="ans-chip">(c)</span> By <strong>less than \(\$6\)</strong>. \( MR \) has twice the slope of demand, so the new price rises by only about <em>half</em> the cost increase.</p>
-            </div>
-            <div class="qa-row">
-              <p class="q"><strong>Q7.</strong> A per-unit tax&rsquo;s <strong>deadweight loss</strong> is best described as&hellip;</p>
-              <p class="fragment" style="margin:2px 0 0;"><span class="ans-chip">(c)</span> The value of <strong>mutually beneficial trades that no longer happen</strong> because of the tax wedge. Revenue is a transfer, not a loss.</p>
-            </div>
-            <div class="qa-row">
-              <p class="q"><strong>Q8.</strong> Which is a <strong>public good</strong> (non-rival <em>and</em> non-excludable)?</p>
-              <p class="fragment" style="margin:2px 0 0;"><span class="ans-chip">(d)</span> <strong>National defense.</strong> A sandwich is private; a fishery is a common resource; streaming and a toll road are club goods (excludable).</p>
-            </div>
+          <h2>Q5–8: Read, Then Reveal</h2>
+          <div class="content-card" style="font-size: 0.74em;">
+<div class="qa-row"><p>Q5. At 200 loaves: P = $2.80, MC = $3.20, AVC = $2, ATC = $4. What should Priya do?</p><p class="fragment">Operate in the short run but reduce output toward P = MC on rising MC.</p></div><div class="qa-row"><p>Q6. With linear demand and constant MC, MC rises by $6. How much does the monopoly price rise?</p><p class="fragment">By $3, if the optimum remains interior. This half-pass-through rule is specific to this model.</p></div><div class="qa-row"><p>Q7. What does tax DWL measure in an otherwise efficient market?</p><p class="fragment">Gains from trades prevented by the tax. Revenue is a transfer.</p></div><div class="qa-row"><p>Q8. Classify national defense and an uncongested toll road.</p><p class="fragment">National defense is a public good; the road is a club good.</p></div>
           </div>
+<aside class="notes">Q5 assumes the usual convex cost structure and unavoidable fixed costs. Revenue already covers variable cost at 200, so some positive output beats shutdown. A reduction raises profit locally; compare feasible choices.</aside>
         </section>
 
         <!-- True / False Q9 -->
@@ -386,9 +358,9 @@
             <div class="qa-row">(b) A linear demand curve is more elastic at higher prices (upper portion). <span class="fragment"><span class="ans-chip">True</span></span></div>
             <div class="qa-row">(c) A good with income elasticity \( < 0 \) is a normal good. <span class="fragment"><span class="ans-chip wrong">False</span> negative \( \Rightarrow \) <strong>inferior</strong>.</span></div>
             <div class="qa-row">(d) For linear demand, \( MR \) shares the intercept but has twice the slope. <span class="fragment"><span class="ans-chip">True</span></span></div>
-            <div class="qa-row">(e) A monopolist sets \( MR=MC \) for quantity, then charges the highest price demand allows. <span class="fragment"><span class="ans-chip">True</span></span></div>
-            <div class="qa-row">(f) A competitive firm should shut down whenever it makes a loss. <span class="fragment"><span class="ans-chip wrong">False</span> only if \( P < AVC \).</span></div>
-            <div class="qa-row">(g) In long-run competitive equilibrium, profit is zero and \( P = \min ATC \). <span class="fragment"><span class="ans-chip">True</span></span></div>
+            <div class="qa-row">(e) For the smooth interior examples here, a monopolist sets \( MR=MC \) for quantity, then charges the highest price demand allows. <span class="fragment"><span class="ans-chip">True</span></span></div>
+            <div class="qa-row">(f) A competitive firm should shut down whenever it makes a loss. <span class="fragment"><span class="ans-chip wrong">False</span> only if \( P < \min AVC \).</span></div>
+            <div class="qa-row">(g) With identical firms and free entry, long-run economic profit is zero and \( P = \min ATC \). <span class="fragment"><span class="ans-chip">True</span></span></div>
             <div class="qa-row">(h) A per-unit tax&rsquo;s DWL equals the revenue it raises. <span class="fragment"><span class="ans-chip wrong">False</span> revenue is a transfer, not the loss.</span></div>
           </div>
         </section>
@@ -420,24 +392,9 @@
         <!-- Public goods Q11 -->
         <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
           <p class="eyebrow">Part B &middot; Public Goods</p>
-          <h2>Q11: No Price, No Producer</h2>
-          <div class="content-card" style="font-size: 0.82em;">
-            <div class="example-card" style="margin:0 0 10px;">
-              <div class="ex-title">The question</div>
-              A town weighs a Fourth-of-July fireworks display. Why is it non-rival and non-excludable? Why would a private firm under-provide it? Name a fix &mdash; and classify a <em>congested toll road</em>.
-            </div>
-            <div class="def-card fragment" style="margin:8px 0;">
-              <div class="def-title">Step 1 &mdash; Why it&rsquo;s a public good</div>
-              <strong>Non-rival:</strong> one person watching doesn&rsquo;t reduce anyone else&rsquo;s view. <strong>Non-excludable:</strong> you can&rsquo;t fence off the night sky to stop non-payers.
-            </div>
-            <div class="def-card fragment" style="margin:8px 0; border-left-color:#b91c1c; background:rgba(185,28,28,0.04);">
-              <div class="def-title" style="color:#b91c1c;">Step 2 &mdash; The free-rider problem</div>
-              Since non-payers can&rsquo;t be excluded, everyone waits for someone else to pay. A private firm can&rsquo;t collect enough to cover costs, so it <strong>under-provides (or never provides)</strong> &mdash; &ldquo;no price, no producer.&rdquo;
-            </div>
-            <div class="def-card fragment" style="margin:8px 0; border-left-color:#3b82f6; background:rgba(59,130,246,0.04);">
-              <div class="def-title" style="color:#3b82f6;">Step 3 &mdash; A fix, and the toll road</div>
-              Fix: <strong>government provision funded by taxes</strong>. A <em>congested</em> toll road is excludable (the toll) but rival (each car slows the rest) \( \Rightarrow \) it&rsquo;s a <strong>private good</strong>.
-            </div>
+          <h2>Q11: Public Goods and Free Riding</h2>
+          <div class="content-card" style="font-size: 0.9em;">
+<p>Why can a town-wide fireworks display be non-rival and non-excludable? Why might voluntary funding be too low?</p><div class="def-card"><div class="def-title">Answer</div>Another viewer does not use up the display, and excluding nearby non-payers is difficult. People can benefit without contributing, so some may free-ride.</div><p>Possible funding: taxes, donations, or sponsorship. Provision is not necessarily zero.</p><div class="def-card"><div class="def-title">Road check</div>An uncongested toll road is a club good. When it becomes congested, it is rival as well as excludable: a private good in this classification.</div>
           </div>
         </section>
 
@@ -503,11 +460,11 @@
               <p style="font-size:0.62em; color:#64748b; margin:0 0 6px;">Demand choke price (where \( Q_D = 0 \)) is \( P = \$12 \); supply passes through the origin.</p>
               <div class="def-card" style="font-size:0.78em; margin:6px 0;">
                 <div class="def-title">Consumer surplus</div>
-                \[ CS = \tfrac12 Q^*(P_{\text{choke}} - P^*) = \tfrac12(80)(12-4) = \$320 \]
+                \[ CS = \tfrac12 Q^*(P_{\text{choke}} - P^*) = \tfrac12(80)(12-4) = \$320\text{ thousand} \]
               </div>
               <div class="def-card fragment" style="font-size:0.78em; margin:6px 0; border-left-color:#16a34a; background:rgba(22,163,74,0.05);">
                 <div class="def-title" style="color:#16a34a;">Producer surplus</div>
-                \[ PS = \tfrac12 Q^* P^* = \tfrac12(80)(4) = \$160 \]
+                \[ PS = \tfrac12 Q^* P^* = \tfrac12(80)(4) = \$160\text{ thousand} \]
               </div>
               <div class="def-card fragment" style="font-size:0.78em; margin:6px 0; border-left-color:#3b82f6; background:rgba(59,130,246,0.05);">
                 <div class="def-title" style="color:#3b82f6;">Total welfare</div>
@@ -559,9 +516,10 @@
             </div>
             <div class="def-card fragment" style="border-left-color:#b91c1c; background:rgba(185,28,28,0.04);">
               <div class="def-title" style="color:#b91c1c;">Step 2 &mdash; Direction of \( CS \) and \( W \)</div>
-              Price rises (\(\$4 \to \$6\)) and quantity falls (\(80 \to 60\)). Consumers pay more and buy less, so \( CS \) <strong>falls</strong>; fewer mutually beneficial trades occur (and real costs are higher), so total welfare \( W \) <strong>falls</strong> too.
+              Price rises (\(\$4 \to \$6\)) and quantity falls (\(80 \to 60\)). Consumers pay more and buy less, so \( CS \) <strong>falls</strong>; fewer mutually beneficial trades occur (and real costs are higher), so total surplus <strong>falls</strong> too. The new equilibrium remains efficient given the higher real costs.
             </div>
           </div>
+        <aside class="notes">New CS = 0.5 × 60 × (12 − 6) = 180 thousand dollars. New inverse supply is P = 3 + Q/20; PS = 0.5 × 60 × (6 − 3) = 90 thousand. Total surplus = 270 thousand, down from 480 thousand. The new equilibrium remains efficient at the higher real costs: the 210-thousand loss is not DWL relative to the new supply curve.</aside>
         </section>
 
       </section>
@@ -620,7 +578,7 @@
           <div class="content-card" style="font-size: 0.86em;">
             <p style="margin:0 0 6px;">A food truck is the sole seller of lunch &mdash; a <strong>monopoly</strong>. It faces</p>
             <p style="text-align:center;">\[ P = 100 - 2Q, \qquad MC = \$20 \text{ (constant, no fixed cost)} \]</p>
-            <p style="margin:0 0 10px; font-size:0.9em; color:#64748b;">\( Q \) is meals per day (in <em>hundreds</em>); \( P \) is dollars per meal.</p>
+            <p style="margin:0 0 10px; font-size:0.9em; color:#64748b;">Q is hundreds of meals per day; P and MC are dollars per meal. Revenue, total cost, and profit from these formulas are in hundreds of dollars per day.</p>
             <div class="example-card" style="margin:0;">
               <div class="ex-title">Your tasks</div>
               <ul style="margin:4px 0 0;">
@@ -672,6 +630,7 @@
               \[ PS = (P_M - MC)Q_M = (60 - 20)(20) = 800 \quad(=\pi,\ \text{since } MC \text{ constant, no fixed cost}) \]
             </div>
           </div>
+        <aside class="notes">Units: CS = 400 hundreds of dollars = $40,000/day; PS = 800 hundreds = $80,000/day. The unusually large food-truck volume is a stylized numerical example.</aside>
         </section>
 
         <!-- Q14(c) with graph -->
@@ -685,7 +644,7 @@
                 \[ DWL = \tfrac12 (Q_c - Q_M)(P_M - MC) \]
                 \[ = \tfrac12 (40 - 20)(60 - 20) = 400 \]
               </div>
-              <p class="fragment" style="font-size:0.72em; color:#64748b; margin:8px 0 0;">The monopoly makes only 20 (hundred) meals instead of 40. On units 20&ndash;40, buyers value lunch above the \(\$20\) cost of making it &mdash; those gains from trade simply vanish. That lost surplus is the red triangle.</p>
+              <p class="fragment" style="font-size:0.72em; color:#64748b; margin:8px 0 0;">The monopoly makes only 20 (hundred) meals instead of 40. On units 20&ndash;40, buyers value lunch above the \(\$20\) cost of making it &mdash; those gains from trade simply vanish. That lost surplus is 400 hundreds of dollars = $40,000/day, shown by the red triangle.</p>
             </div>
             <div style="flex:1.1;">
               <svg class="anim-graph" viewBox="0 0 560 400" style="width:100%; max-height:370px; background:#fff; border:1px solid #e2e8f0; border-radius:10px;" role="img" aria-label="Monopoly food truck. Demand P=100-2Q, MR with twice the slope, constant MC=$20. Monopoly point E_M at Q=20, P=$60; competitive point E_c at Q=40, P=$20. Blue consumer-surplus triangle, green producer-surplus rectangle, and a red deadweight-loss triangle between Q=20 and Q=40.">
@@ -742,7 +701,7 @@
           <div class="content-card" style="font-size: 0.84em;">
             <p style="margin:0 0 4px;">The generic-bagel market is perfectly competitive. Every identical firm has</p>
             <p style="text-align:center;">\[ TC(q) = 2q^2 + 50, \quad MC(q) = 4q, \quad AVC = 2q, \quad ATC = \tfrac{50}{q} + 2q \]</p>
-            <p style="margin:0 0 8px; font-size:0.88em; color:#64748b;">\( q \) is in <em>hundreds</em> of bagels/day. Market demand: \( Q_D = 3000 - 25P \).</p>
+            <p style="margin:0 0 8px; font-size:0.88em; color:#64748b;">q and Q are hundreds of bagels/day; P, MC, and average costs are dollars per hundred bagels; TC and profit are dollars/day. Market demand: \( Q_D = 3000 - 25P \).</p>
             <div class="example-card" style="margin:0;">
               <div class="ex-title">Your tasks</div>
               <ul style="margin:4px 0 0;">
@@ -820,14 +779,14 @@
           <div class="content-card" style="font-size: 0.78em;">
             <p style="margin:0 0 4px;">APT Press prints magazines in a <strong>perfectly competitive</strong> market. Demand and identical-firm costs:</p>
             <p style="text-align:center;">\[ Q_D = 64 - 2P_D, \qquad TC(q) = 2q^2 + 2q + 32, \qquad MC(q) = 4q + 2 \]</p>
-            <p style="margin:0 0 8px; font-size:0.92em; color:#64748b;">\( Q_D \) in <em>thousands</em> of copies; \( q \) in <em>tens</em> of copies. Current price they take as given: \(\$10\).</p>
+            <p style="margin:0 0 8px; font-size:0.92em; color:#64748b;">Both Q and q are thousands of copies per period. P and MC are dollars per copy; TC and profit are thousands of dollars per period. Current price: \(\$10\).</p>
             <div class="example-card" style="margin:0; font-size:0.94em;">
               <div class="ex-title">Your tasks</div>
               <ul style="margin:4px 0 0;">
                 <li><strong>(a)</strong> At \(\$10\), find APT&rsquo;s profit-maximizing \( q \). &nbsp; <strong>(b)</strong> Market quantity and number of firms.</li>
                 <li><strong>(c)</strong> Profit is negative &mdash; short-run or long-run? &nbsp; <strong>(d)</strong> Do firms enter or exit?</li>
                 <li><strong>(e)</strong> In long-run equilibrium: price, APT&rsquo;s \( q \), market quantity, number of firms.</li>
-                <li><strong>(f)</strong> If APT becomes a <strong>monopolist</strong>: profit-maximizing \( Q \) and \( P \). &nbsp; <strong>(g)</strong> [E.C.] Elasticity there, and why never price inelastic.</li>
+                <li><strong>(f)</strong> In a separate scenario, entry is blocked and APT alone serves the market with the same cost function: profit-maximizing \( Q \) and \( P \). &nbsp; <strong>(g)</strong> [E.C.] Elasticity there, and why never price inelastic.</li>
               </ul>
             </div>
           </div>
@@ -840,16 +799,16 @@
           <div class="content-card" style="font-size: 0.8em;">
             <div class="def-card">
               <div class="def-title">(a) Profit-maximizing output &mdash; \( MR = P = MC \)</div>
-              \[ 4q + 2 = 10 \;\Longrightarrow\; 4q = 8 \;\Longrightarrow\; q = 2 \text{ (tens of copies)} \]
+              \[ 4q + 2 = 10 \;\Longrightarrow\; 4q = 8 \;\Longrightarrow\; q = 2 \text{ (thousand copies)} \]
             </div>
             <div class="def-card fragment">
               <div class="def-title">(b) Market quantity and number of firms</div>
               \( Q_D = 64 - 2(10) = 44 \) (thousand). With each firm at \( q = 2 \):
-              \[ N = \frac{Q_D}{q} = \frac{44}{2} = 22 \text{ (hundred)} \;\Rightarrow\; 2{,}200 \text{ firms} \]
+              \[ N = \frac{Q_D}{q} = \frac{44}{2} = 22 \text{ firms} \]
             </div>
             <div class="def-card fragment" style="border-left-color:#b91c1c; background:rgba(185,28,28,0.04);">
               <div class="def-title" style="color:#b91c1c;">(c)&ndash;(d) Losses, so&hellip;</div>
-              \( \pi = 10(2) - \big[2(2)^2 + 2(2) + 32\big] = 20 - 44 = -24 < 0 \). Negative profit \( \Rightarrow \) this is a <strong>short-run</strong> equilibrium, and as the market adjusts <strong>some firms will exit</strong>.
+              \( \pi = 10(2) - \big[2(2)^2 + 2(2) + 32\big] = 20 - 44 = -24 < 0 \). This is a $24,000 loss. Negative profit \( \Rightarrow \) this is a <strong>short-run</strong> equilibrium, and as the market adjusts <strong>some firms will exit</strong>.
             </div>
           </div>
         </section>
@@ -862,7 +821,7 @@
             <div class="def-card">
               <div class="def-title">Step 1 &mdash; Zero profit means \( MC = ATC \)</div>
               With \( ATC = \tfrac{TC}{q} = 2q + 2 + \tfrac{32}{q} \):
-              \[ 2q + 2 + \tfrac{32}{q} = 4q + 2 \;\Longrightarrow\; 2q = \tfrac{32}{q} \;\Longrightarrow\; q^2 = 16 \;\Longrightarrow\; q = 4 \text{ (tens)} \]
+              \[ 2q + 2 + \tfrac{32}{q} = 4q + 2 \;\Longrightarrow\; 2q = \tfrac{32}{q} \;\Longrightarrow\; q^2 = 16 \;\Longrightarrow\; q = 4 \text{ (thousand copies)} \]
             </div>
             <div class="def-card fragment">
               <div class="def-title">Step 2 &mdash; Long-run price, market quantity</div>
@@ -870,8 +829,8 @@
             </div>
             <div class="def-card fragment">
               <div class="def-title">Step 3 &mdash; Number of firms</div>
-              \[ N = \frac{Q_D}{q} = \frac{28}{4} = 7 \text{ (hundred)} \;\Rightarrow\; 700 \text{ firms} \]
-              <span style="font-size:0.85em; color:#64748b;">Consistent with (c)&ndash;(d): from 2,200 down to 700 &mdash; most firms exited.</span>
+              \[ N = \frac{Q_D}{q} = \frac{28}{4} = 7 \text{ firms} \]
+              <span style="font-size:0.85em; color:#64748b;">Consistent with (c)&ndash;(d): from 22 down to 7 &mdash; most firms exited.</span>
             </div>
           </div>
         </section>
@@ -903,12 +862,12 @@
           <div class="content-card" style="font-size: 0.86em; background: rgba(255,255,255,0.75);">
             <div class="def-card">
               <div class="def-title">Step 1 &mdash; Elasticity at \( (P^*, Q^*) = (29, 6) \)</div>
-              \( Q_D = 64 - 2P \Rightarrow \tfrac{dQ}{dP} = -2 \), so
-              \[ \varepsilon_D = \frac{dQ}{dP}\cdot\frac{P}{Q} = -2\cdot\frac{29}{6} = -\frac{29}{3} \approx -9.67 \quad(\text{elastic}) \]
+              \( Q_D = 64 - 2P \Rightarrow \tfrac{\Delta Q}{\Delta P} = -2 \), so
+              \[ \varepsilon_D = \frac{\Delta Q}{\Delta P}\cdot\frac{P}{Q} = -2\cdot\frac{29}{6} = -\frac{29}{3} \approx -9.67 \quad(\text{elastic}) \]
             </div>
             <div class="def-card fragment" style="border-left-color:#b45309; background:rgba(180,83,9,0.06);">
               <div class="def-title" style="color:#b45309;">Step 2 &mdash; The intuition</div>
-              On the <strong>inelastic</strong> portion, \( MR < 0 \): cutting quantity (raising price) would <em>raise</em> total revenue <em>and</em> lower cost. So the firm can always increase profit by moving left &mdash; until \( MR = MC > 0 \), which lies on the <strong>elastic</strong> portion. A monopolist never optimally prices where demand is inelastic.
+              On the <strong>inelastic</strong> portion, \( MR < 0 \): cutting quantity (raising price) raises total revenue. With nonnegative marginal cost, it also reduces cost or leaves it unchanged, so profit rises. An interior optimum with \( MC > 0 \) lies on the <strong>elastic</strong> portion; if \( MC = 0 \), it may be unit-elastic. This argument assumes the monopolist charges a single price.
             </div>
           </div>
         </section>
@@ -925,7 +884,7 @@
           <div class="content-card" style="font-size: 0.82em;">
             <p style="margin:0 0 6px;">The sugary-soda market (in thousands of cans) is perfectly competitive, with</p>
             <p style="text-align:center;">\[ Q_D = 120 - 20P, \qquad Q_S = 40P \]</p>
-            <p style="margin:0 0 8px; font-size:0.94em; color:#64748b;">The city imposes a <strong>\(\$0.60\) per-can tax collected from sellers</strong>.</p>
+            <p style="margin:0 0 8px; font-size:0.94em; color:#64748b;">Ignore externalities in this exercise. The city imposes a <strong>\(\$0.60\) per-can tax collected from sellers</strong>.</p>
             <div class="example-card" style="margin:0;">
               <div class="ex-title">Your task &mdash; one big, fully-labeled diagram</div>
               Sketch the supply-and-demand diagram <em>with the tax</em>, and clearly show and label:
@@ -1050,7 +1009,7 @@
         <p class="eyebrow" style="color: #2dd4bf;">That&rsquo;s a wrap</p>
         <h1 style="color: white; font-size: 2.1em; margin-bottom: 18px;">You&rsquo;ve Reviewed All of Classes 1&ndash;6</h1>
         <div style="max-width: 820px; margin: 0 auto 26px; color:#cbd5e1; font-size:0.82em; text-align:left;">
-          <p style="margin:0 0 8px;">The through-line of every problem: <strong style="color:#2dd4bf;">total surplus</strong>. Competition maximizes it; monopoly, taxes, and market failures each open a gap.</p>
+          <p style="margin:0 0 8px;">The through-line of every problem: <strong style="color:#2dd4bf;">total surplus</strong>. Without market failures, competition maximizes gains from trade. Monopoly and some policies can reduce them; corrective policies can increase them.</p>
           <ul style="color:#cbd5e1;">
             <li>Equilibrium, \( CS \), \( PS \), and welfare &mdash; and how a supply shock moves them.</li>
             <li>The three elasticities, and reading them off a demand curve.</li>
@@ -1084,4 +1043,3 @@
   <script src="../slides/annotate.js"></script>
 </body>
 </html>
-
