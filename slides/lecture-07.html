@@ -1247,7 +1247,16 @@
           { left: '\\[', right: '\\]', display: true }
         ]
       },
-      plugins: [ RevealHighlight, RevealNotes, RevealMath.KaTeX ]
+      plugins: [ RevealHighlight, RevealNotes, RevealMath.KaTeX ],
+      // Math is written as \( ... \) or \[ ... \] only. Without this,
+      // KaTeX also treats a bare "$" as a math delimiter and garbles any
+      // sentence that mentions two dollar amounts.
+      katex: {
+        delimiters: [
+          { left: '\\(', right: '\\)', display: false },
+          { left: '\\[', right: '\\]', display: true }
+        ]
+      }
     });
   </script>
   <script src="market-spectrum.js"></script>

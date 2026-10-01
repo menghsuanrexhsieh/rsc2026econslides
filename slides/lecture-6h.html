@@ -769,7 +769,16 @@
       hash: true,
       slideNumber: 'c/t',
       transition: 'slide',
-      plugins: [ RevealHighlight, RevealNotes, RevealMath.KaTeX ]
+      plugins: [ RevealHighlight, RevealNotes, RevealMath.KaTeX ],
+      // Math is written as \( ... \) or \[ ... \] only. Without this,
+      // KaTeX also treats a bare "$" as a math delimiter and garbles any
+      // sentence that mentions two dollar amounts.
+      katex: {
+        delimiters: [
+          { left: '\\(', right: '\\)', display: false },
+          { left: '\\[', right: '\\]', display: true }
+        ]
+      }
     });
   </script>
   <script src="../slides/annotate.js"></script>
