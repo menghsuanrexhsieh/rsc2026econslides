@@ -40,20 +40,20 @@
   var MAX_ROUNDS = 5;              // the class plays a fixed five rounds
 
   // ---------- palette ----------
-  var INK = '#1e293b', MUTED = '#64748b', AXIS = '#475569', GUIDE = '#94a3b8';
+  var INK = '#111111', MUTED = '#6b6b6b', AXIS = '#4d4d4d', GUIDE = '#9a9a9a';
 
   // The two firms: a hot orange against a deep cobalt. Maximum hue separation,
   // and they differ sharply in lightness too, so the pair survives greyscale
   // printing and the common forms of colour blindness — which a teal/violet
   // pair does not.
   var A_COL = '#ea580c';           // Station A
-  var B_COL = '#1d4ed8';           // Station B
+  var B_COL = '#155e75';           // Station B
 
   // Benchmarks are annotation, not data. Keeping them neutral means the only
   // saturated ink on a chart always stands for a firm.
-  var REF_COLL = '#94a3b8';        // the collusive price, $3
-  var REF_MC = '#475569';          // marginal cost, $1
-  var GOOD = '#0f766e';            // the cooperative outcome
+  var REF_COLL = '#9a9a9a';        // the collusive price, $3
+  var REF_MC = '#4d4d4d';          // marginal cost, $1
+  var GOOD = '#1e2bfa';            // the cooperative outcome
   var NEG = '#be123c';             // a loss
 
   function demand(p) { return Math.max(0, A - B * p); }
@@ -542,10 +542,10 @@
 
       // your best reply
       if (br.kind !== 'none') {
-        svgEl(svg, 'circle', { cx: px(br.p), cy: py(br.pi), r: 7, fill: '#0f172a', stroke: '#fff', 'stroke-width': 2.5 });
+        svgEl(svg, 'circle', { cx: px(br.p), cy: py(br.pi), r: 7, fill: '#111111', stroke: '#fff', 'stroke-width': 2.5 });
         svgEl(svg, 'text', {
           x: px(br.p) - 12, y: py(br.pi) - 12, 'font-size': 12.5, 'font-weight': 700,
-          fill: '#0f172a', 'text-anchor': 'end'
+          fill: '#111111', 'text-anchor': 'end'
         }, 'best reply ' + money(br.pi));
       }
 

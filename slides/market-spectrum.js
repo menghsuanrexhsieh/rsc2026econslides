@@ -30,7 +30,7 @@
 
   var NS = 'http://www.w3.org/2000/svg';
 
-  var INK = '#1e293b', MUTED = '#64748b';
+  var INK = '#111111', MUTED = '#6b6b6b';
 
   /* The four regimes, left (most competitive) to right (least). */
   var REGIMES = [
@@ -39,8 +39,7 @@
       key: 'pc',
       name: 'Perfect competition',
       tag: 'price takers',
-      color: '#0f766e',
-      tint: 'rgba(15, 118, 110, 0.06)',
+      color: '#1e2bfa',
       firms: 'Very many, each tiny',
       price: '<em>P</em> = <em>MC</em>',
       power: 'None — the firm takes the price as given',
@@ -53,8 +52,7 @@
       key: 'mc',
       name: 'Monopolistic competition',
       tag: 'many firms, differentiated products',
-      color: '#0d9488',
-      tint: 'rgba(13, 148, 136, 0.06)',
+      color: '#4c56fb',
       firms: 'Many, but each sells something slightly different',
       price: '<em>P</em> above <em>MC</em>',
       power: 'Depends on differentiation and substitutes',
@@ -68,7 +66,6 @@
       name: 'Oligopoly',
       tag: 'a handful of firms who watch each other',
       color: '#d97706',
-      tint: 'rgba(217, 119, 6, 0.07)',
       today: true,
       firms: 'A handful — few enough to know each rival by name',
       price: 'Not pinned down: anywhere from <em>P</em> = <em>MC</em> to the monopoly price',
@@ -87,7 +84,6 @@
       name: 'Monopoly',
       tag: 'price maker',
       color: '#be123c',
-      tint: 'rgba(190, 18, 60, 0.06)',
       firms: 'One',
       price: 'Choose output where <em>MR</em> = <em>MC</em>; read price from demand',
       power: 'Constrained by demand and possible substitutes',
@@ -137,14 +133,14 @@
 
     var defs = svgEl(svg, 'defs');
     var grad = svgEl(defs, 'linearGradient', { id: 'msGrad', x1: '0', y1: '0', x2: '1', y2: '0' });
-    svgEl(grad, 'stop', { offset: '0%', 'stop-color': '#0f766e' });
-    svgEl(grad, 'stop', { offset: '38%', 'stop-color': '#0d9488' });
+    svgEl(grad, 'stop', { offset: '0%', 'stop-color': '#1e2bfa' });
+    svgEl(grad, 'stop', { offset: '38%', 'stop-color': '#4c56fb' });
     svgEl(grad, 'stop', { offset: '68%', 'stop-color': '#d97706' });
     svgEl(grad, 'stop', { offset: '100%', 'stop-color': '#be123c' });
 
     // end captions
     svgEl(svg, 'text', {
-      x: X0 + CAP_INSET, y: 30, 'font-size': 15, 'font-weight': 800, fill: '#0f766e'
+      x: X0 + CAP_INSET, y: 30, 'font-size': 15, 'font-weight': 800, fill: '#1e2bfa'
     }, 'PERFECT COMPETITION');
     svgEl(svg, 'text', {
       x: X0 + CAP_INSET, y: 48, 'font-size': 12.5, fill: MUTED
@@ -159,7 +155,7 @@
     // the bar itself, with an arrowhead at each end
     svgEl(svg, 'polygon', {
       points: (X0 - 34) + ',' + (BAR_Y + BAR_H / 2) + ' ' + X0 + ',' + (BAR_Y - 6) + ' ' + X0 + ',' + (BAR_Y + BAR_H + 6),
-      fill: '#0f766e'
+      fill: '#1e2bfa'
     });
     svgEl(svg, 'polygon', {
       points: (X1 + 34) + ',' + (BAR_Y + BAR_H / 2) + ' ' + X1 + ',' + (BAR_Y - 6) + ' ' + X1 + ',' + (BAR_Y + BAR_H + 6),
@@ -247,7 +243,6 @@
       name.style.color = r.color;
       tag.textContent = r.tag;
       card.style.borderLeftColor = r.color;
-      card.style.background = r.tint;
 
       cells.forEach(function (c) { c.node.innerHTML = r[c.key]; });
 

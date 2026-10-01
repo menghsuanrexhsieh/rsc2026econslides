@@ -25,12 +25,12 @@
     unit:      { fill: '#7c3aed', text: '#6d28d9', tint: 'rgba(124, 58, 237, 0.13)',
                  chip: 'UNIT-ELASTIC · |ε| = 1',
                  note: 'At the midpoint, small percentage changes have equal magnitudes.' },
-    inelastic: { fill: '#0d9488', text: '#0f766e', tint: 'rgba(13, 148, 136, 0.13)',
+    inelastic: { fill: '#4c56fb', text: '#1e2bfa', tint: 'rgba(76, 86, 251, 0.13)',
                  chip: 'INELASTIC · |ε| < 1',
                  note: 'For small changes, |%ΔQ| is smaller than |%ΔP|.' }
   };
 
-  var INK = '#1e293b', MUTED = '#64748b', AXIS = '#475569', GUIDE = '#94a3b8';
+  var INK = '#111111', MUTED = '#6b6b6b', AXIS = '#4d4d4d', GUIDE = '#9a9a9a';
   var MID = '#7c3aed';
   var T_MIN = 0.05, T_STEP = 0.025;
 
@@ -89,7 +89,7 @@
       make(svg, 'text', { x: mx, y: Y0 + 21, 'font-size': 16, 'font-weight': 700, fill: MID, 'text-anchor': 'middle' }, fmt(A / 2));
 
       // ---- readout panel ----
-      make(svg, 'rect', { x: 425, y: 58, width: 310, height: 132, rx: 10, fill: '#f8fafc', stroke: '#e2e8f0' });
+      make(svg, 'rect', { x: 425, y: 58, width: 310, height: 132, rx: 10, fill: '#fbfaf3', stroke: '#e8e5d6' });
       els.tPQ = make(svg, 'text', { x: 441, y: 90, 'font-size': 18, 'font-weight': 600, fill: INK }, '');
       els.tFormula = make(svg, 'text', { x: 441, y: 118, 'font-size': 16, fill: INK }, '');
       els.chipRect = make(svg, 'rect', { x: 441, y: 134, width: 240, height: 34, rx: 17 });

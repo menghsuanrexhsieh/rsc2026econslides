@@ -11,336 +11,11 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/white.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/highlight/monokai.css">
 
-  <!-- Roboto Light with heavier weights for headings and emphasis -->
+  <!-- Space Grotesk for display type, Inter for body text (Blue Professional theme) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300..800;1,300..800&amp;display=swap" rel="stylesheet">
-
-  <style>
-    :root {
-      --r-main-font: var(--font-sans);
-      --r-heading-font: var(--font-sans);
-      --r-main-color: #1e293b;
-      --r-heading-color: #0f172a;
-      --r-link-color: #0f766e;
-      --r-selection-background-color: #ccfbf1;
-    }
-    
-    .reveal {
-      font-family: var(--r-main-font);
-      color: var(--r-main-color);
-      font-size: 24px; /* Reduced by 40% from default 40px */
-    }
-    
-    .reveal h1, .reveal h2, .reveal h3, .reveal h4 {
-      font-family: var(--r-heading-font);
-      color: var(--r-heading-color);
-      font-weight: 700;
-      letter-spacing: -0.02em;
-    }
-
-    .reveal h1 { font-size: 2.2em; line-height: 1.1; }
-    .reveal h2 { font-size: 1.6em; line-height: 1.2; margin-bottom: 15px; }
-    .reveal h3 { font-size: 1.2em; line-height: 1.3; }
-    
-    .reveal .eyebrow {
-      text-transform: uppercase;
-      letter-spacing: 0.15em;
-      font-size: 0.45em;
-      font-weight: 700;
-      color: #0f766e;
-      margin-bottom: 10px;
-      display: inline-block;
-    }
-    
-    /* Elegant card container */
-    .reveal .content-card {
-      background: rgba(255, 255, 255, 0.85);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border: 1px solid rgba(255, 255, 255, 0.5);
-      border-radius: 12px;
-      padding: 18px 24px;
-      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.02);
-      margin: 12px auto;
-      text-align: left;
-      max-width: 920px;
-    }
-    
-    .reveal .def-card {
-      border-left: 4px solid #0f766e;
-      background: rgba(15, 118, 110, 0.04);
-      border-radius: 4px 10px 10px 4px;
-      padding: 12px 18px;
-      margin: 12px 0;
-      text-align: left;
-    }
-    .reveal .def-card .def-title {
-      font-family: var(--r-heading-font);
-      font-weight: 700;
-      color: #0f766e;
-      font-size: 0.8em;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      margin-bottom: 4px;
-    }
-    
-    .reveal .example-card {
-      border-left: 4px solid #3b82f6;
-      background: rgba(59, 130, 246, 0.04);
-      border-radius: 4px 10px 10px 4px;
-      padding: 12px 18px;
-      margin: 12px 0;
-      text-align: left;
-    }
-    .reveal .example-card .ex-title {
-      font-family: var(--r-heading-font);
-      font-weight: 700;
-      color: #3b82f6;
-      font-size: 0.8em;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      margin-bottom: 4px;
-    }
-    
-    /* Slide image styling */
-    .reveal .slide-img-container {
-      background: white;
-      padding: 8px;
-      border-radius: 10px;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.02);
-      border: 1px solid #e2e8f0;
-      display: inline-block;
-      margin-top: 8px;
-    }
-    .reveal .slide-img-container img {
-      max-height: 280px;
-      width: auto;
-      margin: 0;
-      display: block;
-      border-radius: 4px;
-    }
-    
-    /* Grid for side-by-side clips */
-    .reveal .img-gallery {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 15px;
-      flex-wrap: wrap;
-      margin-top: 15px;
-    }
-    .reveal .img-gallery .gallery-item {
-      background: white;
-      padding: 6px;
-      border-radius: 10px;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.02);
-      border: 1px solid #e2e8f0;
-    }
-    .reveal .img-gallery img {
-      max-height: 220px;
-      width: auto;
-      display: block;
-      border-radius: 4px;
-      margin: 0;
-    }
-
-    /* Standard list styling (for inside cards, columns, etc.) */
-    .reveal ul, .reveal ol {
-      display: block;
-      text-align: left;
-      margin: 10px 0 !important;
-      padding-left: 20px;
-    }
-    
-    .reveal ul {
-      list-style-type: disc;
-    }
-    
-    .reveal ol {
-      list-style-type: decimal;
-    }
-    
-    .reveal li {
-      text-align: left;
-      margin-bottom: 8px;
-      line-height: 1.35;
-    }
-    
-    /* Indentation and bullets for nested lists */
-    .reveal li ul, .reveal li ol {
-      margin: 4px 0 4px 20px !important;
-      display: block;
-      min-width: unset;
-    }
-    
-    .reveal li ul {
-      list-style-type: circle;
-    }
-    
-    /* Centered list layout (only when list is the main slide element or explicitly centered) */
-    .reveal section > ul, .reveal section > ol, .reveal .center-list {
-      display: inline-block;
-      text-align: left;
-      margin: 15px auto !important;
-      padding-left: 20px;
-      min-width: 65%;
-      max-width: 95%;
-    }
-    
-    /* Home link and footer elements */
-    .reveal .home-link {
-      position: fixed;
-      bottom: 16px;
-      left: 20px;
-      z-index: 30;
-      font-size: 13px;
-      color: #94a3b8;
-      text-decoration: none;
-      font-family: var(--r-main-font);
-      font-weight: 500;
-      transition: color 0.2s ease;
-    }
-    .reveal .home-link:hover {
-      color: #0f766e;
-    }
-    
-    .reveal .slide-footer {
-      position: fixed;
-      bottom: 16px;
-      right: 20px;
-      z-index: 30;
-      font-size: 11px;
-      color: #94a3b8;
-      font-family: var(--r-main-font);
-    }
-    
-    /* Interactive blank */
-    .reveal .fill-blank {
-      display: inline-block;
-      border-bottom: 2px dashed #94a3b8;
-      min-width: 140px;
-      height: 1.1em;
-      vertical-align: bottom;
-    }
-
-    .reveal .katex-display {
-      margin: 8px 0;
-    }
-
-    /* Group work slides: random group picker */
-    .reveal .group-roll-btn {
-      font-family: var(--r-heading-font);
-      font-weight: 700;
-      font-size: 0.75em;
-      color: white;
-      background: #b45309;
-      border: none;
-      border-radius: 999px;
-      padding: 8px 18px;
-      cursor: pointer;
-      transition: background 0.2s ease;
-    }
-    .reveal .group-roll-btn:hover {
-      background: #92400e;
-    }
-    .reveal .group-roll-result {
-      display: inline-block;
-      min-width: 2em;
-      margin-left: 10px;
-      font-family: var(--r-heading-font);
-      font-weight: 800;
-      color: #b45309;
-      font-size: 1.2em;
-      vertical-align: middle;
-    }
-  /* Step-by-step animated graph: lines draw themselves in as fragments appear */
-    .reveal svg.anim-graph { font-family: var(--r-main-font); }
-    .reveal svg.anim-graph text { font-family: var(--r-main-font); }
-    .reveal .anim-graph .build-line {
-      stroke-dasharray: 950;
-      stroke-dashoffset: 950;
-    }
-    .reveal .fragment.visible .build-line {
-      animation: drawline 0.9s ease-out forwards;
-    }
-    @keyframes drawline {
-      to { stroke-dashoffset: 0; }
-    }
-
-    /* Editable coefficient inputs (demand-builder interactive) */
-    .reveal .coeff-input {
-      width: 2.6em;
-      font-family: var(--r-heading-font);
-      font-weight: 700;
-      font-size: 0.95em;
-      text-align: center;
-      color: #0f766e;
-      background: #ffffff;
-      border: 2px solid #0f766e;
-      border-radius: 8px;
-      padding: 4px 6px;
-      margin: 0 2px;
-      -moz-appearance: textfield;
-    }
-    .reveal .coeff-input:focus { outline: none; box-shadow: 0 0 0 3px rgba(15,118,110,0.18); }
-    .reveal .coeff-input.invalid { border-color: #dc2626; color: #dc2626; }
-    .reveal .coeff-eq {
-      font-family: var(--r-heading-font);
-      font-weight: 700;
-      font-size: 1.3em;
-      color: #1e293b;
-      text-align: center;
-      margin: 6px 0 2px;
-    }
-
-    /* Multiple-choice answer buttons (green if correct, red/orange if wrong) */
-    .reveal .choice-btn {
-      font-family: var(--r-heading-font);
-      font-weight: 700;
-      font-size: 1em;
-      color: #1e293b;
-      background: #ffffff;
-      border: 2px solid #cbd5e1;
-      border-radius: 999px;
-      padding: 10px 30px;
-      margin: 0 8px;
-      cursor: pointer;
-      transition: all 0.2s ease;
-    }
-    .reveal .choice-btn:hover { border-color: #0f766e; }
-    .reveal .choice-btn.correct { background: #dcfce7; border-color: #16a34a; color: #166534; }
-    .reveal .choice-btn.wrong { background: #ffedd5; border-color: #ea580c; color: #9a3412; }
-    .reveal .choice-btn:disabled { cursor: default; }
-    .reveal .choice-feedback { margin-top: 12px; font-weight: 700; min-height: 1.4em; }
-
-    /* Table row highlight, triggered by a fragment (see Reveal.on below) */
-    .reveal tr.row-highlight td { background: rgba(22, 163, 74, 0.18); transition: background 0.4s ease; }
-
-    /* WSJ article: highlighter overlays + callout bubbles */
-    .reveal .wsj-wrap { position: relative; display: inline-block; line-height: 0; }
-    .reveal .wsj-wrap img { border-radius: 8px; border: 1px solid #e2e8f0; display: block; }
-    .reveal .hl-band { position: absolute; mix-blend-mode: multiply; border-radius: 3px; pointer-events: none; }
-    .reveal .hl-yellow { background: #fde047; }
-    .reveal .hl-teal { background: #5eead4; }
-    .reveal .hl-amber { background: #fdba74; }
-    /* Typed WSJ article excerpt + inline sentence highlights */
-    .reveal .wsj-article { background: #fff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 20px 26px; font-family: var(--font-sans); text-align: left; line-height: 1.5; color: #1e293b; }
-    .reveal .wsj-article p { margin: 0 0 0.7em; }
-    .reveal .wsj-article p:last-child { margin-bottom: 0; }
-    .reveal .wsj-article .lnk { color: #2563eb; text-decoration: underline; }
-    .reveal .mk { padding: 0.5px 2px; border-radius: 3px; -webkit-box-decoration-break: clone; box-decoration-break: clone; }
-    .reveal .mk-yellow { background: #fde047; }
-    .reveal .mk-teal { background: #5eead4; }
-    .reveal .mk-amber { background: #fdba74; }
-    .reveal .wsj-callout { border-radius: 12px; padding: 9px 13px; font-size: 0.6em; font-weight: 500; line-height: 1.32; text-align: left; }
-    .reveal .wsj-callout.teal { background: #ccfbf1; border-left: 4px solid #0f766e; color: #134e4a; }
-    .reveal .wsj-callout.amber { background: #ffedd5; border-left: 4px solid #d97706; color: #7c2d12; }
-    .reveal .wsj-callout .tag { font-family: var(--r-heading-font); font-weight: 800; display: block; margin-bottom: 3px; }
-    .reveal .wsj-q { background: #0f172a; color: #e2e8f0; border-radius: 12px; padding: 12px 15px; font-weight: 600; font-size: 0.62em; line-height: 1.35; text-align: left; }
-    .reveal .wsj-q strong { color: #2dd4bf; }
-  </style>
-  <link rel="stylesheet" href="../assets/css/typography.css">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400..700&amp;family=Inter:ital,wght@0,400..700;1,400..700&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/slides-theme.css?v=1">
 </head>
 <body>
   <div class="reveal">
@@ -349,16 +24,16 @@
       <!-- SECTION 1: Welcome & Overview (Horizontal) -->
       
       <!-- Slide 1: Title -->
-      <section data-background-gradient="linear-gradient(135deg, #0f172a 0%, #1e293b 100%)">
-        <p class="eyebrow" style="color: #2dd4bf;">RSC Economics Experience · July 2026</p>
-        <h1 style="color: white; font-size: 2.5em; margin-bottom: 15px;">Class 2</h1>
-        <h3 style="color: #94a3b8; font-weight: 400; margin-bottom: 40px;">Elasticity of Demand and Costs</h3>
-        <p style="color: #2dd4bf; font-weight: 600; font-size: 0.9em; margin-bottom: 5px;">Meng Hsuan &ldquo;Rex&rdquo; Hsieh</p>
-        <p style="color: #64748b; font-size: 0.75em; margin-top: 30px;">Press <kbd style="background: #334155; color: #cbd5e1; border: 1px solid #475569; padding: 2px 6px; border-radius: 4px;">→</kbd> to begin</p>
+      <section class="bp-cover">
+        <p class="eyebrow">RSC Economics Experience · July 2026</p>
+        <h1 style="font-size: 2.5em; margin-bottom: 15px;">Class 2</h1>
+        <h3 style="color: var(--bp-muted); font-weight: 400; margin-bottom: 40px;">Elasticity of Demand and Costs</h3>
+        <p style="color: var(--bp-primary); font-weight: 600; font-size: 0.9em; margin-bottom: 5px;">Meng Hsuan &ldquo;Rex&rdquo; Hsieh</p>
+        <p style="color: var(--bp-light); font-size: 0.75em; margin-top: 30px;">Press <kbd>→</kbd> to begin</p>
       </section>
 
       <!-- Slide 2: Agenda -->
-      <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+      <section>
         <p class="eyebrow">Agenda for Today</p>
         <h2>Elasticity of Demand and Costs</h2>
         <div class="content-card" style="text-align: center;">
@@ -375,14 +50,14 @@
       <section>
 
         <!-- Slide 3.1: Divider -->
-        <section data-background-gradient="linear-gradient(135deg, #0f766e 0%, #115e59 100%)">
-          <p class="eyebrow" style="color: #ccfbf1;">Supply and Demand</p>
-          <h1 style="color: white; font-size: 2.8em;">More on Supply &amp; Demand</h1>
-          <p style="color: #ccfbf1; margin-top: 20px;">Press <kbd style="background: #115e59; color: white; border: 1px solid #134e4a; padding: 2px 6px; border-radius: 4px;">↓</kbd> to continue</p>
+        <section class="bp-divider">
+          <p class="eyebrow">Supply and Demand</p>
+          <h1 style="font-size: 2.8em;">More on Supply &amp; Demand</h1>
+          <p style="color: var(--bp-body); margin-top: 20px;">Press <kbd>↓</kbd> to continue</p>
         </section>
 
         <!-- Slide 3.2: Recap - Scarcity, Opportunity Cost & the Margin -->
-        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+        <section>
           <p class="eyebrow">Recap · 1 of 3</p>
           <h2>Scarcity, Opportunity Cost, and the Margin</h2>
           <div class="content-card" style="font-size: 0.9em;">
@@ -391,7 +66,7 @@
         </section>
 
         <!-- Slide 3.3: Recap - Demand, Supply & Equilibrium -->
-        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+        <section>
           <p class="eyebrow">Recap · 2 of 3</p>
           <h2>Demand, Supply &amp; Equilibrium</h2>
           <div class="content-card">
@@ -405,7 +80,7 @@
                 How much sellers offer at each price. <strong>P&uarr; &rArr; Q<sub>S</sub>&uarr;</strong> (upward-sloping).
               </div>
             </div>
-            <div class="def-card fragment" style="margin-top: 12px; border-left-color: #0f766e;">
+            <div class="def-card fragment" style="margin-top: 12px;">
               <div class="def-title">Market equilibrium</div>
               The price <strong>P*</strong> where supply meets demand (Q<sub>D</sub> = Q<sub>S</sub>) &mdash; the market clears.
             </div>
@@ -423,20 +98,20 @@
         </section>
 
         <!-- Slide 3.4: Recap - Movements vs Shifts -->
-        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+        <section>
           <p class="eyebrow">Recap · 3 of 3</p>
           <h2>Movements Along vs. Shifts of Curves</h2>
           <div class="content-card">
             <div style="display: flex; gap: 14px;">
-              <div class="def-card" style="flex: 1; margin: 0; border-left-color: #0f766e;">
+              <div class="def-card" style="flex: 1; margin: 0;">
                 <div class="def-title">Movement <em>along</em> a curve</div>
                 Caused only by a change in the good&rsquo;s <strong>own price</strong> (everything else held constant).
-                <p class="fragment" style="font-size: 0.85em; color: #64748b; margin: 8px 0 0;"><em>e.g.</em> coffee&rsquo;s price rises &rarr; slide up the demand curve, Q<sub>D</sub> falls.</p>
+                <p class="fragment" style="font-size: 0.85em; color: var(--bp-muted); margin: 8px 0 0;"><em>e.g.</em> coffee&rsquo;s price rises &rarr; slide up the demand curve, Q<sub>D</sub> falls.</p>
               </div>
               <div class="def-card" style="flex: 1; margin: 0; border-left-color: #d97706;">
                 <div class="def-title">Shift <em>of</em> the whole curve</div>
                 Caused by any <strong>non-price</strong> factor (income, tastes, input costs, weather, number of buyers/sellers).
-                <p class="fragment" style="font-size: 0.85em; color: #64748b; margin: 8px 0 0;"><em>e.g.</em> a frost hits coffee farms &rarr; the entire supply curve shifts left.</p>
+                <p class="fragment" style="font-size: 0.85em; color: var(--bp-muted); margin: 8px 0 0;"><em>e.g.</em> a frost hits coffee farms &rarr; the entire supply curve shifts left.</p>
               </div>
             </div>
             <p class="fragment" style="font-weight: 600; text-align: center; color: #b91c1c; margin-top: 14px; font-size: 0.9em;">
@@ -452,14 +127,14 @@
       <section>
 
         <!-- Slide 4.1: Divider -->
-        <section data-background-gradient="linear-gradient(135deg, #0f172a 0%, #1e293b 100%)">
-          <p class="eyebrow" style="color: #2dd4bf;">Mathematical Formulation</p>
-          <h1 style="color: white; font-size: 2.8em;">With Algebra Now</h1>
-          <p style="color: #94a3b8; margin-top: 20px;">Press <kbd style="background: #334155; color: #cbd5e1; border: 1px solid #475569; padding: 2px 6px; border-radius: 4px;">↓</kbd> to view algebra examples</p>
+        <section class="bp-divider">
+          <p class="eyebrow">Mathematical Formulation</p>
+          <h1 style="font-size: 2.8em;">With Algebra Now</h1>
+          <p style="color: var(--bp-muted); margin-top: 20px;">Press <kbd>↓</kbd> to view algebra examples</p>
         </section>
 
         <!-- Slide 4.4: Shocks vs Movements -->
-        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+        <section>
           <p class="eyebrow">Algebra in supply &amp; demand</p>
           <h2>Shocks vs. Movements</h2>
           <div class="content-card">
@@ -479,7 +154,7 @@
         </section>
 
         <!-- Slide 4.5: Algebra example 3 & 4 & 5 -->
-        <section data-visibility="hidden" data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+        <section data-visibility="hidden">
           <p class="eyebrow">Algebra in supply &amp; demand · 3</p>
           <h2>Excess Supply and Excess Demand</h2>
           <div class="content-card" style="font-size: 0.9em; max-width: 980px;">
@@ -506,8 +181,8 @@
         </section>
 
 <!-- Slide 4.5b: Solution - Questions 3, 4, 5 -->
-        <section data-visibility="hidden" data-background-gradient="linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)">
-          <p class="eyebrow" style="color: #059669;">Algebra · Solution 3-5</p>
+        <section data-visibility="hidden">
+          <p class="eyebrow">Algebra · Solution 3-5</p>
           <h2>Solution: Excess Supply &amp; Demand</h2>
           <div class="content-card" style="font-size: 0.88em;">
             <div class="def-card">
@@ -532,34 +207,34 @@
           </div>
         </section>
         <!-- Slide 4.5c: Solution 3-5 - step-by-step animated graph -->
-        <section data-visibility="hidden" data-background-gradient="linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)">
-          <p class="eyebrow" style="color: #059669;">Algebra &middot; Solution 3-5</p>
+        <section data-visibility="hidden">
+          <p class="eyebrow">Algebra &middot; Solution 3-5</p>
           <h2>Excess Demand &amp; Supply, Step by Step</h2>
-          <p style="font-size: 0.55em; color: #64748b; margin: 0 0 4px;">Press <kbd style="background: #e2e8f0; border: 1px solid #cbd5e1; padding: 1px 6px; border-radius: 4px;">&rarr;</kbd> to add each element &mdash; axes are zoomed in (Q starts at 8) so the three prices are visible</p>
-          <svg class="anim-graph" viewBox="0 0 760 520" style="width: 92%; max-height: 480px; margin: 0 auto; display: block; background: white; border: 1px solid #e2e8f0; border-radius: 10px;" role="img" aria-label="Animated zoomed-in graph of Qd=12-P and Qs=9+0.5P around the equilibrium (10, $2): at P=$0.79 there is excess demand of 1.815 and buyers bid the price up; at P=$2.19 there is excess supply of 0.285 and sellers cut the price - both forces push the price back to $2">
+          <p style="font-size: 0.55em; color: var(--bp-muted); margin: 0 0 4px;">Press <kbd>&rarr;</kbd> to add each element &mdash; axes are zoomed in (Q starts at 8) so the three prices are visible</p>
+          <svg class="anim-graph" viewBox="0 0 760 520" style="width: 92%; max-height: 480px; margin: 0 auto; display: block; background: white; border: 1px solid var(--bp-border); border-radius: 10px;" role="img" aria-label="Animated zoomed-in graph of Qd=12-P and Qs=9+0.5P around the equilibrium (10, $2): at P=$0.79 there is excess demand of 1.815 and buyers bid the price up; at P=$2.19 there is excess supply of 0.285 and sellers cut the price - both forces push the price back to $2">
             <!-- axes, D, S, equilibrium (always visible) -->
             <g>
-              <line x1="70" y1="460" x2="705" y2="460" stroke="#475569" stroke-width="2.5"/>
-              <polygon points="705,455 705,465 716,460" fill="#475569"/>
-              <line x1="70" y1="460" x2="70" y2="52" stroke="#475569" stroke-width="2.5"/>
-              <polygon points="65,52 75,52 70,41" fill="#475569"/>
-              <text x="723" y="466" font-size="17" fill="#1e293b" font-style="italic">Q</text>
-              <text x="44" y="34" font-size="17" fill="#1e293b" font-style="italic">P ($)</text>
-              <line x1="88" y1="468" x2="98" y2="452" stroke="#475569" stroke-width="2"/>
-              <line x1="96" y1="468" x2="106" y2="452" stroke="#475569" stroke-width="2"/>
-              <text x="70" y="484" font-size="14" fill="#94a3b8" text-anchor="middle">8</text>
-              <text x="194" y="484" font-size="14" fill="#94a3b8" text-anchor="middle">9</text>
-              <text x="442" y="484" font-size="14" fill="#94a3b8" text-anchor="middle">11</text>
-              <text x="566" y="484" font-size="14" fill="#94a3b8" text-anchor="middle">12</text>
-              <line x1="194" y1="60" x2="566" y2="460" stroke="#1e293b" stroke-width="3.5"/>
-              <text x="576" y="452" font-size="17" fill="#1e293b" font-style="italic">D</text>
-              <line x1="194" y1="460" x2="380" y2="60" stroke="#0f766e" stroke-width="3.5"/>
-              <text x="388" y="66" font-size="17" fill="#0f766e" font-style="italic">S</text>
-              <line x1="70" y1="193" x2="318" y2="193" stroke="#64748b" stroke-width="1.5" stroke-dasharray="5 4"/>
-              <line x1="318" y1="193" x2="318" y2="460" stroke="#64748b" stroke-width="1.5" stroke-dasharray="5 4"/>
-              <circle cx="318" cy="193" r="7" fill="#1e293b"/>
-              <text x="62" y="199" font-size="16" font-weight="700" fill="#1e293b" text-anchor="end">P* = $2</text>
-              <text x="318" y="484" font-size="16" font-weight="700" fill="#1e293b" text-anchor="middle">Q* = 10</text>
+              <line x1="70" y1="460" x2="705" y2="460" stroke="#4d4d4d" stroke-width="2.5"/>
+              <polygon points="705,455 705,465 716,460" fill="#4d4d4d"/>
+              <line x1="70" y1="460" x2="70" y2="52" stroke="#4d4d4d" stroke-width="2.5"/>
+              <polygon points="65,52 75,52 70,41" fill="#4d4d4d"/>
+              <text x="723" y="466" font-size="17" fill="#111111" font-style="italic">Q</text>
+              <text x="44" y="34" font-size="17" fill="#111111" font-style="italic">P ($)</text>
+              <line x1="88" y1="468" x2="98" y2="452" stroke="#4d4d4d" stroke-width="2"/>
+              <line x1="96" y1="468" x2="106" y2="452" stroke="#4d4d4d" stroke-width="2"/>
+              <text x="70" y="484" font-size="14" fill="#9a9a9a" text-anchor="middle">8</text>
+              <text x="194" y="484" font-size="14" fill="#9a9a9a" text-anchor="middle">9</text>
+              <text x="442" y="484" font-size="14" fill="#9a9a9a" text-anchor="middle">11</text>
+              <text x="566" y="484" font-size="14" fill="#9a9a9a" text-anchor="middle">12</text>
+              <line x1="194" y1="60" x2="566" y2="460" stroke="#111111" stroke-width="3.5"/>
+              <text x="576" y="452" font-size="17" fill="#111111" font-style="italic">D</text>
+              <line x1="194" y1="460" x2="380" y2="60" stroke="#1e2bfa" stroke-width="3.5"/>
+              <text x="388" y="66" font-size="17" fill="#1e2bfa" font-style="italic">S</text>
+              <line x1="70" y1="193" x2="318" y2="193" stroke="#6b6b6b" stroke-width="1.5" stroke-dasharray="5 4"/>
+              <line x1="318" y1="193" x2="318" y2="460" stroke="#6b6b6b" stroke-width="1.5" stroke-dasharray="5 4"/>
+              <circle cx="318" cy="193" r="7" fill="#111111"/>
+              <text x="62" y="199" font-size="16" font-weight="700" fill="#111111" text-anchor="end">P* = $2</text>
+              <text x="318" y="484" font-size="16" font-weight="700" fill="#111111" text-anchor="middle">Q* = 10</text>
             </g>
             <!-- fragment 1: P = $0.79, excess demand -->
             <g class="fragment" data-fragment-index="1">
@@ -604,10 +279,10 @@
           </svg>
         </section>
         <!-- Slide 4.6: Equilibrium as Revision Process -->
-        <section data-visibility="hidden" data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+        <section data-visibility="hidden">
           <p class="eyebrow">Algebra in supply &amp; demand</p>
           <h2>The Market Revision Process</h2>
-          <div class="content-card" style="text-align: center; padding: 25px 40px;">
+          <div class="content-card" style="text-align: center;">
             <div class="def-card" style="display: inline-block; margin-bottom: 10px;">
               <div class="def-title" style="text-align: center;">Core Principle</div>
               Equilibrium captures a <strong>revision process</strong> in markets.
@@ -616,10 +291,10 @@
             <svg class="anim-graph" viewBox="0 0 720 260" style="width: 78%; max-height: 220px; margin: 4px auto; display: block;" role="img" aria-label="Prices above the equilibrium create excess supply and get cut by sellers; prices below it create excess demand and get bid up by buyers - both revisions converge to the equilibrium price P*">
               <text x="350" y="48" font-size="17" font-weight="700" fill="#dc2626" text-anchor="middle">P above P*: excess supply &rarr; sellers cut prices</text>
               <line x1="350" y1="64" x2="350" y2="114" stroke="#dc2626" stroke-width="3" marker-end="url(#mrpdn)"/>
-              <line x1="100" y1="130" x2="600" y2="130" stroke="#0f766e" stroke-width="3.5" stroke-dasharray="10 6"/>
-              <circle cx="350" cy="130" r="7" fill="#0f766e"/>
-              <text x="612" y="126" font-size="17" font-weight="800" fill="#0f766e">P*</text>
-              <text x="612" y="146" font-size="13" fill="#0f766e">equilibrium</text>
+              <line x1="100" y1="130" x2="600" y2="130" stroke="#1e2bfa" stroke-width="3.5" stroke-dasharray="10 6"/>
+              <circle cx="350" cy="130" r="7" fill="#1e2bfa"/>
+              <text x="612" y="126" font-size="17" font-weight="800" fill="#1e2bfa">P*</text>
+              <text x="612" y="146" font-size="13" fill="#1e2bfa">equilibrium</text>
               <line x1="350" y1="216" x2="350" y2="148" stroke="#d97706" stroke-width="3" marker-end="url(#mrpup)"/>
               <text x="350" y="242" font-size="17" font-weight="700" fill="#d97706" text-anchor="middle">P below P*: excess demand &rarr; buyers bid prices up</text>
               <defs>
@@ -628,33 +303,33 @@
               </defs>
             </svg>
 
-            <p style="font-size: 1.1em; font-weight: 600; color: #0f766e; margin-top: 10px;">
+            <p style="font-size: 1.1em; font-weight: 600; color: var(--bp-primary); margin-top: 10px;">
               We will assume markets are in equilibria unless otherwise specified.
             </p>
           </div>
         </section>
 
         <!-- Slide 4.7: GROUP WORK - Algebra -->
-        <section data-background-gradient="linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%)">
-          <p class="eyebrow" style="color: #b45309;">Practice &middot; Try On Your Own</p>
+        <section>
+          <p class="eyebrow">Practice &middot; Try On Your Own</p>
           <h2>&#9998; Practice: Finding Equilibrium</h2>
-          <div class="content-card" style="font-size: 0.9em; background: rgba(255, 255, 255, 0.7);">
-            <div class="example-card" style="border-left-color: #b45309; background: rgba(180, 83, 9, 0.05); margin: 8px 0;">
-              <div class="ex-title" style="color: #b45309;">Question 1</div>
+          <div class="content-card" style="font-size: 0.9em;">
+            <div class="example-card" style="margin: 8px 0;">
+              <div class="ex-title">Question 1</div>
               Let the market demand and supply functions be:
               \[ Q_D = 20 - 2P \quad \text{and} \quad Q_S = 4 + 2P \]
               <strong>Find the market equilibrium price and quantity.</strong>
             </div>
-            <div class="example-card" style="border-left-color: #b45309; background: rgba(180, 83, 9, 0.05); margin: 8px 0;">
-              <div class="ex-title" style="color: #b45309;">Question 2</div>
+            <div class="example-card" style="margin: 8px 0;">
+              <div class="ex-title">Question 2</div>
               In the same market, suppose the current price is <strong>\( P = 6 \)</strong>. Is the market in equilibrium? If not, compute the excess supply or excess demand, and describe what happens to the price.
             </div>
           </div>
         </section>
 
         <!-- Slide 4.7b: GROUP WORK Answers - Algebra -->
-        <section data-visibility="uncounted" data-background-gradient="linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)">
-          <p class="eyebrow" style="color: #059669;">Group Work · Answers</p>
+        <section data-visibility="uncounted">
+          <p class="eyebrow">Group Work · Answers</p>
           <h2>Answers: Finding Equilibrium</h2>
           <div class="content-card" style="font-size: 0.9em;">
             <div class="def-card">
@@ -673,34 +348,34 @@
         </section>
 
         <!-- GROUP WORK Answers: step-by-step animated graph -->
-        <section data-visibility="uncounted" data-background-gradient="linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)">
-          <p class="eyebrow" style="color: #059669;">Group Work &middot; Answers</p>
+        <section data-visibility="uncounted">
+          <p class="eyebrow">Group Work &middot; Answers</p>
           <h2>Finding Equilibrium, Step by Step</h2>
-          <p style="font-size: 0.55em; color: #64748b; margin: 0 0 4px;">Press <kbd style="background: #e2e8f0; border: 1px solid #cbd5e1; padding: 1px 6px; border-radius: 4px;">&rarr;</kbd> to add each element of the graph</p>
-          <svg class="anim-graph" viewBox="0 0 760 520" style="width: 92%; max-height: 480px; margin: 0 auto; display: block; background: white; border: 1px solid #e2e8f0; border-radius: 10px;" role="img" aria-label="Animated build-up of the equilibrium diagram: demand, then supply, the equilibrium at (12, $4), the P=$6 line with Qd=8 and Qs=16, the excess supply of 8, and the price falling back toward $4">
+          <p style="font-size: 0.55em; color: var(--bp-muted); margin: 0 0 4px;">Press <kbd>&rarr;</kbd> to add each element of the graph</p>
+          <svg class="anim-graph" viewBox="0 0 760 520" style="width: 92%; max-height: 480px; margin: 0 auto; display: block; background: white; border: 1px solid var(--bp-border); border-radius: 10px;" role="img" aria-label="Animated build-up of the equilibrium diagram: demand, then supply, the equilibrium at (12, $4), the P=$6 line with Qd=8 and Qs=16, the excess supply of 8, and the price falling back toward $4">
             <!-- axes + demand (always visible) -->
             <g>
-              <line x1="70" y1="460" x2="705" y2="460" stroke="#475569" stroke-width="2.5"/>
-              <polygon points="705,455 705,465 716,460" fill="#475569"/>
-              <line x1="70" y1="460" x2="70" y2="52" stroke="#475569" stroke-width="2.5"/>
-              <polygon points="65,52 75,52 70,41" fill="#475569"/>
-              <text x="723" y="466" font-size="17" fill="#1e293b" font-style="italic">Q</text>
-              <text x="44" y="34" font-size="17" fill="#1e293b" font-style="italic">P ($)</text>
-              <line x1="70" y1="100" x2="630" y2="460" stroke="#1e293b" stroke-width="3.5"/>
-              <text x="636" y="452" font-size="17" fill="#1e293b" font-style="italic">D</text>
+              <line x1="70" y1="460" x2="705" y2="460" stroke="#4d4d4d" stroke-width="2.5"/>
+              <polygon points="705,455 705,465 716,460" fill="#4d4d4d"/>
+              <line x1="70" y1="460" x2="70" y2="52" stroke="#4d4d4d" stroke-width="2.5"/>
+              <polygon points="65,52 75,52 70,41" fill="#4d4d4d"/>
+              <text x="723" y="466" font-size="17" fill="#111111" font-style="italic">Q</text>
+              <text x="44" y="34" font-size="17" fill="#111111" font-style="italic">P ($)</text>
+              <line x1="70" y1="100" x2="630" y2="460" stroke="#111111" stroke-width="3.5"/>
+              <text x="636" y="452" font-size="17" fill="#111111" font-style="italic">D</text>
             </g>
             <!-- fragment 1: supply -->
             <g class="fragment" data-fragment-index="1">
-              <line class="build-line" x1="182" y1="460" x2="690" y2="133" stroke="#0f766e" stroke-width="3.5"/>
-              <text x="666" y="118" font-size="17" fill="#0f766e" font-style="italic">S</text>
+              <line class="build-line" x1="182" y1="460" x2="690" y2="133" stroke="#1e2bfa" stroke-width="3.5"/>
+              <text x="666" y="118" font-size="17" fill="#1e2bfa" font-style="italic">S</text>
             </g>
             <!-- fragment 2: equilibrium -->
             <g class="fragment" data-fragment-index="2">
-              <line x1="70" y1="316" x2="406" y2="316" stroke="#64748b" stroke-width="1.5" stroke-dasharray="5 4"/>
-              <line x1="406" y1="316" x2="406" y2="460" stroke="#64748b" stroke-width="1.5" stroke-dasharray="5 4"/>
-              <circle cx="406" cy="316" r="6" fill="#1e293b"/>
-              <text x="62" y="322" font-size="17" font-weight="700" fill="#1e293b" text-anchor="end">P* = $4</text>
-              <text x="406" y="484" font-size="17" font-weight="700" fill="#1e293b" text-anchor="middle">Q* = 12</text>
+              <line x1="70" y1="316" x2="406" y2="316" stroke="#6b6b6b" stroke-width="1.5" stroke-dasharray="5 4"/>
+              <line x1="406" y1="316" x2="406" y2="460" stroke="#6b6b6b" stroke-width="1.5" stroke-dasharray="5 4"/>
+              <circle cx="406" cy="316" r="6" fill="#111111"/>
+              <text x="62" y="322" font-size="17" font-weight="700" fill="#111111" text-anchor="end">P* = $4</text>
+              <text x="406" y="484" font-size="17" font-weight="700" fill="#111111" text-anchor="middle">Q* = 12</text>
             </g>
             <!-- fragment 3: price at $6 -->
             <g class="fragment" data-fragment-index="3">
@@ -711,10 +386,10 @@
             <g class="fragment" data-fragment-index="4">
               <circle cx="294" cy="244" r="6" fill="#dc2626"/>
               <circle cx="518" cy="244" r="6" fill="#dc2626"/>
-              <line x1="294" y1="244" x2="294" y2="460" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="5 4"/>
-              <line x1="518" y1="244" x2="518" y2="460" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="5 4"/>
-              <text x="294" y="484" font-size="16" fill="#475569" text-anchor="middle">Q<tspan dy="4" font-size="12">D</tspan><tspan dy="-4"> = 8</tspan></text>
-              <text x="518" y="484" font-size="16" fill="#475569" text-anchor="middle">Q<tspan dy="4" font-size="12">S</tspan><tspan dy="-4"> = 16</tspan></text>
+              <line x1="294" y1="244" x2="294" y2="460" stroke="#9a9a9a" stroke-width="1.5" stroke-dasharray="5 4"/>
+              <line x1="518" y1="244" x2="518" y2="460" stroke="#9a9a9a" stroke-width="1.5" stroke-dasharray="5 4"/>
+              <text x="294" y="484" font-size="16" fill="#4d4d4d" text-anchor="middle">Q<tspan dy="4" font-size="12">D</tspan><tspan dy="-4"> = 8</tspan></text>
+              <text x="518" y="484" font-size="16" fill="#4d4d4d" text-anchor="middle">Q<tspan dy="4" font-size="12">S</tspan><tspan dy="-4"> = 16</tspan></text>
             </g>
             <!-- fragment 5: excess supply -->
             <g class="fragment" data-fragment-index="5">
@@ -738,8 +413,8 @@
         </section>
 
         <!-- GROUP WORK Answers: graph -->
-        <section data-visibility="hidden" data-background-gradient="linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)">
-          <p class="eyebrow" style="color: #059669;">Group Work · Answers</p>
+        <section data-visibility="hidden">
+          <p class="eyebrow">Group Work · Answers</p>
           <h2>Finding Equilibrium, Graphically</h2>
           <div class="slide-img-container" style="margin: 5px auto 0; padding: 8px;">
             <img src="images/c2_gw_equilibrium_graph.png" alt="Supply and demand graph: equilibrium at P*=$4, Q*=12; at P=$6, Qd=8 and Qs=16 give an excess supply of 8, so the price falls toward $4" style="max-height: 470px;">
@@ -753,64 +428,64 @@
       <section>
 
         <!-- Slide 5.1: Divider -->
-        <section data-background-gradient="linear-gradient(135deg, #0f766e 0%, #115e59 100%)">
-          <p class="eyebrow" style="color: #ccfbf1;">Supply and Demand Together</p>
-          <h1 style="color: white; font-size: 2.8em;">Simultaneous Shifts</h1>
-          <p style="color: #ccfbf1; margin-top: 20px;">Press <kbd style="background: #115e59; color: white; border: 1px solid #134e4a; padding: 2px 6px; border-radius: 4px;">↓</kbd> to view simultaneous shifts</p>
+        <section class="bp-divider">
+          <p class="eyebrow">Supply and Demand Together</p>
+          <h1 style="font-size: 2.8em;">Simultaneous Shifts</h1>
+          <p style="color: var(--bp-body); margin-top: 20px;">Press <kbd>↓</kbd> to view simultaneous shifts</p>
         </section>
 
         <!-- Slide 5.2: Complex Shifts -->
-        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+        <section>
           <p class="eyebrow">Simultaneous Shifts</p>
           <h2>Multiple Market Shocks</h2>
           <div class="content-card">
             <p style="font-size: 1.1em; line-height: 1.5;">
               It is also completely reasonable to be in situations where <strong>both supply and demand shift</strong>, potentially in different directions.
             </p>
-            <p class="fragment" style="margin-top: 15px; font-weight: 600; color: #0f766e;">
+            <p class="fragment" style="margin-top: 15px; font-weight: 600; color: var(--bp-primary);">
               These simultaneous changes have distinct implications for the market equilibrium quantity and price.
             </p>
           </div>
         </section>
 
         <!-- Slide 5.3: Shifts Summary -->
-        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+        <section>
           <p class="eyebrow">Simultaneous Shifts</p>
           <h2>Shifts Summary Table</h2>
           <div class="content-card">
-            <p style="font-weight: 600; margin-bottom: 10px; color: #0f766e; text-align: center;">Qualitative predictions of market shocks:</p>
+            <p style="font-weight: 600; margin-bottom: 10px; color: var(--bp-primary); text-align: center;">Qualitative predictions of market shocks:</p>
             <table style="width: 100%; border-collapse: collapse; margin-top: 15px; font-size: 0.85em; font-family: var(--r-main-font);">
               <thead>
-                <tr style="border-bottom: 2px solid #0f766e;">
-                  <th style="padding: 8px 12px; text-align: left; font-weight: 700; color: #0f766e; text-transform: none; font-size: 0.9em; border-bottom: 2px solid #0f766e;">Demand Shock</th>
-                  <th style="padding: 8px 12px; text-align: left; font-weight: 700; color: #0f766e; text-transform: none; font-size: 0.9em; border-bottom: 2px solid #0f766e;">Supply Shock</th>
-                  <th style="padding: 8px 12px; text-align: center; font-weight: 700; color: #0f766e; text-transform: none; font-size: 0.9em; border-bottom: 2px solid #0f766e;">Equilibrium Price (P)</th>
-                  <th style="padding: 8px 12px; text-align: center; font-weight: 700; color: #0f766e; text-transform: none; font-size: 0.9em; border-bottom: 2px solid #0f766e;">Equilibrium Quantity (Q)</th>
+                <tr style="border-bottom: 2px solid var(--bp-primary);">
+                  <th style="padding: 8px 12px; text-align: left; font-weight: 700; color: var(--bp-primary); text-transform: none; font-size: 0.9em; border-bottom: 2px solid var(--bp-primary);">Demand Shock</th>
+                  <th style="padding: 8px 12px; text-align: left; font-weight: 700; color: var(--bp-primary); text-transform: none; font-size: 0.9em; border-bottom: 2px solid var(--bp-primary);">Supply Shock</th>
+                  <th style="padding: 8px 12px; text-align: center; font-weight: 700; color: var(--bp-primary); text-transform: none; font-size: 0.9em; border-bottom: 2px solid var(--bp-primary);">Equilibrium Price (P)</th>
+                  <th style="padding: 8px 12px; text-align: center; font-weight: 700; color: var(--bp-primary); text-transform: none; font-size: 0.9em; border-bottom: 2px solid var(--bp-primary);">Equilibrium Quantity (Q)</th>
                 </tr>
               </thead>
               <tbody>
-                <tr class="fragment" style="border-bottom: 1px solid #e2e8f0;">
+                <tr class="fragment" style="border-bottom: 1px solid var(--bp-border);">
                   <td style="padding: 10px 12px; text-align: left; font-weight: 500;">Shifts Out (&uarr;)</td>
                   <td style="padding: 10px 12px; text-align: left; font-weight: 500;">Shifts Out (&uarr;)</td>
-                  <td style="padding: 10px 12px; text-align: center; font-weight: 600; color: #64748b;">Ambiguous (&uarr;&darr;=)</td>
-                  <td style="padding: 10px 12px; text-align: center; font-weight: 600; color: #0f766e;">Increases (&uarr;)</td>
+                  <td style="padding: 10px 12px; text-align: center; font-weight: 600; color: var(--bp-muted);">Ambiguous (&uarr;&darr;=)</td>
+                  <td style="padding: 10px 12px; text-align: center; font-weight: 600; color: var(--bp-primary);">Increases (&uarr;)</td>
                 </tr>
-                <tr class="fragment" style="border-bottom: 1px solid #e2e8f0;">
+                <tr class="fragment" style="border-bottom: 1px solid var(--bp-border);">
                   <td style="padding: 10px 12px; text-align: left; font-weight: 500;">Shifts In (&darr;)</td>
                   <td style="padding: 10px 12px; text-align: left; font-weight: 500;">Shifts Out (&uarr;)</td>
                   <td style="padding: 10px 12px; text-align: center; font-weight: 600; color: #b91c1c;">Decreases (&darr;)</td>
-                  <td style="padding: 10px 12px; text-align: center; font-weight: 600; color: #64748b;">Ambiguous (&uarr;&darr;=)</td>
+                  <td style="padding: 10px 12px; text-align: center; font-weight: 600; color: var(--bp-muted);">Ambiguous (&uarr;&darr;=)</td>
                 </tr>
-                <tr id="ambig-row" class="fragment" style="border-bottom: 1px solid #e2e8f0;">
+                <tr id="ambig-row" class="fragment" style="border-bottom: 1px solid var(--bp-border);">
                   <td style="padding: 10px 12px; text-align: left; font-weight: 500;">Shifts Out (&uarr;)</td>
                   <td style="padding: 10px 12px; text-align: left; font-weight: 500;">Shifts In (&darr;)</td>
-                  <td style="padding: 10px 12px; text-align: center; font-weight: 600; color: #0f766e;">Increases (&uarr;)</td>
-                  <td style="padding: 10px 12px; text-align: center; font-weight: 600; color: #64748b;">Ambiguous (&uarr;&darr;=)</td>
+                  <td style="padding: 10px 12px; text-align: center; font-weight: 600; color: var(--bp-primary);">Increases (&uarr;)</td>
+                  <td style="padding: 10px 12px; text-align: center; font-weight: 600; color: var(--bp-muted);">Ambiguous (&uarr;&darr;=)</td>
                 </tr>
-                <tr class="fragment" style="border-bottom: 1px solid #e2e8f0;">
+                <tr class="fragment" style="border-bottom: 1px solid var(--bp-border);">
                   <td style="padding: 10px 12px; text-align: left; font-weight: 500;">Shifts In (&darr;)</td>
                   <td style="padding: 10px 12px; text-align: left; font-weight: 500;">Shifts In (&darr;)</td>
-                  <td style="padding: 10px 12px; text-align: center; font-weight: 600; color: #64748b;">Ambiguous (&uarr;&darr;=)</td>
+                  <td style="padding: 10px 12px; text-align: center; font-weight: 600; color: var(--bp-muted);">Ambiguous (&uarr;&darr;=)</td>
                   <td style="padding: 10px 12px; text-align: center; font-weight: 600; color: #b91c1c;">Decreases (&darr;)</td>
                 </tr>
               </tbody>
@@ -822,44 +497,44 @@
         </section>
 
         <!-- Slide 5.3b: Ambiguous Q - demand shift dominates -->
-        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+        <section>
           <p class="eyebrow">Simultaneous Shifts · Ambiguous Quantity (1 of 2)</p>
           <h2>Demand Out + Supply In: When Demand Dominates</h2>
-          <p style="font-size: 0.55em; color: #64748b; margin: 0 0 2px;">Demand shifts out and supply shifts in. Press <kbd style="background: #e2e8f0; border: 1px solid #cbd5e1; padding: 1px 6px; border-radius: 4px;">&rarr;</kbd> &mdash; here the demand shift is the larger one.</p>
-          <svg class="anim-graph" viewBox="0 0 620 410" style="width: 62%; max-height: 400px; margin: 0 auto; display: block; background: white; border: 1px solid #e2e8f0; border-radius: 10px;" role="img" aria-label="Supply and demand diagram. Demand shifts right from D0 to D1 (a large shift) while supply shifts left from S0 to S1 (a small shift). The equilibrium moves from E0 up and to the right to E1: the price rises and the quantity also rises because the demand shift dominates.">
-            <line x1="70" y1="360" x2="585" y2="360" stroke="#475569" stroke-width="2.5"/>
-            <polygon points="585,355 585,365 596,360" fill="#475569"/>
-            <line x1="70" y1="360" x2="70" y2="45" stroke="#475569" stroke-width="2.5"/>
-            <polygon points="65,45 75,45 70,34" fill="#475569"/>
-            <text x="600" y="366" font-size="15" fill="#1e293b" font-style="italic">Q</text>
-            <text x="52" y="42" font-size="15" fill="#1e293b" font-style="italic">P</text>
+          <p style="font-size: 0.55em; color: var(--bp-muted); margin: 0 0 2px;">Demand shifts out and supply shifts in. Press <kbd>&rarr;</kbd> &mdash; here the demand shift is the larger one.</p>
+          <svg class="anim-graph" viewBox="0 0 620 410" style="width: 62%; max-height: 400px; margin: 0 auto; display: block; background: white; border: 1px solid var(--bp-border); border-radius: 10px;" role="img" aria-label="Supply and demand diagram. Demand shifts right from D0 to D1 (a large shift) while supply shifts left from S0 to S1 (a small shift). The equilibrium moves from E0 up and to the right to E1: the price rises and the quantity also rises because the demand shift dominates.">
+            <line x1="70" y1="360" x2="585" y2="360" stroke="#4d4d4d" stroke-width="2.5"/>
+            <polygon points="585,355 585,365 596,360" fill="#4d4d4d"/>
+            <line x1="70" y1="360" x2="70" y2="45" stroke="#4d4d4d" stroke-width="2.5"/>
+            <polygon points="65,45 75,45 70,34" fill="#4d4d4d"/>
+            <text x="600" y="366" font-size="15" fill="#111111" font-style="italic">Q</text>
+            <text x="52" y="42" font-size="15" fill="#111111" font-style="italic">P</text>
             <!-- step 1: initial equilibrium -->
             <g class="fragment">
-              <line x1="110" y1="70" x2="430" y2="340" stroke="#cbd5e1" stroke-width="3"/>
-              <line x1="110" y1="340" x2="430" y2="70" stroke="#cbd5e1" stroke-width="3"/>
-              <text x="436" y="342" font-size="14" fill="#94a3b8" font-style="italic" font-weight="700">D<tspan dy="3" font-size="10">0</tspan></text>
-              <text x="436" y="74" font-size="14" fill="#94a3b8" font-style="italic" font-weight="700">S<tspan dy="3" font-size="10">0</tspan></text>
-              <line x1="70" y1="205" x2="270" y2="205" stroke="#94a3b8" stroke-width="1.3" stroke-dasharray="5 4"/>
-              <line x1="270" y1="360" x2="270" y2="205" stroke="#94a3b8" stroke-width="1.3" stroke-dasharray="5 4"/>
-              <circle cx="270" cy="205" r="6" fill="#64748b"/>
-              <text x="284" y="200" font-size="13" font-weight="700" fill="#64748b">E<tspan dy="3" font-size="10">0</tspan></text>
-              <text x="60" y="210" font-size="13" font-weight="700" fill="#64748b" text-anchor="end">P<tspan dy="3" font-size="10">0</tspan></text>
-              <text x="270" y="379" font-size="13" font-weight="700" fill="#64748b" text-anchor="middle">Q<tspan dy="3" font-size="10">0</tspan></text>
+              <line x1="110" y1="70" x2="430" y2="340" stroke="#d6d3c4" stroke-width="3"/>
+              <line x1="110" y1="340" x2="430" y2="70" stroke="#d6d3c4" stroke-width="3"/>
+              <text x="436" y="342" font-size="14" fill="#9a9a9a" font-style="italic" font-weight="700">D<tspan dy="3" font-size="10">0</tspan></text>
+              <text x="436" y="74" font-size="14" fill="#9a9a9a" font-style="italic" font-weight="700">S<tspan dy="3" font-size="10">0</tspan></text>
+              <line x1="70" y1="205" x2="270" y2="205" stroke="#9a9a9a" stroke-width="1.3" stroke-dasharray="5 4"/>
+              <line x1="270" y1="360" x2="270" y2="205" stroke="#9a9a9a" stroke-width="1.3" stroke-dasharray="5 4"/>
+              <circle cx="270" cy="205" r="6" fill="#6b6b6b"/>
+              <text x="284" y="200" font-size="13" font-weight="700" fill="#6b6b6b">E<tspan dy="3" font-size="10">0</tspan></text>
+              <text x="60" y="210" font-size="13" font-weight="700" fill="#6b6b6b" text-anchor="end">P<tspan dy="3" font-size="10">0</tspan></text>
+              <text x="270" y="379" font-size="13" font-weight="700" fill="#6b6b6b" text-anchor="middle">Q<tspan dy="3" font-size="10">0</tspan></text>
             </g>
             <!-- step 2: the shifts -->
             <g class="fragment">
-              <line class="build-line" x1="250" y1="70" x2="570" y2="340" stroke="#1e293b" stroke-width="3.5"/>
-              <line class="build-line" x1="70" y1="340" x2="390" y2="70" stroke="#0f766e" stroke-width="3.5"/>
-              <text x="574" y="342" font-size="14" fill="#1e293b" font-style="italic" font-weight="700">D<tspan dy="3" font-size="10">1</tspan></text>
-              <text x="352" y="60" font-size="14" fill="#0f766e" font-style="italic" font-weight="700">S<tspan dy="3" font-size="10">1</tspan></text>
+              <line class="build-line" x1="250" y1="70" x2="570" y2="340" stroke="#111111" stroke-width="3.5"/>
+              <line class="build-line" x1="70" y1="340" x2="390" y2="70" stroke="#1e2bfa" stroke-width="3.5"/>
+              <text x="574" y="342" font-size="14" fill="#111111" font-style="italic" font-weight="700">D<tspan dy="3" font-size="10">1</tspan></text>
+              <text x="352" y="60" font-size="14" fill="#1e2bfa" font-style="italic" font-weight="700">S<tspan dy="3" font-size="10">1</tspan></text>
               <!-- demand shifts out: from D0 to D1 (rightward, big) -->
-              <line x1="430" y1="310" x2="499" y2="310" stroke="#1e293b" stroke-width="2.5" marker-end="url(#amb1r)"/>
+              <line x1="430" y1="310" x2="499" y2="310" stroke="#111111" stroke-width="2.5" marker-end="url(#amb1r)"/>
               <rect x="384" y="285" width="162" height="20" rx="4" fill="#ffffff" fill-opacity="0.85"/>
-              <text x="465" y="300" font-size="12.5" font-weight="700" fill="#1e293b" text-anchor="middle">demand shifts out (big)</text>
+              <text x="465" y="300" font-size="12.5" font-weight="700" fill="#111111" text-anchor="middle">demand shifts out (big)</text>
               <!-- supply shifts in: from S0 to S1 (leftward, small) -->
-              <line x1="368" y1="115" x2="346" y2="115" stroke="#0f766e" stroke-width="2.5" marker-end="url(#amb1l)"/>
+              <line x1="368" y1="115" x2="346" y2="115" stroke="#1e2bfa" stroke-width="2.5" marker-end="url(#amb1l)"/>
               <rect x="272" y="90" width="168" height="20" rx="4" fill="#ffffff" fill-opacity="0.85"/>
-              <text x="356" y="105" font-size="12.5" font-weight="700" fill="#0f766e" text-anchor="middle">supply shifts in (small)</text>
+              <text x="356" y="105" font-size="12.5" font-weight="700" fill="#1e2bfa" text-anchor="middle">supply shifts in (small)</text>
             </g>
             <!-- step 3: new equilibrium -->
             <g class="fragment">
@@ -869,54 +544,54 @@
               <text x="332" y="124" font-size="13" font-weight="700" fill="#7c3aed">E<tspan dy="3" font-size="10">1</tspan></text>
               <text x="60" y="134" font-size="13" font-weight="700" fill="#7c3aed" text-anchor="end">P<tspan dy="3" font-size="10">1</tspan></text>
               <text x="320" y="379" font-size="13" font-weight="700" fill="#7c3aed" text-anchor="middle">Q<tspan dy="3" font-size="10">1</tspan></text>
-              <text x="330" y="402" font-size="15" font-weight="700" fill="#0f766e" text-anchor="middle">Price &uarr; and Quantity &uarr; &mdash; the demand shift dominates.</text>
+              <text x="330" y="402" font-size="15" font-weight="700" fill="#1e2bfa" text-anchor="middle">Price &uarr; and Quantity &uarr; &mdash; the demand shift dominates.</text>
             </g>
             <defs>
-              <marker id="amb1r" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M 0 0 L 8 4 L 0 8 z" fill="#1e293b"/></marker>
-              <marker id="amb1l" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M 0 0 L 8 4 L 0 8 z" fill="#0f766e"/></marker>
+              <marker id="amb1r" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M 0 0 L 8 4 L 0 8 z" fill="#111111"/></marker>
+              <marker id="amb1l" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M 0 0 L 8 4 L 0 8 z" fill="#1e2bfa"/></marker>
             </defs>
           </svg>
         </section>
 
         <!-- Slide 5.3c: Ambiguous Q - supply shift dominates -->
-        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+        <section>
           <p class="eyebrow">Simultaneous Shifts · Ambiguous Quantity (2 of 2)</p>
           <h2>Demand Out + Supply In: When Supply Dominates</h2>
-          <p style="font-size: 0.55em; color: #64748b; margin: 0 0 2px;">Same shocks as before &mdash; but now the <strong>supply</strong> shift is the larger one, and the quantity flips.</p>
-          <svg class="anim-graph" viewBox="0 0 620 410" style="width: 62%; max-height: 400px; margin: 0 auto; display: block; background: white; border: 1px solid #e2e8f0; border-radius: 10px;" role="img" aria-label="Supply and demand diagram. Demand shifts right from D0 to D1 (a small shift) while supply shifts left from S0 to S1 (a large shift). The equilibrium moves from E0 up and to the left to E1: the price rises but the quantity falls because the supply shift dominates.">
-            <line x1="70" y1="360" x2="585" y2="360" stroke="#475569" stroke-width="2.5"/>
-            <polygon points="585,355 585,365 596,360" fill="#475569"/>
-            <line x1="70" y1="360" x2="70" y2="45" stroke="#475569" stroke-width="2.5"/>
-            <polygon points="65,45 75,45 70,34" fill="#475569"/>
-            <text x="600" y="366" font-size="15" fill="#1e293b" font-style="italic">Q</text>
-            <text x="52" y="42" font-size="15" fill="#1e293b" font-style="italic">P</text>
+          <p style="font-size: 0.55em; color: var(--bp-muted); margin: 0 0 2px;">Same shocks as before &mdash; but now the <strong>supply</strong> shift is the larger one, and the quantity flips.</p>
+          <svg class="anim-graph" viewBox="0 0 620 410" style="width: 62%; max-height: 400px; margin: 0 auto; display: block; background: white; border: 1px solid var(--bp-border); border-radius: 10px;" role="img" aria-label="Supply and demand diagram. Demand shifts right from D0 to D1 (a small shift) while supply shifts left from S0 to S1 (a large shift). The equilibrium moves from E0 up and to the left to E1: the price rises but the quantity falls because the supply shift dominates.">
+            <line x1="70" y1="360" x2="585" y2="360" stroke="#4d4d4d" stroke-width="2.5"/>
+            <polygon points="585,355 585,365 596,360" fill="#4d4d4d"/>
+            <line x1="70" y1="360" x2="70" y2="45" stroke="#4d4d4d" stroke-width="2.5"/>
+            <polygon points="65,45 75,45 70,34" fill="#4d4d4d"/>
+            <text x="600" y="366" font-size="15" fill="#111111" font-style="italic">Q</text>
+            <text x="52" y="42" font-size="15" fill="#111111" font-style="italic">P</text>
             <!-- step 1: initial equilibrium -->
             <g class="fragment">
-              <line x1="110" y1="70" x2="430" y2="340" stroke="#cbd5e1" stroke-width="3"/>
-              <line x1="150" y1="340" x2="470" y2="70" stroke="#cbd5e1" stroke-width="3"/>
-              <text x="436" y="342" font-size="14" fill="#94a3b8" font-style="italic" font-weight="700">D<tspan dy="3" font-size="10">0</tspan></text>
-              <text x="476" y="74" font-size="14" fill="#94a3b8" font-style="italic" font-weight="700">S<tspan dy="3" font-size="10">0</tspan></text>
-              <line x1="70" y1="222" x2="290" y2="222" stroke="#94a3b8" stroke-width="1.3" stroke-dasharray="5 4"/>
-              <line x1="290" y1="360" x2="290" y2="222" stroke="#94a3b8" stroke-width="1.3" stroke-dasharray="5 4"/>
-              <circle cx="290" cy="222" r="6" fill="#64748b"/>
-              <text x="304" y="217" font-size="13" font-weight="700" fill="#64748b">E<tspan dy="3" font-size="10">0</tspan></text>
-              <text x="60" y="227" font-size="13" font-weight="700" fill="#64748b" text-anchor="end">P<tspan dy="3" font-size="10">0</tspan></text>
-              <text x="290" y="379" font-size="13" font-weight="700" fill="#64748b" text-anchor="middle">Q<tspan dy="3" font-size="10">0</tspan></text>
+              <line x1="110" y1="70" x2="430" y2="340" stroke="#d6d3c4" stroke-width="3"/>
+              <line x1="150" y1="340" x2="470" y2="70" stroke="#d6d3c4" stroke-width="3"/>
+              <text x="436" y="342" font-size="14" fill="#9a9a9a" font-style="italic" font-weight="700">D<tspan dy="3" font-size="10">0</tspan></text>
+              <text x="476" y="74" font-size="14" fill="#9a9a9a" font-style="italic" font-weight="700">S<tspan dy="3" font-size="10">0</tspan></text>
+              <line x1="70" y1="222" x2="290" y2="222" stroke="#9a9a9a" stroke-width="1.3" stroke-dasharray="5 4"/>
+              <line x1="290" y1="360" x2="290" y2="222" stroke="#9a9a9a" stroke-width="1.3" stroke-dasharray="5 4"/>
+              <circle cx="290" cy="222" r="6" fill="#6b6b6b"/>
+              <text x="304" y="217" font-size="13" font-weight="700" fill="#6b6b6b">E<tspan dy="3" font-size="10">0</tspan></text>
+              <text x="60" y="227" font-size="13" font-weight="700" fill="#6b6b6b" text-anchor="end">P<tspan dy="3" font-size="10">0</tspan></text>
+              <text x="290" y="379" font-size="13" font-weight="700" fill="#6b6b6b" text-anchor="middle">Q<tspan dy="3" font-size="10">0</tspan></text>
             </g>
             <!-- step 2: the shifts -->
             <g class="fragment">
-              <line class="build-line" x1="150" y1="70" x2="470" y2="340" stroke="#1e293b" stroke-width="3.5"/>
-              <line class="build-line" x1="30" y1="340" x2="350" y2="70" stroke="#0f766e" stroke-width="3.5"/>
-              <text x="474" y="342" font-size="14" fill="#1e293b" font-style="italic" font-weight="700">D<tspan dy="3" font-size="10">1</tspan></text>
-              <text x="312" y="60" font-size="14" fill="#0f766e" font-style="italic" font-weight="700">S<tspan dy="3" font-size="10">1</tspan></text>
+              <line class="build-line" x1="150" y1="70" x2="470" y2="340" stroke="#111111" stroke-width="3.5"/>
+              <line class="build-line" x1="30" y1="340" x2="350" y2="70" stroke="#1e2bfa" stroke-width="3.5"/>
+              <text x="474" y="342" font-size="14" fill="#111111" font-style="italic" font-weight="700">D<tspan dy="3" font-size="10">1</tspan></text>
+              <text x="312" y="60" font-size="14" fill="#1e2bfa" font-style="italic" font-weight="700">S<tspan dy="3" font-size="10">1</tspan></text>
               <!-- demand shifts out: from D0 to D1 (rightward, small) -->
-              <line x1="405" y1="310" x2="424" y2="310" stroke="#1e293b" stroke-width="2.5" marker-end="url(#amb2r)"/>
+              <line x1="405" y1="310" x2="424" y2="310" stroke="#111111" stroke-width="2.5" marker-end="url(#amb2r)"/>
               <rect x="333" y="285" width="168" height="20" rx="4" fill="#ffffff" fill-opacity="0.85"/>
-              <text x="417" y="300" font-size="12.5" font-weight="700" fill="#1e293b" text-anchor="middle">demand shifts out (small)</text>
+              <text x="417" y="300" font-size="12.5" font-weight="700" fill="#111111" text-anchor="middle">demand shifts out (small)</text>
               <!-- supply shifts in: from S0 to S1 (leftward, big) -->
-              <line x1="391" y1="110" x2="334" y2="110" stroke="#0f766e" stroke-width="2.5" marker-end="url(#amb2l)"/>
+              <line x1="391" y1="110" x2="334" y2="110" stroke="#1e2bfa" stroke-width="2.5" marker-end="url(#amb2l)"/>
               <rect x="283" y="85" width="158" height="20" rx="4" fill="#ffffff" fill-opacity="0.85"/>
-              <text x="362" y="100" font-size="12.5" font-weight="700" fill="#0f766e" text-anchor="middle">supply shifts in (big)</text>
+              <text x="362" y="100" font-size="12.5" font-weight="700" fill="#1e2bfa" text-anchor="middle">supply shifts in (big)</text>
             </g>
             <!-- step 3: new equilibrium -->
             <g class="fragment">
@@ -929,14 +604,14 @@
               <text x="330" y="402" font-size="15" font-weight="700" fill="#b45309" text-anchor="middle">Price &uarr; but Quantity &darr; &mdash; the supply shift dominates.</text>
             </g>
             <defs>
-              <marker id="amb2r" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M 0 0 L 8 4 L 0 8 z" fill="#1e293b"/></marker>
-              <marker id="amb2l" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M 0 0 L 8 4 L 0 8 z" fill="#0f766e"/></marker>
+              <marker id="amb2r" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M 0 0 L 8 4 L 0 8 z" fill="#111111"/></marker>
+              <marker id="amb2l" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M 0 0 L 8 4 L 0 8 z" fill="#1e2bfa"/></marker>
             </defs>
           </svg>
         </section>
 
         <!-- Slide 5.4: Transition to Elasticity -->
-        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+        <section>
           <p class="eyebrow">Quantifying Market Behavior</p>
           <h2>Beyond Directions</h2>
           <div class="content-card">
@@ -951,12 +626,12 @@
         </section>
 
         <!-- Slide 5.5: GROUP WORK - Simultaneous Shifts -->
-        <section data-background-gradient="linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%)">
-          <p class="eyebrow" style="color: #b45309;">Group Work · Simultaneous Shifts</p>
+        <section>
+          <p class="eyebrow">Group Work · Simultaneous Shifts</p>
           <h2>&#127922; Group Work: Shifting Both Curves</h2>
-          <div class="content-card" style="font-size: 0.9em; background: rgba(255, 255, 255, 0.7);">
-            <div class="example-card" style="border-left-color: #b45309; background: rgba(180, 83, 9, 0.05); margin: 8px 0;">
-              <div class="ex-title" style="color: #b45309;">Question 1</div>
+          <div class="content-card" style="font-size: 0.9em;">
+            <div class="example-card" style="margin: 8px 0;">
+              <div class="ex-title">Question 1</div>
               Start from the previous group work market: \( Q_D = 20 - 2P \), \( Q_S = 4 + 2P \) (equilibrium \( P^* = 4, Q^* = 12 \)). Now <strong>both curves shift out</strong>:
               \[ Q_D = 26 - 2P \quad \text{and} \quad Q_S = 10 + 2P \]
               <strong>Find the new equilibrium and compare it to the old one.</strong>
@@ -965,8 +640,8 @@
               <button class="group-roll-btn" onclick="rollGroup('l2gw2q1')">&#127922; Pick a group for Q1</button>
               <span class="group-roll-result" id="l2gw2q1">&mdash;</span>
             </div>
-            <div class="example-card" style="border-left-color: #b45309; background: rgba(180, 83, 9, 0.05); margin: 8px 0;">
-              <div class="ex-title" style="color: #b45309;">Question 2</div>
+            <div class="example-card" style="margin: 8px 0;">
+              <div class="ex-title">Question 2</div>
               <strong>Without calculating</strong>: when demand and supply both increase, which of \( P^* \) and \( Q^* \) can we predict with certainty, and which is ambiguous? Does your answer to Question 1 agree?
             </div>
             <div style="margin: 4px 0 0;">
@@ -977,8 +652,8 @@
         </section>
 
         <!-- Slide 5.5b: GROUP WORK Answers - Simultaneous Shifts -->
-        <section data-background-gradient="linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)">
-          <p class="eyebrow" style="color: #059669;">Group Work · Answers</p>
+        <section>
+          <p class="eyebrow">Group Work · Answers</p>
           <h2>Answers: Shifting Both Curves</h2>
           <div class="content-card" style="font-size: 0.9em;">
             <div class="def-card">
@@ -998,55 +673,55 @@
         </section>
 
         <!-- GROUP WORK Answers: step-by-step animated graph -->
-        <section data-background-gradient="linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)">
-          <p class="eyebrow" style="color: #059669;">Group Work &middot; Answers</p>
+        <section>
+          <p class="eyebrow">Group Work &middot; Answers</p>
           <h2>Shifting Both Curves, Step by Step</h2>
-          <p style="font-size: 0.55em; color: #64748b; margin: 0 0 4px;">Press <kbd style="background: #e2e8f0; border: 1px solid #cbd5e1; padding: 1px 6px; border-radius: 4px;">&rarr;</kbd> to add each element of the graph</p>
-          <svg class="anim-graph" viewBox="0 0 760 520" style="width: 92%; max-height: 480px; margin: 0 auto; display: block; background: white; border: 1px solid #e2e8f0; border-radius: 10px;" role="img" aria-label="Animated build-up: old curves D0 and S0 with equilibrium (12, $4); demand shifts out to D1, supply shifts out to S1, and the new equilibrium is (18, $4) - quantity rises while the offsetting shifts leave the price unchanged">
+          <p style="font-size: 0.55em; color: var(--bp-muted); margin: 0 0 4px;">Press <kbd>&rarr;</kbd> to add each element of the graph</p>
+          <svg class="anim-graph" viewBox="0 0 760 520" style="width: 92%; max-height: 480px; margin: 0 auto; display: block; background: white; border: 1px solid var(--bp-border); border-radius: 10px;" role="img" aria-label="Animated build-up: old curves D0 and S0 with equilibrium (12, $4); demand shifts out to D1, supply shifts out to S1, and the new equilibrium is (18, $4) - quantity rises while the offsetting shifts leave the price unchanged">
             <!-- axes + old curves (always visible) -->
             <g>
-              <line x1="70" y1="460" x2="705" y2="460" stroke="#475569" stroke-width="2.5"/>
-              <polygon points="705,455 705,465 716,460" fill="#475569"/>
-              <line x1="70" y1="460" x2="70" y2="52" stroke="#475569" stroke-width="2.5"/>
-              <polygon points="65,52 75,52 70,41" fill="#475569"/>
-              <text x="723" y="466" font-size="17" fill="#1e293b" font-style="italic">Q</text>
-              <text x="44" y="34" font-size="17" fill="#1e293b" font-style="italic">P ($)</text>
-              <line x1="70" y1="100" x2="510" y2="460" stroke="#94a3b8" stroke-width="3"/>
-              <text x="500" y="482" font-size="16" fill="#94a3b8" font-style="italic">D<tspan dy="4" font-size="12">0</tspan></text>
-              <line x1="158" y1="460" x2="554" y2="136" stroke="#94a3b8" stroke-width="3"/>
-              <text x="548" y="122" font-size="16" fill="#94a3b8" font-style="italic">S<tspan dy="4" font-size="12">0</tspan></text>
-              <circle cx="334" cy="316" r="6" fill="#64748b"/>
-              <line x1="70" y1="316" x2="334" y2="316" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="5 4"/>
-              <line x1="334" y1="316" x2="334" y2="460" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="5 4"/>
-              <text x="62" y="322" font-size="16" font-weight="700" fill="#475569" text-anchor="end">P* = $4</text>
-              <text x="334" y="484" font-size="16" fill="#64748b" text-anchor="middle">12</text>
-              <text x="352" y="300" font-size="15" fill="#64748b">old</text>
+              <line x1="70" y1="460" x2="705" y2="460" stroke="#4d4d4d" stroke-width="2.5"/>
+              <polygon points="705,455 705,465 716,460" fill="#4d4d4d"/>
+              <line x1="70" y1="460" x2="70" y2="52" stroke="#4d4d4d" stroke-width="2.5"/>
+              <polygon points="65,52 75,52 70,41" fill="#4d4d4d"/>
+              <text x="723" y="466" font-size="17" fill="#111111" font-style="italic">Q</text>
+              <text x="44" y="34" font-size="17" fill="#111111" font-style="italic">P ($)</text>
+              <line x1="70" y1="100" x2="510" y2="460" stroke="#9a9a9a" stroke-width="3"/>
+              <text x="500" y="482" font-size="16" fill="#9a9a9a" font-style="italic">D<tspan dy="4" font-size="12">0</tspan></text>
+              <line x1="158" y1="460" x2="554" y2="136" stroke="#9a9a9a" stroke-width="3"/>
+              <text x="548" y="122" font-size="16" fill="#9a9a9a" font-style="italic">S<tspan dy="4" font-size="12">0</tspan></text>
+              <circle cx="334" cy="316" r="6" fill="#6b6b6b"/>
+              <line x1="70" y1="316" x2="334" y2="316" stroke="#9a9a9a" stroke-width="1.5" stroke-dasharray="5 4"/>
+              <line x1="334" y1="316" x2="334" y2="460" stroke="#9a9a9a" stroke-width="1.5" stroke-dasharray="5 4"/>
+              <text x="62" y="322" font-size="16" font-weight="700" fill="#4d4d4d" text-anchor="end">P* = $4</text>
+              <text x="334" y="484" font-size="16" fill="#6b6b6b" text-anchor="middle">12</text>
+              <text x="352" y="300" font-size="15" fill="#6b6b6b">old</text>
             </g>
             <!-- fragment 1: demand shifts out -->
             <g class="fragment" data-fragment-index="1">
-              <line class="build-line" x1="202" y1="100" x2="642" y2="460" stroke="#1e293b" stroke-width="3.5"/>
-              <text x="630" y="482" font-size="16" fill="#1e293b" font-style="italic">D<tspan dy="4" font-size="12">1</tspan></text>
+              <line class="build-line" x1="202" y1="100" x2="642" y2="460" stroke="#111111" stroke-width="3.5"/>
+              <text x="630" y="482" font-size="16" fill="#111111" font-style="italic">D<tspan dy="4" font-size="12">1</tspan></text>
               <line x1="300" y1="230" x2="360" y2="230" stroke="#d97706" stroke-width="3" marker-end="url(#a2sh)"/>
               <text x="292" y="214" font-size="15" fill="#d97706" font-weight="700" text-anchor="end">buyers: demand &uarr;</text>
             </g>
             <!-- fragment 2: supply shifts out -->
             <g class="fragment" data-fragment-index="2">
-              <line class="build-line" x1="290" y1="460" x2="642" y2="172" stroke="#0f766e" stroke-width="3.5"/>
-              <text x="648" y="160" font-size="16" fill="#0f766e" font-style="italic">S<tspan dy="4" font-size="12">1</tspan></text>
+              <line class="build-line" x1="290" y1="460" x2="642" y2="172" stroke="#1e2bfa" stroke-width="3.5"/>
+              <text x="648" y="160" font-size="16" fill="#1e2bfa" font-style="italic">S<tspan dy="4" font-size="12">1</tspan></text>
               <line x1="470" y1="222" x2="530" y2="222" stroke="#d97706" stroke-width="3" marker-end="url(#a2sh)"/>
               <text x="500" y="204" font-size="15" fill="#d97706" font-weight="700" text-anchor="middle">sellers: supply &uarr;</text>
             </g>
             <!-- fragment 3: new equilibrium -->
             <g class="fragment" data-fragment-index="3">
-              <circle cx="466" cy="316" r="7" fill="#1e293b"/>
-              <line x1="466" y1="316" x2="466" y2="460" stroke="#64748b" stroke-width="1.5" stroke-dasharray="5 4"/>
-              <text x="466" y="484" font-size="16" font-weight="700" fill="#1e293b" text-anchor="middle">Q* = 18</text>
-              <text x="466" y="290" font-size="15" font-weight="700" fill="#1e293b" text-anchor="middle">new</text>
+              <circle cx="466" cy="316" r="7" fill="#111111"/>
+              <line x1="466" y1="316" x2="466" y2="460" stroke="#6b6b6b" stroke-width="1.5" stroke-dasharray="5 4"/>
+              <text x="466" y="484" font-size="16" font-weight="700" fill="#111111" text-anchor="middle">Q* = 18</text>
+              <text x="466" y="290" font-size="15" font-weight="700" fill="#111111" text-anchor="middle">new</text>
             </g>
             <!-- fragment 4: takeaway -->
             <g class="fragment" data-fragment-index="4">
-              <text x="388" y="80" font-size="17" font-weight="700" fill="#0f766e" text-anchor="middle">Both curves shift out: Q* &uarr; for sure;</text>
-              <text x="388" y="104" font-size="17" font-weight="700" fill="#0f766e" text-anchor="middle">here the shifts offset, so P* stays at $4.</text>
+              <text x="388" y="80" font-size="17" font-weight="700" fill="#1e2bfa" text-anchor="middle">Both curves shift out: Q* &uarr; for sure;</text>
+              <text x="388" y="104" font-size="17" font-weight="700" fill="#1e2bfa" text-anchor="middle">here the shifts offset, so P* stays at $4.</text>
             </g>
             <defs>
               <marker id="a2sh" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
@@ -1057,8 +732,8 @@
         </section>
 
         <!-- GROUP WORK Answers: graph -->
-        <section data-visibility="hidden" data-background-gradient="linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)">
-          <p class="eyebrow" style="color: #059669;">Group Work · Answers</p>
+        <section data-visibility="hidden">
+          <p class="eyebrow">Group Work · Answers</p>
           <h2>Shifting Both Curves, Graphically</h2>
           <div class="slide-img-container" style="margin: 5px auto 0; padding: 8px;">
             <img src="images/c2_gw_shifts_graph.png" alt="Both demand and supply shift out from D0/S0 to D1/S1: the equilibrium moves from (12, $4) to (18, $4) - quantity rises for sure while the offsetting shifts leave the price unchanged" style="max-height: 470px;">
@@ -1072,20 +747,20 @@
       <section>
 
         <!-- Slide 6.1: Divider -->
-        <section data-background-gradient="linear-gradient(135deg, #0f172a 0%, #1e293b 100%)">
-          <p class="eyebrow" style="color: #2dd4bf;">Measuring Sensitivity</p>
-          <h1 style="color: white; font-size: 2.8em;">Elasticity</h1>
-          <p style="color: #94a3b8; margin-top: 20px;">Press <kbd style="background: #334155; color: #cbd5e1; border: 1px solid #475569; padding: 2px 6px; border-radius: 4px;">↓</kbd> to study elasticity definition</p>
+        <section class="bp-divider">
+          <p class="eyebrow">Measuring Sensitivity</p>
+          <h1 style="font-size: 2.8em;">Elasticity</h1>
+          <p style="color: var(--bp-muted); margin-top: 20px;">Press <kbd>↓</kbd> to study elasticity definition</p>
         </section>
 
         <!-- Slide 6.2: What is Elasticity -->
-        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+        <section>
           <p class="eyebrow">Elasticity</p>
           <h2>What is Elasticity?</h2>
           <div style="display: flex; align-items: center; justify-content: center; gap: 30px; max-width: 1150px; margin: 0 auto;">
             <div style="flex: 1.2; text-align: left; display: flex; flex-direction: column; gap: 15px;">
-              <div class="content-card" style="margin: 0; padding: 20px;">
-                <p style="font-size: 1.15em; font-weight: 600; color: #0f766e; margin-bottom: 15px;">
+              <div class="content-card" style="margin: 0;">
+                <p style="font-size: 1.15em; font-weight: 600; color: var(--bp-primary); margin-bottom: 15px;">
                   Elasticity compares percentage changes in two variables.
                 </p>
                 <p style="font-size: 0.9em; margin-bottom: 0;">
@@ -1105,7 +780,7 @@
         </section>
 
         <!-- Slide 6.3: Point Elasticity -->
-        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+        <section>
           <p class="eyebrow">Elasticity · Definition</p>
           <h2>Price Elasticity Without Calculus</h2>
           <div class="content-card" style="font-size: 0.9em;">
@@ -1115,7 +790,7 @@
         </section>
 
         <!-- Slide 6.4: Calculation example -->
-        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+        <section>
           <p class="eyebrow">Elasticity · Example</p>
           <h2>Point Elasticity Varies Along the Curve</h2>
           <div style="display: flex; align-items: center; justify-content: center; gap: 20px; max-width: 1090px; margin: 0 auto;">
@@ -1141,7 +816,7 @@
         </section>
 
 <!-- Slide 6.4b: Solution - Point Elasticity -->
-        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+        <section>
           <p class="eyebrow">Elasticity · Solution</p>
           <h2>Elasticity at the Midpoint and Near the Ends</h2>
           <div class="content-card" style="font-size: 0.9em;">
@@ -1149,13 +824,13 @@
           </div>
         </section>
         <!-- Slide 6.5: Midpoint Elasticity -->
-        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+        <section>
           <p class="eyebrow">Elasticity · Linear demand</p>
           <h2>Elasticity Along a Linear Demand Curve</h2>
           <div style="display: flex; align-items: center; justify-content: center; gap: 20px; max-width: 1090px; margin: 0 auto;">
             <div style="flex: 1; text-align: left;">
-              <div class="content-card" style="margin: 0; padding: 20px 25px;">
-                <p style="font-weight: 600; color: #0f766e; margin-bottom: 12px;">Elasticity regions on a linear curve:</p>
+              <div class="content-card" style="margin: 0;">
+                <p style="font-weight: 600; color: var(--bp-primary); margin-bottom: 12px;">Elasticity regions on a linear curve:</p>
                 <ul>
                   <li class="fragment"><strong>Elastic</strong> above the midpoint: \( |\varepsilon| &gt; 1 \)</li>
                   <li class="fragment"><strong>Unit-elastic</strong> at the midpoint: \( |\varepsilon| = 1 \)</li>
@@ -1172,15 +847,15 @@
         </section>
 
         <!-- Slide 6.5b: Interactive elasticity explorer -->
-        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+        <section>
           <p class="eyebrow">Elasticity · Interactive</p>
           <h2>Try It: Elasticity Along the Demand Curve</h2>
-          <p style="font-size: 0.55em; color: #64748b; margin: 0 0 4px;">Drag the point along the demand curve \( Q = 10 - 0.5P \) and watch the point elasticity \( |\varepsilon| \) update live</p>
-          <svg class="elasticity-explorer" data-a="10" data-b="0.5" viewBox="0 0 760 520" style="width: 92%; max-height: 480px; margin: 0 auto; display: block; background: white; border: 1px solid #e2e8f0; border-radius: 10px; touch-action: none;" role="img" aria-label="Interactive chart: drag a point along the linear demand curve Q = 10 minus 0.5 P. The chart reports price, quantity, and the point elasticity of demand, classified as elastic above the midpoint, unit-elastic at the midpoint, and inelastic below it."></svg>
+          <p style="font-size: 0.55em; color: var(--bp-muted); margin: 0 0 4px;">Drag the point along the demand curve \( Q = 10 - 0.5P \) and watch the point elasticity \( |\varepsilon| \) update live</p>
+          <svg class="elasticity-explorer" data-a="10" data-b="0.5" viewBox="0 0 760 520" style="width: 92%; max-height: 480px; margin: 0 auto; display: block; background: white; border: 1px solid var(--bp-border); border-radius: 10px; touch-action: none;" role="img" aria-label="Interactive chart: drag a point along the linear demand curve Q = 10 minus 0.5 P. The chart reports price, quantity, and the point elasticity of demand, classified as elastic above the midpoint, unit-elastic at the midpoint, and inelastic below it."></svg>
         </section>
 
         <!-- Slide 6.6: Relative elasticity definition -->
-        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+        <section>
           <p class="eyebrow">Elasticity · Classification</p>
           <h2>Elastic or Inelastic?</h2>
           <div class="content-card" style="font-size: 0.9em;">
@@ -1189,26 +864,26 @@
         </section>
 
         <!-- Slide 6.6b: A/B quiz - which is relatively elastic? -->
-        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+        <section>
           <p class="eyebrow">Elasticity · Check Yourself</p>
           <h2>Which Curve Is Relatively Elastic?</h2>
           <div style="display: flex; align-items: center; justify-content: center; gap: 24px; max-width: 1100px; margin: 0 auto;">
-            <svg class="anim-graph" viewBox="0 0 640 380" style="width: 52%; max-height: 340px; background: white; border: 1px solid #e2e8f0; border-radius: 10px;" role="img" aria-label="Two linear demand curves crossing at a common point: curve A is steep, curve B is flat. Which one is relatively elastic?">
-              <line x1="60" y1="320" x2="600" y2="320" stroke="#475569" stroke-width="2.5"/>
-              <polygon points="600,315 600,325 611,320" fill="#475569"/>
-              <line x1="60" y1="320" x2="60" y2="40" stroke="#475569" stroke-width="2.5"/>
-              <polygon points="55,40 65,40 60,29" fill="#475569"/>
-              <text x="614" y="326" font-size="16" fill="#1e293b" font-style="italic">Q</text>
-              <text x="40" y="46" font-size="16" fill="#1e293b" font-style="italic">P</text>
+            <svg class="anim-graph" viewBox="0 0 640 380" style="width: 52%; max-height: 340px; background: white; border: 1px solid var(--bp-border); border-radius: 10px;" role="img" aria-label="Two linear demand curves crossing at a common point: curve A is steep, curve B is flat. Which one is relatively elastic?">
+              <line x1="60" y1="320" x2="600" y2="320" stroke="#4d4d4d" stroke-width="2.5"/>
+              <polygon points="600,315 600,325 611,320" fill="#4d4d4d"/>
+              <line x1="60" y1="320" x2="60" y2="40" stroke="#4d4d4d" stroke-width="2.5"/>
+              <polygon points="55,40 65,40 60,29" fill="#4d4d4d"/>
+              <text x="614" y="326" font-size="16" fill="#111111" font-style="italic">Q</text>
+              <text x="40" y="46" font-size="16" fill="#111111" font-style="italic">P</text>
               <!-- curve A: steep -->
-              <line x1="310" y1="60" x2="350" y2="320" stroke="#1e293b" stroke-width="3.5"/>
-              <text x="300" y="54" font-size="19" font-weight="800" fill="#1e293b" text-anchor="end">A</text>
+              <line x1="310" y1="60" x2="350" y2="320" stroke="#111111" stroke-width="3.5"/>
+              <text x="300" y="54" font-size="19" font-weight="800" fill="#111111" text-anchor="end">A</text>
               <!-- curve B: flat -->
-              <line x1="120" y1="150" x2="560" y2="238" stroke="#0f766e" stroke-width="3.5"/>
-              <text x="572" y="240" font-size="19" font-weight="800" fill="#0f766e">B</text>
+              <line x1="120" y1="150" x2="560" y2="238" stroke="#1e2bfa" stroke-width="3.5"/>
+              <text x="572" y="240" font-size="19" font-weight="800" fill="#1e2bfa">B</text>
               <!-- common point -->
-              <circle cx="330" cy="190" r="6" fill="#334155"/>
-              <text x="330" y="360" font-size="13" fill="#64748b" text-anchor="middle">same price &amp; quantity at the crossing</text>
+              <circle cx="330" cy="190" r="6" fill="#333333"/>
+              <text x="330" y="360" font-size="13" fill="#6b6b6b" text-anchor="middle">same price &amp; quantity at the crossing</text>
             </svg>
             <div style="flex: 1; text-align: center;">
               <p style="font-weight: 600; font-size: 1.05em; margin-bottom: 16px;">Which demand curve &mdash; <strong>A</strong> or <strong>B</strong> &mdash; is <strong>relatively elastic</strong>?</p>
@@ -1224,7 +899,7 @@
         </section>
 
         <!-- Slide 6.7: Visualizing slopes -->
-        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)" data-visibility="hidden">
+        <section data-visibility="hidden">
           <p class="eyebrow">Elasticity · Slopes</p>
           <h2>Compare Slopes at the Same Point</h2>
           <div class="content-card" style="font-size: 0.9em;">
@@ -1234,12 +909,12 @@
         </section>
 
         <!-- Slide 6.8: GROUP WORK - Elasticity -->
-        <section data-background-gradient="linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%)">
-          <p class="eyebrow" style="color: #b45309;">Practice &middot; Try On Your Own</p>
+        <section>
+          <p class="eyebrow">Practice &middot; Try On Your Own</p>
           <h2>&#9998; Practice: Own-Price/Point Elasticity of Demand</h2>
-          <div class="content-card" style="font-size: 0.9em; background: rgba(255, 255, 255, 0.7);">
-            <div class="example-card" style="border-left-color: #b45309; background: rgba(180, 83, 9, 0.05); margin: 8px 0;">
-              <div class="ex-title" style="color: #b45309;">Question 1</div>
+          <div class="content-card" style="font-size: 0.9em;">
+            <div class="example-card" style="margin: 8px 0;">
+              <div class="ex-title">Question 1</div>
               Given the demand function:
               \[ Q = 24 - 4P \]
               <strong>Calculate the own-price elasticity of demand \( |\varepsilon| \) at \( P = 3 \).</strong> Is demand elastic, unit-elastic, or inelastic at this point?
@@ -1248,8 +923,8 @@
               <button class="group-roll-btn" onclick="rollGroup('l2gw8q1')">&#127922; Pick a group for Q1</button>
               <span class="group-roll-result" id="l2gw8q1">&mdash;</span>
             </div>
-            <div class="example-card" style="border-left-color: #b45309; background: rgba(180, 83, 9, 0.05); margin: 8px 0;">
-              <div class="ex-title" style="color: #b45309;">Question 2</div>
+            <div class="example-card" style="margin: 8px 0;">
+              <div class="ex-title">Question 2</div>
               For the same demand curve, calculate \( |\varepsilon| \) at <strong>\( P = 5 \)</strong> and at <strong>\( P = 1 \)</strong>. Classify each point as elastic, unit-elastic, or inelastic.
             </div>
             <div style="margin: 4px 0 0;">
@@ -1260,8 +935,8 @@
         </section>
 
         <!-- Slide 6.8b: GROUP WORK Answers - Elasticity -->
-        <section data-visibility="uncounted" data-background-gradient="linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)">
-          <p class="eyebrow" style="color: #059669;">Group Work · Answers</p>
+        <section data-visibility="uncounted">
+          <p class="eyebrow">Group Work · Answers</p>
           <h2>Answers: Point Elasticity</h2>
           <div class="content-card" style="font-size: 0.88em;">
             <div class="def-card">
@@ -1278,59 +953,59 @@
         </section>
 
         <!-- GROUP WORK Answers: step-by-step animated graph -->
-        <section data-visibility="uncounted" data-background-gradient="linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)">
-          <p class="eyebrow" style="color: #059669;">Group Work &middot; Answers</p>
+        <section data-visibility="uncounted">
+          <p class="eyebrow">Group Work &middot; Answers</p>
           <h2>Point Elasticity, Step by Step</h2>
-          <p style="font-size: 0.55em; color: #64748b; margin: 0 0 4px;">Press <kbd style="background: #e2e8f0; border: 1px solid #cbd5e1; padding: 1px 6px; border-radius: 4px;">&rarr;</kbd> to add each element of the graph</p>
-          <svg class="anim-graph" viewBox="0 0 760 520" style="width: 92%; max-height: 480px; margin: 0 auto; display: block; background: white; border: 1px solid #e2e8f0; border-radius: 10px;" role="img" aria-label="Animated build-up: linear demand Q=24-4P, then the elastic point (4, $5) with elasticity 5, the unit-elastic midpoint (12, $3), and the inelastic point (20, $1) with elasticity 0.2">
+          <p style="font-size: 0.55em; color: var(--bp-muted); margin: 0 0 4px;">Press <kbd>&rarr;</kbd> to add each element of the graph</p>
+          <svg class="anim-graph" viewBox="0 0 760 520" style="width: 92%; max-height: 480px; margin: 0 auto; display: block; background: white; border: 1px solid var(--bp-border); border-radius: 10px;" role="img" aria-label="Animated build-up: linear demand Q=24-4P, then the elastic point (4, $5) with elasticity 5, the unit-elastic midpoint (12, $3), and the inelastic point (20, $1) with elasticity 0.2">
             <!-- axes + demand (always visible) -->
             <g>
-              <line x1="70" y1="460" x2="705" y2="460" stroke="#475569" stroke-width="2.5"/>
-              <polygon points="705,455 705,465 716,460" fill="#475569"/>
-              <line x1="70" y1="460" x2="70" y2="52" stroke="#475569" stroke-width="2.5"/>
-              <polygon points="65,52 75,52 70,41" fill="#475569"/>
-              <text x="723" y="466" font-size="17" fill="#1e293b" font-style="italic">Q</text>
-              <text x="44" y="34" font-size="17" fill="#1e293b" font-style="italic">P ($)</text>
-              <line x1="70" y1="112" x2="646" y2="460" stroke="#1e293b" stroke-width="3.5"/>
-              <text x="652" y="452" font-size="17" fill="#1e293b" font-style="italic">D</text>
-              <text x="62" y="118" font-size="15" fill="#64748b" text-anchor="end">6</text>
+              <line x1="70" y1="460" x2="705" y2="460" stroke="#4d4d4d" stroke-width="2.5"/>
+              <polygon points="705,455 705,465 716,460" fill="#4d4d4d"/>
+              <line x1="70" y1="460" x2="70" y2="52" stroke="#4d4d4d" stroke-width="2.5"/>
+              <polygon points="65,52 75,52 70,41" fill="#4d4d4d"/>
+              <text x="723" y="466" font-size="17" fill="#111111" font-style="italic">Q</text>
+              <text x="44" y="34" font-size="17" fill="#111111" font-style="italic">P ($)</text>
+              <line x1="70" y1="112" x2="646" y2="460" stroke="#111111" stroke-width="3.5"/>
+              <text x="652" y="452" font-size="17" fill="#111111" font-style="italic">D</text>
+              <text x="62" y="118" font-size="15" fill="#6b6b6b" text-anchor="end">6</text>
             </g>
             <!-- fragment 1: elastic point -->
             <g class="fragment" data-fragment-index="1">
-              <line x1="70" y1="170" x2="166" y2="170" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="5 4"/>
-              <line x1="166" y1="170" x2="166" y2="460" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="5 4"/>
+              <line x1="70" y1="170" x2="166" y2="170" stroke="#9a9a9a" stroke-width="1.5" stroke-dasharray="5 4"/>
+              <line x1="166" y1="170" x2="166" y2="460" stroke="#9a9a9a" stroke-width="1.5" stroke-dasharray="5 4"/>
               <circle cx="166" cy="170" r="7" fill="#d97706"/>
               <text x="62" y="176" font-size="16" font-weight="700" fill="#d97706" text-anchor="end">5</text>
-              <text x="166" y="484" font-size="16" fill="#475569" text-anchor="middle">4</text>
+              <text x="166" y="484" font-size="16" fill="#4d4d4d" text-anchor="middle">4</text>
               <text x="188" y="162" font-size="17" fill="#d97706">|&epsilon;| = 4 &times; 5&frasl;4 = 5 &mdash; <tspan font-weight="700">elastic</tspan></text>
             </g>
             <!-- fragment 2: unit-elastic midpoint -->
             <g class="fragment" data-fragment-index="2">
-              <line x1="70" y1="286" x2="358" y2="286" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="5 4"/>
-              <line x1="358" y1="286" x2="358" y2="460" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="5 4"/>
+              <line x1="70" y1="286" x2="358" y2="286" stroke="#9a9a9a" stroke-width="1.5" stroke-dasharray="5 4"/>
+              <line x1="358" y1="286" x2="358" y2="460" stroke="#9a9a9a" stroke-width="1.5" stroke-dasharray="5 4"/>
               <circle cx="358" cy="286" r="7" fill="#7c3aed"/>
               <text x="62" y="292" font-size="16" font-weight="700" fill="#7c3aed" text-anchor="end">3</text>
-              <text x="358" y="484" font-size="16" fill="#475569" text-anchor="middle">12</text>
+              <text x="358" y="484" font-size="16" fill="#4d4d4d" text-anchor="middle">12</text>
               <text x="380" y="278" font-size="17" fill="#7c3aed">|&epsilon;| = 4 &times; 3&frasl;12 = 1 &mdash; <tspan font-weight="700">unit-elastic (midpoint)</tspan></text>
             </g>
             <!-- fragment 3: inelastic point -->
             <g class="fragment" data-fragment-index="3">
-              <line x1="70" y1="402" x2="550" y2="402" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="5 4"/>
-              <line x1="550" y1="402" x2="550" y2="460" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="5 4"/>
-              <circle cx="550" cy="402" r="7" fill="#0f766e"/>
-              <text x="62" y="408" font-size="16" font-weight="700" fill="#0f766e" text-anchor="end">1</text>
-              <text x="550" y="484" font-size="16" fill="#475569" text-anchor="middle">20</text>
-              <text x="560" y="382" font-size="17" fill="#0f766e">|&epsilon;| = 4 &times; 1&frasl;20 = 0.2 &mdash; <tspan font-weight="700">inelastic</tspan></text>
+              <line x1="70" y1="402" x2="550" y2="402" stroke="#9a9a9a" stroke-width="1.5" stroke-dasharray="5 4"/>
+              <line x1="550" y1="402" x2="550" y2="460" stroke="#9a9a9a" stroke-width="1.5" stroke-dasharray="5 4"/>
+              <circle cx="550" cy="402" r="7" fill="#1e2bfa"/>
+              <text x="62" y="408" font-size="16" font-weight="700" fill="#1e2bfa" text-anchor="end">1</text>
+              <text x="550" y="484" font-size="16" fill="#4d4d4d" text-anchor="middle">20</text>
+              <text x="560" y="382" font-size="17" fill="#1e2bfa">|&epsilon;| = 4 &times; 1&frasl;20 = 0.2 &mdash; <tspan font-weight="700">inelastic</tspan></text>
             </g>
             <!-- fragment 4: takeaway -->
             <g class="fragment" data-fragment-index="4">
-              <text x="410" y="84" font-size="17" font-weight="700" fill="#0f766e" text-anchor="middle">Same slope everywhere &mdash; but elasticity still changes along a linear demand curve!</text>
+              <text x="410" y="84" font-size="17" font-weight="700" fill="#1e2bfa" text-anchor="middle">Same slope everywhere &mdash; but elasticity still changes along a linear demand curve!</text>
             </g>
           </svg>
         </section>
 
         <!-- GROUP WORK Answers: graph -->
-        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)" data-visibility="hidden">
+        <section data-visibility="hidden">
           <p class="eyebrow">Group Work · Answers</p>
           <h2>Elasticity Between Two Prices</h2>
           <div class="content-card" style="font-size: 0.9em;">
@@ -1346,14 +1021,14 @@
       <section>
 
         <!-- Slide 7.1: Divider -->
-        <section data-background-gradient="linear-gradient(135deg, #0f766e 0%, #115e59 100%)">
-          <p class="eyebrow" style="color: #ccfbf1;">Real World Application</p>
-          <h1 style="color: white; font-size: 2.8em;">Applying our Understanding</h1>
-          <p style="color: #ccfbf1; margin-top: 20px;">Press <kbd style="background: #115e59; color: white; border: 1px solid #134e4a; padding: 2px 6px; border-radius: 4px;">↓</kbd> to view WSJ Case Study</p>
+        <section class="bp-divider">
+          <p class="eyebrow">Real World Application</p>
+          <h1 style="font-size: 2.8em;">Applying our Understanding</h1>
+          <p style="color: var(--bp-body); margin-top: 20px;">Press <kbd>↓</kbd> to view WSJ Case Study</p>
         </section>
 
         <!-- Slide 7.2: WSJ Part 1 -->
-        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+        <section>
           <p class="eyebrow">WSJ Case Study · Part 1</p>
           <h2>Cocoa Price Shocks &amp; Chocolate Market</h2>
           <div class="content-card" style="text-align: center;">
@@ -1367,7 +1042,7 @@
         </section>
 
         <!-- Slide 7.3: WSJ Part 2 - highlighted article + callouts -->
-        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+        <section>
           <p class="eyebrow">WSJ Case Study · Part 2</p>
           <h2>Reading the Chocolate Case</h2>
           <div class="content-card" style="font-size: 0.9em;">
@@ -1377,7 +1052,7 @@
         </section>
 
         <!-- Slide 7.3b: WSJ Part 2 - discussion -->
-        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+        <section>
           <p class="eyebrow">WSJ Case Study · Discussion</p>
           <h2>What Can We Conclude?</h2>
           <div class="content-card" style="font-size: 0.9em;">
@@ -1386,18 +1061,18 @@
         </section>
 
         <!-- Slide 7.3c: WSJ - two demand curves, one price rise -->
-        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+        <section>
           <p class="eyebrow">WSJ Case Study · Elasticity in one picture</p>
           <h2>One Price Rise, Two Responses</h2>
-          <p style="font-size: 0.55em; color: #64748b; margin: 0 0 2px;">In this illustrative graph, both regions start at the same price and quantity (the common point at P<sub>0</sub>). A single, common price increase makes quantity fall &mdash; by very different amounts. Press <kbd style="background: #e2e8f0; border: 1px solid #cbd5e1; padding: 1px 6px; border-radius: 4px;">&rarr;</kbd>.</p>
-          <svg class="anim-graph" viewBox="0 0 720 470" style="width: 74%; max-height: 420px; margin: 0 auto; display: block; background: white; border: 1px solid #e2e8f0; border-radius: 10px;" role="img" aria-label="Two demand curves through a common point at price P0: a steep teal curve for Europe (inelastic) and a flat amber curve for the U.S. (elastic). When the common price rises to P1, Europe's quantity falls only a little while the U.S. quantity falls a lot.">
+          <p style="font-size: 0.55em; color: var(--bp-muted); margin: 0 0 2px;">In this illustrative graph, both regions start at the same price and quantity (the common point at P<sub>0</sub>). A single, common price increase makes quantity fall &mdash; by very different amounts. Press <kbd>&rarr;</kbd>.</p>
+          <svg class="anim-graph" viewBox="0 0 720 470" style="width: 74%; max-height: 420px; margin: 0 auto; display: block; background: white; border: 1px solid var(--bp-border); border-radius: 10px;" role="img" aria-label="Two demand curves through a common point at price P0: a steep teal curve for Europe (inelastic) and a flat amber curve for the U.S. (elastic). When the common price rises to P1, Europe's quantity falls only a little while the U.S. quantity falls a lot.">
             <!-- base: axes -->
-            <line x1="80" y1="390" x2="660" y2="390" stroke="#475569" stroke-width="2.5"/>
-            <polygon points="660,385 660,395 671,390" fill="#475569"/>
-            <line x1="80" y1="390" x2="80" y2="55" stroke="#475569" stroke-width="2.5"/>
-            <polygon points="75,55 85,55 80,44" fill="#475569"/>
-            <text x="56" y="50" font-size="16" fill="#1e293b" font-style="italic">P</text>
-            <text x="672" y="396" font-size="16" fill="#1e293b" font-style="italic">Q</text>
+            <line x1="80" y1="390" x2="660" y2="390" stroke="#4d4d4d" stroke-width="2.5"/>
+            <polygon points="660,385 660,395 671,390" fill="#4d4d4d"/>
+            <line x1="80" y1="390" x2="80" y2="55" stroke="#4d4d4d" stroke-width="2.5"/>
+            <polygon points="75,55 85,55 80,44" fill="#4d4d4d"/>
+            <text x="56" y="50" font-size="16" fill="#111111" font-style="italic">P</text>
+            <text x="672" y="396" font-size="16" fill="#111111" font-style="italic">Q</text>
 
             <!-- step 1a: U.S. demand curve first (elastic, flatter) -->
             <g class="fragment">
@@ -1407,18 +1082,18 @@
 
             <!-- step 1b: Europe demand curve (inelastic, steeper) + common start point -->
             <g class="fragment">
-              <line class="build-line" x1="317" y1="60" x2="411" y2="390" stroke="#0f766e" stroke-width="3.5"/>
-              <text x="300" y="66" font-size="14" font-weight="700" fill="#0f766e" text-anchor="end" font-style="italic">D<tspan dy="3" font-size="10">Europe</tspan></text>
-              <line x1="80" y1="280" x2="380" y2="280" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="5 4"/>
-              <line x1="380" y1="280" x2="380" y2="390" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="5 4"/>
-              <circle cx="380" cy="280" r="6" fill="#1e293b"/>
-              <text x="72" y="285" font-size="14" font-weight="700" fill="#475569" text-anchor="end">P<tspan dy="3" font-size="10">0</tspan></text>
-              <text x="388" y="408" font-size="14" font-weight="700" fill="#475569">Q<tspan dy="3" font-size="10">0</tspan></text>
+              <line class="build-line" x1="317" y1="60" x2="411" y2="390" stroke="#1e2bfa" stroke-width="3.5"/>
+              <text x="300" y="66" font-size="14" font-weight="700" fill="#1e2bfa" text-anchor="end" font-style="italic">D<tspan dy="3" font-size="10">Europe</tspan></text>
+              <line x1="80" y1="280" x2="380" y2="280" stroke="#9a9a9a" stroke-width="1.5" stroke-dasharray="5 4"/>
+              <line x1="380" y1="280" x2="380" y2="390" stroke="#9a9a9a" stroke-width="1.5" stroke-dasharray="5 4"/>
+              <circle cx="380" cy="280" r="6" fill="#111111"/>
+              <text x="72" y="285" font-size="14" font-weight="700" fill="#4d4d4d" text-anchor="end">P<tspan dy="3" font-size="10">0</tspan></text>
+              <text x="388" y="408" font-size="14" font-weight="700" fill="#4d4d4d">Q<tspan dy="3" font-size="10">0</tspan></text>
             </g>
 
             <!-- step 2: a common price rise -->
             <g class="fragment">
-              <line x1="380" y1="280" x2="380" y2="140" stroke="#cbd5e1" stroke-width="1.2" stroke-dasharray="4 4"/>
+              <line x1="380" y1="280" x2="380" y2="140" stroke="#d6d3c4" stroke-width="1.2" stroke-dasharray="4 4"/>
               <line x1="80" y1="140" x2="520" y2="140" stroke="#dc2626" stroke-width="1.6" stroke-dasharray="5 4"/>
               <text x="72" y="145" font-size="14" font-weight="700" fill="#dc2626" text-anchor="end">P<tspan dy="3" font-size="10">1</tspan></text>
               <line x1="108" y1="272" x2="108" y2="150" stroke="#dc2626" stroke-width="2.5" marker-end="url(#cmpup)"/>
@@ -1427,11 +1102,11 @@
 
             <!-- step 3: Europe (inelastic) - small drop -->
             <g class="fragment">
-              <line x1="340" y1="140" x2="340" y2="390" stroke="#0f766e" stroke-width="1.3" stroke-dasharray="4 4"/>
-              <circle cx="340" cy="140" r="6" fill="#0f766e"/>
-              <line x1="378" y1="126" x2="345" y2="126" stroke="#0f766e" stroke-width="2.5" marker-end="url(#cmplt)"/>
-              <text x="362" y="117" font-size="12.5" font-weight="700" fill="#0f766e" text-anchor="middle">Europe: small &darr;Q</text>
-              <text x="335" y="408" font-size="13" font-weight="700" fill="#0f766e" text-anchor="end">Q<tspan dy="3" font-size="9">EU</tspan></text>
+              <line x1="340" y1="140" x2="340" y2="390" stroke="#1e2bfa" stroke-width="1.3" stroke-dasharray="4 4"/>
+              <circle cx="340" cy="140" r="6" fill="#1e2bfa"/>
+              <line x1="378" y1="126" x2="345" y2="126" stroke="#1e2bfa" stroke-width="2.5" marker-end="url(#cmplt)"/>
+              <text x="362" y="117" font-size="12.5" font-weight="700" fill="#1e2bfa" text-anchor="middle">Europe: small &darr;Q</text>
+              <text x="335" y="408" font-size="13" font-weight="700" fill="#1e2bfa" text-anchor="end">Q<tspan dy="3" font-size="9">EU</tspan></text>
             </g>
 
             <!-- step 4: U.S. (elastic) - big drop -->
@@ -1445,19 +1120,19 @@
 
             <!-- step 5: takeaway -->
             <g class="fragment">
-              <text x="370" y="452" font-size="14" font-weight="700" fill="#0f766e" text-anchor="middle">Same price rise &rarr; the U.S. (elastic) loses far more quantity than Europe (inelastic).</text>
+              <text x="370" y="452" font-size="14" font-weight="700" fill="#1e2bfa" text-anchor="middle">Same price rise &rarr; the U.S. (elastic) loses far more quantity than Europe (inelastic).</text>
             </g>
 
             <defs>
               <marker id="cmpup" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M 0 0 L 9 4.5 L 0 9 z" fill="#dc2626"/></marker>
-              <marker id="cmplt" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M 0 0 L 9 4.5 L 0 9 z" fill="#0f766e"/></marker>
+              <marker id="cmplt" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M 0 0 L 9 4.5 L 0 9 z" fill="#1e2bfa"/></marker>
               <marker id="cmpla" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M 0 0 L 9 4.5 L 0 9 z" fill="#d97706"/></marker>
             </defs>
           </svg>
         </section>
 
         <!-- Slide 7.4: Interactive - build your own demand curve -->
-        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+        <section>
           <p class="eyebrow">Elasticity · Interactive</p>
           <h2>Build Your Own Demand Curve</h2>
           <p class="coeff-eq">
@@ -1465,9 +1140,9 @@
             &minus; <input id="db-b" class="coeff-input" type="number" min="0.1" step="0.5" value="2" inputmode="decimal" aria-label="slope B">
             &middot; P
           </p>
-          <p style="font-size: 0.5em; color: #64748b; margin: 0 0 2px;">Type two <strong>positive</strong> numbers &mdash; the intercepts move. Then <strong>drag the point</strong> along the curve to read the elasticity; the dotted lines mark the midpoint.</p>
+          <p style="font-size: 0.5em; color: var(--bp-muted); margin: 0 0 2px;">Type two <strong>positive</strong> numbers &mdash; the intercepts move. Then <strong>drag the point</strong> along the curve to read the elasticity; the dotted lines mark the midpoint.</p>
           <svg class="demand-builder" data-a="12" data-b="2" data-input-a="db-a" data-input-b="db-b"
-               viewBox="0 0 760 520" style="width: 88%; max-height: 430px; margin: 0 auto; display: block; background: white; border: 1px solid #e2e8f0; border-radius: 10px; touch-action: none;"
+               viewBox="0 0 760 520" style="width: 88%; max-height: 430px; margin: 0 auto; display: block; background: white; border: 1px solid var(--bp-border); border-radius: 10px; touch-action: none;"
                role="img" aria-label="Interactive chart: edit the coefficients A and B of the linear demand curve Q = A minus B times P. The axis intercepts update, the midpoint is marked with dotted guide lines, and a draggable point reports price, quantity, and the point elasticity of demand."></svg>
         </section>
 
@@ -1478,14 +1153,14 @@
       <section>
 
         <!-- Slide 8.1: Divider -->
-        <section data-background-gradient="linear-gradient(135deg, #0f172a 0%, #1e293b 100%)">
-          <p class="eyebrow" style="color: #2dd4bf;">Alternative Dimensions</p>
-          <h1 style="color: white; font-size: 2.8em;">Other Elasticity Measures</h1>
-          <p style="color: #94a3b8; margin-top: 20px;">Press <kbd style="background: #334155; color: #cbd5e1; border: 1px solid #475569; padding: 2px 6px; border-radius: 4px;">↓</kbd> to study income &amp; cross-price elasticity</p>
+        <section class="bp-divider">
+          <p class="eyebrow">Alternative Dimensions</p>
+          <h1 style="font-size: 2.8em;">Other Elasticity Measures</h1>
+          <p style="color: var(--bp-muted); margin-top: 20px;">Press <kbd>↓</kbd> to study income &amp; cross-price elasticity</p>
         </section>
 
         <!-- Slide 8.2: Definitions of other measures -->
-        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+        <section>
           <p class="eyebrow">Other elasticity measures</p>
           <h2>Income and Cross-Price Elasticities</h2>
           <div class="content-card" style="font-size: 0.9em;">
@@ -1494,7 +1169,7 @@
         </section>
 
         <!-- Slide 8.3: Income elasticity calculation -->
-        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+        <section>
           <p class="eyebrow">Other elasticity measures · Examples</p>
           <h2>Applying Income Elasticity</h2>
           <div class="content-card">
@@ -1504,7 +1179,7 @@
               <strong>What is his income elasticity of demand for sparkling water?</strong>
             </div>
             
-            <p class="fragment" style="font-weight: 600; text-align: center; color: #0f766e; margin-top: 25px;">
+            <p class="fragment" style="font-weight: 600; text-align: center; color: var(--bp-primary); margin-top: 25px;">
               Is sparkling water a normal or inferior good for Rex?
             </p>
           </div>
@@ -1512,8 +1187,8 @@
         </section>
 
 <!-- Slide 8.3b: Solution - Income Elasticity -->
-        <section data-background-gradient="linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)">
-          <p class="eyebrow" style="color: #059669;">Elasticity · Solution</p>
+        <section>
+          <p class="eyebrow">Elasticity · Solution</p>
           <h2>Solution: Income Elasticity</h2>
           <div class="content-card">
             <div class="def-card">
@@ -1531,7 +1206,7 @@
           </div>
         </section>
         <!-- Slide 8.4: Cross-price elasticity calculation -->
-        <section data-visibility="hidden" data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+        <section data-visibility="hidden">
           <p class="eyebrow">Other elasticity measures · Examples</p>
           <h2>Applying Cross-Price Elasticity</h2>
           <div class="content-card">
@@ -1541,7 +1216,7 @@
               <strong>What is the cross-price elasticity of demand of (tickets for) AO?</strong>
             </div>
             
-            <p class="fragment" style="font-weight: 600; text-align: center; color: #0f766e; margin-top: 25px;">
+            <p class="fragment" style="font-weight: 600; text-align: center; color: var(--bp-primary); margin-top: 25px;">
               Are WAF and AO tickets complements or substitutes?
             </p>
           </div>
@@ -1550,8 +1225,8 @@
 
 
         <!-- Slide 8.4b: Solution - Cross-Price Elasticity -->
-        <section data-visibility="hidden" data-background-gradient="linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)">
-          <p class="eyebrow" style="color: #059669;">Elasticity · Solution</p>
+        <section data-visibility="hidden">
+          <p class="eyebrow">Elasticity · Solution</p>
           <h2>Solution: Cross-Price Elasticity</h2>
           <div class="content-card">
             <div class="def-card">
@@ -1570,12 +1245,12 @@
         </section>
 
         <!-- Slide 8.5: GROUP WORK - Other Elasticities -->
-        <section data-background-gradient="linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%)">
-          <p class="eyebrow" style="color: #b45309;">Group Work · Other Elasticities</p>
+        <section>
+          <p class="eyebrow">Group Work · Other Elasticities</p>
           <h2>&#127922; Group Work: Income &amp; Cross-Price</h2>
-          <div class="content-card" style="font-size: 0.9em; background: rgba(255, 255, 255, 0.7);">
-            <div class="example-card" style="border-left-color: #b45309; background: rgba(180, 83, 9, 0.05); margin: 8px 0;">
-              <div class="ex-title" style="color: #b45309;">Question 1</div>
+          <div class="content-card" style="font-size: 0.9em;">
+            <div class="example-card" style="margin: 8px 0;">
+              <div class="ex-title">Question 1</div>
               A student&rsquo;s income rises by <strong>8%</strong>, and the quantity of streaming subscriptions she buys rises by <strong>12%</strong>, with subscription prices unchanged. <br>
               <strong>Compute the income elasticity of demand.</strong> Are streaming subscriptions a normal or inferior good for her?
             </div>
@@ -1583,8 +1258,8 @@
               <button class="group-roll-btn" onclick="rollGroup('l2gw4q1')">&#127922; Pick a group for Q1</button>
               <span class="group-roll-result" id="l2gw4q1">&mdash;</span>
             </div>
-            <div class="example-card" style="border-left-color: #b45309; background: rgba(180, 83, 9, 0.05); margin: 8px 0;">
-              <div class="ex-title" style="color: #b45309;">Question 2</div>
+            <div class="example-card" style="margin: 8px 0;">
+              <div class="ex-title">Question 2</div>
               The price of coffee rises by <strong>15%</strong>, and sales of coffee creamer fall by <strong>6%</strong>. <br>
               <strong>Compute the cross-price elasticity of demand for creamer.</strong> Are coffee and creamer complements or substitutes?
             </div>
@@ -1596,8 +1271,8 @@
         </section>
 
         <!-- Slide 8.5b: GROUP WORK Answers - Other Elasticities -->
-        <section data-background-gradient="linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)">
-          <p class="eyebrow" style="color: #059669;">Group Work · Answers</p>
+        <section>
+          <p class="eyebrow">Group Work · Answers</p>
           <h2>Answers: Income &amp; Cross-Price</h2>
           <div class="content-card" style="font-size: 0.9em;">
             <div class="def-card">
@@ -1616,18 +1291,18 @@
 
 
       <!-- TRANSITION: Demand side -> Supply side -->
-      <section data-background-gradient="linear-gradient(135deg, #0f172a 0%, #1e293b 100%)">
-        <p class="eyebrow" style="color: #2dd4bf;">Switching sides</p>
-        <h1 style="color: white; font-size: 2.8em;">From Demand to Supply</h1>
+      <section class="bp-divider">
+        <p class="eyebrow">Switching sides</p>
+        <h1 style="font-size: 2.8em;">From Demand to Supply</h1>
         <div style="max-width: 900px; margin: 22px auto 0;">
-          <p style="color: #cbd5e1; font-size: 1.15em; line-height: 1.5;">
-            So far we&rsquo;ve studied the <strong style="color: #2dd4bf;">demand side</strong> &mdash; how <strong>buyers</strong> respond to price (elasticity).
+          <p style="color: var(--bp-body); font-size: 1.15em; line-height: 1.5;">
+            So far we&rsquo;ve studied the <strong style="color: var(--bp-primary);">demand side</strong> &mdash; how <strong>buyers</strong> respond to price (elasticity).
           </p>
-          <p style="color: #cbd5e1; font-size: 1.15em; line-height: 1.5; margin-top: 14px;">
-            Now we flip to the <strong style="color: #fbbf24;">supply side</strong> &mdash; how <strong>firms</strong> make decisions: their <strong>costs</strong>, <strong>sunk costs</strong>, and thinking <strong>on the margin</strong>.
+          <p style="color: var(--bp-body); font-size: 1.15em; line-height: 1.5; margin-top: 14px;">
+            Now we flip to the <strong style="color: #b45309;">supply side</strong> &mdash; how <strong>firms</strong> make decisions: their <strong>costs</strong>, <strong>sunk costs</strong>, and thinking <strong>on the margin</strong>.
           </p>
         </div>
-        <p style="color: #94a3b8; margin-top: 24px; font-size: 0.9em;">Press <kbd style="background: #334155; color: #cbd5e1; border: 1px solid #475569; padding: 2px 6px; border-radius: 4px;">&rarr;</kbd> to study firms&rsquo; decision-making</p>
+        <p style="color: var(--bp-muted); margin-top: 24px; font-size: 0.9em;">Press <kbd>&rarr;</kbd> to study firms&rsquo; decision-making</p>
       </section>
 
 
@@ -1635,14 +1310,14 @@
       <section>
 
         <!-- Part 4 divider -->
-        <section data-background-gradient="linear-gradient(135deg, #0f172a 0%, #1e293b 100%)">
-          <p class="eyebrow" style="color: #2dd4bf;">Part 4</p>
-          <h1 style="color: white; font-size: 2.8em;">Sunk Costs &amp; Decision-Making</h1>
-          <p style="color: #94a3b8; margin-top: 20px;">Press <kbd style="background: #334155; color: #cbd5e1; border: 1px solid #475569; padding: 2px 6px; border-radius: 4px;">&darr;</kbd> to continue</p>
+        <section class="bp-divider">
+          <p class="eyebrow">Part 4</p>
+          <h1 style="font-size: 2.8em;">Sunk Costs &amp; Decision-Making</h1>
+          <p style="color: var(--bp-muted); margin-top: 20px;">Press <kbd>&darr;</kbd> to continue</p>
         </section>
 
         <!-- Slide 6.2: Marginal Thinking -->
-        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+        <section>
           <p class="eyebrow">Decision-Making</p>
           <h2>Which Costs Matter Now?</h2>
           <div class="content-card" style="font-size: 0.9em;">
@@ -1651,7 +1326,7 @@
         </section>
 
         <!-- Slide 6.3: Sunk Costs Definition -->
-        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+        <section>
           <p class="eyebrow">Decision-Making</p>
           <h2>Sunk Costs</h2>
           <div class="content-card">
@@ -1668,7 +1343,7 @@
         </section>
 
         <!-- Slide 6.4: Sunk Cost Example -->
-        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+        <section>
           <p class="eyebrow">Decision-Making · Case Study 1</p>
           <h2>Headphone Reseller: Keep or Sell?</h2>
           <div class="content-card" style="font-size: 0.9em;">
@@ -1678,7 +1353,7 @@
         </section>
 
         <!-- Slide 6.5: Marginal Cost Example -->
-        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)" data-visibility="hidden">
+        <section data-visibility="hidden">
           <p class="eyebrow">Decision-Making · Case Study 2</p>
           <h2>Headphone Reseller: One More Sale</h2>
           <div class="content-card" style="font-size: 0.9em;">
@@ -1688,7 +1363,7 @@
         </section>
 
         <!-- Slide 6.6: Transition to Market Analysis -->
-        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+        <section>
           <p class="eyebrow">Market Structure · Introduction</p>
           <h2>Economic Profit Counts Opportunity Costs</h2>
           <div class="content-card" style="font-size: 0.9em;">
@@ -1698,12 +1373,12 @@
         </section>
 
         <!-- Slide 6.7: GROUP WORK - Sunk Costs & Marginal Thinking -->
-        <section data-background-gradient="linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%)">
-          <p class="eyebrow" style="color: #b45309;">Group Work · Decision-Making</p>
+        <section>
+          <p class="eyebrow">Group Work · Decision-Making</p>
           <h2>&#127922; Group Work: Thinking on the Margin</h2>
-          <div class="content-card" style="font-size: 0.88em; background: rgba(255, 255, 255, 0.7);">
-            <div class="example-card" style="border-left-color: #b45309; background: rgba(180, 83, 9, 0.05); margin: 8px 0;">
-              <div class="ex-title" style="color: #b45309;">Question 1</div>
+          <div class="content-card" style="font-size: 0.88em;">
+            <div class="example-card" style="margin: 8px 0;">
+              <div class="ex-title">Question 1</div>
               Rex&rsquo;s shop paid a <strong>non-refundable $2,000</strong> booth fee for a weekend trade fair. Attending would cost an <strong>additional $600</strong> in staff and transport, and he expects <strong>$500</strong> of extra revenue from attending. <br>
               <strong>Should he attend the fair? Justify using marginal reasoning.</strong>
             </div>
@@ -1711,8 +1386,8 @@
               <button class="group-roll-btn" onclick="rollGroup('l3gw4q1')">&#127922; Pick a group for Q1</button>
               <span class="group-roll-result" id="l3gw4q1">&mdash;</span>
             </div>
-            <div class="example-card" style="border-left-color: #b45309; background: rgba(180, 83, 9, 0.05); margin: 8px 0;">
-              <div class="ex-title" style="color: #b45309;">Question 2</div>
+            <div class="example-card" style="margin: 8px 0;">
+              <div class="ex-title">Question 2</div>
               Rex buys headsets at <strong>$120/unit</strong> wholesale plus <strong>$15/unit</strong> shipping, and pays <strong>$3,000/month</strong> rent for the shop. <br>
               <strong>What is his marginal cost of selling one additional headset?</strong>
             </div>
@@ -1724,8 +1399,8 @@
         </section>
 
         <!-- Slide 6.7b: GROUP WORK Answers - Sunk Costs & Marginal Thinking -->
-        <section data-background-gradient="linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)">
-          <p class="eyebrow" style="color: #059669;">Group Work · Answers</p>
+        <section>
+          <p class="eyebrow">Group Work · Answers</p>
           <h2>Answers: Thinking on the Margin</h2>
           <div class="content-card" style="font-size: 0.9em;">
             <div class="def-card">
@@ -1754,14 +1429,14 @@
       <section>
 
         <!-- Slide 5.1: Divider -->
-        <section data-background-gradient="linear-gradient(135deg, #0f766e 0%, #115e59 100%)">
-          <p class="eyebrow" style="color: #ccfbf1;">Part 3</p>
-          <h1 style="color: white; font-size: 2.8em;">Firms and Cost Functions</h1>
-          <p style="color: #ccfbf1; margin-top: 20px;">Press <kbd style="background: #115e59; color: white; border: 1px solid #134e4a; padding: 2px 6px; border-radius: 4px;">↓</kbd> to study cost structures</p>
+        <section class="bp-divider">
+          <p class="eyebrow">Part 3</p>
+          <h1 style="font-size: 2.8em;">Firms and Cost Functions</h1>
+          <p style="color: var(--bp-body); margin-top: 20px;">Press <kbd>↓</kbd> to study cost structures</p>
         </section>
 
         <!-- Slide 5.2: What are Cost Functions -->
-        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+        <section>
           <p class="eyebrow">Firms and Costs</p>
           <h2>Understanding Cost Functions</h2>
           <div class="content-card">
@@ -1774,7 +1449,7 @@
         </section>
 
         <!-- Slide 5.3: Types of Costs -->
-        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+        <section>
           <p class="eyebrow">Firms and Costs</p>
           <h2>Fixed vs. Variable Costs</h2>
           <div class="content-card">
@@ -1791,7 +1466,7 @@
         </section>
 
         <!-- Slide 5.4: Marginal Cost -->
-        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+        <section>
           <p class="eyebrow">Firms and Costs</p>
           <h2>Total Cost and Marginal Cost</h2>
           <div class="content-card" style="font-size: 0.9em;">
@@ -1801,22 +1476,22 @@
         </section>
 
         <!-- Slide 5.5: Combined Profit Function -->
-        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+        <section>
           <p class="eyebrow">Firms and Costs</p>
           <h2>Profit Function with Costs</h2>
-          <div class="content-card" style="text-align: center; padding: 40px;">
+          <div class="content-card" style="text-align: center;">
             <p style="font-size: 1.1em; margin-bottom: 20px;">Combining revenue and cost functions, we get the complete profit function:</p>
             <div style="margin: 25px 0;">
               \[ \Pi(Q) = R(Q) - C(Q) = P(Q)Q - C(Q) \]
             </div>
-            <p style="font-size: 0.9em; color: #64748b; margin-top: 25px;">
+            <p style="font-size: 0.9em; color: var(--bp-muted); margin-top: 25px;">
               Profit maximization involves choosing \( Q \) to maximize this expression.
             </p>
           </div>
         </section>
 
         <!-- Slide 5.6: Average Costs -->
-        <section data-visibility="hidden" data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+        <section data-visibility="hidden">
           <p class="eyebrow">Firms and Costs</p>
           <h2>Average Cost Functions</h2>
           <div class="content-card" style="font-size: 0.92em;">
@@ -1837,7 +1512,7 @@
         </section>
 
         <!-- Slide 5.7: Cost Example -->
-        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+        <section>
           <p class="eyebrow">Firms and Costs · Example</p>
           <h2>Calculate Fixed, Variable, and Average Costs</h2>
           <div class="content-card" style="font-size: 0.9em;">
@@ -1846,7 +1521,7 @@
         </section>
 
 <!-- Slide 5.7b: Solution - Cost Functions -->
-        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+        <section>
           <p class="eyebrow">Costs · Solution</p>
           <h2>Solution: Cost Functions</h2>
           <div class="content-card" style="font-size: 0.9em;">
@@ -1854,13 +1529,13 @@
           </div>
         </section>
         <!-- Slide 5.8: Cost Curves Visual -->
-        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+        <section>
           <p class="eyebrow">Firms and Costs · Curves</p>
           <h2>Visualizing Cost Curves</h2>
           <div style="display: flex; align-items: center; justify-content: center; gap: 20px; max-width: 1090px; margin: 0 auto;">
             <div style="flex: 1; text-align: left;">
-              <div class="content-card" style="margin: 0; padding: 15px 20px; font-size: 0.95em;">
-                <p style="font-weight: 600; color: #0f766e; margin-bottom: 10px;">For the U-shaped average cost curves shown:</p>
+              <div class="content-card" style="margin: 0; font-size: 0.95em;">
+                <p style="font-weight: 600; color: var(--bp-primary); margin-bottom: 10px;">For the U-shaped average cost curves shown:</p>
                 <ul>
                   <li class="fragment">\( MC \) passes through the minimum points of both \( ATC \) and \( AVC \).</li>
                   <li class="fragment">\( AFC \) drops continuously as quantity increases.</li>
@@ -1878,12 +1553,12 @@
         </section>
 
         <!-- Slide 5.9: GROUP WORK - Cost Functions -->
-        <section data-background-gradient="linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%)">
-          <p class="eyebrow" style="color: #b45309;">Group Work · Cost Functions</p>
+        <section>
+          <p class="eyebrow">Group Work · Cost Functions</p>
           <h2>&#127922; Group Work: Cost Functions</h2>
-          <div class="content-card" style="font-size: 0.9em; background: rgba(255, 255, 255, 0.7);">
-            <div class="example-card" style="border-left-color: #b45309; background: rgba(180, 83, 9, 0.05); margin: 8px 0;">
-              <div class="ex-title" style="color: #b45309;">Question 1</div>
+          <div class="content-card" style="font-size: 0.9em;">
+            <div class="example-card" style="margin: 8px 0;">
+              <div class="ex-title">Question 1</div>
               Given the total cost function:
               \[ C(Q) = 50 + 10Q + 2Q^2,\quad MC(Q)=10+4Q\ \text{(given)} \]
               <strong>Find FC, VC, ATC, AFC, AVC, and MC.</strong>
@@ -1892,8 +1567,8 @@
               <button class="group-roll-btn" onclick="rollGroup('l3gw3q1')">&#127922; Pick a group for Q1</button>
               <span class="group-roll-result" id="l3gw3q1">&mdash;</span>
             </div>
-            <div class="example-card" style="border-left-color: #b45309; background: rgba(180, 83, 9, 0.05); margin: 8px 0;">
-              <div class="ex-title" style="color: #b45309;">Question 2</div>
+            <div class="example-card" style="margin: 8px 0;">
+              <div class="ex-title">Question 2</div>
               Evaluate <strong>MC and ATC at \( Q = 5 \)</strong>. What do you notice, and what does it tell you about this quantity?
             </div>
             <div style="margin: 4px 0 0;">
@@ -1904,8 +1579,8 @@
         </section>
 
         <!-- Slide 5.9b: GROUP WORK Answers - Cost Functions -->
-        <section data-background-gradient="linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)">
-          <p class="eyebrow" style="color: #059669;">Group Work · Answers</p>
+        <section>
+          <p class="eyebrow">Group Work · Answers</p>
           <h2>Answers: Cost Functions</h2>
           <div class="content-card" style="font-size: 0.85em;">
             <div class="def-card">
@@ -1922,25 +1597,25 @@
         </section>
 
         <!-- GROUP WORK Answers: step-by-step animated graph -->
-        <section data-background-gradient="linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)">
-          <p class="eyebrow" style="color: #059669;">Group Work &middot; Answers</p>
+        <section>
+          <p class="eyebrow">Group Work &middot; Answers</p>
           <h2>Cost Curves, Step by Step</h2>
-          <p style="font-size: 0.55em; color: #64748b; margin: 0 0 4px;">Press <kbd style="background: #e2e8f0; border: 1px solid #cbd5e1; padding: 1px 6px; border-radius: 4px;">&rarr;</kbd> to add each element of the graph</p>
-          <svg class="anim-graph" viewBox="0 0 760 520" style="width: 92%; max-height: 480px; margin: 0 auto; display: block; background: white; border: 1px solid #e2e8f0; border-radius: 10px;" role="img" aria-label="Animated build-up for C(Q)=50+10Q+2Q^2: the AVC line, the steeper MC line, the U-shaped ATC curve, and the crossing point where MC meets ATC exactly at its minimum, Q=5 and $30">
+          <p style="font-size: 0.55em; color: var(--bp-muted); margin: 0 0 4px;">Press <kbd>&rarr;</kbd> to add each element of the graph</p>
+          <svg class="anim-graph" viewBox="0 0 760 520" style="width: 92%; max-height: 480px; margin: 0 auto; display: block; background: white; border: 1px solid var(--bp-border); border-radius: 10px;" role="img" aria-label="Animated build-up for C(Q)=50+10Q+2Q^2: the AVC line, the steeper MC line, the U-shaped ATC curve, and the crossing point where MC meets ATC exactly at its minimum, Q=5 and $30">
             <!-- axes (always visible) -->
             <g>
-              <line x1="70" y1="460" x2="705" y2="460" stroke="#475569" stroke-width="2.5"/>
-              <polygon points="705,455 705,465 716,460" fill="#475569"/>
-              <line x1="70" y1="460" x2="70" y2="52" stroke="#475569" stroke-width="2.5"/>
-              <polygon points="65,52 75,52 70,41" fill="#475569"/>
-              <text x="723" y="466" font-size="17" fill="#1e293b" font-style="italic">Q</text>
-              <text x="44" y="34" font-size="17" fill="#1e293b" font-style="italic">$ per unit</text>
+              <line x1="70" y1="460" x2="705" y2="460" stroke="#4d4d4d" stroke-width="2.5"/>
+              <polygon points="705,455 705,465 716,460" fill="#4d4d4d"/>
+              <line x1="70" y1="460" x2="70" y2="52" stroke="#4d4d4d" stroke-width="2.5"/>
+              <polygon points="65,52 75,52 70,41" fill="#4d4d4d"/>
+              <text x="723" y="466" font-size="17" fill="#111111" font-style="italic">Q</text>
+              <text x="44" y="34" font-size="17" fill="#111111" font-style="italic">$ per unit</text>
             </g>
             <!-- fragment 1: AVC -->
             <g class="fragment" data-fragment-index="1">
-              <line class="build-line" x1="70" y1="392" x2="690" y2="256" stroke="#0f766e" stroke-width="3.5"/>
-              <text x="652" y="242" font-size="17" fill="#0f766e" font-style="italic">AVC</text>
-              <text x="86" y="416" font-size="15" fill="#64748b">AVC = 10 + 2Q</text>
+              <line class="build-line" x1="70" y1="392" x2="690" y2="256" stroke="#1e2bfa" stroke-width="3.5"/>
+              <text x="652" y="242" font-size="17" fill="#1e2bfa" font-style="italic">AVC</text>
+              <text x="86" y="416" font-size="15" fill="#6b6b6b">AVC = 10 + 2Q</text>
             </g>
             <!-- fragment 2: MC -->
             <g class="fragment" data-fragment-index="2">
@@ -1953,31 +1628,31 @@
               <path class="build-line" d="M 135.1,53.9 L 139.4,73.2 L 143.8,90.1 L 148.1,105.0 L 152.5,118.3 L 156.8,130.1 L 161.1,140.7 L 165.5,150.3 L 169.8,158.9 L 174.2,166.8 L 178.5,173.9 L 182.8,180.4 L 187.2,186.4 L 191.5,191.9 L 195.9,196.9 L 200.2,201.5 L 204.5,205.8 L 208.9,209.8 L 213.2,213.4 L 217.6,216.8 L 221.9,219.9 L 226.2,222.8 L 230.6,225.5 L 234.9,228.0 L 239.3,230.3 L 243.6,232.5 L 247.9,234.5 L 252.3,236.4 L 256.6,238.1 L 261.0,239.7 L 265.3,241.2 L 269.6,242.6 L 274.0,243.9 L 278.3,245.1 L 282.7,246.2 L 287.0,247.3 L 291.3,248.2 L 295.7,249.1 L 300.0,249.9 L 304.4,250.6 L 308.7,251.3 L 313.0,252.0 L 317.4,252.5 L 321.7,253.0 L 326.1,253.5 L 330.4,253.9 L 334.7,254.3 L 339.1,254.6 L 343.4,254.9 L 347.8,255.2 L 352.1,255.4 L 356.4,255.6 L 360.8,255.7 L 365.1,255.8 L 369.5,255.9 L 373.8,256.0 L 378.1,256.0 L 382.5,256.0 L 386.8,256.0 L 391.2,255.9 L 395.5,255.8 L 399.8,255.7 L 404.2,255.6 L 408.5,255.5 L 412.9,255.3 L 417.2,255.1 L 421.5,254.9 L 425.9,254.7 L 430.2,254.5 L 434.6,254.2 L 438.9,253.9 L 443.2,253.6 L 447.6,253.3 L 451.9,253.0 L 456.3,252.7 L 460.6,252.4 L 464.9,252.0 L 469.3,251.6 L 473.6,251.2 L 478.0,250.8 L 482.3,250.4 L 486.6,250.0 L 491.0,249.6 L 495.3,249.1 L 499.7,248.7 L 504.0,248.2 L 508.3,247.8 L 512.7,247.3 L 517.0,246.8 L 521.4,246.3 L 525.7,245.8 L 530.0,245.3 L 534.4,244.7 L 538.7,244.2 L 543.1,243.7 L 547.4,243.1 L 551.7,242.6 L 556.1,242.0 L 560.4,241.4 L 564.8,240.9 L 569.1,240.3 L 573.4,239.7 L 577.8,239.1 L 582.1,238.5 L 586.5,237.9 L 590.8,237.3 L 595.1,236.7 L 599.5,236.0 L 603.8,235.4 L 608.2,234.8 L 612.5,234.1 L 616.8,233.5 L 621.2,232.9 L 625.5,232.2 L 629.9,231.5 L 634.2,230.9 L 638.5,230.2 L 642.9,229.5 L 647.2,228.9 L 651.6,228.2 L 655.9,227.5 L 660.2,226.8 L 664.6,226.1 L 668.9,225.4 L 673.3,224.7 L 677.6,224.0 L 681.9,223.3 L 686.3,222.6" fill="none" stroke="#d97706" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round"/>
               <text x="652" y="200" font-size="17" fill="#d97706" font-style="italic">ATC</text>
               <text x="185" y="120" font-size="15" fill="#d97706">ATC = 50&frasl;Q + 10 + 2Q</text>
-              <text x="185" y="142" font-size="15" fill="#64748b">(falling AFC pulls it down, then rising AVC wins)</text>
+              <text x="185" y="142" font-size="15" fill="#6b6b6b">(falling AFC pulls it down, then rising AVC wins)</text>
             </g>
             <!-- fragment 4: MC crosses ATC at its minimum -->
             <g class="fragment" data-fragment-index="4">
-              <line x1="380" y1="256" x2="380" y2="460" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="5 4"/>
-              <line x1="70" y1="256" x2="380" y2="256" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="5 4"/>
-              <circle cx="380" cy="256" r="7" fill="#1e293b"/>
-              <text x="62" y="262" font-size="16" font-weight="700" fill="#1e293b" text-anchor="end">$30</text>
-              <text x="380" y="484" font-size="16" font-weight="700" fill="#1e293b" text-anchor="middle">Q = 5</text>
-              <text x="440" y="330" font-size="16" font-weight="700" fill="#1e293b">At Q = 5: MC = ATC = $30</text>
-              <text x="440" y="354" font-size="15" fill="#64748b">MC crosses ATC exactly at</text>
-              <text x="440" y="374" font-size="15" fill="#64748b">the minimum of ATC</text>
-              <path d="M 435 340 Q 405 300 388 266" fill="none" stroke="#64748b" stroke-width="1.5" marker-end="url(#a3c)"/>
+              <line x1="380" y1="256" x2="380" y2="460" stroke="#9a9a9a" stroke-width="1.5" stroke-dasharray="5 4"/>
+              <line x1="70" y1="256" x2="380" y2="256" stroke="#9a9a9a" stroke-width="1.5" stroke-dasharray="5 4"/>
+              <circle cx="380" cy="256" r="7" fill="#111111"/>
+              <text x="62" y="262" font-size="16" font-weight="700" fill="#111111" text-anchor="end">$30</text>
+              <text x="380" y="484" font-size="16" font-weight="700" fill="#111111" text-anchor="middle">Q = 5</text>
+              <text x="440" y="330" font-size="16" font-weight="700" fill="#111111">At Q = 5: MC = ATC = $30</text>
+              <text x="440" y="354" font-size="15" fill="#6b6b6b">MC crosses ATC exactly at</text>
+              <text x="440" y="374" font-size="15" fill="#6b6b6b">the minimum of ATC</text>
+              <path d="M 435 340 Q 405 300 388 266" fill="none" stroke="#6b6b6b" stroke-width="1.5" marker-end="url(#a3c)"/>
             </g>
             <defs>
               <marker id="a3c" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
-                <path d="M 0 0 L 8 4 L 0 8 z" fill="#64748b"/>
+                <path d="M 0 0 L 8 4 L 0 8 z" fill="#6b6b6b"/>
               </marker>
             </defs>
           </svg>
         </section>
 
         <!-- GROUP WORK Answers: graph -->
-        <section data-visibility="hidden" data-background-gradient="linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)">
-          <p class="eyebrow" style="color: #059669;">Group Work · Answers</p>
+        <section data-visibility="hidden">
+          <p class="eyebrow">Group Work · Answers</p>
           <h2>Cost Curves, Graphically</h2>
           <div class="slide-img-container" style="margin: 5px auto 0; padding: 8px;">
             <img src="images/c3_gw_cost_graph.png" alt="MC, ATC, and AVC curves for C(Q)=50+10Q+2Q^2: the rising MC line crosses the U-shaped ATC exactly at its minimum, Q=5 and $30" style="max-height: 470px;">
@@ -1990,7 +1665,7 @@
       <!-- SECTION 9: Wrap-up (Horizontal) -->
       
       <!-- Slide 10: Where to go from here? -->
-      <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+      <section>
           <p class="eyebrow">Recap</p>
           <h2>Three Quick Checks</h2>
           <div class="content-card" style="font-size: 0.9em;">
@@ -2000,14 +1675,14 @@
         </section>
 
       <!-- Slide 11: Closing -->
-      <section data-background-gradient="linear-gradient(135deg, #0f172a 0%, #1e293b 100%)">
-        <p class="eyebrow" style="color: #2dd4bf;">For next time</p>
-        <h2 style="color: white;">Preparation for Next Class</h2>
-        <div class="content-card" style="background: rgba(30, 41, 59, 0.7); border-color: rgba(255, 255, 255, 0.1); text-align: center;">
-          <p style="color: #cbd5e1; font-weight: 600; margin-bottom: 10px;">Read an article posted on Canvas; prepare for Wednesday&rsquo;s quiz on Class 1 and 2 content</p>
-          <p style="color: #94a3b8; font-size: 1.15em;"><strong>See you tomorrow (@ 2:45pm sharp)!</strong></p>
+      <section class="bp-closing">
+        <p class="eyebrow">For next time</p>
+        <h2>Preparation for Next Class</h2>
+        <div class="content-card" style="text-align: center;">
+          <p style="color: var(--bp-body); font-weight: 600; margin-bottom: 10px;">Read an article posted on Canvas; prepare for Wednesday&rsquo;s quiz on Class 1 and 2 content</p>
+          <p style="color: var(--bp-muted); font-size: 1.15em;"><strong>See you tomorrow (@ 2:45pm sharp)!</strong></p>
         </div>
-        <p style="margin-top: 40px; color: #64748b; font-size: 0.75em;">Thank you!</p>
+        <p style="margin-top: 40px; color: var(--bp-light); font-size: 0.75em;">Thank you!</p>
       </section>
 
     </div>

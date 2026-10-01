@@ -11,264 +11,11 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/white.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/highlight/monokai.css">
 
-  <!-- Roboto Light with heavier weights for headings and emphasis -->
+  <!-- Space Grotesk for display type, Inter for body text (Blue Professional theme) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300..800;1,300..800&amp;display=swap" rel="stylesheet">
-
-  <style>
-    :root {
-      --r-main-font: var(--font-sans);
-      --r-heading-font: var(--font-sans);
-      --r-main-color: #1e293b;
-      --r-heading-color: #0f172a;
-      --r-link-color: #0f766e;
-      --r-selection-background-color: #ccfbf1;
-    }
-    
-    .reveal {
-      font-family: var(--r-main-font);
-      color: var(--r-main-color);
-      font-size: 24px;
-    }
-    
-    .reveal h1, .reveal h2, .reveal h3, .reveal h4 {
-      font-family: var(--r-heading-font);
-      color: var(--r-heading-color);
-      font-weight: 700;
-      letter-spacing: -0.02em;
-    }
-
-    .reveal h1 { font-size: 2.2em; line-height: 1.1; }
-    .reveal h2 { font-size: 1.6em; line-height: 1.2; margin-bottom: 15px; }
-    .reveal h3 { font-size: 1.2em; line-height: 1.3; }
-    
-    .reveal .eyebrow {
-      text-transform: uppercase;
-      letter-spacing: 0.15em;
-      font-size: 0.45em;
-      font-weight: 700;
-      color: #0f766e;
-      margin-bottom: 10px;
-      display: inline-block;
-    }
-    
-    /* Elegant card container */
-    .reveal .content-card {
-      background: rgba(255, 255, 255, 0.85);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border: 1px solid rgba(255, 255, 255, 0.5);
-      border-radius: 12px;
-      padding: 18px 24px;
-      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.02);
-      margin: 12px auto;
-      text-align: left;
-      max-width: 920px;
-    }
-    
-    .reveal .def-card {
-      border-left: 4px solid #0f766e;
-      background: rgba(15, 118, 110, 0.04);
-      border-radius: 4px 10px 10px 4px;
-      padding: 12px 18px;
-      margin: 12px 0;
-      text-align: left;
-    }
-    .reveal .def-card .def-title {
-      font-family: var(--r-heading-font);
-      font-weight: 700;
-      color: #0f766e;
-      font-size: 0.8em;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      margin-bottom: 4px;
-    }
-    
-    .reveal .example-card {
-      border-left: 4px solid #3b82f6;
-      background: rgba(59, 130, 246, 0.04);
-      border-radius: 4px 10px 10px 4px;
-      padding: 12px 18px;
-      margin: 12px 0;
-      text-align: left;
-    }
-    .reveal .example-card .ex-title {
-      font-family: var(--r-heading-font);
-      font-weight: 700;
-      color: #3b82f6;
-      font-size: 0.8em;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      margin-bottom: 4px;
-    }
-    
-    /* Slide image styling */
-    .reveal .slide-img-container {
-      background: white;
-      padding: 8px;
-      border-radius: 10px;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.02);
-      border: 1px solid #e2e8f0;
-      display: inline-block;
-      margin-top: 8px;
-    }
-    .reveal .slide-img-container img {
-      max-height: 280px;
-      width: auto;
-      margin: 0;
-      display: block;
-      border-radius: 4px;
-    }
-    
-    /* Standard list styling (for inside cards, columns, etc.) */
-    .reveal ul, .reveal ol {
-      display: block;
-      text-align: left;
-      margin: 10px 0 !important;
-      padding-left: 20px;
-    }
-    
-    .reveal ul {
-      list-style-type: disc;
-    }
-    
-    .reveal ol {
-      list-style-type: decimal;
-    }
-    
-    .reveal li {
-      text-align: left;
-      margin-bottom: 8px;
-      line-height: 1.35;
-    }
-    
-    /* Indentation and bullets for nested lists */
-    .reveal li ul, .reveal li ol {
-      margin: 4px 0 4px 20px !important;
-      display: block;
-      min-width: unset;
-    }
-    
-    .reveal li ul {
-      list-style-type: circle;
-    }
-    
-    /* Centered list layout (only when list is the main slide element or explicitly centered) */
-    .reveal section > ul, .reveal section > ol, .reveal .center-list {
-      display: inline-block;
-      text-align: left;
-      margin: 15px auto !important;
-      padding-left: 20px;
-      min-width: 65%;
-      max-width: 95%;
-    }
-    
-    /* Grid for side-by-side clips */
-    .reveal .img-gallery {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 15px;
-      flex-wrap: wrap;
-      margin-top: 15px;
-    }
-    .reveal .img-gallery .gallery-item {
-      background: white;
-      padding: 6px;
-      border-radius: 10px;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.02);
-      border: 1px solid #e2e8f0;
-    }
-    .reveal .img-gallery img {
-      max-height: 220px;
-      width: auto;
-      display: block;
-      border-radius: 4px;
-      margin: 0;
-    }
-    
-    /* Home link and footer elements */
-    .reveal .home-link {
-      position: fixed;
-      bottom: 16px;
-      left: 20px;
-      z-index: 30;
-      font-size: 13px;
-      color: #94a3b8;
-      text-decoration: none;
-      font-family: var(--r-main-font);
-      font-weight: 500;
-      transition: color 0.2s ease;
-    }
-    .reveal .home-link:hover {
-      color: #0f766e;
-    }
-    
-    .reveal .slide-footer {
-      position: fixed;
-      bottom: 16px;
-      right: 20px;
-      z-index: 30;
-      font-size: 11px;
-      color: #94a3b8;
-      font-family: var(--r-main-font);
-    }
-    
-    /* Interactive blank */
-    .reveal .fill-blank {
-      display: inline-block;
-      border-bottom: 2px dashed #94a3b8;
-      min-width: 140px;
-      height: 1.1em;
-      vertical-align: bottom;
-    }
-
-    .reveal .katex-display {
-      margin: 8px 0;
-    }
-
-    /* Group work slides: random group picker */
-    .reveal .group-roll-btn {
-      font-family: var(--r-heading-font);
-      font-weight: 700;
-      font-size: 0.75em;
-      color: white;
-      background: #b45309;
-      border: none;
-      border-radius: 999px;
-      padding: 8px 18px;
-      cursor: pointer;
-      transition: background 0.2s ease;
-    }
-    .reveal .group-roll-btn:hover {
-      background: #92400e;
-    }
-    .reveal .group-roll-result {
-      display: inline-block;
-      min-width: 2em;
-      margin-left: 10px;
-      font-family: var(--r-heading-font);
-      font-weight: 800;
-      color: #b45309;
-      font-size: 1.2em;
-      vertical-align: middle;
-    }
-  /* Step-by-step animated graph: lines draw themselves in as fragments appear */
-    .reveal svg.anim-graph { font-family: var(--r-main-font); }
-    .reveal svg.anim-graph text { font-family: var(--r-main-font); }
-    .reveal .anim-graph .build-line {
-      stroke-dasharray: 950;
-      stroke-dashoffset: 950;
-    }
-    .reveal .fragment.visible .build-line {
-      animation: drawline 0.9s ease-out forwards;
-    }
-    @keyframes drawline {
-      to { stroke-dashoffset: 0; }
-    }
-  </style>
-  <link rel="stylesheet" href="../assets/css/typography.css">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400..700&amp;family=Inter:ital,wght@0,400..700;1,400..700&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/slides-theme.css?v=1">
 </head>
 <body>
   <div class="reveal">
@@ -277,16 +24,16 @@
       <!-- SECTION 1: Welcome & Overview (Horizontal) -->
       
       <!-- Slide 1: Title -->
-      <section data-background-gradient="linear-gradient(135deg, #0f172a 0%, #1e293b 100%)">
-        <p class="eyebrow" style="color: #2dd4bf;">RSC Economics Experience · July 2026</p>
-        <h1 style="color: white; font-size: 2.5em; margin-bottom: 15px;">Class 5</h1>
-        <h3 style="color: #94a3b8; font-weight: 400; margin-bottom: 45px;">Social Welfare, Efficiency, and Deadweight Loss</h3>
-        <p style="color: #2dd4bf; font-weight: 600; font-size: 0.9em; margin-bottom: 5px;">Meng Hsuan &ldquo;Rex&rdquo; Hsieh</p>
-        <p style="color: #64748b; font-size: 0.75em; margin-top: 30px;">Press <kbd style="background: #334155; color: #cbd5e1; border: 1px solid #475569; padding: 2px 6px; border-radius: 4px;">→</kbd> to begin</p>
+      <section class="bp-cover">
+        <p class="eyebrow">RSC Economics Experience · July 2026</p>
+        <h1 style="font-size: 2.5em; margin-bottom: 15px;">Class 5</h1>
+        <h3 style="color: var(--bp-muted); font-weight: 400; margin-bottom: 45px;">Social Welfare, Efficiency, and Deadweight Loss</h3>
+        <p style="color: var(--bp-primary); font-weight: 600; font-size: 0.9em; margin-bottom: 5px;">Meng Hsuan &ldquo;Rex&rdquo; Hsieh</p>
+        <p style="color: var(--bp-light); font-size: 0.75em; margin-top: 30px;">Press <kbd>→</kbd> to begin</p>
       </section>
 
       <!-- Slide 2: Agenda -->
-      <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+      <section>
         <p class="eyebrow">Agenda for Today</p>
         <h2>Social Welfare, Efficiency, &amp; Deadweight Loss</h2>
         <div class="content-card">
@@ -304,15 +51,15 @@
       <section>
 
         <!-- Recap Divider -->
-        <section data-background-gradient="linear-gradient(135deg, #0f766e 0%, #115e59 100%)">
-          <p class="eyebrow" style="color: #ccfbf1;">Classes 3&ndash;4 Recap</p>
-          <h1 style="color: white; font-size: 2.8em;">Where We Left Off</h1>
-          <p style="color: #ccfbf1; margin-top: 20px;">A quick walk back through monopoly pricing, perfect competition, and long-run equilibria. Press <kbd style="background: #115e59; color: white; border: 1px solid #134e4a; padding: 2px 6px; border-radius: 4px;">&darr;</kbd></p>
+        <section class="bp-divider">
+          <p class="eyebrow">Classes 3&ndash;4 Recap</p>
+          <h1 style="font-size: 2.8em;">Where We Left Off</h1>
+          <p style="color: var(--bp-body); margin-top: 20px;">A quick walk back through monopoly pricing, perfect competition, and long-run equilibria. Press <kbd>&darr;</kbd></p>
         </section>
 
         <!-- Group 5 (a): Monopoly Pricing - set up -->
-        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
-          <p class="eyebrow" style="color: #b45309;">Recap &middot; Monopoly Pricing</p>
+        <section>
+          <p class="eyebrow">Recap &middot; Monopoly Pricing</p>
           <h2>Monopoly Pricing: A Worked Example</h2>
           <div class="content-card" style="font-size: 0.92em;">
             <div class="example-card">
@@ -335,8 +82,8 @@
         </section>
 
         <!-- Group 5 (b): Monopoly Pricing - price & profit -->
-        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
-          <p class="eyebrow" style="color: #b45309;">Recap &middot; Monopoly Pricing</p>
+        <section>
+          <p class="eyebrow">Recap &middot; Monopoly Pricing</p>
           <h2>Reading Off the Price &amp; the Profit</h2>
           <div class="content-card" style="font-size: 0.92em;">
             <div class="def-card">
@@ -344,75 +91,75 @@
               The monopolist does <strong>not</strong> pick an arbitrary price &mdash; it is pinned down by demand at \( Q^* \):
               \[ P^* = 6 - \frac{1}{2}(4) = \$4 \]
             </div>
-            <div class="def-card fragment" style="border-left-color: #059669; background: rgba(5, 150, 105, 0.05);">
+            <div class="def-card fragment" style="border-left-color: #059669;">
               <div class="def-title" style="color: #059669;">Step 4 &middot; Profit</div>
               With no fixed costs, total cost is \( TC = MC \times Q = 2Q \):
               \[ \Pi = P^* Q^* - TC(Q^*) = (4)(4) - (2)(4) = \$8 \]
             </div>
-            <div class="def-card fragment" style="border-left-color: #3b82f6; background: rgba(59, 130, 246, 0.04);">
-              <div class="def-title" style="color: #3b82f6;">Takeaway</div>
+            <div class="def-card fragment">
+              <div class="def-title">Takeaway</div>
               The rule is \( MR = MC \) to set the quantity, then the demand curve sets the price. Here \( (Q^*, P^*, \Pi) = (4,\ \$4,\ \$8) \).
             </div>
           </div>
         </section>
 
         <!-- Group 1 (a): Perfect Competition - firm vs market demand -->
-        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
-          <p class="eyebrow" style="color: #b45309;">Recap &middot; Perfect Competition</p>
+        <section>
+          <p class="eyebrow">Recap &middot; Perfect Competition</p>
           <h2>Price Takers: Firm vs. Market Demand</h2>
           <div class="content-card" style="font-size: 0.95em;">
-            <p style="font-weight: 600; color: #0f766e;">In perfect competition, each firm takes the market price as given, so its marginal revenue is just that price:</p>
-            <div style="text-align: center; font-size: 1.25em; font-weight: 700; margin: 10px 0; color: #1e293b;">\( MR = \) market price \( P \)</div>
+            <p style="font-weight: 600; color: var(--bp-primary);">In perfect competition, each firm takes the market price as given, so its marginal revenue is just that price:</p>
+            <div style="text-align: center; font-size: 1.25em; font-weight: 700; margin: 10px 0; color: var(--bp-text);">\( MR = \) market price \( P \)</div>
             <div class="def-card fragment">
               <div class="def-title">The demand a single firm faces is&hellip;</div>
               <strong>horizontal (perfectly elastic)</strong> at the market price &mdash; the small firm can sell its feasible output at \( P \), but nothing at a higher price.
             </div>
-            <div class="def-card fragment" style="border-left-color: #3b82f6; background: rgba(59, 130, 246, 0.04);">
-              <div class="def-title" style="color: #3b82f6;">The market demand is&hellip;</div>
+            <div class="def-card fragment">
+              <div class="def-title">The market demand is&hellip;</div>
               <strong>downward-sloping</strong> &mdash; the aggregate of all buyers. One tiny firm simply cannot move it.
             </div>
-            <p class="fragment" style="text-align: center; color: #64748b; font-size: 0.9em; margin-top: 12px;">This is the key contrast with a monopolist, who faces the <em>whole</em> downward-sloping market demand alone.</p>
+            <p class="fragment" style="text-align: center; color: var(--bp-muted); font-size: 0.9em; margin-top: 12px;">This is the key contrast with a monopolist, who faces the <em>whole</em> downward-sloping market demand alone.</p>
           </div>
         </section>
 
         <!-- Group 1 (b): Firm supply from the cost curves (reused graph) -->
-        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
-          <p class="eyebrow" style="color: #b45309;">Recap &middot; Perfect Competition</p>
+        <section>
+          <p class="eyebrow">Recap &middot; Perfect Competition</p>
           <h2>The Firm&rsquo;s Supply Curve &amp; Its Profits</h2>
           <div style="display: flex; align-items: center; justify-content: center; gap: 20px; max-width: 1130px; margin: 0 auto;">
             <div style="flex: 1.05;">
-                            <svg viewBox="0 0 640 480" style="width: 100%; max-height: 340px; background: #fff; border: 1px solid #e2e8f0; border-radius: 10px;" role="img" aria-label="A competitive firm's straight-line marginal cost curve MC (also its supply curve S above the shutdown point) rising through four equally spaced points e1 to e4 on horizontal price lines p1=5 through p4=8. e1 sits at the minimum of average variable cost AVC (q=50); e2 sits at the minimum of average cost AC (q=100). AVC lies strictly below AC everywhere. Dotted lines drop to quantities q1=50, q2=100, q3=150, q4=200.">
+                            <svg viewBox="0 0 640 480" style="width: 100%; max-height: 340px; background: #fff; border: 1px solid var(--bp-border); border-radius: 10px;" role="img" aria-label="A competitive firm's straight-line marginal cost curve MC (also its supply curve S above the shutdown point) rising through four equally spaced points e1 to e4 on horizontal price lines p1=5 through p4=8. e1 sits at the minimum of average variable cost AVC (q=50); e2 sits at the minimum of average cost AC (q=100). AVC lies strictly below AC everywhere. Dotted lines drop to quantities q1=50, q2=100, q3=150, q4=200.">
                 <!-- price grid lines -->
                 <line x1="90" y1="350" x2="600" y2="350" stroke="#38bdf8" stroke-width="1.6"/>
                 <line x1="90" y1="270" x2="600" y2="270" stroke="#38bdf8" stroke-width="1.6"/>
                 <line x1="90" y1="190" x2="600" y2="190" stroke="#38bdf8" stroke-width="1.6"/>
                 <line x1="90" y1="110" x2="600" y2="110" stroke="#38bdf8" stroke-width="1.6"/>
-                <text x="606" y="354" font-size="13" fill="#475569">p&#8321;</text>
-                <text x="606" y="274" font-size="13" fill="#475569">p&#8322;</text>
-                <text x="606" y="194" font-size="13" fill="#475569">p&#8323;</text>
-                <text x="606" y="114" font-size="13" fill="#475569">p&#8324;</text>
+                <text x="606" y="354" font-size="13" fill="#4d4d4d">p&#8321;</text>
+                <text x="606" y="274" font-size="13" fill="#4d4d4d">p&#8322;</text>
+                <text x="606" y="194" font-size="13" fill="#4d4d4d">p&#8323;</text>
+                <text x="606" y="114" font-size="13" fill="#4d4d4d">p&#8324;</text>
                 <!-- axes -->
-                <line x1="90" y1="440" x2="612" y2="440" stroke="#475569" stroke-width="2.5"/>
-                <polygon points="612,435 612,445 623,440" fill="#475569"/>
-                <line x1="90" y1="440" x2="90" y2="42" stroke="#475569" stroke-width="2.5"/>
-                <polygon points="85,42 95,42 90,31" fill="#475569"/>
-                <path d="M 84,418 L 96,410 M 84,410 L 96,402" stroke="#475569" stroke-width="1.6" fill="none"/>
-                <text x="70" y="360" font-size="13" fill="#475569" text-anchor="end">5</text>
-                <text x="70" y="280" font-size="13" fill="#475569" text-anchor="end">6</text>
-                <text x="70" y="200" font-size="13" fill="#475569" text-anchor="end">7</text>
-                <text x="70" y="120" font-size="13" fill="#475569" text-anchor="end">8</text>
-                <text x="80" y="450" font-size="13" fill="#475569" text-anchor="end">0</text>
-                <text x="30" y="150" font-size="14" fill="#1e293b" transform="rotate(-90 30 150)">p, $ per unit</text>
-                <text x="360" y="474" font-size="13" fill="#1e293b" text-anchor="middle">q, units produced</text>
+                <line x1="90" y1="440" x2="612" y2="440" stroke="#4d4d4d" stroke-width="2.5"/>
+                <polygon points="612,435 612,445 623,440" fill="#4d4d4d"/>
+                <line x1="90" y1="440" x2="90" y2="42" stroke="#4d4d4d" stroke-width="2.5"/>
+                <polygon points="85,42 95,42 90,31" fill="#4d4d4d"/>
+                <path d="M 84,418 L 96,410 M 84,410 L 96,402" stroke="#4d4d4d" stroke-width="1.6" fill="none"/>
+                <text x="70" y="360" font-size="13" fill="#4d4d4d" text-anchor="end">5</text>
+                <text x="70" y="280" font-size="13" fill="#4d4d4d" text-anchor="end">6</text>
+                <text x="70" y="200" font-size="13" fill="#4d4d4d" text-anchor="end">7</text>
+                <text x="70" y="120" font-size="13" fill="#4d4d4d" text-anchor="end">8</text>
+                <text x="80" y="450" font-size="13" fill="#4d4d4d" text-anchor="end">0</text>
+                <text x="30" y="150" font-size="14" fill="#111111" transform="rotate(-90 30 150)">p, $ per unit</text>
+                <text x="360" y="474" font-size="13" fill="#111111" text-anchor="middle">q, units produced</text>
                 <!-- dotted quantity droplines (equally spaced under a linear MC) -->
-                <line x1="200" y1="350" x2="200" y2="440" stroke="#1e293b" stroke-width="1.3" stroke-dasharray="2 4"/>
-                <line x1="290" y1="270" x2="290" y2="440" stroke="#1e293b" stroke-width="1.3" stroke-dasharray="2 4"/>
-                <line x1="380" y1="190" x2="380" y2="440" stroke="#1e293b" stroke-width="1.3" stroke-dasharray="2 4"/>
-                <line x1="470" y1="110" x2="470" y2="440" stroke="#1e293b" stroke-width="1.3" stroke-dasharray="2 4"/>
-                <text x="200" y="459" font-size="12.5" fill="#1e293b" text-anchor="middle">q&#8321; = 50</text>
-                <text x="290" y="459" font-size="12.5" fill="#1e293b" text-anchor="middle">q&#8322; = 100</text>
-                <text x="380" y="459" font-size="12.5" fill="#1e293b" text-anchor="middle">q&#8323; = 150</text>
-                <text x="470" y="459" font-size="12.5" fill="#1e293b" text-anchor="middle">q&#8324; = 200</text>
+                <line x1="200" y1="350" x2="200" y2="440" stroke="#111111" stroke-width="1.3" stroke-dasharray="2 4"/>
+                <line x1="290" y1="270" x2="290" y2="440" stroke="#111111" stroke-width="1.3" stroke-dasharray="2 4"/>
+                <line x1="380" y1="190" x2="380" y2="440" stroke="#111111" stroke-width="1.3" stroke-dasharray="2 4"/>
+                <line x1="470" y1="110" x2="470" y2="440" stroke="#111111" stroke-width="1.3" stroke-dasharray="2 4"/>
+                <text x="200" y="459" font-size="12.5" fill="#111111" text-anchor="middle">q&#8321; = 50</text>
+                <text x="290" y="459" font-size="12.5" fill="#111111" text-anchor="middle">q&#8322; = 100</text>
+                <text x="380" y="459" font-size="12.5" fill="#111111" text-anchor="middle">q&#8323; = 150</text>
+                <text x="470" y="459" font-size="12.5" fill="#111111" text-anchor="middle">q&#8324; = 200</text>
                 <!-- AC (green), min at e2 (290,270); drawn first so AVC sits clearly below it -->
                 <path d="M 180,95 Q 250,270 290,270 Q 420,270 560,175" fill="none" stroke="#22c55e" stroke-width="4"/>
                 <text x="566" y="179" font-size="14" fill="#16a34a" font-weight="700" font-style="italic">AC</text>
@@ -425,51 +172,51 @@
                 <text x="150" y="398" font-size="14" fill="#ef4444" font-weight="700" font-style="italic" text-anchor="end">MC</text>
                 <text x="506" y="80" font-size="14" fill="#ef4444" font-weight="700" font-style="italic">S</text>
                 <!-- equilibrium points on the linear MC -->
-                <circle cx="200" cy="350" r="5.5" fill="#0f172a"/>
-                <circle cx="290" cy="270" r="5.5" fill="#0f172a"/>
-                <circle cx="380" cy="190" r="5.5" fill="#0f172a"/>
-                <circle cx="470" cy="110" r="5.5" fill="#0f172a"/>
-                <text x="192" y="338" font-size="13" font-weight="700" fill="#0f172a" text-anchor="end">e&#8321;</text>
-                <text x="282" y="258" font-size="13" font-weight="700" fill="#0f172a" text-anchor="end">e&#8322;</text>
-                <text x="372" y="178" font-size="13" font-weight="700" fill="#0f172a" text-anchor="end">e&#8323;</text>
-                <text x="462" y="98" font-size="13" font-weight="700" fill="#0f172a" text-anchor="end">e&#8324;</text>
+                <circle cx="200" cy="350" r="5.5" fill="#111111"/>
+                <circle cx="290" cy="270" r="5.5" fill="#111111"/>
+                <circle cx="380" cy="190" r="5.5" fill="#111111"/>
+                <circle cx="470" cy="110" r="5.5" fill="#111111"/>
+                <text x="192" y="338" font-size="13" font-weight="700" fill="#111111" text-anchor="end">e&#8321;</text>
+                <text x="282" y="258" font-size="13" font-weight="700" fill="#111111" text-anchor="end">e&#8322;</text>
+                <text x="372" y="178" font-size="13" font-weight="700" fill="#111111" text-anchor="end">e&#8323;</text>
+                <text x="462" y="98" font-size="13" font-weight="700" fill="#111111" text-anchor="end">e&#8324;</text>
               </svg>
             </div>
             <div style="flex: 0.95; text-align: left;">
-              <div class="content-card" style="margin: 0; padding: 16px 20px; font-size: 0.8em;">
-                <p style="font-weight: 700; color: #0f766e; margin: 0 0 8px;">The firm produces where \( P = MC \). Trace the price up and down the \( MC \) curve:</p>
+              <div class="content-card" style="margin: 0; font-size: 0.8em;">
+                <p style="font-weight: 700; color: var(--bp-primary); margin: 0 0 8px;">The firm produces where \( P = MC \). Trace the price up and down the \( MC \) curve:</p>
                 <div class="def-card" style="margin: 6px 0; padding: 8px 12px;">
                   <strong>Above \( e_2 \) (min \( AC \)):</strong> \( P > AC \Rightarrow \) profit is <strong>positive</strong>.
                 </div>
-                <div class="def-card" style="margin: 6px 0; padding: 8px 12px; border-left-color: #64748b;">
+                <div class="def-card" style="margin: 6px 0; padding: 8px 12px; border-left-color: var(--bp-muted);">
                   <strong>At \( e_2 \):</strong> \( P = \min AC \Rightarrow \) profit is <strong>zero</strong>.
                 </div>
-                <div class="def-card" style="margin: 6px 0; padding: 8px 12px; border-left-color: #b45309; background: rgba(180, 83, 9, 0.05);">
+                <div class="def-card" style="margin: 6px 0; padding: 8px 12px; border-left-color: #b45309;">
                   <strong>Between \( e_1 \) and \( e_2 \):</strong> \( AVC < P < AC \Rightarrow \) a <strong>loss</strong>, but keep producing (price still covers variable cost).
                 </div>
-                <div class="def-card" style="margin: 6px 0; padding: 8px 12px; border-left-color: #b91c1c; background: rgba(185, 28, 28, 0.05);">
+                <div class="def-card" style="margin: 6px 0; padding: 8px 12px; border-left-color: #b91c1c;">
                   <strong>Below \( e_1 \) (min \( AVC \)):</strong> <strong>shut down</strong> &mdash; the price cannot even cover variable cost.
                 </div>
-                <p style="font-weight: 700; color: #ef4444; margin: 8px 0 0;">Supply curve \( = \) the \( MC \) curve above \( e_1 \) (min \( AVC \)). &nbsp;<span style="color:#64748b; font-weight:400;">(\( AC = ATC \))</span></p>
+                <p style="font-weight: 700; color: #ef4444; margin: 8px 0 0;">Supply curve \( = \) the \( MC \) curve above \( e_1 \) (min \( AVC \)). &nbsp;<span style="color: var(--bp-muted); font-weight: 400;">(\( AC = ATC \))</span></p>
               </div>
             </div>
           </div>
         </section>
 
         <!-- Group 7 (a): Long-run zero profit + dynamics -->
-        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
-          <p class="eyebrow" style="color: #b45309;">Recap &middot; Long-Run Equilibria</p>
+        <section>
+          <p class="eyebrow">Recap &middot; Long-Run Equilibria</p>
           <h2>The Long Run: Everyone Earns Zero Profit</h2>
           <div class="content-card" style="font-size: 0.92em;">
             <div class="def-card">
               <div class="def-title">The benchmark result</div>
               In the long run, every firm in a perfectly competitive market earns <strong>\( \$0 \) economic profit</strong>. Why? Because there are <strong>no barriers to entry or exit</strong>.
             </div>
-            <div class="def-card fragment" style="border-left-color: #059669; background: rgba(5, 150, 105, 0.05);">
+            <div class="def-card fragment" style="border-left-color: #059669;">
               <div class="def-title" style="color: #059669;">If short-run profits are positive&hellip;</div>
               Outsiders see \( \Pi > 0 \) and <strong>enter</strong> the market. Market <strong>supply shifts right</strong>, the price <strong>falls</strong>, and profits shrink &mdash; until \( \Pi = 0 \).
             </div>
-            <div class="def-card fragment" style="border-left-color: #b91c1c; background: rgba(185, 28, 28, 0.05);">
+            <div class="def-card fragment" style="border-left-color: #b91c1c;">
               <div class="def-title" style="color: #b91c1c;">If short-run profits are negative&hellip;</div>
               Firms suffering \( \Pi < 0 \) <strong>exit</strong> the market. Market <strong>supply shifts left</strong>, the price <strong>rises</strong>, and losses shrink &mdash; until \( \Pi = 0 \).
             </div>
@@ -478,27 +225,27 @@
         </section>
 
         <!-- Group 7 (b): The long-run price = min ATC (reused graph) -->
-        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
-          <p class="eyebrow" style="color: #b45309;">Recap &middot; Long-Run Equilibria</p>
+        <section>
+          <p class="eyebrow">Recap &middot; Long-Run Equilibria</p>
           <h2>The Long-Run Equilibrium Price in Perfectly Competitive Markets</h2>
-          <p style="font-size: 0.6em; color: #64748b; margin: 0 0 4px;">Entry keeps pushing the price down until the firm&rsquo;s flat demand is tangent to the bottom of its \( ATC \). So the long-run price must be \( P^* = \min(ATC) \) &mdash; exactly where \( MC \) crosses the minimum of \( ATC \) (point \( e_2 \) on Group 1&rsquo;s cost curves), where every firm earns zero profit.</p>
-                    <svg viewBox="0 0 940 430" style="width: 94%; max-height: 360px; margin: 0 auto; display: block; background: white; border: 1px solid #e2e8f0; border-radius: 10px;" role="img" aria-label="Static long-run equilibrium: on the right, the market where supply shifts right from S to S-prime as firms enter, lowering the price from P to P-prime; on the left, the representative firm whose flat demand falls from P=MR to P-prime=MR-prime, ending tangent to the minimum of ATC where economic profit is zero. Pink dashed lines connect each market price to the firm.">
-            <line x1="70" y1="360" x2="410" y2="360" stroke="#475569" stroke-width="2.5"/>
-            <polygon points="410,355 410,365 421,360" fill="#475569"/>
-            <line x1="70" y1="360" x2="70" y2="45" stroke="#475569" stroke-width="2.5"/>
-            <polygon points="65,45 75,45 70,34" fill="#475569"/>
-            <text x="54" y="44" font-size="15" fill="#1e293b" font-style="italic">P</text>
-            <text x="424" y="366" font-size="14" fill="#1e293b" font-style="italic">q</text>
-            <line x1="540" y1="360" x2="880" y2="360" stroke="#475569" stroke-width="2.5"/>
-            <polygon points="880,355 880,365 891,360" fill="#475569"/>
-            <line x1="540" y1="360" x2="540" y2="45" stroke="#475569" stroke-width="2.5"/>
-            <polygon points="535,45 545,45 540,34" fill="#475569"/>
-            <text x="524" y="44" font-size="15" fill="#1e293b" font-style="italic">P</text>
-            <text x="894" y="366" font-size="14" fill="#1e293b" font-style="italic">Q</text>
-            <text x="240" y="30" font-size="16" font-weight="700" fill="#0f766e" text-anchor="middle">The Firm</text>
-            <text x="710" y="30" font-size="16" font-weight="700" fill="#0f766e" text-anchor="middle">The Market</text>
-            <path d="M 110,140 Q 170,255 230,255 Q 310,255 380,175" fill="none" stroke="#475569" stroke-width="3.5"/>
-            <text x="384" y="172" font-size="14" fill="#475569" font-weight="700" font-style="italic">ATC</text>
+          <p style="font-size: 0.6em; color: var(--bp-muted); margin: 0 0 4px;">Entry keeps pushing the price down until the firm&rsquo;s flat demand is tangent to the bottom of its \( ATC \). So the long-run price must be \( P^* = \min(ATC) \) &mdash; exactly where \( MC \) crosses the minimum of \( ATC \) (point \( e_2 \) on Group 1&rsquo;s cost curves), where every firm earns zero profit.</p>
+                    <svg viewBox="0 0 940 430" style="width: 94%; max-height: 360px; margin: 0 auto; display: block; background: white; border: 1px solid var(--bp-border); border-radius: 10px;" role="img" aria-label="Static long-run equilibrium: on the right, the market where supply shifts right from S to S-prime as firms enter, lowering the price from P to P-prime; on the left, the representative firm whose flat demand falls from P=MR to P-prime=MR-prime, ending tangent to the minimum of ATC where economic profit is zero. Pink dashed lines connect each market price to the firm.">
+            <line x1="70" y1="360" x2="410" y2="360" stroke="#4d4d4d" stroke-width="2.5"/>
+            <polygon points="410,355 410,365 421,360" fill="#4d4d4d"/>
+            <line x1="70" y1="360" x2="70" y2="45" stroke="#4d4d4d" stroke-width="2.5"/>
+            <polygon points="65,45 75,45 70,34" fill="#4d4d4d"/>
+            <text x="54" y="44" font-size="15" fill="#111111" font-style="italic">P</text>
+            <text x="424" y="366" font-size="14" fill="#111111" font-style="italic">q</text>
+            <line x1="540" y1="360" x2="880" y2="360" stroke="#4d4d4d" stroke-width="2.5"/>
+            <polygon points="880,355 880,365 891,360" fill="#4d4d4d"/>
+            <line x1="540" y1="360" x2="540" y2="45" stroke="#4d4d4d" stroke-width="2.5"/>
+            <polygon points="535,45 545,45 540,34" fill="#4d4d4d"/>
+            <text x="524" y="44" font-size="15" fill="#111111" font-style="italic">P</text>
+            <text x="894" y="366" font-size="14" fill="#111111" font-style="italic">Q</text>
+            <text x="240" y="30" font-size="16" font-weight="700" fill="#1e2bfa" text-anchor="middle">The Firm</text>
+            <text x="710" y="30" font-size="16" font-weight="700" fill="#1e2bfa" text-anchor="middle">The Market</text>
+            <path d="M 110,140 Q 170,255 230,255 Q 310,255 380,175" fill="none" stroke="#4d4d4d" stroke-width="3.5"/>
+            <text x="384" y="172" font-size="14" fill="#4d4d4d" font-weight="700" font-style="italic">ATC</text>
             <path d="M 135,315 Q 185,282 230,255 Q 275,225 320,170" fill="none" stroke="#7c3aed" stroke-width="3.5" stroke-dasharray="9 7"/>
             <text x="324" y="166" font-size="14" fill="#7c3aed" font-weight="700" font-style="italic">MC</text>
             <line x1="70" y1="210" x2="405" y2="210" stroke="#15803d" stroke-width="3.5"/>
@@ -506,16 +253,16 @@
             <line x1="70" y1="255" x2="405" y2="255" stroke="#15803d" stroke-width="3.5"/>
             <text x="120" y="272" font-size="12.5" fill="#15803d" font-weight="700">P&#8242; = MR&#8242; = min ATC</text>
             <circle cx="230" cy="255" r="5" fill="#15803d"/>
-            <line x1="560" y1="95" x2="850" y2="325" stroke="#0f172a" stroke-width="3.5"/>
-            <text x="854" y="327" font-size="14" fill="#0f172a" font-weight="700" font-style="italic">D</text>
-            <line x1="590" y1="320" x2="820" y2="100" stroke="#0f766e" stroke-width="3.5"/>
-            <text x="824" y="98" font-size="14" fill="#0f766e" font-weight="700" font-style="italic">S</text>
-            <line x1="660" y1="350" x2="885" y2="141" stroke="#0f766e" stroke-width="3" stroke-dasharray="8 6"/>
-            <text x="889" y="140" font-size="14" fill="#0f766e" font-weight="700" font-style="italic">S&#8242;</text>
+            <line x1="560" y1="95" x2="850" y2="325" stroke="#111111" stroke-width="3.5"/>
+            <text x="854" y="327" font-size="14" fill="#111111" font-weight="700" font-style="italic">D</text>
+            <line x1="590" y1="320" x2="820" y2="100" stroke="#1e2bfa" stroke-width="3.5"/>
+            <text x="824" y="98" font-size="14" fill="#1e2bfa" font-weight="700" font-style="italic">S</text>
+            <line x1="660" y1="350" x2="885" y2="141" stroke="#1e2bfa" stroke-width="3" stroke-dasharray="8 6"/>
+            <text x="889" y="140" font-size="14" fill="#1e2bfa" font-weight="700" font-style="italic">S&#8242;</text>
             <line x1="640" y1="290" x2="726" y2="290" stroke="#16a34a" stroke-width="2.5" marker-end="url(#c4lrarr)"/>
             <text x="683" y="308" font-size="12" font-weight="700" fill="#16a34a" text-anchor="middle">entry</text>
-            <circle cx="705" cy="210" r="6" fill="#1e293b"/>
-            <text x="716" y="204" font-size="12" font-weight="700" fill="#1e293b">E</text>
+            <circle cx="705" cy="210" r="6" fill="#111111"/>
+            <text x="716" y="204" font-size="12" font-weight="700" fill="#111111">E</text>
             <circle cx="762" cy="255" r="6" fill="#16a34a"/>
             <text x="773" y="250" font-size="12" font-weight="700" fill="#16a34a">E&#8242;</text>
             <line x1="705" y1="210" x2="410" y2="210" stroke="#ec4899" stroke-width="2" stroke-dasharray="8 6"/>
@@ -531,14 +278,14 @@
       <section>
 
         <!-- PC Wrap-Up Divider -->
-        <section data-background-gradient="linear-gradient(135deg, #0f766e 0%, #115e59 100%)">
-          <p class="eyebrow" style="color: #ccfbf1;">Perfect Competition</p>
-          <h1 style="color: white; font-size: 2.6em;">Wrap-Up &amp; Practice</h1>
-          <p style="color: #ccfbf1; margin-top: 20px;">Rex&rsquo;s Ties, the road to the long run, and a price-taker group problem. Press <kbd style="background: #115e59; color: white; border: 1px solid #134e4a; padding: 2px 6px; border-radius: 4px;">&darr;</kbd></p>
+        <section class="bp-divider">
+          <p class="eyebrow">Perfect Competition</p>
+          <h1 style="font-size: 2.6em;">Wrap-Up &amp; Practice</h1>
+          <p style="color: var(--bp-body); margin-top: 20px;">Rex&rsquo;s Ties, the road to the long run, and a price-taker group problem. Press <kbd>&darr;</kbd></p>
         </section>
 
         <!-- Slide 5.25: Rex's Ties — Problem (parts a-c) -->
-        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+        <section>
           <p class="eyebrow">Perfect Competition · Worked Problem</p>
           <h2>Rex's Ties Calculation</h2>
           <div class="content-card" style="font-size: 0.9em;">
@@ -557,8 +304,8 @@
         </section>
 
         <!-- Slide 5.25a: Solution (a) -->
-        <section data-background-gradient="linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)">
-          <p class="eyebrow" style="color: #059669;">Perfect Competition · Solution (a)</p>
+        <section>
+          <p class="eyebrow">Perfect Competition · Solution (a)</p>
           <h2>Short-Run Quantity &amp; Profit</h2>
           <div class="content-card" style="font-size: 0.92em;">
             <div class="def-card">
@@ -571,15 +318,15 @@
               \[ TR = 20 \cdot 9 = 180 \qquad TC = 81 + 18 + 49 = 148 \]
               \[ \Pi = TR - TC = 180 - 148 = \$32 \]
             </div>
-            <div class="def-card fragment" style="border-left-color:#b45309; background:rgba(180,83,9,0.05);">
+            <div class="def-card fragment">
               Since \( ATC(9) = \frac{148}{9} \approx 16.44 \) and \( P = 20 > ATC \), profit is <strong>positive</strong> &mdash; so the market is <strong>not</strong> yet in long-run equilibrium.
             </div>
           </div>
         </section>
 
         <!-- Slide 5.25b: Solution (b) — number of firms in the short run -->
-        <section data-background-gradient="linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)">
-          <p class="eyebrow" style="color: #059669;">Perfect Competition · Solution (b)</p>
+        <section>
+          <p class="eyebrow">Perfect Competition · Solution (b)</p>
           <h2>Number of Firms in the Short Run</h2>
           <div class="content-card" style="font-size: 0.92em;">
             <div class="def-card">
@@ -596,8 +343,8 @@
         </section>
 
         <!-- Slide 5.25c: Solution (c) — long-run price and number of firms -->
-        <section data-background-gradient="linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)">
-          <p class="eyebrow" style="color: #059669;">Perfect Competition · Solution (c)</p>
+        <section>
+          <p class="eyebrow">Perfect Competition · Solution (c)</p>
           <h2>Long Run: Price &amp; Number of Firms</h2>
           <div class="content-card" style="font-size: 0.88em;">
             <div class="def-card">
@@ -611,41 +358,41 @@
               Each firm makes \( q = 7 \) (its min-ATC quantity). Market quantity at \( P = \$16 \) is
               \[ Q_D = 268 - 8(16) = 140 \implies n = \frac{140}{7} = 20 \text{ firms.} \]
             </div>
-            <div class="def-card fragment" style="border-left-color:#3b82f6; background:rgba(59,130,246,0.04);">
+            <div class="def-card fragment">
               Positive short-run profit draws firms in: the market grows from <strong>12 to 20 firms</strong>, pushing the price from \(\$20\) down to \(\$16\), where every firm earns zero profit.
             </div>
           </div>
         </section>
 
         <!-- Animated: short-run -> long-run transition -->
-        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+        <section>
           <p class="eyebrow">Rex&rsquo;s Ties &middot; Short Run &rarr; Long Run</p>
           <h2>From Short-Run Profit to Long-Run Equilibrium</h2>
-          <p style="font-size: 0.55em; color: #64748b; margin: 0 0 4px;">Short-run profit attracts entry; market (right) supply shifts right, so the price falls until it reaches \( \min(ATC) \) and the firm (left) earns zero profit. Press <kbd style="background: #e2e8f0; border: 1px solid #cbd5e1; padding: 1px 6px; border-radius: 4px;">&rarr;</kbd>.</p>
-          <svg class="anim-graph" viewBox="0 0 940 430" style="width: 94%; max-height: 380px; margin: 0 auto; display: block; background: white; border: 1px solid #e2e8f0; border-radius: 10px;" role="img" aria-label="Animated transition from short run to long run. The firm (left) starts with a flat demand P=MR above minimum ATC, earning a profit rectangle. Entry shifts the market (right) supply from S to S-prime, lowering the price; the firm's demand falls to P-prime=MR-prime tangent to minimum ATC, where profit is zero.">
-            <line x1="70" y1="360" x2="410" y2="360" stroke="#475569" stroke-width="2.5"/>
-            <polygon points="410,355 410,365 421,360" fill="#475569"/>
-            <line x1="70" y1="360" x2="70" y2="45" stroke="#475569" stroke-width="2.5"/>
-            <polygon points="65,45 75,45 70,34" fill="#475569"/>
-            <text x="54" y="44" font-size="15" fill="#1e293b" font-style="italic">P</text>
-            <text x="424" y="366" font-size="14" fill="#1e293b" font-style="italic">q</text>
-            <line x1="540" y1="360" x2="880" y2="360" stroke="#475569" stroke-width="2.5"/>
-            <polygon points="880,355 880,365 891,360" fill="#475569"/>
-            <line x1="540" y1="360" x2="540" y2="45" stroke="#475569" stroke-width="2.5"/>
-            <polygon points="535,45 545,45 540,34" fill="#475569"/>
-            <text x="524" y="44" font-size="15" fill="#1e293b" font-style="italic">P</text>
-            <text x="894" y="366" font-size="14" fill="#1e293b" font-style="italic">Q</text>
-            <text x="240" y="30" font-size="16" font-weight="700" fill="#0f766e" text-anchor="middle">The Firm</text>
-            <text x="710" y="30" font-size="16" font-weight="700" fill="#0f766e" text-anchor="middle">The Market</text>
+          <p style="font-size: 0.55em; color: var(--bp-muted); margin: 0 0 4px;">Short-run profit attracts entry; market (right) supply shifts right, so the price falls until it reaches \( \min(ATC) \) and the firm (left) earns zero profit. Press <kbd>&rarr;</kbd>.</p>
+          <svg class="anim-graph" viewBox="0 0 940 430" style="width: 94%; max-height: 380px; margin: 0 auto; display: block; background: white; border: 1px solid var(--bp-border); border-radius: 10px;" role="img" aria-label="Animated transition from short run to long run. The firm (left) starts with a flat demand P=MR above minimum ATC, earning a profit rectangle. Entry shifts the market (right) supply from S to S-prime, lowering the price; the firm's demand falls to P-prime=MR-prime tangent to minimum ATC, where profit is zero.">
+            <line x1="70" y1="360" x2="410" y2="360" stroke="#4d4d4d" stroke-width="2.5"/>
+            <polygon points="410,355 410,365 421,360" fill="#4d4d4d"/>
+            <line x1="70" y1="360" x2="70" y2="45" stroke="#4d4d4d" stroke-width="2.5"/>
+            <polygon points="65,45 75,45 70,34" fill="#4d4d4d"/>
+            <text x="54" y="44" font-size="15" fill="#111111" font-style="italic">P</text>
+            <text x="424" y="366" font-size="14" fill="#111111" font-style="italic">q</text>
+            <line x1="540" y1="360" x2="880" y2="360" stroke="#4d4d4d" stroke-width="2.5"/>
+            <polygon points="880,355 880,365 891,360" fill="#4d4d4d"/>
+            <line x1="540" y1="360" x2="540" y2="45" stroke="#4d4d4d" stroke-width="2.5"/>
+            <polygon points="535,45 545,45 540,34" fill="#4d4d4d"/>
+            <text x="524" y="44" font-size="15" fill="#111111" font-style="italic">P</text>
+            <text x="894" y="366" font-size="14" fill="#111111" font-style="italic">Q</text>
+            <text x="240" y="30" font-size="16" font-weight="700" fill="#1e2bfa" text-anchor="middle">The Firm</text>
+            <text x="710" y="30" font-size="16" font-weight="700" fill="#1e2bfa" text-anchor="middle">The Market</text>
             <g class="fragment">
-              <line class="build-line" x1="560" y1="95" x2="850" y2="325" stroke="#0f172a" stroke-width="3.5"/>
-              <line class="build-line" x1="590" y1="320" x2="820" y2="100" stroke="#0f766e" stroke-width="3.5"/>
-              <text x="854" y="327" font-size="14" fill="#0f172a" font-weight="700" font-style="italic">D</text>
-              <text x="824" y="98" font-size="14" fill="#0f766e" font-weight="700" font-style="italic">S</text>
-              <circle cx="705" cy="210" r="6" fill="#1e293b"/>
-              <text x="716" y="204" font-size="12" font-weight="700" fill="#1e293b">E</text>
-              <path class="build-line" pathLength="950" d="M 110,140 Q 170,255 230,255 Q 310,255 380,175" fill="none" stroke="#475569" stroke-width="3.5"/>
-              <text x="384" y="172" font-size="14" fill="#475569" font-weight="700" font-style="italic">ATC</text>
+              <line class="build-line" x1="560" y1="95" x2="850" y2="325" stroke="#111111" stroke-width="3.5"/>
+              <line class="build-line" x1="590" y1="320" x2="820" y2="100" stroke="#1e2bfa" stroke-width="3.5"/>
+              <text x="854" y="327" font-size="14" fill="#111111" font-weight="700" font-style="italic">D</text>
+              <text x="824" y="98" font-size="14" fill="#1e2bfa" font-weight="700" font-style="italic">S</text>
+              <circle cx="705" cy="210" r="6" fill="#111111"/>
+              <text x="716" y="204" font-size="12" font-weight="700" fill="#111111">E</text>
+              <path class="build-line" pathLength="950" d="M 110,140 Q 170,255 230,255 Q 310,255 380,175" fill="none" stroke="#4d4d4d" stroke-width="3.5"/>
+              <text x="384" y="172" font-size="14" fill="#4d4d4d" font-weight="700" font-style="italic">ATC</text>
               <path class="build-line" pathLength="950" d="M 135,315 Q 185,282 230,255 Q 275,225 320,170" fill="none" stroke="#7c3aed" stroke-width="3.5" stroke-linecap="round"/>
               <text x="324" y="166" font-size="14" fill="#7c3aed" font-weight="700" font-style="italic">MC</text>
               <line x1="705" y1="210" x2="70" y2="210" stroke="#ec4899" stroke-width="2" stroke-dasharray="8 6"/>
@@ -655,13 +402,13 @@
             <g class="fragment">
               <rect x="70" y="210" width="214" height="35" fill="#facc15" fill-opacity="0.5"/>
               <text x="165" y="233" font-size="13" font-weight="700" fill="#a16207" text-anchor="middle">profit</text>
-              <line x1="284" y1="210" x2="284" y2="360" stroke="#64748b" stroke-width="1.5" stroke-dasharray="5 4"/>
-              <circle cx="284" cy="210" r="5" fill="#0f172a"/>
+              <line x1="284" y1="210" x2="284" y2="360" stroke="#6b6b6b" stroke-width="1.5" stroke-dasharray="5 4"/>
+              <circle cx="284" cy="210" r="5" fill="#111111"/>
               <text x="360" y="120" font-size="13" font-weight="700" fill="#a16207">short run: P &gt; min ATC</text>
             </g>
             <g class="fragment">
-              <line x1="660" y1="350" x2="885" y2="141" stroke="#0f766e" stroke-width="3" stroke-dasharray="8 6"/>
-              <text x="889" y="140" font-size="14" fill="#0f766e" font-weight="700" font-style="italic">S&#8242;</text>
+              <line x1="660" y1="350" x2="885" y2="141" stroke="#1e2bfa" stroke-width="3" stroke-dasharray="8 6"/>
+              <text x="889" y="140" font-size="14" fill="#1e2bfa" font-weight="700" font-style="italic">S&#8242;</text>
               <line x1="640" y1="290" x2="726" y2="290" stroke="#16a34a" stroke-width="2.5" marker-end="url(#c4trarr)"/>
               <text x="683" y="308" font-size="12" font-weight="700" fill="#16a34a" text-anchor="middle">firms enter</text>
               <circle cx="762" cy="255" r="6" fill="#16a34a"/>
@@ -679,22 +426,22 @@
         </section>
 
         <!-- Slide 5.27: Why Market Structure Matters -->
-        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+        <section>
           <p class="eyebrow">Perfect Competition · Conclusion</p>
           <h2>Why Market Structure Matters</h2>
-          <div class="content-card" style="text-align: center; padding: 35px;">
-            <p style="font-size: 1.15em; line-height: 1.5; font-weight: 600; color: #0f766e;">Why do I care about knowing the market structure, i.e. how many competitors there are?</p>
+          <div class="content-card" style="text-align: center;">
+            <p style="font-size: 1.15em; line-height: 1.5; font-weight: 600; color: var(--bp-primary);">Why do I care about knowing the market structure, i.e. how many competitors there are?</p>
             <p style="font-size: 1.05em; margin-top: 15px;">Economists’ answer: market structure has direct implications for how well-off people and firms are.</p>
           </div>
         </section>
 
         <!-- GROUP WORK: Price Takers (mirrors Rex's Ties) -->
-        <section data-background-gradient="linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%)">
-          <p class="eyebrow" style="color: #b45309;">Group Work &middot; Perfect Competition</p>
+        <section>
+          <p class="eyebrow">Group Work &middot; Perfect Competition</p>
           <h2>&#127922; Try It Yourself: Price Takers</h2>
-          <div class="content-card" style="font-size: 0.88em; background: rgba(255, 255, 255, 0.7);">
-            <div class="example-card" style="border-left-color: #b45309; background: rgba(180, 83, 9, 0.05); margin: 6px 0;">
-              <div class="ex-title" style="color: #b45309;">Problem &mdash; same recipe as Rex&rsquo;s Ties</div>
+          <div class="content-card" style="font-size: 0.88em;">
+            <div class="example-card" style="margin: 6px 0;">
+              <div class="ex-title">Problem &mdash; same recipe as Rex&rsquo;s Ties</div>
               A perfectly competitive firm has \( TC(q) = q^2 + 4q + 64 \) and \( MC(q) = 2q + 4 \). The market price is <strong>$24</strong>, market demand is \( Q_D = 220 - 5P \), and <strong>every firm has these same costs</strong>.
               <div style="margin-top: 8px;">
                 <strong>(a)</strong> Find the firm&rsquo;s short-run quantity and profit.<br>
@@ -702,7 +449,7 @@
                 <strong>(c)</strong> Find the long-run equilibrium price and the number of firms.
               </div>
             </div>
-            <div style="margin: 8px 0 0; text-align:center;">
+            <div style="margin: 8px 0 0; text-align: center;">
               <button class="group-roll-btn" onclick="rollGroup('l5pcqa')">&#127922; Group for (a)</button> <span class="group-roll-result" id="l5pcqa">&mdash;</span>
               &nbsp;&nbsp;<button class="group-roll-btn" onclick="rollGroup('l5pcqb')">&#127922; Group for (b)</button> <span class="group-roll-result" id="l5pcqb">&mdash;</span>
               &nbsp;&nbsp;<button class="group-roll-btn" onclick="rollGroup('l5pcqc')">&#127922; Group for (c)</button> <span class="group-roll-result" id="l5pcqc">&mdash;</span>
@@ -711,8 +458,8 @@
         </section>
 
         <!-- GROUP WORK Answers: Price Takers -->
-        <section data-background-gradient="linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)">
-          <p class="eyebrow" style="color: #059669;">Group Work &middot; Answers</p>
+        <section>
+          <p class="eyebrow">Group Work &middot; Answers</p>
           <h2>Answers: Price Takers</h2>
           <div class="content-card" style="font-size: 0.88em;">
             <div class="def-card">
@@ -728,7 +475,7 @@
               <div class="def-title">(c) Long run: price &amp; firms</div>
               \[ ATC = MC \implies \frac{64}{q} = q \implies q = 8, \quad P^* = 8 + 4 + \frac{64}{8} = \$20 \]
               \[ Q_D = 220 - 5(20) = 120 \implies n = \frac{120}{8} = 15 \text{ firms.} \]
-              <p style="margin:6px 0 0; font-size:0.92em;">Entry grows the market from <strong>10 to 15 firms</strong> as the price falls \(\$24 \to \$20\) and profit &rarr; 0.</p>
+              <p style="margin: 6px 0 0; font-size: 0.92em;">Entry grows the market from <strong>10 to 15 firms</strong> as the price falls \(\$24 \to \$20\) and profit &rarr; 0.</p>
             </div>
           </div>
         </section>
@@ -740,63 +487,63 @@
       <section>
 
         <!-- Slide 3.1: Divider -->
-        <section data-background-gradient="linear-gradient(135deg, #0f766e 0%, #115e59 100%)">
-          <p class="eyebrow" style="color: #ccfbf1;">Part 1</p>
-          <h1 style="color: white; font-size: 2.8em;">Consumer &amp; Producer Surplus</h1>
-          <p style="color: #ccfbf1; margin-top: 20px;">Press <kbd style="background: #115e59; color: white; border: 1px solid #134e4a; padding: 2px 6px; border-radius: 4px;">↓</kbd> to continue</p>
+        <section class="bp-divider">
+          <p class="eyebrow">Part 1</p>
+          <h1 style="font-size: 2.8em;">Consumer &amp; Producer Surplus</h1>
+          <p style="color: var(--bp-body); margin-top: 20px;">Press <kbd>↓</kbd> to continue</p>
         </section>
 
         <!-- Slide 3.3: Recap of Market Structures Table -->
-        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+        <section>
           <p class="eyebrow">Market Structure · Recap</p>
           <h2>Recap of Market Structures</h2>
-          <div class="content-card" style="max-width: 1000px; padding: 15px;">
+          <div class="content-card" style="max-width: 1000px;">
             <table style="width: 100%; border-collapse: collapse; font-size: 0.65em; font-family: var(--r-main-font); line-height: 1.25;">
               <thead>
-                <tr style="border-bottom: 2px solid #0f766e; background: rgba(15, 118, 110, 0.05);">
-                  <th style="padding: 6px 12px; text-align: left; font-weight: 700; color: #0f766e;">Characteristic</th>
-                  <th style="padding: 6px 12px; text-align: left; font-weight: 700; color: #0f766e;">Perfect Competition</th>
-                  <th style="padding: 6px 12px; text-align: left; font-weight: 700; color: #0f766e;">Monopoly</th>
+                <tr style="border-bottom: 2px solid var(--bp-primary); background: rgba(30, 43, 250, 0.05);">
+                  <th style="padding: 6px 12px; text-align: left; font-weight: 700; color: var(--bp-primary);">Characteristic</th>
+                  <th style="padding: 6px 12px; text-align: left; font-weight: 700; color: var(--bp-primary);">Perfect Competition</th>
+                  <th style="padding: 6px 12px; text-align: left; font-weight: 700; color: var(--bp-primary);">Monopoly</th>
                 </tr>
               </thead>
               <tbody>
-                <tr style="border-bottom: 1px solid #e2e8f0;">
-                  <td style="padding: 6px 12px; font-weight: 700; color: #334155;">Number of Sellers</td>
+                <tr style="border-bottom: 1px solid var(--bp-border);">
+                  <td style="padding: 6px 12px; font-weight: 700; color: var(--bp-body);">Number of Sellers</td>
                   <td style="padding: 6px 12px;">Very large number</td>
                   <td style="padding: 6px 12px;">One firm</td>
                 </tr>
-                <tr style="border-bottom: 1px solid #e2e8f0;">
-                  <td style="padding: 6px 12px; font-weight: 700; color: #334155;">Entry Conditions</td>
+                <tr style="border-bottom: 1px solid var(--bp-border);">
+                  <td style="padding: 6px 12px; font-weight: 700; color: var(--bp-body);">Entry Conditions</td>
                   <td style="padding: 6px 12px;">Easy entry</td>
                   <td style="padding: 6px 12px;">Barriers to entry</td>
                 </tr>
-                <tr style="border-bottom: 1px solid #e2e8f0;">
-                  <td style="padding: 6px 12px; font-weight: 700; color: #334155;">Price Setting Ability</td>
+                <tr style="border-bottom: 1px solid var(--bp-border);">
+                  <td style="padding: 6px 12px; font-weight: 700; color: var(--bp-body);">Price Setting Ability</td>
                   <td style="padding: 6px 12px;">None (&ldquo;price taker&rdquo;)</td>
                   <td style="padding: 6px 12px;">Some (&ldquo;price maker&rdquo;)</td>
                 </tr>
-                <tr style="border-bottom: 1px solid #e2e8f0;">
-                  <td style="padding: 6px 12px; font-weight: 700; color: #334155;">Price Elasticity of Demand &mdash; Firm Level</td>
-                  <td style="padding: 6px 12px; font-weight: 600; color: #0f766e;">Perfectly elastic</td>
+                <tr style="border-bottom: 1px solid var(--bp-border);">
+                  <td style="padding: 6px 12px; font-weight: 700; color: var(--bp-body);">Price Elasticity of Demand &mdash; Firm Level</td>
+                  <td style="padding: 6px 12px; font-weight: 600; color: var(--bp-primary);">Perfectly elastic</td>
                   <td style="padding: 6px 12px;">Same as market elasticity of demand</td>
                 </tr>
-                <tr style="border-bottom: 1px solid #e2e8f0;">
-                  <td style="padding: 6px 12px; font-weight: 700; color: #334155;">Long-Run Profit</td>
+                <tr style="border-bottom: 1px solid var(--bp-border);">
+                  <td style="padding: 6px 12px; font-weight: 700; color: var(--bp-body);">Long-Run Profit</td>
                   <td style="padding: 6px 12px;">Zero economic profit</td>
                   <td style="padding: 6px 12px;">Potentially positive</td>
                 </tr>
-                <tr style="border-bottom: 1px solid #e2e8f0;">
-                  <td style="padding: 6px 12px; font-weight: 700; color: #334155;">Product Differentiation</td>
+                <tr style="border-bottom: 1px solid var(--bp-border);">
+                  <td style="padding: 6px 12px; font-weight: 700; color: var(--bp-body);">Product Differentiation</td>
                   <td style="padding: 6px 12px;">Standardized product</td>
                   <td style="padding: 6px 12px;">Unique product with no close substitutes</td>
                 </tr>
-                <tr style="border-bottom: 1px solid #e2e8f0;">
-                  <td style="padding: 6px 12px; font-weight: 700; color: #334155;">Key Characteristic</td>
+                <tr style="border-bottom: 1px solid var(--bp-border);">
+                  <td style="padding: 6px 12px; font-weight: 700; color: var(--bp-body);">Key Characteristic</td>
                   <td style="padding: 6px 12px;">Firms are price takers</td>
                   <td style="padding: 6px 12px;">One firm</td>
                 </tr>
                 <tr style="background: rgba(248, 250, 252, 0.5);">
-                  <td style="padding: 6px 12px; font-weight: 700; color: #334155;">Examples</td>
+                  <td style="padding: 6px 12px; font-weight: 700; color: var(--bp-body);">Examples</td>
                   <td style="padding: 6px 12px; font-style: italic;">Tomatoes, copper, lumber</td>
                   <td style="padding: 6px 12px; font-style: italic;">Patented medicine, first-class mail, electricity delivery</td>
                 </tr>
@@ -806,11 +553,11 @@
         </section>
 
         <!-- Slide 3.4: Defining Consumer Surplus -->
-        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+        <section>
           <p class="eyebrow">Surplus · Consumer</p>
           <h2>Defining Consumer Surplus</h2>
           <div class="content-card">
-            <p style="font-weight: 600; color: #0f766e; margin-bottom: 15px;">How do we measure consumer well-being?</p>
+            <p style="font-weight: 600; color: var(--bp-primary); margin-bottom: 15px;">How do we measure consumer well-being?</p>
             <ul>
               <li>Competitive structure directly determines the market price.</li>
               <li>Each consumer has their own willingness-to-pay (valuation) for a product.</li>
@@ -824,7 +571,7 @@
         </section>
 
         <!-- Slide 3.5: Willingness to Pay & Expenditure -->
-        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+        <section>
           <p class="eyebrow">Surplus · Consumer</p>
           <h2>Willingness to Pay vs. Expenditure</h2>
           <div class="content-card">
@@ -837,14 +584,14 @@
               Total expenditure is how much it actually costs to purchase those units:
               \[ \text{Total Expenditure} = P^* \times Q^* \]
             </div>
-            <p class="fragment" style="font-weight: 600; color: #3b82f6; text-align: center; margin-top: 15px;">
+            <p class="fragment" style="font-weight: 600; color: var(--bp-primary); text-align: center; margin-top: 15px;">
               Let's look at this concept graphically on the next slide!
             </p>
           </div>
         </section>
 
         <!-- Slide 3.5b: Warm-Up Nintendo CS -->
-        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+        <section>
           <p class="eyebrow">Surplus · Warm-Up</p>
           <h2>Warm-Up: Surplus from One Purchase</h2>
           <div class="content-card">
@@ -862,13 +609,13 @@
         </section>
 
         <!-- Slide 3.6: CS Graph -->
-        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+        <section>
           <p class="eyebrow">Surplus · Consumer</p>
           <h2>Visualizing Consumer Surplus</h2>
           <div style="display: flex; align-items: center; justify-content: center; gap: 20px; max-width: 1090px; margin: 0 auto;">
             <div style="flex: 1; text-align: left;">
-              <div class="content-card" style="margin: 0; padding: 20px;">
-                <p style="font-weight: 600; color: #0f766e; margin-bottom: 12px;">Graphical Representation:</p>
+              <div class="content-card" style="margin: 0;">
+                <p style="font-weight: 600; color: var(--bp-primary); margin-bottom: 12px;">Graphical Representation:</p>
                 <ul>
                   <li><strong>Willingness to Pay</strong>: Area under the demand curve up to quantity consumed.</li>
                   <li><strong>Expenditure</strong>: Rectangular area \( P^* \times Q^* \).</li>
@@ -877,37 +624,37 @@
               </div>
             </div>
             <div style="flex: 1.1;">
-              <svg viewBox="0 0 480 400" style="width: 100%; max-height: 360px; background: #fff; border: 1px solid #e2e8f0; border-radius: 10px;" role="img" aria-label="A downward-sloping demand curve D. At the market price P-star, quantity Q-star is bought. The amber triangle above the price line and below demand is consumer surplus; the shaded rectangle beneath the price line up to Q-star is expenditure, P-star times Q-star; together they make up total willingness to pay.">
+              <svg viewBox="0 0 480 400" style="width: 100%; max-height: 360px; background: #fff; border: 1px solid var(--bp-border); border-radius: 10px;" role="img" aria-label="A downward-sloping demand curve D. At the market price P-star, quantity Q-star is bought. The amber triangle above the price line and below demand is consumer surplus; the shaded rectangle beneath the price line up to Q-star is expenditure, P-star times Q-star; together they make up total willingness to pay.">
                 <!-- axes -->
-                <line x1="60" y1="350" x2="450" y2="350" stroke="#475569" stroke-width="2.5"/>
-                <polygon points="450,345 450,355 461,350" fill="#475569"/>
-                <line x1="60" y1="350" x2="60" y2="50" stroke="#475569" stroke-width="2.5"/>
-                <polygon points="55,50 65,50 60,39" fill="#475569"/>
-                <text x="462" y="356" font-size="15" fill="#1e293b" font-style="italic">Q</text>
-                <text x="42" y="60" font-size="15" fill="#1e293b" font-style="italic">P</text>
+                <line x1="60" y1="350" x2="450" y2="350" stroke="#4d4d4d" stroke-width="2.5"/>
+                <polygon points="450,345 450,355 461,350" fill="#4d4d4d"/>
+                <line x1="60" y1="350" x2="60" y2="50" stroke="#4d4d4d" stroke-width="2.5"/>
+                <polygon points="55,50 65,50 60,39" fill="#4d4d4d"/>
+                <text x="462" y="356" font-size="15" fill="#111111" font-style="italic">Q</text>
+                <text x="42" y="60" font-size="15" fill="#111111" font-style="italic">P</text>
                 <!-- expenditure rectangle (P* x Q*) -->
-                <polygon points="60,210 247,210 247,350 60,350" fill="#64748b" fill-opacity="0.16"/>
-                <text x="153" y="285" font-size="13" font-weight="700" fill="#475569" text-anchor="middle">Expenditure</text>
-                <text x="153" y="305" font-size="13" fill="#475569" text-anchor="middle">P* &times; Q*</text>
+                <polygon points="60,210 247,210 247,350 60,350" fill="#6b6b6b" fill-opacity="0.16"/>
+                <text x="153" y="285" font-size="13" font-weight="700" fill="#4d4d4d" text-anchor="middle">Expenditure</text>
+                <text x="153" y="305" font-size="13" fill="#4d4d4d" text-anchor="middle">P* &times; Q*</text>
                 <!-- consumer surplus triangle -->
                 <polygon points="60,80 60,210 247,210" fill="#d97706" fill-opacity="0.25"/>
                 <text x="106" y="172" font-size="17" font-weight="700" fill="#b45309">CS</text>
                 <!-- demand -->
-                <line x1="60" y1="80" x2="420" y2="330" stroke="#1e293b" stroke-width="3.5"/>
-                <text x="426" y="326" font-size="15" fill="#1e293b" font-weight="700" font-style="italic">D</text>
+                <line x1="60" y1="80" x2="420" y2="330" stroke="#111111" stroke-width="3.5"/>
+                <text x="426" y="326" font-size="15" fill="#111111" font-weight="700" font-style="italic">D</text>
                 <!-- price line + equilibrium point -->
-                <line x1="60" y1="210" x2="247" y2="210" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="5 4"/>
-                <line x1="247" y1="210" x2="247" y2="350" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="5 4"/>
-                <circle cx="247" cy="210" r="6" fill="#1e293b"/>
-                <text x="52" y="215" font-size="14" font-weight="700" fill="#1e293b" text-anchor="end">P*</text>
-                <text x="247" y="372" font-size="14" font-weight="700" fill="#1e293b" text-anchor="middle">Q*</text>
+                <line x1="60" y1="210" x2="247" y2="210" stroke="#9a9a9a" stroke-width="1.5" stroke-dasharray="5 4"/>
+                <line x1="247" y1="210" x2="247" y2="350" stroke="#9a9a9a" stroke-width="1.5" stroke-dasharray="5 4"/>
+                <circle cx="247" cy="210" r="6" fill="#111111"/>
+                <text x="52" y="215" font-size="14" font-weight="700" fill="#111111" text-anchor="end">P*</text>
+                <text x="247" y="372" font-size="14" font-weight="700" fill="#111111" text-anchor="middle">Q*</text>
               </svg>
             </div>
           </div>
         </section>
 
         <!-- Slide 3.6b: Elasticity and CS -->
-        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+        <section>
           <p class="eyebrow">Surplus · Consumer</p>
           <h2>Compare Consumer Surplus Carefully</h2>
           <div class="content-card" style="font-size: 0.9em;">
@@ -917,47 +664,47 @@
         </section>
 
         <!-- Slide 3.6c: Elasticity & CS side-by-side comparison (animated) -->
-        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+        <section>
           <p class="eyebrow">Surplus · Consumer</p>
           <h2>Elasticity &amp; CS: The Two Cases</h2>
-          <p style="font-size: 0.55em; color: #64748b; margin: 0 0 4px;">Same market price \( P^* \) and quantity \( Q^* \) in both panels &mdash; only the slope of demand differs. Press <kbd style="background: #e2e8f0; border: 1px solid #cbd5e1; padding: 1px 6px; border-radius: 4px;">&rarr;</kbd>.</p>
-          <svg class="anim-graph" viewBox="0 0 960 460" style="width: 94%; max-height: 420px; margin: 0 auto; display: block; background: #fff; border: 1px solid #e2e8f0; border-radius: 10px;" role="img" aria-label="Two side-by-side panels at the same price P-star and quantity Q-star. Left: a steep, inelastic demand curve produces a tall, large consumer-surplus triangle. Right: a flat, elastic demand curve produces a short, small consumer-surplus triangle. Same price and quantity, but the steeper demand yields the larger surplus.">
+          <p style="font-size: 0.55em; color: var(--bp-muted); margin: 0 0 4px;">Same market price \( P^* \) and quantity \( Q^* \) in both panels &mdash; only the slope of demand differs. Press <kbd>&rarr;</kbd>.</p>
+          <svg class="anim-graph" viewBox="0 0 960 460" style="width: 94%; max-height: 420px; margin: 0 auto; display: block; background: #fff; border: 1px solid var(--bp-border); border-radius: 10px;" role="img" aria-label="Two side-by-side panels at the same price P-star and quantity Q-star. Left: a steep, inelastic demand curve produces a tall, large consumer-surplus triangle. Right: a flat, elastic demand curve produces a short, small consumer-surplus triangle. Same price and quantity, but the steeper demand yields the larger surplus.">
             <!-- panel titles -->
-            <text x="255" y="34" font-size="17" font-weight="700" fill="#0f766e" text-anchor="middle">Inelastic &mdash; steep demand</text>
-            <text x="730" y="34" font-size="17" font-weight="700" fill="#0f766e" text-anchor="middle">Elastic &mdash; flat demand</text>
+            <text x="255" y="34" font-size="17" font-weight="700" fill="#1e2bfa" text-anchor="middle">Inelastic &mdash; steep demand</text>
+            <text x="730" y="34" font-size="17" font-weight="700" fill="#1e2bfa" text-anchor="middle">Elastic &mdash; flat demand</text>
             <!-- left axes -->
-            <line x1="80" y1="380" x2="430" y2="380" stroke="#475569" stroke-width="2.5"/>
-            <polygon points="430,375 430,385 441,380" fill="#475569"/>
-            <line x1="80" y1="380" x2="80" y2="55" stroke="#475569" stroke-width="2.5"/>
-            <polygon points="75,55 85,55 80,44" fill="#475569"/>
-            <text x="442" y="386" font-size="14" fill="#1e293b" font-style="italic">Q</text>
-            <text x="64" y="64" font-size="14" fill="#1e293b" font-style="italic">P</text>
+            <line x1="80" y1="380" x2="430" y2="380" stroke="#4d4d4d" stroke-width="2.5"/>
+            <polygon points="430,375 430,385 441,380" fill="#4d4d4d"/>
+            <line x1="80" y1="380" x2="80" y2="55" stroke="#4d4d4d" stroke-width="2.5"/>
+            <polygon points="75,55 85,55 80,44" fill="#4d4d4d"/>
+            <text x="442" y="386" font-size="14" fill="#111111" font-style="italic">Q</text>
+            <text x="64" y="64" font-size="14" fill="#111111" font-style="italic">P</text>
             <!-- right axes -->
-            <line x1="555" y1="380" x2="905" y2="380" stroke="#475569" stroke-width="2.5"/>
-            <polygon points="905,375 905,385 916,380" fill="#475569"/>
-            <line x1="555" y1="380" x2="555" y2="55" stroke="#475569" stroke-width="2.5"/>
-            <polygon points="550,55 560,55 555,44" fill="#475569"/>
-            <text x="917" y="386" font-size="14" fill="#1e293b" font-style="italic">Q</text>
-            <text x="539" y="64" font-size="14" fill="#1e293b" font-style="italic">P</text>
+            <line x1="555" y1="380" x2="905" y2="380" stroke="#4d4d4d" stroke-width="2.5"/>
+            <polygon points="905,375 905,385 916,380" fill="#4d4d4d"/>
+            <line x1="555" y1="380" x2="555" y2="55" stroke="#4d4d4d" stroke-width="2.5"/>
+            <polygon points="550,55 560,55 555,44" fill="#4d4d4d"/>
+            <text x="917" y="386" font-size="14" fill="#111111" font-style="italic">Q</text>
+            <text x="539" y="64" font-size="14" fill="#111111" font-style="italic">P</text>
             <!-- fragment 1: demand curves -->
             <g class="fragment" data-fragment-index="1">
-              <line class="build-line" x1="80" y1="90" x2="352" y2="380" stroke="#1e293b" stroke-width="3.5"/>
-              <text x="356" y="378" font-size="14" fill="#1e293b" font-weight="700" font-style="italic">D</text>
-              <line class="build-line" x1="555" y1="190" x2="905" y2="330" stroke="#1e293b" stroke-width="3.5"/>
-              <text x="909" y="330" font-size="14" fill="#1e293b" font-weight="700" font-style="italic">D</text>
+              <line class="build-line" x1="80" y1="90" x2="352" y2="380" stroke="#111111" stroke-width="3.5"/>
+              <text x="356" y="378" font-size="14" fill="#111111" font-weight="700" font-style="italic">D</text>
+              <line class="build-line" x1="555" y1="190" x2="905" y2="330" stroke="#111111" stroke-width="3.5"/>
+              <text x="909" y="330" font-size="14" fill="#111111" font-weight="700" font-style="italic">D</text>
             </g>
             <!-- fragment 2: price P* + Q* + equilibrium points -->
             <g class="fragment" data-fragment-index="2">
-              <line x1="80" y1="250" x2="230" y2="250" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="5 4"/>
-              <line x1="230" y1="250" x2="230" y2="380" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="5 4"/>
-              <circle cx="230" cy="250" r="5" fill="#1e293b"/>
-              <text x="72" y="255" font-size="13" font-weight="700" fill="#1e293b" text-anchor="end">P*</text>
-              <text x="230" y="398" font-size="13" font-weight="700" fill="#1e293b" text-anchor="middle">Q*</text>
-              <line x1="555" y1="250" x2="705" y2="250" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="5 4"/>
-              <line x1="705" y1="250" x2="705" y2="380" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="5 4"/>
-              <circle cx="705" cy="250" r="5" fill="#1e293b"/>
-              <text x="547" y="255" font-size="13" font-weight="700" fill="#1e293b" text-anchor="end">P*</text>
-              <text x="705" y="398" font-size="13" font-weight="700" fill="#1e293b" text-anchor="middle">Q*</text>
+              <line x1="80" y1="250" x2="230" y2="250" stroke="#9a9a9a" stroke-width="1.5" stroke-dasharray="5 4"/>
+              <line x1="230" y1="250" x2="230" y2="380" stroke="#9a9a9a" stroke-width="1.5" stroke-dasharray="5 4"/>
+              <circle cx="230" cy="250" r="5" fill="#111111"/>
+              <text x="72" y="255" font-size="13" font-weight="700" fill="#111111" text-anchor="end">P*</text>
+              <text x="230" y="398" font-size="13" font-weight="700" fill="#111111" text-anchor="middle">Q*</text>
+              <line x1="555" y1="250" x2="705" y2="250" stroke="#9a9a9a" stroke-width="1.5" stroke-dasharray="5 4"/>
+              <line x1="705" y1="250" x2="705" y2="380" stroke="#9a9a9a" stroke-width="1.5" stroke-dasharray="5 4"/>
+              <circle cx="705" cy="250" r="5" fill="#111111"/>
+              <text x="547" y="255" font-size="13" font-weight="700" fill="#111111" text-anchor="end">P*</text>
+              <text x="705" y="398" font-size="13" font-weight="700" fill="#111111" text-anchor="middle">Q*</text>
             </g>
             <!-- fragment 3: CS triangles + comparison -->
             <g class="fragment" data-fragment-index="3">
@@ -967,13 +714,13 @@
               <polygon points="555,190 555,250 705,250" fill="#d97706" fill-opacity="0.28"/>
               <text x="590" y="238" font-size="14" font-weight="700" fill="#b45309">CS</text>
               <text x="726" y="206" font-size="14" font-weight="700" fill="#b45309">smaller CS</text>
-              <text x="480" y="442" font-size="15" font-weight="700" fill="#0f766e" text-anchor="middle">Same P* and Q* &mdash; steeper (inelastic) demand &#8658; the larger consumer surplus.</text>
+              <text x="480" y="442" font-size="15" font-weight="700" fill="#1e2bfa" text-anchor="middle">Same P* and Q* &mdash; steeper (inelastic) demand &#8658; the larger consumer surplus.</text>
             </g>
           </svg>
         </section>
 
         <!-- Slide 3.7: CS Example -->
-        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+        <section>
           <p class="eyebrow">Surplus · Practice</p>
           <h2>Practice: Consumer Surplus</h2>
           <div class="content-card">
@@ -989,8 +736,8 @@
         </section>
 
         <!-- Slide 3.7b: CS Solution -->
-        <section data-background-gradient="linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)">
-          <p class="eyebrow" style="color: #059669;">Surplus · Solution</p>
+        <section>
+          <p class="eyebrow">Surplus · Solution</p>
           <h2>Solution: Consumer Surplus</h2>
           <div class="content-card" style="font-size: 0.95em;">
             <div class="def-card" style="margin: 8px 0;">
@@ -1013,7 +760,7 @@
         </section>
 
         <!-- Slide 3.8: Defining Producer Surplus -->
-        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+        <section>
           <p class="eyebrow">Surplus · Producer</p>
           <h2>Producer Surplus and Profit</h2>
           <div class="content-card" style="font-size: 0.9em;">
@@ -1023,7 +770,7 @@
         </section>
 
         <!-- Slide 3.8b: Warm-Up Nintendo PS -->
-        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+        <section>
           <p class="eyebrow">Surplus · Warm-Up</p>
           <h2>Warm-Up: Surplus from One Sale</h2>
           <div class="content-card">
@@ -1042,7 +789,7 @@
         </section>
 
         <!-- Slide 3.9: PS Example -->
-        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+        <section>
           <p class="eyebrow">Surplus · Practice</p>
           <h2>Practice: Producer Surplus</h2>
           <div class="content-card">
@@ -1059,8 +806,8 @@
         </section>
 
         <!-- Slide 3.9b: PS Solution -->
-        <section data-background-gradient="linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)">
-          <p class="eyebrow" style="color: #059669;">Surplus · Solution</p>
+        <section>
+          <p class="eyebrow">Surplus · Solution</p>
           <h2>Solution: Producer Surplus</h2>
           <div class="content-card" style="font-size: 0.95em;">
             <div class="def-card" style="margin: 8px 0;">
@@ -1081,7 +828,7 @@
         </section>
 
         <!-- Slide 3.10: Market-Level Example -->
-        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+        <section>
           <p class="eyebrow">Surplus · Market Level</p>
           <h2>Practice: Market Surplus</h2>
           <div class="content-card">
@@ -1099,8 +846,8 @@
         </section>
 
         <!-- Slide 3.10b: Market-Level Solution -->
-        <section data-background-gradient="linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)">
-          <p class="eyebrow" style="color: #059669;">Surplus · Solution</p>
+        <section>
+          <p class="eyebrow">Surplus · Solution</p>
           <h2>Solution: Market Surplus</h2>
           <div class="content-card" style="font-size: 0.86em;">
             <div class="def-card" style="margin: 6px 0;">
@@ -1119,28 +866,28 @@
               Supply curve starts at \( Q = 10 \) at \( P = 0 \). The area below \( P^* = 2 \) is a trapezoid:
               \[ PS = \frac{10 + 20}{2} \times 2 = 15 \times 2 = \$30 \]
             </div>
-            <div class="def-card fragment" style="margin: 6px 0; border-left-color: #3b82f6; background: rgba(59, 130, 246, 0.04);">
-              <div class="def-title" style="color: #3b82f6;">Step 4: Total Social Welfare</div>
+            <div class="def-card fragment" style="margin: 6px 0;">
+              <div class="def-title">Step 4: Total Social Welfare</div>
               \[ W = CS + PS = 40 + 30 = \$70 \]
             </div>
           </div>
         </section>
 
         <!-- GROUP WORK: Calculating Surplus -->
-        <section data-background-gradient="linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%)">
-          <p class="eyebrow" style="color: #b45309;">Group Work &middot; Surplus</p>
+        <section>
+          <p class="eyebrow">Group Work &middot; Surplus</p>
           <h2>&#127922; Group Work: Calculating Surplus</h2>
-          <div class="content-card" style="font-size: 0.88em; background: rgba(255, 255, 255, 0.7);">
-            <div class="example-card" style="border-left-color: #b45309; background: rgba(180, 83, 9, 0.05); margin: 8px 0;">
-              <div class="ex-title" style="color: #b45309;">Question 1</div>
+          <div class="content-card" style="font-size: 0.88em;">
+            <div class="example-card" style="margin: 8px 0;">
+              <div class="ex-title">Question 1</div>
               A consumer&rsquo;s demand for smoothies is \( Q = 20 - 2P \), and the market price is \( P = 4 \). <br><br><strong>How many smoothies do they buy, and what is their consumer surplus?</strong>
             </div>
             <div style="margin: 4px 0 12px;">
               <button class="group-roll-btn" onclick="rollGroup('l5gw1q1')">&#127922; Pick a group for Q1</button>
               <span class="group-roll-result" id="l5gw1q1">&mdash;</span>
             </div>
-            <div class="example-card" style="border-left-color: #b45309; background: rgba(180, 83, 9, 0.05); margin: 8px 0;">
-              <div class="ex-title" style="color: #b45309;">Question 2</div>
+            <div class="example-card" style="margin: 8px 0;">
+              <div class="ex-title">Question 2</div>
               A producer&rsquo;s supply of smoothies is \( Q = 4P \), and they sell at the market price \( P = 4 \). <br><br><strong>How many smoothies do they sell, and what is their producer surplus?</strong>
             </div>
             <div style="margin: 4px 0 0;">
@@ -1151,8 +898,8 @@
         </section>
 
         <!-- GROUP WORK Answers: Calculating Surplus -->
-        <section data-background-gradient="linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)">
-          <p class="eyebrow" style="color: #059669;">Group Work &middot; Answers</p>
+        <section>
+          <p class="eyebrow">Group Work &middot; Answers</p>
           <h2>Answers: Calculating Surplus</h2>
           <div class="content-card" style="font-size: 0.88em;">
             <div class="def-card">
@@ -1170,31 +917,31 @@
         </section>
 
         <!-- GROUP WORK Answers: step-by-step animated graph -->
-        <section data-background-gradient="linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)">
-          <p class="eyebrow" style="color: #059669;">Group Work &middot; Answers</p>
+        <section>
+          <p class="eyebrow">Group Work &middot; Answers</p>
           <h2>Calculating Surplus, Step by Step</h2>
-          <p style="font-size: 0.55em; color: #64748b; margin: 0 0 4px;">Press <kbd style="background: #e2e8f0; border: 1px solid #cbd5e1; padding: 1px 6px; border-radius: 4px;">&rarr;</kbd> to add each element of the graph</p>
-          <svg class="anim-graph" viewBox="0 0 980 470" style="width: 92%; max-height: 440px; margin: 0 auto; display: block; background: white; border: 1px solid #e2e8f0; border-radius: 10px;" role="img" aria-label="Animated two-panel build-up: the consumer surplus triangle of $36 under demand Q=20-2P above P=$4, then the producer surplus triangle of $32 above supply Q=4P below P=$4">
+          <p style="font-size: 0.55em; color: var(--bp-muted); margin: 0 0 4px;">Press <kbd>&rarr;</kbd> to add each element of the graph</p>
+          <svg class="anim-graph" viewBox="0 0 980 470" style="width: 92%; max-height: 440px; margin: 0 auto; display: block; background: white; border: 1px solid var(--bp-border); border-radius: 10px;" role="img" aria-label="Animated two-panel build-up: the consumer surplus triangle of $36 under demand Q=20-2P above P=$4, then the producer surplus triangle of $32 above supply Q=4P below P=$4">
             <!-- Q1 panel: axes + demand (always visible) -->
             <g>
-              <text x="250" y="42" font-size="19" font-weight="700" fill="#0f172a" text-anchor="middle">Q1: Consumer surplus</text>
-              <line x1="60" y1="420" x2="450" y2="420" stroke="#475569" stroke-width="2.5"/>
-              <polygon points="450,415 450,425 461,420" fill="#475569"/>
-              <line x1="60" y1="420" x2="60" y2="80" stroke="#475569" stroke-width="2.5"/>
-              <polygon points="55,80 65,80 60,69" fill="#475569"/>
-              <text x="468" y="426" font-size="15" fill="#1e293b" font-style="italic">Q</text>
-              <text x="38" y="64" font-size="15" fill="#1e293b" font-style="italic">P</text>
-              <line x1="60" y1="90" x2="400" y2="420" stroke="#1e293b" stroke-width="3.5"/>
-              <text x="406" y="414" font-size="15" fill="#1e293b" font-style="italic">D</text>
-              <text x="52" y="96" font-size="14" fill="#64748b" text-anchor="end">$10</text>
+              <text x="250" y="42" font-size="19" font-weight="700" fill="#111111" text-anchor="middle">Q1: Consumer surplus</text>
+              <line x1="60" y1="420" x2="450" y2="420" stroke="#4d4d4d" stroke-width="2.5"/>
+              <polygon points="450,415 450,425 461,420" fill="#4d4d4d"/>
+              <line x1="60" y1="420" x2="60" y2="80" stroke="#4d4d4d" stroke-width="2.5"/>
+              <polygon points="55,80 65,80 60,69" fill="#4d4d4d"/>
+              <text x="468" y="426" font-size="15" fill="#111111" font-style="italic">Q</text>
+              <text x="38" y="64" font-size="15" fill="#111111" font-style="italic">P</text>
+              <line x1="60" y1="90" x2="400" y2="420" stroke="#111111" stroke-width="3.5"/>
+              <text x="406" y="414" font-size="15" fill="#111111" font-style="italic">D</text>
+              <text x="52" y="96" font-size="14" fill="#6b6b6b" text-anchor="end">$10</text>
             </g>
             <!-- fragment 1: price line -->
             <g class="fragment" data-fragment-index="1">
-              <line x1="60" y1="288" x2="264" y2="288" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="5 4"/>
-              <line x1="264" y1="288" x2="264" y2="420" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="5 4"/>
-              <circle cx="264" cy="288" r="6" fill="#1e293b"/>
-              <text x="52" y="294" font-size="14" font-weight="700" fill="#1e293b" text-anchor="end">P = $4</text>
-              <text x="264" y="442" font-size="14" font-weight="700" fill="#1e293b" text-anchor="middle">Q = 12</text>
+              <line x1="60" y1="288" x2="264" y2="288" stroke="#9a9a9a" stroke-width="1.5" stroke-dasharray="5 4"/>
+              <line x1="264" y1="288" x2="264" y2="420" stroke="#9a9a9a" stroke-width="1.5" stroke-dasharray="5 4"/>
+              <circle cx="264" cy="288" r="6" fill="#111111"/>
+              <text x="52" y="294" font-size="14" font-weight="700" fill="#111111" text-anchor="end">P = $4</text>
+              <text x="264" y="442" font-size="14" font-weight="700" fill="#111111" text-anchor="middle">Q = 12</text>
             </g>
             <!-- fragment 2: CS triangle -->
             <g class="fragment" data-fragment-index="2">
@@ -1204,36 +951,36 @@
             </g>
             <!-- fragment 3: Q2 panel axes + supply -->
             <g class="fragment" data-fragment-index="3">
-              <text x="740" y="42" font-size="19" font-weight="700" fill="#0f172a" text-anchor="middle">Q2: Producer surplus</text>
-              <line x1="550" y1="420" x2="940" y2="420" stroke="#475569" stroke-width="2.5"/>
-              <polygon points="940,415 940,425 951,420" fill="#475569"/>
-              <line x1="550" y1="420" x2="550" y2="80" stroke="#475569" stroke-width="2.5"/>
-              <polygon points="545,80 555,80 550,69" fill="#475569"/>
-              <text x="958" y="426" font-size="15" fill="#1e293b" font-style="italic">Q</text>
-              <text x="528" y="64" font-size="15" fill="#1e293b" font-style="italic">P</text>
-              <line class="build-line" x1="550" y1="420" x2="930" y2="120" stroke="#1e293b" stroke-width="3.5"/>
-              <text x="936" y="112" font-size="15" fill="#1e293b" font-style="italic">S</text>
+              <text x="740" y="42" font-size="19" font-weight="700" fill="#111111" text-anchor="middle">Q2: Producer surplus</text>
+              <line x1="550" y1="420" x2="940" y2="420" stroke="#4d4d4d" stroke-width="2.5"/>
+              <polygon points="940,415 940,425 951,420" fill="#4d4d4d"/>
+              <line x1="550" y1="420" x2="550" y2="80" stroke="#4d4d4d" stroke-width="2.5"/>
+              <polygon points="545,80 555,80 550,69" fill="#4d4d4d"/>
+              <text x="958" y="426" font-size="15" fill="#111111" font-style="italic">Q</text>
+              <text x="528" y="64" font-size="15" fill="#111111" font-style="italic">P</text>
+              <line class="build-line" x1="550" y1="420" x2="930" y2="120" stroke="#111111" stroke-width="3.5"/>
+              <text x="936" y="112" font-size="15" fill="#111111" font-style="italic">S</text>
             </g>
             <!-- fragment 4: price line -->
             <g class="fragment" data-fragment-index="4">
-              <line x1="550" y1="180" x2="854" y2="180" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="5 4"/>
-              <line x1="854" y1="180" x2="854" y2="420" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="5 4"/>
-              <circle cx="854" cy="180" r="6" fill="#1e293b"/>
-              <text x="542" y="186" font-size="14" font-weight="700" fill="#1e293b" text-anchor="end">P = $4</text>
-              <text x="854" y="442" font-size="14" font-weight="700" fill="#1e293b" text-anchor="middle">Q = 16</text>
+              <line x1="550" y1="180" x2="854" y2="180" stroke="#9a9a9a" stroke-width="1.5" stroke-dasharray="5 4"/>
+              <line x1="854" y1="180" x2="854" y2="420" stroke="#9a9a9a" stroke-width="1.5" stroke-dasharray="5 4"/>
+              <circle cx="854" cy="180" r="6" fill="#111111"/>
+              <text x="542" y="186" font-size="14" font-weight="700" fill="#111111" text-anchor="end">P = $4</text>
+              <text x="854" y="442" font-size="14" font-weight="700" fill="#111111" text-anchor="middle">Q = 16</text>
             </g>
             <!-- fragment 5: PS triangle -->
             <g class="fragment" data-fragment-index="5">
-              <polygon points="550,420 550,180 854,180" fill="#0f766e" fill-opacity="0.25"/>
-              <text x="640" y="290" font-size="16" font-weight="700" fill="#0f766e">PS</text>
-              <text x="700" y="130" font-size="16" font-weight="700" fill="#0f766e">PS = &frac12; &times; 16 &times; 4 = $32</text>
+              <polygon points="550,420 550,180 854,180" fill="#1e2bfa" fill-opacity="0.25"/>
+              <text x="640" y="290" font-size="16" font-weight="700" fill="#1e2bfa">PS</text>
+              <text x="700" y="130" font-size="16" font-weight="700" fill="#1e2bfa">PS = &frac12; &times; 16 &times; 4 = $32</text>
             </g>
           </svg>
         </section>
 
         <!-- GROUP WORK Answers: graph -->
-        <section data-background-gradient="linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)">
-          <p class="eyebrow" style="color: #059669;">Group Work &middot; Answers</p>
+        <section>
+          <p class="eyebrow">Group Work &middot; Answers</p>
           <h2>Calculating Surplus, Graphically</h2>
           <div class="slide-img-container" style="margin: 5px auto 0; padding: 8px;">
             <img src="../slides/images/c5_gw_surplus_graph.png" alt="Two panels: consumer surplus triangle of $36 under demand Q=20-2P above P=$4, and producer surplus triangle of $32 above supply Q=4P below P=$4" style="max-height: 420px; max-width: 100%; width: auto;">
@@ -1247,19 +994,19 @@
       <section>
 
         <!-- Slide 4.1: Divider -->
-        <section data-background-gradient="linear-gradient(135deg, #0f766e 0%, #115e59 100%)">
-          <p class="eyebrow" style="color: #ccfbf1;">Part 2</p>
-          <h1 style="color: white; font-size: 2.8em;">Social Welfare &amp; Deadweight Loss</h1>
-          <p style="color: #ccfbf1; margin-top: 20px;">Press <kbd style="background: #115e59; color: white; border: 1px solid #134e4a; padding: 2px 6px; border-radius: 4px;">↓</kbd> to continue</p>
+        <section class="bp-divider">
+          <p class="eyebrow">Part 2</p>
+          <h1 style="font-size: 2.8em;">Social Welfare &amp; Deadweight Loss</h1>
+          <p style="color: var(--bp-body); margin-top: 20px;">Press <kbd>↓</kbd> to continue</p>
         </section>
 
         <!-- Slide 4.2: Defining Social Welfare -->
-        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+        <section>
           <p class="eyebrow">Welfare · Definition</p>
           <h2>Defining Social Welfare</h2>
           <div style="display: flex; align-items: center; justify-content: center; gap: 20px; max-width: 1090px; margin: 0 auto;">
             <div style="flex: 1; text-align: left;">
-              <div class="content-card" style="margin: 0; padding: 14px 18px; font-size: 0.88em;">
+              <div class="content-card" style="margin: 0; font-size: 0.88em;">
                 <div class="def-card" style="margin: 0 0 12px;">
                   <div class="def-title">Definition</div>
                   <strong>Social welfare</strong> (or social surplus) is the sum of consumer surplus and producer surplus in the market:
@@ -1284,13 +1031,13 @@
         </section>
 
         <!-- Slide 4.3: Introducing Deadweight Loss -->
-        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+        <section>
           <p class="eyebrow">Welfare · Deadweight Loss</p>
           <h2>Welfare Loss from Restricted Output</h2>
           <div style="display: flex; align-items: center; justify-content: center; gap: 20px; max-width: 1090px; margin: 0 auto;">
             <div style="flex: 1; text-align: left;">
-              <div class="content-card" style="margin: 0; padding: 20px;">
-                <p style="font-weight: 600; color: #0f766e; margin-bottom: 12px;">In this monopoly example, output is below the efficient quantity:</p>
+              <div class="content-card" style="margin: 0;">
+                <p style="font-weight: 600; color: var(--bp-primary); margin-bottom: 12px;">In this monopoly example, output is below the efficient quantity:</p>
                 <ul>
                   <li>Quantities transacted decrease.</li>
                   <li>Some consumer and producer surplus is lost.</li>
@@ -1307,7 +1054,7 @@
         </section>
 
         <!-- Slide 4.4: Defining Deadweight Loss -->
-        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+        <section>
           <p class="eyebrow">Welfare · Deadweight Loss</p>
           <h2>Deadweight Loss</h2>
           <div class="content-card" style="font-size: 0.9em;">
@@ -1317,11 +1064,11 @@
         </section>
 
         <!-- Slide 4.5: Social Welfare Under Market Power -->
-        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+        <section>
           <p class="eyebrow">Welfare · Market Power</p>
           <h2>Welfare Under Market Power</h2>
           <div class="content-card">
-            <p style="font-weight: 600; color: #0f766e; margin-bottom: 10px;">Recall Monopoly Pricing:</p>
+            <p style="font-weight: 600; color: var(--bp-primary); margin-bottom: 10px;">Recall Monopoly Pricing:</p>
             <ul>
               <li>Monopolists set price above MC, restricting output to maximize profits.</li>
               <li>This pricing behavior causes a transfer of surplus from consumers to the firm.</li>
@@ -1330,22 +1077,22 @@
         </section>
 
         <!-- Slide 4.5a: Welfare Under Market Power — animated graph with MR added -->
-        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+        <section>
           <p class="eyebrow">Welfare · Market Power</p>
           <h2>Welfare Under Market Power</h2>
-          <p style="font-size: 0.55em; color: #64748b; margin: 0 0 4px;">The same graph, now with marginal revenue: the monopolist produces where \( MR = MC \), then charges what demand will bear. Press <kbd style="background: #e2e8f0; border: 1px solid #cbd5e1; padding: 1px 6px; border-radius: 4px;">&rarr;</kbd>.</p>
-          <div style="display:flex; gap:16px; align-items:center; max-width:1180px; margin:0 auto;">
-            <div style="flex:1.5;">
-              <svg class="anim-graph" viewBox="0 0 620 470" style="width:100%; max-height:400px; background:#fff; border:1px solid #e2e8f0; border-radius:10px;" role="img" aria-label="Monopoly welfare graph. Linear demand D runs from $1,000 at zero output down through the market-power point m at Qm=80, Pm=600 and the competition point c at Qc=160, Pc=200, where it meets constant marginal cost MC of $200. A marginal revenue curve MR, twice as steep as demand, crosses MC at Qm=80 — that is why the monopolist restricts output to Qm. Consumer surplus under market power is area A, producer surplus is area B, and the deadweight loss is area C between demand and MC from Qm to Qc.">
+          <p style="font-size: 0.55em; color: var(--bp-muted); margin: 0 0 4px;">The same graph, now with marginal revenue: the monopolist produces where \( MR = MC \), then charges what demand will bear. Press <kbd>&rarr;</kbd>.</p>
+          <div style="display: flex; gap: 16px; align-items: center; max-width: 1180px; margin: 0 auto;">
+            <div style="flex: 1.5;">
+              <svg class="anim-graph" viewBox="0 0 620 470" style="width: 100%; max-height: 400px; background: #fff; border: 1px solid var(--bp-border); border-radius: 10px;" role="img" aria-label="Monopoly welfare graph. Linear demand D runs from $1,000 at zero output down through the market-power point m at Qm=80, Pm=600 and the competition point c at Qc=160, Pc=200, where it meets constant marginal cost MC of $200. A marginal revenue curve MR, twice as steep as demand, crosses MC at Qm=80 — that is why the monopolist restricts output to Qm. Consumer surplus under market power is area A, producer surplus is area B, and the deadweight loss is area C between demand and MC from Qm to Qc.">
                 <!-- axes + fixed labels -->
-                <line x1="95" y1="415" x2="580" y2="415" stroke="#475569" stroke-width="2.5"/>
-                <polygon points="580,410 580,420 591,415" fill="#475569"/>
-                <line x1="95" y1="415" x2="95" y2="50" stroke="#475569" stroke-width="2.5"/>
-                <polygon points="90,50 100,50 95,39" fill="#475569"/>
-                <text x="58" y="34" font-size="12" font-weight="700" fill="#1e293b">Price ($/iPad)</text>
-                <text x="335" y="458" font-size="12" font-weight="700" fill="#1e293b" text-anchor="middle">Quantity of iPads (millions)</text>
-                <text x="88" y="64" font-size="12" fill="#475569" text-anchor="end">$1,000</text>
-                <text x="86" y="421" font-size="12" fill="#475569" text-anchor="end">0</text>
+                <line x1="95" y1="415" x2="580" y2="415" stroke="#4d4d4d" stroke-width="2.5"/>
+                <polygon points="580,410 580,420 591,415" fill="#4d4d4d"/>
+                <line x1="95" y1="415" x2="95" y2="50" stroke="#4d4d4d" stroke-width="2.5"/>
+                <polygon points="90,50 100,50 95,39" fill="#4d4d4d"/>
+                <text x="58" y="34" font-size="12" font-weight="700" fill="#111111">Price ($/iPad)</text>
+                <text x="335" y="458" font-size="12" font-weight="700" fill="#111111" text-anchor="middle">Quantity of iPads (millions)</text>
+                <text x="88" y="64" font-size="12" fill="#4d4d4d" text-anchor="end">$1,000</text>
+                <text x="86" y="421" font-size="12" fill="#4d4d4d" text-anchor="end">0</text>
                 <!-- fragment 4 (early in DOM so region fills paint UNDER the curves) -->
                 <g class="fragment" data-fragment-index="4">
                   <polygon points="95,60 95,202 281,202" fill="#f59e0b" fill-opacity="0.33"/>
@@ -1357,8 +1104,8 @@
                 </g>
                 <!-- fragment 1: demand + marginal cost -->
                 <g class="fragment" data-fragment-index="1">
-                  <line x1="95" y1="60" x2="560" y2="415" stroke="#1d4ed8" stroke-width="3.5"/>
-                  <text x="566" y="414" font-size="14" fill="#1d4ed8" font-weight="700" font-style="italic">D</text>
+                  <line x1="95" y1="60" x2="560" y2="415" stroke="#155e75" stroke-width="3.5"/>
+                  <text x="566" y="414" font-size="14" fill="#155e75" font-weight="700" font-style="italic">D</text>
                   <line x1="95" y1="344" x2="545" y2="344" stroke="#fb7185" stroke-width="3.5"/>
                   <text x="551" y="349" font-size="14" fill="#e11d48" font-weight="700" font-style="italic">MC</text>
                 </g>
@@ -1372,29 +1119,29 @@
                 </g>
                 <!-- fragment 3: equilibria, guide lines, value labels -->
                 <g class="fragment" data-fragment-index="3">
-                  <line x1="95" y1="202" x2="281" y2="202" stroke="#94a3b8" stroke-width="1.3" stroke-dasharray="5 4"/>
-                  <line x1="281" y1="202" x2="281" y2="415" stroke="#94a3b8" stroke-width="1.3" stroke-dasharray="5 4"/>
-                  <line x1="467" y1="344" x2="467" y2="415" stroke="#94a3b8" stroke-width="1.3" stroke-dasharray="5 4"/>
-                  <circle cx="281" cy="202" r="5.5" fill="#1e293b"/>
-                  <circle cx="467" cy="344" r="5.5" fill="#1e293b"/>
-                  <text x="292" y="196" font-size="12.5" font-weight="700" fill="#1e293b">Market power <tspan font-style="italic">m</tspan></text>
-                  <text x="476" y="326" font-size="12.5" font-weight="700" fill="#1e293b">Competition <tspan font-style="italic">c</tspan></text>
-                  <line x1="482" y1="330" x2="468" y2="343" stroke="#1e293b" stroke-width="1"/>
-                  <text x="88" y="207" font-size="12" font-weight="700" fill="#475569" text-anchor="end">P<tspan font-size="9" dy="3">m</tspan><tspan dy="-3"> = 600</tspan></text>
-                  <text x="88" y="349" font-size="12" font-weight="700" fill="#475569" text-anchor="end">P<tspan font-size="9" dy="3">c</tspan><tspan dy="-3"> = 200</tspan></text>
-                  <text x="281" y="433" font-size="12" font-weight="700" fill="#475569" text-anchor="middle">Q<tspan font-size="9" dy="3">m</tspan><tspan dy="-3"> = 80</tspan></text>
-                  <text x="467" y="433" font-size="12" font-weight="700" fill="#475569" text-anchor="middle">Q<tspan font-size="9" dy="3">c</tspan><tspan dy="-3"> = 160</tspan></text>
+                  <line x1="95" y1="202" x2="281" y2="202" stroke="#9a9a9a" stroke-width="1.3" stroke-dasharray="5 4"/>
+                  <line x1="281" y1="202" x2="281" y2="415" stroke="#9a9a9a" stroke-width="1.3" stroke-dasharray="5 4"/>
+                  <line x1="467" y1="344" x2="467" y2="415" stroke="#9a9a9a" stroke-width="1.3" stroke-dasharray="5 4"/>
+                  <circle cx="281" cy="202" r="5.5" fill="#111111"/>
+                  <circle cx="467" cy="344" r="5.5" fill="#111111"/>
+                  <text x="292" y="196" font-size="12.5" font-weight="700" fill="#111111">Market power <tspan font-style="italic">m</tspan></text>
+                  <text x="476" y="326" font-size="12.5" font-weight="700" fill="#111111">Competition <tspan font-style="italic">c</tspan></text>
+                  <line x1="482" y1="330" x2="468" y2="343" stroke="#111111" stroke-width="1"/>
+                  <text x="88" y="207" font-size="12" font-weight="700" fill="#4d4d4d" text-anchor="end">P<tspan font-size="9" dy="3">m</tspan><tspan dy="-3"> = 600</tspan></text>
+                  <text x="88" y="349" font-size="12" font-weight="700" fill="#4d4d4d" text-anchor="end">P<tspan font-size="9" dy="3">c</tspan><tspan dy="-3"> = 200</tspan></text>
+                  <text x="281" y="433" font-size="12" font-weight="700" fill="#4d4d4d" text-anchor="middle">Q<tspan font-size="9" dy="3">m</tspan><tspan dy="-3"> = 80</tspan></text>
+                  <text x="467" y="433" font-size="12" font-weight="700" fill="#4d4d4d" text-anchor="middle">Q<tspan font-size="9" dy="3">c</tspan><tspan dy="-3"> = 160</tspan></text>
                 </g>
                 <defs><marker id="mpArr" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M 0 0 L 8 4 L 0 8 z" fill="#7c3aed"/></marker></defs>
               </svg>
             </div>
-            <div style="flex:1;">
-              <div class="content-card" style="margin:0; padding:16px 18px; font-size:0.8em;">
-                <div class="def-card" style="margin:6px 0;">
+            <div style="flex: 1;">
+              <div class="content-card" style="margin: 0; font-size: 0.8em;">
+                <div class="def-card" style="margin: 6px 0;">
                   <div class="def-title">Monopolist&rsquo;s rule</div>
                   Produce where \( MR = MC \) at \( Q_m \), then read the price \( P_m \) up on the demand curve &mdash; output is restricted below the competitive \( Q_c \).
                 </div>
-                <div class="def-card fragment" data-fragment-index="4" style="margin:6px 0;">
+                <div class="def-card fragment" data-fragment-index="4" style="margin: 6px 0;">
                   <div class="def-title">Surplus areas</div>
                   CS (competition) \(= A + B + C\)<br>
                   PS (competition) \(= 0\)<br>
@@ -1402,8 +1149,8 @@
                   PS (market power) \(= B\)<br>
                   Deadweight loss from market power \(= C\)
                 </div>
-                <div class="def-card fragment" data-fragment-index="5" style="margin:6px 0; border-left-color:#db2777; background:rgba(219,39,119,0.05);">
-                  <strong style="color:#db2777;">C</strong> is the loss in social surplus that is not transferred to anyone.
+                <div class="def-card fragment" data-fragment-index="5" style="margin: 6px 0; border-left-color: #db2777;">
+                  <strong style="color: #db2777;">C</strong> is the loss in social surplus that is not transferred to anyone.
                 </div>
               </div>
             </div>
@@ -1411,7 +1158,7 @@
         </section>
 
         <!-- Slide 4.5b: Practice Monopoly DWL -->
-        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+        <section>
           <p class="eyebrow">Welfare · Practice</p>
           <h2>Practice: DWL from Market Power</h2>
           <div style="display: flex; align-items: center; justify-content: center; gap: 20px; max-width: 1090px; margin: 0 auto;">
@@ -1432,8 +1179,8 @@
         </section>
 
         <!-- Slide 4.5c: Solution Monopoly DWL -->
-        <section data-background-gradient="linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)">
-          <p class="eyebrow" style="color: #059669;">Welfare · Solution</p>
+        <section>
+          <p class="eyebrow">Welfare · Solution</p>
           <h2>Solution: DWL from Market Power</h2>
           <div class="content-card" style="font-size: 0.95em;">
             <div class="def-card" style="margin: 8px 0;">
@@ -1449,7 +1196,7 @@
         </section>
 
         <!-- Slide 4.5d: How Else Might DWL Arise? -->
-        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+        <section>
           <p class="eyebrow">Welfare · Deadweight Loss</p>
           <h2>A Transfer or a Deadweight Loss?</h2>
           <div class="content-card" style="font-size: 0.9em;">
@@ -1459,16 +1206,16 @@
         </section>
 
         <!-- Slide 4.5e: Christmas DWL Example -->
-        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+        <section>
           <p class="eyebrow">Welfare · Deadweight Loss</p>
           <h2>The Inefficiencies of Christmas</h2>
           <div style="display: flex; align-items: center; justify-content: center; gap: 20px; max-width: 1090px; margin: 0 auto;">
             <div style="flex: 1.1; text-align: left;">
-              <div style="display:flex; gap:20px; align-items:center; max-width:1000px; margin:auto;"><div style="flex:1; font-size:0.85em; text-align:left;"><div class="def-card"><div class="def-title">Gift giving and value</div>Waldfogel’s 1993 study asked students to value gifts excluding sentimental value. It compared those valuations with what the gifts cost.</div><p>Could a gift be worth less than its purchase price yet still improve well-being? Consider sentimental value and the giver’s enjoyment.</p></div><div style="flex:1;"><img src="../slides/images/c5_waldfogel_article.png" alt="The Economist article: The inefficiencies of Christmas" style="max-height: 360px; max-width: 100%; object-fit: contain;"></div></div><aside class="notes">The valuation gap is not a complete welfare measure if it omits sentimental or giver benefits. Source: Joel Waldfogel, “The Deadweight Loss of Christmas,” American Economic Review 83(5), 1993, pp. 1328–1336. <a href="https://jmvidal.cse.sc.edu/library/waldfogel93a.pdf">Original paper</a>.</aside>
+              <div style="display: flex; gap: 20px; align-items: center; max-width: 1000px; margin: auto;"><div style="flex: 1; font-size: 0.85em; text-align: left;"><div class="def-card"><div class="def-title">Gift giving and value</div>Waldfogel’s 1993 study asked students to value gifts excluding sentimental value. It compared those valuations with what the gifts cost.</div><p>Could a gift be worth less than its purchase price yet still improve well-being? Consider sentimental value and the giver’s enjoyment.</p></div><div style="flex: 1;"><img src="../slides/images/c5_waldfogel_article.png" alt="The Economist article: The inefficiencies of Christmas" style="max-height: 360px; max-width: 100%; object-fit: contain;"></div></div><aside class="notes">The valuation gap is not a complete welfare measure if it omits sentimental or giver benefits. Source: Joel Waldfogel, “The Deadweight Loss of Christmas,” American Economic Review 83(5), 1993, pp. 1328–1336. <a href="https://jmvidal.cse.sc.edu/library/waldfogel93a.pdf">Original paper</a>.</aside>
         </section>
 
         <!-- Slide 4.5f: DWL from Shocks -->
-        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+        <section>
           <p class="eyebrow">Welfare · Shocks</p>
           <h2>Practice: Welfare Effects of a Shock</h2>
           <div class="content-card">
@@ -1482,8 +1229,8 @@
         </section>
 
         <!-- Slide 4.5g: Solution DWL from Shocks -->
-        <section data-background-gradient="linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)">
-          <p class="eyebrow" style="color: #059669;">Welfare · Solution</p>
+        <section>
+          <p class="eyebrow">Welfare · Solution</p>
           <h2>Solution: Welfare Effects of a Shock</h2>
           <div class="content-card" style="font-size: 0.95em;">
             <div class="def-card" style="margin: 8px 0;">
@@ -1503,19 +1250,19 @@
         </section>
 
         <!-- Slide 4.5h: Welfare Effects of a Shock — animated graph -->
-        <section data-background-gradient="linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)">
-          <p class="eyebrow" style="color: #059669;">Welfare · Solution (graph)</p>
+        <section>
+          <p class="eyebrow">Welfare · Solution (graph)</p>
           <h2>Welfare Effects of a Shock, Graphically</h2>
-          <p style="font-size: 0.55em; color: #64748b; margin: 0 0 4px;">Higher real costs shift supply up. Compare the old and new efficient outcomes. Press <kbd style="background: #e2e8f0; border: 1px solid #cbd5e1; padding: 1px 6px; border-radius: 4px;">&rarr;</kbd>.</p>
-          <svg class="anim-graph" viewBox="0 0 720 470" style="width: 80%; max-height: 420px; margin: 0 auto; display: block; background: #fff; border: 1px solid #e2e8f0; border-radius: 10px;" role="img" aria-label="A real cost increase shifts supply up. Price rises and quantity falls. The shaded loss in total surplus includes higher costs on units still produced and old gains on units no longer produced. The new equilibrium is efficient given the new costs; this is not deadweight loss.">
+          <p style="font-size: 0.55em; color: var(--bp-muted); margin: 0 0 4px;">Higher real costs shift supply up. Compare the old and new efficient outcomes. Press <kbd>&rarr;</kbd>.</p>
+          <svg class="anim-graph" viewBox="0 0 720 470" style="width: 80%; max-height: 420px; margin: 0 auto; display: block; background: #fff; border: 1px solid var(--bp-border); border-radius: 10px;" role="img" aria-label="A real cost increase shifts supply up. Price rises and quantity falls. The shaded loss in total surplus includes higher costs on units still produced and old gains on units no longer produced. The new equilibrium is efficient given the new costs; this is not deadweight loss.">
             <defs>
               <pattern id="shkCS" width="9" height="9" patternTransform="rotate(45)" patternUnits="userSpaceOnUse">
                 <rect width="9" height="9" fill="#22c55e" fill-opacity="0.10"/>
                 <line x1="0" y1="0" x2="0" y2="9" stroke="#16a34a" stroke-width="2.2" stroke-opacity="0.65"/>
               </pattern>
               <pattern id="shkPS" width="9" height="9" patternTransform="rotate(-45)" patternUnits="userSpaceOnUse">
-                <rect width="9" height="9" fill="#3b82f6" fill-opacity="0.10"/>
-                <line x1="0" y1="0" x2="0" y2="9" stroke="#2563eb" stroke-width="2.2" stroke-opacity="0.65"/>
+                <rect width="9" height="9" fill="#0891b2" fill-opacity="0.10"/>
+                <line x1="0" y1="0" x2="0" y2="9" stroke="#0e7490" stroke-width="2.2" stroke-opacity="0.65"/>
               </pattern>
               <pattern id="shkDWL" width="8" height="8" patternUnits="userSpaceOnUse">
                 <rect width="8" height="8" fill="#ef4444" fill-opacity="0.16"/>
@@ -1525,24 +1272,24 @@
               <marker id="shkArrK" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M 0 0 L 8 4 L 0 8 z" fill="#b91c1c"/></marker>
             </defs>
             <!-- axes -->
-            <line x1="80" y1="400" x2="660" y2="400" stroke="#475569" stroke-width="2.5"/>
-            <polygon points="660,395 660,405 671,400" fill="#475569"/>
-            <line x1="80" y1="400" x2="80" y2="40" stroke="#475569" stroke-width="2.5"/>
-            <polygon points="75,40 85,40 80,29" fill="#475569"/>
-            <text x="672" y="406" font-size="14" fill="#1e293b" font-style="italic">Q</text>
-            <text x="62" y="50" font-size="14" fill="#1e293b">$</text>
+            <line x1="80" y1="400" x2="660" y2="400" stroke="#4d4d4d" stroke-width="2.5"/>
+            <polygon points="660,395 660,405 671,400" fill="#4d4d4d"/>
+            <line x1="80" y1="400" x2="80" y2="40" stroke="#4d4d4d" stroke-width="2.5"/>
+            <polygon points="75,40 85,40 80,29" fill="#4d4d4d"/>
+            <text x="672" y="406" font-size="14" fill="#111111" font-style="italic">Q</text>
+            <text x="62" y="50" font-size="14" fill="#111111">$</text>
             <!-- fragment 1: before the shock (D, S, E0) -->
             <g class="fragment" data-fragment-index="1">
-              <line x1="120" y1="90" x2="600" y2="370" stroke="#0f172a" stroke-width="3.5"/>
-              <text x="606" y="373" font-size="14" fill="#0f172a" font-weight="700" font-style="italic">D</text>
-              <line x1="120" y1="370" x2="560" y2="110" stroke="#0f766e" stroke-width="3.5"/>
-              <text x="566" y="108" font-size="14" fill="#0f766e" font-weight="700" font-style="italic">S</text>
-              <circle cx="358" cy="229" r="6" fill="#1e293b"/>
-              <text x="368" y="224" font-size="13" font-weight="700" fill="#1e293b">E&#8320;</text>
-              <line x1="80" y1="229" x2="358" y2="229" stroke="#94a3b8" stroke-width="1.3" stroke-dasharray="5 4"/>
-              <line x1="358" y1="229" x2="358" y2="400" stroke="#94a3b8" stroke-width="1.3" stroke-dasharray="5 4"/>
-              <text x="72" y="234" font-size="13" font-weight="700" fill="#475569" text-anchor="end">P&#8320;</text>
-              <text x="358" y="418" font-size="13" font-weight="700" fill="#475569" text-anchor="middle">Q&#8320;</text>
+              <line x1="120" y1="90" x2="600" y2="370" stroke="#111111" stroke-width="3.5"/>
+              <text x="606" y="373" font-size="14" fill="#111111" font-weight="700" font-style="italic">D</text>
+              <line x1="120" y1="370" x2="560" y2="110" stroke="#1e2bfa" stroke-width="3.5"/>
+              <text x="566" y="108" font-size="14" fill="#1e2bfa" font-weight="700" font-style="italic">S</text>
+              <circle cx="358" cy="229" r="6" fill="#111111"/>
+              <text x="368" y="224" font-size="13" font-weight="700" fill="#111111">E&#8320;</text>
+              <line x1="80" y1="229" x2="358" y2="229" stroke="#9a9a9a" stroke-width="1.3" stroke-dasharray="5 4"/>
+              <line x1="358" y1="229" x2="358" y2="400" stroke="#9a9a9a" stroke-width="1.3" stroke-dasharray="5 4"/>
+              <text x="72" y="234" font-size="13" font-weight="700" fill="#4d4d4d" text-anchor="end">P&#8320;</text>
+              <text x="358" y="418" font-size="13" font-weight="700" fill="#4d4d4d" text-anchor="middle">Q&#8320;</text>
             </g>
             <!-- fragment 2: the shock — supply shifts up, new equilibrium -->
             <g class="fragment" data-fragment-index="2">
@@ -1553,8 +1300,8 @@
               <text x="120" y="360" font-size="12.5" fill="#b45309" font-weight="700">cost rises &rarr; supply shifts up</text>
               <circle cx="282" cy="184" r="6" fill="#b45309"/>
               <text x="290" y="178" font-size="13" font-weight="700" fill="#b45309">E&#8321;</text>
-              <line x1="80" y1="184" x2="282" y2="184" stroke="#94a3b8" stroke-width="1.3" stroke-dasharray="5 4"/>
-              <line x1="282" y1="184" x2="282" y2="400" stroke="#94a3b8" stroke-width="1.3" stroke-dasharray="5 4"/>
+              <line x1="80" y1="184" x2="282" y2="184" stroke="#9a9a9a" stroke-width="1.3" stroke-dasharray="5 4"/>
+              <line x1="282" y1="184" x2="282" y2="400" stroke="#9a9a9a" stroke-width="1.3" stroke-dasharray="5 4"/>
               <text x="72" y="189" font-size="13" font-weight="700" fill="#b45309" text-anchor="end">P&#8321;</text>
               <text x="282" y="418" font-size="13" font-weight="700" fill="#b45309" text-anchor="middle">Q&#8321;</text>
               <text x="93" y="211" font-size="12" fill="#b91c1c" font-weight="700">P&#8593;</text>
@@ -1564,8 +1311,8 @@
             <g class="fragment" data-fragment-index="3">
               <polygon points="120,90 120,184 282,184" fill="url(#shkCS)" stroke="#16a34a" stroke-width="1" stroke-opacity="0.45"/>
               <text x="150" y="150" font-size="15" font-weight="700" fill="#15803d">CS</text>
-              <polygon points="120,184 120,280 282,184" fill="url(#shkPS)" stroke="#2563eb" stroke-width="1" stroke-opacity="0.45"/>
-              <text x="150" y="230" font-size="15" font-weight="700" fill="#1e40af">PS</text>
+              <polygon points="120,184 120,280 282,184" fill="url(#shkPS)" stroke="#0e7490" stroke-width="1" stroke-opacity="0.45"/>
+              <text x="150" y="230" font-size="15" font-weight="700" fill="#155e75">PS</text>
             </g>
             <!-- fragment 4: deadweight loss (lost trades) -->
             <g class="fragment" data-fragment-index="4">
@@ -1576,42 +1323,42 @@
               <text x="422" y="349" font-size="11.5" fill="#7f1d1d">higher real costs</text>
             </g>
           </svg>
-          <p class="fragment" data-fragment-index="4" style="text-align:center; font-weight:600; color:#059669; font-size:0.82em; margin-top:6px;">Price rises and quantity falls. Total surplus is lower, but the new equilibrium has no DWL relative to the new costs.</p>
+          <p class="fragment" data-fragment-index="4" style="text-align: center; font-weight: 600; color: #059669; font-size: 0.82em; margin-top: 6px;">Price rises and quantity falls. Total surplus is lower, but the new equilibrium has no DWL relative to the new costs.</p>
         </section>
 
         <!-- Slide 4.6: Taxes and Price Controls Intro -->
-        <section data-background-gradient="linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
+        <section>
           <p class="eyebrow">Welfare · Interventions</p>
           <h2>Policy Interventions &amp; Welfare</h2>
-          <div class="content-card" style="text-align: center; padding: 30px;">
-            <p style="font-size: 1.1em; line-height: 1.4; color: #1e293b;">
+          <div class="content-card" style="text-align: center;">
+            <p style="font-size: 1.1em; line-height: 1.4; color: var(--bp-text);">
               Aside from market power (monopolies), what else alters the competitive equilibrium?
             </p>
             <div class="def-card" style="margin-top: 20px; text-align: left;">
               <div class="def-title">Government Interventions</div>
               In an otherwise efficient market, a tax or binding price control can prevent beneficial trades. Policies can also address market failures or distributional goals.
             </div>
-            <p class="fragment" style="color: #64748b; font-size: 0.9em; margin-top: 25px; font-weight: 600;">
+            <p class="fragment" style="color: var(--bp-muted); font-size: 0.9em; margin-top: 25px; font-weight: 600;">
               We analyze these interventions in detail next class.
             </p>
           </div>
         </section>
 
         <!-- GROUP WORK: Welfare &amp; Deadweight Loss -->
-        <section data-background-gradient="linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%)">
-          <p class="eyebrow" style="color: #b45309;">Group Work &middot; Welfare</p>
+        <section>
+          <p class="eyebrow">Group Work &middot; Welfare</p>
           <h2>&#127922; Group Work: Welfare &amp; Deadweight Loss</h2>
-          <div class="content-card" style="font-size: 0.88em; background: rgba(255, 255, 255, 0.7);">
-            <div class="example-card" style="border-left-color: #b45309; background: rgba(180, 83, 9, 0.05); margin: 8px 0;">
-              <div class="ex-title" style="color: #b45309;">Question 1</div>
+          <div class="content-card" style="font-size: 0.88em;">
+            <div class="example-card" style="margin: 8px 0;">
+              <div class="ex-title">Question 1</div>
               In the market for smoothies, demand is \( Q_D = 24 - 2P \) and supply is \( Q_S = 4P \). <br><br><strong>Find the equilibrium price and quantity, then compute CS, PS, and total social welfare \( W \).</strong>
             </div>
             <div style="margin: 4px 0 12px;">
               <button class="group-roll-btn" onclick="rollGroup('l5gw2q1')">&#127922; Pick a group for Q1</button>
               <span class="group-roll-result" id="l5gw2q1">&mdash;</span>
             </div>
-            <div class="example-card" style="border-left-color: #b45309; background: rgba(180, 83, 9, 0.05); margin: 8px 0;">
-              <div class="ex-title" style="color: #b45309;">Question 2</div>
+            <div class="example-card" style="margin: 8px 0;">
+              <div class="ex-title">Question 2</div>
               In the tablet market, demand is linear and marginal cost is constant at \( \$3 \); under competition \( Q_c = 12 \)M units sell at \( P_c = \$3 \). A monopolist would instead set \( P_m = \$9 \) and sell \( Q_m = 6 \)M. <br><br><strong>Calculate the deadweight loss from market power.</strong>
             </div>
             <div style="margin: 4px 0 0;">
@@ -1622,8 +1369,8 @@
         </section>
 
         <!-- GROUP WORK Answers: Welfare &amp; Deadweight Loss -->
-        <section data-background-gradient="linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)">
-          <p class="eyebrow" style="color: #059669;">Group Work &middot; Answers</p>
+        <section>
+          <p class="eyebrow">Group Work &middot; Answers</p>
           <h2>Answers: Welfare &amp; Deadweight Loss</h2>
           <div class="content-card" style="font-size: 0.88em;">
             <div class="def-card">
@@ -1641,32 +1388,32 @@
         </section>
 
         <!-- GROUP WORK Answers: step-by-step animated graph -->
-        <section data-background-gradient="linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)">
-          <p class="eyebrow" style="color: #059669;">Group Work &middot; Answers</p>
+        <section>
+          <p class="eyebrow">Group Work &middot; Answers</p>
           <h2>Question 1, Step by Step</h2>
-          <p style="font-size: 0.55em; color: #64748b; margin: 0 0 4px;">Press <kbd style="background: #e2e8f0; border: 1px solid #cbd5e1; padding: 1px 6px; border-radius: 4px;">&rarr;</kbd> to add each element of the graph</p>
-          <svg class="anim-graph" viewBox="0 0 760 520" style="width: 92%; max-height: 480px; margin: 0 auto; display: block; background: white; border: 1px solid #e2e8f0; border-radius: 10px;" role="img" aria-label="Animated build-up of the welfare graph for demand 24-2P and supply 4P: equilibrium (16, $4), the $64 consumer surplus triangle, the $32 producer surplus triangle, and total welfare of $96">
+          <p style="font-size: 0.55em; color: var(--bp-muted); margin: 0 0 4px;">Press <kbd>&rarr;</kbd> to add each element of the graph</p>
+          <svg class="anim-graph" viewBox="0 0 760 520" style="width: 92%; max-height: 480px; margin: 0 auto; display: block; background: white; border: 1px solid var(--bp-border); border-radius: 10px;" role="img" aria-label="Animated build-up of the welfare graph for demand 24-2P and supply 4P: equilibrium (16, $4), the $64 consumer surplus triangle, the $32 producer surplus triangle, and total welfare of $96">
             <!-- axes + curves (always visible) -->
             <g>
-              <line x1="70" y1="460" x2="705" y2="460" stroke="#475569" stroke-width="2.5"/>
-              <polygon points="705,455 705,465 716,460" fill="#475569"/>
-              <line x1="70" y1="460" x2="70" y2="52" stroke="#475569" stroke-width="2.5"/>
-              <polygon points="65,52 75,52 70,41" fill="#475569"/>
-              <text x="723" y="466" font-size="17" fill="#1e293b" font-style="italic">Q</text>
-              <text x="44" y="34" font-size="17" fill="#1e293b" font-style="italic">P ($)</text>
-              <line x1="70" y1="88" x2="646" y2="460" stroke="#1e293b" stroke-width="3.5"/>
-              <text x="652" y="452" font-size="17" fill="#1e293b" font-style="italic">D</text>
-              <line x1="70" y1="460" x2="646" y2="274" stroke="#1e293b" stroke-width="3.5"/>
-              <text x="652" y="268" font-size="17" fill="#1e293b" font-style="italic">S</text>
-              <text x="62" y="94" font-size="15" fill="#64748b" text-anchor="end">$12</text>
+              <line x1="70" y1="460" x2="705" y2="460" stroke="#4d4d4d" stroke-width="2.5"/>
+              <polygon points="705,455 705,465 716,460" fill="#4d4d4d"/>
+              <line x1="70" y1="460" x2="70" y2="52" stroke="#4d4d4d" stroke-width="2.5"/>
+              <polygon points="65,52 75,52 70,41" fill="#4d4d4d"/>
+              <text x="723" y="466" font-size="17" fill="#111111" font-style="italic">Q</text>
+              <text x="44" y="34" font-size="17" fill="#111111" font-style="italic">P ($)</text>
+              <line x1="70" y1="88" x2="646" y2="460" stroke="#111111" stroke-width="3.5"/>
+              <text x="652" y="452" font-size="17" fill="#111111" font-style="italic">D</text>
+              <line x1="70" y1="460" x2="646" y2="274" stroke="#111111" stroke-width="3.5"/>
+              <text x="652" y="268" font-size="17" fill="#111111" font-style="italic">S</text>
+              <text x="62" y="94" font-size="15" fill="#6b6b6b" text-anchor="end">$12</text>
             </g>
             <!-- fragment 1: equilibrium -->
             <g class="fragment" data-fragment-index="1">
-              <line x1="70" y1="336" x2="454" y2="336" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="5 4"/>
-              <line x1="454" y1="336" x2="454" y2="460" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="5 4"/>
-              <circle cx="454" cy="336" r="7" fill="#1e293b"/>
-              <text x="62" y="342" font-size="16" font-weight="700" fill="#1e293b" text-anchor="end">P* = $4</text>
-              <text x="454" y="484" font-size="16" font-weight="700" fill="#1e293b" text-anchor="middle">Q* = 16</text>
+              <line x1="70" y1="336" x2="454" y2="336" stroke="#9a9a9a" stroke-width="1.5" stroke-dasharray="5 4"/>
+              <line x1="454" y1="336" x2="454" y2="460" stroke="#9a9a9a" stroke-width="1.5" stroke-dasharray="5 4"/>
+              <circle cx="454" cy="336" r="7" fill="#111111"/>
+              <text x="62" y="342" font-size="16" font-weight="700" fill="#111111" text-anchor="end">P* = $4</text>
+              <text x="454" y="484" font-size="16" font-weight="700" fill="#111111" text-anchor="middle">Q* = 16</text>
             </g>
             <!-- fragment 2: CS -->
             <g class="fragment" data-fragment-index="2">
@@ -1676,20 +1423,20 @@
             </g>
             <!-- fragment 3: PS -->
             <g class="fragment" data-fragment-index="3">
-              <polygon points="70,460 70,336 454,336" fill="#0f766e" fill-opacity="0.25"/>
-              <text x="180" y="390" font-size="17" font-weight="700" fill="#0f766e">PS</text>
-              <text x="480" y="176" font-size="17" font-weight="700" fill="#0f766e">PS = &frac12; &times; 16 &times; 4 = $32</text>
+              <polygon points="70,460 70,336 454,336" fill="#1e2bfa" fill-opacity="0.25"/>
+              <text x="180" y="390" font-size="17" font-weight="700" fill="#1e2bfa">PS</text>
+              <text x="480" y="176" font-size="17" font-weight="700" fill="#1e2bfa">PS = &frac12; &times; 16 &times; 4 = $32</text>
             </g>
             <!-- fragment 4: total welfare -->
             <g class="fragment" data-fragment-index="4">
-              <text x="480" y="216" font-size="18" font-weight="700" fill="#0f172a">W = CS + PS = $96</text>
+              <text x="480" y="216" font-size="18" font-weight="700" fill="#111111">W = CS + PS = $96</text>
             </g>
           </svg>
         </section>
 
         <!-- GROUP WORK Answers: Q1 graph -->
-        <section data-background-gradient="linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)">
-          <p class="eyebrow" style="color: #059669;">Group Work &middot; Answers</p>
+        <section>
+          <p class="eyebrow">Group Work &middot; Answers</p>
           <h2>Question 1, Graphically</h2>
           <div class="slide-img-container" style="margin: 5px auto 0; padding: 8px;">
             <img src="../slides/images/c5_gw_welfare_graph.png" alt="Market welfare graph for demand 24-2P and supply 4P: equilibrium (16, $4), consumer surplus triangle $64, producer surplus triangle $32, total welfare $96" style="max-height: 470px;">
@@ -1697,21 +1444,21 @@
         </section>
 
         <!-- GROUP WORK Answers: step-by-step animated graph -->
-        <section data-background-gradient="linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)">
-          <p class="eyebrow" style="color: #059669;">Group Work &middot; Answers</p>
+        <section>
+          <p class="eyebrow">Group Work &middot; Answers</p>
           <h2>Question 2, Step by Step</h2>
-          <p style="font-size: 0.55em; color: #64748b; margin: 0 0 4px;">Press <kbd style="background: #e2e8f0; border: 1px solid #cbd5e1; padding: 1px 6px; border-radius: 4px;">&rarr;</kbd> to add each element of the graph</p>
-          <svg class="anim-graph" viewBox="0 0 760 520" style="width: 92%; max-height: 480px; margin: 0 auto; display: block; background: white; border: 1px solid #e2e8f0; border-radius: 10px;" role="img" aria-label="Animated build-up of monopoly deadweight loss: demand P=15-Q, then MR, the MC=$3 line, the monopoly point (6M, $9), the competitive point (12M, $3), and the $18M DWL triangle between them">
+          <p style="font-size: 0.55em; color: var(--bp-muted); margin: 0 0 4px;">Press <kbd>&rarr;</kbd> to add each element of the graph</p>
+          <svg class="anim-graph" viewBox="0 0 760 520" style="width: 92%; max-height: 480px; margin: 0 auto; display: block; background: white; border: 1px solid var(--bp-border); border-radius: 10px;" role="img" aria-label="Animated build-up of monopoly deadweight loss: demand P=15-Q, then MR, the MC=$3 line, the monopoly point (6M, $9), the competitive point (12M, $3), and the $18M DWL triangle between them">
             <!-- axes + demand (always visible) -->
             <g>
-              <line x1="70" y1="460" x2="705" y2="460" stroke="#475569" stroke-width="2.5"/>
-              <polygon points="705,455 705,465 716,460" fill="#475569"/>
-              <line x1="70" y1="460" x2="70" y2="52" stroke="#475569" stroke-width="2.5"/>
-              <polygon points="65,52 75,52 70,41" fill="#475569"/>
-              <text x="723" y="466" font-size="17" fill="#1e293b" font-style="italic">Q (M)</text>
-              <text x="44" y="34" font-size="17" fill="#1e293b" font-style="italic">P ($)</text>
-              <line x1="70" y1="70" x2="655" y2="460" stroke="#1e293b" stroke-width="3.5"/>
-              <text x="661" y="452" font-size="17" fill="#1e293b" font-style="italic">D</text>
+              <line x1="70" y1="460" x2="705" y2="460" stroke="#4d4d4d" stroke-width="2.5"/>
+              <polygon points="705,455 705,465 716,460" fill="#4d4d4d"/>
+              <line x1="70" y1="460" x2="70" y2="52" stroke="#4d4d4d" stroke-width="2.5"/>
+              <polygon points="65,52 75,52 70,41" fill="#4d4d4d"/>
+              <text x="723" y="466" font-size="17" fill="#111111" font-style="italic">Q (M)</text>
+              <text x="44" y="34" font-size="17" fill="#111111" font-style="italic">P ($)</text>
+              <line x1="70" y1="70" x2="655" y2="460" stroke="#111111" stroke-width="3.5"/>
+              <text x="661" y="452" font-size="17" fill="#111111" font-style="italic">D</text>
             </g>
             <!-- fragment 1: MR -->
             <g class="fragment" data-fragment-index="1">
@@ -1720,40 +1467,40 @@
             </g>
             <!-- fragment 2: MC -->
             <g class="fragment" data-fragment-index="2">
-              <line class="build-line" x1="70" y1="382" x2="694" y2="382" stroke="#0f766e" stroke-width="3.5"/>
-              <text x="692" y="372" font-size="17" fill="#0f766e" font-style="italic" text-anchor="end">MC</text>
+              <line class="build-line" x1="70" y1="382" x2="694" y2="382" stroke="#1e2bfa" stroke-width="3.5"/>
+              <text x="692" y="372" font-size="17" fill="#1e2bfa" font-style="italic" text-anchor="end">MC</text>
             </g>
             <!-- fragment 3: monopoly point -->
             <g class="fragment" data-fragment-index="3">
               <circle cx="304" cy="382" r="6" fill="#7c3aed"/>
-              <line x1="304" y1="382" x2="304" y2="226" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="5 4"/>
-              <line x1="304" y1="382" x2="304" y2="460" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="5 4"/>
-              <line x1="70" y1="226" x2="304" y2="226" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="5 4"/>
-              <circle cx="304" cy="226" r="7" fill="#1e293b"/>
-              <text x="62" y="232" font-size="16" font-weight="700" fill="#1e293b" text-anchor="end">P<tspan dy="4" font-size="12">m</tspan><tspan dy="-4"> = $9</tspan></text>
-              <text x="304" y="484" font-size="16" font-weight="700" fill="#1e293b" text-anchor="middle">Q<tspan dy="4" font-size="12">m</tspan><tspan dy="-4"> = 6M</tspan></text>
-              <text x="316" y="404" font-size="14" fill="#64748b">MR = MC</text>
+              <line x1="304" y1="382" x2="304" y2="226" stroke="#9a9a9a" stroke-width="1.5" stroke-dasharray="5 4"/>
+              <line x1="304" y1="382" x2="304" y2="460" stroke="#9a9a9a" stroke-width="1.5" stroke-dasharray="5 4"/>
+              <line x1="70" y1="226" x2="304" y2="226" stroke="#9a9a9a" stroke-width="1.5" stroke-dasharray="5 4"/>
+              <circle cx="304" cy="226" r="7" fill="#111111"/>
+              <text x="62" y="232" font-size="16" font-weight="700" fill="#111111" text-anchor="end">P<tspan dy="4" font-size="12">m</tspan><tspan dy="-4"> = $9</tspan></text>
+              <text x="304" y="484" font-size="16" font-weight="700" fill="#111111" text-anchor="middle">Q<tspan dy="4" font-size="12">m</tspan><tspan dy="-4"> = 6M</tspan></text>
+              <text x="316" y="404" font-size="14" fill="#6b6b6b">MR = MC</text>
             </g>
             <!-- fragment 4: competitive point -->
             <g class="fragment" data-fragment-index="4">
-              <circle cx="538" cy="382" r="7" fill="#1e293b"/>
-              <line x1="538" y1="382" x2="538" y2="460" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="5 4"/>
-              <text x="538" y="484" font-size="16" font-weight="700" fill="#1e293b" text-anchor="middle">Q<tspan dy="4" font-size="12">c</tspan><tspan dy="-4"> = 12M</tspan></text>
-              <text x="62" y="388" font-size="16" font-weight="700" fill="#0f766e" text-anchor="end">P<tspan dy="4" font-size="12">c</tspan><tspan dy="-4"> = $3</tspan></text>
+              <circle cx="538" cy="382" r="7" fill="#111111"/>
+              <line x1="538" y1="382" x2="538" y2="460" stroke="#9a9a9a" stroke-width="1.5" stroke-dasharray="5 4"/>
+              <text x="538" y="484" font-size="16" font-weight="700" fill="#111111" text-anchor="middle">Q<tspan dy="4" font-size="12">c</tspan><tspan dy="-4"> = 12M</tspan></text>
+              <text x="62" y="388" font-size="16" font-weight="700" fill="#1e2bfa" text-anchor="end">P<tspan dy="4" font-size="12">c</tspan><tspan dy="-4"> = $3</tspan></text>
             </g>
             <!-- fragment 5: DWL -->
             <g class="fragment" data-fragment-index="5">
               <polygon points="304,226 304,382 538,382" fill="#dc2626" fill-opacity="0.25" stroke="#dc2626" stroke-opacity="0.4"/>
               <text x="360" y="340" font-size="17" font-weight="700" fill="#dc2626">DWL</text>
               <text x="420" y="150" font-size="17" font-weight="700" fill="#dc2626">DWL = &frac12; &times; 6M &times; (9 &minus; 3) = $18M</text>
-              <text x="420" y="176" font-size="15" fill="#64748b">(the monopolist stops at MR = MC)</text>
+              <text x="420" y="176" font-size="15" fill="#6b6b6b">(the monopolist stops at MR = MC)</text>
             </g>
           </svg>
         </section>
 
         <!-- GROUP WORK Answers: Q2 graph -->
-        <section data-background-gradient="linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)">
-          <p class="eyebrow" style="color: #059669;">Group Work &middot; Answers</p>
+        <section>
+          <p class="eyebrow">Group Work &middot; Answers</p>
           <h2>Question 2, Graphically</h2>
           <div class="slide-img-container" style="margin: 5px auto 0; padding: 8px;">
             <img src="../slides/images/c5_gw_monopolydwl_graph.png" alt="Monopoly deadweight loss graph: at Pm=$9, Qm=6M versus competitive Pc=MC=$3, Qc=12M, the red DWL triangle equals half of 6M times $6 = $18M" style="max-height: 470px;">
@@ -1766,15 +1513,15 @@
       <!-- SECTION 7: Closing Slide (Horizontal) -->
       
       <!-- Slide 8: Closing -->
-      <section data-background-gradient="linear-gradient(135deg, #0f172a 0%, #1e293b 100%)">
-        <p class="eyebrow" style="color: #2dd4bf;">Schedule</p>
-        <h2 style="color: white;">Preparation for Next Class</h2>
-        <div class="content-card" style="background: rgba(30, 41, 59, 0.7); border-color: rgba(255, 255, 255, 0.1); text-align: center;">
-          <p style="color: #cbd5e1; font-weight: 600; margin-bottom: 10px;">Please stay on top of everything!</p>
-          <p style="color: #94a3b8; font-size: 1.15em;"><strong>See you next class (9am sharp)!</strong></p>
-          <p style="color: #64748b; font-size: 0.85em; margin-top: 10px;">Come to office hours w/ any questions or concerns.</p>
+      <section class="bp-closing">
+        <p class="eyebrow">Schedule</p>
+        <h2>Preparation for Next Class</h2>
+        <div class="content-card" style="text-align: center;">
+          <p style="color: var(--bp-body); font-weight: 600; margin-bottom: 10px;">Please stay on top of everything!</p>
+          <p style="color: var(--bp-muted); font-size: 1.15em;"><strong>See you next class (9am sharp)!</strong></p>
+          <p style="color: var(--bp-light); font-size: 0.85em; margin-top: 10px;">Come to office hours w/ any questions or concerns.</p>
         </div>
-        <p style="margin-top: 40px; color: #64748b; font-size: 0.75em;">Thank you!</p>
+        <p style="margin-top: 40px; color: var(--bp-light); font-size: 0.75em;">Thank you!</p>
       </section>
 
     </div>

@@ -1,0 +1,1087 @@
+/*
+ * Blue Professional theme for the reveal.js class decks.
+ *
+ * Adapted from the "Blue Professional" template in
+ * zarazhangrui/beautiful-html-templates (MIT License, (c) 2026 Zara Zhang):
+ * a warm cream canvas, one cobalt accent, Space Grotesk for display type and
+ * numerals, Inter for body text, and soft cobalt-tinted cards with no shadows.
+ *
+ * Deviations from the template, on purpose:
+ *   - Body text is #333 rather than #6b6b6b so it holds up on a projector.
+ *   - Graphs keep their own data colors (amber, red, green, purple...) so
+ *     curves stay distinguishable; only the old teal accent became cobalt.
+ *   - Cards whose color encodes meaning (positive/negative, a graph legend)
+ *     keep that color via inline styles; every other accent is cobalt.
+ */
+
+:root {
+  --bp-bg: #fdfae7;
+  --bp-primary: #1e2bfa;
+  --bp-primary-dark: #1620c9;
+  --bp-text: #111111;
+  --bp-body: #333333;
+  --bp-soft: #4d4d4d;
+  --bp-muted: #6b6b6b;
+  --bp-light: #9a9a9a;
+  --bp-accent-light: rgba(30, 43, 250, 0.08);
+  --bp-accent-medium: rgba(30, 43, 250, 0.15);
+  --bp-border: rgba(30, 43, 250, 0.2);
+  --bp-card: rgba(30, 43, 250, 0.04);
+  --bp-positive: #059669;
+  --bp-negative: #dc2626;
+  --bp-display: "Space Grotesk", "Inter", sans-serif;
+  --bp-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+
+  /* reveal.js theme variables (override theme/white.css) */
+  --r-background-color: var(--bp-bg);
+  --r-main-font: var(--bp-sans);
+  --r-main-font-size: 24px;
+  --r-main-color: var(--bp-body);
+  --r-heading-font: var(--bp-display);
+  --r-heading-color: var(--bp-text);
+  --r-heading-font-weight: 600;
+  --r-heading-letter-spacing: -0.02em;
+  --r-heading-text-transform: none;
+  --r-heading-text-shadow: none;
+  --r-link-color: var(--bp-primary);
+  --r-link-color-dark: var(--bp-primary-dark);
+  --r-link-color-hover: var(--bp-primary-dark);
+  --r-selection-background-color: rgba(30, 43, 250, 0.18);
+  --r-selection-color: var(--bp-text);
+}
+
+/* ------------------------------------------------------------------ */
+/* Base type                                                           */
+/* ------------------------------------------------------------------ */
+
+.reveal-viewport {
+  background: var(--bp-bg);
+}
+
+.reveal {
+  font-family: var(--bp-sans);
+  font-weight: 400;
+  font-size: 24px;
+  color: var(--bp-body);
+}
+
+:where(button, input, select, textarea, kbd) {
+  font-family: inherit;
+}
+
+.reveal h1, .reveal h2, .reveal h3, .reveal h4 {
+  font-family: var(--bp-display);
+  color: var(--bp-text);
+  letter-spacing: -0.02em;
+  text-transform: none;
+  text-shadow: none;
+}
+
+.reveal h1, .reveal h2, .reveal h3 {
+  text-wrap: balance;
+}
+
+.reveal h1 { font-size: 2.2em; line-height: 1.08; font-weight: 700; }
+.reveal h2 { font-size: 1.6em; line-height: 1.15; font-weight: 600; margin-bottom: 15px; }
+.reveal h3 { font-size: 1.2em; line-height: 1.3; font-weight: 500; }
+
+.reveal strong, .reveal b {
+  font-weight: 600;
+  color: var(--bp-text);
+}
+
+.reveal a {
+  color: var(--bp-primary);
+}
+
+/* Slide header: eyebrow + h2, left-aligned over the content column */
+.reveal .slides section > .eyebrow,
+.reveal .slides section > h2 {
+  text-align: left;
+  max-width: 920px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.reveal .slides section > .eyebrow {
+  display: block;
+}
+
+.reveal .eyebrow {
+  font-family: var(--bp-display);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.55em;
+  font-weight: 600;
+  color: var(--bp-primary);
+  margin-bottom: 8px;
+  display: inline-block;
+}
+
+.reveal kbd {
+  font-family: var(--bp-display);
+  font-weight: 600;
+  font-size: 0.9em;
+  color: var(--bp-primary);
+  background: var(--bp-accent-light);
+  border: 1px solid var(--bp-border);
+  border-radius: 6px;
+  padding: 1px 7px;
+}
+
+/* ------------------------------------------------------------------ */
+/* Cards                                                               */
+/* ------------------------------------------------------------------ */
+
+/* Main slide text sits directly on the cream page: no box around it. The
+   wrapper only keeps the content column aligned with the slide header. */
+.reveal .content-card {
+  background: none;
+  border: none;
+  border-radius: 0;
+  padding: 4px 0;
+  margin: 12px auto;
+  text-align: left;
+  max-width: 920px;
+}
+
+/* Definition / highlight block: a cobalt rule beside the text, no box */
+.reveal .def-card {
+  border-left: 4px solid var(--bp-primary);
+  background: none;
+  border-radius: 2px;
+  padding: 4px 0 4px 18px;
+  margin: 14px 0;
+  text-align: left;
+}
+.reveal .def-card .def-title,
+.reveal .def-title {
+  font-family: var(--bp-display);
+  font-weight: 600;
+  color: var(--bp-primary);
+  font-size: 0.66em;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 4px;
+}
+
+/* Example / question block: same family, lighter rule */
+.reveal .example-card {
+  border-left: 4px solid rgba(30, 43, 250, 0.4);
+  background: none;
+  border-radius: 2px;
+  padding: 4px 0 4px 18px;
+  margin: 14px 0;
+  text-align: left;
+}
+.reveal .example-card .ex-title,
+.reveal .ex-title {
+  font-family: var(--bp-display);
+  font-weight: 600;
+  color: var(--bp-primary);
+  font-size: 0.66em;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 4px;
+}
+
+/* Grading grid: template stat cells */
+.reveal .grading-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px 40px;
+  max-width: 920px;
+  margin: 15px auto 0;
+}
+/* Stat cells separated by a hairline, not boxed */
+.reveal .grading-card {
+  border-top: 1.5px solid var(--bp-border);
+  padding: 12px 0 4px;
+  text-align: left;
+}
+.reveal .grade-pct {
+  font-family: var(--bp-display);
+  font-size: 1.5em;
+  font-weight: 700;
+  color: var(--bp-primary);
+  line-height: 1;
+  margin-bottom: 4px;
+}
+.reveal .grade-label {
+  font-weight: 600;
+  color: var(--bp-text);
+  font-size: 0.8em;
+}
+.reveal .grade-detail {
+  font-size: 0.6em;
+  color: var(--bp-muted);
+  margin-top: 4px;
+  line-height: 1.35;
+}
+
+/* ------------------------------------------------------------------ */
+/* Course calendar (lecture 1)                                         */
+/* ------------------------------------------------------------------ */
+
+.reveal .cal-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 6px;
+  max-width: 820px;
+  margin: 10px auto 0;
+}
+.reveal .cal-head {
+  font-family: var(--bp-display);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.55em;
+  font-weight: 600;
+  color: var(--bp-light);
+  text-align: center;
+  padding-bottom: 2px;
+}
+.reveal .cal-cell {
+  position: relative;
+  background: var(--bp-card);
+  border: 1px solid var(--bp-border);
+  border-radius: 10px;
+  min-height: 62px;
+  padding: 5px 7px;
+  text-align: left;
+}
+.reveal .cal-cell.empty {
+  background: transparent;
+  border: none;
+}
+.reveal .cal-num {
+  font-family: var(--bp-display);
+  font-weight: 700;
+  font-size: 0.85em;
+  color: var(--bp-text);
+  line-height: 1;
+}
+.reveal .cal-class {
+  background: var(--bp-accent-medium);
+  border-color: rgba(30, 43, 250, 0.35);
+}
+.reveal .cal-optional {
+  background: transparent;
+  border: 1.5px dashed rgba(30, 43, 250, 0.55);
+}
+.reveal .cal-exam {
+  background: var(--bp-accent-medium);
+  border: 3px solid var(--bp-primary);
+}
+.reveal .cal-tag {
+  display: block;
+  margin-top: 4px;
+  font-size: 0.5em;
+  font-weight: 600;
+  color: var(--bp-text);
+  line-height: 1.15;
+}
+.reveal .cal-time {
+  display: block;
+  font-family: var(--bp-display);
+  font-size: 0.46em;
+  font-weight: 600;
+  color: var(--bp-primary);
+  line-height: 1.1;
+}
+.reveal .cal-due {
+  position: absolute;
+  top: 4px;
+  right: 6px;
+  font-size: 0.7em;
+  color: var(--bp-primary);
+  line-height: 1;
+}
+.reveal .cal-legend {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px 18px;
+  margin-top: 14px;
+  font-size: 0.6em;
+  color: var(--bp-soft);
+}
+.reveal .cal-legend span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.reveal .cal-swatch {
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+  display: inline-block;
+}
+.reveal .cal-swatch.class { background: var(--bp-accent-medium); border: 1px solid rgba(30, 43, 250, 0.35); }
+.reveal .cal-swatch.optional { background: transparent; border: 1.5px dashed rgba(30, 43, 250, 0.55); }
+.reveal .cal-swatch.exam { background: var(--bp-accent-medium); border: 3px solid var(--bp-primary); }
+
+/* ------------------------------------------------------------------ */
+/* Images and photos                                                   */
+/* ------------------------------------------------------------------ */
+
+.reveal .photo-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  max-width: 980px;
+  margin: 12px auto;
+}
+.reveal .photo-grid .photo-wrapper {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--bp-border);
+  aspect-ratio: 1.1 / 1;
+}
+.reveal .photo-grid .photo-wrapper.wide {
+  grid-column: span 2;
+  aspect-ratio: 2.2 / 1;
+}
+.reveal .photo-grid img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border: none;
+  margin: 0;
+  display: block;
+}
+
+/* Graph screenshots have white backgrounds; frame them as white plates. */
+.reveal .slide-img-container {
+  background: #ffffff;
+  padding: 8px;
+  border-radius: 12px;
+  border: 1px solid var(--bp-border);
+  display: inline-block;
+  margin-top: 8px;
+}
+.reveal .slide-img-container img {
+  max-height: 280px;
+  width: auto;
+  margin: 0;
+  display: block;
+  border-radius: 4px;
+}
+
+.reveal .img-gallery {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin-top: 15px;
+}
+.reveal .img-gallery .gallery-item {
+  background: #ffffff;
+  padding: 6px;
+  border-radius: 12px;
+  border: 1px solid var(--bp-border);
+}
+.reveal .img-gallery img {
+  max-height: 220px;
+  width: auto;
+  display: block;
+  border-radius: 4px;
+  margin: 0;
+}
+
+/* ------------------------------------------------------------------ */
+/* Lists                                                               */
+/* ------------------------------------------------------------------ */
+
+.reveal ul, .reveal ol {
+  display: block;
+  text-align: left;
+  margin: 10px 0 !important;
+  padding-left: 20px;
+}
+.reveal ul { list-style-type: disc; }
+.reveal ol { list-style-type: decimal; }
+.reveal li {
+  text-align: left;
+  margin-bottom: 8px;
+  line-height: 1.4;
+}
+.reveal li::marker {
+  color: var(--bp-primary);
+}
+.reveal ol > li::marker {
+  font-family: var(--bp-display);
+  font-weight: 600;
+}
+.reveal li ul, .reveal li ol {
+  margin: 4px 0 4px 20px !important;
+  display: block;
+  min-width: unset;
+}
+.reveal li ul { list-style-type: circle; }
+
+.reveal section > ul, .reveal section > ol, .reveal .center-list {
+  display: inline-block;
+  text-align: left;
+  margin: 15px auto !important;
+  padding-left: 20px;
+  min-width: 65%;
+  max-width: 95%;
+}
+
+/* ------------------------------------------------------------------ */
+/* Tables                                                              */
+/* ------------------------------------------------------------------ */
+
+.reveal table th {
+  font-family: var(--bp-display);
+  font-weight: 600;
+  color: var(--bp-text);
+}
+.reveal table th,
+.reveal table td {
+  border-color: var(--bp-border);
+}
+
+/* ------------------------------------------------------------------ */
+/* Page chrome                                                         */
+/* ------------------------------------------------------------------ */
+
+.reveal .home-link {
+  position: fixed;
+  bottom: 16px;
+  left: 20px;
+  z-index: 30;
+  font-family: var(--bp-display);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  color: var(--bp-muted);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+.reveal .home-link:hover {
+  color: var(--bp-primary);
+}
+
+.reveal .slide-footer {
+  position: fixed;
+  bottom: 16px;
+  right: 20px;
+  z-index: 30;
+  font-family: var(--bp-display);
+  font-size: 11px;
+  letter-spacing: 0.05em;
+  color: var(--bp-light);
+}
+
+.reveal .progress {
+  height: 3px;
+  background: var(--bp-accent-light);
+  color: var(--bp-primary);
+}
+
+.reveal .controls {
+  color: var(--bp-primary);
+}
+
+.reveal .slide-number {
+  font-family: var(--bp-display);
+  font-weight: 500;
+  font-size: 13px;
+  letter-spacing: 0.05em;
+  font-variant-numeric: tabular-nums;
+  color: var(--bp-muted);
+  background: transparent;
+}
+
+/* ------------------------------------------------------------------ */
+/* Small interactive pieces                                            */
+/* ------------------------------------------------------------------ */
+
+.reveal .fill-blank {
+  display: inline-block;
+  border-bottom: 2px dashed rgba(30, 43, 250, 0.45);
+  min-width: 140px;
+  height: 1.1em;
+  vertical-align: bottom;
+}
+
+.reveal .katex-display {
+  margin: 8px 0;
+}
+
+/* Group work: random group picker, styled as the template's CTA pill */
+.reveal .group-roll-btn {
+  font-family: var(--bp-display);
+  font-weight: 600;
+  font-size: 0.72em;
+  letter-spacing: 0.02em;
+  color: var(--bp-bg);
+  background: var(--bp-primary);
+  border: none;
+  border-radius: 100px;
+  padding: 9px 22px;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.reveal .group-roll-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(30, 43, 250, 0.25);
+}
+.reveal .group-roll-result {
+  display: inline-block;
+  min-width: 2em;
+  margin-left: 10px;
+  font-family: var(--bp-display);
+  font-weight: 700;
+  color: var(--bp-primary);
+  font-size: 1.2em;
+  vertical-align: middle;
+}
+
+/* Editable coefficient inputs (demand-builder, bertrand game) */
+.reveal .coeff-input {
+  width: 2.6em;
+  font-family: var(--bp-display);
+  font-weight: 700;
+  font-size: 0.95em;
+  text-align: center;
+  color: var(--bp-primary);
+  background: #ffffff;
+  border: 1.5px solid var(--bp-primary);
+  border-radius: 10px;
+  padding: 4px 6px;
+  margin: 0 2px;
+  -moz-appearance: textfield;
+}
+.reveal .coeff-input:focus { outline: none; box-shadow: 0 0 0 3px rgba(30, 43, 250, 0.18); }
+.reveal .coeff-input.invalid { border-color: var(--bp-negative); color: var(--bp-negative); }
+.reveal .coeff-eq {
+  font-family: var(--bp-display);
+  font-weight: 700;
+  font-size: 1.3em;
+  color: var(--bp-text);
+  text-align: center;
+  margin: 6px 0 2px;
+}
+
+/* Multiple-choice answer buttons (green if correct, red if wrong) */
+.reveal .choice-btn {
+  font-family: var(--bp-display);
+  font-weight: 600;
+  font-size: 1em;
+  color: var(--bp-text);
+  background: var(--bp-card);
+  border: 1.5px solid var(--bp-border);
+  border-radius: 100px;
+  padding: 10px 30px;
+  margin: 0 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.reveal .choice-btn:hover { border-color: var(--bp-primary); }
+.reveal .choice-btn.correct { background: rgba(5, 150, 105, 0.1); border-color: var(--bp-positive); color: #047857; }
+.reveal .choice-btn.wrong { background: rgba(220, 38, 38, 0.08); border-color: var(--bp-negative); color: #b91c1c; }
+.reveal .choice-btn:disabled { cursor: default; }
+.reveal .choice-feedback { margin-top: 12px; font-weight: 600; min-height: 1.4em; }
+
+/* Table row highlight, triggered by a fragment */
+.reveal tr.row-highlight td { background: rgba(30, 43, 250, 0.12); transition: background 0.4s ease; }
+
+/* Answer chips and compact Q/A rows (lecture 6h) */
+.reveal .ans-chip {
+  display: inline-block;
+  font-family: var(--bp-display);
+  font-weight: 700;
+  color: #047857;
+  background: rgba(5, 150, 105, 0.1);
+  border-radius: 6px;
+  padding: 0 8px;
+  margin-right: 6px;
+}
+.reveal .ans-chip.wrong { color: #b91c1c; background: rgba(185, 28, 28, 0.09); }
+.reveal .qa-row { margin: 6px 0; }
+.reveal .qa-row .q { color: var(--bp-text); }
+
+/* ------------------------------------------------------------------ */
+/* WSJ article excerpt (lecture 2)                                     */
+/* ------------------------------------------------------------------ */
+
+.reveal .wsj-wrap { position: relative; display: inline-block; line-height: 0; }
+.reveal .wsj-wrap img { border-radius: 10px; border: 1px solid var(--bp-border); display: block; }
+.reveal .hl-band { position: absolute; mix-blend-mode: multiply; border-radius: 3px; pointer-events: none; }
+.reveal .hl-yellow { background: #fde047; }
+.reveal .hl-teal { background: #b3b8fd; }
+.reveal .hl-amber { background: #fdba74; }
+.reveal .wsj-article {
+  background: #ffffff;
+  border: 1px solid var(--bp-border);
+  border-radius: 12px;
+  padding: 20px 26px;
+  font-family: var(--bp-sans);
+  text-align: left;
+  line-height: 1.5;
+  color: var(--bp-text);
+}
+.reveal .wsj-article p { margin: 0 0 0.7em; }
+.reveal .wsj-article p:last-child { margin-bottom: 0; }
+.reveal .wsj-article .lnk { color: var(--bp-primary); text-decoration: underline; }
+.reveal .mk { padding: 0.5px 2px; border-radius: 3px; -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+.reveal .mk-yellow { background: #fde047; }
+.reveal .mk-teal { background: #c7cafe; }
+.reveal .mk-amber { background: #fdba74; }
+.reveal .wsj-callout { border-radius: 2px; padding: 3px 0 3px 13px; font-size: 0.6em; font-weight: 500; line-height: 1.32; text-align: left; }
+.reveal .wsj-callout.teal { border-left: 4px solid var(--bp-primary); color: var(--bp-text); }
+.reveal .wsj-callout.amber { border-left: 4px solid #d97706; color: #7c2d12; }
+.reveal .wsj-callout .tag { font-family: var(--bp-display); font-weight: 700; display: block; margin-bottom: 3px; }
+.reveal .wsj-q {
+  border-left: 4px solid var(--bp-primary);
+  color: var(--bp-text);
+  border-radius: 2px;
+  padding: 4px 0 4px 15px;
+  font-weight: 500;
+  font-size: 0.62em;
+  line-height: 1.35;
+  text-align: left;
+}
+.reveal .wsj-q strong { color: var(--bp-primary); }
+
+/* ------------------------------------------------------------------ */
+/* Game theory payoff matrices (lecture 7)                             */
+/* ------------------------------------------------------------------ */
+
+.reveal .game-wrap {
+  display: flex;
+  justify-content: center;
+  margin: 12px 0;
+}
+.reveal table.game-table {
+  border-collapse: collapse;
+  font-size: 0.72em;
+  font-family: var(--bp-sans);
+  margin: 0;
+}
+.reveal .game-table td, .reveal .game-table th {
+  border: none;
+  padding: 5px 12px;
+}
+.reveal .game-table .col-player {
+  font-family: var(--bp-display);
+  color: #db2777;
+  font-weight: 700;
+  text-align: center;
+  padding-bottom: 2px;
+}
+.reveal .game-table .row-player {
+  font-family: var(--bp-display);
+  color: #db2777;
+  font-weight: 700;
+  text-align: right;
+  padding-right: 14px;
+  vertical-align: middle;
+}
+.reveal .game-table th.action {
+  font-weight: 600;
+  color: var(--bp-text);
+  text-align: center;
+}
+.reveal .game-table th.action-row {
+  font-weight: 600;
+  color: var(--bp-text);
+  text-align: right;
+  padding-right: 12px;
+}
+.reveal .game-table td.cell {
+  border: 1.5px solid var(--bp-body);
+  padding: 10px 22px;
+  text-align: center;
+  font-family: var(--bp-display);
+  font-weight: 600;
+  background: #ffffff;
+  min-width: 110px;
+}
+
+/* The externality build-up slides stack six cards beside the graph; tighten
+   them so each card can name who its surplus actually belongs to. */
+.reveal .build-notes .def-card { padding: 6px 13px; }
+
+/* ------------------------------------------------------------------ */
+/* Animated SVG graphs                                                 */
+/* ------------------------------------------------------------------ */
+
+.reveal svg.anim-graph { font-family: var(--bp-sans); }
+.reveal svg.anim-graph text { font-family: var(--bp-sans); }
+
+/* Lines draw themselves in as fragments appear */
+.reveal .anim-graph .build-line {
+  stroke-dasharray: 950;
+  stroke-dashoffset: 950;
+}
+.reveal .fragment.visible .build-line {
+  animation: drawline 0.9s ease-out forwards;
+}
+@keyframes drawline {
+  to { stroke-dashoffset: 0; }
+}
+
+/* Best-response underlines: short strokes that draw across a payoff number.
+   The shared .build-line dasharray (950) is far too long to read as an
+   animation at this length, so these get their own. */
+.reveal .anim-graph .br-mark {
+  stroke-dasharray: 44;
+  stroke-dashoffset: 44;
+}
+.reveal .fragment.visible .br-mark {
+  animation: drawline 0.5s ease-out forwards;
+}
+
+/* White halo behind labels so captions stay legible where they cross curves */
+.reveal .anim-graph.halo text {
+  paint-order: stroke;
+  stroke: #ffffff;
+  stroke-width: 3.2px;
+  stroke-linejoin: round;
+}
+
+/* Framed SVG panels are sized at width:100% and carry a 1px border, which
+   would otherwise push 2px past the 960px canvas edge. */
+.reveal svg.anim-graph,
+.reveal .bg-chart,
+.reveal .bg-curve-svg { box-sizing: border-box; }
+
+/* ------------------------------------------------------------------ */
+/* market-spectrum.js: the perfect competition <-> monopoly scale     */
+/* ------------------------------------------------------------------ */
+
+.reveal .market-spectrum { max-width: 1080px; margin: 0 auto; }
+.reveal .ms-scale { width: 100%; max-height: 168px; display: block; }
+.reveal .ms-marker { transition: transform 0.12s ease-out; }
+.reveal .ms-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin: 2px 0 8px;
+}
+.reveal .ms-controls-label {
+  font-family: var(--bp-display);
+  font-weight: 600;
+  font-size: 0.6em;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--bp-light);
+}
+.reveal .ms-slider { width: 62%; accent-color: var(--bp-primary); cursor: pointer; }
+.reveal .ms-card {
+  border-left: 4px solid var(--bp-primary);
+  border-radius: 2px;
+  padding: 4px 0 4px 16px;
+  text-align: left;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+.reveal .ms-card-head { display: flex; align-items: baseline; gap: 10px; margin-bottom: 6px; }
+.reveal .ms-name {
+  font-family: var(--bp-display);
+  font-weight: 700;
+  font-size: 0.86em;
+}
+.reveal .ms-tag { font-size: 0.62em; color: var(--bp-muted); font-style: italic; }
+.reveal .ms-grid {
+  display: grid;
+  grid-template-columns: auto 1fr auto 1fr;
+  gap: 3px 12px;
+  font-size: 0.6em;
+  align-items: baseline;
+}
+.reveal .ms-k { color: var(--bp-light); font-weight: 600; white-space: nowrap; }
+.reveal .ms-v { color: var(--bp-text); }
+.reveal .ms-v em { color: var(--bp-primary); font-style: italic; font-weight: 600; }
+.reveal .ms-note {
+  font-size: 0.55em;
+  color: var(--bp-body);
+  margin: 7px 0 0;
+  padding-top: 6px;
+  border-top: 2px solid #d97706;
+}
+
+/* ------------------------------------------------------------------ */
+/* bertrand-game.js: the gas station duel                              */
+/* ------------------------------------------------------------------ */
+
+.reveal .bertrand-duel { max-width: 1120px; margin: 0 auto; }
+.reveal .bg-row { display: flex; align-items: center; justify-content: center; gap: 14px; }
+.reveal .bg-controls { margin-bottom: 8px; }
+.reveal .bg-field { display: flex; flex-direction: column; align-items: flex-start; gap: 1px; }
+.reveal .bg-field-label {
+  font-family: var(--bp-display);
+  font-weight: 700;
+  font-size: 0.52em;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+.reveal .bg-field-box { display: flex; align-items: center; gap: 2px; }
+.reveal .bg-dollar { font-family: var(--bp-display); font-weight: 700; color: var(--bp-muted); font-size: 0.8em; }
+.reveal .bg-price { width: 3.6em; font-size: 0.82em; }
+.reveal .bg-btn {
+  font-family: var(--bp-display);
+  font-weight: 600;
+  font-size: 0.62em;
+  letter-spacing: 0.02em;
+  color: var(--bp-bg);
+  background: var(--bp-primary);
+  border: none;
+  border-radius: 100px;
+  padding: 9px 20px;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+.reveal .bg-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(30, 43, 250, 0.25); }
+.reveal .bg-btn.ghost { background: var(--bp-accent-light); color: var(--bp-primary); padding: 9px 16px; }
+.reveal .bg-btn.ghost:hover { background: var(--bp-accent-medium); box-shadow: none; }
+.reveal .bg-cards { gap: 16px; margin-bottom: 10px; align-items: stretch; }
+.reveal .bg-card {
+  flex: 1;
+  max-width: 330px;
+  border-left: 4px solid #ea580c;
+  border-radius: 2px;
+  padding: 3px 0 3px 14px;
+  text-align: left;
+  transition: opacity 0.2s ease;
+}
+.reveal .bg-card.dim { opacity: 0.5; }
+.reveal .bg-card-head { display: flex; align-items: center; gap: 8px; }
+.reveal .bg-card-title { font-family: var(--bp-display); font-weight: 700; font-size: 0.62em; }
+.reveal .bg-badge {
+  font-family: var(--bp-display);
+  font-weight: 600;
+  font-size: 0.45em;
+  letter-spacing: 0.08em;
+  color: var(--bp-light);
+  background: var(--bp-accent-light);
+  border-radius: 100px;
+  padding: 2px 9px;
+}
+.reveal .bg-badge.win { color: #065f46; background: #d1fae5; }
+.reveal .bg-badge.tie { color: #92400e; background: #fef3c7; }
+.reveal .bg-badge.lose { color: #991b1b; background: #fee2e2; }
+.reveal .bg-card-body { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; }
+.reveal .bg-sold { font-size: 0.58em; color: var(--bp-muted); }
+.reveal .bg-profit { font-family: var(--bp-display); font-weight: 700; font-size: 0.95em; color: var(--bp-muted); }
+.reveal .bg-lower { align-items: flex-start; gap: 18px; }
+.reveal .bg-panel-title {
+  font-family: var(--bp-display);
+  font-weight: 600;
+  font-size: 0.48em;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--bp-light);
+  text-align: left;
+  margin-bottom: 3px;
+}
+.reveal .bg-log-wrap { flex: 0 0 300px; }
+.reveal .bg-log-scroll { max-height: 178px; overflow-y: auto; border: 1px solid var(--bp-border); border-radius: 10px; background: #ffffff; }
+.reveal table.bg-log { width: 100%; border-collapse: collapse; font-size: 0.52em; margin: 0; }
+.reveal .bg-log th {
+  position: sticky;
+  top: 0;
+  background: #f6f4ec;
+  color: var(--bp-muted);
+  font-weight: 600;
+  padding: 4px 6px;
+  text-align: right;
+  border: none;
+}
+.reveal .bg-log th:first-child { text-align: left; }
+.reveal .bg-log td { padding: 3px 6px; text-align: right; border: none; border-top: 1px solid #efece0; font-weight: 600; }
+.reveal .bg-log td:first-child { text-align: left; color: var(--bp-light); font-weight: 700; }
+.reveal .bg-log .bg-num { font-family: var(--bp-display); font-variant-numeric: tabular-nums; color: var(--bp-text); }
+.reveal .bg-log tr.bg-empty td { text-align: center; color: var(--bp-light); font-style: italic; font-weight: 400; padding: 18px 6px; }
+.reveal .bg-chart-wrap { flex: 1; }
+.reveal .bg-chart {
+  width: 100%;
+  max-height: 196px;
+  display: block;
+  background: #ffffff;
+  border: 1px solid var(--bp-border);
+  border-radius: 10px;
+}
+.reveal .bg-log tfoot td {
+  padding: 5px 6px;
+  text-align: right;
+  border: none;
+  border-top: 2px solid var(--bp-border);
+  background: #fbfaf2;
+  font-weight: 700;
+}
+.reveal .bg-log tfoot td:first-child { text-align: left; color: var(--bp-muted); letter-spacing: 0.06em; }
+
+/* Final tally, revealed after the last round */
+.reveal .bg-tally {
+  margin-top: 9px;
+  border-left: 4px solid var(--bp-primary);
+  border-radius: 2px;
+  padding: 4px 0 4px 16px;
+  text-align: left;
+}
+.reveal .bg-tally-label {
+  font-family: var(--bp-display);
+  font-weight: 600;
+  font-size: 0.46em;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--bp-primary);
+  margin-bottom: 4px;
+}
+.reveal .bg-tally-row { display: flex; gap: 14px; align-items: stretch; }
+.reveal .bg-tally-box {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  border-left: 4px solid #ea580c;
+  border-radius: 2px;
+  padding: 2px 0 2px 14px;
+}
+.reveal .bg-tally-name { font-family: var(--bp-display); font-weight: 700; font-size: 0.58em; }
+.reveal .bg-tally-value { font-family: var(--bp-display); font-weight: 700; font-size: 1em; }
+.reveal .bg-tally-note { font-size: 0.55em; color: var(--bp-body); margin: 6px 0 0; }
+.reveal .bg-chips { display: flex; justify-content: center; flex-wrap: wrap; gap: 8px; margin-top: 9px; }
+.reveal .bg-chip {
+  font-family: var(--bp-display);
+  font-size: 0.48em;
+  font-weight: 500;
+  border-radius: 100px;
+  padding: 3px 12px;
+  color: var(--bp-primary);
+  background: var(--bp-accent-light);
+}
+
+/* bertrand-game.js: the best-response explorer */
+.reveal .bertrand-curve { max-width: 1000px; margin: 0 auto; }
+.reveal .bg-curve-head { gap: 10px; margin-bottom: 2px; }
+.reveal .bg-rival-readout {
+  font-family: var(--bp-display);
+  font-weight: 700;
+  font-size: 0.85em;
+  color: #155e75;
+  min-width: 2.8em;
+}
+.reveal .bg-slider { width: 46%; accent-color: #155e75; cursor: pointer; }
+.reveal .bg-curve-svg {
+  width: 100%;
+  max-height: 340px;
+  display: block;
+  background: #ffffff;
+  border: 1px solid var(--bp-border);
+  border-radius: 12px;
+}
+.reveal .bg-verdict {
+  font-size: 0.6em;
+  color: var(--bp-body);
+  text-align: left;
+  max-width: 900px;
+  margin: 8px auto 0;
+  /* neutral on purpose: it sits directly under Station A's orange curve,
+     and an amber accent there would read as a third firm */
+  border-left: 4px solid var(--bp-soft);
+  border-radius: 2px;
+  padding: 4px 0 4px 14px;
+  min-height: 2.6em;
+}
+
+/* ------------------------------------------------------------------ */
+/* Cover, section-divider and closing slides                           */
+/* ------------------------------------------------------------------ */
+
+.reveal .slides section.bp-cover,
+.reveal .slides section.bp-divider {
+  text-align: left;
+  padding-left: 40px;
+  padding-right: 220px;
+  box-sizing: border-box;
+}
+.reveal .slides section.bp-cover > *,
+.reveal .slides section.bp-divider > * {
+  text-align: left;
+  margin-left: 0;
+  margin-right: 0;
+}
+/* One title size for every divider, whatever the old inline size was */
+.reveal .slides section.bp-cover h1,
+.reveal .slides section.bp-divider h1 {
+  font-size: 2.3em !important;
+  line-height: 1.05;
+  margin-bottom: 18px;
+}
+.reveal .slides section.bp-cover h1 {
+  font-size: 2.8em !important;
+}
+.reveal .slides section.bp-cover > .eyebrow::after,
+.reveal .slides section.bp-divider > .eyebrow::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 4px;
+  margin-top: 18px;
+  margin-bottom: 6px;
+  background: var(--bp-primary);
+  border-radius: 2px;
+}
+
+.reveal .slides section.bp-closing {
+  text-align: center;
+}
+.reveal .slides section.bp-closing > .eyebrow,
+.reveal .slides section.bp-closing > h2 {
+  text-align: center;
+}
+.reveal .slides section.bp-closing .content-card {
+  max-width: 720px;
+}
+
+/* The background layer of each slide inherits the section's classes, which is
+   where the full-bleed decorations live. */
+.reveal .slide-background.bp-cover::before,
+.reveal .slide-background.bp-divider::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 35%;
+  height: 100%;
+  background: var(--bp-accent-light);
+  clip-path: polygon(30% 0, 100% 0, 100% 100%, 0% 100%);
+}
+.reveal .slide-background.bp-cover::after,
+.reveal .slide-background.bp-divider::after {
+  content: "";
+  position: absolute;
+  bottom: 12vh;
+  right: 8vw;
+  width: 42px;
+  height: 42px;
+  background-image: radial-gradient(circle at 3px 3px, var(--bp-primary) 3px, transparent 3.5px);
+  background-size: 18px 18px;
+  opacity: 0.25;
+}
+.reveal .slide-background.bp-closing::before,
+.reveal .slide-background.bp-closing::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px solid var(--bp-border);
+  border-radius: 50%;
+  pointer-events: none;
+}
+.reveal .slide-background.bp-closing::before {
+  width: 78vmin;
+  height: 78vmin;
+  opacity: 0.6;
+}
+.reveal .slide-background.bp-closing::after {
+  width: 56vmin;
+  height: 56vmin;
+  opacity: 0.45;
+}
