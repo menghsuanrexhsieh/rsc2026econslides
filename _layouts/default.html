@@ -20,7 +20,7 @@
   <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}?v={{ site.time | date: '%s' }}">
 </head>
 <body>
-  <header class="topbar">
+  <header class="topbar{% if page.rail %} has-rail{% endif %}">
     <div class="topbar-inner">
       <a class="brand" href="{{ '/' | relative_url }}">
         <span class="brand-mark">RSC</span>
@@ -57,7 +57,7 @@
   <!-- footer: locked to the bottom of the viewport on every page -->
   <footer class="site-footer{% if page.rail %} has-rail{% endif %}">
     <div class="footer-inner">
-      <p>Ross Summer Connection, 2026</p>
+      <p>Ross Summer Connection</p>
       <p class="muted">&copy; {{ 'now' | date: "%Y" }}</p>
     </div>
   </footer>
