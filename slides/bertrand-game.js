@@ -321,7 +321,7 @@
       tfoot.style.display = '';
 
       while (tally.firstChild) tally.removeChild(tally.firstChild);
-      el(tally, 'div', 'bg-tally-label', MAX_ROUNDS + ' rounds played — the takings');
+      el(tally, 'div', 'bg-tally-label', MAX_ROUNDS + ' rounds played: the takings');
       var row = el(tally, 'div', 'bg-tally-row');
       [['Station A', sumA, A_COL], ['Station B', sumB, B_COL]].forEach(function (s) {
         var box = el(row, 'div', 'bg-tally-box');
@@ -336,7 +336,7 @@
       el(tally, 'p', 'bg-tally-note').innerHTML =
         'Holding at $3.00 for all ' + MAX_ROUNDS + ' rounds would have paid ' + money(collusive) +
         ' to <em>each</em> of you. The better of you took ' + money(best) +
-        (lost > 0.005 ? ' — <strong>' + money(lost) + ' left on the table.</strong>' : '.');
+        (lost > 0.005 ? ', with <strong>' + money(lost) + ' left on the table.</strong>' : '.');
       tally.style.display = '';
 
       runBtn.disabled = true;
@@ -551,7 +551,7 @@
 
       var msg;
       if (br.kind === 'monopoly') {
-        msg = 'Your rival is priced above the monopoly price. Undercut all the way to $3 — ' +
+        msg = 'Your rival is priced above the monopoly price. Undercut all the way to $3: ' +
               'you take the whole market and earn ' + money(br.pi) + '.';
       } else if (br.kind === 'match') {
         msg = 'Match at $' + br.p.toFixed(2) + ' to earn ' + money(br.pi) +

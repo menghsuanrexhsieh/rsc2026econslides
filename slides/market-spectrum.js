@@ -42,7 +42,7 @@
       color: '#1e2bfa',
       firms: 'Very many, each tiny',
       price: '<em>P</em> = <em>MC</em>',
-      power: 'None — the firm takes the price as given',
+      power: 'None: the firm takes the price as given',
       profit: 'Zero in the long run',
       dwl: 'None if there are no market failures',
       eg: 'Wheat; one stall among hundreds at a produce market'
@@ -67,16 +67,16 @@
       tag: 'a handful of firms who watch each other',
       color: '#d97706',
       today: true,
-      firms: 'A handful — few enough to know each rival by name',
+      firms: 'A handful, few enough to know each rival by name',
       price: 'Not pinned down: anywhere from <em>P</em> = <em>MC</em> to the monopoly price',
       power: 'However much their <em>strategies</em> leave them',
       profit: 'Depends on costs, demand, entry, and strategies',
       dwl: 'Anywhere from none at all to monopoly-sized',
       eg: 'Airlines; phone carriers; two gas stations on the same corner',
       note: 'Unlike the other three, oligopoly has <strong>no single answer</strong>. Where it lands ' +
-            'depends on what the firms compete on and whether they can hold a bargain together — ' +
-            'so it can sit anywhere on this scale, including right at either end. Pinning that down ' +
-            'is what today is about.'
+            'depends on what the firms compete on and whether they can hold a bargain together, ' +
+            'so it can sit anywhere on this scale, including at either end. Today we work out ' +
+            'where it lands.'
     },
     {
       max: 100,
@@ -260,7 +260,7 @@
         'A sliding scale of market structures, ordered by how much market power they confer: ' +
         'perfect competition on the left, then monopolistic competition, then oligopoly, then ' +
         'monopoly on the right. The marker is currently on ' + r.name + ': ' + r.tag + '.' +
-        (r.note ? ' Oligopoly has no single outcome — it can land anywhere on the scale.' : ''));
+        (r.note ? ' Oligopoly has no single outcome; it can land anywhere on the scale.' : ''));
     }
 
     slider.addEventListener('input', render);
