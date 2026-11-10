@@ -557,7 +557,7 @@
         msg = 'Match at $' + br.p.toFixed(2) + ' to earn ' + money(br.pi) +
               '. On the whole-cent grid, undercutting to $1.00 earns zero.';
       } else if (br.kind === 'undercut') {
-        msg = 'Shade a single cent under them, to $' + br.p.toFixed(2) + ', and you take the whole market: ' +
+        msg = 'Price one cent below them, at $' + br.p.toFixed(2) + ', and you take the whole market: ' +
               money(br.pi) + ' instead of ' + money(tiePi) + ' for matching.';
       } else {
         msg = 'No positive profit is available against $' + r.toFixed(2) +
